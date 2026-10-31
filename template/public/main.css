@@ -1,0 +1,242 @@
+/*
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+
+  nanoql's colours over docfx's modern template (Bootstrap 5.3): ocean blues, light first, and a dark mode on deep
+  ocean rather than black. brand/README.md holds the brand's own colours.
+*/
+
+:root,
+[data-bs-theme=light] {
+  --nq-ink: #0C2D48;
+  --nq-dot: #0EA5E9;
+  --nq-tint: #F0F9FF;
+  --nq-tile: #E0F2FE;
+  --nq-line: #BAE6FD;
+  --bs-body-color: #1E293B;
+  --bs-body-color-rgb: 30, 41, 59;
+  --bs-heading-color: var(--nq-ink);
+  --bs-emphasis-color: var(--nq-ink);
+  --bs-emphasis-color-rgb: 12, 45, 72;
+  --bs-secondary-color: #475569;
+  --bs-tertiary-bg: var(--nq-tint);
+  --bs-tertiary-bg-rgb: 240, 249, 255;
+  --bs-border-color: #D6E9F5;
+  --bs-primary: #0369A1;
+  --bs-primary-rgb: 3, 105, 161;
+  --bs-link-color: #0369A1;
+  --bs-link-color-rgb: 3, 105, 161;
+  --bs-link-hover-color: #075985;
+  --bs-link-hover-color-rgb: 7, 89, 133;
+  --bs-code-color: #0C4A6E;
+}
+
+[data-bs-theme=dark] {
+  --nq-ink: #E0F2FE;
+  --nq-dot: #7DD3FC;
+  --nq-tint: #0C4A6E;
+  --nq-tile: #0C4A6E;
+  --nq-line: #155E83;
+  --bs-body-bg: #082F49;
+  --bs-body-bg-rgb: 8, 47, 73;
+  --bs-body-color: #E0F2FE;
+  --bs-body-color-rgb: 224, 242, 254;
+  --bs-heading-color: #F0F9FF;
+  --bs-emphasis-color: #F0F9FF;
+  --bs-emphasis-color-rgb: 240, 249, 255;
+  --bs-secondary-color: rgba(224, 242, 254, 0.75);
+  --bs-secondary-bg: #0C4A6E;
+  --bs-secondary-bg-rgb: 12, 74, 110;
+  --bs-tertiary-bg: #0C4A6E;
+  --bs-tertiary-bg-rgb: 12, 74, 110;
+  --bs-border-color: #155E83;
+  --bs-primary: #7DD3FC;
+  --bs-primary-rgb: 125, 211, 252;
+  --bs-link-color: #7DD3FC;
+  --bs-link-color-rgb: 125, 211, 252;
+  --bs-link-hover-color: #BAE6FD;
+  --bs-link-hover-color-rgb: 186, 230, 253;
+  --bs-code-color: #BAE6FD;
+}
+
+/* Headings in Space Grotesk, the wordmark's typeface (SIL Open Font License 1.1), served with the site: a Latin subset
+   of its variable font, weights 300 to 700. */
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("fonts/space-grotesk.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+article h1,
+article h2,
+article h3,
+article h4 {
+  font-family: "Space Grotesk", var(--bs-body-font-family);
+  letter-spacing: -0.01em;
+}
+
+/* The menu bar on the page's own ground, as the brand's boards show it; the footer on the tint. The wordmark is
+   sized to the bar. */
+body > footer {
+  background-color: var(--nq-tint) !important;
+}
+
+#logo {
+  height: 26px;
+  width: auto;
+  margin-right: 0.25rem;
+}
+
+/* The wordmark is the brand's name; the template's text beside it would say it twice. */
+.navbar-brand {
+  font-size: 0;
+}
+
+[data-bs-theme=dark] #logo {
+  content: url("../brand/nanoql-wordmark-dark.svg");
+}
+
+/* Code on the tint in both modes: the template's dark panels are near black, set as [data-bs-theme=dark] .hljs. */
+[data-bs-theme] pre,
+[data-bs-theme] pre code.hljs {
+  background-color: var(--nq-tint);
+}
+
+/* The home page: a pale band across the page with the tagline, then a wide reading column whose code spans it. */
+[data-layout=landing] article {
+  min-width: 0;
+}
+
+.nq-band {
+  margin: -1.6rem calc(50% - 50vw) 0;
+  padding: 3.75rem 1rem 3.25rem;
+  background: linear-gradient(180deg, var(--nq-tint) 0%, var(--nq-tile) 100%);
+  border-bottom: 1px solid var(--bs-border-color);
+  text-align: center;
+}
+
+.nq-band-inner {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.nq-band h1 {
+  font-size: clamp(2.1rem, 4.2vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  text-wrap: balance;
+}
+
+.nq-band p {
+  color: var(--bs-secondary-color);
+  font-size: 1.2rem;
+}
+
+.nq-band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.nq-band-actions a {
+  padding: 0.55rem 1.2rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--bs-primary);
+  color: var(--bs-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nq-band-actions a:first-child {
+  background: var(--bs-primary);
+  color: var(--bs-body-bg);
+}
+
+.nq-body {
+  max-width: 68rem;
+  margin: 3rem auto 2.5rem;
+}
+
+.nq-body > h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 3.25rem 0 0.75rem;
+}
+
+.nq-body > h2:first-child {
+  margin-top: 0;
+}
+
+.nq-body > p {
+  color: var(--bs-secondary-color);
+  max-width: 46rem;
+}
+
+.nq-body pre {
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+}
+
+/* The install command with its prompt, which a copy leaves out; the example's output marked with the brand's dot
+   colour rather than boxed as code. */
+.nq-shell code::before {
+  content: "$ ";
+  color: var(--bs-secondary-color);
+}
+
+.nq-output pre {
+  border: 0;
+  border-left: 3px solid var(--nq-dot);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.nq-why {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+  margin-top: 1.25rem;
+}
+
+.nq-why h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* The brand's dot before each point. */
+.nq-why h3::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 0.5em;
+  border-radius: 50%;
+  background: var(--nq-dot);
+  vertical-align: 0.1em;
+}
+
+.nq-why p {
+  color: var(--bs-secondary-color);
+}
+
+/* The three points in one column on phones and small tablets. */
+@media (max-width: 767.98px) {
+  .nq-why {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* On phones the tagline wraps where it fits, balanced, rather than at the comma. */
+@media (max-width: 575.98px) {
+  .nq-break {
+    display: none;
+  }
+}

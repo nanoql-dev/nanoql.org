@@ -1,0 +1,50 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "_nanoql/bin",
+          "files": ["NanoQL.dll", "NanoQL.Extensions.dll"]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "index.md", "toc.yml", "docs/**/*.{md,yml}", "migration/**/*.{md,yml}", "api/*.{md,yml}",
+          "validation/**/*.{md,yml}", "about/**/*.{md,yml}", "schemas/**/*.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": ["brand/*.svg", "brand/*.png", "brand/favicon.ico"]
+      },
+      {
+        "src": "_nanoql/schemas",
+        "files": ["conventions/nanoql-conventions.xsd"],
+        "dest": "schemas"
+      }
+    ],
+    "output": "_site",
+    "template": ["default", "modern", "template"],
+    "globalMetadata": {
+      "_appName": "nanoql",
+      "_appTitle": "nanoql",
+      "_appLogoPath": "brand/nanoql-wordmark-light.svg",
+      "_appFaviconPath": "brand/favicon.ico",
+      "_appFooter": "<span>© 2026 The nanoql Authors · <a href=\"/about/licenses.html\">Apache License 2.0</a> · <a href=\"/about/security.html\">Security</a> · Sponsored and maintained by <a href=\"/about/masseef.html\">Masseef</a></span>",
+      "_description": "Quantitative finance for .NET, stateless by design.",
+      "_enableSearch": true,
+      "_disableContribution": true,
+      "_lang": "en"
+    },
+    "sitemap": {
+      "baseUrl": "https://nanoql.org/"
+    }
+  }
+}
