@@ -17,4 +17,4 @@ A wrong numerical result is a bug rather than a vulnerability: please report it 
 
 ## Supported versions
 
-Until 1.0, fixes go into the latest 0.y release only.
+Fixes go into the latest 2.x release only.

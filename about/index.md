@@ -10,7 +10,7 @@ nanoql builds on open-source work, and every file it ports records where from:
 - **QuantLib.** nanoql's core is derived from QuantLib 1.44, and its results are checked against QuantLib's own.
   Its design differs: it has no observers, lazy objects or global evaluation date. Where porting finds a defect,
   nanoql usually fixes it, and each place its results depart from QuantLib's is documented in
-  [Divergences](../validation/divergences.md).
+  [Divergences](../_nanoql/docs/divergences.md).
 - **QLNet.** nanoql's extensions port QLNet's mortgage-backed securities, with their prepayment models, and its
   amortised-cost bonds, checked against QLNet 1.13.2.
 - **FpML.** nanoql's conventions files accept the codes of FpML's coding schemes, such as its day-count and

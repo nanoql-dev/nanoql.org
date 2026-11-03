@@ -12,7 +12,7 @@ nanoql prices rates, credit, equity, FX, inflation and commodity products. Every
 inputs, and market conventions are data you can override.
 
 <div class="nq-band-actions">
-<a href="docs/getting-started.md">Get started</a>
+<a href="_nanoql/docs/getting-started.md">Get started</a>
 <a href="migration/index.md">Migrating to nanoql</a>
 <a href="https://github.com/nanoql-org/nanoql">GitHub</a>
 </div>
@@ -70,8 +70,8 @@ override them for a desk, and version them with your trades.
 
 ### Tested
 
-Every result in the core is checked against independent reference values to a relative <span class="text-nowrap">1e-10</span>:
-[!include[tests](_nanoql/facts/tests.md)] tests over [!include[vectors](_nanoql/facts/vectors.md)] committed test-vector files.
+Results are checked against independent reference values: [!include[tested](_nanoql/facts/tested.md)]
+[The validation report](_nanoql/validation/index.md) gives the figures by module.
 
 </div>
 </div>
