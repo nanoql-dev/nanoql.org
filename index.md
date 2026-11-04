@@ -77,7 +77,7 @@ Results are checked against independent reference values: [!include[tested](_nan
 </div>
 <div>
 
-### Python, C and Excel
+### C#, Python, C and Excel
 
 From C# and F#, and from Python and C through one C interface over nanoql compiled to native code:
 `pip install nanoql` needs no .NET runtime, and the C archive serves any language that calls C. In Excel on Windows,
