@@ -8,9 +8,9 @@ title: Quantitative finance for .NET
 
 # Quantitative finance for .NET,<br class="nq-break"> stateless by design.
 
-nanoql prices rates, credit, equity, FX, inflation and commodity products, from vanillas to exotics: short-rate,
-market, Heston, SABR and local-volatility models with their calibrations, copulas, and Monte Carlo, finite-difference
-and lattice engines. Every pricer is a plain function of its inputs, and market conventions are data you can override.
+Rates, credit, equity, FX, inflation and commodities, vanilla to exotic; short-rate, market, Heston and SABR models;
+Monte Carlo and PDE engines. Every pricer is a plain function of its inputs, and market conventions are data you can
+override.
 
 <div class="nq-band-actions">
 <a href="_nanoql/docs/getting-started.md">Get started</a>
