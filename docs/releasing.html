@@ -95,12 +95,16 @@
 <ul>
 <li><strong>On NuGet:</strong> <code>NanoQL</code>, <code>NanoQL.Extensions</code>, <code>NanoQL.Bind</code> and <code>NanoQL.Excel</code>, each with its symbol package on
 NuGet's symbol server.</li>
-<li><strong>On PyPI:</strong> <code>nanoql</code>, a wheel per platform: <code>win_amd64</code>, <code>win_arm64</code>, <code>manylinux_2_28_x86_64</code>,
-<code>manylinux_2_28_aarch64</code> and <code>macosx_14_0_arm64</code>; no source distribution, since one would need the .NET SDK and the
-whole repository to build.</li>
-<li><strong>On GitHub, the release <code>v&lt;version&gt;</code>:</strong> the C archive and the native symbols archive for each of the five
-platforms, the Excel add-in's zip and its symbols zip, <code>SHA256SUMS</code> over them, and the notes: <code>CHANGELOG.md</code>'s
-section with the platforms' readings from the release run's own tests.</li>
+<li><strong>On PyPI:</strong> <code>nanoql</code>, a wheel per platform the release ships: <code>win_amd64</code> and <code>manylinux_2_28_x86_64</code>, and
+<code>win_arm64</code>, <code>manylinux_2_28_aarch64</code> and <code>macosx_14_0_arm64</code> once those platforms ship; no source distribution,
+since one would need the .NET SDK and the whole repository to build.</li>
+<li><strong>On GitHub, the release <code>v&lt;version&gt;</code>:</strong> the C archive and the native symbols archive for each platform the release
+ships, the Excel add-in's zip and its symbols zip, <code>SHA256SUMS</code> over them, and the notes: <code>CHANGELOG.md</code>'s section
+with the platforms' readings from the release run's own tests.</li>
+<li><strong>The platforms it ships</strong> are <code>release.yml</code>'s <code>RIDS</code>, the bindings legs its <code>ci</code> call runs: Windows x64 and Linux
+x64 (ci.yml's <code>core</code>). A later release adds Windows Arm64, Linux Arm64 or macOS on Apple silicon once its leg is
+green, by naming it in <code>RIDS</code> and in the set the <code>ci</code> call names, <code>ci.yml</code>'s matrix gaining one where none fits; a
+published release's files don't grow, so a platform ships from its first release on.</li>
 <li><strong>The site,</strong> nanoql.org, built from the tag.</li>
 </ul>
 <h2 id="what-cant-be-undone">What can't be undone</h2>
@@ -126,15 +130,15 @@ green); the README's validation statement written from the release's gates run (
 million; a residual past it stops the release.</li>
 </ul>
 </li>
-<li><strong>The dry run:</strong> <code>release.yml</code> dispatched on <code>main</code> at the release commit. It runs <code>ci.yml</code> on every system and
-platform, builds and inspects every package and file, writes the notes, logs in to NuGet and uploads the wheels to
-TestPyPI, and publishes nothing else. TestPyPI takes a filename once, as PyPI does, so a second dry run passes
-<code>testpypi: false</code>.</li>
+<li><strong>The dry run:</strong> <code>release.yml</code> dispatched on <code>main</code> at the release commit. It runs <code>ci.yml</code> on every system and on
+the release's platforms, builds and inspects every package and file, writes the notes, logs in to NuGet and uploads
+the wheels to TestPyPI, and publishes nothing else. TestPyPI takes a filename once, as PyPI does, so a second dry
+run passes <code>testpypi: false</code>.</li>
 </ol>
 <h2 id="the-tag">The tag</h2>
 <p>An annotated tag <code>v&lt;version&gt;</code> at the release commit, pushed, runs <code>release.yml</code> again from the tag: <code>ci.yml</code>'s gates,
 the packages and the files built and inspected, and the GitHub Release drafted with every file. Then, each after its
-environment's approval: <code>nuget</code> pushes the four packages and their symbol packages, <code>pypi</code> the five wheels, and
+environment's approval: <code>nuget</code> pushes the four packages and their symbol packages, <code>pypi</code> the wheels, and
 <code>release</code> publishes the draft.</p>
 <ul>
 <li><strong>Windows x64 blocks the release:</strong> a red there stops the run. Linux's and macOS's test failures are counted in the

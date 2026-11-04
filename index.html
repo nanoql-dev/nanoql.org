@@ -75,8 +75,9 @@
 <div class="nq-band">
 <div class="nq-band-inner">
 <h1 id="quantitative-finance-for-net-stateless-by-design">Quantitative finance for .NET,<br class="nq-break"> stateless by design.</h1>
-<p>nanoql prices rates, credit, equity, FX, inflation and commodity products. Every pricer is a plain function of its
-inputs, and market conventions are data you can override.</p>
+<p>nanoql prices rates, credit, equity, FX, inflation and commodity products, from vanillas to exotics: short-rate,
+market, Heston, SABR and local-volatility models with their calibrations, copulas, and Monte Carlo, finite-difference
+and lattice engines. Every pricer is a plain function of its inputs, and market conventions are data you can override.</p>
 <div class="nq-band-actions">
 <a href="docs/getting-started.html">Get started</a>
 <a href="migration/index.html">Migrating to nanoql</a>
@@ -120,8 +121,8 @@ Console.WriteLine($&quot;NPV {result.NPV:N2}, fair rate {result.FairRate:P4}&quo
 <div class="nq-why">
 <div>
 <h3 id="stateless">Stateless</h3>
-<p>Instruments, curves and models are immutable values, and pricers are static functions of them. The same inputs
-always give the same outputs, and calls run side by side.</p>
+<p>Instruments, curves and models are immutable values, pricers are static functions of them, and the evaluation date
+is an argument, not a global setting. The same inputs always give the same outputs, and calls run side by side.</p>
 </div>
 <div>
 <h3 id="conventions-as-data">Conventions as data</h3>
@@ -134,9 +135,10 @@ override them for a desk, and version them with your trades.</p>
 <a href="validation/index.html">The validation report</a> gives the figures by module.</p>
 </div>
 <div>
-<h3 id="python-and-c">Python and C</h3>
+<h3 id="python-c-and-excel">Python, C and Excel</h3>
 <p>From C# and F#, and from Python and C through one C interface over nanoql compiled to native code:
-<code>pip install nanoql</code> needs no .NET runtime, and the C archive serves any language that calls C.</p>
+<code>pip install nanoql</code> needs no .NET runtime, and the C archive serves any language that calls C. In Excel on Windows,
+<a href="docs/excel.html">an add-in</a> puts the library in worksheet formulas.</p>
 </div>
 </div>
 </div>

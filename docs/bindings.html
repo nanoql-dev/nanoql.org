@@ -218,8 +218,9 @@ wheel's reasons with nanoql's replacements.</li>
 every released type's. A type is read by its name without its assemblies' version, culture and public key token,
 which a closed generic's arguments carry and a release or a runtime moves. A released name the surface no longer
 holds, a removed function's, one whose parameters changed or a removed type's, stays in the file under <code>&quot;retired&quot;</code>,
-and no later function or type takes it. Only a new member is named against the names in use: a member that gains its
-first overload keeps its short name and the newcomer takes the suffix.</li>
+and no later function or type takes it. A name is held within its prefix: nanoql's released <code>nql_Calendar</code> leaves a
+user's <code>Calendar</code> its own name. Only a new member is named against the names in use: a member that gains its first
+overload keeps its short name and the newcomer takes the suffix.</li>
 <li><strong>Parameters</strong> keep their C# names; one a C or C++ keyword takes, or <code>self</code>, <code>result</code> or <code>has_value</code>, gets a trailing
 underscore. A tuple's elements take the parameter's name and their own in snake case, C#'s tuple element names
 (<code>calibrationSet_option</code>), or <code>item1</code>... where C# names none; a returned tuple's elements their own (<code>first</code>). In a
@@ -644,7 +645,9 @@ beside the C archive: <code>nanoql.pdb</code>, <code>libnanoql.so.dbg</code> or 
 <code>osx-arm64</code>; Linux in a <code>manylinux_2_28</code> container, so it runs on glibc 2.28 and later; Intel Macs aren't among them
 (nanoql's C# library runs there; nanoql builds and tests no bindings for them). It loads no ICU (invariant
 globalization), so its messages read the same in every locale and it runs where libicu is absent. Windows x64 is the
-validated platform; on the others, a result's last bits may differ where the C runtime's maths functions do.</p>
+validated platform; on the others, a result's last bits may differ where the C runtime's maths functions do. A release
+ships the platforms <code>release.yml</code> names in <code>RIDS</code>: Windows x64 and Linux x64, with Windows Arm64, Linux Arm64 and macOS
+on Apple silicon in later releases.</p>
 <h2 id="c-and-c">C and C++</h2>
 <ul>
 <li><strong>Install:</strong> an archive per platform on the release, <code>nanoql-&lt;version&gt;-&lt;rid&gt;-c-api.zip</code> on Windows and <code>.tar.xz</code>
@@ -696,9 +699,9 @@ the user's.</li>
 </ul>
 <h2 id="python">Python</h2>
 <ul>
-<li><strong>Install:</strong> <code>pip install nanoql</code>, a <code>py3-none-&lt;platform&gt;</code> wheel holding the library for Windows x64 and Arm64,
-Linux x64 and Arm64 (<code>manylinux_2_28</code>) and macOS on Apple silicon (14 or later): one wheel for every Python from 3.11,
-with NumPy 1.26 or later, and nothing compiled on install.</li>
+<li><strong>Install:</strong> <code>pip install nanoql</code>, a <code>py3-none-&lt;platform&gt;</code> wheel holding the library for Windows x64 and Linux x64
+(<code>manylinux_2_28</code>), with Windows Arm64, Linux Arm64 and macOS on Apple silicon (14 or later) in later releases: one
+wheel for every Python from 3.11, with NumPy 1.26 or later, and nothing compiled on install.</li>
 <li><strong>Names:</strong> nanoql's type names; members in PEP 8's snake case (<code>curve.discount(5.0)</code>, <code>swap.fixed_rate</code>); enum
 members as nanoql's (<code>Compounding.Continuous</code>). A constructor is the class's call, a getter a property, a static
 member or an extension method a static method of its declaring class (<code>ConventionSet.quant_lib()</code>), a record's
@@ -747,7 +750,7 @@ tool's generated modules (<code>nanoql-bind python</code>, never checked in) ove
 and the .NET runtime's <code>LICENSE.TXT</code> and <code>THIRD-PARTY-NOTICES.TXT</code>, which Native AOT compiles into the library, each a
 PEP 639 <code>License-File</code> under the <code>License-Expression</code> <code>pyproject.toml</code> gives. <code>--stage &lt;folder&gt; --test-exports</code>
 stages the test build's package instead, for the conformance suite.</li>
-<li><strong>Publishing:</strong> a release's <code>release.yml</code> uploads the five bindings jobs' wheels through PyPI's trusted publishing,
+<li><strong>Publishing:</strong> a release's <code>release.yml</code> uploads its platforms' wheels through PyPI's trusted publishing,
 with no stored token, after the <code>pypi</code> environment's approval; its dry run uploads them to TestPyPI
 (<a href="releasing.html">releasing.md</a>).</li>
 </ul>
