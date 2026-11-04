@@ -22,12 +22,12 @@ the QuantLib and QLNet projects, and ISDA, which publishes FpML, are not affilia
 ## Who maintains it
 
 nanoql is sponsored and maintained by Masseef ([nanoql and Masseef](masseef.md)). It is developed in the open on
-[GitHub](https://github.com/nanoql-org/nanoql): anyone can report an issue, ask in its Discussions, or send a pull
+[GitHub](https://github.com/nanoql-dev/nanoql): anyone can report an issue, ask in its Discussions, or send a pull
 request, signed off under the
-[Developer Certificate of Origin](https://github.com/nanoql-org/nanoql/blob/main/CONTRIBUTING.md).
+[Developer Certificate of Origin](https://github.com/nanoql-dev/nanoql/blob/main/CONTRIBUTING.md).
 
 ## Contact
 
-- Questions and ideas: [GitHub Discussions](https://github.com/nanoql-org/nanoql/discussions).
+- Questions and ideas: [GitHub Discussions](https://github.com/nanoql-dev/nanoql/discussions).
 - Security reports: see [Security](security.md).
 - The code of conduct: conduct@nanoql.org.

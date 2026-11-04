@@ -1,6 +1,6 @@
 # nanoql.org
 
-The source of [nanoql.org](https://nanoql.org), the website of [nanoql](https://github.com/nanoql-org/nanoql), built
+The source of [nanoql.org](https://nanoql.org), the website of [nanoql](https://github.com/nanoql-dev/nanoql), built
 with [docfx](https://dotnet.github.io/docfx/).
 
 ## Building it

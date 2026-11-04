@@ -21,7 +21,7 @@
 
 ## Beyond C\#
 
-- [The bindings](bindings.md): Python, C, C++ and Java.
+- [The bindings](bindings.md): Python and C, which any language that calls C can use.
 - [The Excel add-in](excel.md), with its functions listed by task under Excel.
 
 ## Reference

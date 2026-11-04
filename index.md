@@ -14,7 +14,7 @@ inputs, and market conventions are data you can override.
 <div class="nq-band-actions">
 <a href="_nanoql/docs/getting-started.md">Get started</a>
 <a href="migration/index.md">Migrating to nanoql</a>
-<a href="https://github.com/nanoql-org/nanoql">GitHub</a>
+<a href="https://github.com/nanoql-dev/nanoql">GitHub</a>
 </div>
 
 </div>
@@ -72,6 +72,14 @@ override them for a desk, and version them with your trades.
 
 Results are checked against independent reference values: [!include[tested](_nanoql/facts/tested.md)]
 [The validation report](_nanoql/validation/index.md) gives the figures by module.
+
+</div>
+<div>
+
+### Python and C
+
+From C# and F#, and from Python and C through one C interface over nanoql compiled to native code:
+`pip install nanoql` needs no .NET runtime, and the C archive serves any language that calls C.
 
 </div>
 </div>

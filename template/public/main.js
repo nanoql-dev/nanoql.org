@@ -17,7 +17,7 @@ function followTheme() {
 
 export default {
   iconLinks: [
-    { icon: 'github', href: 'https://github.com/nanoql-org/nanoql', title: 'GitHub' }
+    { icon: 'github', href: 'https://github.com/nanoql-dev/nanoql', title: 'GitHub' }
   ],
   start: followTheme
 }
