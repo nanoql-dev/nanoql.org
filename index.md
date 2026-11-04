@@ -8,8 +8,9 @@ title: Quantitative finance for .NET
 
 # Quantitative finance for .NET,<br class="nq-break"> stateless by design.
 
-nanoql prices rates, credit, equity, FX, inflation and commodity products. Every pricer is a plain function of its
-inputs, and market conventions are data you can override.
+nanoql prices rates, credit, equity, FX, inflation and commodity products, from vanillas to exotics: short-rate,
+market, Heston, SABR and local-volatility models with their calibrations, copulas, and Monte Carlo, finite-difference
+and lattice engines. Every pricer is a plain function of its inputs, and market conventions are data you can override.
 
 <div class="nq-band-actions">
 <a href="_nanoql/docs/getting-started.md">Get started</a>
@@ -54,8 +55,8 @@ It prints:
 
 ### Stateless
 
-Instruments, curves and models are immutable values, and pricers are static functions of them. The same inputs
-always give the same outputs, and calls run side by side.
+Instruments, curves and models are immutable values, pricers are static functions of them, and the evaluation date
+is an argument, not a global setting. The same inputs always give the same outputs, and calls run side by side.
 
 </div>
 <div>
@@ -76,10 +77,11 @@ Results are checked against independent reference values: [!include[tested](_nan
 </div>
 <div>
 
-### Python and C
+### Python, C and Excel
 
 From C# and F#, and from Python and C through one C interface over nanoql compiled to native code:
-`pip install nanoql` needs no .NET runtime, and the C archive serves any language that calls C.
+`pip install nanoql` needs no .NET runtime, and the C archive serves any language that calls C. In Excel on Windows,
+[an add-in](_nanoql/docs/excel.md) puts the library in worksheet formulas.
 
 </div>
 </div>
