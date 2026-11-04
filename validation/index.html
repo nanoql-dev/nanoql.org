@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Validation | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Validation | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="validation">Validation</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>Checked against QuantLib 1.44 on Windows x64.</p>
+<ul>
+<li><strong>The vectors:</strong> 3,348,122 reference outputs in 1,169 vector files, of which four files and 39,887 outputs check
+QLNet's additions against QLNet 1.13.2. Each output agrees within a relative 1e-10 of the larger of the two values and
+the output's scale (an amount's is its notional), except 4,854 (0.14%) held to a documented looser tolerance.</li>
+<li><strong>The tests:</strong> QuantLib's own tests, ported at QuantLib's tolerances.</li>
+<li><strong>The types:</strong> 2,281 of the 2,282 public types with executable code are run by a QuantLib-checked test, QLNet's
+additions by a QLNet-checked one. The one apart, <code>FactorReductionFunctions</code>, every output of which is QuantLib's
+defect fixed, is checked by its own tests. 303 more are listed apart, 291 with no executable code and 12 own-tested
+(six of them extensions, five experimental and one a term structure), and three are equality-only. 89.5% of the ported
+lines are covered.</li>
+<li><strong>The divergences:</strong> 720 documented divergences from QuantLib, each with its own test class.</li>
+</ul>
+<p>Measured on commit <code>6461aee843ea0409e15938442f079d841161c810</code>: 8,605 tests, every one passing, and 60,928 vector cases.</p>
+<p>These pages are built from commit <code>16aefbc</code>, whose library code and vectors' counts are the same as the measured commit's.</p>
+<h2 id="by-module">By module</h2>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th style="text-align: right;">Public types run</th>
+<th style="text-align: right;">Lines covered</th>
+<th style="text-align: right;">No executable lines</th>
+<th style="text-align: right;">Equality only</th>
+<th style="text-align: right;">Own-tested</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NanoQL</code></td>
+<td style="text-align: right;">35/35</td>
+<td style="text-align: right;">905/1,025 (88.3%)</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>NanoQL.Coupons</code></td>
+<td style="text-align: right;">83/83</td>
+<td style="text-align: right;">4,693/5,117 (91.7%)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>NanoQL.Currencies</code></td>
+<td style="text-align: right;">112/112</td>
+<td style="text-align: right;">432/444 (97.3%)</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>NanoQL.Experimental</code></td>
+<td style="text-align: right;">405/405</td>
+<td style="text-align: right;">14,196/16,386 (86.6%)</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td><code>NanoQL.Extensions</code></td>
+<td style="text-align: right;">61/61</td>
+<td style="text-align: right;">2,364/4,705 (50.2%)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr>
+<td><code>NanoQL.Indexes</code></td>
+<td style="text-align: right;">129/129</td>
+<td style="text-align: right;">2,236/2,263 (98.8%)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>NanoQL.Instruments</code></td>
+<td style="text-align: right;">149/149</td>
+<td style="text-align: right;">5,386/5,841 (92.2%)</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>NanoQL.Methods</code></td>
+<td style="text-align: right;">139/139</td>
+<td style="text-align: right;">5,804/6,210 (93.5%)</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>NanoQL.Models</code></td>
+<td style="text-align: right;">194/194</td>
+<td style="text-align: right;">9,984/11,005 (90.7%)</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>NanoQL.Numerics</code></td>
+<td style="text-align: right;">336/337</td>
+<td style="text-align: right;">10,371/11,176 (92.8%)</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>NanoQL.PricingEngines</code></td>
+<td style="text-align: right;">275/275</td>
+<td style="text-align: right;">15,427/17,127 (90.1%)</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>NanoQL.Processes</code></td>
+<td style="text-align: right;">27/27</td>
+<td style="text-align: right;">1,349/1,516 (89.0%)</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>NanoQL.Quotes</code></td>
+<td style="text-align: right;">10/10</td>
+<td style="text-align: right;">130/131 (99.2%)</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>NanoQL.TermStructures</code></td>
+<td style="text-align: right;">240/240</td>
+<td style="text-align: right;">9,257/9,938 (93.1%)</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td><code>NanoQL.Time</code></td>
+<td style="text-align: right;">83/83</td>
+<td style="text-align: right;">7,166/7,381 (97.1%)</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>NanoQL.Utilities</code></td>
+<td style="text-align: right;">3/3</td>
+<td style="text-align: right;">108/115 (93.9%)</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nanoql"><code>NanoQL</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> Compounding (enum), ExchangeRateType (enum), ExerciseType (enum), MoneyConversionType (enum), OptionType (enum), PositionType (enum), IntervalPriceType (enum), PriceType (enum), ProtectionSide (enum), StochasticProcess1DDiscretization (class), StochasticProcessDiscretization (class)</li>
+</ul>
+<h3 id="nanoqlcoupons"><code>NanoQL.Coupons</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> GFunctionFactoryYieldCurveModel (enum), NumericHaganPricerIntegrationLimits (record), VanillaOptionPricer (class), BlackIborCouponPricerTimingAdjustment (enum), IMeanRevertingPricer (interface), DurationType (enum), EquityCashFlowPricer (class), InflationCouponPricer (class), LinearTsrPricerSettingsStrategy (enum), RateAveragingType (enum), ReplicationType (enum), StubIndexSelectionConvention (enum)</li>
+</ul>
+<h3 id="nanoqlexperimental"><code>NanoQL.Experimental</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> IDiscretizedDoubleBarrierAsset (interface), TenorOptionletVTSCorrelationStructure (class), CallableBondResults (record), CatBondResults (record), CatRisk (class), EventPaymentOffset (class), PricingErrorLevel (enum), EnergyCommodityDeliverySchedule (enum), EnergyCommodityPaymentSchedule (enum), EnergyCommodityQuantityPeriodicity (enum), EnergyDailyPosition (record), PaymentTermEventType (enum), QuantityConversionType (enum), UnitOfMeasureType (enum), UnitOfMeasureConversionType (enum), AtomicDefaultType (enum), CDOResults (record), CdsOptionResults (record), IBaseCorrelationModel (interface), LossDistResult (record), RestructuringType (enum), RiskyAssetSwapResults (record), Seniority (enum), SyntheticCDOResults (record), FxResetPricer (class), MtMCrossCurrencyBasisSwapType (enum), FdmVPPStepConditionMesher (record), FdmVPPStepConditionParams (record struct), InterpolatedYoYInflationOptionletStripper (class), YoYOptionletStripper (class), GaussianCopulaPolicyInitTraits (record struct), HybridSimulatedAnnealingLocalOptimizeScheme (enum), HybridSimulatedAnnealingResetScheme (enum), IAnnealingProbability (interface), IAnnealingReannealing (interface), IAnnealingSampler (interface), IAnnealingTemperature (interface), ICopulaPolicy (interface), IRandomWalkDistribution (interface), LatentModelIntegrationType (enum), MultidimIntegrand (delegate), MultidimVectorIntegrand (delegate), TCopulaPolicyInitTraits (record struct), PathPayoff (class), ExtendedBlackScholesMertonProcessDiscretization (enum), ExtendedOrnsteinUhlenbeckProcessDiscretization (enum), IrregularSettlementType (enum), ExtendedBlackVarianceSurfaceExtrapolation (enum)</li>
+<li><strong>Equality only:</strong> EnergyCommodityResults (equality-tested: tests/NanoQL.Tests/Conventions/CommodityConventionTests.cs)</li>
+<li><strong>Own-tested:</strong> AdaptiveInertia (own-tested: Divergences/ParticleSwarmInertiaTests.cs), ClubsTopology (own-tested: Divergences/ParticleSwarmTopologyTests.cs), DecreasingInertia (own-tested: Divergences/ParticleSwarmInertiaTests.cs), GlobalTopology (own-tested: Divergences/ParticleSwarmTopologyTests.cs), KNeighbors (own-tested: Divergences/ParticleSwarmTopologyTests.cs)</li>
+</ul>
+<h3 id="nanoqlextensions"><code>NanoQL.Extensions</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> ConventionKind (enum), ConventionOrigin (record), ForeignAttribute (record), IborFamilyUnit (record), IborIndexStyle (enum), AmortizingMethod (enum), IPrepayModel (interface)</li>
+<li><strong>Own-tested:</strong> BespokeCalendarRecord (own-tested: Extensions/ConventionsXmlTests.cs), ConventionProvenance (own-tested: Extensions/ConventionSetTests.cs), ConventionRecords (own-tested: Extensions/ConventionRecordsTests.cs), DayCounterRecord (own-tested: Extensions/ConventionsXmlTests.cs), JointCalendarRecord (own-tested: Extensions/ConventionsXmlTests.cs), OvernightIndexedSwapIndexRecord (own-tested: Extensions/IndexSetTests.cs)</li>
+</ul>
+<h3 id="nanoqlindexes"><code>NanoQL.Indexes</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> CPIInterpolationType (enum)</li>
+</ul>
+<h3 id="nanoqlinstruments"><code>NanoQL.Instruments</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> AverageType (enum), BarrierType (enum), BondPriceType (enum), BondResults (record), CallabilityType (enum), CapFloorType (enum), Claim (class), CreditDefaultSwapPricingModel (enum), CreditDefaultSwapResults (record), DoubleBarrierType (enum), ForwardResults (record), ForwardRateAgreementResults (record), FuturesType (enum), FxForwardResults (record), YoYInflationCapFloorType (enum), MultiAssetOptionResults (record), OneAssetOptionResults (record), PartialBarrierRange (enum), PerpetualFuturesFundingType (enum), PerpetualFuturesPayoffType (enum), SwapType (enum), SettlementMethod (enum), SettlementType (enum), SwaptionPriceType (enum), VarianceSwapResults (record)</li>
+<li><strong>Equality only:</strong> SwapResults (equality-tested: tests/NanoQL.Tests/Conventions/ResultsEqualityTests.cs)</li>
+</ul>
+<h3 id="nanoqlmethods"><code>NanoQL.Methods</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> BoundaryConditionSide (enum), BoundaryCondition (class), IFdmScheme (interface), FdmSquareRootFwdOpTransformationType (enum), NumericalDifferentiationScheme (enum), ImplicitEulerSchemeSolverType (enum), TrBDF2SchemeSolverType (enum), FdmSchemeDescFdmSchemeType (enum), FdmSolverDesc (record), StepCondition (class), TridiagonalOperatorTimeSetter (class), FdmHestonGreensFctAlgorithm (enum), FdmInnerValueCalculator (class), IBinomialTree (interface), ExerciseStrategy (class), GenericLSRegressionResults (record), IEarlyExercisePathPricer (interface), IPathGenerator (interface), LsmBasisSystemPolynomialType (enum), IMcTraits (interface), NodeData (class), GenericEarlyExerciseOptimizationResults (record), IParametricExercise (interface), Sample (record struct)</li>
+</ul>
+<h3 id="nanoqlmodels"><code>NanoQL.Models</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> BlackCalibrationHelperCalibrationErrorType (enum), HestonSLVFDMModelLogEntry (record), HestonSLVFokkerPlanckFdmParams (record), SobolBrownianGeneratorBaseOrdering (enum), MarketModelExerciseValue (class), MarketModelNodeDataProvider (class), ConstrainedEvolver (class), HistoricalForwardRatesAnalysis (class), HistoricalForwardRatesAnalysisResults (record), HistoricalRatesAnalysisResults (record), MarketModelMultiProduct (class), MarketModelMultiProductCashFlow (struct), MarketModelPathwiseMultiProduct (class), AbcdCoefficients (record struct), VolatilityBumpInstrumentJacobianCap (record struct), VolatilityBumpInstrumentJacobianSwaption (record struct), IAffineModel (interface), ITermStructureConsistentModel (interface), MarkovFunctionalCustomSmileFactory (class), MarkovFunctionalCustomSmileSection (class), MarkovFunctionalModelSettingsAdjustments (enum), Garch11Calibration (record), Garch11Mode (enum)</li>
+</ul>
+<h3 id="nanoqlnumerics"><code>NanoQL.Numerics</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> FilonIntegralType (enum), IntegrationResult (record struct), ChebyshevInterpolationPointsType (enum), CubicInterpolationBoundaryCondition (enum), CubicInterpolationDerivativeApprox (enum), IInterpolator2D (interface), MixedInterpolationBehavior (enum), IXabrInterpolation (interface), KernelFunction (class), BiCGStabResult (record struct), GMRESResult (record struct), QRDecompositionResult (record), SalvagingAlgorithmType (enum), TqrEigenDecompositionEigenVectorCalculation (enum), TqrEigenDecompositionShiftStrategy (enum), ParametersTransformation (class), DifferentialEvolutionCrossoverType (enum), DifferentialEvolutionStrategy (enum), EndCriteriaCheck (record struct), EndCriteriaType (enum), NonLinearLeastSquareResults (record), LineSearchBasedMethodState (class), IInverseCumulative (interface), IRsg (interface), ISeedableRsg (interface), LatticeRuleType (enum), IInt32Rng (interface), IRng (interface), ISeedableRng (interface), IRngTraits (interface), SobolRsgDirectionIntegers (enum), IInt64Rng (interface), RoundingType (enum), IDerivativeSolver1DFunction (interface), ISolver1DFunction (interface), Solver1DBracket (record), ISecondDerivativeSolver1DFunction (interface), IConvergenceSteps (interface), ISummaryStatistics (interface), IEmpiricalStatistics (interface), IStatistics (interface), HistogramAlgorithm (enum)</li>
+<li><strong>Equality only:</strong> ProblemResults (equality-tested: tests/NanoQL.Tests/Conventions/ProblemResultsEqualityTests.cs)</li>
+</ul>
+<h3 id="nanoqlpricingengines"><code>NanoQL.PricingEngines</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> IDiscretizedBarrierAsset (interface), OperatorSplittingSpreadEngineOrder (enum), IsdaCdsEngineAccrualBias (enum), IsdaCdsEngineForwardsInCouponPeriod (enum), IsdaCdsEngineNumericalFix (enum), DiscountingPerpetualFuturesEngineInterpolationType (enum), BasketGeneratingEngineCalibrationBasketType (enum), CashAnnuityModel (enum), Gaussian1dFloatFloatSwaptionEngineProbabilities (enum), Gaussian1dNonstandardSwaptionEngineProbabilities (enum), Gaussian1dSwaptionEngineProbabilities (enum), AnalyticHestonEngineComplexLogFormula (enum), AnalyticPTDHestonEngineComplexLogFormula (enum), AnalyticRoughHestonEngineApproximation (enum), CashDividendEuropeanEngineCashDividendModel (enum), FdBlackScholesVanillaEngineCashDividendModel (enum), HestonExpansion (class), HestonExpansionEngineHestonExpansionFormula (enum), QdFpAmericanEngineFixedPointEquation (enum), QdFpIterationScheme (class), QdPlusAmericanEngineSolverType (enum)</li>
+</ul>
+<h3 id="nanoqlprocesses"><code>NanoQL.Processes</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> GJRGARCHProcessDiscretization (enum), HestonProcessDiscretization (enum), HybridHestonHullWhiteProcessDiscretization (enum)</li>
+</ul>
+<h3 id="nanoqlquotes"><code>NanoQL.Quotes</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> DeltaVolQuoteAtmType (enum), DeltaVolQuoteDeltaType (enum)</li>
+</ul>
+<h3 id="nanoqltermstructures"><code>NanoQL.TermStructures</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> IBootstrapHelper (interface), PillarChoice (enum), AdditionalBootstrapVariables (class), IInterpolatedCurve (interface), IYoYInflationTraits (interface), IZeroInflationTraits (interface), IBootstrap (interface), IBootstrapState (interface), ILocalInterpolator (interface), AndreasenHugeCalibrationError (record struct), AndreasenHugeVolatilityInterplCalibrationType (enum), AndreasenHugeVolatilityInterplInterpolationType (enum), BlackVarianceSurfaceExtrapolation (enum), BlackVolTimeExtrapolationType (enum), BlackVolatilitySurfaceDeltaSmileInterpolationMethod (enum), FixedLocalVolSurfaceExtrapolation (enum), StrippedOptionletBase (class), CmsMarketCalibrationCalibrationType (enum), CmsMarketCalibrationResults (record), VolatilityType (enum), IZabrEvaluation (interface), IYieldTraits (interface)</li>
+<li><strong>Own-tested:</strong> IDefaultProbabilityTraits (own-tested: Conventions/AffineCreditCurveConventionTests.cs)</li>
+</ul>
+<h3 id="nanoqltime"><code>NanoQL.Time</code></h3>
+<ul>
+<li><strong>No executable lines:</strong> ASXMonth (enum), BusinessDayConvention (enum), ArgentinaMarket (enum), AustraliaMarket (enum), AustriaMarket (enum), BrazilMarket (enum), CanadaMarket (enum), ChileMarket (enum), ChinaMarket (enum), CroatiaMarket (enum), CzechRepublicMarket (enum), FranceMarket (enum), GermanyMarket (enum), HongKongMarket (enum), IcelandMarket (enum), IndiaMarket (enum), IndonesiaMarket (enum), IsraelMarket (enum), ItalyMarket (enum), JointCalendarRule (enum), MalaysiaMarket (enum), MaltaMarket (enum), MexicoMarket (enum), MontenegroMarket (enum), NewZealandMarket (enum), NorthMacedoniaMarket (enum), PhilippinesMarket (enum), PolandMarket (enum), RomaniaMarket (enum), RussiaMarket (enum), SaudiArabiaMarket (enum), SerbiaMarket (enum), SingaporeMarket (enum), SlovakiaMarket (enum), SloveniaMarket (enum), SouthKoreaMarket (enum), TaiwanMarket (enum), UkraineMarket (enum), UnitedKingdomMarket (enum), UnitedStatesMarket (enum), UzbekistanMarket (enum), Month (enum), DateGenerationRule (enum), Actual365FixedConvention (enum), ActualActualConvention (enum), Thirty360Convention (enum), Frequency (enum), IMMMonth (enum), TimeUnit (enum), Weekday (enum)</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class TreeLattice | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TreeLattice | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The tree-based lattice-method base class: a lattice that rolls a discretized asset back, with discount, on one or more trees.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Methods.TreeLattice">
+
+
+
+  <h1 id="NanoQL_Methods_TreeLattice" data-uid="NanoQL.Methods.TreeLattice" class="text-break">
+Class TreeLattice  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Methods.html">Methods</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The tree-based lattice-method base class: a lattice that rolls a discretized asset back, with discount, on one or
+more trees.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class TreeLattice : Lattice</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Lattice.html">Lattice</a></div>
+      <div><span class="xref">TreeLattice</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Methods.TreeLattice1D.html">TreeLattice1D</a></div>
+      <div><a class="xref" href="NanoQL.Methods.TreeLattice2D.html">TreeLattice2D</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Lattice.html#NanoQL_Lattice_Grid_System_Double_">Lattice.Grid(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Lattice.html#NanoQL_Lattice_Grid_System_Double_System_Span_System_Double__">Lattice.Grid(double, Span&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Lattice.html#NanoQL_Lattice_TimeGrid">Lattice.TimeGrid</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Methods_TreeLattice_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+QuantLib's curiously recurring template: a derived class implements <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_Size_System_Int32_">Size(int)</a>, <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_Discount_System_Int32_System_Int32_">Discount(int, int)</a>,
+<a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_Descendant_System_Int32_System_Int32_System_Int32_">Descendant(int, int, int)</a> and <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_Probability_System_Int32_System_Int32_System_Int32_">Probability(int, int, int)</a>, and may override <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_Stepback_System_Int32_System_ReadOnlySpan_System_Double__System_Span_System_Double__">Stepback(int, ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)</a>, which are called
+per node and branch. The rollback's inner step is one <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_Stepback_System_Int32_System_ReadOnlySpan_System_Double__System_Span_System_Double__">Stepback(int, ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)</a> into the asset's spare buffer
+(<a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_StepValues_System_Int32_">StepValues(int)</a>, <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_CommitStep_System_Int32_System_Double_">CommitStep(int, double)</a>), then the asset's adjustment;
+it allocates nothing.
+</p>
+<p>
+<b>State prices.</b> A lattice is immutable once built. The rows of Arrow-Debreu state prices its construction
+computes, through <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_ComputeStatePrices_System_Int32_">ComputeStatePrices(int)</a>, are stored; <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_StatePrices_System_Int32_">StatePrices(int)</a> computes any later row on
+each call from the last stored one, with the same operations in the same order, and keeps it nowhere. A derived
+class whose constructor calls <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_ComputeStatePrices_System_Int32_">ComputeStatePrices(int)</a> reads its own <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_Size_System_Int32_">Size(int)</a>,
+<a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_Discount_System_Int32_System_Int32_">Discount(int, int)</a>, <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_Descendant_System_Int32_System_Int32_System_Int32_">Descendant(int, int, int)</a> and <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_Probability_System_Int32_System_Int32_System_Int32_">Probability(int, int, int)</a> there, so it seals them: C# runs a
+further override from a constructor before that override's class has been constructed.
+</p>
+<p>
+An extension point, as in QuantLib: the one-dimensional lattices derive from it, as later ports' two-dimensional
+lattice will; a binomial lattice overrides <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_Stepback_System_Int32_System_ReadOnlySpan_System_Double__System_Span_System_Double__">Stepback(int, ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)</a>, a convertible's lattice <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_Rollback_NanoQL_DiscretizedAsset_System_Double_">Rollback(DiscretizedAsset, double)</a> and
+<a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_PartialRollback_NanoQL_DiscretizedAsset_System_Double_">PartialRollback(DiscretizedAsset, double)</a>.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Methods_TreeLattice__ctor_" data-uid="NanoQL.Methods.TreeLattice.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_TreeLattice__ctor_NanoQL_Methods_TreeLattice_" data-uid="NanoQL.Methods.TreeLattice.#ctor(NanoQL.Methods.TreeLattice)">
+  TreeLattice(TreeLattice)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.TreeLattice.html">TreeLattice</a> class that shares another's stored state prices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TreeLattice(TreeLattice other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Methods.TreeLattice.html">TreeLattice</a></dt>
+    <dd><p>The lattice whose grid, branches and stored state prices the new one takes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Methods_TreeLattice__ctor_NanoQL_Methods_TreeLattice__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>For a derived lattice's copy that differs from <code class="paramref">other</code> only in what its later rows depend on,
+as a short-rate tree's copy with a spread: the stored rows are the ones QuantLib's cache holds when it is copied.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">other</code> is null.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TreeLattice__ctor_" data-uid="NanoQL.Methods.TreeLattice.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_TreeLattice__ctor_NanoQL_TimeGrid_System_Int32_" data-uid="NanoQL.Methods.TreeLattice.#ctor(NanoQL.TimeGrid,System.Int32)">
+  TreeLattice(TimeGrid, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.TreeLattice.html">TreeLattice</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TreeLattice(TimeGrid timeGrid, int n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>timeGrid</code> <a class="xref" href="NanoQL.TimeGrid.html">TimeGrid</a></dt>
+    <dd><p>The lattice's time grid.</p>
+</dd>
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of branches from each node.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">timeGrid</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">n</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">n</code> is 0.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Methods_TreeLattice_ComputeStatePrices_" data-uid="NanoQL.Methods.TreeLattice.ComputeStatePrices*"></a>
+
+  <h3 id="NanoQL_Methods_TreeLattice_ComputeStatePrices_System_Int32_" data-uid="NanoQL.Methods.TreeLattice.ComputeStatePrices(System.Int32)">
+  ComputeStatePrices(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores the rows of state prices up to the given step: for a derived lattice while it is built, never after (a
+derived class whose constructor calls it seals the members it reads). Rows already stored are kept.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ComputeStatePrices(int until)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>until</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The last step whose row is stored.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">until</code> is outside the grid's indices.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TreeLattice_Descendant_" data-uid="NanoQL.Methods.TreeLattice.Descendant*"></a>
+
+  <h3 id="NanoQL_Methods_TreeLattice_Descendant_System_Int32_System_Int32_System_Int32_" data-uid="NanoQL.Methods.TreeLattice.Descendant(System.Int32,System.Int32,System.Int32)">
+  Descendant(int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The index, at the next step, of a node's descendant along a branch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int Descendant(int i, int index, int branch)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The step's index on the grid.</p>
+</dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The node's index at the step.</p>
+</dd>
+    <dt><code>branch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The branch.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The descendant's index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TreeLattice_Discount_" data-uid="NanoQL.Methods.TreeLattice.Discount*"></a>
+
+  <h3 id="NanoQL_Methods_TreeLattice_Discount_System_Int32_System_Int32_" data-uid="NanoQL.Methods.TreeLattice.Discount(System.Int32,System.Int32)">
+  Discount(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The discount factor over the step that starts at a node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double Discount(int i, int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The step's index on the grid.</p>
+</dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The node's index at the step.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TreeLattice_Initialize_" data-uid="NanoQL.Methods.TreeLattice.Initialize*"></a>
+
+  <h3 id="NanoQL_Methods_TreeLattice_Initialize_NanoQL_DiscretizedAsset_System_Double_" data-uid="NanoQL.Methods.TreeLattice.Initialize(NanoQL.DiscretizedAsset,System.Double)">
+  Initialize(DiscretizedAsset, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes an asset at a time: its time, the buffers its rollback needs, and its values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Initialize(DiscretizedAsset asset, double time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>asset</code> <a class="xref" href="NanoQL.DiscretizedAsset.html">DiscretizedAsset</a></dt>
+    <dd><p>The asset, which changes.</p>
+</dd>
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time, on the grid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">asset</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p><code class="paramref">time</code> isn't on the grid (the grid's own refusal).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TreeLattice_PartialRollback_" data-uid="NanoQL.Methods.TreeLattice.PartialRollback*"></a>
+
+  <h3 id="NanoQL_Methods_TreeLattice_PartialRollback_NanoQL_DiscretizedAsset_System_Double_" data-uid="NanoQL.Methods.TreeLattice.PartialRollback(NanoQL.DiscretizedAsset,System.Double)">
+  PartialRollback(DiscretizedAsset, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rolls an asset back until the given time, adjusting it at each step but the last.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void PartialRollback(DiscretizedAsset asset, double to)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>asset</code> <a class="xref" href="NanoQL.DiscretizedAsset.html">DiscretizedAsset</a></dt>
+    <dd><p>The asset, which changes.</p>
+</dd>
+    <dt><code>to</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to roll back to, on the grid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">asset</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The asset is already before <code class="paramref">to</code>, or a time isn't on the grid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TreeLattice_PresentValue_" data-uid="NanoQL.Methods.TreeLattice.PresentValue*"></a>
+
+  <h3 id="NanoQL_Methods_TreeLattice_PresentValue_NanoQL_DiscretizedAsset_" data-uid="NanoQL.Methods.TreeLattice.PresentValue(NanoQL.DiscretizedAsset)">
+  PresentValue(DiscretizedAsset)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes an asset's present value from the Arrow-Debreu state prices at its time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double PresentValue(DiscretizedAsset asset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>asset</code> <a class="xref" href="NanoQL.DiscretizedAsset.html">DiscretizedAsset</a></dt>
+    <dd><p>The asset.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The present value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">asset</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The asset's time isn't on the grid (the grid's own refusal).</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The asset's values and the state prices at its time differ in size.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TreeLattice_Probability_" data-uid="NanoQL.Methods.TreeLattice.Probability*"></a>
+
+  <h3 id="NanoQL_Methods_TreeLattice_Probability_System_Int32_System_Int32_System_Int32_" data-uid="NanoQL.Methods.TreeLattice.Probability(System.Int32,System.Int32,System.Int32)">
+  Probability(int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The probability of a node's branch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double Probability(int i, int index, int branch)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The step's index on the grid.</p>
+</dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The node's index at the step.</p>
+</dd>
+    <dt><code>branch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The branch.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TreeLattice_Rollback_" data-uid="NanoQL.Methods.TreeLattice.Rollback*"></a>
+
+  <h3 id="NanoQL_Methods_TreeLattice_Rollback_NanoQL_DiscretizedAsset_System_Double_" data-uid="NanoQL.Methods.TreeLattice.Rollback(NanoQL.DiscretizedAsset,System.Double)">
+  Rollback(DiscretizedAsset, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rolls an asset back until the given time, then adjusts it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Rollback(DiscretizedAsset asset, double to)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>asset</code> <a class="xref" href="NanoQL.DiscretizedAsset.html">DiscretizedAsset</a></dt>
+    <dd><p>The asset, which changes.</p>
+</dd>
+    <dt><code>to</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to roll back to, on the grid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">asset</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The asset is already before <code class="paramref">to</code>, or a time isn't on the grid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TreeLattice_Size_" data-uid="NanoQL.Methods.TreeLattice.Size*"></a>
+
+  <h3 id="NanoQL_Methods_TreeLattice_Size_System_Int32_" data-uid="NanoQL.Methods.TreeLattice.Size(System.Int32)">
+  Size(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of nodes at a step.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int Size(int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The step's index on the grid.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of nodes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TreeLattice_StatePrices_" data-uid="NanoQL.Methods.TreeLattice.StatePrices*"></a>
+
+  <h3 id="NanoQL_Methods_TreeLattice_StatePrices_System_Int32_" data-uid="NanoQL.Methods.TreeLattice.StatePrices(System.Int32)">
+  StatePrices(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Arrow-Debreu state prices at a step: a stored row, or one computed now from the last stored row.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; StatePrices(int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The step's index on the grid.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>One state price per node at the step.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">i</code> is outside the grid's indices.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TreeLattice_Stepback_" data-uid="NanoQL.Methods.TreeLattice.Stepback*"></a>
+
+  <h3 id="NanoQL_Methods_TreeLattice_Stepback_System_Int32_System_ReadOnlySpan_System_Double__System_Span_System_Double__" data-uid="NanoQL.Methods.TreeLattice.Stepback(System.Int32,System.ReadOnlySpan{System.Double},System.Span{System.Double})">
+  Stepback(int, ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rolls values one step back: for each node, the probability-weighted sum of its descendants' values, then the
+node's discount.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Stepback(int i, ReadOnlySpan&lt;double&gt; values, Span&lt;double&gt; newValues)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The step's index on the grid.</p>
+</dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The values at step <code class="paramref">i</code> + 1.</p>
+</dd>
+    <dt><code>newValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The values at step <code class="paramref">i</code>, written here: <a class="xref" href="NanoQL.Methods.TreeLattice.html#NanoQL_Methods_TreeLattice_Size_System_Int32_">Size(int)</a>(i) of them.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">i</code> isn't a step before the grid's last, where QuantLib reads past its end.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">values</code> holds fewer values than step <code class="paramref">i</code> + 1's nodes, or
+<code class="paramref">newValues</code> fewer than step <code class="paramref">i</code>'s, where QuantLib reads and writes past their
+ends.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

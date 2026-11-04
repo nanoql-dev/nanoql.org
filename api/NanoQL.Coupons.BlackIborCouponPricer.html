@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class BlackIborCouponPricer | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BlackIborCouponPricer | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Black-formula pricer for Ibor coupons, capped, floored or not.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Coupons.BlackIborCouponPricer">
+
+
+
+  <h1 id="NanoQL_Coupons_BlackIborCouponPricer" data-uid="NanoQL.Coupons.BlackIborCouponPricer" class="text-break">
+Class BlackIborCouponPricer  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Coupons.html">Coupons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Black-formula pricer for Ibor coupons, capped, floored or not.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BlackIborCouponPricer : IborCouponPricer</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.IborCouponPricer.html">IborCouponPricer</a></div>
+      <div><span class="xref">BlackIborCouponPricer</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.BlackIborQuantoCouponPricer.html">BlackIborQuantoCouponPricer</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.IborCouponPricer.html#NanoQL_Coupons_IborCouponPricer_SetCapletVolatility_NanoQL_TermStructures_OptionletVolatilityStructure_">IborCouponPricer.SetCapletVolatility(OptionletVolatilityStructure)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.IborCouponPricer.html#NanoQL_Coupons_IborCouponPricer_UseIndexedCoupon">IborCouponPricer.UseIndexedCoupon</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.IborCouponPricer.html#NanoQL_Coupons_IborCouponPricer_CapletVolatility">IborCouponPricer.CapletVolatility</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Coupons_BlackIborCouponPricer_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A fixing on or before the evaluation date gives the caplet and floorlet their intrinsic values; a later one is
+priced with Black's formula on a shifted lognormal volatility, or Bachelier's on a normal one. On a shifted
+lognormal volatility a strike at or below −shift, on an adjusted fixing above −shift, which QuantLib's Black formula
+refuses, prices a caplet at the adjusted fixing less the strike and a floorlet at 0, the formula's limits there
+(QuantLib's check, its Black formula at −shift + 1e-12), so a capped coupon struck there pays its cap and a digital
+coupon struck at 0 on an unshifted volatility replicates to probability 1. The timing adjustment corrects the fixing
+of an in-arrears coupon (<a class="xref" href="NanoQL.Coupons.BlackIborCouponPricerTimingAdjustment.html#NanoQL_Coupons_BlackIborCouponPricerTimingAdjustment_Black76">Black76</a>), or of any coupon not paid at
+the index's maturity (<a class="xref" href="NanoQL.Coupons.BlackIborCouponPricerTimingAdjustment.html#NanoQL_Coupons_BlackIborCouponPricerTimingAdjustment_BivariateLognormal">BivariateLognormal</a>, with the correlation
+given).
+</p>
+<p>
+Unsealed, as in QuantLib, whose subclasses override <a class="xref" href="NanoQL.Coupons.BlackIborCouponPricer.html#NanoQL_Coupons_BlackIborCouponPricer_AdjustedFixing_NanoQL_Coupons_IborCoupon_NanoQL_EvaluationContext_System_Nullable_System_Double__">AdjustedFixing(IborCoupon, EvaluationContext, double?)</a>. Every member computes the
+coupon's values inside the call (see <a class="xref" href="NanoQL.Coupons.IborCouponPricer.html">IborCouponPricer</a>).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Coupons_BlackIborCouponPricer__ctor_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.#ctor*"></a>
+
+  <h3 id="NanoQL_Coupons_BlackIborCouponPricer__ctor_NanoQL_EvaluationContext_NanoQL_TermStructures_OptionletVolatilityStructure_NanoQL_Coupons_BlackIborCouponPricerTimingAdjustment_System_Double_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.#ctor(NanoQL.EvaluationContext,NanoQL.TermStructures.OptionletVolatilityStructure,NanoQL.Coupons.BlackIborCouponPricerTimingAdjustment,System.Double)">
+  BlackIborCouponPricer(EvaluationContext, OptionletVolatilityStructure?, BlackIborCouponPricerTimingAdjustment, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Coupons.BlackIborCouponPricer.html">BlackIborCouponPricer</a> class with the context's at-par switch:
+QuantLib's constructor without an explicit choice.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlackIborCouponPricer(EvaluationContext context, OptionletVolatilityStructure? v = null, BlackIborCouponPricerTimingAdjustment timingAdjustment = BlackIborCouponPricerTimingAdjustment.Black76, double correlation = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose <a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_UseAtParCoupons">UseAtParCoupons</a> is read
+once.</p>
+</dd>
+    <dt><code>v</code> <a class="xref" href="NanoQL.TermStructures.OptionletVolatilityStructure.html">OptionletVolatilityStructure</a></dt>
+    <dd><p>The caplet volatility, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty handle.</p>
+</dd>
+    <dt><code>timingAdjustment</code> <a class="xref" href="NanoQL.Coupons.BlackIborCouponPricerTimingAdjustment.html">BlackIborCouponPricerTimingAdjustment</a></dt>
+    <dd><p>The timing adjustment.</p>
+</dd>
+    <dt><code>correlation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation the bivariate lognormal adjustment uses.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">timingAdjustment</code> isn't a member of its
+type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_BlackIborCouponPricer__ctor_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.#ctor*"></a>
+
+  <h3 id="NanoQL_Coupons_BlackIborCouponPricer__ctor_NanoQL_TermStructures_OptionletVolatilityStructure_NanoQL_Coupons_BlackIborCouponPricerTimingAdjustment_System_Double_System_Boolean_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.#ctor(NanoQL.TermStructures.OptionletVolatilityStructure,NanoQL.Coupons.BlackIborCouponPricerTimingAdjustment,System.Double,System.Boolean)">
+  BlackIborCouponPricer(OptionletVolatilityStructure?, BlackIborCouponPricerTimingAdjustment, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Coupons.BlackIborCouponPricer.html">BlackIborCouponPricer</a> class with an explicit choice.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlackIborCouponPricer(OptionletVolatilityStructure? v, BlackIborCouponPricerTimingAdjustment timingAdjustment, double correlation, bool useIndexedCoupon)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="NanoQL.TermStructures.OptionletVolatilityStructure.html">OptionletVolatilityStructure</a></dt>
+    <dd><p>The caplet volatility, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty handle.</p>
+</dd>
+    <dt><code>timingAdjustment</code> <a class="xref" href="NanoQL.Coupons.BlackIborCouponPricerTimingAdjustment.html">BlackIborCouponPricerTimingAdjustment</a></dt>
+    <dd><p>The timing adjustment.</p>
+</dd>
+    <dt><code>correlation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation the bivariate lognormal adjustment uses.</p>
+</dd>
+    <dt><code>useIndexedCoupon</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the pricer prices indexed coupons, rather than at-par ones.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">timingAdjustment</code> isn't a member of its
+type.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Coupons_BlackIborCouponPricer_AdjustedFixing_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.AdjustedFixing*"></a>
+
+  <h3 id="NanoQL_Coupons_BlackIborCouponPricer_AdjustedFixing_NanoQL_Coupons_IborCoupon_NanoQL_EvaluationContext_System_Nullable_System_Double__" data-uid="NanoQL.Coupons.BlackIborCouponPricer.AdjustedFixing(NanoQL.Coupons.IborCoupon,NanoQL.EvaluationContext,System.Nullable{System.Double})">
+  AdjustedFixing(IborCoupon, EvaluationContext, double?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fixing with the timing adjustment applied: unchanged for a coupon in advance under
+<a class="xref" href="NanoQL.Coupons.BlackIborCouponPricerTimingAdjustment.html#NanoQL_Coupons_BlackIborCouponPricerTimingAdjustment_Black76">Black76</a>, for a coupon paid at the index's maturity, and
+before the volatility's reference date; otherwise adjusted for the variance accumulated to the fixing date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual double AdjustedFixing(IborCoupon coupon, EvaluationContext context, double? fixing = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.IborCoupon.html">IborCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>fixing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The fixing to adjust; the coupon's index fixing, with the pricer's at-par choice, when
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The adjusted fixing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The adjustment needs a volatility or a forecasting curve that isn't
+given.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_BlackIborCouponPricer_CapletPrice_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.CapletPrice*"></a>
+
+  <h3 id="NanoQL_Coupons_BlackIborCouponPricer_CapletPrice_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.CapletPrice(NanoQL.Coupons.FloatingRateCoupon,System.Double,NanoQL.EvaluationContext)">
+  CapletPrice(FloatingRateCoupon, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The price of a caplet on the coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double CapletPrice(FloatingRateCoupon coupon, double effectiveCap, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>effectiveCap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The cap on the index fixing.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't an Ibor coupon.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The index has no forecasting curve, or the caplet can't be priced.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_BlackIborCouponPricer_CapletRate_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.CapletRate*"></a>
+
+  <h3 id="NanoQL_Coupons_BlackIborCouponPricer_CapletRate_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.CapletRate(NanoQL.Coupons.FloatingRateCoupon,System.Double,NanoQL.EvaluationContext)">
+  CapletRate(FloatingRateCoupon, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rate of a caplet on the coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double CapletRate(FloatingRateCoupon coupon, double effectiveCap, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>effectiveCap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The cap on the index fixing.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't an Ibor coupon.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The caplet can't be priced.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_BlackIborCouponPricer_FloorletPrice_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.FloorletPrice*"></a>
+
+  <h3 id="NanoQL_Coupons_BlackIborCouponPricer_FloorletPrice_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.FloorletPrice(NanoQL.Coupons.FloatingRateCoupon,System.Double,NanoQL.EvaluationContext)">
+  FloorletPrice(FloatingRateCoupon, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The price of a floorlet on the coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double FloorletPrice(FloatingRateCoupon coupon, double effectiveFloor, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>effectiveFloor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The floor on the index fixing.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't an Ibor coupon.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The index has no forecasting curve, or the floorlet can't be priced.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_BlackIborCouponPricer_FloorletRate_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.FloorletRate*"></a>
+
+  <h3 id="NanoQL_Coupons_BlackIborCouponPricer_FloorletRate_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.FloorletRate(NanoQL.Coupons.FloatingRateCoupon,System.Double,NanoQL.EvaluationContext)">
+  FloorletRate(FloatingRateCoupon, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rate of a floorlet on the coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double FloorletRate(FloatingRateCoupon coupon, double effectiveFloor, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>effectiveFloor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The floor on the index fixing.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't an Ibor coupon.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The floorlet can't be priced.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_BlackIborCouponPricer_SwapletPrice_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.SwapletPrice*"></a>
+
+  <h3 id="NanoQL_Coupons_BlackIborCouponPricer_SwapletPrice_NanoQL_Coupons_FloatingRateCoupon_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.SwapletPrice(NanoQL.Coupons.FloatingRateCoupon,NanoQL.EvaluationContext)">
+  SwapletPrice(FloatingRateCoupon, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The swaplet's price: the coupon's amount, discounted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double SwapletPrice(FloatingRateCoupon coupon, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't an Ibor coupon.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The index has no forecasting curve, or the coupon can't be priced.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_BlackIborCouponPricer_SwapletRate_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.SwapletRate*"></a>
+
+  <h3 id="NanoQL_Coupons_BlackIborCouponPricer_SwapletRate_NanoQL_Coupons_FloatingRateCoupon_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.BlackIborCouponPricer.SwapletRate(NanoQL.Coupons.FloatingRateCoupon,NanoQL.EvaluationContext)">
+  SwapletRate(FloatingRateCoupon, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The swaplet's rate: the coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double SwapletRate(FloatingRateCoupon coupon, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't an Ibor coupon.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon can't be priced.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

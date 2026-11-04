@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class TimeGrid | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TimeGrid | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A discrete time grid: increasing times from 0, which contain the mandatory times it was built with.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TimeGrid">
+
+
+
+  <h1 id="NanoQL_TimeGrid" data-uid="NanoQL.TimeGrid" class="text-break">
+Class TimeGrid  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A discrete time grid: increasing times from 0, which contain the mandatory times it was built with.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class TimeGrid</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">TimeGrid</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_TimeGrid_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable. The grid starts at 0 and refuses negative times; QuantLib's own note asks whether negative times could
+be allowed, and keeps the restriction for the time being.
+</p>
+<p>
+<a class="xref" href="NanoQL.TimeGrid.html#NanoQL_TimeGrid_GetEnumerator">GetEnumerator()</a> is QuantLib's <code>begin()</code> and <code>end()</code>. Its reverse iterators,
+<code>rbegin()</code> and <code>rend()</code>, are an indexed loop run backwards: <code>for (int i = grid.Size - 1; i &gt;= 0; i--)</code>.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TimeGrid__ctor_" data-uid="NanoQL.TimeGrid.#ctor*"></a>
+
+  <h3 id="NanoQL_TimeGrid__ctor" data-uid="NanoQL.TimeGrid.#ctor">
+  TimeGrid()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TimeGrid.html">TimeGrid</a> class with no times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeGrid()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TimeGrid__ctor_" data-uid="NanoQL.TimeGrid.#ctor*"></a>
+
+  <h3 id="NanoQL_TimeGrid__ctor_System_Double_System_Int32_" data-uid="NanoQL.TimeGrid.#ctor(System.Double,System.Int32)">
+  TimeGrid(double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TimeGrid.html">TimeGrid</a> class, regularly spaced from 0 to an end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeGrid(double end, int steps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>end</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The last time, positive.</p>
+</dd>
+    <dt><code>steps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of steps.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_TimeGrid__ctor_System_Double_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>With no steps the grid holds one time, 0 times the infinite step: NaN, as QuantLib's does. The mandatory time is
+<code class="paramref">end</code>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">end</code> isn't positive, or <code class="paramref">steps</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TimeGrid__ctor_" data-uid="NanoQL.TimeGrid.#ctor*"></a>
+
+  <h3 id="NanoQL_TimeGrid__ctor_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.TimeGrid.#ctor(System.ReadOnlySpan{System.Double})">
+  TimeGrid(ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TimeGrid.html">TimeGrid</a> class with mandatory time points, which it copies: the
+grid holds them, and 0 before them, and no other point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeGrid(ReadOnlySpan&lt;double&gt; times)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>times</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The mandatory times, in any order; times close enough to one another count once.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">times</code> is empty or holds a negative time.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">times</code> holds a NaN, which QuantLib's sort leaves undefined.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TimeGrid__ctor_" data-uid="NanoQL.TimeGrid.#ctor*"></a>
+
+  <h3 id="NanoQL_TimeGrid__ctor_System_ReadOnlySpan_System_Double__System_Int32_" data-uid="NanoQL.TimeGrid.#ctor(System.ReadOnlySpan{System.Double},System.Int32)">
+  TimeGrid(ReadOnlySpan&lt;double&gt;, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TimeGrid.html">TimeGrid</a> class with mandatory time points, which it copies, and
+further points regularly spaced between each pair of them to reach about the given number of steps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeGrid(ReadOnlySpan&lt;double&gt; times, int steps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>times</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The mandatory times, in any order; times close enough to one another count once.</p>
+</dd>
+    <dt><code>steps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of steps over the whole grid, from which the longest step is the last mandatory time divided by
+it; with 0, the longest step is the shortest distance between the mandatory times, 0 aside.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">times</code> is empty or holds a negative time, or, with no steps, holds no time but 0.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">steps</code> is negative; or <code class="paramref">times</code> holds a NaN, or gives a period whose number
+of steps isn't a finite <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> (an infinite time, or no steps and a shortest distance too small),
+which QuantLib leaves undefined.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_TimeGrid_Empty_" data-uid="NanoQL.TimeGrid.Empty*"></a>
+
+  <h3 id="NanoQL_TimeGrid_Empty" data-uid="NanoQL.TimeGrid.Empty">
+  Empty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the grid has no times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Empty { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TimeGrid_Item_" data-uid="NanoQL.TimeGrid.Item*"></a>
+
+  <h3 id="NanoQL_TimeGrid_Item_System_Int32_" data-uid="NanoQL.TimeGrid.Item(System.Int32)">
+  this[int]
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the time at an index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double this[int i] { get; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">i</code> isn't a point of the grid, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TimeGrid_MandatoryTimes_" data-uid="NanoQL.TimeGrid.MandatoryTimes*"></a>
+
+  <h3 id="NanoQL_TimeGrid_MandatoryTimes" data-uid="NanoQL.TimeGrid.MandatoryTimes">
+  MandatoryTimes
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the mandatory times, sorted, with times close enough to one another counted once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; MandatoryTimes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TimeGrid_Size_" data-uid="NanoQL.TimeGrid.Size*"></a>
+
+  <h3 id="NanoQL_TimeGrid_Size" data-uid="NanoQL.TimeGrid.Size">
+  Size
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TimeGrid_At_" data-uid="NanoQL.TimeGrid.At*"></a>
+
+  <h3 id="NanoQL_TimeGrid_At_System_Int32_" data-uid="NanoQL.TimeGrid.At(System.Int32)">
+  At(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The time at an index, checked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double At(int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The index is out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TimeGrid_Back_" data-uid="NanoQL.TimeGrid.Back*"></a>
+
+  <h3 id="NanoQL_TimeGrid_Back" data-uid="NanoQL.TimeGrid.Back">
+  Back()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The last time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Back()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The last time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The grid is empty, where QuantLib is undefined.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TimeGrid_ClosestIndex_" data-uid="NanoQL.TimeGrid.ClosestIndex*"></a>
+
+  <h3 id="NanoQL_TimeGrid_ClosestIndex_System_Double_" data-uid="NanoQL.TimeGrid.ClosestIndex(System.Double)">
+  ClosestIndex(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The index of the time on the grid closest to <code class="paramref">t</code>; of the earlier of two equally close.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ClosestIndex(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index; 0 for an empty grid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TimeGrid_ClosestTime_" data-uid="NanoQL.TimeGrid.ClosestTime*"></a>
+
+  <h3 id="NanoQL_TimeGrid_ClosestTime_System_Double_" data-uid="NanoQL.TimeGrid.ClosestTime(System.Double)">
+  ClosestTime(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The time on the grid closest to <code class="paramref">t</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ClosestTime(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The grid is empty, where QuantLib is undefined.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TimeGrid_Dt_" data-uid="NanoQL.TimeGrid.Dt*"></a>
+
+  <h3 id="NanoQL_TimeGrid_Dt_System_Int32_" data-uid="NanoQL.TimeGrid.Dt(System.Int32)">
+  Dt(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The length of the step that starts at index <code class="paramref">i</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Dt(int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index, from 0 to <a class="xref" href="NanoQL.TimeGrid.html#NanoQL_TimeGrid_Size">Size</a> − 2.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The step's length.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">i</code> isn't a step of the grid, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TimeGrid_Front_" data-uid="NanoQL.TimeGrid.Front*"></a>
+
+  <h3 id="NanoQL_TimeGrid_Front" data-uid="NanoQL.TimeGrid.Front">
+  Front()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The first time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Front()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The grid is empty, where QuantLib is undefined.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TimeGrid_GetEnumerator_" data-uid="NanoQL.TimeGrid.GetEnumerator*"></a>
+
+  <h3 id="NanoQL_TimeGrid_GetEnumerator" data-uid="NanoQL.TimeGrid.GetEnumerator">
+  GetEnumerator()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an enumerator over the times, so that <code>foreach</code> works.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt;.Enumerator GetEnumerator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1.enumerator">Enumerator</a></dt>
+    <dd><p>The enumerator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TimeGrid_Index_" data-uid="NanoQL.TimeGrid.Index*"></a>
+
+  <h3 id="NanoQL_TimeGrid_Index_System_Double_" data-uid="NanoQL.TimeGrid.Index(System.Double)">
+  Index(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The index of a time on the grid: the closest time's, if <code class="paramref">t</code> is close enough to it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Index(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No time on the grid is close enough to <code class="paramref">t</code>; or the grid is empty or its first time is NaN,
+where QuantLib is undefined.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">t</code> is NaN, for which QuantLib is undefined.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

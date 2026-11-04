@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class DiscretizedCapFloor | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DiscretizedCapFloor | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A discretized cap, floor or collar: its value on a lattice, each optionlet added as the rollback reaches it.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.DiscretizedCapFloor">
+
+
+
+  <h1 id="NanoQL_PricingEngines_DiscretizedCapFloor" data-uid="NanoQL.PricingEngines.DiscretizedCapFloor" class="text-break">
+Class DiscretizedCapFloor  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A discretized cap, floor or collar: its value on a lattice, each optionlet added as the rollback reaches it.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public sealed class DiscretizedCapFloor : DiscretizedAsset</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.DiscretizedAsset.html">DiscretizedAsset</a></div>
+      <div><span class="xref">DiscretizedCapFloor</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Initialize_NanoQL_Lattice_System_Double_">DiscretizedAsset.Initialize(Lattice, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Rollback_System_Double_">DiscretizedAsset.Rollback(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PartialRollback_System_Double_">DiscretizedAsset.PartialRollback(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PresentValue">DiscretizedAsset.PresentValue()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PreAdjustValues">DiscretizedAsset.PreAdjustValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PostAdjustValues">DiscretizedAsset.PostAdjustValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_AdjustValues">DiscretizedAsset.AdjustValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_ReserveCapacity_System_Int32_">DiscretizedAsset.ReserveCapacity(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_StepValues_System_Int32_">DiscretizedAsset.StepValues(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_CommitStep_System_Int32_System_Double_">DiscretizedAsset.CommitStep(int, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Time">DiscretizedAsset.Time</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Values">DiscretizedAsset.Values</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Method">DiscretizedAsset.Method</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_DiscretizedCapFloor_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A working type (<a class="xref" href="NanoQL.DiscretizedAsset.html">DiscretizedAsset</a>). A caplet still to be fixed is added in the pre-adjustment at its
+fixing time, as the option to pay (1 + Kτ) at its payment time for 1 at its start, the two discount bonds rolled back
+there: (1 + Kτ)·max(P(start)/(1 + Kτ) − P(end), 0) times its nominal and gearing, a floorlet likewise; one fixed after
+its start, in arrears, at its fixing time too, on its index's own period from the fixing date, three bonds rolled
+back there: τ·P(pay)·max(L − K, 0), L = (P(s)/P(e) − 1)/τᵢ over the period (s, e) and its index's year fraction τᵢ,
+times its nominal and gearing; one fixed on its start at its start time, as QuantLib adds every caplet,
+(1 + Kτ)·max(1/(1 + Kτ) − P, 0). A
+caplet fixed on or before the reference date, as the analytic engine knows it (its fixing time at most 0), is added in
+the post-adjustment at its payment time, as its known amount, max(F − K, 0)·τ times its nominal and gearing; one paid
+on the reference date counts only when the context includes today's cash flows, as the discretized swap's known
+coupon does. The times are the given day counter's year fractions from the reference date.
+</p>
+<p>
+<b>The fixing time</b>: QuantLib exercises every caplet still to be fixed at its start
+(<code>discretizedcapfloor.cpp:53-55</code>), where the instrument fixes its rate and QuantLib's Monte Carlo engine reads
+it at the fixing date, so a caplet with a fixing lag is priced on the variance to its start; a divergence
+(<code>Divergences/CapletFixingExpiryTests.cs</code>). On a caplet fixed on its start, the fixing time is the start time
+and the value QuantLib's, bit for bit. A rollback must reach the earliest fixing time a caplet is valued at, which
+precedes the first start QuantLib's engine rolls back to (<span class="xref">NanoQL.PricingEngines.DiscretizedCapFloor.EarliestFixingTime</span>).
+</p>
+<p>
+<b>An in-arrears caplet</b>: QuantLib values it as the caplet in advance, at its start on its accrual period,
+reading neither its later fixing nor its index's period; a divergence (<code>Divergences/CapletInArrearsTests.cs</code>)
+with no QuantLib check, checked on Hull-White against each caplet's Gaussian integral at its fixing. Its fixing time
+and its index period's start and end are mandatory times, the end past the cap's last payment.
+</p>
+<p>
+<b>A seasoned cap</b> (widened): its mandatory times are its non-negative start and payment times, as the
+discretized swap's are, then the fixing times of the caplets valued there, and a caplet is known by its fixing date:
+a divergence, QuantLib's keeping the started caplets' negative times, so its engine refuses "negative times not
+allowed", and knowing a caplet by its start, so between its fixing and its start it values the caplet as an option,
+ignoring its fixing (<code>discretizedcapfloor.cpp:55</code>, <code>:91</code>; <code>Divergences/TreeCapFloorSeasonedTests.cs</code>,
+<code>Divergences/TreeKnownCouponTests.cs</code>). A caplet still to be fixed whose start is before the reference date can
+only be in arrears, and is valued at its fixing as any other, its start unread, where QuantLib's grid refuses its
+negative start time ("negative times not allowed").
+</p>
+<p>
+<b>Its discount bonds.</b> As <a class="xref" href="NanoQL.PricingEngines.DiscretizedSwap.html">DiscretizedSwap</a>'s: one bond to the payment, one to the start (or the
+index period's start) and one to the index period's end, re-initialized for each optionlet, their buffers reserved by
+<a class="xref" href="NanoQL.PricingEngines.DiscretizedCapFloor.html#NanoQL_PricingEngines_DiscretizedCapFloor_Reset_System_Int32_">Reset(int)</a> at the widest step of the grid, so no optionlet's bonds allocate.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedCapFloor__ctor_" data-uid="NanoQL.PricingEngines.DiscretizedCapFloor.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedCapFloor__ctor_NanoQL_Instruments_CapFloor_NanoQL_Time_Date_NanoQL_Time_DayCounter_NanoQL_EvaluationContext_" data-uid="NanoQL.PricingEngines.DiscretizedCapFloor.#ctor(NanoQL.Instruments.CapFloor,NanoQL.Time.Date,NanoQL.Time.DayCounter,NanoQL.EvaluationContext)">
+  DiscretizedCapFloor(CapFloor, Date, DayCounter, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.DiscretizedCapFloor.html">DiscretizedCapFloor</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscretizedCapFloor(CapFloor capFloor, Date referenceDate, DayCounter dayCounter, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>capFloor</code> <a class="xref" href="NanoQL.Instruments.CapFloor.html">CapFloor</a></dt>
+    <dd><p>The cap, floor or collar.</p>
+</dd>
+    <dt><code>referenceDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date of time 0.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter of the times.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose coupons' fixings and forecasts the known amounts read, and whose
+<a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_IncludeTodaysCashFlows">IncludeTodaysCashFlows</a> decides a caplet paid on the reference date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The cap, the day counter or the context is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">referenceDate</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/default">default</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A cash flow isn't a floating-rate coupon, or a forward can't be computed.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedCapFloor_MandatoryTimes_" data-uid="NanoQL.PricingEngines.DiscretizedCapFloor.MandatoryTimes*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedCapFloor_MandatoryTimes" data-uid="NanoQL.PricingEngines.DiscretizedCapFloor.MandatoryTimes">
+  MandatoryTimes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The asset's mandatory times: its non-negative start times, then its non-negative payment times, then the fixing
+times of the caplets valued there, then each in-arrears caplet's index period's start and end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ImmutableArray&lt;double&gt; MandatoryTimes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The times, not guaranteed to be sorted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedCapFloor_PostAdjustValuesImpl_" data-uid="NanoQL.PricingEngines.DiscretizedCapFloor.PostAdjustValuesImpl*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedCapFloor_PostAdjustValuesImpl" data-uid="NanoQL.PricingEngines.DiscretizedCapFloor.PostAdjustValuesImpl">
+  PostAdjustValuesImpl()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the known optionlets whose payment is now, each its amount.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void PostAdjustValuesImpl()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A known optionlet's forward isn't available.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedCapFloor_PreAdjustValuesImpl_" data-uid="NanoQL.PricingEngines.DiscretizedCapFloor.PreAdjustValuesImpl*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedCapFloor_PreAdjustValuesImpl" data-uid="NanoQL.PricingEngines.DiscretizedCapFloor.PreAdjustValuesImpl">
+  PreAdjustValuesImpl()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the optionlets still to be fixed whose fixing is now, or whose start is now for one fixed on its start, each
+an option on its discount bonds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void PreAdjustValuesImpl()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedCapFloor_Reset_" data-uid="NanoQL.PricingEngines.DiscretizedCapFloor.Reset*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedCapFloor_Reset_System_Int32_" data-uid="NanoQL.PricingEngines.DiscretizedCapFloor.Reset(System.Int32)">
+  Reset(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the values to 0 and adjusts them; on a tree lattice, it first reserves its discount bond's buffers at the
+widest step from the asset's time down to the grid's start.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Reset(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of values.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">size</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The asset isn't initialized, or a known caplet's forward isn't available.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

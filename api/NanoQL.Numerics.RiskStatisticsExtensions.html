@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class RiskStatisticsExtensions | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RiskStatisticsExtensions | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The empirical risk measures (semi-variance, regret, value-at-risk, expected shortfall, …), from the samples of a statistics tool that keeps them: QuantLib&#39;s GenericRiskStatistics&amp;lt;S&amp;gt;, which derives from its type parameter, as C# 14 extension members over any .">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.RiskStatisticsExtensions">
+
+
+
+  <h1 id="NanoQL_Numerics_RiskStatisticsExtensions" data-uid="NanoQL.Numerics.RiskStatisticsExtensions" class="text-break">
+Class RiskStatisticsExtensions  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The empirical risk measures (semi-variance, regret, value-at-risk, expected shortfall, …), from the samples of a
+statistics tool that keeps them: QuantLib's <code>GenericRiskStatistics&lt;S&gt;</code>, which derives from its type
+parameter, as C# 14 extension members over any <a class="xref" href="NanoQL.Numerics.IEmpiricalStatistics.html">IEmpiricalStatistics</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class RiskStatisticsExtensions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RiskStatisticsExtensions</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Numerics_RiskStatisticsExtensions_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+QuantLib's <code>RiskStatistics</code>, <code>GenericRiskStatistics&lt;GaussianStatistics&gt;</code>, and its
+<code>Statistics</code> typedef are <a class="xref" href="NanoQL.Numerics.GeneralStatistics.html">GeneralStatistics</a> with these members and those of
+<a class="xref" href="NanoQL.Numerics.GaussianStatisticsExtensions.html">GaussianStatisticsExtensions</a>.
+</p>
+<p>
+<a class="xref" href="NanoQL.Numerics.RiskStatisticsExtensions.html#NanoQL_Numerics_RiskStatisticsExtensions_ExpectedShortfall__1___0_System_Double_">ExpectedShortfall&lt;TStat&gt;(TStat, double)</a> where no sample lies below the value-at-risk's level reads the level itself, 0 with
+no loss and the value-at-risk where the tail is an atom at that level, where QuantLib refuses "no data below the
+target": a documented divergence.
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_RiskStatisticsExtensions_AverageShortfall_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.AverageShortfall*"></a>
+
+  <h3 id="NanoQL_Numerics_RiskStatisticsExtensions_AverageShortfall__1___0_System_Double_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.AverageShortfall``1(``0,System.Double)">
+  AverageShortfall&lt;TStat&gt;(TStat, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The averaged shortfallness, E[t − x | x &lt; t].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double AverageShortfall&lt;TStat&gt;(this TStat stats, double target) where TStat : notnull, IEmpiricalStatistics</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stats</code> <span class="xref">TStat</span></dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The target.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The average shortfall.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TStat</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No sample lies below the target.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_RiskStatisticsExtensions_DownsideDeviation_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.DownsideDeviation*"></a>
+
+  <h3 id="NanoQL_Numerics_RiskStatisticsExtensions_DownsideDeviation__1___0_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.DownsideDeviation``1(``0)">
+  DownsideDeviation&lt;TStat&gt;(TStat)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The downside deviation, the square root of the downside variance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double DownsideDeviation&lt;TStat&gt;(this TStat stats) where TStat : notnull, IEmpiricalStatistics</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stats</code> <span class="xref">TStat</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The downside deviation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TStat</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There are fewer than two negative samples.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_RiskStatisticsExtensions_DownsideVariance_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.DownsideVariance*"></a>
+
+  <h3 id="NanoQL_Numerics_RiskStatisticsExtensions_DownsideVariance__1___0_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.DownsideVariance``1(``0)">
+  DownsideVariance&lt;TStat&gt;(TStat)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The variance of observations below 0, N/(N − 1) E[x² | x &lt; 0].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double DownsideVariance&lt;TStat&gt;(this TStat stats) where TStat : notnull, IEmpiricalStatistics</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stats</code> <span class="xref">TStat</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The downside variance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TStat</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There are fewer than two negative samples.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_RiskStatisticsExtensions_ExpectedShortfall_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.ExpectedShortfall*"></a>
+
+  <h3 id="NanoQL_Numerics_RiskStatisticsExtensions_ExpectedShortfall__1___0_System_Double_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.ExpectedShortfall``1(``0,System.Double)">
+  ExpectedShortfall&lt;TStat&gt;(TStat, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expected shortfall at a percentile: the expected loss where the loss exceeds the value-at-risk,
+E[x | x &lt; VaR(p)], the average of observations below the percentile, also known as conditional
+value-at-risk (Artzner, Delbaen, Eber and Heath, &quot;Coherent measures of risk&quot;, Mathematical Finance 9, 1999);
+capped at 0 and negated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double ExpectedShortfall&lt;TStat&gt;(this TStat stats, double percentile) where TStat : notnull, IEmpiricalStatistics</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stats</code> <span class="xref">TStat</span></dt>
+    <dd></dd>
+    <dt><code>percentile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The percentile, in [0.9, 1).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The expected shortfall; where no sample lies below the value-at-risk's level, that level capped and negated:
+0 with no loss, the value-at-risk where the tail is an atom at that level (a divergence: QuantLib refuses).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TStat</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">percentile</code> is outside [0.9, 1).</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There's no sample.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_RiskStatisticsExtensions_PotentialUpside_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.PotentialUpside*"></a>
+
+  <h3 id="NanoQL_Numerics_RiskStatisticsExtensions_PotentialUpside__1___0_System_Double_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.PotentialUpside``1(``0,System.Double)">
+  PotentialUpside&lt;TStat&gt;(TStat, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The potential upside (the reciprocal of value-at-risk) at a percentile, floored at 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double PotentialUpside&lt;TStat&gt;(this TStat stats, double percentile) where TStat : notnull, IEmpiricalStatistics</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stats</code> <span class="xref">TStat</span></dt>
+    <dd></dd>
+    <dt><code>percentile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The percentile, in [0.9, 1).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The potential upside.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TStat</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">percentile</code> is outside [0.9, 1).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_RiskStatisticsExtensions_Regret_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.Regret*"></a>
+
+  <h3 id="NanoQL_Numerics_RiskStatisticsExtensions_Regret__1___0_System_Double_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.Regret``1(``0,System.Double)">
+  Regret&lt;TStat&gt;(TStat, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The variance of observations below a target, N/(N − 1) E[(x − t)² | x &lt; t] (Dembo and Freeman, &quot;The Rules
+Of Risk&quot;, Wiley, 2001).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Regret&lt;TStat&gt;(this TStat stats, double target) where TStat : notnull, IEmpiricalStatistics</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stats</code> <span class="xref">TStat</span></dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The target.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The regret.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TStat</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There are fewer than two samples below the target.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_RiskStatisticsExtensions_SemiDeviation_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.SemiDeviation*"></a>
+
+  <h3 id="NanoQL_Numerics_RiskStatisticsExtensions_SemiDeviation__1___0_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.SemiDeviation``1(``0)">
+  SemiDeviation&lt;TStat&gt;(TStat)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The semi-deviation, the square root of the semi-variance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double SemiDeviation&lt;TStat&gt;(this TStat stats) where TStat : notnull, IEmpiricalStatistics</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stats</code> <span class="xref">TStat</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The semi-deviation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TStat</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There are fewer than two samples below the mean.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_RiskStatisticsExtensions_SemiVariance_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.SemiVariance*"></a>
+
+  <h3 id="NanoQL_Numerics_RiskStatisticsExtensions_SemiVariance__1___0_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.SemiVariance``1(``0)">
+  SemiVariance&lt;TStat&gt;(TStat)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The variance of observations below the mean, N/(N − 1) E[(x − ⟨x⟩)² | x &lt; ⟨x⟩] (Markowitz, 1959).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double SemiVariance&lt;TStat&gt;(this TStat stats) where TStat : notnull, IEmpiricalStatistics</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stats</code> <span class="xref">TStat</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The semi-variance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TStat</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There are fewer than two samples below the mean.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_RiskStatisticsExtensions_Shortfall_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.Shortfall*"></a>
+
+  <h3 id="NanoQL_Numerics_RiskStatisticsExtensions_Shortfall__1___0_System_Double_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.Shortfall``1(``0,System.Double)">
+  Shortfall&lt;TStat&gt;(TStat, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The probability of missing a target, E[Θ | (−∞, ∞)], where Θ(x) is 1 for x &lt; t and 0 for x ≥ t.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Shortfall&lt;TStat&gt;(this TStat stats, double target) where TStat : notnull, IEmpiricalStatistics</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stats</code> <span class="xref">TStat</span></dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The target.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The shortfall.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TStat</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There's no sample.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_RiskStatisticsExtensions_ValueAtRisk_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.ValueAtRisk*"></a>
+
+  <h3 id="NanoQL_Numerics_RiskStatisticsExtensions_ValueAtRisk__1___0_System_Double_" data-uid="NanoQL.Numerics.RiskStatisticsExtensions.ValueAtRisk``1(``0,System.Double)">
+  ValueAtRisk&lt;TStat&gt;(TStat, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The value-at-risk at a percentile: the (1 − percentile)-th percentile, capped at 0 and negated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double ValueAtRisk&lt;TStat&gt;(this TStat stats, double percentile) where TStat : notnull, IEmpiricalStatistics</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stats</code> <span class="xref">TStat</span></dt>
+    <dd></dd>
+    <dt><code>percentile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The percentile, in [0.9, 1).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value-at-risk.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TStat</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">percentile</code> is outside [0.9, 1).</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IInterpolatedCurve&lt;TTraits, TInterpolator&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IInterpolatedCurve&lt;TTraits, TInterpolator&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An interpolated curve of the kind its traits name, over the given interpolator: QuantLib&#39;s Traits::curve&amp;lt;Interpolator&amp;gt;::type, which a piecewise curve on those traits derives from.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.IInterpolatedCurve`2">
+
+
+
+  <h1 id="NanoQL_TermStructures_IInterpolatedCurve_2" data-uid="NanoQL.TermStructures.IInterpolatedCurve`2" class="text-break">
+Interface IInterpolatedCurve&lt;TTraits, TInterpolator&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An interpolated curve of the kind its traits name, over the given interpolator: QuantLib's
+<code>Traits::curve&lt;Interpolator&gt;::type</code>, which a piecewise curve on those traits derives from.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IInterpolatedCurve&lt;TTraits, TInterpolator&gt; where TTraits : struct where TInterpolator : struct, IInterpolator</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TTraits</code></dt>
+    <dd><p>The traits naming the curve kind (<a class="xref" href="NanoQL.TermStructures.Discount.html">Discount</a>, <a class="xref" href="NanoQL.TermStructures.ZeroYield.html">ZeroYield</a>, …).</p>
+</dd>
+    <dt><code>TInterpolator</code></dt>
+    <dd><p>The interpolator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 id="NanoQL_TermStructures_IInterpolatedCurve_2_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The question QuantLib's code asks, whether a curve is an <code>InterpolatedDiscountCurve&lt;LogLinear&gt;</code>,
+bootstrapped or not, is <code>curve is IInterpolatedCurve&lt;Discount, LogLinear&gt;</code>: the interpolated curve of the
+kind and the piecewise curve on its traits both implement it. An extension point: a curve kind of one's own
+implements it with its traits.</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_IInterpolatedCurve_2_Data_" data-uid="NanoQL.TermStructures.IInterpolatedCurve`2.Data*"></a>
+
+  <h3 id="NanoQL_TermStructures_IInterpolatedCurve_2_Data" data-uid="NanoQL.TermStructures.IInterpolatedCurve`2.Data">
+  Data()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The curve's data at its nodes, as its traits read them (discount factors, rates).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ImmutableArray&lt;double&gt; Data()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_IInterpolatedCurve_2_Dates_" data-uid="NanoQL.TermStructures.IInterpolatedCurve`2.Dates*"></a>
+
+  <h3 id="NanoQL_TermStructures_IInterpolatedCurve_2_Dates" data-uid="NanoQL.TermStructures.IInterpolatedCurve`2.Dates">
+  Dates()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The dates of the curve's nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ImmutableArray&lt;Date&gt; Dates()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The dates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_IInterpolatedCurve_2_Nodes_" data-uid="NanoQL.TermStructures.IInterpolatedCurve`2.Nodes*"></a>
+
+  <h3 id="NanoQL_TermStructures_IInterpolatedCurve_2_Nodes" data-uid="NanoQL.TermStructures.IInterpolatedCurve`2.Nodes">
+  Nodes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The curve's nodes: each date with the data at it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ImmutableArray&lt;KeyValuePair&lt;Date, double&gt;&gt; Nodes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd><p>The nodes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_IInterpolatedCurve_2_Times_" data-uid="NanoQL.TermStructures.IInterpolatedCurve`2.Times*"></a>
+
+  <h3 id="NanoQL_TermStructures_IInterpolatedCurve_2_Times" data-uid="NanoQL.TermStructures.IInterpolatedCurve`2.Times">
+  Times()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The times of the curve's nodes, from the reference date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ImmutableArray&lt;double&gt; Times()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The times.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

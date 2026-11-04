@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Quantitative finance for .NET | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Quantitative finance for .NET | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="brand/favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="landing" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+
+<div class="nq-band">
+<div class="nq-band-inner">
+<h1 id="quantitative-finance-for-net-stateless-by-design">Quantitative finance for .NET,<br class="nq-break"> stateless by design.</h1>
+<p>nanoql prices rates, credit, equity, FX, inflation and commodity products. Every pricer is a plain function of its
+inputs, and market conventions are data you can override.</p>
+<div class="nq-band-actions">
+<a href="docs/getting-started.html">Get started</a>
+<a href="migration/index.html">Migrating to nanoql</a>
+<a href="https://github.com/nanoql-dev/nanoql">GitHub</a>
+</div>
+</div>
+</div>
+<div class="nq-body">
+<h2 id="a-first-swap">A first swap</h2>
+<p>Install the package:</p>
+<div class="nq-shell">
+<pre><code class="lang-shell">dotnet add package NanoQL
+</code></pre>
+</div>
+<p>Then price a five-year SOFR swap on a flat curve. The curve, the swap and the evaluation date are values, and the
+engine is a function of them:</p>
+<pre><code class="lang-csharp">using NanoQL;
+using NanoQL.Indexes;
+using NanoQL.Instruments;
+using NanoQL.PricingEngines;
+using NanoQL.TermStructures;
+using NanoQL.Time;
+
+var today = new Date(15, Month.October, 2026);
+var context = new EvaluationContext { EvaluationDate = today };
+var curve = new FlatForward(today, 0.036, new Actual365Fixed());
+
+var swap = new MakeOIS(new Period(5, TimeUnit.Years), new Sofr(curve))
+    .WithFixedRate(0.036).WithNominal(10e6)
+    .ToOvernightIndexedSwap(context);
+
+var result = DiscountingSwapEngine.Calculate(swap, context, curve);
+Console.WriteLine($&quot;NPV {result.NPV:N2}, fair rate {result.FairRate:P4}&quot;);
+</code></pre>
+<p>It prints:</p>
+<div class="nq-output">
+<pre><code class="lang-text">NPV 7,041.24, fair rate 3.6154%
+</code></pre>
+</div>
+<h2 id="why-nanoql">Why nanoql</h2>
+<div class="nq-why">
+<div>
+<h3 id="stateless">Stateless</h3>
+<p>Instruments, curves and models are immutable values, and pricers are static functions of them. The same inputs
+always give the same outputs, and calls run side by side.</p>
+</div>
+<div>
+<h3 id="conventions-as-data">Conventions as data</h3>
+<p>Calendars, day counts, currencies, indexes and the instrument builders' defaults are XML records: read them,
+override them for a desk, and version them with your trades.</p>
+</div>
+<div>
+<h3 id="tested">Tested</h3>
+<p>Results are checked against independent reference values: 3,348,122 reference outputs in 1,169 committed vector files, each within a relative 1e-10 of the larger of the two values and the output's scale (an amount's is its notional), except 4,854 (0.14%) held to a documented looser tolerance; the reference library's own tests, ported at their tolerances; and 736 departures from the references, each documented and tested.
+<a href="validation/index.html">The validation report</a> gives the figures by module.</p>
+</div>
+<div>
+<h3 id="python-and-c">Python and C</h3>
+<p>From C# and F#, and from Python and C through one C interface over nanoql compiled to native code:
+<code>pip install nanoql</code> needs no .NET runtime, and the C archive serves any language that calls C.</p>
+</div>
+</div>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

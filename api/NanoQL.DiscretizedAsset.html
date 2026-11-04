@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class DiscretizedAsset | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DiscretizedAsset | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The discretized asset class used by numerical methods: an asset&#39;s values on a lattice, rolled back in time.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.DiscretizedAsset">
+
+
+
+  <h1 id="NanoQL_DiscretizedAsset" data-uid="NanoQL.DiscretizedAsset" class="text-break">
+Class DiscretizedAsset  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The discretized asset class used by numerical methods: an asset's values on a lattice, rolled back in time.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public abstract class DiscretizedAsset</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DiscretizedAsset</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.DiscretizedDiscountBond.html">DiscretizedDiscountBond</a></div>
+      <div><a class="xref" href="NanoQL.DiscretizedOption.html">DiscretizedOption</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.DiscretizedCallableFixedRateBond.html">DiscretizedCallableFixedRateBond</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.DiscretizedDermanKaniDoubleBarrierOption.html">DiscretizedDermanKaniDoubleBarrierOption</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.DiscretizedDoubleBarrierOption.html">DiscretizedDoubleBarrierOption</a></div>
+      <div><a class="xref" href="NanoQL.PricingEngines.DiscretizedBarrierOption.html">DiscretizedBarrierOption</a></div>
+      <div><a class="xref" href="NanoQL.PricingEngines.DiscretizedCapFloor.html">DiscretizedCapFloor</a></div>
+      <div><a class="xref" href="NanoQL.PricingEngines.DiscretizedConvertible.html">DiscretizedConvertible</a></div>
+      <div><a class="xref" href="NanoQL.PricingEngines.DiscretizedDermanKaniBarrierOption.html">DiscretizedDermanKaniBarrierOption</a></div>
+      <div><a class="xref" href="NanoQL.PricingEngines.DiscretizedSwap.html">DiscretizedSwap</a></div>
+      <div><a class="xref" href="NanoQL.PricingEngines.DiscretizedVanillaOption.html">DiscretizedVanillaOption</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_DiscretizedAsset_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A working type, as a random-number generator is: mutable, owned by one calculation and not thread-safe. An engine
+builds its assets inside its calculation, initializes them on a lattice, rolls them back and reads their value; no
+immutable object holds one.
+</p>
+<p>
+<b>Its values and buffers.</b> <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Values">Values</a> is a view of the current step's values in the asset's own
+buffer, which the asset's code reads and writes as QuantLib's <code>values_</code>. The asset holds two buffers. A lattice
+reserves both at the widest step a rollback from the initial time passes through (<a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_ReserveCapacity_System_Int32_">ReserveCapacity(int)</a>),
+then steps back into the spare one (<a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_StepValues_System_Int32_">StepValues(int)</a>) and makes it the current one
+(<a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_CommitStep_System_Int32_System_Double_">CommitStep(int, double)</a>), so a rollback allocates nothing, where QuantLib's allocates an array per step. A view is
+valid until the asset's next step or reset.
+</p>
+<p>
+<b>Adjustments.</b> <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PreAdjustValues">PreAdjustValues()</a> and <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PostAdjustValues">PostAdjustValues()</a> run the protected
+<a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PreAdjustValuesImpl">PreAdjustValuesImpl()</a> and <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PostAdjustValuesImpl">PostAdjustValuesImpl()</a> once per time: each remembers the last time
+it adjusted at, starting at QuantLib's <code>QL_MAX_REAL</code>, and, as QuantLib's, <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Initialize_NanoQL_Lattice_System_Double_">Initialize(Lattice, double)</a> doesn't
+forget it, so an asset initialized again at its last adjustment time skips that adjustment.
+</p>
+<p>
+An extension point, as in QuantLib: the discount bond, the option, the swap, the swaption and the callable bond
+derive from it, as later ports' cap, vanilla option, barrier and convertible assets will.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_DiscretizedAsset__ctor_" data-uid="NanoQL.DiscretizedAsset.#ctor*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset__ctor" data-uid="NanoQL.DiscretizedAsset.#ctor">
+  DiscretizedAsset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.DiscretizedAsset.html">DiscretizedAsset</a> class, with no values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DiscretizedAsset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_DiscretizedAsset_Method_" data-uid="NanoQL.DiscretizedAsset.Method*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_Method" data-uid="NanoQL.DiscretizedAsset.Method">
+  Method
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the lattice the asset was initialized on, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> before <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Initialize_NanoQL_Lattice_System_Double_">Initialize(Lattice, double)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Lattice? Method { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Lattice.html">Lattice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_DiscretizedAsset_Time_" data-uid="NanoQL.DiscretizedAsset.Time*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_Time" data-uid="NanoQL.DiscretizedAsset.Time">
+  Time
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the asset's time, which the lattice moves as it rolls the asset back.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Time { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_DiscretizedAsset_Values_" data-uid="NanoQL.DiscretizedAsset.Values*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_Values" data-uid="NanoQL.DiscretizedAsset.Values">
+  Values
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the asset's values at its time: a view of the asset's current buffer, of the current step's size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Span&lt;double&gt; Values { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="NanoQL_DiscretizedAsset_Values_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The view is valid until the asset's next step or reset; a caller that keeps the values copies them.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_DiscretizedAsset_AdjustValues_" data-uid="NanoQL.DiscretizedAsset.AdjustValues*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_AdjustValues" data-uid="NanoQL.DiscretizedAsset.AdjustValues">
+  AdjustValues()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs both the pre- and the post-adjustment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AdjustValues()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_DiscretizedAsset_CommitStep_" data-uid="NanoQL.DiscretizedAsset.CommitStep*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_CommitStep_System_Int32_System_Double_" data-uid="NanoQL.DiscretizedAsset.CommitStep(System.Int32,System.Double)">
+  CommitStep(int, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>For a lattice: makes the values written into <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_StepValues_System_Int32_">StepValues(int)</a> the asset's, of the given size, at the given
+time. The two buffers swap, so the previous values' buffer becomes the spare one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CommitStep(int size, double time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of values written.</p>
+</dd>
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The asset's new time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">size</code> is negative, or larger than the view <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_StepValues_System_Int32_">StepValues(int)</a> gave.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_DiscretizedAsset_Initialize_" data-uid="NanoQL.DiscretizedAsset.Initialize*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_Initialize_NanoQL_Lattice_System_Double_" data-uid="NanoQL.DiscretizedAsset.Initialize(NanoQL.Lattice,System.Double)">
+  Initialize(Lattice, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the asset on a lattice at the given time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(Lattice lattice, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lattice</code> <a class="xref" href="NanoQL.Lattice.html">Lattice</a></dt>
+    <dd><p>The lattice.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">lattice</code> is null.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_DiscretizedAsset_IsOnTime_" data-uid="NanoQL.DiscretizedAsset.IsOnTime*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_IsOnTime_System_Double_" data-uid="NanoQL.DiscretizedAsset.IsOnTime(System.Double)">
+  IsOnTime(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks whether the asset was rolled to the given time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool IsOnTime(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the grid's time for <code class="paramref">t</code> is the asset's time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The asset isn't initialized, or <code class="paramref">t</code> isn't on the lattice's grid (the grid's own refusal).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_DiscretizedAsset_MandatoryTimes_" data-uid="NanoQL.DiscretizedAsset.MandatoryTimes*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_MandatoryTimes" data-uid="NanoQL.DiscretizedAsset.MandatoryTimes">
+  MandatoryTimes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The times at which the numerical method should stop while rolling the asset back: payment and exercise times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ImmutableArray&lt;double&gt; MandatoryTimes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The times, not guaranteed to be sorted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_DiscretizedAsset_PartialRollback_" data-uid="NanoQL.DiscretizedAsset.PartialRollback*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_PartialRollback_System_Double_" data-uid="NanoQL.DiscretizedAsset.PartialRollback(System.Double)">
+  PartialRollback(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rolls the asset back until the given time, without the final adjustment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PartialRollback(double to)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>to</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to roll back to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The asset isn't initialized.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_DiscretizedAsset_PostAdjustValues_" data-uid="NanoQL.DiscretizedAsset.PostAdjustValues*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_PostAdjustValues" data-uid="NanoQL.DiscretizedAsset.PostAdjustValues">
+  PostAdjustValues()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the post-adjustment, once per time: invoked after a rollback and after any other asset had its chance to
+look at the values; payments at the present time, which an option exercised now doesn't include, are added here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PostAdjustValues()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_DiscretizedAsset_PostAdjustValuesImpl_" data-uid="NanoQL.DiscretizedAsset.PostAdjustValuesImpl*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_PostAdjustValuesImpl" data-uid="NanoQL.DiscretizedAsset.PostAdjustValuesImpl">
+  PostAdjustValuesImpl()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs the actual post-adjustment; does nothing by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void PostAdjustValuesImpl()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_DiscretizedAsset_PreAdjustValues_" data-uid="NanoQL.DiscretizedAsset.PreAdjustValues*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_PreAdjustValues" data-uid="NanoQL.DiscretizedAsset.PreAdjustValues">
+  PreAdjustValues()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the pre-adjustment, once per time: invoked after a rollback and before any other asset (an option on this
+one) looks at the values; payments at times the rollback already spanned are added here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PreAdjustValues()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_DiscretizedAsset_PreAdjustValuesImpl_" data-uid="NanoQL.DiscretizedAsset.PreAdjustValuesImpl*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_PreAdjustValuesImpl" data-uid="NanoQL.DiscretizedAsset.PreAdjustValuesImpl">
+  PreAdjustValuesImpl()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs the actual pre-adjustment; does nothing by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void PreAdjustValuesImpl()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_DiscretizedAsset_PresentValue_" data-uid="NanoQL.DiscretizedAsset.PresentValue*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_PresentValue" data-uid="NanoQL.DiscretizedAsset.PresentValue">
+  PresentValue()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The asset's present value on its lattice.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double PresentValue()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The present value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The asset isn't initialized.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_DiscretizedAsset_ReserveCapacity_" data-uid="NanoQL.DiscretizedAsset.ReserveCapacity*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_ReserveCapacity_System_Int32_" data-uid="NanoQL.DiscretizedAsset.ReserveCapacity(System.Int32)">
+  ReserveCapacity(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>For a lattice: reserves both buffers at the given width, the widest step the asset's rollback passes through, so
+that its steps allocate nothing. A lattice calls it in its <a class="xref" href="NanoQL.Lattice.html#NanoQL_Lattice_Initialize_NanoQL_DiscretizedAsset_System_Double_">Initialize(DiscretizedAsset, double)</a>, before
+<a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Reset_System_Int32_">Reset(int)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReserveCapacity(int width)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width, in values.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">width</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_DiscretizedAsset_Reset_" data-uid="NanoQL.DiscretizedAsset.Reset*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_Reset_System_Int32_" data-uid="NanoQL.DiscretizedAsset.Reset(System.Int32)">
+  Reset(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the asset's values to an array of the given size, with values depending on the particular asset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Reset(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of values.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_DiscretizedAsset_ResetValues_" data-uid="NanoQL.DiscretizedAsset.ResetValues*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_ResetValues_System_Int32_System_Double_" data-uid="NanoQL.DiscretizedAsset.ResetValues(System.Int32,System.Double)">
+  ResetValues(int, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the values to the given size, each to the given value: QuantLib's <code>values_ = Array(size, value)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Span&lt;double&gt; ResetValues(int size, double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of values.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value of each.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The values, as <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Values">Values</a> gives them.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">size</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_DiscretizedAsset_Rollback_" data-uid="NanoQL.DiscretizedAsset.Rollback*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_Rollback_System_Double_" data-uid="NanoQL.DiscretizedAsset.Rollback(System.Double)">
+  Rollback(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rolls the asset back until the given time, performing any needed adjustment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Rollback(double to)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>to</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to roll back to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The asset isn't initialized.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_DiscretizedAsset_StepValues_" data-uid="NanoQL.DiscretizedAsset.StepValues*"></a>
+
+  <h3 id="NanoQL_DiscretizedAsset_StepValues_System_Int32_" data-uid="NanoQL.DiscretizedAsset.StepValues(System.Int32)">
+  StepValues(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>For a lattice: the spare buffer, as a view of the given size, which the lattice fills with the asset's values one
+step back and then hands back with <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_CommitStep_System_Int32_System_Double_">CommitStep(int, double)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Span&lt;double&gt; StepValues(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of values at the step back.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The view, whose contents are undefined until the lattice writes them.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_DiscretizedAsset_StepValues_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A width the lattice didn't reserve is grown here, which allocates.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">size</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

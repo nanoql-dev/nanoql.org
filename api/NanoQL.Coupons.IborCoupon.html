@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class IborCoupon | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class IborCoupon | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A coupon paying an Ibor index&#39;s fixing, geared and spread.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Coupons.IborCoupon">
+
+
+
+  <h1 id="NanoQL_Coupons_IborCoupon" data-uid="NanoQL.Coupons.IborCoupon" class="text-break">
+Class IborCoupon  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Coupons.html">Coupons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A coupon paying an Ibor index's fixing, geared and spread.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class IborCoupon : FloatingRateCoupon</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Event.html">Event</a></div>
+      <div><a class="xref" href="NanoQL.CashFlow.html">CashFlow</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.Coupon.html">Coupon</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></div>
+      <div><span class="xref">IborCoupon</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Coupons.StubIborCoupon.html">StubIborCoupon</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_Rate_NanoQL_EvaluationContext_">FloatingRateCoupon.Rate(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_Amount_NanoQL_EvaluationContext_">FloatingRateCoupon.Amount(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_Price_NanoQL_TermStructures_YieldTermStructure_NanoQL_EvaluationContext_">FloatingRateCoupon.Price(YieldTermStructure, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_AccruedAmount_NanoQL_Time_Date_NanoQL_EvaluationContext_">FloatingRateCoupon.AccruedAmount(Date, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_ConvexityAdjustment_NanoQL_EvaluationContext_">FloatingRateCoupon.ConvexityAdjustment(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_AdjustedFixing_NanoQL_EvaluationContext_">FloatingRateCoupon.AdjustedFixing(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_WithPricer_NanoQL_Coupons_FloatingRateCouponPricer_">FloatingRateCoupon.WithPricer(FloatingRateCouponPricer)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_ConvexityAdjustmentImpl_System_Double_NanoQL_EvaluationContext_">FloatingRateCoupon.ConvexityAdjustmentImpl(double, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_Index">FloatingRateCoupon.Index</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_FixingDays">FloatingRateCoupon.FixingDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_Gearing">FloatingRateCoupon.Gearing</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_Spread">FloatingRateCoupon.Spread</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_IsInArrears">FloatingRateCoupon.IsInArrears</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_FixingConvention">FloatingRateCoupon.FixingConvention</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_Pricer">FloatingRateCoupon.Pricer</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_DayCounter">FloatingRateCoupon.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_Nominal_NanoQL_EvaluationContext_">Coupon.Nominal(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccrualPeriod">Coupon.AccrualPeriod()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccrualDays">Coupon.AccrualDays()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccruedPeriod_NanoQL_Time_Date_">Coupon.AccruedPeriod(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccruedDays_NanoQL_Time_Date_">Coupon.AccruedDays(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_Date">Coupon.Date</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ExCouponDate">Coupon.ExCouponDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccrualStartDate">Coupon.AccrualStartDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccrualEndDate">Coupon.AccrualEndDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ReferencePeriodStart">Coupon.ReferencePeriodStart</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ReferencePeriodEnd">Coupon.ReferencePeriodEnd</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ContractNominal">Coupon.ContractNominal</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.CashFlow.html#NanoQL_CashFlow_HasOccurred_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__System_Nullable_System_Boolean__">CashFlow.HasOccurred(EvaluationContext, Date?, bool?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.CashFlow.html#NanoQL_CashFlow_TradingExCoupon_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">CashFlow.TradingExCoupon(EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCouponExtensions.html#NanoQL_Coupons_FloatingRateCouponExtensions_SetPricer__1___0_NanoQL_Coupons_FloatingRateCouponPricer_">FloatingRateCouponExtensions.SetPricer&lt;T&gt;(T, FloatingRateCouponPricer?)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_Coupons_IborCoupon_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Unsealed, as in QuantLib, where <a class="xref" href="NanoQL.Coupons.StubIborCoupon.html">StubIborCoupon</a> derives from it. The fixing date is computed when the
+coupon is built. The fixing's other dates and times (<a class="xref" href="NanoQL.Coupons.IborCoupon.html#NanoQL_Coupons_IborCoupon_FixingValueDate">FixingValueDate()</a>, <a class="xref" href="NanoQL.Coupons.IborCoupon.html#NanoQL_Coupons_IborCoupon_FixingEndDate">FixingEndDate()</a>,
+<a class="xref" href="NanoQL.Coupons.IborCoupon.html#NanoQL_Coupons_IborCoupon_FixingMaturityDate">FixingMaturityDate()</a>, <a class="xref" href="NanoQL.Coupons.IborCoupon.html#NanoQL_Coupons_IborCoupon_SpanningTime">SpanningTime()</a>, <a class="xref" href="NanoQL.Coupons.IborCoupon.html#NanoQL_Coupons_IborCoupon_SpanningTimeIndexMaturity">SpanningTimeIndexMaturity()</a>), which
+QuantLib caches in the coupon, are computed on each call from the coupon's own <a class="xref" href="NanoQL.Coupons.IborCouponPricer.html">IborCouponPricer</a>,
+whose at-par choice decides the end date and the spanning time.
+</p>
+<p>
+A pricer reaches the fixing through <a class="xref" href="NanoQL.Coupons.IborCoupon.html#NanoQL_Coupons_IborCoupon_IndexFixing_NanoQL_EvaluationContext_System_Boolean_">IndexFixing(EvaluationContext, bool)</a> with its own choice; the
+public <a class="xref" href="NanoQL.Coupons.IborCoupon.html#NanoQL_Coupons_IborCoupon_IndexFixing_NanoQL_EvaluationContext_">IndexFixing(EvaluationContext)</a> passes the coupon's own pricer's. A subclass that fixes
+differently overrides the former, which the public member and every pricer call.
+</p>
+<p>
+QuantLib's <code>IborCoupon::Settings</code> is the context's <a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_UseAtParCoupons">UseAtParCoupons</a>, which a
+pricer reads when it is built without an explicit choice.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Coupons_IborCoupon__ctor_" data-uid="NanoQL.Coupons.IborCoupon.#ctor*"></a>
+
+  <h3 id="NanoQL_Coupons_IborCoupon__ctor_NanoQL_Time_Date_System_Double_NanoQL_Time_Date_NanoQL_Time_Date_System_Nullable_System_Int32__NanoQL_Indexes_IborIndex_System_Double_System_Double_System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__NanoQL_Time_DayCounter_System_Boolean_System_Nullable_NanoQL_Time_Date__NanoQL_Time_BusinessDayConvention_NanoQL_Coupons_FloatingRateCouponPricer_" data-uid="NanoQL.Coupons.IborCoupon.#ctor(NanoQL.Time.Date,System.Double,NanoQL.Time.Date,NanoQL.Time.Date,System.Nullable{System.Int32},NanoQL.Indexes.IborIndex,System.Double,System.Double,System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date},NanoQL.Time.DayCounter,System.Boolean,System.Nullable{NanoQL.Time.Date},NanoQL.Time.BusinessDayConvention,NanoQL.Coupons.FloatingRateCouponPricer)">
+  IborCoupon(Date, double, Date, Date, int?, IborIndex, double, double, Date?, Date?, DayCounter?, bool, Date?, BusinessDayConvention, FloatingRateCouponPricer?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Coupons.IborCoupon.html">IborCoupon</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborCoupon(Date paymentDate, double nominal, Date startDate, Date endDate, int? fixingDays, IborIndex index, double gearing = 1, double spread = 0, Date? refPeriodStart = null, Date? refPeriodEnd = null, DayCounter? dayCounter = null, bool isInArrears = false, Date? exCouponDate = null, BusinessDayConvention fixingConvention = BusinessDayConvention.Preceding, FloatingRateCouponPricer? pricer = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>paymentDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The payment date.</p>
+</dd>
+    <dt><code>nominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The nominal.</p>
+</dd>
+    <dt><code>startDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The start of the accrual period.</p>
+</dd>
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The end of the accrual period.</p>
+</dd>
+    <dt><code>fixingDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The business days from the fixing date to the accrual start (or end, in arrears); the
+index's fixing days when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null&lt;Natural&gt;()</code>.</p>
+</dd>
+    <dt><code>index</code> <a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd><p>The index.</p>
+</dd>
+    <dt><code>gearing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The gearing applied to the index fixing.</p>
+</dd>
+    <dt><code>spread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spread added to the geared fixing.</p>
+</dd>
+    <dt><code>refPeriodStart</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The reference period's start; the accrual start when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>refPeriodEnd</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The reference period's end; the accrual end when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The accrual day counter; the index's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>isInArrears</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the index fixes at the end of the accrual period.</p>
+</dd>
+    <dt><code>exCouponDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The ex-coupon date, if any.</p>
+</dd>
+    <dt><code>fixingConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The convention adjusting the fixing date.</p>
+</dd>
+    <dt><code>pricer</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The pricer, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to set one later through
+<a class="xref" href="NanoQL.Coupons.FloatingRateCouponExtensions.html#NanoQL_Coupons_FloatingRateCouponExtensions_SetPricer__1___0_NanoQL_Coupons_FloatingRateCouponPricer_">SetPricer&lt;T&gt;(T, FloatingRateCouponPricer?)</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The gearing is zero.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">fixingDays</code> is negative, or
+<code class="paramref">fixingConvention</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Coupons_IborCoupon_IborIndex_" data-uid="NanoQL.Coupons.IborCoupon.IborIndex*"></a>
+
+  <h3 id="NanoQL_Coupons_IborCoupon_IborIndex" data-uid="NanoQL.Coupons.IborCoupon.IborIndex">
+  IborIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the Ibor index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborIndex IborIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Coupons_IborCoupon_FixingDate_" data-uid="NanoQL.Coupons.IborCoupon.FixingDate*"></a>
+
+  <h3 id="NanoQL_Coupons_IborCoupon_FixingDate" data-uid="NanoQL.Coupons.IborCoupon.FixingDate">
+  FixingDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fixing date: the fixing days before the accrual start, or before the accrual end in arrears, on the index's
+fixing calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date FixingDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The fixing date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborCoupon_FixingEndDate_" data-uid="NanoQL.Coupons.IborCoupon.FixingEndDate*"></a>
+
+  <h3 id="NanoQL_Coupons_IborCoupon_FixingEndDate" data-uid="NanoQL.Coupons.IborCoupon.FixingEndDate">
+  FixingEndDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The end of the period the coupon's fixing spans: the index's maturity for an indexed or in-arrears coupon, and
+for an at-par coupon the value date of the next fixing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date FixingEndDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no Ibor pricer, or the period has no positive length.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_IborCoupon_FixingMaturityDate_" data-uid="NanoQL.Coupons.IborCoupon.FixingMaturityDate*"></a>
+
+  <h3 id="NanoQL_Coupons_IborCoupon_FixingMaturityDate" data-uid="NanoQL.Coupons.IborCoupon.FixingMaturityDate">
+  FixingMaturityDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The end of the deposit underlying the index fixing: the index's maturity from the value date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date FixingMaturityDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no Ibor pricer, or the period has no positive length.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_IborCoupon_FixingValueDate_" data-uid="NanoQL.Coupons.IborCoupon.FixingValueDate*"></a>
+
+  <h3 id="NanoQL_Coupons_IborCoupon_FixingValueDate" data-uid="NanoQL.Coupons.IborCoupon.FixingValueDate">
+  FixingValueDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The start of the deposit underlying the index fixing: the index's fixing days after the fixing date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date FixingValueDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no Ibor pricer, or the period has no positive length.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_IborCoupon_HasFixed_" data-uid="NanoQL.Coupons.IborCoupon.HasFixed*"></a>
+
+  <h3 id="NanoQL_Coupons_IborCoupon_HasFixed_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.IborCoupon.HasFixed(NanoQL.EvaluationContext)">
+  HasFixed(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the coupon has fixed: its fixing date is before the evaluation date, or on it when the context enforces
+today's historic fixings or holds a fixing for that date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool HasFixed(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the coupon has fixed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborCoupon_IndexFixing_" data-uid="NanoQL.Coupons.IborCoupon.IndexFixing*"></a>
+
+  <h3 id="NanoQL_Coupons_IborCoupon_IndexFixing_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.IborCoupon.IndexFixing(NanoQL.EvaluationContext)">
+  IndexFixing(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The index fixing, with the coupon's own pricer's at-par choice: the stored fixing once the coupon has fixed,
+otherwise the forecast over the period the coupon's fixing spans.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override sealed double IndexFixing(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fixing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no Ibor pricer, a fixing it needs is missing, or the period
+has no positive length.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_IborCoupon_IndexFixing_" data-uid="NanoQL.Coupons.IborCoupon.IndexFixing*"></a>
+
+  <h3 id="NanoQL_Coupons_IborCoupon_IndexFixing_NanoQL_EvaluationContext_System_Boolean_" data-uid="NanoQL.Coupons.IborCoupon.IndexFixing(NanoQL.EvaluationContext,System.Boolean)">
+  IndexFixing(EvaluationContext, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The index fixing with a given at-par choice: the member every pricer calls with its own choice, and that a
+subclass fixing differently overrides (QuantLib's virtual <code>indexFixing()</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual double IndexFixing(EvaluationContext context, bool useIndexedCoupon)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>useIndexedCoupon</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the fixing spans the index's maturity rather than the at-par period.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fixing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no Ibor pricer of its own, a fixing it needs is missing, or the
+period has no positive length.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_IborCoupon_SpanningTime_" data-uid="NanoQL.Coupons.IborCoupon.SpanningTime*"></a>
+
+  <h3 id="NanoQL_Coupons_IborCoupon_SpanningTime" data-uid="NanoQL.Coupons.IborCoupon.SpanningTime">
+  SpanningTime()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The period the coupon's fixing spans, from the value date to the end date, as a year fraction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SpanningTime()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The year fraction, by the index's day counter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no Ibor pricer, or the period has no positive length.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_IborCoupon_SpanningTimeIndexMaturity_" data-uid="NanoQL.Coupons.IborCoupon.SpanningTimeIndexMaturity*"></a>
+
+  <h3 id="NanoQL_Coupons_IborCoupon_SpanningTimeIndexMaturity" data-uid="NanoQL.Coupons.IborCoupon.SpanningTimeIndexMaturity">
+  SpanningTimeIndexMaturity()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The deposit's period, from the value date to the maturity, as a year fraction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SpanningTimeIndexMaturity()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The year fraction, by the index's day counter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no Ibor pricer, or the period has no positive length.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

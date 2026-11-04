@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class AnalyticDoubleBarrierEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AnalyticDoubleBarrierEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The analytic engine for European double barrier options: Ikeda and Kunitomo&#39;s image series (&amp;quot;Pricing Options with Curved Boundaries&amp;quot;, Mathematical Finance 2/1992) as Haug gives it (&amp;quot;The complete guide to option pricing formulas&amp;quot;, 2nd ed., p. 156 and following), for flat barriers.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.AnalyticDoubleBarrierEngine">
+
+
+
+  <h1 id="NanoQL_PricingEngines_AnalyticDoubleBarrierEngine" data-uid="NanoQL.PricingEngines.AnalyticDoubleBarrierEngine" class="text-break">
+Class AnalyticDoubleBarrierEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The analytic engine for European double barrier options: Ikeda and Kunitomo's image series (&quot;Pricing Options with
+Curved Boundaries&quot;, Mathematical Finance 2/1992) as Haug gives it (&quot;The complete guide to option pricing formulas&quot;,
+2nd ed., p. 156 and following), for flat barriers.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class AnalyticDoubleBarrierEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AnalyticDoubleBarrierEngine</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_AnalyticDoubleBarrierEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The value alone, as QuantLib's. Strikes outside the corridor integrate only over terminal spots inside it,
+upstream's fix after v1.44 (#2881; <code>Divergences/BarrierUpstreamFixesTests.cs</code>).
+</p>
+<p>
+Documented divergences. Each rate is read on the volatility's clock and each time is the volatility's, as
+<a class="xref" href="NanoQL.PricingEngines.AnalyticBarrierEngine.html">AnalyticBarrierEngine</a> reads them, where QuantLib reads every structure at the risk-free curve's times.
+The series runs from −<code>series</code> to <code>series</code>, QuantLib's terms, and on while the next pair of terms exceeds
+machine epsilon of the sum, where QuantLib stops, unconverged on narrow corridors and long terms
+(<code>Divergences/DoubleBarrierSeriesTests.cs</code>). Where a term's power overflows, as at low volatility, it is taken
+in logs with its normal difference, QuantLib's own technique in the binary barrier engine, where QuantLib's product
+is NaN and its <code>max(0, ·)</code> prices 0; each difference of two normal probabilities whose arguments share a sign
+is taken from the small tail, ½erfc, where the plain difference cancels
+(<code>Divergences/DoubleBarrierLowVolatilityTests.cs</code>). QuantLib's value and bits stand wherever its five terms
+agree with this converged series within 1e-12 on the value's scale, max(|value|, 1), which QuantLib's own rounding
+of the plain sum's cancelling terms stays inside, QuantLib's cases among them. Below machine-epsilon variance the
+underlying follows its forward, a knock-out paying its payoff where the forward stays inside the corridor. And the
+rebate is priced, QuantLib's single-barrier convention, where QuantLib's engine reads none: a knock-out's paid at
+the first touch of either barrier, through the double-barrier binary engine's KIKO and KOKI at unit cash; a
+knock-in's paid at expiry where neither is touched, through its knock-out at unit cash
+(<code>Divergences/DoubleBarrierRebateTests.cs</code>).
+</p>
+<p>
+The formula is a first-passage closed form in equivalent-constant rates and a volatility, the variance and discounts
+to expiry: no exact closed form exists for a first passage under general deterministic term structures, and on
+shaped markets an independent Monte Carlo finds a knock-out within two of its standard errors, +0.04%; the
+term-structure-exact route is a Monte Carlo on the process.
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_AnalyticDoubleBarrierEngine_Calculate_" data-uid="NanoQL.PricingEngines.AnalyticDoubleBarrierEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticDoubleBarrierEngine_Calculate_NanoQL_Instruments_DoubleBarrierOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_System_Int32_" data-uid="NanoQL.PricingEngines.AnalyticDoubleBarrierEngine.Calculate(NanoQL.Instruments.DoubleBarrierOption,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,System.Int32)">
+  Calculate(DoubleBarrierOption, EvaluationContext, GeneralizedBlackScholesProcess, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a double barrier option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(DoubleBarrierOption option, EvaluationContext context, GeneralizedBlackScholesProcess process, int series = 5)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.DoubleBarrierOption.html">DoubleBarrierOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The Black-Scholes process.</p>
+</dd>
+    <dt><code>series</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of terms either side of 0 the series takes at least; QuantLib's default 5.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results: the value; the expired results when the option has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">series</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The exercise isn't European, the payoff isn't plain vanilla or its strike isn't positive, the spot isn't
+positive or lies on or beyond a barrier (&quot;barrier(s) already touched&quot;), or the type is KIKO or KOKI.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

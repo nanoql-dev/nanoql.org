@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class IborLeg | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class IborLeg | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A builder of a sequence of Ibor coupons, capped, floored or not.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Coupons.IborLeg">
+
+
+
+  <h1 id="NanoQL_Coupons_IborLeg" data-uid="NanoQL.Coupons.IborLeg" class="text-break">
+Class IborLeg  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Coupons.html">Coupons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A builder of a sequence of Ibor coupons, capped, floored or not.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record IborLeg : IEquatable&lt;IborLeg&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">IborLeg</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Coupons_IborLeg_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An immutable builder: each method returns a modified copy, so a builder kept and reused never changes under its
+holder. <a class="xref" href="NanoQL.Coupons.IborLeg.html#NanoQL_Coupons_IborLeg_ToLeg_NanoQL_EvaluationContext_">ToLeg(EvaluationContext)</a> builds the leg, in place of QuantLib's conversion operator; it takes the context because
+the default pricer it attaches reads the at-par switch when the leg has no explicit choice. A builder has no value
+equality: its vectors compare by reference.
+</p>
+<p>
+A leg with neither caps, floors nor in-arrears fixing gets a <a class="xref" href="NanoQL.Coupons.BlackIborCouponPricer.html">BlackIborCouponPricer</a> with no
+volatility, as QuantLib's does; any other leg is built without pricers, for
+<a class="xref" href="NanoQL.Coupons.CouponPricerFunctions.html#NanoQL_Coupons_CouponPricerFunctions_SetCouponPricer_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_Coupons_FloatingRateCouponPricer_">SetCouponPricer(ImmutableArray&lt;CashFlow&gt;, FloatingRateCouponPricer?)</a> to set.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Coupons_IborLeg__ctor_" data-uid="NanoQL.Coupons.IborLeg.#ctor*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg__ctor_NanoQL_Time_Schedule_NanoQL_Indexes_IborIndex_" data-uid="NanoQL.Coupons.IborLeg.#ctor(NanoQL.Time.Schedule,NanoQL.Indexes.IborIndex)">
+  IborLeg(Schedule, IborIndex)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg(Schedule schedule, IborIndex index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>schedule</code> <a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd><p>The schedule of accrual dates.</p>
+</dd>
+    <dt><code>index</code> <a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd><p>The index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Coupons_IborLeg_Equals_" data-uid="NanoQL.Coupons.IborLeg.Equals*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_Equals_NanoQL_Coupons_IborLeg_" data-uid="NanoQL.Coupons.IborLeg.Equals(NanoQL.Coupons.IborLeg)">
+  Equals(IborLeg?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(IborLeg? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_Equals_" data-uid="NanoQL.Coupons.IborLeg.Equals*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_Equals_System_Object_" data-uid="NanoQL.Coupons.IborLeg.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_GetHashCode_" data-uid="NanoQL.Coupons.IborLeg.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_GetHashCode" data-uid="NanoQL.Coupons.IborLeg.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_InArrears_" data-uid="NanoQL.Coupons.IborLeg.InArrears*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_InArrears_System_Boolean_" data-uid="NanoQL.Coupons.IborLeg.InArrears(System.Boolean)">
+  InArrears(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the coupons fix at the end of their periods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg InArrears(bool flag = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether they do.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_ToLeg_" data-uid="NanoQL.Coupons.IborLeg.ToLeg*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_ToLeg_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.IborLeg.ToLeg(NanoQL.EvaluationContext)">
+  ToLeg(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds the leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; ToLeg(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose at-par switch the default pricer and the stub check read
+when the leg has no explicit choice.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg, one coupon per schedule period.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No notional was given; a setting has more values than the schedule has
+periods; the leg is both in arrears and zero; the schedule is empty; a stub selection is given with caps,
+floors, in-arrears fixing, at-par coupons or a schedule without regularity information; or, after these, a
+period has a zero gearing and no payment day counter is set.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_ToString_" data-uid="NanoQL.Coupons.IborLeg.ToString*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_ToString" data-uid="NanoQL.Coupons.IborLeg.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithAtParCoupons_" data-uid="NanoQL.Coupons.IborLeg.WithAtParCoupons*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithAtParCoupons_System_Boolean_" data-uid="NanoQL.Coupons.IborLeg.WithAtParCoupons(System.Boolean)">
+  WithAtParCoupons(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the leg's default pricer prices at-par coupons, rather than indexed ones.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithAtParCoupons(bool b = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether it does.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithCaps_" data-uid="NanoQL.Coupons.IborLeg.WithCaps*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithCaps_System_Collections_Generic_IEnumerable_System_Nullable_System_Double___" data-uid="NanoQL.Coupons.IborLeg.WithCaps(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+  WithCaps(IEnumerable&lt;double?&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the caps on the coupons' rates; the last one repeats for any further coupons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithCaps(IEnumerable&lt;double?&gt; caps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>caps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</dt>
+    <dd><p>The caps, null elements for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithCaps_" data-uid="NanoQL.Coupons.IborLeg.WithCaps*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithCaps_System_Nullable_System_Double__" data-uid="NanoQL.Coupons.IborLeg.WithCaps(System.Nullable{System.Double})">
+  WithCaps(double?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets one cap for every coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithCaps(double? cap)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The cap, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null&lt;Rate&gt;()</code>, for a cap list holding no cap: the
+coupons are then uncapped, and the leg gets no default pricer, as with any cap list.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithExCouponPeriod_" data-uid="NanoQL.Coupons.IborLeg.WithExCouponPeriod*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithExCouponPeriod_NanoQL_Time_Period_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_System_Boolean_" data-uid="NanoQL.Coupons.IborLeg.WithExCouponPeriod(NanoQL.Time.Period,NanoQL.Time.Calendar,NanoQL.Time.BusinessDayConvention,System.Boolean)">
+  WithExCouponPeriod(Period, Calendar?, BusinessDayConvention, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the ex-coupon period, counted back from each payment date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithExCouponPeriod(Period period, Calendar? cal, BusinessDayConvention convention, bool endOfMonth = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>period</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The period; a zero-length period means no ex-coupon dates.</p>
+</dd>
+    <dt><code>cal</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar the period is counted on; the schedule's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's
+empty calendar.</p>
+</dd>
+    <dt><code>convention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The business-day convention of the ex-coupon dates.</p>
+</dd>
+    <dt><code>endOfMonth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the ex-coupon dates stay at month end.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The convention isn't a member of the enum.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithFixingConvention_" data-uid="NanoQL.Coupons.IborLeg.WithFixingConvention*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithFixingConvention_NanoQL_Time_BusinessDayConvention_" data-uid="NanoQL.Coupons.IborLeg.WithFixingConvention(NanoQL.Time.BusinessDayConvention)">
+  WithFixingConvention(BusinessDayConvention)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the convention adjusting the fixing dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithFixingConvention(BusinessDayConvention convention)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>convention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The convention.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The convention isn't a member of the enum.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithFixingDays_" data-uid="NanoQL.Coupons.IborLeg.WithFixingDays*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithFixingDays_System_Collections_Generic_IEnumerable_System_Nullable_System_Int32___" data-uid="NanoQL.Coupons.IborLeg.WithFixingDays(System.Collections.Generic.IEnumerable{System.Nullable{System.Int32}})">
+  WithFixingDays(IEnumerable&lt;int?&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the coupons' fixing days; the last count repeats for any further coupons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithFixingDays(IEnumerable&lt;int?&gt; fixingDays)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fixingDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?&gt;</dt>
+    <dd><p>The fixing days, null elements taking the index's.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>An element is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithFixingDays_" data-uid="NanoQL.Coupons.IborLeg.WithFixingDays*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithFixingDays_System_Nullable_System_Int32__" data-uid="NanoQL.Coupons.IborLeg.WithFixingDays(System.Nullable{System.Int32})">
+  WithFixingDays(int?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets one count of fixing days for every coupon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithFixingDays(int? fixingDays)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fixingDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The fixing days; the index's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's
+<code>Null&lt;Natural&gt;()</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">fixingDays</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithFloors_" data-uid="NanoQL.Coupons.IborLeg.WithFloors*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithFloors_System_Collections_Generic_IEnumerable_System_Nullable_System_Double___" data-uid="NanoQL.Coupons.IborLeg.WithFloors(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+  WithFloors(IEnumerable&lt;double?&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the floors on the coupons' rates; the last one repeats for any further coupons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithFloors(IEnumerable&lt;double?&gt; floors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>floors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</dt>
+    <dd><p>The floors, null elements for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithFloors_" data-uid="NanoQL.Coupons.IborLeg.WithFloors*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithFloors_System_Nullable_System_Double__" data-uid="NanoQL.Coupons.IborLeg.WithFloors(System.Nullable{System.Double})">
+  WithFloors(double?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets one floor for every coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithFloors(double? floor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>floor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The floor, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null&lt;Rate&gt;()</code>, for a floor list holding no floor:
+the coupons are then unfloored, and the leg gets no default pricer, as with any floor list.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithGearings_" data-uid="NanoQL.Coupons.IborLeg.WithGearings*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithGearings_System_Collections_Generic_IEnumerable_System_Double__" data-uid="NanoQL.Coupons.IborLeg.WithGearings(System.Collections.Generic.IEnumerable{System.Double})">
+  WithGearings(IEnumerable&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the coupons' gearings; the last one repeats for any further coupons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithGearings(IEnumerable&lt;double&gt; gearings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gearings</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The gearings.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithGearings_" data-uid="NanoQL.Coupons.IborLeg.WithGearings*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithGearings_System_Double_" data-uid="NanoQL.Coupons.IborLeg.WithGearings(System.Double)">
+  WithGearings(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets one gearing for every coupon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithGearings(double gearing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gearing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The gearing; a zero gearing makes a fixed-rate coupon paying the spread.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithIndexedCoupons_" data-uid="NanoQL.Coupons.IborLeg.WithIndexedCoupons*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithIndexedCoupons_System_Nullable_System_Boolean__" data-uid="NanoQL.Coupons.IborLeg.WithIndexedCoupons(System.Nullable{System.Boolean})">
+  WithIndexedCoupons(bool?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the leg's default pricer prices indexed coupons, rather than at-par ones.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithIndexedCoupons(bool? b = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether it does; the context's at-par switch decides when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithNotionals_" data-uid="NanoQL.Coupons.IborLeg.WithNotionals*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithNotionals_System_Collections_Generic_IEnumerable_System_Double__" data-uid="NanoQL.Coupons.IborLeg.WithNotionals(System.Collections.Generic.IEnumerable{System.Double})">
+  WithNotionals(IEnumerable&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the coupons' notionals; the last one repeats for any further coupons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithNotionals(IEnumerable&lt;double&gt; notionals)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>notionals</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The notionals.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithNotionals_" data-uid="NanoQL.Coupons.IborLeg.WithNotionals*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithNotionals_System_Double_" data-uid="NanoQL.Coupons.IborLeg.WithNotionals(System.Double)">
+  WithNotionals(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets one notional for every coupon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithNotionals(double notional)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>notional</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The notional.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithPaymentAdjustment_" data-uid="NanoQL.Coupons.IborLeg.WithPaymentAdjustment*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithPaymentAdjustment_NanoQL_Time_BusinessDayConvention_" data-uid="NanoQL.Coupons.IborLeg.WithPaymentAdjustment(NanoQL.Time.BusinessDayConvention)">
+  WithPaymentAdjustment(BusinessDayConvention)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the business-day convention of the payment dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithPaymentAdjustment(BusinessDayConvention convention)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>convention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The convention.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The convention isn't a member of the enum.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithPaymentCalendar_" data-uid="NanoQL.Coupons.IborLeg.WithPaymentCalendar*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithPaymentCalendar_NanoQL_Time_Calendar_" data-uid="NanoQL.Coupons.IborLeg.WithPaymentCalendar(NanoQL.Time.Calendar)">
+  WithPaymentCalendar(Calendar?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the calendar of the payment dates; the schedule's calendar by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithPaymentCalendar(Calendar? cal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cal</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar; the schedule's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty calendar.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithPaymentDayCounter_" data-uid="NanoQL.Coupons.IborLeg.WithPaymentDayCounter*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithPaymentDayCounter_NanoQL_Time_DayCounter_" data-uid="NanoQL.Coupons.IborLeg.WithPaymentDayCounter(NanoQL.Time.DayCounter)">
+  WithPaymentDayCounter(DayCounter?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the accrual day counter; the index's by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithPaymentDayCounter(DayCounter? dayCounter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter; the index's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty day
+counter. A period with a zero gearing then refuses the conversion, its fixed-rate coupon needing one, after
+every refusal QuantLib raises while it builds the leg.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithPaymentLag_" data-uid="NanoQL.Coupons.IborLeg.WithPaymentLag*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithPaymentLag_System_Int32_" data-uid="NanoQL.Coupons.IborLeg.WithPaymentLag(System.Int32)">
+  WithPaymentLag(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the number of business days from each accrual end to its payment date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithPaymentLag(int lag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The lag.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithSpreads_" data-uid="NanoQL.Coupons.IborLeg.WithSpreads*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithSpreads_System_Collections_Generic_IEnumerable_System_Double__" data-uid="NanoQL.Coupons.IborLeg.WithSpreads(System.Collections.Generic.IEnumerable{System.Double})">
+  WithSpreads(IEnumerable&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the coupons' spreads; the last one repeats for any further coupons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithSpreads(IEnumerable&lt;double&gt; spreads)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spreads</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The spreads.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithSpreads_" data-uid="NanoQL.Coupons.IborLeg.WithSpreads*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithSpreads_System_Double_" data-uid="NanoQL.Coupons.IborLeg.WithSpreads(System.Double)">
+  WithSpreads(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets one spread for every coupon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithSpreads(double spread)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spread.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithStubIndexSelection_" data-uid="NanoQL.Coupons.IborLeg.WithStubIndexSelection*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithStubIndexSelection_NanoQL_Coupons_StubIndexSelection_" data-uid="NanoQL.Coupons.IborLeg.WithStubIndexSelection(NanoQL.Coupons.StubIndexSelection)">
+  WithStubIndexSelection(StubIndexSelection)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the index selection for the schedule's irregular periods, which then fix on the selected indices; it needs
+indexed coupons, and neither caps, floors nor in-arrears fixing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithStubIndexSelection(StubIndexSelection selection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>selection</code> <a class="xref" href="NanoQL.Coupons.StubIndexSelection.html">StubIndexSelection</a></dt>
+    <dd><p>The selection; an empty one leaves the leg alone.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_WithZeroPayments_" data-uid="NanoQL.Coupons.IborLeg.WithZeroPayments*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_WithZeroPayments_System_Boolean_" data-uid="NanoQL.Coupons.IborLeg.WithZeroPayments(System.Boolean)">
+  WithZeroPayments(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether every coupon is paid on the last payment date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborLeg WithZeroPayments(bool flag = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether it is.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Coupons_IborLeg_op_Equality_" data-uid="NanoQL.Coupons.IborLeg.op_Equality*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_op_Equality_NanoQL_Coupons_IborLeg_NanoQL_Coupons_IborLeg_" data-uid="NanoQL.Coupons.IborLeg.op_Equality(NanoQL.Coupons.IborLeg,NanoQL.Coupons.IborLeg)">
+  operator ==(IborLeg?, IborLeg?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(IborLeg? left, IborLeg? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_IborLeg_op_Inequality_" data-uid="NanoQL.Coupons.IborLeg.op_Inequality*"></a>
+
+  <h3 id="NanoQL_Coupons_IborLeg_op_Inequality_NanoQL_Coupons_IborLeg_NanoQL_Coupons_IborLeg_" data-uid="NanoQL.Coupons.IborLeg.op_Inequality(NanoQL.Coupons.IborLeg,NanoQL.Coupons.IborLeg)">
+  operator !=(IborLeg?, IborLeg?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(IborLeg? left, IborLeg? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Coupons.IborLeg.html">IborLeg</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

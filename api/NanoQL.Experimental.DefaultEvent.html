@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class DefaultEvent | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DefaultEvent | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A credit event on the bonds of a seniority and currency, with its optional settlement: a realized event, of an atomic type, which the bonds of that seniority and currency suffer together.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.DefaultEvent">
+
+
+
+  <h1 id="NanoQL_Experimental_DefaultEvent" data-uid="NanoQL.Experimental.DefaultEvent" class="text-break">
+Class DefaultEvent  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A credit event on the bonds of a seniority and currency, with its optional settlement: a realized event, of an
+atomic type, which the bonds of that seniority and currency suffer together.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public class DefaultEvent : Event, IEquatable&lt;DefaultEvent&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Event.html">Event</a></div>
+      <div><span class="xref">DefaultEvent</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Experimental.DefaultEvent.html">DefaultEvent</a>&gt;</div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.BankruptcyEvent.html">BankruptcyEvent</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.FailureToPayEvent.html">FailureToPayEvent</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Event.html#NanoQL_Event_HasOccurred_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__System_Nullable_System_Boolean__">Event.HasOccurred(EvaluationContext, Date?, bool?)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_DefaultEvent_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable, and an extension point (<a class="xref" href="NanoQL.Experimental.FailureToPayEvent.html">FailureToPayEvent</a>, <a class="xref" href="NanoQL.Experimental.BankruptcyEvent.html">BankruptcyEvent</a>). An event that
+affects every seniority is a set of events of the same type, or one settled for
+<a class="xref" href="NanoQL.Experimental.Seniority.html#NanoQL_Experimental_Seniority_NoSeniority">NoSeniority</a>.
+</p>
+<p>
+Equality is QuantLib's: two events are the same, whatever their settlements, when their currencies, types, dates and
+seniorities are. It is sealed. An issuer keeps every event it is given, equal ones included
+(<a class="xref" href="NanoQL.Experimental.Issuer.html">Issuer</a>).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_DefaultEvent__ctor_" data-uid="NanoQL.Experimental.DefaultEvent.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent__ctor_NanoQL_Time_Date_NanoQL_Experimental_DefaultType_NanoQL_Currency_NanoQL_Experimental_Seniority_System_Nullable_NanoQL_Time_Date__System_Collections_Generic_IReadOnlyDictionary_NanoQL_Experimental_Seniority_System_Double__" data-uid="NanoQL.Experimental.DefaultEvent.#ctor(NanoQL.Time.Date,NanoQL.Experimental.DefaultType,NanoQL.Currency,NanoQL.Experimental.Seniority,System.Nullable{NanoQL.Time.Date},System.Collections.Generic.IReadOnlyDictionary{NanoQL.Experimental.Seniority,System.Double})">
+  DefaultEvent(Date, DefaultType, Currency?, Seniority, Date?, IReadOnlyDictionary&lt;Seniority, double&gt;?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.DefaultEvent.html">DefaultEvent</a> class, settled for the seniorities a map
+holds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DefaultEvent(Date creditEventDate, DefaultType atomicEventType, Currency? currency, Seniority bondsSeniority, Date? settleDate = null, IReadOnlyDictionary&lt;Seniority, double&gt;? recoveryRates = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>creditEventDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The credit event's date.</p>
+</dd>
+    <dt><code>atomicEventType</code> <a class="xref" href="NanoQL.Experimental.DefaultType.html">DefaultType</a></dt>
+    <dd><p>The event's atomic type.</p>
+</dd>
+    <dt><code>currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The bonds' currency; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty currency.</p>
+</dd>
+    <dt><code>bondsSeniority</code> <a class="xref" href="NanoQL.Experimental.Seniority.html">Seniority</a></dt>
+    <dd><p>The seniority of the bonds that triggered the event.</p>
+</dd>
+    <dt><code>settleDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for an event not settled.</p>
+</dd>
+    <dt><code>recoveryRates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="NanoQL.Experimental.Seniority.html">Seniority</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The realized recoveries by seniority, which must hold the event's seniority when the
+event has settled; the seniorities settled are those it holds. ISDA's conventional recoveries when
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty, which an unsettled event never reads.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">atomicEventType</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">bondsSeniority</code> isn't a member of its
+type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A date is <code>default(Date)</code>; the settlement precedes the event
+(&quot;Settlement date should be after default date.&quot;); the map lacks the event's seniority (&quot;Settled events must
+contain the seniority of the default&quot;) or holds <a class="xref" href="NanoQL.Experimental.Seniority.html#NanoQL_Experimental_Seniority_NoSeniority">NoSeniority</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent__ctor_" data-uid="NanoQL.Experimental.DefaultEvent.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent__ctor_NanoQL_Time_Date_NanoQL_Experimental_DefaultType_NanoQL_Currency_NanoQL_Experimental_Seniority_System_Nullable_NanoQL_Time_Date__System_Double_" data-uid="NanoQL.Experimental.DefaultEvent.#ctor(NanoQL.Time.Date,NanoQL.Experimental.DefaultType,NanoQL.Currency,NanoQL.Experimental.Seniority,System.Nullable{NanoQL.Time.Date},System.Double)">
+  DefaultEvent(Date, DefaultType, Currency?, Seniority, Date?, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.DefaultEvent.html">DefaultEvent</a> class, settled at one recovery rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DefaultEvent(Date creditEventDate, DefaultType atomicEventType, Currency? currency, Seniority bondsSeniority, Date? settleDate, double recoveryRate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>creditEventDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The credit event's date.</p>
+</dd>
+    <dt><code>atomicEventType</code> <a class="xref" href="NanoQL.Experimental.DefaultType.html">DefaultType</a></dt>
+    <dd><p>The event's atomic type.</p>
+</dd>
+    <dt><code>currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The bonds' currency; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty currency.</p>
+</dd>
+    <dt><code>bondsSeniority</code> <a class="xref" href="NanoQL.Experimental.Seniority.html">Seniority</a></dt>
+    <dd><p>The seniority of the bonds that triggered the event, the seniority the recovery
+settles; <a class="xref" href="NanoQL.Experimental.Seniority.html#NanoQL_Experimental_Seniority_NoSeniority">NoSeniority</a> settles every ISDA seniority at the rate, the event then taken to
+have affected all of them.</p>
+</dd>
+    <dt><code>settleDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for an event not settled.</p>
+</dd>
+    <dt><code>recoveryRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The realized recovery.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">atomicEventType</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">bondsSeniority</code> isn't a member of its
+type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A date is <code>default(Date)</code>, or the settlement precedes the event
+(&quot;Settlement date should be after default date.&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_Currency_" data-uid="NanoQL.Experimental.DefaultEvent.Currency*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_Currency" data-uid="NanoQL.Experimental.DefaultEvent.Currency">
+  Currency
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the currency of the bonds the event refers to; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty
+currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Currency? Currency { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_Date_" data-uid="NanoQL.Experimental.DefaultEvent.Date*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_Date" data-uid="NanoQL.Experimental.DefaultEvent.Date">
+  Date
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the credit event's date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date Date { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_DefaultType_" data-uid="NanoQL.Experimental.DefaultEvent.DefaultType*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_DefaultType" data-uid="NanoQL.Experimental.DefaultEvent.DefaultType">
+  DefaultType
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the event's atomic type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DefaultType DefaultType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.DefaultType.html">DefaultType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_EventSeniority_" data-uid="NanoQL.Experimental.DefaultEvent.EventSeniority*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_EventSeniority" data-uid="NanoQL.Experimental.DefaultEvent.EventSeniority">
+  EventSeniority
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the seniority of the bonds that triggered the event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Seniority EventSeniority { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Seniority.html">Seniority</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_HasSettled_" data-uid="NanoQL.Experimental.DefaultEvent.HasSettled*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_HasSettled" data-uid="NanoQL.Experimental.DefaultEvent.HasSettled">
+  HasSettled
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the event has settled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasSettled { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_IsDefault_" data-uid="NanoQL.Experimental.DefaultEvent.IsDefault*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_IsDefault" data-uid="NanoQL.Experimental.DefaultEvent.IsDefault">
+  IsDefault
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the event is a default: not a restructuring.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDefault { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_IsRestructuring_" data-uid="NanoQL.Experimental.DefaultEvent.IsRestructuring*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_IsRestructuring" data-uid="NanoQL.Experimental.DefaultEvent.IsRestructuring">
+  IsRestructuring
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the event is a restructuring.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRestructuring { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_Settlement_" data-uid="NanoQL.Experimental.DefaultEvent.Settlement*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_Settlement" data-uid="NanoQL.Experimental.DefaultEvent.Settlement">
+  Settlement
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the settlement, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> where the event hasn't settled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DefaultSettlement? Settlement { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.DefaultSettlement.html">DefaultSettlement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_Equals_" data-uid="NanoQL.Experimental.DefaultEvent.Equals*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_Equals_NanoQL_Experimental_DefaultEvent_" data-uid="NanoQL.Experimental.DefaultEvent.Equals(NanoQL.Experimental.DefaultEvent)">
+  Equals(DefaultEvent?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(DefaultEvent? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Experimental.DefaultEvent.html">DefaultEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_Equals_" data-uid="NanoQL.Experimental.DefaultEvent.Equals*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_Equals_System_Object_" data-uid="NanoQL.Experimental.DefaultEvent.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override sealed bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_GetHashCode_" data-uid="NanoQL.Experimental.DefaultEvent.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_GetHashCode" data-uid="NanoQL.Experimental.DefaultEvent.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override sealed int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_MatchesDefaultKey_" data-uid="NanoQL.Experimental.DefaultEvent.MatchesDefaultKey*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_MatchesDefaultKey_NanoQL_Experimental_DefaultProbKey_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.DefaultEvent.MatchesDefaultKey(NanoQL.Experimental.DefaultProbKey,NanoQL.EvaluationContext)">
+  MatchesDefaultKey(DefaultProbKey, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the event would trigger a contract on a key: its currency, its seniority (any, for a key of
+<a class="xref" href="NanoQL.Experimental.Seniority.html#NanoQL_Experimental_Seniority_NoSeniority">NoSeniority</a>), and one of its event types match.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool MatchesDefaultKey(DefaultProbKey contractKey, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contractKey</code> <a class="xref" href="NanoQL.Experimental.DefaultProbKey.html">DefaultProbKey</a></dt>
+    <dd><p>The contract's key.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when it would.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_MatchesEventType_" data-uid="NanoQL.Experimental.DefaultEvent.MatchesEventType*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_MatchesEventType_NanoQL_Experimental_DefaultType_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.DefaultEvent.MatchesEventType(NanoQL.Experimental.DefaultType,NanoQL.EvaluationContext)">
+  MatchesEventType(DefaultType, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the event would trigger a contract on an event type: by default, the type's restructuring and atomic
+types match the event's. Seniority and currency aren't checked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool MatchesEventType(DefaultType contractEventType, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contractEventType</code> <a class="xref" href="NanoQL.Experimental.DefaultType.html">DefaultType</a></dt>
+    <dd><p>The contract's event type.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose date a derived event may read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when it would.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_RecoveryRate_" data-uid="NanoQL.Experimental.DefaultEvent.RecoveryRate*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_RecoveryRate_NanoQL_Experimental_Seniority_" data-uid="NanoQL.Experimental.DefaultEvent.RecoveryRate(NanoQL.Experimental.Seniority)">
+  RecoveryRate(Seniority)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The realized recovery of a seniority, if the event settled it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual double? RecoveryRate(Seniority seniority)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seniority</code> <a class="xref" href="NanoQL.Experimental.Seniority.html">Seniority</a></dt>
+    <dd><p>The seniority.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The recovery, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> where the event hasn't settled, or didn't settle the
+seniority.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">seniority</code> is <a class="xref" href="NanoQL.Experimental.Seniority.html#NanoQL_Experimental_Seniority_NoSeniority">NoSeniority</a> on a
+settled event.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_op_Equality_" data-uid="NanoQL.Experimental.DefaultEvent.op_Equality*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_op_Equality_NanoQL_Experimental_DefaultEvent_NanoQL_Experimental_DefaultEvent_" data-uid="NanoQL.Experimental.DefaultEvent.op_Equality(NanoQL.Experimental.DefaultEvent,NanoQL.Experimental.DefaultEvent)">
+  operator ==(DefaultEvent?, DefaultEvent?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether two events are the same: their currencies, types, dates and seniorities are.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(DefaultEvent? left, DefaultEvent? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Experimental.DefaultEvent.html">DefaultEvent</a></dt>
+    <dd><p>The first event.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Experimental.DefaultEvent.html">DefaultEvent</a></dt>
+    <dd><p>The second event.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when they are, or both are <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_DefaultEvent_op_Inequality_" data-uid="NanoQL.Experimental.DefaultEvent.op_Inequality*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultEvent_op_Inequality_NanoQL_Experimental_DefaultEvent_NanoQL_Experimental_DefaultEvent_" data-uid="NanoQL.Experimental.DefaultEvent.op_Inequality(NanoQL.Experimental.DefaultEvent,NanoQL.Experimental.DefaultEvent)">
+  operator !=(DefaultEvent?, DefaultEvent?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether two events differ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(DefaultEvent? left, DefaultEvent? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Experimental.DefaultEvent.html">DefaultEvent</a></dt>
+    <dd><p>The first event.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Experimental.DefaultEvent.html">DefaultEvent</a></dt>
+    <dd><p>The second event.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when they differ.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

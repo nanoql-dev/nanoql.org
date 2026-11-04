@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class HestonSLVFDMModel | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class HestonSLVFDMModel | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Heston stochastic-local volatility model calibrated by the Fokker-Planck forward equation: the leverage function L(t, S) that makes the model&#39;s spot follow the local volatility&#39;s marginals, σ_LV(t, S)&#178;/E[v | S], solved step by step on the joint density of the log spot and the variance.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models.HestonSLVFDMModel">
+
+
+
+  <h1 id="NanoQL_Models_HestonSLVFDMModel" data-uid="NanoQL.Models.HestonSLVFDMModel" class="text-break">
+Class HestonSLVFDMModel  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Heston stochastic-local volatility model calibrated by the Fokker-Planck forward equation: the leverage function
+L(t, S) that makes the model's spot follow the local volatility's marginals, σ_LV(t, S)²/E[v | S], solved step by step
+on the joint density of the log spot and the variance.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class HestonSLVFDMModel</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">HestonSLVFDMModel</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Models_HestonSLVFDMModel_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable: the calibration runs at construction (the playbook's <code>LazyObject</code> row), where QuantLib's model
+calibrates at its first read. With logging, <a class="xref" href="NanoQL.Models.HestonSLVFDMModel.html#NanoQL_Models_HestonSLVFDMModel_LogEntries">LogEntries</a> holds each step's density and mesher, filled
+once, where QuantLib's log read recomputes the calibration for the same values. The leverage function is
+<a class="xref" href="NanoQL.TermStructures.FixedLocalVolSurface.html">FixedLocalVolSurface</a> on the calibrated values; the calibration itself reads its working surface as
+QuantLib's does (<span class="xref">NanoQL.TermStructures.FixedLocalVolWorkingSurface</span>).
+</p>
+<p>
+QuantLib appends the mandatory dates' times to its exponential grid unsorted and builds the leverage surface on that
+list, which refuses a mandatory date inside the period ("dates must be sorted unique!") and one at its end ("need
+strikes for every time step") (<code>hestonslvfdmmodel.cpp:325-330</code>, <code>:412</code>). Here the surface and the loop
+run on the time grid's times, sorted and made unique; a mandatory date on the grid's own time is QuantLib's
+calibration without it.
+</p>
+<p>
+The model's times are a clock's, from the earliest reference date of the curves and the local volatility on the
+risk-free curve's day counter, and each structure is read at the instants they denote: QuantLib's grid runs from the
+risk-free curve's reference date and reads the dividend curve and the local volatility at its times. Where every
+structure shares the risk-free curve's day counter and reference date, QuantLib's reads and bits.
+</p>
+<p>
+The first step's density, the Green's function, is the density of the process the forward operator evolves, its
+variance's volatility the mixing factor times σ, as the variance mesher's: QuantLib's takes the unmixed σ, a density
+76% to 113% off the mixed process's own in L1 on the Gaussian algorithm at mixing factors 0.5 and 0.2, where the
+mixed σ's is within 2% to 10%. At a mixing factor of 1, QuantLib's.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Models_HestonSLVFDMModel__ctor_" data-uid="NanoQL.Models.HestonSLVFDMModel.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_HestonSLVFDMModel__ctor_NanoQL_TermStructures_LocalVolTermStructure_NanoQL_Models_HestonModel_NanoQL_Time_Date_NanoQL_Models_HestonSLVFokkerPlanckFdmParams_System_Boolean_System_Collections_Generic_IEnumerable_NanoQL_Time_Date__System_Double_" data-uid="NanoQL.Models.HestonSLVFDMModel.#ctor(NanoQL.TermStructures.LocalVolTermStructure,NanoQL.Models.HestonModel,NanoQL.Time.Date,NanoQL.Models.HestonSLVFokkerPlanckFdmParams,System.Boolean,System.Collections.Generic.IEnumerable{NanoQL.Time.Date},System.Double)">
+  HestonSLVFDMModel(LocalVolTermStructure, HestonModel, Date, HestonSLVFokkerPlanckFdmParams, bool, IEnumerable&lt;Date&gt;?, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.HestonSLVFDMModel.html">HestonSLVFDMModel</a> class, calibrating it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HestonSLVFDMModel(LocalVolTermStructure localVol, HestonModel hestonModel, Date endDate, HestonSLVFokkerPlanckFdmParams parameters, bool logging = false, IEnumerable&lt;Date&gt;? mandatoryDates = null, double mixingFactor = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>localVol</code> <a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></dt>
+    <dd><p>The local volatility.</p>
+</dd>
+    <dt><code>hestonModel</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The final calibration date.</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="NanoQL.Models.HestonSLVFokkerPlanckFdmParams.html">HestonSLVFokkerPlanckFdmParams</a></dt>
+    <dd><p>The calibration's settings.</p>
+</dd>
+    <dt><code>logging</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to keep each step's density and mesher.</p>
+</dd>
+    <dt><code>mandatoryDates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>Dates the time grid holds, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>mixingFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factor scaling the variance's volatility σ.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A structure, the model or the settings are <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The end date is the default date, the clock's reference date isn't before it (&quot;reference date must be smaller
+than final calibration date&quot;), or it lies beyond the local volatility (&quot;final calibration maturity exceeds local
+volatility surface&quot;), with QuantLib's messages.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The settings' scheme isn't one the calibration runs (&quot;Unknown scheme
+type&quot;).</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A structure can't be read, or a step can't be solved.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Models_HestonSLVFDMModel_HestonProcess_" data-uid="NanoQL.Models.HestonSLVFDMModel.HestonProcess*"></a>
+
+  <h3 id="NanoQL_Models_HestonSLVFDMModel_HestonProcess" data-uid="NanoQL.Models.HestonSLVFDMModel.HestonProcess">
+  HestonProcess
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the Heston process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HestonProcess HestonProcess { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Processes.HestonProcess.html">HestonProcess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_HestonSLVFDMModel_LeverageFunction_" data-uid="NanoQL.Models.HestonSLVFDMModel.LeverageFunction*"></a>
+
+  <h3 id="NanoQL_Models_HestonSLVFDMModel_LeverageFunction" data-uid="NanoQL.Models.HestonSLVFDMModel.LeverageFunction">
+  LeverageFunction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the calibrated leverage function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LocalVolTermStructure LeverageFunction { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_HestonSLVFDMModel_LocalVol_" data-uid="NanoQL.Models.HestonSLVFDMModel.LocalVol*"></a>
+
+  <h3 id="NanoQL_Models_HestonSLVFDMModel_LocalVol" data-uid="NanoQL.Models.HestonSLVFDMModel.LocalVol">
+  LocalVol
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the local volatility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LocalVolTermStructure LocalVol { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_HestonSLVFDMModel_LogEntries_" data-uid="NanoQL.Models.HestonSLVFDMModel.LogEntries*"></a>
+
+  <h3 id="NanoQL_Models_HestonSLVFDMModel_LogEntries" data-uid="NanoQL.Models.HestonSLVFDMModel.LogEntries">
+  LogEntries
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each calibration step's density and mesher with logging on; empty with it off.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;HestonSLVFDMModelLogEntry&gt; LogEntries { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Models.HestonSLVFDMModelLogEntry.html">HestonSLVFDMModelLogEntry</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

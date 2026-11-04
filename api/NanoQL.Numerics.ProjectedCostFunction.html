@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class ProjectedCostFunction | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ProjectedCostFunction | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A cost function of a subset of another&#39;s parameters, the others fixed: the cost function evaluated at the fixed values with the free ones replaced.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.ProjectedCostFunction">
+
+
+
+  <h1 id="NanoQL_Numerics_ProjectedCostFunction" data-uid="NanoQL.Numerics.ProjectedCostFunction" class="text-break">
+Class ProjectedCostFunction  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A cost function of a subset of another's parameters, the others fixed: the cost function evaluated at the fixed
+values with the free ones replaced.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ProjectedCostFunction : CostFunction</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.CostFunction.html">CostFunction</a></div>
+      <div><span class="xref">ProjectedCostFunction</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.CostFunction.html#NanoQL_Numerics_CostFunction_Gradient_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">CostFunction.Gradient(Vector, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.CostFunction.html#NanoQL_Numerics_CostFunction_ValueAndGradient_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">CostFunction.ValueAndGradient(Vector, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.CostFunction.html#NanoQL_Numerics_CostFunction_Jacobian_NanoQL_Numerics_Matrix_NanoQL_Numerics_Vector_">CostFunction.Jacobian(Matrix, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.CostFunction.html#NanoQL_Numerics_CostFunction_ValuesAndJacobian_NanoQL_Numerics_Matrix_NanoQL_Numerics_Vector_">CostFunction.ValuesAndJacobian(Matrix, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.CostFunction.html#NanoQL_Numerics_CostFunction_FiniteDifferenceEpsilon">CostFunction.FiniteDifferenceEpsilon</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Numerics_ProjectedCostFunction_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>QuantLib's class derives from both <a class="xref" href="NanoQL.Numerics.CostFunction.html">CostFunction</a> and <a class="xref" href="NanoQL.Numerics.Projection.html">Projection</a>; this one composes a
+projection, a copy of the state of the one it is given, so a projection's overrides of
+<a class="xref" href="NanoQL.Numerics.Projection.html#NanoQL_Numerics_Projection_Project_NanoQL_Numerics_Vector_">Project(Vector)</a> and <a class="xref" href="NanoQL.Numerics.Projection.html#NanoQL_Numerics_Projection_Include_NanoQL_Numerics_Vector_">Include(Vector)</a> aren't the ones it calls, as QuantLib's copy of
+its base doesn't call them either. It keeps no state between calls: QuantLib's mutable copy of the parameters
+becomes the new vector <a class="xref" href="NanoQL.Numerics.Projection.html#NanoQL_Numerics_Projection_Include_NanoQL_Numerics_Vector_">Include(Vector)</a> returns.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Numerics_ProjectedCostFunction__ctor_" data-uid="NanoQL.Numerics.ProjectedCostFunction.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_ProjectedCostFunction__ctor_NanoQL_Numerics_CostFunction_NanoQL_Numerics_Projection_" data-uid="NanoQL.Numerics.ProjectedCostFunction.#ctor(NanoQL.Numerics.CostFunction,NanoQL.Numerics.Projection)">
+  ProjectedCostFunction(CostFunction, Projection)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.ProjectedCostFunction.html">ProjectedCostFunction</a> class on a copy of a projection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProjectedCostFunction(CostFunction costFunction, Projection projection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>costFunction</code> <a class="xref" href="NanoQL.Numerics.CostFunction.html">CostFunction</a></dt>
+    <dd><p>The cost function of all the parameters.</p>
+</dd>
+    <dt><code>projection</code> <a class="xref" href="NanoQL.Numerics.Projection.html">Projection</a></dt>
+    <dd><p>The projection, whose state is copied.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is null.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_ProjectedCostFunction__ctor_" data-uid="NanoQL.Numerics.ProjectedCostFunction.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_ProjectedCostFunction__ctor_NanoQL_Numerics_CostFunction_System_ReadOnlySpan_System_Double__System_ReadOnlySpan_System_Boolean__" data-uid="NanoQL.Numerics.ProjectedCostFunction.#ctor(NanoQL.Numerics.CostFunction,System.ReadOnlySpan{System.Double},System.ReadOnlySpan{System.Boolean})">
+  ProjectedCostFunction(CostFunction, ReadOnlySpan&lt;double&gt;, ReadOnlySpan&lt;bool&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.ProjectedCostFunction.html">ProjectedCostFunction</a> class on a projection it builds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProjectedCostFunction(CostFunction costFunction, ReadOnlySpan&lt;double&gt; parameterValues, ReadOnlySpan&lt;bool&gt; fixParameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>costFunction</code> <a class="xref" href="NanoQL.Numerics.CostFunction.html">CostFunction</a></dt>
+    <dd><p>The cost function of all the parameters.</p>
+</dd>
+    <dt><code>parameterValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The values of all the parameters; the fixed ones keep these values.</p>
+</dd>
+    <dt><code>fixParameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Whether each parameter is fixed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">costFunction</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The projection refuses the values or the flags.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_ProjectedCostFunction_Include_" data-uid="NanoQL.Numerics.ProjectedCostFunction.Include*"></a>
+
+  <h3 id="NanoQL_Numerics_ProjectedCostFunction_Include_NanoQL_Numerics_Vector_" data-uid="NanoQL.Numerics.ProjectedCostFunction.Include(NanoQL.Numerics.Vector)">
+  Include(Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The whole set of parameters for a set of free ones: the fixed values with the free ones replaced.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector Include(Vector projectedParameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>projectedParameters</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The free parameters, in order.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector of all the parameters.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">projectedParameters</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">projectedParameters</code> isn't one value per free parameter.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_ProjectedCostFunction_Project_" data-uid="NanoQL.Numerics.ProjectedCostFunction.Project*"></a>
+
+  <h3 id="NanoQL_Numerics_ProjectedCostFunction_Project_NanoQL_Numerics_Vector_" data-uid="NanoQL.Numerics.ProjectedCostFunction.Project(NanoQL.Numerics.Vector)">
+  Project(Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The subset of free parameters of a set of parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector Project(Vector parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameters</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>All the parameters.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector of the free ones, in order.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">parameters</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">parameters</code> isn't one value per parameter.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_ProjectedCostFunction_Value_" data-uid="NanoQL.Numerics.ProjectedCostFunction.Value*"></a>
+
+  <h3 id="NanoQL_Numerics_ProjectedCostFunction_Value_NanoQL_Numerics_Vector_" data-uid="NanoQL.Numerics.ProjectedCostFunction.Value(NanoQL.Numerics.Vector)">
+  Value(Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cost function's value at the free parameters, the fixed ones at their values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Value(Vector freeParameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>freeParameters</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The free parameters.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">freeParameters</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">freeParameters</code> isn't one value per free parameter.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_ProjectedCostFunction_Values_" data-uid="NanoQL.Numerics.ProjectedCostFunction.Values*"></a>
+
+  <h3 id="NanoQL_Numerics_ProjectedCostFunction_Values_NanoQL_Numerics_Vector_" data-uid="NanoQL.Numerics.ProjectedCostFunction.Values(NanoQL.Numerics.Vector)">
+  Values(Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cost function's values at the free parameters, the fixed ones at their values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Values(Vector freeParameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>freeParameters</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The free parameters.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The values.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">freeParameters</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">freeParameters</code> isn't one value per free parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class ExtOUWithJumpsProcess | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ExtOUWithJumpsProcess | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Kluge&#39;s spot model, an extended Ornstein-Uhlenbeck process plus exponential jumps (an extension of Lucia and Schwartz&#39;s): S = e^(X + Y), dX = α(μ(t) − X)dt + σdW, dY = −βY dt + J dN, the jumps exponential with rate η.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess">
+
+
+
+  <h1 id="NanoQL_Experimental_ExtOUWithJumpsProcess" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess" class="text-break">
+Class ExtOUWithJumpsProcess  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Kluge's spot model, an extended Ornstein-Uhlenbeck process plus exponential jumps (an extension of Lucia and
+Schwartz's): S = e^(X + Y), dX = α(μ(t) − X)dt + σdW, dY = −βY dt + J dN, the jumps exponential with rate η.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public sealed class ExtOUWithJumpsProcess : StochasticProcess</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.StochasticProcess.html">StochasticProcess</a></div>
+      <div><span class="xref">ExtOUWithJumpsProcess</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Expectation_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess.Expectation(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_StdDeviation_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess.StdDeviation(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Covariance_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess.Covariance(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Apply_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">StochasticProcess.Apply(Vector, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Time_NanoQL_Time_Date_">StochasticProcess.Time(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_ExtOUWithJumpsProcess_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable; two state variables, X and Y, and three factors: X's Brownian draw, the draw that times a jump and the
+draw that sizes it, each an inverse normal mapped to a uniform within [ε, 1 − ε]. The in-place
+<a class="xref" href="NanoQL.Experimental.ExtOUWithJumpsProcess.html#NanoQL_Experimental_ExtOUWithJumpsProcess_Evolve_System_Double_System_ReadOnlySpan_System_Double__System_Double_System_ReadOnlySpan_System_Double__System_Span_System_Double__">Evolve(double, ReadOnlySpan&lt;double&gt;, double, ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)</a> allocates nothing,
+for QuantLib's swing cases' 200,000 paths.
+</p>
+<p>
+A step draws at most one jump, QuantLib's first-order scheme: the probability of a jump in a step of length dt is 1
+− e^(−λdt), and two or more are taken as one, a bias of order (λdt)² that shrinks with the step.
+</p>
+<p>
+References: T. Kluge, Pricing Swing Options and other Electricity Derivatives, 2008; B. Hambly, S. Howison and T.
+Kluge, Modelling spikes and pricing swing options in electricity markets.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_ExtOUWithJumpsProcess__ctor_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_ExtOUWithJumpsProcess__ctor_NanoQL_Experimental_ExtendedOrnsteinUhlenbeckProcess_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.#ctor(NanoQL.Experimental.ExtendedOrnsteinUhlenbeckProcess,System.Double,System.Double,System.Double,System.Double)">
+  ExtOUWithJumpsProcess(ExtendedOrnsteinUhlenbeckProcess, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.ExtOUWithJumpsProcess.html">ExtOUWithJumpsProcess</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExtOUWithJumpsProcess(ExtendedOrnsteinUhlenbeckProcess process, double y0, double beta, double jumpIntensity, double eta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>process</code> <a class="xref" href="NanoQL.Experimental.ExtendedOrnsteinUhlenbeckProcess.html">ExtendedOrnsteinUhlenbeckProcess</a></dt>
+    <dd><p>The extended Ornstein-Uhlenbeck process X.</p>
+</dd>
+    <dt><code>y0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The jump component Y's value today.</p>
+</dd>
+    <dt><code>beta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The jump component's mean-reversion speed β.</p>
+</dd>
+    <dt><code>jumpIntensity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The jumps' intensity λ.</p>
+</dd>
+    <dt><code>eta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The jump sizes' exponential rate η.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">process</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_ExtOUWithJumpsProcess_Beta_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Beta*"></a>
+
+  <h3 id="NanoQL_Experimental_ExtOUWithJumpsProcess_Beta" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Beta">
+  Beta
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the jump component's mean-reversion speed β.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Beta { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_ExtOUWithJumpsProcess_Eta_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Eta*"></a>
+
+  <h3 id="NanoQL_Experimental_ExtOUWithJumpsProcess_Eta" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Eta">
+  Eta
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the jump sizes' exponential rate η.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Eta { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_ExtOUWithJumpsProcess_ExtendedOrnsteinUhlenbeckProcess_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.ExtendedOrnsteinUhlenbeckProcess*"></a>
+
+  <h3 id="NanoQL_Experimental_ExtOUWithJumpsProcess_ExtendedOrnsteinUhlenbeckProcess" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.ExtendedOrnsteinUhlenbeckProcess">
+  ExtendedOrnsteinUhlenbeckProcess
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the extended Ornstein-Uhlenbeck process X.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExtendedOrnsteinUhlenbeckProcess ExtendedOrnsteinUhlenbeckProcess { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.ExtendedOrnsteinUhlenbeckProcess.html">ExtendedOrnsteinUhlenbeckProcess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_ExtOUWithJumpsProcess_Factors_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Factors*"></a>
+
+  <h3 id="NanoQL_Experimental_ExtOUWithJumpsProcess_Factors" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Factors">
+  Factors
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of independent factors of the process; by default, its <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Size">Size</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Factors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_ExtOUWithJumpsProcess_JumpIntensity_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.JumpIntensity*"></a>
+
+  <h3 id="NanoQL_Experimental_ExtOUWithJumpsProcess_JumpIntensity" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.JumpIntensity">
+  JumpIntensity
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the jumps' intensity λ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double JumpIntensity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_ExtOUWithJumpsProcess_Size_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Size*"></a>
+
+  <h3 id="NanoQL_Experimental_ExtOUWithJumpsProcess_Size" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Size">
+  Size
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of dimensions of the process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_ExtOUWithJumpsProcess_Diffusion_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Diffusion*"></a>
+
+  <h3 id="NanoQL_Experimental_ExtOUWithJumpsProcess_Diffusion_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Diffusion(System.Double,NanoQL.Numerics.Vector)">
+  Diffusion(double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The diffusion part of the equation, σ(t, x_t).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Matrix Diffusion(double t, Vector x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Experimental_ExtOUWithJumpsProcess_Diffusion_System_Double_NanoQL_Numerics_Vector__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>QuantLib's 2 × 2 matrix, X's volatility its one non-zero entry; the jump component has no diffusion.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x</code> is empty, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_ExtOUWithJumpsProcess_Drift_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Drift*"></a>
+
+  <h3 id="NanoQL_Experimental_ExtOUWithJumpsProcess_Drift_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Drift(System.Double,NanoQL.Numerics.Vector)">
+  Drift(double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The drift part of the equation, μ(t, x_t).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Drift(double t, Vector x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x</code> holds fewer values than the state, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_ExtOUWithJumpsProcess_Evolve_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Evolve*"></a>
+
+  <h3 id="NanoQL_Experimental_ExtOUWithJumpsProcess_Evolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Evolve(System.Double,NanoQL.Numerics.Vector,System.Double,NanoQL.Numerics.Vector)">
+  Evolve(double, Vector, double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The state after a time interval Δt; by default E(x0, t0, Δt) + S(x0, t0, Δt) · Δw, where E is the expectation
+and S the standard deviation, applied to the expectation by <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Apply_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">Apply(Vector, Vector)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Evolve(double t0, Vector x0, double dt, Vector dw)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+    <dt><code>dw</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The Brownian increments, one per factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes don't match.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_ExtOUWithJumpsProcess_Evolve_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Evolve*"></a>
+
+  <h3 id="NanoQL_Experimental_ExtOUWithJumpsProcess_Evolve_System_Double_System_ReadOnlySpan_System_Double__System_Double_System_ReadOnlySpan_System_Double__System_Span_System_Double__" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.Evolve(System.Double,System.ReadOnlySpan{System.Double},System.Double,System.ReadOnlySpan{System.Double},System.Span{System.Double})">
+  Evolve(double, ReadOnlySpan&lt;double&gt;, double, ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The state after a time interval Δt, written into the caller's span: the in-place form of
+<a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Evolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_">Evolve(double, Vector, double, Vector)</a>, by default its values, copied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Evolve(double t0, ReadOnlySpan&lt;double&gt; x0, double dt, ReadOnlySpan&lt;double&gt; dw, Span&lt;double&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The state at its start, of the process's <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Size">Size</a>.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+    <dt><code>dw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The Brownian increments, one per factor.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The state at the interval's end, of the process's size at least; it mustn't overlap
+<code class="paramref">x0</code> or <code class="paramref">dw</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes don't match.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x0</code> holds fewer values than the state, where QuantLib reads past its end;
+<code class="paramref">dw</code> fewer increments than the process's factors, the third of which QuantLib reads when a jump
+falls in the step; or <code class="paramref">result</code> is shorter than the state.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_ExtOUWithJumpsProcess_InitialValues_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.InitialValues*"></a>
+
+  <h3 id="NanoQL_Experimental_ExtOUWithJumpsProcess_InitialValues" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.InitialValues">
+  InitialValues()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The initial values of the state variables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector InitialValues()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_ExtOUWithJumpsProcess_InitialValues_" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.InitialValues*"></a>
+
+  <h3 id="NanoQL_Experimental_ExtOUWithJumpsProcess_InitialValues_System_Span_System_Double__" data-uid="NanoQL.Experimental.ExtOUWithJumpsProcess.InitialValues(System.Span{System.Double})">
+  InitialValues(Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The initial values of the state variables, written into the caller's span; by default
+<a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_InitialValues">InitialValues()</a>'s values, copied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void InitialValues(Span&lt;double&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The values, of the process's <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Size">Size</a> at least.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">result</code> is shorter than the process's size.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">result</code> is shorter than the process's size.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

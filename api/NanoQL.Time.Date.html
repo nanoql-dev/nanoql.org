@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Date | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Date | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A date, held as QuantLib&#39;s serial number: 367 (January 1st, 1901) to 109574 (December 31st, 2199), Excel&#39;s numbering. It provides inspectors, a limited date algebra, and conversion to and from .">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Time.Date">
+
+
+
+  <h1 id="NanoQL_Time_Date" data-uid="NanoQL.Time.Date" class="text-break">
+Struct Date  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Time.html">Time</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A date, held as QuantLib's serial number: 367 (January 1st, 1901) to 109574 (December 31st, 2199), Excel's
+numbering. It provides inspectors, a limited date algebra, and conversion to and from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dateonly">DateOnly</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly struct Date : IEquatable&lt;Date&gt;, IComparable&lt;Date&gt;, IComparable</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable">IComparable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Time_Date_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>QuantLib's null date, <code>Date()</code>, is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable&lt;T&gt;</a> null in nanoql. <code>default(Date)</code> (serial 0) is
+never a valid date: no constructor produces it, and members that read it throw <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a>.
+Equality, ordering, hashing and <a class="xref" href="NanoQL.Time.Date.html#NanoQL_Time_Date_SerialNumber">SerialNumber</a> never throw.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Time_Date__ctor_" data-uid="NanoQL.Time.Date.#ctor*"></a>
+
+  <h3 id="NanoQL_Time_Date__ctor_System_Int32_" data-uid="NanoQL.Time.Date.#ctor(System.Int32)">
+  Date(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Time.Date.html">Date</a> struct from a serial number, as Excel numbers dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date(int serialNumber)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serialNumber</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The serial number, 367 to 109574.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The serial number is outside the allowed range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Time_Date__ctor_" data-uid="NanoQL.Time.Date.#ctor*"></a>
+
+  <h3 id="NanoQL_Time_Date__ctor_System_Int32_NanoQL_Time_Month_System_Int32_" data-uid="NanoQL.Time.Date.#ctor(System.Int32,NanoQL.Time.Month,System.Int32)">
+  Date(int, Month, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Time.Date.html">Date</a> struct from a day, a month and a year.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date(int d, Month m, int y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The day of the month.</p>
+</dd>
+    <dt><code>m</code> <a class="xref" href="NanoQL.Time.Month.html">Month</a></dt>
+    <dd><p>The month.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The year, 1901 to 2199.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The year, month or day is out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Time_Date_DayOfMonth_" data-uid="NanoQL.Time.Date.DayOfMonth*"></a>
+
+  <h3 id="NanoQL_Time_Date_DayOfMonth" data-uid="NanoQL.Time.Date.DayOfMonth">
+  DayOfMonth
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the day of the month.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DayOfMonth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_DayOfYear_" data-uid="NanoQL.Time.Date.DayOfYear*"></a>
+
+  <h3 id="NanoQL_Time_Date_DayOfYear" data-uid="NanoQL.Time.Date.DayOfYear">
+  DayOfYear
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the day of the year, one-based (January 1st = 1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DayOfYear { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_MaxDate_" data-uid="NanoQL.Time.Date.MaxDate*"></a>
+
+  <h3 id="NanoQL_Time_Date_MaxDate" data-uid="NanoQL.Time.Date.MaxDate">
+  MaxDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the latest allowed date, December 31st, 2199.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date MaxDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_MinDate_" data-uid="NanoQL.Time.Date.MinDate*"></a>
+
+  <h3 id="NanoQL_Time_Date_MinDate" data-uid="NanoQL.Time.Date.MinDate">
+  MinDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the earliest allowed date, January 1st, 1901.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date MinDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_Month_" data-uid="NanoQL.Time.Date.Month*"></a>
+
+  <h3 id="NanoQL_Time_Date_Month" data-uid="NanoQL.Time.Date.Month">
+  Month
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the month.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Month Month { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Month.html">Month</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_SerialNumber_" data-uid="NanoQL.Time.Date.SerialNumber*"></a>
+
+  <h3 id="NanoQL_Time_Date_SerialNumber" data-uid="NanoQL.Time.Date.SerialNumber">
+  SerialNumber
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the serial number; 0 for <code>default(Date)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SerialNumber { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_Weekday_" data-uid="NanoQL.Time.Date.Weekday*"></a>
+
+  <h3 id="NanoQL_Time_Date_Weekday" data-uid="NanoQL.Time.Date.Weekday">
+  Weekday
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the day of the week.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Weekday Weekday { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Weekday.html">Weekday</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_Year_" data-uid="NanoQL.Time.Date.Year*"></a>
+
+  <h3 id="NanoQL_Time_Date_Year" data-uid="NanoQL.Time.Date.Year">
+  Year
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the year.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Year { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Time_Date_CompareTo_" data-uid="NanoQL.Time.Date.CompareTo*"></a>
+
+  <h3 id="NanoQL_Time_Date_CompareTo_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.CompareTo(NanoQL.Time.Date)">
+  CompareTo(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(Date other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_CompareTo_" data-uid="NanoQL.Time.Date.CompareTo*"></a>
+
+  <h3 id="NanoQL_Time_Date_CompareTo_System_Object_" data-uid="NanoQL.Time.Date.CompareTo(System.Object)">
+  CompareTo(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_EndOfMonth_" data-uid="NanoQL.Time.Date.EndOfMonth*"></a>
+
+  <h3 id="NanoQL_Time_Date_EndOfMonth_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.EndOfMonth(NanoQL.Time.Date)">
+  EndOfMonth(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The last day of the month to which the given date belongs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date EndOfMonth(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The last day of its month.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_Equals_" data-uid="NanoQL.Time.Date.Equals*"></a>
+
+  <h3 id="NanoQL_Time_Date_Equals_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.Equals(NanoQL.Time.Date)">
+  Equals(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Date other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_Equals_" data-uid="NanoQL.Time.Date.Equals*"></a>
+
+  <h3 id="NanoQL_Time_Date_Equals_System_Object_" data-uid="NanoQL.Time.Date.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_FromDateOnly_" data-uid="NanoQL.Time.Date.FromDateOnly*"></a>
+
+  <h3 id="NanoQL_Time_Date_FromDateOnly_System_DateOnly_" data-uid="NanoQL.Time.Date.FromDateOnly(System.DateOnly)">
+  FromDateOnly(DateOnly)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dateonly">DateOnly</a> to a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date FromDateOnly(DateOnly date)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>date</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dateonly">DateOnly</a></dt>
+    <dd><p>The date, January 1st, 1901 to December 31st, 2199.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The same day as a <a class="xref" href="NanoQL.Time.Date.html">Date</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_GetHashCode_" data-uid="NanoQL.Time.Date.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Time_Date_GetHashCode" data-uid="NanoQL.Time.Date.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_IsEndOfMonth_" data-uid="NanoQL.Time.Date.IsEndOfMonth*"></a>
+
+  <h3 id="NanoQL_Time_Date_IsEndOfMonth_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.IsEndOfMonth(NanoQL.Time.Date)">
+  IsEndOfMonth(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a date is the last day of its month.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsEndOfMonth(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> on the last day.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_IsLeap_" data-uid="NanoQL.Time.Date.IsLeap*"></a>
+
+  <h3 id="NanoQL_Time_Date_IsLeap_System_Int32_" data-uid="NanoQL.Time.Date.IsLeap(System.Int32)">
+  IsLeap(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the given year is a leap one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsLeap(int y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The year, 1900 to 2200.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> for a leap year.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Time_Date_IsLeap_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>As in QuantLib (and Excel), 1900 counts as a leap year.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Time_Date_IsStartOfMonth_" data-uid="NanoQL.Time.Date.IsStartOfMonth*"></a>
+
+  <h3 id="NanoQL_Time_Date_IsStartOfMonth_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.IsStartOfMonth(NanoQL.Time.Date)">
+  IsStartOfMonth(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a date is the first day of its month.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsStartOfMonth(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> on the first day.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_NextWeekday_" data-uid="NanoQL.Time.Date.NextWeekday*"></a>
+
+  <h3 id="NanoQL_Time_Date_NextWeekday_NanoQL_Time_Date_NanoQL_Time_Weekday_" data-uid="NanoQL.Time.Date.NextWeekday(NanoQL.Time.Date,NanoQL.Time.Weekday)">
+  NextWeekday(Date, Weekday)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The next given weekday following or equal to the given date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date NextWeekday(Date d, Weekday w)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>w</code> <a class="xref" href="NanoQL.Time.Weekday.html">Weekday</a></dt>
+    <dd><p>The weekday.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date; e.g., the Friday following Tuesday, January 15th, 2002 was January 18th, 2002.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The weekday isn't a member of the enum.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Time_Date_NthWeekday_" data-uid="NanoQL.Time.Date.NthWeekday*"></a>
+
+  <h3 id="NanoQL_Time_Date_NthWeekday_System_Int32_NanoQL_Time_Weekday_NanoQL_Time_Month_System_Int32_" data-uid="NanoQL.Time.Date.NthWeekday(System.Int32,NanoQL.Time.Weekday,NanoQL.Time.Month,System.Int32)">
+  NthWeekday(int, Weekday, Month, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The n-th given weekday in the given month and year.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date NthWeekday(int n, Weekday w, Month m, int y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Which occurrence, 1 to 5.</p>
+</dd>
+    <dt><code>w</code> <a class="xref" href="NanoQL.Time.Weekday.html">Weekday</a></dt>
+    <dd><p>The weekday.</p>
+</dd>
+    <dt><code>m</code> <a class="xref" href="NanoQL.Time.Month.html">Month</a></dt>
+    <dd><p>The month.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The year.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date; e.g., the 4th Thursday of March, 1998 was March 26th, 1998.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">n</code> isn't 1 to 5, or the weekday or the month isn't a member of its enum.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Time_Date_StartOfMonth_" data-uid="NanoQL.Time.Date.StartOfMonth*"></a>
+
+  <h3 id="NanoQL_Time_Date_StartOfMonth_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.StartOfMonth(NanoQL.Time.Date)">
+  StartOfMonth(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The first day of the month to which the given date belongs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date StartOfMonth(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The first day of its month.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_ToDateOnly_" data-uid="NanoQL.Time.Date.ToDateOnly*"></a>
+
+  <h3 id="NanoQL_Time_Date_ToDateOnly" data-uid="NanoQL.Time.Date.ToDateOnly">
+  ToDateOnly()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the date to a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dateonly">DateOnly</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateOnly ToDateOnly()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dateonly">DateOnly</a></dt>
+    <dd><p>The same day as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dateonly">DateOnly</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_ToString_" data-uid="NanoQL.Time.Date.ToString*"></a>
+
+  <h3 id="NanoQL_Time_Date_ToString" data-uid="NanoQL.Time.Date.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The date in QuantLib's long format, e.g. &quot;October 15th, 2026&quot;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The long-format text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_TodaysDate_" data-uid="NanoQL.Time.Date.TodaysDate*"></a>
+
+  <h3 id="NanoQL_Time_Date_TodaysDate_System_TimeProvider_" data-uid="NanoQL.Time.Date.TodaysDate(System.TimeProvider)">
+  TodaysDate(TimeProvider?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Today's date, from the clock's local time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date TodaysDate(TimeProvider? timeProvider = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>timeProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timeprovider">TimeProvider</a></dt>
+    <dd><p>The clock; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timeprovider.system">System</a> when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>Today's date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Time_Date_TodaysDate_System_TimeProvider__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>No library code calls it: the evaluation date is an explicit input.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Time_Date_op_Addition_" data-uid="NanoQL.Time.Date.op_Addition*"></a>
+
+  <h3 id="NanoQL_Time_Date_op_Addition_NanoQL_Time_Date_NanoQL_Time_Period_" data-uid="NanoQL.Time.Date.op_Addition(NanoQL.Time.Date,NanoQL.Time.Period)">
+  operator +(Date, Period)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new date incremented by the given period.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date operator +(Date d, Period p)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>p</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The period.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The new date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_op_Addition_" data-uid="NanoQL.Time.Date.op_Addition*"></a>
+
+  <h3 id="NanoQL_Time_Date_op_Addition_NanoQL_Time_Date_System_Int32_" data-uid="NanoQL.Time.Date.op_Addition(NanoQL.Time.Date,System.Int32)">
+  operator +(Date, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new date incremented by the given number of days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date operator +(Date d, int days)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>days</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of days.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The new date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_op_Decrement_" data-uid="NanoQL.Time.Date.op_Decrement*"></a>
+
+  <h3 id="NanoQL_Time_Date_op_Decrement_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.op_Decrement(NanoQL.Time.Date)">
+  operator --(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the previous day.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date operator --(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date one day earlier.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_op_Equality_" data-uid="NanoQL.Time.Date.op_Equality*"></a>
+
+  <h3 id="NanoQL_Time_Date_op_Equality_NanoQL_Time_Date_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.op_Equality(NanoQL.Time.Date,NanoQL.Time.Date)">
+  operator ==(Date, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether two dates are the same.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Date d1, Date d2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d1</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The first date.</p>
+</dd>
+    <dt><code>d2</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The second date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the serial numbers are equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_op_GreaterThan_" data-uid="NanoQL.Time.Date.op_GreaterThan*"></a>
+
+  <h3 id="NanoQL_Time_Date_op_GreaterThan_NanoQL_Time_Date_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.op_GreaterThan(NanoQL.Time.Date,NanoQL.Time.Date)">
+  operator &gt;(Date, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a date is later than another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;(Date d1, Date d2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d1</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The first date.</p>
+</dd>
+    <dt><code>d2</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The second date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when <code class="paramref">d1</code> is later.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_op_GreaterThanOrEqual_" data-uid="NanoQL.Time.Date.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="NanoQL_Time_Date_op_GreaterThanOrEqual_NanoQL_Time_Date_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.op_GreaterThanOrEqual(NanoQL.Time.Date,NanoQL.Time.Date)">
+  operator &gt;=(Date, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a date is later than or equal to another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(Date d1, Date d2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d1</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The first date.</p>
+</dd>
+    <dt><code>d2</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The second date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when <code class="paramref">d1</code> is not earlier.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_op_Increment_" data-uid="NanoQL.Time.Date.op_Increment*"></a>
+
+  <h3 id="NanoQL_Time_Date_op_Increment_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.op_Increment(NanoQL.Time.Date)">
+  operator ++(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next day.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date operator ++(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date one day later.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_op_Inequality_" data-uid="NanoQL.Time.Date.op_Inequality*"></a>
+
+  <h3 id="NanoQL_Time_Date_op_Inequality_NanoQL_Time_Date_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.op_Inequality(NanoQL.Time.Date,NanoQL.Time.Date)">
+  operator !=(Date, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether two dates differ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Date d1, Date d2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d1</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The first date.</p>
+</dd>
+    <dt><code>d2</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The second date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the serial numbers differ.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_op_LessThan_" data-uid="NanoQL.Time.Date.op_LessThan*"></a>
+
+  <h3 id="NanoQL_Time_Date_op_LessThan_NanoQL_Time_Date_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.op_LessThan(NanoQL.Time.Date,NanoQL.Time.Date)">
+  operator &lt;(Date, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a date is earlier than another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(Date d1, Date d2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d1</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The first date.</p>
+</dd>
+    <dt><code>d2</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The second date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when <code class="paramref">d1</code> is earlier.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_op_LessThanOrEqual_" data-uid="NanoQL.Time.Date.op_LessThanOrEqual*"></a>
+
+  <h3 id="NanoQL_Time_Date_op_LessThanOrEqual_NanoQL_Time_Date_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.op_LessThanOrEqual(NanoQL.Time.Date,NanoQL.Time.Date)">
+  operator &lt;=(Date, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a date is earlier than or equal to another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(Date d1, Date d2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d1</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The first date.</p>
+</dd>
+    <dt><code>d2</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The second date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when <code class="paramref">d1</code> is not later.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_op_Subtraction_" data-uid="NanoQL.Time.Date.op_Subtraction*"></a>
+
+  <h3 id="NanoQL_Time_Date_op_Subtraction_NanoQL_Time_Date_NanoQL_Time_Date_" data-uid="NanoQL.Time.Date.op_Subtraction(NanoQL.Time.Date,NanoQL.Time.Date)">
+  operator -(Date, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the difference in days between two dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int operator -(Date d1, Date d2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d1</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The later date.</p>
+</dd>
+    <dt><code>d2</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The earlier date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The difference in days.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_op_Subtraction_" data-uid="NanoQL.Time.Date.op_Subtraction*"></a>
+
+  <h3 id="NanoQL_Time_Date_op_Subtraction_NanoQL_Time_Date_NanoQL_Time_Period_" data-uid="NanoQL.Time.Date.op_Subtraction(NanoQL.Time.Date,NanoQL.Time.Period)">
+  operator -(Date, Period)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new date decremented by the given period.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date operator -(Date d, Period p)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>p</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The period.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The new date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_Date_op_Subtraction_" data-uid="NanoQL.Time.Date.op_Subtraction*"></a>
+
+  <h3 id="NanoQL_Time_Date_op_Subtraction_NanoQL_Time_Date_System_Int32_" data-uid="NanoQL.Time.Date.op_Subtraction(NanoQL.Time.Date,System.Int32)">
+  operator -(Date, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new date decremented by the given number of days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date operator -(Date d, int days)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>days</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of days.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The new date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

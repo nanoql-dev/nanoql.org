@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CalendarEdits | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CalendarEdits | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A calendar preset&#39;s holiday edits, which  returns: the dates added to its holidays and the dates removed from them, applied after its rules as  and  apply them.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Time.CalendarEdits">
+
+
+
+  <h1 id="NanoQL_Time_CalendarEdits" data-uid="NanoQL.Time.CalendarEdits" class="text-break">
+Class CalendarEdits  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Time.html">Time</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A calendar preset's holiday edits, which <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_ResolveCalendarEdits_System_String_NanoQL_Time_CalendarEdits_">ResolveCalendarEdits(string, CalendarEdits)</a> returns: the dates
+added to its holidays and the dates removed from them, applied after its rules as
+<a class="xref" href="NanoQL.Time.Calendar.html#NanoQL_Time_Calendar_AddHoliday_NanoQL_Time_Date_">AddHoliday(Date)</a> and <a class="xref" href="NanoQL.Time.Calendar.html#NanoQL_Time_Calendar_RemoveHoliday_NanoQL_Time_Date_">RemoveHoliday(Date)</a> apply them.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record CalendarEdits : IEquatable&lt;CalendarEdits&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CalendarEdits</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Time.CalendarEdits.html">CalendarEdits</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Time_CalendarEdits_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Two edits are equal when they add the same dates and remove the same dates. A date is either added or removed,
+never both.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Time_CalendarEdits__ctor_" data-uid="NanoQL.Time.CalendarEdits.#ctor*"></a>
+
+  <h3 id="NanoQL_Time_CalendarEdits__ctor_System_Collections_Generic_IEnumerable_NanoQL_Time_Date__System_Collections_Generic_IEnumerable_NanoQL_Time_Date__" data-uid="NanoQL.Time.CalendarEdits.#ctor(System.Collections.Generic.IEnumerable{NanoQL.Time.Date},System.Collections.Generic.IEnumerable{NanoQL.Time.Date})">
+  CalendarEdits(IEnumerable&lt;Date&gt;, IEnumerable&lt;Date&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Time.CalendarEdits.html">CalendarEdits</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CalendarEdits(IEnumerable&lt;Date&gt; added, IEnumerable&lt;Date&gt; removed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>added</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The dates added to the calendar's holidays.</p>
+</dd>
+    <dt><code>removed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The dates removed from them.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A sequence is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A date is <code>default(Date)</code>, or is both added and removed.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Time_CalendarEdits_Added_" data-uid="NanoQL.Time.CalendarEdits.Added*"></a>
+
+  <h3 id="NanoQL_Time_CalendarEdits_Added" data-uid="NanoQL.Time.CalendarEdits.Added">
+  Added
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the dates added to the calendar's holidays.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableSortedSet&lt;Date&gt; Added { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablesortedset-1">ImmutableSortedSet</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_CalendarEdits_None_" data-uid="NanoQL.Time.CalendarEdits.None*"></a>
+
+  <h3 id="NanoQL_Time_CalendarEdits_None" data-uid="NanoQL.Time.CalendarEdits.None">
+  None
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the edits of QuantLib's presets: none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CalendarEdits None { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.CalendarEdits.html">CalendarEdits</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_CalendarEdits_Removed_" data-uid="NanoQL.Time.CalendarEdits.Removed*"></a>
+
+  <h3 id="NanoQL_Time_CalendarEdits_Removed" data-uid="NanoQL.Time.CalendarEdits.Removed">
+  Removed
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the dates removed from the calendar's holidays.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableSortedSet&lt;Date&gt; Removed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablesortedset-1">ImmutableSortedSet</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Time_CalendarEdits_Equals_" data-uid="NanoQL.Time.CalendarEdits.Equals*"></a>
+
+  <h3 id="NanoQL_Time_CalendarEdits_Equals_NanoQL_Time_CalendarEdits_" data-uid="NanoQL.Time.CalendarEdits.Equals(NanoQL.Time.CalendarEdits)">
+  Equals(CalendarEdits?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the edits add and remove the same dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(CalendarEdits? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Time.CalendarEdits.html">CalendarEdits</a></dt>
+    <dd><p>The other edits.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_CalendarEdits_Equals_" data-uid="NanoQL.Time.CalendarEdits.Equals*"></a>
+
+  <h3 id="NanoQL_Time_CalendarEdits_Equals_System_Object_" data-uid="NanoQL.Time.CalendarEdits.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_CalendarEdits_GetHashCode_" data-uid="NanoQL.Time.CalendarEdits.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Time_CalendarEdits_GetHashCode" data-uid="NanoQL.Time.CalendarEdits.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_CalendarEdits_ToString_" data-uid="NanoQL.Time.CalendarEdits.ToString*"></a>
+
+  <h3 id="NanoQL_Time_CalendarEdits_ToString" data-uid="NanoQL.Time.CalendarEdits.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Time_CalendarEdits_op_Equality_" data-uid="NanoQL.Time.CalendarEdits.op_Equality*"></a>
+
+  <h3 id="NanoQL_Time_CalendarEdits_op_Equality_NanoQL_Time_CalendarEdits_NanoQL_Time_CalendarEdits_" data-uid="NanoQL.Time.CalendarEdits.op_Equality(NanoQL.Time.CalendarEdits,NanoQL.Time.CalendarEdits)">
+  operator ==(CalendarEdits?, CalendarEdits?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(CalendarEdits? left, CalendarEdits? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Time.CalendarEdits.html">CalendarEdits</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Time.CalendarEdits.html">CalendarEdits</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Time_CalendarEdits_op_Inequality_" data-uid="NanoQL.Time.CalendarEdits.op_Inequality*"></a>
+
+  <h3 id="NanoQL_Time_CalendarEdits_op_Inequality_NanoQL_Time_CalendarEdits_NanoQL_Time_CalendarEdits_" data-uid="NanoQL.Time.CalendarEdits.op_Inequality(NanoQL.Time.CalendarEdits,NanoQL.Time.CalendarEdits)">
+  operator !=(CalendarEdits?, CalendarEdits?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(CalendarEdits? left, CalendarEdits? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Time.CalendarEdits.html">CalendarEdits</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Time.CalendarEdits.html">CalendarEdits</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

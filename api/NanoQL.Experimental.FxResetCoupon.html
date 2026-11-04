@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class FxResetCoupon | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FxResetCoupon | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A floating-rate coupon of an FX-resetting leg.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.FxResetCoupon">
+
+
+
+  <h1 id="NanoQL_Experimental_FxResetCoupon" data-uid="NanoQL.Experimental.FxResetCoupon" class="text-break">
+Class FxResetCoupon  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A floating-rate coupon of an FX-resetting leg.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public sealed class FxResetCoupon : FloatingRateCoupon</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Event.html">Event</a></div>
+      <div><a class="xref" href="NanoQL.CashFlow.html">CashFlow</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.Coupon.html">Coupon</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></div>
+      <div><span class="xref">FxResetCoupon</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_Price_NanoQL_TermStructures_YieldTermStructure_NanoQL_EvaluationContext_">FloatingRateCoupon.Price(YieldTermStructure, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_ConvexityAdjustment_NanoQL_EvaluationContext_">FloatingRateCoupon.ConvexityAdjustment(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_AdjustedFixing_NanoQL_EvaluationContext_">FloatingRateCoupon.AdjustedFixing(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_Index">FloatingRateCoupon.Index</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_FixingDays">FloatingRateCoupon.FixingDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_Gearing">FloatingRateCoupon.Gearing</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_Spread">FloatingRateCoupon.Spread</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_IsInArrears">FloatingRateCoupon.IsInArrears</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_FixingConvention">FloatingRateCoupon.FixingConvention</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_Pricer">FloatingRateCoupon.Pricer</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html#NanoQL_Coupons_FloatingRateCoupon_DayCounter">FloatingRateCoupon.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccrualPeriod">Coupon.AccrualPeriod()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccrualDays">Coupon.AccrualDays()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccruedPeriod_NanoQL_Time_Date_">Coupon.AccruedPeriod(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccruedDays_NanoQL_Time_Date_">Coupon.AccruedDays(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_Date">Coupon.Date</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ExCouponDate">Coupon.ExCouponDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccrualStartDate">Coupon.AccrualStartDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccrualEndDate">Coupon.AccrualEndDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ReferencePeriodStart">Coupon.ReferencePeriodStart</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ReferencePeriodEnd">Coupon.ReferencePeriodEnd</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ContractNominal">Coupon.ContractNominal</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.CashFlow.html#NanoQL_CashFlow_HasOccurred_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__System_Nullable_System_Boolean__">CashFlow.HasOccurred(EvaluationContext, Date?, bool?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.CashFlow.html#NanoQL_CashFlow_TradingExCoupon_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">CashFlow.TradingExCoupon(EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Coupons.FloatingRateCouponExtensions.html#NanoQL_Coupons_FloatingRateCouponExtensions_SetPricer__1___0_NanoQL_Coupons_FloatingRateCouponPricer_">FloatingRateCouponExtensions.SetPricer&lt;T&gt;(T, FloatingRateCouponPricer?)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_Experimental_FxResetCoupon_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The coupon wraps an underlying floating-rate coupon: its nominal is the constant leg's notional converted at the
+period's FX-reset observation, by its FX-reset pricer; its rate is the underlying's, and its amounts the
+underlying's rescaled to that nominal, which keeps the underlying's accrual logic, e.g. the partial-period
+compounding of an overnight-indexed coupon. <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ContractNominal">ContractNominal</a> is the underlying's.
+</p>
+<p>
+Immutable, as every coupon is: <a class="xref" href="NanoQL.Experimental.FxResetCoupon.html#NanoQL_Experimental_FxResetCoupon_SetFxResetPricer_NanoQL_Experimental_FxResetPricer_">SetFxResetPricer(FxResetPricer?)</a> returns a copy holding the pricer, and a coupon
+pricer set through <a class="xref" href="NanoQL.Coupons.FloatingRateCouponExtensions.html#NanoQL_Coupons_FloatingRateCouponExtensions_SetPricer__1___0_NanoQL_Coupons_FloatingRateCouponPricer_">SetPricer&lt;T&gt;(T, FloatingRateCouponPricer?)</a> is forwarded to a copy of the underlying,
+whose pricer drives the paid rate.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon__ctor_" data-uid="NanoQL.Experimental.FxResetCoupon.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon__ctor_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_Experimental_FxReset_" data-uid="NanoQL.Experimental.FxResetCoupon.#ctor(NanoQL.Coupons.FloatingRateCoupon,System.Double,NanoQL.Experimental.FxReset)">
+  FxResetCoupon(FloatingRateCoupon, double, FxReset)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.FxResetCoupon.html">FxResetCoupon</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FxResetCoupon(FloatingRateCoupon underlying, double constantLegNotional, FxReset fxReset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>underlying</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The underlying floating-rate coupon.</p>
+</dd>
+    <dt><code>constantLegNotional</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The constant leg's notional, in its own currency.</p>
+</dd>
+    <dt><code>fxReset</code> <a class="xref" href="NanoQL.Experimental.FxReset.html">FxReset</a></dt>
+    <dd><p>The FX-reset observation of the coupon's period.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">underlying</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The underlying coupon's nominal is zero.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_ConstantLegNotional_" data-uid="NanoQL.Experimental.FxResetCoupon.ConstantLegNotional*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_ConstantLegNotional" data-uid="NanoQL.Experimental.FxResetCoupon.ConstantLegNotional">
+  ConstantLegNotional
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the constant leg's notional, in its own currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ConstantLegNotional { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_FxReset_" data-uid="NanoQL.Experimental.FxResetCoupon.FxReset*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_FxReset" data-uid="NanoQL.Experimental.FxResetCoupon.FxReset">
+  FxReset
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the FX-reset observation of the coupon's period.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FxReset FxReset { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.FxReset.html">FxReset</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_FxResetDate_" data-uid="NanoQL.Experimental.FxResetCoupon.FxResetDate*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_FxResetDate" data-uid="NanoQL.Experimental.FxResetCoupon.FxResetDate">
+  FxResetDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the date on which the FX rate is observed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date FxResetDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_FxResetPricer_" data-uid="NanoQL.Experimental.FxResetCoupon.FxResetPricer*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_FxResetPricer" data-uid="NanoQL.Experimental.FxResetCoupon.FxResetPricer">
+  FxResetPricer
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the FX-reset pricer, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when none is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FxResetPricer? FxResetPricer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.FxResetPricer.html">FxResetPricer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_FxResetValueDate_" data-uid="NanoQL.Experimental.FxResetCoupon.FxResetValueDate*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_FxResetValueDate" data-uid="NanoQL.Experimental.FxResetCoupon.FxResetValueDate">
+  FxResetValueDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the settlement date of the FX observation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date FxResetValueDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_Underlying_" data-uid="NanoQL.Experimental.FxResetCoupon.Underlying*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_Underlying" data-uid="NanoQL.Experimental.FxResetCoupon.Underlying">
+  Underlying
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the underlying floating-rate coupon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FloatingRateCoupon Underlying { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_AccruedAmount_" data-uid="NanoQL.Experimental.FxResetCoupon.AccruedAmount*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_AccruedAmount_NanoQL_Time_Date_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.FxResetCoupon.AccruedAmount(NanoQL.Time.Date,NanoQL.EvaluationContext)">
+  AccruedAmount(Date, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The underlying coupon's accrued amount, rescaled to the FX-reset nominal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double AccruedAmount(Date d, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accrued amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_Amount_" data-uid="NanoQL.Experimental.FxResetCoupon.Amount*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_Amount_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.FxResetCoupon.Amount(NanoQL.EvaluationContext)">
+  Amount(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The underlying coupon's amount, rescaled to the FX-reset nominal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Amount(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_FixingDate_" data-uid="NanoQL.Experimental.FxResetCoupon.FixingDate*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_FixingDate" data-uid="NanoQL.Experimental.FxResetCoupon.FixingDate">
+  FixingDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fixing date: the fixing days before the accrual start, or before the accrual end in arrears, on the index's
+fixing calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date FixingDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The fixing date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_IndexFixing_" data-uid="NanoQL.Experimental.FxResetCoupon.IndexFixing*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_IndexFixing_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.FxResetCoupon.IndexFixing(NanoQL.EvaluationContext)">
+  IndexFixing(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The index fixing on the coupon's fixing date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double IndexFixing(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fixing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_Nominal_" data-uid="NanoQL.Experimental.FxResetCoupon.Nominal*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_Nominal_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.FxResetCoupon.Nominal(NanoQL.EvaluationContext)">
+  Nominal(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The nominal: the constant leg's notional converted at the observation's FX rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Nominal(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, which the FX-reset pricer reads.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The nominal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No FX-reset pricer is set.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_Rate_" data-uid="NanoQL.Experimental.FxResetCoupon.Rate*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_Rate_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.FxResetCoupon.Rate(NanoQL.EvaluationContext)">
+  Rate(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The coupon's rate: its pricer's swaplet rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Rate(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No pricer is set.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_SetFxResetPricer_" data-uid="NanoQL.Experimental.FxResetCoupon.SetFxResetPricer*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_SetFxResetPricer_NanoQL_Experimental_FxResetPricer_" data-uid="NanoQL.Experimental.FxResetCoupon.SetFxResetPricer(NanoQL.Experimental.FxResetPricer)">
+  SetFxResetPricer(FxResetPricer?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the coupon holding an FX-reset pricer: QuantLib's <code>setFxResetPricer</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FxResetCoupon SetFxResetPricer(FxResetPricer? pricer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pricer</code> <a class="xref" href="NanoQL.Experimental.FxResetPricer.html">FxResetPricer</a></dt>
+    <dd><p>The pricer, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.FxResetCoupon.html">FxResetCoupon</a></dt>
+    <dd><p>The copy; the receiver is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FxResetCoupon_WithPricer_" data-uid="NanoQL.Experimental.FxResetCoupon.WithPricer*"></a>
+
+  <h3 id="NanoQL_Experimental_FxResetCoupon_WithPricer_NanoQL_Coupons_FloatingRateCouponPricer_" data-uid="NanoQL.Experimental.FxResetCoupon.WithPricer(NanoQL.Coupons.FloatingRateCouponPricer)">
+  WithPricer(FloatingRateCouponPricer?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the coupon holding another pricer: <a class="xref" href="NanoQL.Coupons.FloatingRateCouponExtensions.html#NanoQL_Coupons_FloatingRateCouponExtensions_SetPricer__1___0_NanoQL_Coupons_FloatingRateCouponPricer_">SetPricer&lt;T&gt;(T, FloatingRateCouponPricer?)</a>'s step, which
+QuantLib's <code>setPricer</code> does in place. The base's copy is memberwise; an override returns a copy of the same
+runtime type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override FloatingRateCoupon WithPricer(FloatingRateCouponPricer? pricer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pricer</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The pricer, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Experimental_FxResetCoupon_WithPricer_NanoQL_Coupons_FloatingRateCouponPricer__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The pricer is forwarded to a copy of the underlying coupon, whose pricer drives the paid
+rate.</p>
+</div>
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class ExtendedCoxIngersollRoss | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ExtendedCoxIngersollRoss | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The extended Cox-Ingersoll-Ross model: r(t) = φ(t) + y(t), y a standard Cox-Ingersoll-Ross process, dy(t) = k(θ − y(t))dt + σ√y(t) dW(t), and φ the deterministic parameter fitting the curve.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models.ExtendedCoxIngersollRoss">
+
+
+
+  <h1 id="NanoQL_Models_ExtendedCoxIngersollRoss" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss" class="text-break">
+Class ExtendedCoxIngersollRoss  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The extended Cox-Ingersoll-Ross model: r(t) = φ(t) + y(t), y a standard Cox-Ingersoll-Ross process,
+dy(t) = k(θ − y(t))dt + σ√y(t) dW(t), and φ the deterministic parameter fitting the curve.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ExtendedCoxIngersollRoss : CoxIngersollRoss, ICalibratedModel, IAffineModel, ITermStructureConsistentModel</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Models.CalibratedModel.html">CalibratedModel</a></div>
+      <div><a class="xref" href="NanoQL.Models.ShortRateModel.html">ShortRateModel</a></div>
+      <div><a class="xref" href="NanoQL.Models.OneFactorModel.html">OneFactorModel</a></div>
+      <div><a class="xref" href="NanoQL.Models.OneFactorAffineModel.html">OneFactorAffineModel</a></div>
+      <div><a class="xref" href="NanoQL.Models.CoxIngersollRoss.html">CoxIngersollRoss</a></div>
+      <div><span class="xref">ExtendedCoxIngersollRoss</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Models.ICalibratedModel.html">ICalibratedModel</a></div>
+      <div><a class="xref" href="NanoQL.Models.IAffineModel.html">IAffineModel</a></div>
+      <div><a class="xref" href="NanoQL.Models.ITermStructureConsistentModel.html">ITermStructureConsistentModel</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Models.OneFactorAffineModel.html#NanoQL_Models_OneFactorAffineModel_DiscountBond_System_Double_System_Double_NanoQL_Numerics_Vector_">OneFactorAffineModel.DiscountBond(double, double, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.OneFactorAffineModel.html#NanoQL_Models_OneFactorAffineModel_DiscountBond_System_Double_System_Double_System_Double_">OneFactorAffineModel.DiscountBond(double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.OneFactorAffineModel.html#NanoQL_Models_OneFactorAffineModel_Discount_System_Double_">OneFactorAffineModel.Discount(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.OneFactorAffineModel.html#NanoQL_Models_OneFactorAffineModel_DiscountBondOption_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_">OneFactorAffineModel.DiscountBondOption(OptionType, double, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModel.html#NanoQL_Models_CalibratedModel_Params">CalibratedModel.Params()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModel.html#NanoQL_Models_CalibratedModel_WithParams_NanoQL_Numerics_Vector_">CalibratedModel.WithParams(Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModel.html#NanoQL_Models_CalibratedModel_Arguments">CalibratedModel.Arguments</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModel.html#NanoQL_Models_CalibratedModel_Constraint">CalibratedModel.Constraint</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModelExtensions.html#NanoQL_Models_CalibratedModelExtensions_Calibrate__1___0_System_Collections_Generic_IEnumerable_NanoQL_Models_CalibrationHelper__NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_NanoQL_EvaluationContext_NanoQL_Numerics_Constraint_System_ReadOnlySpan_System_Double__System_ReadOnlySpan_System_Boolean__">CalibratedModelExtensions.Calibrate&lt;TModel&gt;(TModel, IEnumerable&lt;CalibrationHelper&gt;, OptimizationMethod, EndCriteria, EvaluationContext, Constraint?, ReadOnlySpan&lt;double&gt;, ReadOnlySpan&lt;bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModelExtensions.html#NanoQL_Models_CalibratedModelExtensions_SetParams__1___0_NanoQL_Numerics_Vector_">CalibratedModelExtensions.SetParams&lt;TModel&gt;(TModel, Vector)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModelExtensions.html#NanoQL_Models_CalibratedModelExtensions_Value_NanoQL_Models_ICalibratedModel_NanoQL_Numerics_Vector_System_Collections_Generic_IEnumerable_NanoQL_Models_CalibrationHelper__NanoQL_EvaluationContext_">CalibratedModelExtensions.Value(ICalibratedModel, Vector, IEnumerable&lt;CalibrationHelper&gt;, EvaluationContext)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_Models_ExtendedCoxIngersollRoss_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+φ is analytical in <a class="xref" href="NanoQL.Models.ExtendedCoxIngersollRoss.html#NanoQL_Models_ExtendedCoxIngersollRoss_Dynamics">Dynamics()</a>, φ(t) = f(t) − 2kθ(e^(th) − 1)/(2h + (k + h)(e^(th) − 1))
+− 4x₀h²e^(th)/(2h + (k + h)(e^(th) − 1))², f the curve's instantaneous forward and h = √(k² + 2σ²), and numerical in
+<a class="xref" href="NanoQL.Models.ExtendedCoxIngersollRoss.html#NanoQL_Models_ExtendedCoxIngersollRoss_Tree_NanoQL_TimeGrid_">Tree(TimeGrid)</a>, whose tree fits it to the curve at each step as it is built. QuantLib's header warns that the
+class "was not tested enough to guarantee its functionality".
+</p>
+<p>
+As <a class="xref" href="NanoQL.Models.CoxIngersollRoss.html">CoxIngersollRoss</a>'s, its Feller constraint reads each parameter vector's own k and θ, and its tree
+is on the square root of the process, y = √(r − φ(t)), the short rate y² + φ(t).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Models_ExtendedCoxIngersollRoss__ctor_" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_ExtendedCoxIngersollRoss__ctor_NanoQL_TermStructures_YieldTermStructure_System_Double_System_Double_System_Double_System_Double_System_Boolean_" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.#ctor(NanoQL.TermStructures.YieldTermStructure,System.Double,System.Double,System.Double,System.Double,System.Boolean)">
+  ExtendedCoxIngersollRoss(YieldTermStructure, double, double, double, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.ExtendedCoxIngersollRoss.html">ExtendedCoxIngersollRoss</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExtendedCoxIngersollRoss(YieldTermStructure termStructure, double theta = 0.1, double k = 0.1, double sigma = 0.1, double x0 = 0.05, bool withFellerConstraint = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>termStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve the model fits.</p>
+</dd>
+    <dt><code>theta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The level θ, positive.</p>
+</dd>
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The speed k, positive.</p>
+</dd>
+    <dt><code>sigma</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility σ, positive, and with the Feller constraint below √(2kθ).</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The process's initial value, positive.</p>
+</dd>
+    <dt><code>withFellerConstraint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the parameters satisfy the Feller condition σ² &lt; 2kθ.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is outside its constraint.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">termStructure</code> is null.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Models_ExtendedCoxIngersollRoss_TermStructure_" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.TermStructure*"></a>
+
+  <h3 id="NanoQL_Models_ExtendedCoxIngersollRoss_TermStructure" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.TermStructure">
+  TermStructure
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the curve the model fits.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YieldTermStructure TermStructure { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Models_ExtendedCoxIngersollRoss_A_" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.A*"></a>
+
+  <h3 id="NanoQL_Models_ExtendedCoxIngersollRoss_A_System_Double_System_Double_" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.A(System.Double,System.Double)">
+  A(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The affine discount bond's A(t, T), fitted to the curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double A(double t, double T)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bond's maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>A(t, T).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_ExtendedCoxIngersollRoss_DiscountBondOption_" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.DiscountBondOption*"></a>
+
+  <h3 id="NanoQL_Models_ExtendedCoxIngersollRoss_DiscountBondOption_NanoQL_OptionType_System_Double_System_Double_System_Double_" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.DiscountBondOption(NanoQL.OptionType,System.Double,System.Double,System.Double)">
+  DiscountBondOption(OptionType, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The price of an option on a discount bond, by the non-central χ² distribution on the curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double DiscountBondOption(OptionType type, double strike, double maturity, double bondMaturity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>The option's type.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike, positive.</p>
+</dd>
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's maturity.</p>
+</dd>
+    <dt><code>bondMaturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bond's maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">strike</code> isn't positive.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">type</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_ExtendedCoxIngersollRoss_Dynamics_" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.Dynamics*"></a>
+
+  <h3 id="NanoQL_Models_ExtendedCoxIngersollRoss_Dynamics" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.Dynamics">
+  Dynamics()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The model's short-rate dynamics, with the analytical fitting parameter: r = y + φ(t).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override OneFactorModelShortRateDynamics Dynamics()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.OneFactorModelShortRateDynamics.html">OneFactorModelShortRateDynamics</a></dt>
+    <dd><p>A new dynamics object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_ExtendedCoxIngersollRoss_GenerateArguments_" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.GenerateArguments*"></a>
+
+  <h3 id="NanoQL_Models_ExtendedCoxIngersollRoss_GenerateArguments" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.GenerateArguments">
+  GenerateArguments()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The analytical fitting parameter, from the curve and the parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MemberNotNull(&quot;phi&quot;)]
+protected override void GenerateArguments()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_ExtendedCoxIngersollRoss_Tree_" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.Tree*"></a>
+
+  <h3 id="NanoQL_Models_ExtendedCoxIngersollRoss_Tree_NanoQL_TimeGrid_" data-uid="NanoQL.Models.ExtendedCoxIngersollRoss.Tree(NanoQL.TimeGrid)">
+  Tree(TimeGrid)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds the model's trinomial tree on a time grid, fitted to the curve at each step as it is built.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Lattice Tree(TimeGrid grid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>grid</code> <a class="xref" href="NanoQL.TimeGrid.html">TimeGrid</a></dt>
+    <dd><p>The time grid.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Lattice.html">Lattice</a></dt>
+    <dd><p>The fitted <a class="xref" href="NanoQL.Models.OneFactorModelShortRateTree.html">OneFactorModelShortRateTree</a>, immutable once returned.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">grid</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A step's fitting value can't be solved.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

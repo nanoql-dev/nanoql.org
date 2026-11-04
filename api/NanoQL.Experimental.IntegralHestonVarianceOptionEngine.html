@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class IntegralHestonVarianceOptionEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class IntegralHestonVarianceOptionEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The integral engine for variance options under Heston: the realized variance&#39;s law inverted by Bailey and Swarztrauber&#39;s fractional transform (see &amp;lt;http://www.econ.univpm.it/recchioni/finance/w4/&amp;gt;).">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.IntegralHestonVarianceOptionEngine">
+
+
+
+  <h1 id="NanoQL_Experimental_IntegralHestonVarianceOptionEngine" data-uid="NanoQL.Experimental.IntegralHestonVarianceOptionEngine" class="text-break">
+Class IntegralHestonVarianceOptionEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The integral engine for variance options under Heston: the realized variance's law inverted by Bailey and
+Swarztrauber's fractional transform (see &lt;http://www.econ.univpm.it/recchioni/finance/w4/&gt;).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public static class IntegralHestonVarianceOptionEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">IntegralHestonVarianceOptionEngine</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_IntegralHestonVarianceOptionEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A call has QuantLib's one-dimensional integral. The engine reads
+the risk-free curve on the model's clock, the earliest reference date of the process's curves on the risk-free day
+counter, the maturity's time from it and the rate the curve accrues to the maturity per unit of that time, where
+QuantLib measures the time from the evaluation date; on curves dated on the evaluation date QuantLib's numbers
+stand.
+</p>
+<p>
+Documented divergences (<code>Divergences/IntegralHestonVarianceOptionTests.cs</code>). A put is the call's integral
+without its forward term, the integrated variance's mean less the strike, by parity, and other payoffs are refused,
+where QuantLib sums any payoff but a call against the integrated variance's density on 4,096 points of spacing
+√(2π)/64, about one standard deviation of it: QuantLib's put case prices 0.0466796 against 0.0465915, a
+forward-start put 2.6% low, a cash-or-nothing put 13% to 24% low and above 1 at a strike past the distribution. The
+process's dividend curve isn't read, as the integrated variance's law doesn't depend on the drift, where QuantLib
+refuses a process whose dividend handle isn't empty. An option starting after the clock's origin is priced on the
+variance integrated from its start: each integrand is affine in the variance at the start, so its expectation over
+that variance's non-central χ² law from v₀ is the CIR transform, E[e^(Bv_s)] = (1 − 2cB)^(−d/2) exp(Bv₀e^(−κs)/(1 −
+2cB)), c = σ²(1 − e^(−κs))/(4κ), d = 4κθ/σ², and the mean term takes E[v_s] = θ + (v₀ − θ)e^(−κs), where QuantLib
+prices every option as starting today; a seasoned option, its start before the evaluation date, is refused, as
+QuantLib's header says.
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_IntegralHestonVarianceOptionEngine_Calculate_" data-uid="NanoQL.Experimental.IntegralHestonVarianceOptionEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_Experimental_IntegralHestonVarianceOptionEngine_Calculate_NanoQL_Experimental_VarianceOption_NanoQL_EvaluationContext_NanoQL_Processes_HestonProcess_" data-uid="NanoQL.Experimental.IntegralHestonVarianceOptionEngine.Calculate(NanoQL.Experimental.VarianceOption,NanoQL.EvaluationContext,NanoQL.Processes.HestonProcess)">
+  Calculate(VarianceOption, EvaluationContext, HestonProcess)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a variance option under Heston.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static InstrumentResults Calculate(VarianceOption option, EvaluationContext context, HestonProcess process)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Experimental.VarianceOption.html">VarianceOption</a></dt>
+    <dd><p>The variance option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.HestonProcess.html">HestonProcess</a></dt>
+    <dd><p>The Heston process; its dividend curve isn't read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a></dt>
+    <dd><p>The option's results: the value; the expired results when the option has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The payoff isn't a plain-vanilla call or put (&quot;this engine prices plain-vanilla calls and puts only&quot;), the option
+starts before the evaluation date (&quot;this engine does not manage seasoned variance options&quot;), 2κθ/σ² − 1 isn't
+positive (&quot;this parameter must be greater than zero&quot;), or the integral leaves an imaginary part.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

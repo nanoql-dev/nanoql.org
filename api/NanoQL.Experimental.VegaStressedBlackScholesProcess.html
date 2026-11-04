@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class VegaStressedBlackScholesProcess | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class VegaStressedBlackScholesProcess | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A Black-Scholes process whose volatility is stressed by a level inside a box of times and asset values: QuantLib&#39;s VegaStressedBlackScholesProcess.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess">
+
+
+
+  <h1 id="NanoQL_Experimental_VegaStressedBlackScholesProcess" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess" class="text-break">
+Class VegaStressedBlackScholesProcess  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A Black-Scholes process whose volatility is stressed by a level inside a box of times and asset values: QuantLib's
+<code>VegaStressedBlackScholesProcess</code>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public sealed class VegaStressedBlackScholesProcess : GeneralizedBlackScholesProcess</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.StochasticProcess.html">StochasticProcess</a></div>
+      <div><a class="xref" href="NanoQL.StochasticProcess1D.html">StochasticProcess1D</a></div>
+      <div><a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></div>
+      <div><span class="xref">VegaStressedBlackScholesProcess</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html#NanoQL_Processes_GeneralizedBlackScholesProcess_Drift_System_Double_System_Double_">GeneralizedBlackScholesProcess.Drift(double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html#NanoQL_Processes_GeneralizedBlackScholesProcess_Apply_System_Double_System_Double_">GeneralizedBlackScholesProcess.Apply(double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html#NanoQL_Processes_GeneralizedBlackScholesProcess_Expectation_System_Double_System_Double_System_Double_">GeneralizedBlackScholesProcess.Expectation(double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html#NanoQL_Processes_GeneralizedBlackScholesProcess_Time_NanoQL_Time_Date_">GeneralizedBlackScholesProcess.Time(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html#NanoQL_Processes_GeneralizedBlackScholesProcess_X0">GeneralizedBlackScholesProcess.X0</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html#NanoQL_Processes_GeneralizedBlackScholesProcess_StateVariable">GeneralizedBlackScholesProcess.StateVariable</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html#NanoQL_Processes_GeneralizedBlackScholesProcess_DividendYield">GeneralizedBlackScholesProcess.DividendYield</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html#NanoQL_Processes_GeneralizedBlackScholesProcess_RiskFreeRate">GeneralizedBlackScholesProcess.RiskFreeRate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html#NanoQL_Processes_GeneralizedBlackScholesProcess_BlackVolatility">GeneralizedBlackScholesProcess.BlackVolatility</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html#NanoQL_Processes_GeneralizedBlackScholesProcess_LocalVolatility">GeneralizedBlackScholesProcess.LocalVolatility</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_InitialValues">StochasticProcess1D.InitialValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Drift_System_Double_NanoQL_Numerics_Vector_">StochasticProcess1D.Drift(double, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Diffusion_System_Double_NanoQL_Numerics_Vector_">StochasticProcess1D.Diffusion(double, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Expectation_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess1D.Expectation(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_StdDeviation_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess1D.StdDeviation(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Covariance_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess1D.Covariance(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Evolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_">StochasticProcess1D.Evolve(double, Vector, double, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Apply_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">StochasticProcess1D.Apply(Vector, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Size">StochasticProcess1D.Size</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_InitialValues_System_Span_System_Double__">StochasticProcess.InitialValues(Span&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Evolve_System_Double_System_ReadOnlySpan_System_Double__System_Double_System_ReadOnlySpan_System_Double__System_Span_System_Double__">StochasticProcess.Evolve(double, ReadOnlySpan&lt;double&gt;, double, ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Factors">StochasticProcess.Factors</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The diffusion inside the box [lower time, upper time] × [lower asset, upper asset], ends included, is the process's
+plus the stress level. QuantLib's setters, which change the process in place, return a copy here.
+</p>
+<p>
+With a nonzero stress the standard deviation, the variance and the step go through the discretization, QuantLib's own
+route for a strike-dependent volatility, so the stressed diffusion reaches them; QuantLib's take the exact forms from
+the term structures on a strike-independent volatility, which read no diffusion, so the stress never reaches a step
+there (<code>Divergences/VegaStressedProcessTests.cs</code>). The expectation keeps QuantLib's exact value from the
+curves, the mean of the asset reading no volatility, where the discretized route refuses ("not implemented"). With
+no stress the process is QuantLib's.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess__ctor_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess__ctor_System_Double_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_BlackVolTermStructure_System_Double_System_Double_System_Double_System_Double_System_Double_NanoQL_StochasticProcess1DDiscretization_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.#ctor(System.Double,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.BlackVolTermStructure,System.Double,System.Double,System.Double,System.Double,System.Double,NanoQL.StochasticProcess1DDiscretization)">
+  VegaStressedBlackScholesProcess(double, YieldTermStructure, YieldTermStructure, BlackVolTermStructure, double, double, double, double, double, StochasticProcess1DDiscretization?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.VegaStressedBlackScholesProcess.html">VegaStressedBlackScholesProcess</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VegaStressedBlackScholesProcess(double x0, YieldTermStructure dividendTS, YieldTermStructure riskFreeTS, BlackVolTermStructure blackVolTS, double lowerTimeBorderForStressTest = 0, double upperTimeBorderForStressTest = 1000000, double lowerAssetBorderForStressTest = 0, double upperAssetBorderForStressTest = 1000000, double stressLevel = 0, StochasticProcess1DDiscretization? disc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+    <dt><code>dividendTS</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The dividend yield curve.</p>
+</dd>
+    <dt><code>riskFreeTS</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The risk-free curve.</p>
+</dd>
+    <dt><code>blackVolTS</code> <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a></dt>
+    <dd><p>The Black volatility.</p>
+</dd>
+    <dt><code>lowerTimeBorderForStressTest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The box's earliest time.</p>
+</dd>
+    <dt><code>upperTimeBorderForStressTest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The box's latest time.</p>
+</dd>
+    <dt><code>lowerAssetBorderForStressTest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The box's lowest asset value.</p>
+</dd>
+    <dt><code>upperAssetBorderForStressTest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The box's highest asset value.</p>
+</dd>
+    <dt><code>stressLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The stress added to the volatility inside the box.</p>
+</dd>
+    <dt><code>disc</code> <a class="xref" href="NanoQL.StochasticProcess1DDiscretization.html">StochasticProcess1DDiscretization</a></dt>
+    <dd><p>The discretization, Euler's by default.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A curve or the volatility is null.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_LowerAssetBorderForStressTest_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.LowerAssetBorderForStressTest*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_LowerAssetBorderForStressTest" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.LowerAssetBorderForStressTest">
+  LowerAssetBorderForStressTest
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the box's lowest asset value: QuantLib's <code>getLowerAssetBorderForStressTest</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double LowerAssetBorderForStressTest { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_LowerTimeBorderForStressTest_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.LowerTimeBorderForStressTest*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_LowerTimeBorderForStressTest" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.LowerTimeBorderForStressTest">
+  LowerTimeBorderForStressTest
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the box's earliest time: QuantLib's <code>getLowerTimeBorderForStressTest</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double LowerTimeBorderForStressTest { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_StressLevel_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.StressLevel*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_StressLevel" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.StressLevel">
+  StressLevel
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the stress added inside the box: QuantLib's <code>getStressLevel</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double StressLevel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_UpperAssetBorderForStressTest_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.UpperAssetBorderForStressTest*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_UpperAssetBorderForStressTest" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.UpperAssetBorderForStressTest">
+  UpperAssetBorderForStressTest
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the box's highest asset value: QuantLib's <code>getUpperAssetBorderForStressTest</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double UpperAssetBorderForStressTest { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_UpperTimeBorderForStressTest_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.UpperTimeBorderForStressTest*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_UpperTimeBorderForStressTest" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.UpperTimeBorderForStressTest">
+  UpperTimeBorderForStressTest
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the box's latest time: QuantLib's <code>getUpperTimeBorderForStressTest</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double UpperTimeBorderForStressTest { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_Diffusion_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.Diffusion*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_Diffusion_System_Double_System_Double_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.Diffusion(System.Double,System.Double)">
+  Diffusion(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The diffusion: the local volatility at the time and value, extrapolated; on another clock than the risk-free
+curve's, at the instant's own time, per unit of the risk-free curve's time, and nothing before its reference
+date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Diffusion(double t, double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The diffusion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Experimental_VegaStressedBlackScholesProcess_Diffusion_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The process's diffusion, plus the stress level inside the box.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The local volatility can't be read there.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_Evolve_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.Evolve*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_Evolve_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.Evolve(System.Double,System.Double,System.Double,System.Double)">
+  Evolve(double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The value after a time interval and a Brownian increment: exactly where the local volatility is
+strike-independent and the discretization isn't forced, by the discretization otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Evolve(double t0, double x0, double dt, double dw)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+    <dt><code>dw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The Brownian increment.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Experimental_VegaStressedBlackScholesProcess_Evolve_System_Double_System_Double_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The discretization's step with a nonzero stress; QuantLib's otherwise.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_SetLowerAssetBorderForStressTest_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.SetLowerAssetBorderForStressTest*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_SetLowerAssetBorderForStressTest_System_Double_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.SetLowerAssetBorderForStressTest(System.Double)">
+  SetLowerAssetBorderForStressTest(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another lowest asset value of the box: QuantLib's
+<code>setLowerAssetBorderForStressTest</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VegaStressedBlackScholesProcess SetLowerAssetBorderForStressTest(double lab)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lab</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The asset value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.VegaStressedBlackScholesProcess.html">VegaStressedBlackScholesProcess</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_SetLowerTimeBorderForStressTest_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.SetLowerTimeBorderForStressTest*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_SetLowerTimeBorderForStressTest_System_Double_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.SetLowerTimeBorderForStressTest(System.Double)">
+  SetLowerTimeBorderForStressTest(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another earliest time of the box: QuantLib's <code>setLowerTimeBorderForStressTest</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VegaStressedBlackScholesProcess SetLowerTimeBorderForStressTest(double ltb)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ltb</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.VegaStressedBlackScholesProcess.html">VegaStressedBlackScholesProcess</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_SetStressLevel_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.SetStressLevel*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_SetStressLevel_System_Double_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.SetStressLevel(System.Double)">
+  SetStressLevel(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another stress level: QuantLib's <code>setStressLevel</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VegaStressedBlackScholesProcess SetStressLevel(double sl)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The stress level.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.VegaStressedBlackScholesProcess.html">VegaStressedBlackScholesProcess</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_SetUpperAssetBorderForStressTest_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.SetUpperAssetBorderForStressTest*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_SetUpperAssetBorderForStressTest_System_Double_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.SetUpperAssetBorderForStressTest(System.Double)">
+  SetUpperAssetBorderForStressTest(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another highest asset value of the box: QuantLib's
+<code>setUpperAssetBorderForStressTest</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VegaStressedBlackScholesProcess SetUpperAssetBorderForStressTest(double uab)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>uab</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The asset value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.VegaStressedBlackScholesProcess.html">VegaStressedBlackScholesProcess</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_SetUpperTimeBorderForStressTest_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.SetUpperTimeBorderForStressTest*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_SetUpperTimeBorderForStressTest_System_Double_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.SetUpperTimeBorderForStressTest(System.Double)">
+  SetUpperTimeBorderForStressTest(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another latest time of the box: QuantLib's <code>setUpperTimeBorderForStressTest</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VegaStressedBlackScholesProcess SetUpperTimeBorderForStressTest(double utb)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>utb</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.VegaStressedBlackScholesProcess.html">VegaStressedBlackScholesProcess</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_StdDeviation_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.StdDeviation*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_StdDeviation_System_Double_System_Double_System_Double_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.StdDeviation(System.Double,System.Double,System.Double)">
+  StdDeviation(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The standard deviation after a time interval: the square root of the exact variance where the local volatility
+is strike-independent and the discretization isn't forced, the discretization's otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double StdDeviation(double t0, double x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Experimental_VegaStressedBlackScholesProcess_StdDeviation_System_Double_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Through the discretization with a nonzero stress; QuantLib's otherwise.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Experimental_VegaStressedBlackScholesProcess_Variance_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.Variance*"></a>
+
+  <h3 id="NanoQL_Experimental_VegaStressedBlackScholesProcess_Variance_System_Double_System_Double_System_Double_" data-uid="NanoQL.Experimental.VegaStressedBlackScholesProcess.Variance(System.Double,System.Double,System.Double)">
+  Variance(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The variance after a time interval: the Black variance's increment over it, at a strike of 0.01, where the
+local volatility is strike-independent and the discretization isn't forced; the discretization's otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Variance(double t0, double x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Experimental_VegaStressedBlackScholesProcess_Variance_System_Double_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Through the discretization with a nonzero stress; QuantLib's otherwise.</p>
+</div>
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

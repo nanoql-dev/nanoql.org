@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class HaganPricer | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class HaganPricer | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The base class of the pricing of a CMS coupon by static replication, as in Hagan&#39;s &amp;quot;Conundrums...&amp;quot; article: a caplet&#39;s, a floorlet&#39;s and the swaplet&#39;s price from vanilla swaptions, through a g-function of the yield-curve model.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Coupons.HaganPricer">
+
+
+
+  <h1 id="NanoQL_Coupons_HaganPricer" data-uid="NanoQL.Coupons.HaganPricer" class="text-break">
+Class HaganPricer  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Coupons.html">Coupons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base class of the pricing of a CMS coupon by static replication, as in Hagan's &quot;Conundrums...&quot; article: a
+caplet's, a floorlet's and the swaplet's price from vanilla swaptions, through a g-function of the yield-curve
+model.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class HaganPricer : CmsCouponPricer, IMeanRevertingPricer</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.CmsCouponPricer.html">CmsCouponPricer</a></div>
+      <div><span class="xref">HaganPricer</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Coupons.IMeanRevertingPricer.html">IMeanRevertingPricer</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Coupons.AnalyticHaganPricer.html">AnalyticHaganPricer</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.NumericHaganPricer.html">NumericHaganPricer</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.CmsCouponPricer.html#NanoQL_Coupons_CmsCouponPricer_SwaptionVolatility">CmsCouponPricer.SwaptionVolatility</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Coupons_HaganPricer_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable: each public member computes, inside the call, what QuantLib's <code>initialize(coupon)</code> stores in the
+pricer before its queries, the g-function with its memo among it, and a capped or collared coupon's rate reads its
+three rates from one such state. <a class="xref" href="NanoQL.Coupons.HaganPricer.html#NanoQL_Coupons_HaganPricer_WithMeanReversion_System_Double_">WithMeanReversion(double)</a> and <a class="xref" href="NanoQL.Coupons.HaganPricer.html#NanoQL_Coupons_HaganPricer_WithSwaptionVolatility_NanoQL_TermStructures_SwaptionVolatilityStructure_">WithSwaptionVolatility(SwaptionVolatilityStructure?)</a> return
+copies of the pricer's own type, where QuantLib's setters replace its quote and handle in place.
+</p>
+<p>
+The standard model reads the swap index's tenor as its length in years, where QuantLib reads its length in the
+tenor's own units, so an 18-month index was 18 years; a tenor that isn't a whole number of fixed-leg periods (18
+months on an annual leg) starts with a stub the model can't price, and is refused.
+</p>
+<p>
+On a lognormal volatility a caplet struck at or below 0, on a forward above 0, where QuantLib prices the caplet at a
+strike of 1e-10 and so drops the strike, is the coupon's expected rate less the strike, the limit of the
+replication's own formula there; the floorlet there is 0, as QuantLib's. A forward at or below 0 has no lognormal
+rate distribution, and its caplet refuses, as QuantLib's.
+</p>
+<p>Derived inside the library only, by <a class="xref" href="NanoQL.Coupons.NumericHaganPricer.html">NumericHaganPricer</a> and <a class="xref" href="NanoQL.Coupons.AnalyticHaganPricer.html">AnalyticHaganPricer</a>,
+since its per-coupon state is internal.</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Coupons_HaganPricer_MeanReversion_" data-uid="NanoQL.Coupons.HaganPricer.MeanReversion*"></a>
+
+  <h3 id="NanoQL_Coupons_HaganPricer_MeanReversion" data-uid="NanoQL.Coupons.HaganPricer.MeanReversion">
+  MeanReversion
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the mean reversion, which the non-parallel shifts' g-function reads.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MeanReversion { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Coupons_HaganPricer_CapletPrice_" data-uid="NanoQL.Coupons.HaganPricer.CapletPrice*"></a>
+
+  <h3 id="NanoQL_Coupons_HaganPricer_CapletPrice_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.HaganPricer.CapletPrice(NanoQL.Coupons.FloatingRateCoupon,System.Double,NanoQL.EvaluationContext)">
+  CapletPrice(FloatingRateCoupon, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The price of a caplet on the coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double CapletPrice(FloatingRateCoupon coupon, double effectiveCap, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>effectiveCap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The cap on the index fixing.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't a CMS coupon.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no accrual period, or a curve or the volatility is
+missing.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_HaganPricer_CapletRate_" data-uid="NanoQL.Coupons.HaganPricer.CapletRate*"></a>
+
+  <h3 id="NanoQL_Coupons_HaganPricer_CapletRate_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.HaganPricer.CapletRate(NanoQL.Coupons.FloatingRateCoupon,System.Double,NanoQL.EvaluationContext)">
+  CapletRate(FloatingRateCoupon, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rate of a caplet on the coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double CapletRate(FloatingRateCoupon coupon, double effectiveCap, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>effectiveCap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The cap on the index fixing.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't a CMS coupon.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no accrual period, or a curve or the volatility is
+missing.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_HaganPricer_FloorletPrice_" data-uid="NanoQL.Coupons.HaganPricer.FloorletPrice*"></a>
+
+  <h3 id="NanoQL_Coupons_HaganPricer_FloorletPrice_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.HaganPricer.FloorletPrice(NanoQL.Coupons.FloatingRateCoupon,System.Double,NanoQL.EvaluationContext)">
+  FloorletPrice(FloatingRateCoupon, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The price of a floorlet on the coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double FloorletPrice(FloatingRateCoupon coupon, double effectiveFloor, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>effectiveFloor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The floor on the index fixing.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't a CMS coupon.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no accrual period, or a curve or the volatility is
+missing.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_HaganPricer_FloorletRate_" data-uid="NanoQL.Coupons.HaganPricer.FloorletRate*"></a>
+
+  <h3 id="NanoQL_Coupons_HaganPricer_FloorletRate_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.HaganPricer.FloorletRate(NanoQL.Coupons.FloatingRateCoupon,System.Double,NanoQL.EvaluationContext)">
+  FloorletRate(FloatingRateCoupon, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rate of a floorlet on the coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double FloorletRate(FloatingRateCoupon coupon, double effectiveFloor, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>effectiveFloor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The floor on the index fixing.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't a CMS coupon.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no accrual period, or a curve or the volatility is
+missing.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_HaganPricer_SwapletPrice_" data-uid="NanoQL.Coupons.HaganPricer.SwapletPrice*"></a>
+
+  <h3 id="NanoQL_Coupons_HaganPricer_SwapletPrice_NanoQL_Coupons_FloatingRateCoupon_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.HaganPricer.SwapletPrice(NanoQL.Coupons.FloatingRateCoupon,NanoQL.EvaluationContext)">
+  SwapletPrice(FloatingRateCoupon, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The swaplet's price: the coupon's amount, discounted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double SwapletPrice(FloatingRateCoupon coupon, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't a CMS coupon.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no accrual period, or a curve or the volatility is
+missing.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_HaganPricer_SwapletRate_" data-uid="NanoQL.Coupons.HaganPricer.SwapletRate*"></a>
+
+  <h3 id="NanoQL_Coupons_HaganPricer_SwapletRate_NanoQL_Coupons_FloatingRateCoupon_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.HaganPricer.SwapletRate(NanoQL.Coupons.FloatingRateCoupon,NanoQL.EvaluationContext)">
+  SwapletRate(FloatingRateCoupon, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The swaplet's rate: the coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double SwapletRate(FloatingRateCoupon coupon, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't a CMS coupon.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no accrual period, or a curve or the volatility is
+missing.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_HaganPricer_WithMeanReversion_" data-uid="NanoQL.Coupons.HaganPricer.WithMeanReversion*"></a>
+
+  <h3 id="NanoQL_Coupons_HaganPricer_WithMeanReversion_System_Double_" data-uid="NanoQL.Coupons.HaganPricer.WithMeanReversion(System.Double)">
+  WithMeanReversion(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the pricer, of its own type, with another mean reversion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual HaganPricer WithMeanReversion(double meanReversion)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>meanReversion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The mean reversion.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.HaganPricer.html">HaganPricer</a></dt>
+    <dd><p>The copy; the receiver is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_HaganPricer_WithSwaptionVolatility_" data-uid="NanoQL.Coupons.HaganPricer.WithSwaptionVolatility*"></a>
+
+  <h3 id="NanoQL_Coupons_HaganPricer_WithSwaptionVolatility_NanoQL_TermStructures_SwaptionVolatilityStructure_" data-uid="NanoQL.Coupons.HaganPricer.WithSwaptionVolatility(NanoQL.TermStructures.SwaptionVolatilityStructure)">
+  WithSwaptionVolatility(SwaptionVolatilityStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the pricer, of its own type, on another swaption volatility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override HaganPricer WithSwaptionVolatility(SwaptionVolatilityStructure? swaptionVolatility)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>swaptionVolatility</code> <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html">SwaptionVolatilityStructure</a></dt>
+    <dd><p>The swaption volatility, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.HaganPricer.html">HaganPricer</a></dt>
+    <dd><p>The copy; the receiver is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

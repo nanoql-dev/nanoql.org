@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class FdmAffineModelSwapInnerValue&lt;TModel&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FdmAffineModelSwapInnerValue&lt;TModel&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The exercise value of a swap at a point of an affine model&#39;s mesh: the swap&#39;s coupons starting on or after the exercise date, each forecast on the forwarding model&#39;s curve at the point and discounted on the discounting model&#39;s, the fixed leg paid and the floating received for a payer, floored at 0.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Methods.FdmAffineModelSwapInnerValue`1">
+
+
+
+  <h1 id="NanoQL_Methods_FdmAffineModelSwapInnerValue_1" data-uid="NanoQL.Methods.FdmAffineModelSwapInnerValue`1" class="text-break">
+Class FdmAffineModelSwapInnerValue&lt;TModel&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Methods.html">Methods</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The exercise value of a swap at a point of an affine model's mesh: the swap's coupons starting on or after the
+exercise date, each forecast on the forwarding model's curve at the point and discounted on the discounting model's,
+the fixed leg paid and the floating received for a payer, floored at 0.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FdmAffineModelSwapInnerValue&lt;TModel&gt; : FdmInnerValueCalculator where TModel : ShortRateModel, IAffineModel, ITermStructureConsistentModel</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TModel</code></dt>
+    <dd><p>The model: <a class="xref" href="NanoQL.Models.G2.html">G2</a> (its two factors in the mesh's direction and the next) or <a class="xref" href="NanoQL.Models.HullWhite.html">HullWhite</a> (its short rate in the direction).</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Methods.FdmInnerValueCalculator.html">FdmInnerValueCalculator</a></div>
+      <div><span class="xref">FdmAffineModelSwapInnerValue&lt;TModel&gt;</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Methods.FdmAffineG2ModelSwapInnerValue.html">FdmAffineG2ModelSwapInnerValue</a></div>
+      <div><a class="xref" href="NanoQL.Methods.FdmAffineHullWhiteModelSwapInnerValue.html">FdmAffineHullWhiteModelSwapInnerValue</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Methods_FdmAffineModelSwapInnerValue_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+QuantLib clones the swap onto relinkable handles and, at each point, links them to a new
+<a class="xref" href="NanoQL.Methods.FdmAffineModelTermStructure.html">FdmAffineModelTermStructure</a> for the point's state, whose notifications make the floating coupons
+forecast on it. nanoql has no relinkable handles; the inner value holds, for each exercise date as QuantLib links a
+new curve there, a private proxy curve pair whose state it sets at each point, the swap rebuilt on its index cloned
+onto the forwarding proxy. The proxies and the swap are a working state: they never leave the object, which is owned
+by one computation and not thread-safe. The models' dynamics are built once.
+</p>
+<p>
+A time not in the exercise map is refused, where QuantLib reads <code>find(t)-&gt;second</code> on <code>end()</code>, undefined
+behaviour, which an American exercise's step condition reaches (the playbook's undefined-behaviour row).
+</p>
+<p>An extension point only for QuantLib-Python's two named classes, <a class="xref" href="NanoQL.Methods.FdmAffineG2ModelSwapInnerValue.html">FdmAffineG2ModelSwapInnerValue</a> and <a class="xref" href="NanoQL.Methods.FdmAffineHullWhiteModelSwapInnerValue.html">FdmAffineHullWhiteModelSwapInnerValue</a>.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Methods_FdmAffineModelSwapInnerValue_1__ctor_" data-uid="NanoQL.Methods.FdmAffineModelSwapInnerValue`1.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_FdmAffineModelSwapInnerValue_1__ctor__0__0_NanoQL_Instruments_FixedVsFloatingSwap_System_Collections_Generic_IReadOnlyDictionary_System_Double_NanoQL_Time_Date__NanoQL_Methods_FdmMesher_System_Int32_NanoQL_EvaluationContext_" data-uid="NanoQL.Methods.FdmAffineModelSwapInnerValue`1.#ctor(`0,`0,NanoQL.Instruments.FixedVsFloatingSwap,System.Collections.Generic.IReadOnlyDictionary{System.Double,NanoQL.Time.Date},NanoQL.Methods.FdmMesher,System.Int32,NanoQL.EvaluationContext)">
+  FdmAffineModelSwapInnerValue(TModel, TModel, FixedVsFloatingSwap, IReadOnlyDictionary&lt;double, Date&gt;, FdmMesher, int, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.FdmAffineModelSwapInnerValue-1.html">FdmAffineModelSwapInnerValue&lt;TModel&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FdmAffineModelSwapInnerValue(TModel disModel, TModel fwdModel, FixedVsFloatingSwap swap, IReadOnlyDictionary&lt;double, Date&gt; exerciseDates, FdmMesher mesher, int direction, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disModel</code> <span class="xref">TModel</span></dt>
+    <dd><p>The discounting model, on the discount curve.</p>
+</dd>
+    <dt><code>fwdModel</code> <span class="xref">TModel</span></dt>
+    <dd><p>The forwarding model, on the index's curve.</p>
+</dd>
+    <dt><code>swap</code> <a class="xref" href="NanoQL.Instruments.FixedVsFloatingSwap.html">FixedVsFloatingSwap</a></dt>
+    <dd><p>The swap: a vanilla or an overnight-indexed swap, its nominal constant.</p>
+</dd>
+    <dt><code>exerciseDates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The exercise dates by their times on the discount curve's day counter.</p>
+</dd>
+    <dt><code>mesher</code> <a class="xref" href="NanoQL.Methods.FdmMesher.html">FdmMesher</a></dt>
+    <dd><p>The mesher.</p>
+</dd>
+    <dt><code>direction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The model's first direction in the mesher.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose fixings and settings the coupons' amounts read.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The model type is neither <a class="xref" href="NanoQL.Models.G2.html">G2</a> nor <a class="xref" href="NanoQL.Models.HullWhite.html">HullWhite</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Methods_FdmAffineModelSwapInnerValue_1_AvgInnerValue_" data-uid="NanoQL.Methods.FdmAffineModelSwapInnerValue`1.AvgInnerValue*"></a>
+
+  <h3 id="NanoQL_Methods_FdmAffineModelSwapInnerValue_1_AvgInnerValue_NanoQL_Methods_FdmLinearOpIterator_System_Double_" data-uid="NanoQL.Methods.FdmAffineModelSwapInnerValue`1.AvgInnerValue(NanoQL.Methods.FdmLinearOpIterator,System.Double)">
+  AvgInnerValue(FdmLinearOpIterator, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The inner value averaged over a point's cell, at a time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double AvgInnerValue(FdmLinearOpIterator iter, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>iter</code> <a class="xref" href="NanoQL.Methods.FdmLinearOpIterator.html">FdmLinearOpIterator</a></dt>
+    <dd><p>The point.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The average inner value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p><code class="paramref">t</code> isn't an exercise date's time, or a coupon's amount can't be computed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_FdmAffineModelSwapInnerValue_1_InnerValue_" data-uid="NanoQL.Methods.FdmAffineModelSwapInnerValue`1.InnerValue*"></a>
+
+  <h3 id="NanoQL_Methods_FdmAffineModelSwapInnerValue_1_InnerValue_NanoQL_Methods_FdmLinearOpIterator_System_Double_" data-uid="NanoQL.Methods.FdmAffineModelSwapInnerValue`1.InnerValue(NanoQL.Methods.FdmLinearOpIterator,System.Double)">
+  InnerValue(FdmLinearOpIterator, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The inner value at a point and time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double InnerValue(FdmLinearOpIterator iter, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>iter</code> <a class="xref" href="NanoQL.Methods.FdmLinearOpIterator.html">FdmLinearOpIterator</a></dt>
+    <dd><p>The point.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The inner value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p><code class="paramref">t</code> isn't an exercise date's time, or a coupon's amount can't be computed.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

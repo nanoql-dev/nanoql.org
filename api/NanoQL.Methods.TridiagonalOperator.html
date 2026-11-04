@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class TridiagonalOperator | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TridiagonalOperator | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The base implementation of a tridiagonal operator: its lower, main and upper diagonals, applied to a vector or solved for a right-hand side.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Methods.TridiagonalOperator">
+
+
+
+  <h1 id="NanoQL_Methods_TridiagonalOperator" data-uid="NanoQL.Methods.TridiagonalOperator" class="text-break">
+Class TridiagonalOperator  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Methods.html">Methods</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base implementation of a tridiagonal operator: its lower, main and upper diagonals, applied to a vector or
+solved for a right-hand side.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public class TridiagonalOperator</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">TridiagonalOperator</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Methods_TridiagonalOperator_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A working type: mutable, owned by one computation and not thread-safe. The row setters and
+<a class="xref" href="NanoQL.Methods.TridiagonalOperator.html#NanoQL_Methods_TridiagonalOperator_SetTime_System_Double_">SetTime(double)</a> change it; the operators return new operators. <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html#NanoQL_Methods_TridiagonalOperator_Clone">Clone()</a> is the deep copy, where
+QuantLib copies an operator by value.
+</p>
+<p>
+An extension point, as in QuantLib: the finite-difference operators derive from it. A derived operator reads and
+sets the diagonals through the protected fields, and makes itself time-dependent by setting
+<a class="xref" href="NanoQL.Methods.TridiagonalOperator.html#NanoQL_Methods_TridiagonalOperator_timeSetter">timeSetter</a>. To use real time-dependent algebra, a time-dependent derived operator overloads the
+operators, which here build operators without a time setter.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator__ctor_" data-uid="NanoQL.Methods.TridiagonalOperator.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator__ctor_NanoQL_Methods_TridiagonalOperator_" data-uid="NanoQL.Methods.TridiagonalOperator.#ctor(NanoQL.Methods.TridiagonalOperator)">
+  TridiagonalOperator(TridiagonalOperator)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a> class as a copy of another: its diagonals
+copied, and its time setter, which is shared, kept.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TridiagonalOperator(TridiagonalOperator from)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>The operator to copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator__ctor_" data-uid="NanoQL.Methods.TridiagonalOperator.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator__ctor_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_" data-uid="NanoQL.Methods.TridiagonalOperator.#ctor(NanoQL.Numerics.Vector,NanoQL.Numerics.Vector,NanoQL.Numerics.Vector)">
+  TridiagonalOperator(Vector, Vector, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a> class from its diagonals, which it copies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TridiagonalOperator(Vector low, Vector mid, Vector high)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>low</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The lower diagonal, one shorter than the main one.</p>
+</dd>
+    <dt><code>mid</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The main diagonal.</p>
+</dd>
+    <dt><code>high</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The upper diagonal, one shorter than the main one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A diagonal has the wrong size.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator__ctor_" data-uid="NanoQL.Methods.TridiagonalOperator.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator__ctor_System_Int32_" data-uid="NanoQL.Methods.TridiagonalOperator.#ctor(System.Int32)">
+  TridiagonalOperator(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a> class of the given size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TridiagonalOperator(int size = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The size: 0, or at least 2.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Methods_TridiagonalOperator__ctor_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The diagonals' elements are zero, where QuantLib leaves them uninitialized.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The size is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The size is 1.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_diagonal" data-uid="NanoQL.Methods.TridiagonalOperator.diagonal">
+  diagonal
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The main diagonal, of size <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html#NanoQL_Methods_TridiagonalOperator_n">n</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Vector diagonal</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_lowerDiagonal" data-uid="NanoQL.Methods.TridiagonalOperator.lowerDiagonal">
+  lowerDiagonal
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lower diagonal, of size <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html#NanoQL_Methods_TridiagonalOperator_n">n</a> − 1: element i is row i + 1's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Vector lowerDiagonal</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_n" data-uid="NanoQL.Methods.TridiagonalOperator.n">
+  n
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The size: the length of the main diagonal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int n</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_timeSetter" data-uid="NanoQL.Methods.TridiagonalOperator.timeSetter">
+  timeSetter
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The time-setting logic, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for an operator that doesn't depend on time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TridiagonalOperatorTimeSetter? timeSetter</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TridiagonalOperatorTimeSetter.html">TridiagonalOperatorTimeSetter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_upperDiagonal" data-uid="NanoQL.Methods.TridiagonalOperator.upperDiagonal">
+  upperDiagonal
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The upper diagonal, of size <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html#NanoQL_Methods_TridiagonalOperator_n">n</a> − 1: element i is row i's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Vector upperDiagonal</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_IsTimeDependent_" data-uid="NanoQL.Methods.TridiagonalOperator.IsTimeDependent*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_IsTimeDependent" data-uid="NanoQL.Methods.TridiagonalOperator.IsTimeDependent">
+  IsTimeDependent
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the operator has a time setter, which <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html#NanoQL_Methods_TridiagonalOperator_SetTime_System_Double_">SetTime(double)</a> calls.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsTimeDependent { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_Size_" data-uid="NanoQL.Methods.TridiagonalOperator.Size*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_Size" data-uid="NanoQL.Methods.TridiagonalOperator.Size">
+  Size
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the size: the number of rows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_ApplyTo_" data-uid="NanoQL.Methods.TridiagonalOperator.ApplyTo*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_ApplyTo_NanoQL_Numerics_Vector_" data-uid="NanoQL.Methods.TridiagonalOperator.ApplyTo(NanoQL.Numerics.Vector)">
+  ApplyTo(Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies the operator to a vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector ApplyTo(Vector v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The vector, of the operator's size.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The product, a new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The operator has size 0, or size 1, where QuantLib reads past its arrays.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The vector has the wrong size.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_Clone_" data-uid="NanoQL.Methods.TridiagonalOperator.Clone*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_Clone" data-uid="NanoQL.Methods.TridiagonalOperator.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A deep copy of the diagonals, sharing the time setter: QuantLib's copy constructor and assignment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TridiagonalOperator Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>A new operator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_Diagonal_" data-uid="NanoQL.Methods.TridiagonalOperator.Diagonal*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_Diagonal" data-uid="NanoQL.Methods.TridiagonalOperator.Diagonal">
+  Diagonal()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the main diagonal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector Diagonal()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector, of size <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html#NanoQL_Methods_TridiagonalOperator_Size">Size</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_Identity_" data-uid="NanoQL.Methods.TridiagonalOperator.Identity*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_Identity_System_Int32_" data-uid="NanoQL.Methods.TridiagonalOperator.Identity(System.Int32)">
+  Identity(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The identity operator of the given size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TridiagonalOperator Identity(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The size.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>An operator whose main diagonal is 1 and whose other diagonals are 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The size is less than 1.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_LowerDiagonal_" data-uid="NanoQL.Methods.TridiagonalOperator.LowerDiagonal*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_LowerDiagonal" data-uid="NanoQL.Methods.TridiagonalOperator.LowerDiagonal">
+  LowerDiagonal()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the lower diagonal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector LowerDiagonal()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector, of size <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html#NanoQL_Methods_TridiagonalOperator_Size">Size</a> − 1.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_SOR_" data-uid="NanoQL.Methods.TridiagonalOperator.SOR*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_SOR_NanoQL_Numerics_Vector_System_Double_" data-uid="NanoQL.Methods.TridiagonalOperator.SOR(NanoQL.Numerics.Vector,System.Double)">
+  SOR(Vector, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Solves the linear system for a right-hand side by successive over-relaxation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector SOR(Vector rhs, double tol)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rhs</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The right-hand side, of the operator's size, which is also the first guess.</p>
+</dd>
+    <dt><code>tol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The tolerance on the sum of the squared corrections of a sweep.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The solution, a new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The operator has size 0, or size 1, where QuantLib reads past its arrays, or
+100,000 sweeps don't reach the tolerance.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The right-hand side has the wrong size.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_SetFirstRow_" data-uid="NanoQL.Methods.TridiagonalOperator.SetFirstRow*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_SetFirstRow_System_Double_System_Double_" data-uid="NanoQL.Methods.TridiagonalOperator.SetFirstRow(System.Double,System.Double)">
+  SetFirstRow(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the first row's main and upper elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetFirstRow(double valB, double valC)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>valB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The main diagonal's element.</p>
+</dd>
+    <dt><code>valC</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The upper diagonal's element.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_SetLastRow_" data-uid="NanoQL.Methods.TridiagonalOperator.SetLastRow*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_SetLastRow_System_Double_System_Double_" data-uid="NanoQL.Methods.TridiagonalOperator.SetLastRow(System.Double,System.Double)">
+  SetLastRow(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the last row's lower and main elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLastRow(double valA, double valB)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>valA</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The lower diagonal's element.</p>
+</dd>
+    <dt><code>valB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The main diagonal's element.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_SetMidRow_" data-uid="NanoQL.Methods.TridiagonalOperator.SetMidRow*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_SetMidRow_System_Int32_System_Double_System_Double_System_Double_" data-uid="NanoQL.Methods.TridiagonalOperator.SetMidRow(System.Int32,System.Double,System.Double,System.Double)">
+  SetMidRow(int, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets an inner row's three elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMidRow(int i, double valA, double valB, double valC)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The row, from 1 to <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html#NanoQL_Methods_TridiagonalOperator_Size">Size</a> − 2.</p>
+</dd>
+    <dt><code>valA</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The lower diagonal's element.</p>
+</dd>
+    <dt><code>valB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The main diagonal's element.</p>
+</dd>
+    <dt><code>valC</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The upper diagonal's element.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The row is the first, the last or out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_SetMidRows_" data-uid="NanoQL.Methods.TridiagonalOperator.SetMidRows*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_SetMidRows_System_Double_System_Double_System_Double_" data-uid="NanoQL.Methods.TridiagonalOperator.SetMidRows(System.Double,System.Double,System.Double)">
+  SetMidRows(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets every inner row's three elements to the same values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMidRows(double valA, double valB, double valC)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>valA</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The lower diagonal's element.</p>
+</dd>
+    <dt><code>valB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The main diagonal's element.</p>
+</dd>
+    <dt><code>valC</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The upper diagonal's element.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_SetTime_" data-uid="NanoQL.Methods.TridiagonalOperator.SetTime*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_SetTime_System_Double_" data-uid="NanoQL.Methods.TridiagonalOperator.SetTime(System.Double)">
+  SetTime(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the time, through the time setter; does nothing for an operator without one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTime(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_SolveFor_" data-uid="NanoQL.Methods.TridiagonalOperator.SolveFor*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_SolveFor_NanoQL_Numerics_Vector_" data-uid="NanoQL.Methods.TridiagonalOperator.SolveFor(NanoQL.Numerics.Vector)">
+  SolveFor(Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Solves the linear system for a right-hand side.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector SolveFor(Vector rhs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rhs</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The right-hand side, of the operator's size.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The solution, a new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The operator has size 0, or a pivot is close to zero.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The right-hand side has the wrong size.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_SolveFor_" data-uid="NanoQL.Methods.TridiagonalOperator.SolveFor*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_SolveFor_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_" data-uid="NanoQL.Methods.TridiagonalOperator.SolveFor(NanoQL.Numerics.Vector,NanoQL.Numerics.Vector)">
+  SolveFor(Vector, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Solves the linear system for a right-hand side into a given vector, which may be the right-hand side itself,
+which then changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SolveFor(Vector rhs, Vector result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rhs</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The right-hand side, of the operator's size.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The vector the solution is written into, at least of the operator's size.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The operator has size 0, or size 1, where QuantLib reads past its arrays, or a
+pivot is close to zero.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The right-hand side has the wrong size.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_Swap_" data-uid="NanoQL.Methods.TridiagonalOperator.Swap*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_Swap_NanoQL_Methods_TridiagonalOperator_" data-uid="NanoQL.Methods.TridiagonalOperator.Swap(NanoQL.Methods.TridiagonalOperator)">
+  Swap(TridiagonalOperator)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exchanges the contents of this operator with another's, the time setters included: QuantLib's member
+<code>swap</code> and its free <code>swap(TridiagonalOperator&amp;, TridiagonalOperator&amp;)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Swap(TridiagonalOperator from)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>The other operator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_UpperDiagonal_" data-uid="NanoQL.Methods.TridiagonalOperator.UpperDiagonal*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_UpperDiagonal" data-uid="NanoQL.Methods.TridiagonalOperator.UpperDiagonal">
+  UpperDiagonal()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the upper diagonal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector UpperDiagonal()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector, of size <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html#NanoQL_Methods_TridiagonalOperator_Size">Size</a> − 1.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_op_Addition_" data-uid="NanoQL.Methods.TridiagonalOperator.op_Addition*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_op_Addition_NanoQL_Methods_TridiagonalOperator_NanoQL_Methods_TridiagonalOperator_" data-uid="NanoQL.Methods.TridiagonalOperator.op_Addition(NanoQL.Methods.TridiagonalOperator,NanoQL.Methods.TridiagonalOperator)">
+  operator +(TridiagonalOperator, TridiagonalOperator)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sum, diagonal by diagonal, with no time setter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TridiagonalOperator operator +(TridiagonalOperator D1, TridiagonalOperator D2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>D1</code> <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>The first operator.</p>
+</dd>
+    <dt><code>D2</code> <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>The second operator, of the same size.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>A new operator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_op_Division_" data-uid="NanoQL.Methods.TridiagonalOperator.op_Division*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_op_Division_NanoQL_Methods_TridiagonalOperator_System_Double_" data-uid="NanoQL.Methods.TridiagonalOperator.op_Division(NanoQL.Methods.TridiagonalOperator,System.Double)">
+  operator /(TridiagonalOperator, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The operator divided by a scalar, with no time setter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TridiagonalOperator operator /(TridiagonalOperator D, double a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>D</code> <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>The operator.</p>
+</dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The scalar.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>A new operator, each diagonal element divided by <code class="paramref">a</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_op_Multiply_" data-uid="NanoQL.Methods.TridiagonalOperator.op_Multiply*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_op_Multiply_NanoQL_Methods_TridiagonalOperator_System_Double_" data-uid="NanoQL.Methods.TridiagonalOperator.op_Multiply(NanoQL.Methods.TridiagonalOperator,System.Double)">
+  operator *(TridiagonalOperator, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The operator times a scalar, with no time setter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TridiagonalOperator operator *(TridiagonalOperator D, double a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>D</code> <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>The operator.</p>
+</dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The scalar.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>A new operator, each diagonal element multiplied by <code class="paramref">a</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_op_Multiply_" data-uid="NanoQL.Methods.TridiagonalOperator.op_Multiply*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_op_Multiply_System_Double_NanoQL_Methods_TridiagonalOperator_" data-uid="NanoQL.Methods.TridiagonalOperator.op_Multiply(System.Double,NanoQL.Methods.TridiagonalOperator)">
+  operator *(double, TridiagonalOperator)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A scalar times the operator, with no time setter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TridiagonalOperator operator *(double a, TridiagonalOperator D)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The scalar.</p>
+</dd>
+    <dt><code>D</code> <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>The operator.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>A new operator, each diagonal element multiplied by <code class="paramref">a</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_op_Subtraction_" data-uid="NanoQL.Methods.TridiagonalOperator.op_Subtraction*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_op_Subtraction_NanoQL_Methods_TridiagonalOperator_NanoQL_Methods_TridiagonalOperator_" data-uid="NanoQL.Methods.TridiagonalOperator.op_Subtraction(NanoQL.Methods.TridiagonalOperator,NanoQL.Methods.TridiagonalOperator)">
+  operator -(TridiagonalOperator, TridiagonalOperator)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The difference, diagonal by diagonal, with no time setter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TridiagonalOperator operator -(TridiagonalOperator D1, TridiagonalOperator D2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>D1</code> <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>The first operator.</p>
+</dd>
+    <dt><code>D2</code> <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>The second operator, of the same size.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>A new operator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_op_UnaryNegation_" data-uid="NanoQL.Methods.TridiagonalOperator.op_UnaryNegation*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_op_UnaryNegation_NanoQL_Methods_TridiagonalOperator_" data-uid="NanoQL.Methods.TridiagonalOperator.op_UnaryNegation(NanoQL.Methods.TridiagonalOperator)">
+  operator -(TridiagonalOperator)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The operator negated, with no time setter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TridiagonalOperator operator -(TridiagonalOperator D)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>D</code> <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>The operator.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>A new operator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TridiagonalOperator_op_UnaryPlus_" data-uid="NanoQL.Methods.TridiagonalOperator.op_UnaryPlus*"></a>
+
+  <h3 id="NanoQL_Methods_TridiagonalOperator_op_UnaryPlus_NanoQL_Methods_TridiagonalOperator_" data-uid="NanoQL.Methods.TridiagonalOperator.op_UnaryPlus(NanoQL.Methods.TridiagonalOperator)">
+  operator +(TridiagonalOperator)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The operator itself, a copy that keeps its time setter: QuantLib's unary <code>+</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TridiagonalOperator operator +(TridiagonalOperator D)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>D</code> <a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>The operator.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TridiagonalOperator.html">TridiagonalOperator</a></dt>
+    <dd><p>A copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

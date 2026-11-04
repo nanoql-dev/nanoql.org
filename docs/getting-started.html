@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Getting started | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting started | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="getting-started">Getting started</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>nanoql is a .NET 10 library. Add its package to a project:</p>
+<pre><code class="lang-shell">dotnet add package NanoQL
+</code></pre>
+<p>The conventions' XML format and QLNet's additions are in a second package, <code>NanoQL.Extensions</code>
+(<a href="conventions.html">conventions.md</a>); a first price needs only the first.</p>
+<h2 id="a-first-swap">A first swap</h2>
+<p>Price a five-year SOFR swap on a flat curve. The evaluation date goes in an <code>EvaluationContext</code>, the curve and the swap
+are values, and the engine is a static function of them:</p>
+<pre><code class="lang-csharp">var today = new Date(15, Month.October, 2026);
+var context = new EvaluationContext { EvaluationDate = today };
+var curve = new FlatForward(today, 0.036, new Actual365Fixed());
+
+OvernightIndexedSwap swap = new MakeOIS(new Period(5, TimeUnit.Years), new Sofr(curve))
+    .WithFixedRate(0.036)
+    .WithNominal(10e6)
+    .ToOvernightIndexedSwap(context);
+
+OvernightIndexedSwapResults result = DiscountingSwapEngine.Calculate(swap, context, curve);
+</code></pre>
+<p>The results:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">NPV</th>
+<th style="text-align: right;">Fair rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">7,041.24</td>
+<td style="text-align: right;">3.6154%</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>MakeOIS</code> takes QuantLib's defaults for every option it isn't given: here, SOFR's own calendar and day count, annual
+payments, and two settlement days. <code>DiscountingSwapEngine.Calculate</code> returns a results record, whose <code>NPV</code>, <code>FairRate</code>
+and each leg's <code>LegNPV</code> and <code>LegBPS</code> are read like any other property. The same inputs give the same results, on
+any thread.</p>
+<h2 id="next">Next</h2>
+<ul>
+<li><a href="concepts.html">Concepts</a>: values and functions, the evaluation context, conventions as data, and what is
+experimental.</li>
+<li>The rates guides: <a href="rates/dates-and-calendars.html">dates and calendars</a>, <a href="rates/curves.html">curves</a>,
+<a href="rates/indexes-and-fixings.html">indexes and fixings</a>, <a href="rates/swaps.html">swaps</a>,
+<a href="rates/caps-and-floors.html">caps and floors</a> and <a href="rates/swaptions.html">swaptions</a>.</li>
+<li><a href="sofr-example.html">Pricing a USD SOFR swap to match the market</a>: the conventions that move a price, set in XML.</li>
+<li><a href="stateless.html">The stateless design</a>: rebuilding, memoizing and pricing scenarios in parallel.</li>
+<li>Coming from QuantLib-Python or QLNet: <a href="migration/from-quantlib-python.html">from QuantLib-Python</a>,
+<a href="migration/from-qlnet.html">from QLNet</a>.</li>
+<li>Beyond C#: <a href="bindings.html">the bindings</a> for Python and for C, which any language that calls C can use, and
+<a href="excel.html">the Excel add-in</a>.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

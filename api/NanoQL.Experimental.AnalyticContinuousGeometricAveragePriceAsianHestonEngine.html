@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class AnalyticContinuousGeometricAveragePriceAsianHestonEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AnalyticContinuousGeometricAveragePriceAsianHestonEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Kim and Wee&#39;s analytic engine for continuous geometric average-price Asian options under the Heston model (&amp;quot;Pricing of geometric Asian options under Heston&#39;s stochastic volatility model&amp;quot;, Quantitative Finance 14:10, 2014): the joint characteristic function of the log geometric average and the log spot, , inverted by a Fourier integral on 128 Gauss-Legendre points.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine">
+
+
+
+  <h1 id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine" class="text-break">
+Class AnalyticContinuousGeometricAveragePriceAsianHestonEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Kim and Wee's analytic engine for continuous geometric average-price Asian options under the Heston model (&quot;Pricing
+of geometric Asian options under Heston's stochastic volatility model&quot;, Quantitative Finance 14:10, 2014): the joint
+characteristic function of the log geometric average and the log spot, <a class="xref" href="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.html#NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_Phi_System_Numerics_Complex_System_Numerics_Complex_System_Double_System_Double_System_Int32_">Phi(Complex, Complex, double, double, int)</a>, inverted by a Fourier
+integral on 128 Gauss-Legendre points.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public class AnalyticContinuousGeometricAveragePriceAsianHestonEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AnalyticContinuousGeometricAveragePriceAsianHestonEngine</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An unsealed, immutable object holding the process, the summation cutoff and the integral's limit, its public member
+QuantLib's <a class="xref" href="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.html#NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_Phi_System_Numerics_Complex_System_Numerics_Complex_System_Double_System_Double_System_Int32_">Phi(Complex, Complex, double, double, int)</a>, with a static <code>Calculate</code> in the engines' form. <code>Phi</code> computes its
+coefficients from its times on each call, where QuantLib's read the last pricing's (0 before any); the recursion of
+its series, QuantLib's memo, is one call's working state. The value, with QuantLib's additional results ("dcf",
+"qf", "s0", "strike", "expiryTime", "exercise", "term1", "term2", "xiRightLimit", "summationCutoff", "a1" to "a5").
+</p>
+<p>
+Documented divergences (<code>Divergences/HestonContinuousGeometricAsianTests.cs</code>). <code>Phi</code>'s coefficient of w is
+log S₀ + log(D_q/D_r) − ρv₀/σ − ρκθτ/σ, log S_T's constant, where QuantLib's multiplies the log spot by the carry
+factor and adds ρκθτ/σ, the sign its a3 doesn't take, so its <code>Phi(0, 1)</code>, the expected terminal spot, is 81.92
+against the forward 103.05; the prices read w = 0 only and are QuantLib's. An option whose averaging starts before
+or after the model's time 0 is refused, as QuantLib's Black-Scholes continuous engine refuses a start date, where
+QuantLib's Heston engine prices it as unseasoned from today; one starting at time 0 is QuantLib's own case. Times
+run on the model's clock, <a class="xref" href="NanoQL.Processes.HestonProcess.html">HestonProcess</a>'s model time from the earliest reference date of its curves,
+each discount read at its instants, none accrued before its curve's own date.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine__ctor_" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine__ctor_NanoQL_Processes_HestonProcess_System_Int32_System_Double_" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.#ctor(NanoQL.Processes.HestonProcess,System.Int32,System.Double)">
+  AnalyticContinuousGeometricAveragePriceAsianHestonEngine(HestonProcess, int, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.html">AnalyticContinuousGeometricAveragePriceAsianHestonEngine</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnalyticContinuousGeometricAveragePriceAsianHestonEngine(HestonProcess process, int summationCutoff = 50, double xiRightLimit = 100)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.HestonProcess.html">HestonProcess</a></dt>
+    <dd><p>The Heston process.</p>
+</dd>
+    <dt><code>summationCutoff</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of terms of the series (19) and (20).</p>
+</dd>
+    <dt><code>xiRightLimit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The upper limit of the Fourier integral (29).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">process</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">summationCutoff</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_Process_" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.Process*"></a>
+
+  <h3 id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_Process" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.Process">
+  Process
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the Heston process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HestonProcess Process { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Processes.HestonProcess.html">HestonProcess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_SummationCutoff_" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.SummationCutoff*"></a>
+
+  <h3 id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_SummationCutoff" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.SummationCutoff">
+  SummationCutoff
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of terms of the series (19) and (20).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SummationCutoff { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_XiRightLimit_" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.XiRightLimit*"></a>
+
+  <h3 id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_XiRightLimit" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.XiRightLimit">
+  XiRightLimit
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the upper limit of the Fourier integral (29).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double XiRightLimit { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_Calculate_" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_Calculate_NanoQL_Instruments_ContinuousAveragingAsianOption_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.Calculate(NanoQL.Instruments.ContinuousAveragingAsianOption,NanoQL.EvaluationContext)">
+  Calculate(ContinuousAveragingAsianOption, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a continuous geometric average-price Asian option under the Heston model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OneAssetOptionResults Calculate(ContinuousAveragingAsianOption option, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.ContinuousAveragingAsianOption.html">ContinuousAveragingAsianOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results: the value and QuantLib's additional results; the expired results when the option
+has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The average isn't geometric, the exercise isn't European, the option has a start date, or the payoff isn't plain
+vanilla.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_Calculate_" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_Calculate_NanoQL_Instruments_ContinuousAveragingAsianOption_NanoQL_EvaluationContext_NanoQL_Processes_HestonProcess_System_Int32_System_Double_" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.Calculate(NanoQL.Instruments.ContinuousAveragingAsianOption,NanoQL.EvaluationContext,NanoQL.Processes.HestonProcess,System.Int32,System.Double)">
+  Calculate(ContinuousAveragingAsianOption, EvaluationContext, HestonProcess, int, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a continuous geometric average-price Asian option under the Heston model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(ContinuousAveragingAsianOption option, EvaluationContext context, HestonProcess process, int summationCutoff = 50, double xiRightLimit = 100)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.ContinuousAveragingAsianOption.html">ContinuousAveragingAsianOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.HestonProcess.html">HestonProcess</a></dt>
+    <dd><p>The Heston process.</p>
+</dd>
+    <dt><code>summationCutoff</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of terms of the series (19) and (20).</p>
+</dd>
+    <dt><code>xiRightLimit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The upper limit of the Fourier integral (29).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results: the value and QuantLib's additional results; the expired results when the option
+has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">summationCutoff</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The average isn't geometric, the exercise isn't European, the option has a start date, or the payoff isn't plain
+vanilla.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_Phi_" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.Phi*"></a>
+
+  <h3 id="NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_Phi_System_Numerics_Complex_System_Numerics_Complex_System_Double_System_Double_System_Int32_" data-uid="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.Phi(System.Numerics.Complex,System.Numerics.Complex,System.Double,System.Double,System.Int32)">
+  Phi(Complex, Complex, double, double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The joint characteristic function of the log geometric average over [t, T] and the log spot at T, Kim and
+Wee's equation (25): E[exp(s log G + w log S_T)].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Complex Phi(Complex s, Complex w, double T, double t = 0, int cutoff = 50)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.complex">Complex</a></dt>
+    <dd><p>The log geometric average's argument.</p>
+</dd>
+    <dt><code>w</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.complex">Complex</a></dt>
+    <dd><p>The log terminal spot's argument.</p>
+</dd>
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The expiry time on the model's clock.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The averaging's start time on the model's clock.</p>
+</dd>
+    <dt><code>cutoff</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of terms of the series (19) and (20).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.complex">Complex</a></dt>
+    <dd><p>The characteristic function's value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">cutoff</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

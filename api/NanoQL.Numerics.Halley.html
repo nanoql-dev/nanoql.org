@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Halley | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Halley | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Halley&#39;s 1-D solver: Halley&#39;s steps from the guess, falling back to  when a step leaves the bracket.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.Halley">
+
+
+
+  <h1 id="NanoQL_Numerics_Halley" data-uid="NanoQL.Numerics.Halley" class="text-break">
+Class Halley  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Halley's 1-D solver: Halley's steps from the guess, falling back to <a class="xref" href="NanoQL.Numerics.NewtonSafe.html">NewtonSafe</a> when a step
+leaves the bracket.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Halley : Solver1D&lt;Halley, ISecondDerivativeSolver1DFunction&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Solver1D-2.html">Solver1D</a>&lt;<a class="xref" href="NanoQL.Numerics.Halley.html">Halley</a>, <a class="xref" href="NanoQL.Numerics.ISecondDerivativeSolver1DFunction.html">ISecondDerivativeSolver1DFunction</a>&gt;</div>
+      <div><span class="xref">Halley</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Solver1D-2.html#NanoQL_Numerics_Solver1D_2_MaxFunctionEvaluations">Solver1D&lt;Halley, ISecondDerivativeSolver1DFunction&gt;.MaxFunctionEvaluations</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Solver1D-2.html#NanoQL_Numerics_Solver1D_2_SetMaxEvaluations_System_Int32_">Solver1D&lt;Halley, ISecondDerivativeSolver1DFunction&gt;.SetMaxEvaluations(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Solver1D-2.html#NanoQL_Numerics_Solver1D_2_SetLowerBound_System_Double_">Solver1D&lt;Halley, ISecondDerivativeSolver1DFunction&gt;.SetLowerBound(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Solver1D-2.html#NanoQL_Numerics_Solver1D_2_SetUpperBound_System_Double_">Solver1D&lt;Halley, ISecondDerivativeSolver1DFunction&gt;.SetUpperBound(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Solver1D-2.html#NanoQL_Numerics_Solver1D_2_Solve__1___0_System_Double_System_Double_System_Double_">Solver1D&lt;Halley, ISecondDerivativeSolver1DFunction&gt;.Solve&lt;TF&gt;(TF, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Solver1D-2.html#NanoQL_Numerics_Solver1D_2_Solve__1___0_System_Double_System_Double_System_Double_System_Double_">Solver1D&lt;Halley, ISecondDerivativeSolver1DFunction&gt;.Solve&lt;TF&gt;(TF, double, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Numerics_Halley_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The solver needs the function's first and second derivatives: its function concept is
+<a class="xref" href="NanoQL.Numerics.ISecondDerivativeSolver1DFunction.html">ISecondDerivativeSolver1DFunction</a>. The correctness of the returned values is tested by checking them
+against known good results. The last function evaluation is at the returned root.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Numerics_Halley__ctor_" data-uid="NanoQL.Numerics.Halley.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_Halley__ctor" data-uid="NanoQL.Numerics.Halley.#ctor">
+  Halley()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Halley()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_Halley_Solve_" data-uid="NanoQL.Numerics.Halley.Solve*"></a>
+
+  <h3 id="NanoQL_Numerics_Halley_Solve_System_Func_System_Double_System_Double__System_Func_System_Double_System_Double__System_Func_System_Double_System_Double__System_Double_System_Double_System_Double_" data-uid="NanoQL.Numerics.Halley.Solve(System.Func{System.Double,System.Double},System.Func{System.Double,System.Double},System.Func{System.Double,System.Double},System.Double,System.Double,System.Double)">
+  Solve(Func&lt;double, double&gt;, Func&lt;double, double&gt;, Func&lt;double, double&gt;, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The zero of <code class="paramref">f</code>, bracketed from an initial guess:
+<a class="xref" href="NanoQL.Numerics.Solver1D-2.html#NanoQL_Numerics_Solver1D_2_Solve__1___0_System_Double_System_Double_System_Double_">Solve&lt;TF&gt;(TF, double, double, double)</a> over delegates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Solve(Func&lt;double, double&gt; f, Func&lt;double, double&gt; derivative, Func&lt;double, double&gt; secondDerivative, double accuracy, double guess, double step)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The function.</p>
+</dd>
+    <dt><code>derivative</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>Its first derivative.</p>
+</dd>
+    <dt><code>secondDerivative</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>Its second derivative.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accuracy.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The initial guess.</p>
+</dd>
+    <dt><code>step</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The initial step of the bracketing.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The zero.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A delegate is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The accuracy isn't positive.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The zero can't be bracketed, or the evaluations run out.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Halley_Solve_" data-uid="NanoQL.Numerics.Halley.Solve*"></a>
+
+  <h3 id="NanoQL_Numerics_Halley_Solve_System_Func_System_Double_System_Double__System_Func_System_Double_System_Double__System_Func_System_Double_System_Double__System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.Numerics.Halley.Solve(System.Func{System.Double,System.Double},System.Func{System.Double,System.Double},System.Func{System.Double,System.Double},System.Double,System.Double,System.Double,System.Double)">
+  Solve(Func&lt;double, double&gt;, Func&lt;double, double&gt;, Func&lt;double, double&gt;, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The zero of <code class="paramref">f</code> in a bracket:
+<a class="xref" href="NanoQL.Numerics.Solver1D-2.html#NanoQL_Numerics_Solver1D_2_Solve__1___0_System_Double_System_Double_System_Double_System_Double_">Solve&lt;TF&gt;(TF, double, double, double, double)</a> over delegates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Solve(Func&lt;double, double&gt; f, Func&lt;double, double&gt; derivative, Func&lt;double, double&gt; secondDerivative, double accuracy, double guess, double xMin, double xMax)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The function.</p>
+</dd>
+    <dt><code>derivative</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>Its first derivative.</p>
+</dd>
+    <dt><code>secondDerivative</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>Its second derivative.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accuracy.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The initial guess.</p>
+</dd>
+    <dt><code>xMin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bracket's lower end.</p>
+</dd>
+    <dt><code>xMax</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bracket's upper end.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The zero.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A delegate is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The accuracy isn't positive, or the bracket is empty.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The bracket holds no zero, or the evaluations run out.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Halley_SolveCore_" data-uid="NanoQL.Numerics.Halley.SolveCore*"></a>
+
+  <h3 id="NanoQL_Numerics_Halley_SolveCore__1___0_System_Double_NanoQL_Numerics_Solver1DBracket_" data-uid="NanoQL.Numerics.Halley.SolveCore``1(``0,System.Double,NanoQL.Numerics.Solver1DBracket)">
+  SolveCore&lt;TF&gt;(TF, double, Solver1DBracket)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The solver's algorithm, QuantLib's <code>solveImpl</code>: the zero of <code class="paramref">f</code> within the bracket the
+public <code>Solve</code> found or checked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double SolveCore&lt;TF&gt;(TF f, double xAccuracy, Solver1DBracket bracket) where TF : struct, ISecondDerivativeSolver1DFunction</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <span class="xref">TF</span></dt>
+    <dd><p>The function.</p>
+</dd>
+    <dt><code>xAccuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>bracket</code> <a class="xref" href="NanoQL.Numerics.Solver1DBracket.html">Solver1DBracket</a></dt>
+    <dd><p>The bracket, the function's values at its ends, the initial guess and the evaluations so far.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The zero.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TF</code></dt>
+    <dd><p>The function's type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

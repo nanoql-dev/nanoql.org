@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class LatentModel&lt;TCopula, TInitTraits&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LatentModel&lt;TCopula, TInitTraits&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The generic multifactor latent variable model: latent variables Yᵢ = Σₖ aᵢₖMₖ + √(1 − Σₖ aᵢₖ&#178;) Zᵢ over independent zero-mean, unit-variance systemic factors Mₖ and idiosyncratic factors Zᵢ, the Zᵢ all of one law, their distributions given by a copula policy.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.LatentModel`2">
+
+
+
+  <h1 id="NanoQL_Experimental_LatentModel_2" data-uid="NanoQL.Experimental.LatentModel`2" class="text-break">
+Class LatentModel&lt;TCopula, TInitTraits&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The generic multifactor latent variable model: latent variables Yᵢ = Σₖ aᵢₖMₖ + √(1 − Σₖ aᵢₖ²) Zᵢ over independent
+zero-mean, unit-variance systemic factors Mₖ and idiosyncratic factors Zᵢ, the Zᵢ all of one law, their
+distributions given by a copula policy.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public class LatentModel&lt;TCopula, TInitTraits&gt; where TCopula : struct, ICopulaPolicy&lt;TCopula, TInitTraits&gt; where TInitTraits : struct</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TCopula</code></dt>
+    <dd><p>The copula policy.</p>
+</dd>
+    <dt><code>TInitTraits</code></dt>
+    <dd><p>The policy's initialization parameters.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">LatentModel&lt;TCopula, TInitTraits&gt;</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.DefaultLatentModel-2.html">DefaultLatentModel&lt;TCopula, TInitTraits&gt;</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.GaussianLHPLossModel.html">GaussianLHPLossModel</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.SpotRecoveryLatentModel-2.html">SpotRecoveryLatentModel&lt;TCopula, TInitTraits&gt;</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_LatentModel_2_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An unsealed, immutable class: its derived models give the latent variables a meaning (a default time, a recovery),
+and an integrable one its integration. The correlation of Yᵢ and Yⱼ is Σₖ aᵢₖaⱼₖ. Its factor samplers are working
+types of their own (<a class="xref" href="NanoQL.Experimental.LatentModelFactorSampler-3.html">LatentModelFactorSampler&lt;TCopula, TInitTraits, TUsng&gt;</a>,
+<a class="xref" href="NanoQL.Experimental.BoxMullerFactorSampler-1.html">BoxMullerFactorSampler&lt;TUrng&gt;</a>, <a class="xref" href="NanoQL.Experimental.PolarStudentTFactorSampler-1.html">PolarStudentTFactorSampler&lt;TUrng&gt;</a>).
+</p>
+<p>
+QuantLib's four constructors are three and a factory: its quote constructor takes a correlation and uses its square
+root as the factor (<code>latentmodel.hpp:696-710</code>), where its <code>(correlSqr, nVariables)</code> constructor takes the
+factor itself, so the two can't merge once a quote is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>; the correlation form is
+<a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_FromCorrelation_System_Double_System_Int32__1_">FromCorrelation(double, int, TInitTraits)</a>, and a new correlation is a new model, where QuantLib's observes its quote. A model of
+no variables or no factors is refused, where QuantLib's reads the first row of an empty matrix
+(<code>latentmodel.hpp:653</code>). The constructor on one factor's weights builds the policy from the weights, where
+QuantLib's default-constructs it first, which the Gaussian policy can't do: QuantLib crashes
+(<code>latentmodel.hpp:667-680</code>; <code>Divergences/LatentModelVectorConstructorTests.cs</code>).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_LatentModel_2__ctor_" data-uid="NanoQL.Experimental.LatentModel`2.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2__ctor_System_Collections_Generic_IReadOnlyList_System_Collections_Generic_IReadOnlyList_System_Double____1_" data-uid="NanoQL.Experimental.LatentModel`2.#ctor(System.Collections.Generic.IReadOnlyList{System.Collections.Generic.IReadOnlyList{System.Double}},`1)">
+  LatentModel(IReadOnlyList&lt;IReadOnlyList&lt;double&gt;&gt;, TInitTraits)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.LatentModel-2.html">LatentModel&lt;TCopula, TInitTraits&gt;</a> class on any number
+of variables and factors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LatentModel(IReadOnlyList&lt;IReadOnlyList&lt;double&gt;&gt; factorWeights, TInitTraits initTraits = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>factorWeights</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd><p>The weights, <code>factorWeights[iVariable][iFactor]</code>.</p>
+</dd>
+    <dt><code>initTraits</code> <span class="xref">TInitTraits</span></dt>
+    <dd><p>The policy's initialization parameters.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">factorWeights</code> or a row is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There's no variable or no factor; the policy refuses the weights; or a row
+has another number of factors than the first (&quot;Name i provides a different number of factors&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2__ctor_" data-uid="NanoQL.Experimental.LatentModel`2.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2__ctor_System_Collections_Generic_IReadOnlyList_System_Double___1_" data-uid="NanoQL.Experimental.LatentModel`2.#ctor(System.Collections.Generic.IReadOnlyList{System.Double},`1)">
+  LatentModel(IReadOnlyList&lt;double&gt;, TInitTraits)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.LatentModel-2.html">LatentModel&lt;TCopula, TInitTraits&gt;</a> class on one factor,
+each variable with its own weight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LatentModel(IReadOnlyList&lt;double&gt; factorsWeight, TInitTraits initTraits = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>factorsWeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>Each variable's weight on the factor.</p>
+</dd>
+    <dt><code>initTraits</code> <span class="xref">TInitTraits</span></dt>
+    <dd><p>The policy's initialization parameters.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">factorsWeight</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There's no variable, or the policy refuses the weights.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2__ctor_" data-uid="NanoQL.Experimental.LatentModel`2.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2__ctor_System_Double_System_Int32__1_" data-uid="NanoQL.Experimental.LatentModel`2.#ctor(System.Double,System.Int32,`1)">
+  LatentModel(double, int, TInitTraits)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.LatentModel-2.html">LatentModel&lt;TCopula, TInitTraits&gt;</a> class on one factor,
+every variable with the same weight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LatentModel(double correlSqr, int nVariables, TInitTraits initTraits = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>correlSqr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The weight, the same for every variable: the square root of the variables'
+correlation.</p>
+</dd>
+    <dt><code>nVariables</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of variables.</p>
+</dd>
+    <dt><code>initTraits</code> <span class="xref">TInitTraits</span></dt>
+    <dd><p>The policy's initialization parameters.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There's no variable, or the policy refuses the weights.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2__ctor_" data-uid="NanoQL.Experimental.LatentModel`2.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2__ctor_System_Int32_System_Double__1_" data-uid="NanoQL.Experimental.LatentModel`2.#ctor(System.Int32,System.Double,`1)">
+  LatentModel(int, double, TInitTraits)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.LatentModel-2.html">LatentModel&lt;TCopula, TInitTraits&gt;</a> class on one factor of
+a correlation, QuantLib's quote constructor, for a derived model's: every variable's weight the correlation's
+square root, its idiosyncratic factor √(1 − correlation), as QuantLib computes them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected LatentModel(int nVariables, double correlation, TInitTraits initTraits)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nVariables</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of variables.</p>
+</dd>
+    <dt><code>correlation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation.</p>
+</dd>
+    <dt><code>initTraits</code> <span class="xref">TInitTraits</span></dt>
+    <dd><p>The policy's initialization parameters.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There's no variable, or the policy refuses the weights.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_Copula_" data-uid="NanoQL.Experimental.LatentModel`2.Copula*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_Copula" data-uid="NanoQL.Experimental.LatentModel`2.Copula">
+  Copula
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the copula policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TCopula Copula { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TCopula</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_FactorWeights_" data-uid="NanoQL.Experimental.LatentModel`2.FactorWeights*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_FactorWeights" data-uid="NanoQL.Experimental.LatentModel`2.FactorWeights">
+  FactorWeights
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the factor weights, <code>FactorWeights[iVariable][iFactor]</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ImmutableArray&lt;double&gt;&gt; FactorWeights { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_IdiosyncFctrs_" data-uid="NanoQL.Experimental.LatentModel`2.IdiosyncFctrs*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_IdiosyncFctrs" data-uid="NanoQL.Experimental.LatentModel`2.IdiosyncFctrs">
+  IdiosyncFctrs
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the idiosyncratic factors' weights, √(1 − Σₖ aᵢₖ²).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; IdiosyncFctrs { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_Integration_" data-uid="NanoQL.Experimental.LatentModel`2.Integration*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_Integration" data-uid="NanoQL.Experimental.LatentModel`2.Integration">
+  Integration
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the policy's integration, which an integrable model provides.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual LMIntegration Integration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.LMIntegration.html">LMIntegration</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model provides none (&quot;Integration non implemented in Latent
+model.&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_NumFactors_" data-uid="NanoQL.Experimental.LatentModel`2.NumFactors*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_NumFactors" data-uid="NanoQL.Experimental.LatentModel`2.NumFactors">
+  NumFactors
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of systemic factors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NumFactors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_NumTotalFactors_" data-uid="NanoQL.Experimental.LatentModel`2.NumTotalFactors*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_NumTotalFactors" data-uid="NanoQL.Experimental.LatentModel`2.NumTotalFactors">
+  NumTotalFactors
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of independent random factors, systemic and idiosyncratic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NumTotalFactors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_Size_" data-uid="NanoQL.Experimental.LatentModel`2.Size*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_Size" data-uid="NanoQL.Experimental.LatentModel`2.Size">
+  Size
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of latent variables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_AllFactorCumulInverter_" data-uid="NanoQL.Experimental.LatentModel`2.AllFactorCumulInverter*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_AllFactorCumulInverter_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Experimental.LatentModel`2.AllFactorCumulInverter(System.ReadOnlySpan{System.Double})">
+  AllFactorCumulInverter(ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The inverse cumulative distributions of all the factors, the systemic ones and then one idiosyncratic
+factor per variable, as integrations and samplers use them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] AllFactorCumulInverter(ReadOnlySpan&lt;double&gt; probs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>probs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The probabilities.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd><p>The factors' values.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_CumulativeY_" data-uid="NanoQL.Experimental.LatentModel`2.CumulativeY*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_CumulativeY_System_Double_System_Int32_" data-uid="NanoQL.Experimental.LatentModel`2.CumulativeY(System.Double,System.Int32)">
+  CumulativeY(double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cumulative probability of a latent variable taking a value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CumulativeY(double val, int iVariable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>val</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+    <dt><code>iVariable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The variable.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_CumulativeZ_" data-uid="NanoQL.Experimental.LatentModel`2.CumulativeZ*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_CumulativeZ_System_Double_" data-uid="NanoQL.Experimental.LatentModel`2.CumulativeZ(System.Double)">
+  CumulativeZ(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cumulative distribution of the idiosyncratic factors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CumulativeZ(double z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_Density_" data-uid="NanoQL.Experimental.LatentModel`2.Density*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_Density_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Experimental.LatentModel`2.Density(System.ReadOnlySpan{System.Double})">
+  Density(ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The density of the systemic factors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Density(ReadOnlySpan&lt;double&gt; m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The factors' values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The density.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_FromCorrelation_" data-uid="NanoQL.Experimental.LatentModel`2.FromCorrelation*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_FromCorrelation_System_Double_System_Int32__1_" data-uid="NanoQL.Experimental.LatentModel`2.FromCorrelation(System.Double,System.Int32,`1)">
+  FromCorrelation(double, int, TInitTraits)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The one-factor model of a correlation, every variable with the same: QuantLib's quote constructor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static LatentModel&lt;TCopula, TInitTraits&gt; FromCorrelation(double correlation, int nVariables, TInitTraits initTraits = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>correlation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation, whose square root is the factor's weight.</p>
+</dd>
+    <dt><code>nVariables</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of variables.</p>
+</dd>
+    <dt><code>initTraits</code> <span class="xref">TInitTraits</span></dt>
+    <dd><p>The policy's initialization parameters.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.LatentModel-2.html">LatentModel</a>&lt;TCopula, TInitTraits&gt;</dt>
+    <dd><p>The model.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There's no variable, or the policy refuses the weights.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_IntegratedExpectedValue_" data-uid="NanoQL.Experimental.LatentModel`2.IntegratedExpectedValue*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_IntegratedExpectedValue_NanoQL_Experimental_MultidimIntegrand_" data-uid="NanoQL.Experimental.LatentModel`2.IntegratedExpectedValue(NanoQL.Experimental.MultidimIntegrand)">
+  IntegratedExpectedValue(MultidimIntegrand)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expected value of a scalar function of the systemic factors, integrated over their density.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double IntegratedExpectedValue(MultidimIntegrand f)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="NanoQL.Experimental.MultidimIntegrand.html">MultidimIntegrand</a></dt>
+    <dd><p>The function.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The expected value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">f</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model has no integration.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_IntegratedExpectedValueV_" data-uid="NanoQL.Experimental.LatentModel`2.IntegratedExpectedValueV*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_IntegratedExpectedValueV_NanoQL_Experimental_MultidimVectorIntegrand_" data-uid="NanoQL.Experimental.LatentModel`2.IntegratedExpectedValueV(NanoQL.Experimental.MultidimVectorIntegrand)">
+  IntegratedExpectedValueV(MultidimVectorIntegrand)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expected value of a vector function of the systemic factors, integrated over their density.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] IntegratedExpectedValueV(MultidimVectorIntegrand f)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="NanoQL.Experimental.MultidimVectorIntegrand.html">MultidimVectorIntegrand</a></dt>
+    <dd><p>The function.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd><p>The expected value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">f</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model has no integration, or its integration no vector form.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_InverseCumulativeDensity_" data-uid="NanoQL.Experimental.LatentModel`2.InverseCumulativeDensity*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_InverseCumulativeDensity_System_Double_System_Int32_" data-uid="NanoQL.Experimental.LatentModel`2.InverseCumulativeDensity(System.Double,System.Int32)">
+  InverseCumulativeDensity(double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The inverse cumulative distribution of a systemic factor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double InverseCumulativeDensity(double p, int iFactor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>p</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+    <dt><code>iFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_InverseCumulativeY_" data-uid="NanoQL.Experimental.LatentModel`2.InverseCumulativeY*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_InverseCumulativeY_System_Double_System_Int32_" data-uid="NanoQL.Experimental.LatentModel`2.InverseCumulativeY(System.Double,System.Int32)">
+  InverseCumulativeY(double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The inverse cumulative distribution of a latent variable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double InverseCumulativeY(double p, int iVariable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>p</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+    <dt><code>iVariable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The variable.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_InverseCumulativeZ_" data-uid="NanoQL.Experimental.LatentModel`2.InverseCumulativeZ*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_InverseCumulativeZ_System_Double_" data-uid="NanoQL.Experimental.LatentModel`2.InverseCumulativeZ(System.Double)">
+  InverseCumulativeZ(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The inverse cumulative distribution of the idiosyncratic factors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double InverseCumulativeZ(double p)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>p</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_LatentVarValue_" data-uid="NanoQL.Experimental.LatentModel`2.LatentVarValue*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_LatentVarValue_System_ReadOnlySpan_System_Double__System_Int32_" data-uid="NanoQL.Experimental.LatentModel`2.LatentVarValue(System.ReadOnlySpan{System.Double},System.Int32)">
+  LatentVarValue(ReadOnlySpan&lt;double&gt;, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A latent variable's value given every factor's: the systemic factors' and then the idiosyncratic
+ones', of which only the variable's own is read.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double LatentVarValue(ReadOnlySpan&lt;double&gt; allFactors, int iVar)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>allFactors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The factors' values, a full sample.</p>
+</dd>
+    <dt><code>iVar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The variable.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variable's value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">iVar</code> isn't one of the model's variables, where QuantLib reads past its weights.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">allFactors</code> doesn't reach the variable's idiosyncratic factor, where QuantLib reads past its
+end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_LatentModel_2_LatentVariableCorrel_" data-uid="NanoQL.Experimental.LatentModel`2.LatentVariableCorrel*"></a>
+
+  <h3 id="NanoQL_Experimental_LatentModel_2_LatentVariableCorrel_System_Int32_System_Int32_" data-uid="NanoQL.Experimental.LatentModel`2.LatentVariableCorrel(System.Int32,System.Int32)">
+  LatentVariableCorrel(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The correlation of two latent variables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double LatentVariableCorrel(int iVar1, int iVar2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>iVar1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The first variable.</p>
+</dd>
+    <dt><code>iVar2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The second variable.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">iVar1</code> or <code class="paramref">iVar2</code> isn't one of the variables, where QuantLib reads past its
+weights.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

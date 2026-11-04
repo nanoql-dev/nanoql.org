@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class DiscretizedConvertible | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DiscretizedConvertible | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A convertible bond on a Tsiveriotis-Fernandes lattice: its redemption rolled back with its coupons added, its callabilities applied and its conversion taken where it pays more, with each node&#39;s conversion probability and the blended rate it is discounted at.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.DiscretizedConvertible">
+
+
+
+  <h1 id="NanoQL_PricingEngines_DiscretizedConvertible" data-uid="NanoQL.PricingEngines.DiscretizedConvertible" class="text-break">
+Class DiscretizedConvertible  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A convertible bond on a Tsiveriotis-Fernandes lattice: its redemption rolled back with its coupons added, its
+callabilities applied and its conversion taken where it pays more, with each node's conversion probability and the
+blended rate it is discounted at.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public sealed class DiscretizedConvertible : DiscretizedAsset</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.DiscretizedAsset.html">DiscretizedAsset</a></div>
+      <div><span class="xref">DiscretizedConvertible</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Initialize_NanoQL_Lattice_System_Double_">DiscretizedAsset.Initialize(Lattice, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Rollback_System_Double_">DiscretizedAsset.Rollback(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PartialRollback_System_Double_">DiscretizedAsset.PartialRollback(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PresentValue">DiscretizedAsset.PresentValue()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PreAdjustValues">DiscretizedAsset.PreAdjustValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PostAdjustValues">DiscretizedAsset.PostAdjustValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_AdjustValues">DiscretizedAsset.AdjustValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_ReserveCapacity_System_Int32_">DiscretizedAsset.ReserveCapacity(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_StepValues_System_Int32_">DiscretizedAsset.StepValues(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_CommitStep_System_Int32_System_Double_">DiscretizedAsset.CommitStep(int, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Time">DiscretizedAsset.Time</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Values">DiscretizedAsset.Values</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Method">DiscretizedAsset.Method</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_DiscretizedConvertible_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A working type (<a class="xref" href="NanoQL.DiscretizedAsset.html">DiscretizedAsset</a>), built for one calculation from the bond's arguments at the context's
+settlement date. Times are the risk-free curve's year fractions from the bond's settlement date, moved to the closest
+times of the given grid. The dividends not yet paid at settlement are added back to the underlying at each node, each
+discounted from its date on the risk-free curve. A node's discount rate blends the risk-free rate and the risk-free
+rate plus the credit spread by its conversion probability.
+</p>
+<p>
+<b>The American window</b> is bounded by its two times compared with <code>IsOnTime</code> as well, upstream's fix after
+v1.44 (#2878): the grid's last time can be an ulp off the maturity the engine starts the asset at, where QuantLib
+1.44's plain comparison skips the conversion at expiry or rejects a window ending there
+(<code>Divergences/AmericanBoundsOnTimeTests.cs</code>).
+</p>
+<p>
+Its conversion probabilities and blended rates are double-buffered, as its values are, so a rollback allocates none;
+the underlying's grid is read into a buffer reserved at its widest step.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedConvertible__ctor_" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedConvertible__ctor_NanoQL_Instruments_ConvertibleBond_NanoQL_Processes_GeneralizedBlackScholesProcess_System_Collections_Immutable_ImmutableArray_NanoQL_Coupons_Dividend__System_Double_NanoQL_EvaluationContext_NanoQL_TimeGrid_" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.#ctor(NanoQL.Instruments.ConvertibleBond,NanoQL.Processes.GeneralizedBlackScholesProcess,System.Collections.Immutable.ImmutableArray{NanoQL.Coupons.Dividend},System.Double,NanoQL.EvaluationContext,NanoQL.TimeGrid)">
+  DiscretizedConvertible(ConvertibleBond, GeneralizedBlackScholesProcess, ImmutableArray&lt;Dividend&gt;, double, EvaluationContext, TimeGrid?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.DiscretizedConvertible.html">DiscretizedConvertible</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscretizedConvertible(ConvertibleBond bond, GeneralizedBlackScholesProcess process, ImmutableArray&lt;Dividend&gt; dividends, double creditSpread, EvaluationContext context, TimeGrid? grid = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bond</code> <a class="xref" href="NanoQL.Instruments.ConvertibleBond.html">ConvertibleBond</a></dt>
+    <dd><p>The convertible bond, whose arguments are computed at the context's settlement date.</p>
+</dd>
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The Black-Scholes process of the underlying, whose risk-free curve gives the times.</p>
+</dd>
+    <dt><code>dividends</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Coupons.Dividend.html">Dividend</a>&gt;</dt>
+    <dd><p>The underlying's dividends; none for <code>default</code>.</p>
+</dd>
+    <dt><code>creditSpread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The credit spread.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>grid</code> <a class="xref" href="NanoQL.TimeGrid.html">TimeGrid</a></dt>
+    <dd><p>The time grid the asset's times are moved to the closest of, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none, QuantLib's empty
+grid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The bond, the process or the context is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A dividend is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The bond's arguments, a cash flow's amount or a discount can't be computed.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedConvertible_ConversionProbability_" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.ConversionProbability*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedConvertible_ConversionProbability" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.ConversionProbability">
+  ConversionProbability
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each node's probability of conversion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;double&gt; ConversionProbability { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedConvertible_DividendValues_" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.DividendValues*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedConvertible_DividendValues" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.DividendValues">
+  DividendValues
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the present values of the dividends not yet paid at settlement, on the risk-free curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; DividendValues { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedConvertible_SpreadAdjustedRate_" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.SpreadAdjustedRate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedConvertible_SpreadAdjustedRate" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.SpreadAdjustedRate">
+  SpreadAdjustedRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each node's discount rate, the risk-free rate and the credit spread blended by the conversion probability.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReadOnlySpan&lt;double&gt; SpreadAdjustedRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedConvertible_MandatoryTimes_" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.MandatoryTimes*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedConvertible_MandatoryTimes" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.MandatoryTimes">
+  MandatoryTimes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The asset's mandatory times: its exercise times, then its callability times, then its coupon times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ImmutableArray&lt;double&gt; MandatoryTimes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The times.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedConvertible_PostAdjustValuesImpl_" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.PostAdjustValuesImpl*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedConvertible_PostAdjustValuesImpl" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.PostAdjustValuesImpl">
+  PostAdjustValuesImpl()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies the callabilities, adds the coupons and applies the conversion at their times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void PostAdjustValuesImpl()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The exercise or a callability is of an unknown type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedConvertible_Reset_" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.Reset*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedConvertible_Reset_System_Int32_" data-uid="NanoQL.PricingEngines.DiscretizedConvertible.Reset(System.Int32)">
+  Reset(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the values to the redemption, applies the conversion and the bond's other events, then sets each node's
+blended rate from its conversion probability.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Reset(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of values.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">size</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The asset isn't initialized, the exercise is of an unknown type, or the risk-free rate can't be computed.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

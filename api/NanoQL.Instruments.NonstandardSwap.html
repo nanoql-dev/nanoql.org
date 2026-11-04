@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class NonstandardSwap | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NonstandardSwap | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A vanilla swap, but possibly with period-dependent nominals, fixed rates, gearings and spreads.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Instruments.NonstandardSwap">
+
+
+
+  <h1 id="NanoQL_Instruments_NonstandardSwap" data-uid="NanoQL.Instruments.NonstandardSwap" class="text-break">
+Class NonstandardSwap  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A vanilla swap, but possibly with period-dependent nominals, fixed rates, gearings and spreads.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class NonstandardSwap : Swap</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.Swap.html">Swap</a></div>
+      <div><span class="xref">NonstandardSwap</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_IsExpired_NanoQL_EvaluationContext_">Swap.IsExpired(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_SetupExpired">Swap.SetupExpired()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Validate">Swap.Validate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_FetchResults_NanoQL_InstrumentResults_">Swap.FetchResults(InstrumentResults)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_StartDate">Swap.StartDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_MaturityDate">Swap.MaturityDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Leg_System_Int32_">Swap.Leg(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Payer_System_Int32_">Swap.Payer(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_NumberOfLegs">Swap.NumberOfLegs</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Legs">Swap.Legs</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Instruments_NonstandardSwap_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The constructors build the legs, as QuantLib's do: a fixed leg, and an Ibor leg with the index's default pricer,
+which reads the context's at-par switch, so they take the context; or, for an overnight index, a compounded
+overnight leg. A zero gearing becomes QuantLib's machine epsilon, so that the floating leg is built of floating
+coupons. With the capital exchanges, a redemption follows each coupon whose nominal changes after it, and the last,
+the nominals and fixed rates repeated (the rate as 0) beside each, as QuantLib's inspectors give them. The fixed leg
+is paid by a payer swap.
+</p>
+<p>
+Converted from a fixed-versus-floating swap, it keeps an overnight-indexed swap's observation conventions, as
+QuantLib's does, and its rounding precision, which QuantLib's conversion drops, so a rounded swap's coupons would
+differ from the source's: the converted swap is worth the source's, QuantLib's own identity
+(<code>testNonstandardSwapConversionPreservesObservationConventions</code>).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap__ctor_" data-uid="NanoQL.Instruments.NonstandardSwap.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap__ctor_NanoQL_Instruments_FixedVsFloatingSwap_NanoQL_EvaluationContext_" data-uid="NanoQL.Instruments.NonstandardSwap.#ctor(NanoQL.Instruments.FixedVsFloatingSwap,NanoQL.EvaluationContext)">
+  NonstandardSwap(FixedVsFloatingSwap, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.NonstandardSwap.html">NonstandardSwap</a> class from a fixed-versus-floating
+swap: each leg's nominals, the last repeated to the leg's length, its rate and spread repeated on every coupon,
+a unit gearing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NonstandardSwap(FixedVsFloatingSwap fromVanilla, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromVanilla</code> <a class="xref" href="NanoQL.Instruments.FixedVsFloatingSwap.html">FixedVsFloatingSwap</a></dt>
+    <dd><p>The swap: a vanilla or an overnight-indexed swap.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose at-par switch the Ibor leg reads.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_NonstandardSwap__ctor_NanoQL_Instruments_FixedVsFloatingSwap_NanoQL_EvaluationContext__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Each leg's nominals are QuantLib's master's (#2956), where QuantLib 1.44 repeats the swap's constant
+nominal and refuses an amortizing swap (<code>Divergences/NonstandardSwapUpstreamFixesTests.cs</code>).</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is null.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap__ctor_" data-uid="NanoQL.Instruments.NonstandardSwap.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap__ctor_NanoQL_Instruments_SwapType_System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_System_Double__NanoQL_Time_Schedule_System_Collections_Generic_IEnumerable_System_Double__NanoQL_Time_DayCounter_NanoQL_Time_Schedule_NanoQL_Indexes_IborIndex_System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_System_Double__NanoQL_Time_DayCounter_NanoQL_EvaluationContext_System_Boolean_System_Boolean_System_Nullable_NanoQL_Time_BusinessDayConvention__System_Int32_NanoQL_Time_Calendar_" data-uid="NanoQL.Instruments.NonstandardSwap.#ctor(NanoQL.Instruments.SwapType,System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.Double},NanoQL.Time.Schedule,System.Collections.Generic.IEnumerable{System.Double},NanoQL.Time.DayCounter,NanoQL.Time.Schedule,NanoQL.Indexes.IborIndex,System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.Double},NanoQL.Time.DayCounter,NanoQL.EvaluationContext,System.Boolean,System.Boolean,System.Nullable{NanoQL.Time.BusinessDayConvention},System.Int32,NanoQL.Time.Calendar)">
+  NonstandardSwap(SwapType, IEnumerable&lt;double&gt;, IEnumerable&lt;double&gt;, Schedule, IEnumerable&lt;double&gt;, DayCounter, Schedule, IborIndex, IEnumerable&lt;double&gt;, IEnumerable&lt;double&gt;, DayCounter?, EvaluationContext, bool, bool, BusinessDayConvention?, int, Calendar?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.NonstandardSwap.html">NonstandardSwap</a> class with a gearing and a spread per
+coupon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NonstandardSwap(SwapType type, IEnumerable&lt;double&gt; fixedNominal, IEnumerable&lt;double&gt; floatingNominal, Schedule fixedSchedule, IEnumerable&lt;double&gt; fixedRate, DayCounter fixedDayCount, Schedule floatingSchedule, IborIndex iborIndex, IEnumerable&lt;double&gt; gearing, IEnumerable&lt;double&gt; spread, DayCounter? floatingDayCount, EvaluationContext context, bool intermediateCapitalExchange = false, bool finalCapitalExchange = false, BusinessDayConvention? paymentConvention = null, int paymentLag = 0, Calendar? paymentCalendar = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="NanoQL.Instruments.SwapType.html">SwapType</a></dt>
+    <dd><p>A payer swap pays the fixed leg; a receiver swap receives it.</p>
+</dd>
+    <dt><code>fixedNominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The fixed leg's nominals, one per coupon.</p>
+</dd>
+    <dt><code>floatingNominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The floating leg's nominals, one per coupon.</p>
+</dd>
+    <dt><code>fixedSchedule</code> <a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd><p>The fixed leg's schedule.</p>
+</dd>
+    <dt><code>fixedRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The fixed rates, one per coupon.</p>
+</dd>
+    <dt><code>fixedDayCount</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The fixed leg's day counter.</p>
+</dd>
+    <dt><code>floatingSchedule</code> <a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd><p>The floating leg's schedule.</p>
+</dd>
+    <dt><code>iborIndex</code> <a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd><p>The floating leg's index; an overnight index builds compounded overnight
+coupons.</p>
+</dd>
+    <dt><code>gearing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The floating coupons' gearings, one per coupon.</p>
+</dd>
+    <dt><code>spread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The floating coupons' spreads, one per coupon.</p>
+</dd>
+    <dt><code>floatingDayCount</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The floating leg's day counter; the index's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>,
+QuantLib's empty day counter.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose at-par switch the Ibor leg reads.</p>
+</dd>
+    <dt><code>intermediateCapitalExchange</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the nominals' changes are exchanged.</p>
+</dd>
+    <dt><code>finalCapitalExchange</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the final nominals are exchanged.</p>
+</dd>
+    <dt><code>paymentConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a>?</dt>
+    <dd><p>The payment convention; the floating schedule's when
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>paymentLag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The payment lag, in business days.</p>
+</dd>
+    <dt><code>paymentCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The payment calendar; each leg's schedule's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>,
+QuantLib's empty calendar.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A sequence, a schedule, a day counter but the floating one, the index
+or the context is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The type or the payment convention isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A sequence's size doesn't match its leg's coupons.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap__ctor_" data-uid="NanoQL.Instruments.NonstandardSwap.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap__ctor_NanoQL_Instruments_SwapType_System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_System_Double__NanoQL_Time_Schedule_System_Collections_Generic_IEnumerable_System_Double__NanoQL_Time_DayCounter_NanoQL_Time_Schedule_NanoQL_Indexes_IborIndex_System_Double_System_Double_NanoQL_Time_DayCounter_NanoQL_EvaluationContext_System_Boolean_System_Boolean_System_Nullable_NanoQL_Time_BusinessDayConvention__System_Int32_NanoQL_Time_Calendar_" data-uid="NanoQL.Instruments.NonstandardSwap.#ctor(NanoQL.Instruments.SwapType,System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.Double},NanoQL.Time.Schedule,System.Collections.Generic.IEnumerable{System.Double},NanoQL.Time.DayCounter,NanoQL.Time.Schedule,NanoQL.Indexes.IborIndex,System.Double,System.Double,NanoQL.Time.DayCounter,NanoQL.EvaluationContext,System.Boolean,System.Boolean,System.Nullable{NanoQL.Time.BusinessDayConvention},System.Int32,NanoQL.Time.Calendar)">
+  NonstandardSwap(SwapType, IEnumerable&lt;double&gt;, IEnumerable&lt;double&gt;, Schedule, IEnumerable&lt;double&gt;, DayCounter, Schedule, IborIndex, double, double, DayCounter?, EvaluationContext, bool, bool, BusinessDayConvention?, int, Calendar?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.NonstandardSwap.html">NonstandardSwap</a> class with one gearing and one spread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NonstandardSwap(SwapType type, IEnumerable&lt;double&gt; fixedNominal, IEnumerable&lt;double&gt; floatingNominal, Schedule fixedSchedule, IEnumerable&lt;double&gt; fixedRate, DayCounter fixedDayCount, Schedule floatingSchedule, IborIndex iborIndex, double gearing, double spread, DayCounter? floatingDayCount, EvaluationContext context, bool intermediateCapitalExchange = false, bool finalCapitalExchange = false, BusinessDayConvention? paymentConvention = null, int paymentLag = 0, Calendar? paymentCalendar = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="NanoQL.Instruments.SwapType.html">SwapType</a></dt>
+    <dd><p>A payer swap pays the fixed leg; a receiver swap receives it.</p>
+</dd>
+    <dt><code>fixedNominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The fixed leg's nominals, one per coupon.</p>
+</dd>
+    <dt><code>floatingNominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The floating leg's nominals, one per coupon.</p>
+</dd>
+    <dt><code>fixedSchedule</code> <a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd><p>The fixed leg's schedule.</p>
+</dd>
+    <dt><code>fixedRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The fixed rates, one per coupon.</p>
+</dd>
+    <dt><code>fixedDayCount</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The fixed leg's day counter.</p>
+</dd>
+    <dt><code>floatingSchedule</code> <a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd><p>The floating leg's schedule.</p>
+</dd>
+    <dt><code>iborIndex</code> <a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd><p>The floating leg's index; an overnight index builds compounded overnight
+coupons.</p>
+</dd>
+    <dt><code>gearing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The floating coupons' gearing.</p>
+</dd>
+    <dt><code>spread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The floating coupons' spread.</p>
+</dd>
+    <dt><code>floatingDayCount</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The floating leg's day counter; the index's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>,
+QuantLib's empty day counter.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose at-par switch the Ibor leg reads.</p>
+</dd>
+    <dt><code>intermediateCapitalExchange</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the nominals' changes are exchanged.</p>
+</dd>
+    <dt><code>finalCapitalExchange</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the final nominals are exchanged.</p>
+</dd>
+    <dt><code>paymentConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a>?</dt>
+    <dd><p>The payment convention; the floating schedule's when
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>paymentLag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The payment lag, in business days.</p>
+</dd>
+    <dt><code>paymentCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The payment calendar; each leg's schedule's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>,
+QuantLib's empty calendar.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A sequence, a schedule, a day counter but the floating one, the index
+or the context is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The type or the payment convention isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A sequence's size doesn't match its leg's coupons.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_FixedDayCount_" data-uid="NanoQL.Instruments.NonstandardSwap.FixedDayCount*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_FixedDayCount" data-uid="NanoQL.Instruments.NonstandardSwap.FixedDayCount">
+  FixedDayCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed leg's day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DayCounter FixedDayCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_FixedLeg_" data-uid="NanoQL.Instruments.NonstandardSwap.FixedLeg*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_FixedLeg" data-uid="NanoQL.Instruments.NonstandardSwap.FixedLeg">
+  FixedLeg
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; FixedLeg { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_FixedNominal_" data-uid="NanoQL.Instruments.NonstandardSwap.FixedNominal*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_FixedNominal" data-uid="NanoQL.Instruments.NonstandardSwap.FixedNominal">
+  FixedNominal
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed leg's nominals, one per cash flow, a redemption's beside it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; FixedNominal { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_FixedRate_" data-uid="NanoQL.Instruments.NonstandardSwap.FixedRate*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_FixedRate" data-uid="NanoQL.Instruments.NonstandardSwap.FixedRate">
+  FixedRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed rates, one per cash flow, a redemption's 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; FixedRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_FixedSchedule_" data-uid="NanoQL.Instruments.NonstandardSwap.FixedSchedule*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_FixedSchedule" data-uid="NanoQL.Instruments.NonstandardSwap.FixedSchedule">
+  FixedSchedule
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed leg's schedule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Schedule FixedSchedule { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_FloatingDayCount_" data-uid="NanoQL.Instruments.NonstandardSwap.FloatingDayCount*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_FloatingDayCount" data-uid="NanoQL.Instruments.NonstandardSwap.FloatingDayCount">
+  FloatingDayCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the floating leg's day counter; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the index's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DayCounter? FloatingDayCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_FloatingLeg_" data-uid="NanoQL.Instruments.NonstandardSwap.FloatingLeg*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_FloatingLeg" data-uid="NanoQL.Instruments.NonstandardSwap.FloatingLeg">
+  FloatingLeg
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the floating leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; FloatingLeg { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_FloatingNominal_" data-uid="NanoQL.Instruments.NonstandardSwap.FloatingNominal*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_FloatingNominal" data-uid="NanoQL.Instruments.NonstandardSwap.FloatingNominal">
+  FloatingNominal
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the floating leg's nominals, one per cash flow, a redemption's beside it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; FloatingNominal { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_FloatingSchedule_" data-uid="NanoQL.Instruments.NonstandardSwap.FloatingSchedule*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_FloatingSchedule" data-uid="NanoQL.Instruments.NonstandardSwap.FloatingSchedule">
+  FloatingSchedule
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the floating leg's schedule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Schedule FloatingSchedule { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_Gearings_" data-uid="NanoQL.Instruments.NonstandardSwap.Gearings*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_Gearings" data-uid="NanoQL.Instruments.NonstandardSwap.Gearings">
+  Gearings
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the floating coupons' gearings, a zero one as machine epsilon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Gearings { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_IborIndex_" data-uid="NanoQL.Instruments.NonstandardSwap.IborIndex*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_IborIndex" data-uid="NanoQL.Instruments.NonstandardSwap.IborIndex">
+  IborIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the floating leg's index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborIndex IborIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_PaymentCalendar_" data-uid="NanoQL.Instruments.NonstandardSwap.PaymentCalendar*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_PaymentCalendar" data-uid="NanoQL.Instruments.NonstandardSwap.PaymentCalendar">
+  PaymentCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the payment calendar; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for each leg's schedule's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Calendar? PaymentCalendar { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_PaymentConvention_" data-uid="NanoQL.Instruments.NonstandardSwap.PaymentConvention*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_PaymentConvention" data-uid="NanoQL.Instruments.NonstandardSwap.PaymentConvention">
+  PaymentConvention
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the payment convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BusinessDayConvention PaymentConvention { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_PaymentLag_" data-uid="NanoQL.Instruments.NonstandardSwap.PaymentLag*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_PaymentLag" data-uid="NanoQL.Instruments.NonstandardSwap.PaymentLag">
+  PaymentLag
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the payment lag, in business days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PaymentLag { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_Spreads_" data-uid="NanoQL.Instruments.NonstandardSwap.Spreads*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_Spreads" data-uid="NanoQL.Instruments.NonstandardSwap.Spreads">
+  Spreads
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the floating coupons' spreads.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Spreads { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_Type_" data-uid="NanoQL.Instruments.NonstandardSwap.Type*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_Type" data-uid="NanoQL.Instruments.NonstandardSwap.Type">
+  Type
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the swap's type: a payer swap pays the fixed leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SwapType Type { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.SwapType.html">SwapType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_Gearing_" data-uid="NanoQL.Instruments.NonstandardSwap.Gearing*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_Gearing" data-uid="NanoQL.Instruments.NonstandardSwap.Gearing">
+  Gearing()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The floating coupons' gearing, when one was given.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Gearing()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The gearing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A gearing per coupon was given.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_NonstandardSwap_Spread_" data-uid="NanoQL.Instruments.NonstandardSwap.Spread*"></a>
+
+  <h3 id="NanoQL_Instruments_NonstandardSwap_Spread" data-uid="NanoQL.Instruments.NonstandardSwap.Spread">
+  Spread()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The floating coupons' spread, when one was given.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Spread()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spread.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A spread per coupon was given.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

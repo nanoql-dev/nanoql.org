@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IBootstrapTraits&lt;TTermStructure&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IBootstrapTraits&lt;TTermStructure&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A bootstrap&#39;s traits: what the bootstraps ask of a curve kind (QuantLib&#39;s Discount, ZeroYield and the other traits structs), as static members.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.IBootstrapTraits`1">
+
+
+
+  <h1 id="NanoQL_TermStructures_IBootstrapTraits_1" data-uid="NanoQL.TermStructures.IBootstrapTraits`1" class="text-break">
+Interface IBootstrapTraits&lt;TTermStructure&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A bootstrap's traits: what the bootstraps ask of a curve kind (QuantLib's <code>Discount</code>, <code>ZeroYield</code> and the
+other traits structs), as static members.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IBootstrapTraits&lt;TTermStructure&gt; where TTermStructure : TermStructure</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TTermStructure</code></dt>
+    <dd><p>The kind of term structure bootstrapped.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 id="NanoQL_TermStructures_IBootstrapTraits_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Traits are stateless, so a traits type is a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/readonly">readonly</a> struct with static members only, used as a
+type argument. Each member reads the curve under construction through its working state, as QuantLib's read the curve
+through their pointer to it.
+</p>
+<p>
+QuantLib's global bootstrap detects two optional groups of members (<code>globalGuess</code>, and <code>transformDirect</code>
+with <code>transformInverse</code>); here they are static virtual members whose defaults are QuantLib's behaviour when the
+traits don't define them, and <a class="xref" href="NanoQL.TermStructures.IBootstrapTraits-1.html#NanoQL_TermStructures_IBootstrapTraits_1_HasGlobalGuess">HasGlobalGuess</a> and <a class="xref" href="NanoQL.TermStructures.IBootstrapTraits-1.html#NanoQL_TermStructures_IBootstrapTraits_1_HasTransform">HasTransform</a> say whether a traits type
+does. An extension point: each family of term structures has its own traits.
+</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_TermStructures_IBootstrapTraits_1_HasGlobalGuess_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.HasGlobalGuess*"></a>
+
+  <h3 id="NanoQL_TermStructures_IBootstrapTraits_1_HasGlobalGuess" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.HasGlobalGuess">
+  HasGlobalGuess
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the traits give a guess for the whole curve (<a class="xref" href="NanoQL.TermStructures.IBootstrapTraits-1.html#NanoQL_TermStructures_IBootstrapTraits_1_GlobalGuess_NanoQL_TermStructures_BootstrapState__0__System_Boolean_">GlobalGuess(BootstrapState&lt;TTermStructure&gt;, bool)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasGlobalGuess { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_IBootstrapTraits_1_HasTransform_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.HasTransform*"></a>
+
+  <h3 id="NanoQL_TermStructures_IBootstrapTraits_1_HasTransform" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.HasTransform">
+  HasTransform
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the traits transform a node's value to remove its constraints from an
+unconstrained optimization (<a class="xref" href="NanoQL.TermStructures.IBootstrapTraits-1.html#NanoQL_TermStructures_IBootstrapTraits_1_TransformDirect_System_Double_System_Int32_NanoQL_TermStructures_BootstrapState__0__">TransformDirect(double, int, BootstrapState&lt;TTermStructure&gt;)</a> and <a class="xref" href="NanoQL.TermStructures.IBootstrapTraits-1.html#NanoQL_TermStructures_IBootstrapTraits_1_TransformInverse_System_Double_System_Int32_NanoQL_TermStructures_BootstrapState__0__">TransformInverse(double, int, BootstrapState&lt;TTermStructure&gt;)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasTransform { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_IBootstrapTraits_1_MaxIterations_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.MaxIterations*"></a>
+
+  <h3 id="NanoQL_TermStructures_IBootstrapTraits_1_MaxIterations" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.MaxIterations">
+  MaxIterations
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the upper bound of the bootstrap's convergence loop.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static abstract int MaxIterations { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_IBootstrapTraits_1_GlobalGuess_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.GlobalGuess*"></a>
+
+  <h3 id="NanoQL_TermStructures_IBootstrapTraits_1_GlobalGuess_NanoQL_TermStructures_BootstrapState__0__System_Boolean_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.GlobalGuess(NanoQL.TermStructures.BootstrapState{`0},System.Boolean)">
+  GlobalGuess(BootstrapState&lt;TTermStructure&gt;, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The guess for the whole curve, every node but the first, and whether it needs to be transformed. Read only when
+<a class="xref" href="NanoQL.TermStructures.IBootstrapTraits-1.html#NanoQL_TermStructures_IBootstrapTraits_1_HasGlobalGuess">HasGlobalGuess</a> is set; the default throws.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (Vector Guess, bool NeedsTransform) GlobalGuess(BootstrapState&lt;TTermStructure&gt; c, bool validData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c</code> <a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html">BootstrapState</a>&lt;TTermStructure&gt;</dt>
+    <dd><p>The working state of the curve under construction.</p>
+</dd>
+    <dt><code>validData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the curve's data hold a previous state's values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-nanoql.numerics.vector,system.boolean-.guess">Guess</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-nanoql.numerics.vector,system.boolean-.needstransform">NeedsTransform</a>)</dt>
+    <dd><p>The guess, and whether <a class="xref" href="NanoQL.TermStructures.IBootstrapTraits-1.html#NanoQL_TermStructures_IBootstrapTraits_1_TransformInverse_System_Double_System_Int32_NanoQL_TermStructures_BootstrapState__0__">TransformInverse(double, int, BootstrapState&lt;TTermStructure&gt;)</a> must be applied to it.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>The traits give no global guess.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_IBootstrapTraits_1_Guess_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.Guess*"></a>
+
+  <h3 id="NanoQL_TermStructures_IBootstrapTraits_1_Guess_System_Int32_NanoQL_TermStructures_BootstrapState__0__System_Boolean_System_Int32_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.Guess(System.Int32,NanoQL.TermStructures.BootstrapState{`0},System.Boolean,System.Int32)">
+  Guess(int, BootstrapState&lt;TTermStructure&gt;, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The guess for a node's value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static abstract double Guess(int i, BootstrapState&lt;TTermStructure&gt; c, bool validData, int firstAliveHelper)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The node.</p>
+</dd>
+    <dt><code>c</code> <a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html">BootstrapState</a>&lt;TTermStructure&gt;</dt>
+    <dd><p>The working state of the curve under construction.</p>
+</dd>
+    <dt><code>validData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the curve's data hold a previous pass's values.</p>
+</dd>
+    <dt><code>firstAliveHelper</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the first helper alive at the curve's first date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The guess.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_IBootstrapTraits_1_InitialDate_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.InitialDate*"></a>
+
+  <h3 id="NanoQL_TermStructures_IBootstrapTraits_1_InitialDate_NanoQL_TermStructures_BootstrapState__0__" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.InitialDate(NanoQL.TermStructures.BootstrapState{`0})">
+  InitialDate(BootstrapState&lt;TTermStructure&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The curve's first date: the start of its data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static abstract Date InitialDate(BootstrapState&lt;TTermStructure&gt; c)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c</code> <a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html">BootstrapState</a>&lt;TTermStructure&gt;</dt>
+    <dd><p>The working state of the curve under construction.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_IBootstrapTraits_1_InitialValue_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.InitialValue*"></a>
+
+  <h3 id="NanoQL_TermStructures_IBootstrapTraits_1_InitialValue_NanoQL_TermStructures_BootstrapState__0__" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.InitialValue(NanoQL.TermStructures.BootstrapState{`0})">
+  InitialValue(BootstrapState&lt;TTermStructure&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The curve's value at its first date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static abstract double InitialValue(BootstrapState&lt;TTermStructure&gt; c)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c</code> <a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html">BootstrapState</a>&lt;TTermStructure&gt;</dt>
+    <dd><p>The working state of the curve under construction.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_IBootstrapTraits_1_MaxValueAfter_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.MaxValueAfter*"></a>
+
+  <h3 id="NanoQL_TermStructures_IBootstrapTraits_1_MaxValueAfter_System_Int32_NanoQL_TermStructures_BootstrapState__0__System_Boolean_System_Int32_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.MaxValueAfter(System.Int32,NanoQL.TermStructures.BootstrapState{`0},System.Boolean,System.Int32)">
+  MaxValueAfter(int, BootstrapState&lt;TTermStructure&gt;, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The upper bound of a node's value, from the previous values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static abstract double MaxValueAfter(int i, BootstrapState&lt;TTermStructure&gt; c, bool validData, int firstAliveHelper)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The node.</p>
+</dd>
+    <dt><code>c</code> <a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html">BootstrapState</a>&lt;TTermStructure&gt;</dt>
+    <dd><p>The working state of the curve under construction.</p>
+</dd>
+    <dt><code>validData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the curve's data hold a previous pass's values.</p>
+</dd>
+    <dt><code>firstAliveHelper</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the first helper alive at the curve's first date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bound.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_IBootstrapTraits_1_MinValueAfter_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.MinValueAfter*"></a>
+
+  <h3 id="NanoQL_TermStructures_IBootstrapTraits_1_MinValueAfter_System_Int32_NanoQL_TermStructures_BootstrapState__0__System_Boolean_System_Int32_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.MinValueAfter(System.Int32,NanoQL.TermStructures.BootstrapState{`0},System.Boolean,System.Int32)">
+  MinValueAfter(int, BootstrapState&lt;TTermStructure&gt;, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lower bound of a node's value, from the previous values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static abstract double MinValueAfter(int i, BootstrapState&lt;TTermStructure&gt; c, bool validData, int firstAliveHelper)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The node.</p>
+</dd>
+    <dt><code>c</code> <a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html">BootstrapState</a>&lt;TTermStructure&gt;</dt>
+    <dd><p>The working state of the curve under construction.</p>
+</dd>
+    <dt><code>validData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the curve's data hold a previous pass's values.</p>
+</dd>
+    <dt><code>firstAliveHelper</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the first helper alive at the curve's first date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bound.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_IBootstrapTraits_1_TransformDirect_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.TransformDirect*"></a>
+
+  <h3 id="NanoQL_TermStructures_IBootstrapTraits_1_TransformDirect_System_Double_System_Int32_NanoQL_TermStructures_BootstrapState__0__" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.TransformDirect(System.Double,System.Int32,NanoQL.TermStructures.BootstrapState{`0})">
+  TransformDirect(double, int, BootstrapState&lt;TTermStructure&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A node's value from its unconstrained counterpart; the default is the identity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double TransformDirect(double x, int i, BootstrapState&lt;TTermStructure&gt; c)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The unconstrained value.</p>
+</dd>
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The node.</p>
+</dd>
+    <dt><code>c</code> <a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html">BootstrapState</a>&lt;TTermStructure&gt;</dt>
+    <dd><p>The working state of the curve under construction.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The node's value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_IBootstrapTraits_1_TransformInverse_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.TransformInverse*"></a>
+
+  <h3 id="NanoQL_TermStructures_IBootstrapTraits_1_TransformInverse_System_Double_System_Int32_NanoQL_TermStructures_BootstrapState__0__" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.TransformInverse(System.Double,System.Int32,NanoQL.TermStructures.BootstrapState{`0})">
+  TransformInverse(double, int, BootstrapState&lt;TTermStructure&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A node's unconstrained counterpart from its value; the default is the identity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double TransformInverse(double x, int i, BootstrapState&lt;TTermStructure&gt; c)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The node's value.</p>
+</dd>
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The node.</p>
+</dd>
+    <dt><code>c</code> <a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html">BootstrapState</a>&lt;TTermStructure&gt;</dt>
+    <dd><p>The working state of the curve under construction.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The unconstrained value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_IBootstrapTraits_1_UpdateGuess_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.UpdateGuess*"></a>
+
+  <h3 id="NanoQL_TermStructures_IBootstrapTraits_1_UpdateGuess_System_Double___System_Double_System_Int32_" data-uid="NanoQL.TermStructures.IBootstrapTraits`1.UpdateGuess(System.Double[],System.Double,System.Int32)">
+  UpdateGuess(double[], double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a root finder's trial value into the curve's data: QuantLib's <code>updateGuess</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static abstract void UpdateGuess(double[] data, double value, int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd><p>The curve's data.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The node.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

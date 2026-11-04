@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Coupon | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Coupon | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The base class of coupons accruing over a fixed period: still abstract, it gives derived classes the accrual-period calculations.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Coupons.Coupon">
+
+
+
+  <h1 id="NanoQL_Coupons_Coupon" data-uid="NanoQL.Coupons.Coupon" class="text-break">
+Class Coupon  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Coupons.html">Coupons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base class of coupons accruing over a fixed period: still abstract, it gives derived classes the accrual-period
+calculations.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Coupon : CashFlow</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Event.html">Event</a></div>
+      <div><a class="xref" href="NanoQL.CashFlow.html">CashFlow</a></div>
+      <div><span class="xref">Coupon</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Coupons.FixedRateCoupon.html">FixedRateCoupon</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.InflationCoupon.html">InflationCoupon</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.CashFlow.html#NanoQL_CashFlow_Amount_NanoQL_EvaluationContext_">CashFlow.Amount(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.CashFlow.html#NanoQL_CashFlow_HasOccurred_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__System_Nullable_System_Boolean__">CashFlow.HasOccurred(EvaluationContext, Date?, bool?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.CashFlow.html#NanoQL_CashFlow_TradingExCoupon_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">CashFlow.TradingExCoupon(EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Coupons_Coupon_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>QuantLib's <code>coupon_cast</code> is C#'s <code>cashFlow as Coupon</code>.</p>
+<p>
+The members that may reach a fixing or the evaluation date take the context (<a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_Rate_NanoQL_EvaluationContext_">Rate(EvaluationContext)</a>,
+<a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_Nominal_NanoQL_EvaluationContext_">Nominal(EvaluationContext)</a>, <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccruedAmount_NanoQL_Time_Date_NanoQL_EvaluationContext_">AccruedAmount(Date, EvaluationContext)</a>, <a class="xref" href="NanoQL.CashFlow.html#NanoQL_CashFlow_Amount_NanoQL_EvaluationContext_">Amount(EvaluationContext)</a>); the accrual members, which no
+coupon computes from either, take none. <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ContractNominal">ContractNominal</a> is the nominal the coupon was built with,
+which a constructor copying another coupon's nominal reads.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Coupons_Coupon__ctor_" data-uid="NanoQL.Coupons.Coupon.#ctor*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon__ctor_NanoQL_Time_Date_System_Double_NanoQL_Time_Date_NanoQL_Time_Date_System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.Coupon.#ctor(NanoQL.Time.Date,System.Double,NanoQL.Time.Date,NanoQL.Time.Date,System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  Coupon(Date, double, Date, Date, Date?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Coupons.Coupon.html">Coupon</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Coupon(Date paymentDate, double nominal, Date accrualStartDate, Date accrualEndDate, Date? refPeriodStart = null, Date? refPeriodEnd = null, Date? exCouponDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>paymentDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The payment date, which must already be a business day.</p>
+</dd>
+    <dt><code>nominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The nominal.</p>
+</dd>
+    <dt><code>accrualStartDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The start of the accrual period.</p>
+</dd>
+    <dt><code>accrualEndDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The end of the accrual period.</p>
+</dd>
+    <dt><code>refPeriodStart</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The reference period's start; the accrual start when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>refPeriodEnd</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The reference period's end; the accrual end when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>exCouponDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The ex-coupon date, if any.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Coupons_Coupon_AccrualEndDate_" data-uid="NanoQL.Coupons.Coupon.AccrualEndDate*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_AccrualEndDate" data-uid="NanoQL.Coupons.Coupon.AccrualEndDate">
+  AccrualEndDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the end of the accrual period.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date AccrualEndDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_Coupon_AccrualStartDate_" data-uid="NanoQL.Coupons.Coupon.AccrualStartDate*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_AccrualStartDate" data-uid="NanoQL.Coupons.Coupon.AccrualStartDate">
+  AccrualStartDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the start of the accrual period.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date AccrualStartDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_Coupon_ContractNominal_" data-uid="NanoQL.Coupons.Coupon.ContractNominal*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_ContractNominal" data-uid="NanoQL.Coupons.Coupon.ContractNominal">
+  ContractNominal
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the nominal the coupon was built with. It equals <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_Nominal_NanoQL_EvaluationContext_">Nominal(EvaluationContext)</a> for every coupon whose nominal
+doesn't depend on market data; a constructor that copies another coupon's nominal (a capped coupon, a bond's
+notional schedule) reads it, since it has no context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ContractNominal { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_Coupon_Date_" data-uid="NanoQL.Coupons.Coupon.Date*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_Date" data-uid="NanoQL.Coupons.Coupon.Date">
+  Date
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the date at which the event occurs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date Date { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_Coupon_DayCounter_" data-uid="NanoQL.Coupons.Coupon.DayCounter*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_DayCounter" data-uid="NanoQL.Coupons.Coupon.DayCounter">
+  DayCounter
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the day counter used for accrual.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract DayCounter DayCounter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_Coupon_ExCouponDate_" data-uid="NanoQL.Coupons.Coupon.ExCouponDate*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_ExCouponDate" data-uid="NanoQL.Coupons.Coupon.ExCouponDate">
+  ExCouponDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the date that the cash flow trades ex-coupon, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when it has none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date? ExCouponDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_Coupon_ReferencePeriodEnd_" data-uid="NanoQL.Coupons.Coupon.ReferencePeriodEnd*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_ReferencePeriodEnd" data-uid="NanoQL.Coupons.Coupon.ReferencePeriodEnd">
+  ReferencePeriodEnd
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the end of the reference period.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date ReferencePeriodEnd { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_Coupon_ReferencePeriodStart_" data-uid="NanoQL.Coupons.Coupon.ReferencePeriodStart*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_ReferencePeriodStart" data-uid="NanoQL.Coupons.Coupon.ReferencePeriodStart">
+  ReferencePeriodStart
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the start of the reference period.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date ReferencePeriodStart { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Coupons_Coupon_AccrualDays_" data-uid="NanoQL.Coupons.Coupon.AccrualDays*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_AccrualDays" data-uid="NanoQL.Coupons.Coupon.AccrualDays">
+  AccrualDays()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of days in the accrual period, by the coupon's day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AccrualDays()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The day count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_Coupon_AccrualPeriod_" data-uid="NanoQL.Coupons.Coupon.AccrualPeriod*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_AccrualPeriod" data-uid="NanoQL.Coupons.Coupon.AccrualPeriod">
+  AccrualPeriod()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The accrual period as a fraction of a year, by the coupon's day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AccrualPeriod()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accrual period.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_Coupon_AccruedAmount_" data-uid="NanoQL.Coupons.Coupon.AccruedAmount*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_AccruedAmount_NanoQL_Time_Date_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.Coupon.AccruedAmount(NanoQL.Time.Date,NanoQL.EvaluationContext)">
+  AccruedAmount(Date, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The amount accrued up to a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double AccruedAmount(Date d, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accrued amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_Coupon_AccruedDays_" data-uid="NanoQL.Coupons.Coupon.AccruedDays*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_AccruedDays_NanoQL_Time_Date_" data-uid="NanoQL.Coupons.Coupon.AccruedDays(NanoQL.Time.Date)">
+  AccruedDays(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The accrued days up to a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AccruedDays(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The day count; 0 outside the coupon's range.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_Coupon_AccruedPeriod_" data-uid="NanoQL.Coupons.Coupon.AccruedPeriod*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_AccruedPeriod_NanoQL_Time_Date_" data-uid="NanoQL.Coupons.Coupon.AccruedPeriod(NanoQL.Time.Date)">
+  AccruedPeriod(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The accrued period up to a date, as a fraction of a year; negative after the ex-coupon date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AccruedPeriod(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accrued period; 0 outside the coupon's range.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_Coupon_Nominal_" data-uid="NanoQL.Coupons.Coupon.Nominal*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_Nominal_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.Coupon.Nominal(NanoQL.EvaluationContext)">
+  Nominal(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The nominal that pricing uses.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual double Nominal(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, which a coupon whose nominal depends on market data reads.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The nominal; this base returns <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ContractNominal">ContractNominal</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_Coupon_Rate_" data-uid="NanoQL.Coupons.Coupon.Rate*"></a>
+
+  <h3 id="NanoQL_Coupons_Coupon_Rate_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.Coupon.Rate(NanoQL.EvaluationContext)">
+  Rate(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double Rate(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CouponPricerFunctions | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CouponPricerFunctions | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Setting pricers on a leg&#39;s coupons: QuantLib&#39;s setCouponPricer and setCouponPricers, which return a new leg here, where QuantLib&#39;s change the coupons.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Coupons.CouponPricerFunctions">
+
+
+
+  <h1 id="NanoQL_Coupons_CouponPricerFunctions" data-uid="NanoQL.Coupons.CouponPricerFunctions" class="text-break">
+Class CouponPricerFunctions  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Coupons.html">Coupons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Setting pricers on a leg's coupons: QuantLib's <code>setCouponPricer</code> and <code>setCouponPricers</code>, which return a
+new leg here, where QuantLib's change the coupons.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class CouponPricerFunctions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CouponPricerFunctions</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Coupons_CouponPricerFunctions_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>QuantLib's visitor is a <code>switch</code> over the coupon types, most derived first, as <code>accept</code> dispatches; each
+later coupon type adds its case in its own port. A leg is set all or nothing: a pricer one coupon refuses leaves no
+new leg, where QuantLib has already changed the earlier coupons (a documented divergence). Cash flows that aren't
+floating-rate coupons are kept as they are. QuantLib's overload for inflation-coupon pricers is
+<a class="xref" href="NanoQL.Coupons.InflationCouponPricerFunctions.html">InflationCouponPricerFunctions</a>, with its swap and bond forms.</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricer_" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricer*"></a>
+
+  <h3 id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricer_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_Coupons_FloatingRateCouponPricer_" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricer(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.Coupons.FloatingRateCouponPricer)">
+  SetCouponPricer(ImmutableArray&lt;CashFlow&gt;, FloatingRateCouponPricer?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the leg with the pricer set on each of its floating-rate coupons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ImmutableArray&lt;CashFlow&gt; SetCouponPricer(ImmutableArray&lt;CashFlow&gt; leg, FloatingRateCouponPricer? pricer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>pricer</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The pricer.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The new leg; the given one is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A coupon refuses the pricer, or the leg holds a null cash flow.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricer_" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricer*"></a>
+
+  <h3 id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricer__1___0_NanoQL_Coupons_FloatingRateCouponPricer_" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricer``1(``0,NanoQL.Coupons.FloatingRateCouponPricer)">
+  SetCouponPricer&lt;T&gt;(T, FloatingRateCouponPricer?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of a built bond, of its own type, with the pricer set on its floating-rate coupons: QuantLib's
+<code>setCouponPricer(bond.cashflows(), pricer)</code>, which changes the coupons the bond holds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T SetCouponPricer&lt;T&gt;(T bond, FloatingRateCouponPricer? pricer) where T : Bond</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bond</code> <span class="xref">T</span></dt>
+    <dd><p>The bond.</p>
+</dd>
+    <dt><code>pricer</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The pricer.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>The copy, with the bond's terms, notional schedule and redemptions, which the re-priced leg keeps; the given bond
+is unchanged.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The bond's type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The bond is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A coupon refuses the pricer.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricer_" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricer*"></a>
+
+  <h3 id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricer__1___0_System_Int32_NanoQL_Coupons_FloatingRateCouponPricer_" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricer``1(``0,System.Int32,NanoQL.Coupons.FloatingRateCouponPricer)">
+  SetCouponPricer&lt;T&gt;(T, int, FloatingRateCouponPricer?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of a built swap, of its own type, with the pricer set on the floating-rate coupons of one of its legs:
+QuantLib's <code>setCouponPricer(swap-&gt;leg(j), pricer)</code>, which changes the coupons the swap holds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T SetCouponPricer&lt;T&gt;(T swap, int leg, FloatingRateCouponPricer? pricer) where T : Swap</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>swap</code> <span class="xref">T</span></dt>
+    <dd><p>The swap.</p>
+</dd>
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The leg's index: a fixed-vs-floating swap's floating leg is leg 1.</p>
+</dd>
+    <dt><code>pricer</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The pricer.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>The copy, with the swap's other legs and terms; the given swap is unchanged.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The swap's type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The swap is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The leg's index is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The swap has no leg at the index, or a coupon refuses the pricer.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricers_" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricers*"></a>
+
+  <h3 id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricers_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_Coupons_FloatingRateCouponPricer_NanoQL_Coupons_FloatingRateCouponPricer_" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricers(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.Coupons.FloatingRateCouponPricer,NanoQL.Coupons.FloatingRateCouponPricer)">
+  SetCouponPricers(ImmutableArray&lt;CashFlow&gt;, FloatingRateCouponPricer?, FloatingRateCouponPricer?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the leg with the first of two pricers each cash flow accepts set on it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ImmutableArray&lt;CashFlow&gt; SetCouponPricers(ImmutableArray&lt;CashFlow&gt; leg, FloatingRateCouponPricer? p1, FloatingRateCouponPricer? p2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>p1</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The first pricer tried.</p>
+</dd>
+    <dt><code>p2</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The second pricer tried.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The new leg; a coupon that accepts neither keeps its pricer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The leg holds a null cash flow.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricers_" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricers*"></a>
+
+  <h3 id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricers_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_Coupons_FloatingRateCouponPricer_NanoQL_Coupons_FloatingRateCouponPricer_NanoQL_Coupons_FloatingRateCouponPricer_" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricers(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.Coupons.FloatingRateCouponPricer,NanoQL.Coupons.FloatingRateCouponPricer,NanoQL.Coupons.FloatingRateCouponPricer)">
+  SetCouponPricers(ImmutableArray&lt;CashFlow&gt;, FloatingRateCouponPricer?, FloatingRateCouponPricer?, FloatingRateCouponPricer?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the leg with the first of three pricers each cash flow accepts set on it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ImmutableArray&lt;CashFlow&gt; SetCouponPricers(ImmutableArray&lt;CashFlow&gt; leg, FloatingRateCouponPricer? p1, FloatingRateCouponPricer? p2, FloatingRateCouponPricer? p3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>p1</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The first pricer tried.</p>
+</dd>
+    <dt><code>p2</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The second pricer tried.</p>
+</dd>
+    <dt><code>p3</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The third pricer tried.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The new leg; a coupon that accepts none keeps its pricer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The leg holds a null cash flow.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricers_" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricers*"></a>
+
+  <h3 id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricers_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_Coupons_FloatingRateCouponPricer_NanoQL_Coupons_FloatingRateCouponPricer_NanoQL_Coupons_FloatingRateCouponPricer_NanoQL_Coupons_FloatingRateCouponPricer_" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricers(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.Coupons.FloatingRateCouponPricer,NanoQL.Coupons.FloatingRateCouponPricer,NanoQL.Coupons.FloatingRateCouponPricer,NanoQL.Coupons.FloatingRateCouponPricer)">
+  SetCouponPricers(ImmutableArray&lt;CashFlow&gt;, FloatingRateCouponPricer?, FloatingRateCouponPricer?, FloatingRateCouponPricer?, FloatingRateCouponPricer?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the leg with the first of four pricers each cash flow accepts set on it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ImmutableArray&lt;CashFlow&gt; SetCouponPricers(ImmutableArray&lt;CashFlow&gt; leg, FloatingRateCouponPricer? p1, FloatingRateCouponPricer? p2, FloatingRateCouponPricer? p3, FloatingRateCouponPricer? p4)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>p1</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The first pricer tried.</p>
+</dd>
+    <dt><code>p2</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The second pricer tried.</p>
+</dd>
+    <dt><code>p3</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The third pricer tried.</p>
+</dd>
+    <dt><code>p4</code> <a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></dt>
+    <dd><p>The fourth pricer tried.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The new leg; a coupon that accepts none keeps its pricer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The leg holds a null cash flow.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricers_" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricers*"></a>
+
+  <h3 id="NanoQL_Coupons_CouponPricerFunctions_SetCouponPricers_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Collections_Generic_IEnumerable_NanoQL_Coupons_FloatingRateCouponPricer__" data-uid="NanoQL.Coupons.CouponPricerFunctions.SetCouponPricers(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Collections.Generic.IEnumerable{NanoQL.Coupons.FloatingRateCouponPricer})">
+  SetCouponPricers(ImmutableArray&lt;CashFlow&gt;, IEnumerable&lt;FloatingRateCouponPricer?&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the leg with one pricer per cash flow, in order: the last pricer is set on the cash flows past the
+list's end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ImmutableArray&lt;CashFlow&gt; SetCouponPricers(ImmutableArray&lt;CashFlow&gt; leg, IEnumerable&lt;FloatingRateCouponPricer?&gt; pricers)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>pricers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a>&gt;</dt>
+    <dd><p>The pricers, no more than the leg's cash flows.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The new leg; the given one is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The leg is empty; there are more pricers than cash flows, or none; a
+coupon refuses its pricer; or the leg holds a null cash flow.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

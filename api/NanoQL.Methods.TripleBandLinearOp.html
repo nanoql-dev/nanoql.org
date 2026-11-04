@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class TripleBandLinearOp | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TripleBandLinearOp | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A general triple-band operator in one direction of a multi-dimensional layout: each point&#39;s row reads the point and its two neighbours in that direction, reflected at the grid&#39;s edges.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Methods.TripleBandLinearOp">
+
+
+
+  <h1 id="NanoQL_Methods_TripleBandLinearOp" data-uid="NanoQL.Methods.TripleBandLinearOp" class="text-break">
+Class TripleBandLinearOp  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Methods.html">Methods</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A general triple-band operator in one direction of a multi-dimensional layout: each point's row reads the point and
+its two neighbours in that direction, reflected at the grid's edges.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public class TripleBandLinearOp : FdmLinearOp</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Methods.FdmLinearOp.html">FdmLinearOp</a></div>
+      <div><span class="xref">TripleBandLinearOp</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Methods.FirstDerivativeOp.html">FirstDerivativeOp</a></div>
+      <div><a class="xref" href="NanoQL.Methods.ModTripleBandLinearOp.html">ModTripleBandLinearOp</a></div>
+      <div><a class="xref" href="NanoQL.Methods.SecondDerivativeOp.html">SecondDerivativeOp</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Methods.FdmLinearOp.html#NanoQL_Methods_FdmLinearOp_Apply_NanoQL_Numerics_Vector_">FdmLinearOp.Apply(Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Methods_TripleBandLinearOp_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A working type: mutable, owned by one computation and not thread-safe.
+<a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html#NanoQL_Methods_TripleBandLinearOp_Apply_System_ReadOnlySpan_System_Double__System_Span_System_Double__">Apply(ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)</a> and
+<a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html#NanoQL_Methods_TripleBandLinearOp_SolveSplitting_System_ReadOnlySpan_System_Double__System_Double_System_Double_System_Span_System_Double__">SolveSplitting(ReadOnlySpan&lt;double&gt;, double, double, Span&lt;double&gt;)</a> write into the caller's span, which
+mustn't overlap the input, through a workspace the operator holds; <a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html#NanoQL_Methods_TripleBandLinearOp_Axpyb_NanoQL_Numerics_Vector_NanoQL_Methods_TripleBandLinearOp_NanoQL_Methods_TripleBandLinearOp_NanoQL_Numerics_Vector_">Axpyb(Vector, TripleBandLinearOp, TripleBandLinearOp, Vector)</a> rewrites the operator in
+place. The composition methods <a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html#NanoQL_Methods_TripleBandLinearOp_Mult_NanoQL_Numerics_Vector_">Mult(Vector)</a>, <a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html#NanoQL_Methods_TripleBandLinearOp_MultR_NanoQL_Numerics_Vector_">MultR(Vector)</a> and the two
+<a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html#NanoQL_Methods_TripleBandLinearOp_Add_NanoQL_Methods_TripleBandLinearOp_">Add(TripleBandLinearOp)</a> forms return new operators, as QuantLib's do, since they run while an operator
+is built.
+</p>
+<p>
+An extension point, as in QuantLib: the derivative operators derive from it and fill the protected bands in their
+constructors. QuantLib's <code>swap</code> and move members are C++ value semantics: <a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html#NanoQL_Methods_TripleBandLinearOp_Clone">Clone()</a> and references
+replace them.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Methods_TripleBandLinearOp__ctor_" data-uid="NanoQL.Methods.TripleBandLinearOp.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp__ctor_NanoQL_Methods_TripleBandLinearOp_" data-uid="NanoQL.Methods.TripleBandLinearOp.#ctor(NanoQL.Methods.TripleBandLinearOp)">
+  TripleBandLinearOp(TripleBandLinearOp)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html">TripleBandLinearOp</a> class as a copy of
+another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TripleBandLinearOp(TripleBandLinearOp m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html">TripleBandLinearOp</a></dt>
+    <dd><p>The operator copied, its bands and indices copied, its mesher shared.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">m</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TripleBandLinearOp__ctor_" data-uid="NanoQL.Methods.TripleBandLinearOp.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp__ctor_System_Int32_NanoQL_Methods_FdmMesher_" data-uid="NanoQL.Methods.TripleBandLinearOp.#ctor(System.Int32,NanoQL.Methods.FdmMesher)">
+  TripleBandLinearOp(int, FdmMesher)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html">TripleBandLinearOp</a> class, its bands zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TripleBandLinearOp(int direction, FdmMesher mesher)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>direction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The direction.</p>
+</dd>
+    <dt><code>mesher</code> <a class="xref" href="NanoQL.Methods.FdmMesher.html">FdmMesher</a></dt>
+    <dd><p>The mesher.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Methods_TripleBandLinearOp__ctor_System_Int32_NanoQL_Methods_FdmMesher__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The bands are zero, where QuantLib leaves them uninitialized.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">mesher</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The direction isn't one of the layout's.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_diag" data-uid="NanoQL.Methods.TripleBandLinearOp.diag">
+  diag
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The diagonal, one coefficient per point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly double[] diag</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_direction" data-uid="NanoQL.Methods.TripleBandLinearOp.direction">
+  direction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The direction the operator acts in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly int direction</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_i0" data-uid="NanoQL.Methods.TripleBandLinearOp.i0">
+  i0
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each point's lower neighbour's index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly int[] i0</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_i2" data-uid="NanoQL.Methods.TripleBandLinearOp.i2">
+  i2
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each point's upper neighbour's index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly int[] i2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_lower" data-uid="NanoQL.Methods.TripleBandLinearOp.lower">
+  lower
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lower band, one coefficient per point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly double[] lower</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_mesher" data-uid="NanoQL.Methods.TripleBandLinearOp.mesher">
+  mesher
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The mesher.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly FdmMesher mesher</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.FdmMesher.html">FdmMesher</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_reverseIndex" data-uid="NanoQL.Methods.TripleBandLinearOp.reverseIndex">
+  reverseIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The storage index of each position in the direction-first order the solve walks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly int[] reverseIndex</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_upper" data-uid="NanoQL.Methods.TripleBandLinearOp.upper">
+  upper
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The upper band, one coefficient per point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly double[] upper</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Methods_TripleBandLinearOp_Add_" data-uid="NanoQL.Methods.TripleBandLinearOp.Add*"></a>
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_Add_NanoQL_Methods_TripleBandLinearOp_" data-uid="NanoQL.Methods.TripleBandLinearOp.Add(NanoQL.Methods.TripleBandLinearOp)">
+  Add(TripleBandLinearOp)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sum of two operators in the same direction, on the same mesher.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TripleBandLinearOp Add(TripleBandLinearOp m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html">TripleBandLinearOp</a></dt>
+    <dd><p>The other operator.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html">TripleBandLinearOp</a></dt>
+    <dd><p>A new operator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">m</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The other operator's size isn't this one's.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TripleBandLinearOp_Add_" data-uid="NanoQL.Methods.TripleBandLinearOp.Add*"></a>
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_Add_NanoQL_Numerics_Vector_" data-uid="NanoQL.Methods.TripleBandLinearOp.Add(NanoQL.Numerics.Vector)">
+  Add(Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The operator plus a diagonal matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TripleBandLinearOp Add(Vector u)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>u</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The diagonal, one value per point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html">TripleBandLinearOp</a></dt>
+    <dd><p>A new operator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">u</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">u</code>'s size isn't the layout's, where QuantLib reads a shorter one past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TripleBandLinearOp_Apply_" data-uid="NanoQL.Methods.TripleBandLinearOp.Apply*"></a>
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_Apply_System_ReadOnlySpan_System_Double__System_Span_System_Double__" data-uid="NanoQL.Methods.TripleBandLinearOp.Apply(System.ReadOnlySpan{System.Double},System.Span{System.Double})">
+  Apply(ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies the operator to <code class="paramref">r</code>, writing the result into the caller's span.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Apply(ReadOnlySpan&lt;double&gt; r, Span&lt;double&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The values, one per point.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The result, of <code class="paramref">r</code>'s length; it mustn't overlap
+<code class="paramref">r</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">r</code>'s length isn't the layout's size.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The operator's direction has one point, whose neighbours QuantLib reads past the grid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TripleBandLinearOp_Axpyb_" data-uid="NanoQL.Methods.TripleBandLinearOp.Axpyb*"></a>
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_Axpyb_NanoQL_Numerics_Vector_NanoQL_Methods_TripleBandLinearOp_NanoQL_Methods_TripleBandLinearOp_NanoQL_Numerics_Vector_" data-uid="NanoQL.Methods.TripleBandLinearOp.Axpyb(NanoQL.Numerics.Vector,NanoQL.Methods.TripleBandLinearOp,NanoQL.Methods.TripleBandLinearOp,NanoQL.Numerics.Vector)">
+  Axpyb(Vector, TripleBandLinearOp, TripleBandLinearOp, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets this operator, in place, to diag(<code class="paramref">a</code>)·<code class="paramref">x</code> + <code class="paramref">y</code> +
+diag(<code class="paramref">b</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Axpyb(Vector a, TripleBandLinearOp x, TripleBandLinearOp y, Vector b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The scales of <code class="paramref">x</code>'s rows: empty for none, one value for all, or one per
+point.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html">TripleBandLinearOp</a></dt>
+    <dd><p>The operator scaled.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html">TripleBandLinearOp</a></dt>
+    <dd><p>The operator added.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The diagonal added: empty for none, one value for all, or one per point.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">a</code> or <code class="paramref">b</code> has more than one value but not one per point, or an operator's
+size isn't this one's, where QuantLib reads a shorter one past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TripleBandLinearOp_Clone_" data-uid="NanoQL.Methods.TripleBandLinearOp.Clone*"></a>
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_Clone" data-uid="NanoQL.Methods.TripleBandLinearOp.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the operator: QuantLib's copy constructor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TripleBandLinearOp Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html">TripleBandLinearOp</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_TripleBandLinearOp_Mult_" data-uid="NanoQL.Methods.TripleBandLinearOp.Mult*"></a>
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_Mult_NanoQL_Numerics_Vector_" data-uid="NanoQL.Methods.TripleBandLinearOp.Mult(NanoQL.Numerics.Vector)">
+  Mult(Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The operator with each row scaled: diag(u)·A.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TripleBandLinearOp Mult(Vector u)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>u</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The rows' scales, one per point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html">TripleBandLinearOp</a></dt>
+    <dd><p>A new operator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">u</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">u</code>'s size isn't the layout's, where QuantLib reads a shorter one past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TripleBandLinearOp_MultR_" data-uid="NanoQL.Methods.TripleBandLinearOp.MultR*"></a>
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_MultR_NanoQL_Numerics_Vector_" data-uid="NanoQL.Methods.TripleBandLinearOp.MultR(NanoQL.Numerics.Vector)">
+  MultR(Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The operator with each column scaled: A·diag(u).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TripleBandLinearOp MultR(Vector u)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>u</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The columns' scales, one per point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.TripleBandLinearOp.html">TripleBandLinearOp</a></dt>
+    <dd><p>A new operator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">u</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">u</code>'s size isn't the layout's.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TripleBandLinearOp_SolveSplitting_" data-uid="NanoQL.Methods.TripleBandLinearOp.SolveSplitting*"></a>
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_SolveSplitting_NanoQL_Numerics_Vector_System_Double_System_Double_" data-uid="NanoQL.Methods.TripleBandLinearOp.SolveSplitting(NanoQL.Numerics.Vector,System.Double,System.Double)">
+  SolveSplitting(Vector, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Solves (<code class="paramref">a</code>·A + <code class="paramref">b</code>) x = <code class="paramref">r</code>: QuantLib's
+<code>solve_splitting</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector SolveSplitting(Vector r, double a, double b = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The right-hand side, one value per point.</p>
+</dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The operator's scale.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The identity's scale.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector of the solution.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">r</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">r</code>'s length isn't the layout's size, or the layout has one point.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A pivot is zero.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TripleBandLinearOp_SolveSplitting_" data-uid="NanoQL.Methods.TripleBandLinearOp.SolveSplitting*"></a>
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_SolveSplitting_System_ReadOnlySpan_System_Double__System_Double_System_Double_System_Span_System_Double__" data-uid="NanoQL.Methods.TripleBandLinearOp.SolveSplitting(System.ReadOnlySpan{System.Double},System.Double,System.Double,System.Span{System.Double})">
+  SolveSplitting(ReadOnlySpan&lt;double&gt;, double, double, Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Solves (<code class="paramref">a</code>·A + <code class="paramref">b</code>) x = <code class="paramref">r</code> for x by the Thomas algorithm,
+writing it into the caller's span.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SolveSplitting(ReadOnlySpan&lt;double&gt; r, double a, double b, Span&lt;double&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The right-hand side, one value per point.</p>
+</dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The operator's scale.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The identity's scale.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The solution, of the layout's size; it mustn't overlap <code class="paramref">r</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">r</code>'s length isn't the layout's size, or the layout has one point, where QuantLib's
+back-substitution reads past its arrays.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A pivot is zero.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_TripleBandLinearOp_ToMatrix_" data-uid="NanoQL.Methods.TripleBandLinearOp.ToMatrix*"></a>
+
+  <h3 id="NanoQL_Methods_TripleBandLinearOp_ToMatrix" data-uid="NanoQL.Methods.TripleBandLinearOp.ToMatrix">
+  ToMatrix()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The operator as a sparse matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override SparseMatrix ToMatrix()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.SparseMatrix.html">SparseMatrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The operator's direction has one point, whose neighbours QuantLib writes past the matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

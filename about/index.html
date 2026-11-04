@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>About nanoql | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="About nanoql | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="about-nanoql">About nanoql</h1>
+
+<p>nanoql is an open-source library for quantitative finance on .NET, under the Apache License 2.0. Its models, curves
+and pricers are plain functions of immutable inputs, and its market conventions are data.</p>
+<h2 id="where-it-comes-from">Where it comes from</h2>
+<p>nanoql builds on open-source work, and every file it ports records where from:</p>
+<ul>
+<li><strong>QuantLib.</strong> nanoql's core is derived from QuantLib 1.44, and its results are checked against QuantLib's own.
+Its design differs: it has no observers, lazy objects or global evaluation date. Where porting finds a defect,
+nanoql usually fixes it, and each place its results depart from QuantLib's is documented in
+<a href="../docs/divergences.html">Divergences</a>.</li>
+<li><strong>QLNet.</strong> nanoql's extensions port QLNet's mortgage-backed securities, with their prepayment models, and its
+amortised-cost bonds, checked against QLNet 1.13.2.</li>
+<li><strong>FpML.</strong> nanoql's conventions files accept the codes of FpML's coding schemes, such as its day-count and
+business-centre codes, beside nanoql's own names.</li>
+</ul>
+<p>Their copyright notices and licences are on <a href="licenses.html">Licences and notices</a>. nanoql is an independent project:
+the QuantLib and QLNet projects, and ISDA, which publishes FpML, are not affiliated with it and don't endorse it.</p>
+<h2 id="who-maintains-it">Who maintains it</h2>
+<p>nanoql is sponsored and maintained by Masseef (<a href="masseef.html">nanoql and Masseef</a>). It is developed in the open on
+<a href="https://github.com/nanoql-dev/nanoql">GitHub</a>: anyone can report an issue, ask in its Discussions, or send a pull
+request, signed off under the
+<a href="https://github.com/nanoql-dev/nanoql/blob/main/CONTRIBUTING.md">Developer Certificate of Origin</a>.</p>
+<h2 id="contact">Contact</h2>
+<ul>
+<li>Questions and ideas: <a href="https://github.com/nanoql-dev/nanoql/discussions">GitHub Discussions</a>.</li>
+<li>Security reports: see <a href="security.html">Security</a>.</li>
+<li>The code of conduct: conduct@nanoql.org.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

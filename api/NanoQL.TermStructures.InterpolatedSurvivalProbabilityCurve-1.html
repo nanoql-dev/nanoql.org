@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class InterpolatedSurvivalProbabilityCurve&lt;TInterpolator&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class InterpolatedSurvivalProbabilityCurve&lt;TInterpolator&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A default-probability term structure interpolating survival probabilities.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1">
+
+
+
+  <h1 id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1" class="text-break">
+Class InterpolatedSurvivalProbabilityCurve&lt;TInterpolator&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A default-probability term structure interpolating survival probabilities.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class InterpolatedSurvivalProbabilityCurve&lt;TInterpolator&gt; : SurvivalProbabilityStructure, IInterpolatedCurve&lt;SurvivalProbability, TInterpolator&gt; where TInterpolator : struct, IInterpolator</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TInterpolator</code></dt>
+    <dd><p>The interpolator.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html">DefaultProbabilityTermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.SurvivalProbabilityStructure.html">SurvivalProbabilityStructure</a></div>
+      <div><span class="xref">InterpolatedSurvivalProbabilityCurve&lt;TInterpolator&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.TermStructures.IInterpolatedCurve-2.html">IInterpolatedCurve</a>&lt;<a class="xref" href="NanoQL.TermStructures.SurvivalProbability.html">SurvivalProbability</a>, TInterpolator&gt;</div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.TermStructures.SurvivalProbabilityCurve.html">SurvivalProbabilityCurve</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html#NanoQL_TermStructures_DefaultProbabilityTermStructure_SurvivalProbability_NanoQL_Time_Date_System_Boolean_">DefaultProbabilityTermStructure.SurvivalProbability(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html#NanoQL_TermStructures_DefaultProbabilityTermStructure_SurvivalProbability_System_Double_System_Boolean_">DefaultProbabilityTermStructure.SurvivalProbability(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html#NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultProbability_NanoQL_Time_Date_System_Boolean_">DefaultProbabilityTermStructure.DefaultProbability(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html#NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultProbability_System_Double_System_Boolean_">DefaultProbabilityTermStructure.DefaultProbability(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html#NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultProbability_NanoQL_Time_Date_NanoQL_Time_Date_System_Boolean_">DefaultProbabilityTermStructure.DefaultProbability(Date, Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html#NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultProbability_System_Double_System_Double_System_Boolean_">DefaultProbabilityTermStructure.DefaultProbability(double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html#NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultDensity_NanoQL_Time_Date_System_Boolean_">DefaultProbabilityTermStructure.DefaultDensity(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html#NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultDensity_System_Double_System_Boolean_">DefaultProbabilityTermStructure.DefaultDensity(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html#NanoQL_TermStructures_DefaultProbabilityTermStructure_HazardRate_NanoQL_Time_Date_System_Boolean_">DefaultProbabilityTermStructure.HazardRate(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html#NanoQL_TermStructures_DefaultProbabilityTermStructure_HazardRate_System_Double_System_Boolean_">DefaultProbabilityTermStructure.HazardRate(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html#NanoQL_TermStructures_DefaultProbabilityTermStructure_JumpDates">DefaultProbabilityTermStructure.JumpDates()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html#NanoQL_TermStructures_DefaultProbabilityTermStructure_JumpTimes">DefaultProbabilityTermStructure.JumpTimes()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html#NanoQL_TermStructures_DefaultProbabilityTermStructure_HazardRateImpl_System_Double_">DefaultProbabilityTermStructure.HazardRateImpl(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_TimeFromReference_NanoQL_Time_Date_">TermStructure.TimeFromReference(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_CheckRange_NanoQL_Time_Date_System_Boolean_">TermStructure.CheckRange(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_CheckRange_System_Double_System_Boolean_">TermStructure.CheckRange(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_ReferenceDate">TermStructure.ReferenceDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_DayCounter">TermStructure.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_Calendar">TermStructure.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_SettlementDays">TermStructure.SettlementDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_MaxTime">TermStructure.MaxTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The first date is the reference date, where the probability is 1. Past the last node the probability decays at the
+hazard rate there; the default density is minus the probability's derivative, and the hazard rate the base's. The
+curve implements <a class="xref" href="NanoQL.TermStructures.IInterpolatedCurve-2.html">IInterpolatedCurve&lt;TTraits, TInterpolator&gt;</a> over <a class="xref" href="NanoQL.TermStructures.SurvivalProbability.html">SurvivalProbability</a>,
+as the piecewise survival-probability curve does, so the ISDA engine's curve test accepts it as QuantLib's cast
+does.
+</p>
+<p>
+QuantLib's protected constructors without nodes, through which its piecewise curve derives, aren't ported: the
+piecewise curve implements the interface itself. QuantLib reads the first date before it checks how many there are,
+so with no date it throws <code>std::out_of_range</code>; here an empty list is refused at that point with QuantLib's own
+"not enough input dates given", the playbook's convention for such an exception. An extension point, for its named
+class.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1__ctor_" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1__ctor_System_Collections_Generic_IEnumerable_NanoQL_Time_Date__System_Collections_Generic_IEnumerable_System_Double__NanoQL_Time_DayCounter_NanoQL_Time_Calendar_System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_NanoQL_Time_Date___0_" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.#ctor(System.Collections.Generic.IEnumerable{NanoQL.Time.Date},System.Collections.Generic.IEnumerable{System.Double},NanoQL.Time.DayCounter,NanoQL.Time.Calendar,System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{NanoQL.Time.Date},`0)">
+  InterpolatedSurvivalProbabilityCurve(IEnumerable&lt;Date&gt;, IEnumerable&lt;double&gt;, DayCounter, Calendar?, IEnumerable&lt;double&gt;?, IEnumerable&lt;Date&gt;?, TInterpolator)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve-1.html">InterpolatedSurvivalProbabilityCurve&lt;TInterpolator&gt;</a>
+class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InterpolatedSurvivalProbabilityCurve(IEnumerable&lt;Date&gt; dates, IEnumerable&lt;double&gt; probabilities, DayCounter dayCounter, Calendar? calendar = null, IEnumerable&lt;double&gt;? jumps = null, IEnumerable&lt;Date&gt;? jumpDates = null, TInterpolator interpolator = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The nodes' dates, sorted, the first one the reference date.</p>
+</dd>
+    <dt><code>probabilities</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The survival probabilities at the nodes, one per date, the first 1.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar, if any.</p>
+</dd>
+    <dt><code>jumps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The survival-probability jumps; none when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>jumpDates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The jumps' dates; at the turns of the years when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or
+empty.</p>
+</dd>
+    <dt><code>interpolator</code> <span class="xref">TInterpolator</span></dt>
+    <dd><p>The interpolator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">dates</code>, <code class="paramref">probabilities</code> or
+<code class="paramref">dayCounter</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There are fewer dates than the interpolator requires, a date is
+<code>default(Date)</code>, the probabilities aren't one per date, the first isn't 1, one after it isn't positive or
+rises above the one before it, the dates aren't sorted or two give the same time, the interpolation refuses the
+points, or the jumps' dates don't match the jumps.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_MaxDate_" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.MaxDate*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_MaxDate" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.MaxDate">
+  MaxDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the latest date for which the curve can return values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override sealed Date MaxDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_Data_" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.Data*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_Data" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.Data">
+  Data()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The curve's data at its nodes, as its traits read them (discount factors, rates).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Data()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_Dates_" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.Dates*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_Dates" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.Dates">
+  Dates()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The dates of the curve's nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;Date&gt; Dates()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The dates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_DefaultDensityImpl_" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.DefaultDensityImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_DefaultDensityImpl_System_Double_" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.DefaultDensityImpl(System.Double)">
+  DefaultDensityImpl(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default density at a time: minus the survival probability's derivative, by a central difference over
+0.0001 either side (one-sided at 0). QuantLib warns that this numerical differentiation &quot;might be inefficient
+and inaccurate&quot;; derived curves may override it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override sealed double DefaultDensityImpl(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The density.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_Nodes_" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.Nodes*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_Nodes" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.Nodes">
+  Nodes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The curve's nodes: each date with the data at it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;KeyValuePair&lt;Date, double&gt;&gt; Nodes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd><p>The nodes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_SurvivalProbabilities_" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.SurvivalProbabilities*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_SurvivalProbabilities" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.SurvivalProbabilities">
+  SurvivalProbabilities()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The survival probabilities at the nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; SurvivalProbabilities()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The probabilities.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_SurvivalProbabilityImpl_" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.SurvivalProbabilityImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_SurvivalProbabilityImpl_System_Double_" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.SurvivalProbabilityImpl(System.Double)">
+  SurvivalProbabilityImpl(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The survival probability at a time, which derived curves calculate. Range checks have already been performed, so
+it must assume that extrapolation is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override sealed double SurvivalProbabilityImpl(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_Times_" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.Times*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedSurvivalProbabilityCurve_1_Times" data-uid="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve`1.Times">
+  Times()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The times of the curve's nodes, from the reference date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Times()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The times.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

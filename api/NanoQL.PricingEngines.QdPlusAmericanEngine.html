@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class QdPlusAmericanEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class QdPlusAmericanEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The American engine based on the QD+ approximation to the exercise boundary (M. Li, &amp;quot;Analytical Approximations for the Critical Stock Prices of American Options: A Performance Comparison&amp;quot;, 2009): the boundary at Chebyshev nodes in √τ, the early-exercise premium integrated over it by tanh-sinh quadrature.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine">
+
+
+
+  <h1 id="NanoQL_PricingEngines_QdPlusAmericanEngine" data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine" class="text-break">
+Class QdPlusAmericanEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The American engine based on the QD+ approximation to the exercise boundary (M. Li, &quot;Analytical Approximations for
+the Critical Stock Prices of American Options: A Performance Comparison&quot;, 2009): the boundary at Chebyshev nodes
+in √τ, the early-exercise premium integrated over it by tanh-sinh quadrature.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class QdPlusAmericanEngine : QdPutCallParityEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.PricingEngines.QdPutCallParityEngine.html">QdPutCallParityEngine</a></div>
+      <div><span class="xref">QdPlusAmericanEngine</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.QdPutCallParityEngine.html#NanoQL_PricingEngines_QdPutCallParityEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_">QdPutCallParityEngine.Calculate(VanillaOption, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.QdPutCallParityEngine.html#NanoQL_PricingEngines_QdPutCallParityEngine_Process">QdPutCallParityEngine.Process</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_QdPlusAmericanEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Its main purpose is to provide a good initial guess to the exercise boundary for the superior fixed-point engine,
+<a class="xref" href="NanoQL.PricingEngines.QdFpAmericanEngine.html">QdFpAmericanEngine</a>. The engine reports the value.
+</p>
+<p>
+Immutable: each τ's boundary is solved by a working evaluator built for that solve, and each price builds its own
+boundary, as QuantLib's does. The static <code>Calculate</code> builds an engine with the given settings and prices
+through it. An extension point, as in QuantLib.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_QdPlusAmericanEngine__ctor_" data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_QdPlusAmericanEngine__ctor_NanoQL_Processes_GeneralizedBlackScholesProcess_System_Int32_NanoQL_PricingEngines_QdPlusAmericanEngineSolverType_System_Double_System_Nullable_System_Int32__" data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine.#ctor(NanoQL.Processes.GeneralizedBlackScholesProcess,System.Int32,NanoQL.PricingEngines.QdPlusAmericanEngineSolverType,System.Double,System.Nullable{System.Int32})">
+  QdPlusAmericanEngine(GeneralizedBlackScholesProcess, int, QdPlusAmericanEngineSolverType, double, int?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.QdPlusAmericanEngine.html">QdPlusAmericanEngine</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QdPlusAmericanEngine(GeneralizedBlackScholesProcess process, int interpolationPoints = 8, QdPlusAmericanEngineSolverType solverType = QdPlusAmericanEngineSolverType.Halley, double eps = 1E-06, int? maxIter = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The Black-Scholes process.</p>
+</dd>
+    <dt><code>interpolationPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of Chebyshev nodes of the boundary.</p>
+</dd>
+    <dt><code>solverType</code> <a class="xref" href="NanoQL.PricingEngines.QdPlusAmericanEngineSolverType.html">QdPlusAmericanEngineSolverType</a></dt>
+    <dd><p>The boundary's root finder.</p>
+</dd>
+    <dt><code>eps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The boundary's and the premium's accuracy.</p>
+</dd>
+    <dt><code>maxIter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The most evaluations of a boundary solve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's
+default: 100 for Brent's, Newton's and Ridder's methods, 10 for the Halley iterations.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">process</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">interpolationPoints</code> or <code class="paramref">maxIter</code> is negative, or the solver type isn't a
+member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_QdPlusAmericanEngine_Calculate_" data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_QdPlusAmericanEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_System_Int32_NanoQL_PricingEngines_QdPlusAmericanEngineSolverType_System_Double_System_Nullable_System_Int32__" data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,System.Int32,NanoQL.PricingEngines.QdPlusAmericanEngineSolverType,System.Double,System.Nullable{System.Int32})">
+  Calculate(VanillaOption, EvaluationContext, GeneralizedBlackScholesProcess, int, QdPlusAmericanEngineSolverType, double, int?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices an American vanilla option by the QD+ approximation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context, GeneralizedBlackScholesProcess process, int interpolationPoints = 8, QdPlusAmericanEngineSolverType solverType = QdPlusAmericanEngineSolverType.Halley, double eps = 1E-06, int? maxIter = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The Black-Scholes process.</p>
+</dd>
+    <dt><code>interpolationPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of Chebyshev nodes of the boundary.</p>
+</dd>
+    <dt><code>solverType</code> <a class="xref" href="NanoQL.PricingEngines.QdPlusAmericanEngineSolverType.html">QdPlusAmericanEngineSolverType</a></dt>
+    <dd><p>The boundary's root finder.</p>
+</dd>
+    <dt><code>eps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The boundary's and the premium's accuracy.</p>
+</dd>
+    <dt><code>maxIter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The most evaluations of a boundary solve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's
+default.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results: the value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The engine refuses the option.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_QdPlusAmericanEngine_CalculatePut_" data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine.CalculatePut*"></a>
+
+  <h3 id="NanoQL_PricingEngines_QdPlusAmericanEngine_CalculatePut_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine.CalculatePut(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  CalculatePut(double, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The value of an American put.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double CalculatePut(double s, double k, double r, double q, double vol, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>r</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The risk-free rate.</p>
+</dd>
+    <dt><code>q</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The dividend yield.</p>
+</dd>
+    <dt><code>vol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to expiry.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_QdPlusAmericanEngine_GetPutExerciseBoundary_" data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine.GetPutExerciseBoundary*"></a>
+
+  <h3 id="NanoQL_PricingEngines_QdPlusAmericanEngine_GetPutExerciseBoundary_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine.GetPutExerciseBoundary(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  GetPutExerciseBoundary(double, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The put's exercise boundary as a Chebyshev interpolation, on the second kind's nodes in z = 2√(τ/T) − 1, of
+ln(b(τ)/x_max)²: each node's boundary solved by <a class="xref" href="NanoQL.PricingEngines.QdPlusAmericanEngine.html#NanoQL_PricingEngines_QdPlusAmericanEngine_PutExerciseBoundaryAtTau_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_">PutExerciseBoundaryAtTau(double, double, double, double, double, double, double)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ChebyshevInterpolation GetPutExerciseBoundary(double s, double k, double r, double q, double vol, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>r</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The risk-free rate.</p>
+</dd>
+    <dt><code>q</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The dividend yield.</p>
+</dd>
+    <dt><code>vol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to expiry.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.ChebyshevInterpolation.html">ChebyshevInterpolation</a></dt>
+    <dd><p>The interpolation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A node's solve refuses.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_QdPlusAmericanEngine_PutExerciseBoundaryAtTau_" data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine.PutExerciseBoundaryAtTau*"></a>
+
+  <h3 id="NanoQL_PricingEngines_QdPlusAmericanEngine_PutExerciseBoundaryAtTau_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine.PutExerciseBoundaryAtTau(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  PutExerciseBoundaryAtTau(double, double, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The put's exercise boundary at a time to expiry, and the number of evaluations its solve took.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Evaluations, double Boundary) PutExerciseBoundaryAtTau(double s, double k, double r, double q, double vol, double t, double tau)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>r</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The risk-free rate.</p>
+</dd>
+    <dt><code>q</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The dividend yield.</p>
+</dd>
+    <dt><code>vol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's time to expiry.</p>
+</dd>
+    <dt><code>tau</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to expiry the boundary is at.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.double-.evaluations">Evaluations</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.double-.boundary">Boundary</a>)</dt>
+    <dd><p>The number of evaluations and the boundary; 0 and <a class="xref" href="NanoQL.PricingEngines.QdPlusAmericanEngine.html#NanoQL_PricingEngines_QdPlusAmericanEngine_XMax_System_Double_System_Double_System_Double_">XMax(double, double, double)</a> below a τ of ε.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The solver refuses.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_QdPlusAmericanEngine_XMax_" data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine.XMax*"></a>
+
+  <h3 id="NanoQL_PricingEngines_QdPlusAmericanEngine_XMax_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.QdPlusAmericanEngine.XMax(System.Double,System.Double,System.Double)">
+  XMax(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The exercise boundary's limit at expiry: Table 2 of L. Andersen and M. Lake (2021), &quot;Fast American Option
+Pricing: The Double-Boundary Case&quot;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double XMax(double k, double r, double q)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>r</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The risk-free rate.</p>
+</dd>
+    <dt><code>q</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The dividend yield.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The limit; 0 in the European cases.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A rate is NaN (&quot;internal error&quot;).</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

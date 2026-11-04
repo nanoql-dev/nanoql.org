@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class FittedBondDiscountCurve | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FittedBondDiscountCurve | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A discount curve fitted to a set of bonds: a discount function d(t), a fitting method&#39;s, fitted so that the bonds&#39; cash flows discounted on it reproduce their prices in an optimized sense, the price errors weighted by the inverse of the bonds&#39; durations.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.FittedBondDiscountCurve">
+
+
+
+  <h1 id="NanoQL_TermStructures_FittedBondDiscountCurve" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve" class="text-break">
+Class FittedBondDiscountCurve  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A discount curve fitted to a set of bonds: a discount function d(t), a fitting method's, fitted so that the bonds'
+cash flows discounted on it reproduce their prices in an optimized sense, the price errors weighted by the inverse of
+the bonds' durations.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class FittedBondDiscountCurve : YieldTermStructure</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></div>
+      <div><span class="xref">FittedBondDiscountCurve</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_Discount_NanoQL_Time_Date_System_Boolean_">YieldTermStructure.Discount(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_Discount_System_Double_System_Boolean_">YieldTermStructure.Discount(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_ZeroRate_NanoQL_Time_Date_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_System_Boolean_">YieldTermStructure.ZeroRate(Date, DayCounter, Compounding, Frequency, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_ZeroRate_System_Double_NanoQL_Compounding_NanoQL_Time_Frequency_System_Boolean_">YieldTermStructure.ZeroRate(double, Compounding, Frequency, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_ForwardRate_NanoQL_Time_Date_NanoQL_Time_Date_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_System_Boolean_">YieldTermStructure.ForwardRate(Date, Date, DayCounter, Compounding, Frequency, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_ForwardRate_NanoQL_Time_Date_NanoQL_Time_Period_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_System_Boolean_">YieldTermStructure.ForwardRate(Date, Period, DayCounter, Compounding, Frequency, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_ForwardRate_System_Double_System_Double_NanoQL_Compounding_NanoQL_Time_Frequency_System_Boolean_">YieldTermStructure.ForwardRate(double, double, Compounding, Frequency, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_JumpDates">YieldTermStructure.JumpDates()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_JumpTimes">YieldTermStructure.JumpTimes()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_TimeFromReference_NanoQL_Time_Date_">TermStructure.TimeFromReference(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_ReferenceDate">TermStructure.ReferenceDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_DayCounter">TermStructure.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_Calendar">TermStructure.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_SettlementDays">TermStructure.SettlementDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_MaxTime">TermStructure.MaxTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_TermStructures_FittedBondDiscountCurve_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The curve is a generic wrapper, and its <a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurveFittingMethod.html">FittedBondDiscountCurveFittingMethod</a> the implementation: a new
+fitting method derives from that. The fit can be slow with many bonds, and its speed depends on the method and its
+convergence under the optimization. Built from given parameters, the curve doesn't fit: it evaluates the method's
+discount function on them, up to a given maximum date, for example to use parameters fitted to bonds in one currency
+as a credit spread curve over a discount curve in another.
+</p>
+<p>
+The curve fits in its constructor, as a <code>LazyObject</code>'s work is done at construction, so a fit that fails, or an
+input it refuses, refuses the curve where QuantLib throws at the first read. While it fits, the curve answers at the
+fit's trial parameters, and its bond helpers are copies bound to the curve itself, as QuantLib binds them to
+<code>this</code>; nothing outside the constructor sees the curve change. QuantLib's quotes are doubles here, always valid,
+so its check of an invalid price quote has nothing to refuse. QuantLib's constructors taking settlement days, whose
+reference date moves with the evaluation date, are the <a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurve.html#NanoQL_TermStructures_FittedBondDiscountCurve_Create_System_Int32_NanoQL_Time_Calendar_System_Collections_Generic_IEnumerable_NanoQL_TermStructures_BondHelper__NanoQL_Time_DayCounter_NanoQL_TermStructures_FittedBondDiscountCurveFittingMethod_NanoQL_EvaluationContext_System_Double_System_Int32_System_Collections_Generic_IEnumerable_System_Double__System_Double_System_Int32_">Create(int, Calendar, IEnumerable&lt;BondHelper&gt;, DayCounter, FittedBondDiscountCurveFittingMethod, EvaluationContext, double, int, IEnumerable&lt;double&gt;?, double, int)</a>
+factories.
+</p>
+<p>
+A curve is always built afresh, fitted from the given guess, the initial guess the L2 penalty's header doc anchors
+it to. QuantLib's curve keeps its last solution as its guess (<code>fittedbonddiscountcurve.cpp:294-295</code>), so
+recalculated after a quote moves it starts from, and is penalized towards, its previous fit. A documented divergence.
+QuantLib's <code>resetGuess</code>, which refits in place, is <a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurve.html#NanoQL_TermStructures_FittedBondDiscountCurve_ResetGuess_System_Collections_Generic_IEnumerable_System_Double__NanoQL_EvaluationContext_">ResetGuess(IEnumerable&lt;double&gt;, EvaluationContext)</a>, which returns the curve refitted.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_FittedBondDiscountCurve__ctor_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_FittedBondDiscountCurve__ctor_NanoQL_Time_Date_NanoQL_TermStructures_FittedBondDiscountCurveFittingMethod_System_Collections_Generic_IEnumerable_System_Double__NanoQL_Time_Date_NanoQL_Time_DayCounter_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.#ctor(NanoQL.Time.Date,NanoQL.TermStructures.FittedBondDiscountCurveFittingMethod,System.Collections.Generic.IEnumerable{System.Double},NanoQL.Time.Date,NanoQL.Time.DayCounter)">
+  FittedBondDiscountCurve(Date, FittedBondDiscountCurveFittingMethod, IEnumerable&lt;double&gt;, Date, DayCounter)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurve.html">FittedBondDiscountCurve</a> class with a reference date fixed for the
+life of the curve, which doesn't fit but evaluates the method on given parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FittedBondDiscountCurve(Date referenceDate, FittedBondDiscountCurveFittingMethod fittingMethod, IEnumerable&lt;double&gt; parameters, Date maxDate, DayCounter dayCounter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>referenceDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The reference date.</p>
+</dd>
+    <dt><code>fittingMethod</code> <a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurveFittingMethod.html">FittedBondDiscountCurveFittingMethod</a></dt>
+    <dd><p>The fitting method whose discount function the curve evaluates.</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The precalculated parameters, the method's <a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurveFittingMethod.html#NanoQL_TermStructures_FittedBondDiscountCurveFittingMethod_Size">Size</a> of them.</p>
+</dd>
+    <dt><code>maxDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The latest date the curve gives values for.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">fittingMethod</code>, <code class="paramref">parameters</code> or <code class="paramref">dayCounter</code> is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The maximum date is <code>default(Date)</code> (QuantLib's &quot;no bond helpers or max date given&quot;), or the parameters
+aren't the method's number.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_FittedBondDiscountCurve__ctor_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_FittedBondDiscountCurve__ctor_NanoQL_Time_Date_System_Collections_Generic_IEnumerable_NanoQL_TermStructures_BondHelper__NanoQL_Time_DayCounter_NanoQL_TermStructures_FittedBondDiscountCurveFittingMethod_NanoQL_EvaluationContext_System_Double_System_Int32_System_Collections_Generic_IEnumerable_System_Double__System_Double_System_Int32_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.#ctor(NanoQL.Time.Date,System.Collections.Generic.IEnumerable{NanoQL.TermStructures.BondHelper},NanoQL.Time.DayCounter,NanoQL.TermStructures.FittedBondDiscountCurveFittingMethod,NanoQL.EvaluationContext,System.Double,System.Int32,System.Collections.Generic.IEnumerable{System.Double},System.Double,System.Int32)">
+  FittedBondDiscountCurve(Date, IEnumerable&lt;BondHelper&gt;, DayCounter, FittedBondDiscountCurveFittingMethod, EvaluationContext, double, int, IEnumerable&lt;double&gt;?, double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurve.html">FittedBondDiscountCurve</a> class with a reference date fixed for the
+life of the curve, and fits it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FittedBondDiscountCurve(Date referenceDate, IEnumerable&lt;BondHelper&gt; bonds, DayCounter dayCounter, FittedBondDiscountCurveFittingMethod fittingMethod, EvaluationContext context, double accuracy = 1E-10, int maxEvaluations = 10000, IEnumerable&lt;double&gt;? guess = null, double simplexLambda = 1, int maxStationaryStateIterations = 100)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>referenceDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The reference date.</p>
+</dd>
+    <dt><code>bonds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.TermStructures.BondHelper.html">BondHelper</a>&gt;</dt>
+    <dd><p>The bond helpers the curve is fitted to.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>fittingMethod</code> <a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurveFittingMethod.html">FittedBondDiscountCurveFittingMethod</a></dt>
+    <dd><p>The fitting method; the curve fits a copy of it.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the bonds are settled and priced in.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The optimization's root, function and gradient-norm accuracy.</p>
+</dd>
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The optimization's maximum number of iterations; 0 to use the guess as the parameters.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The fit's starting point, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty for zeros.</p>
+</dd>
+    <dt><code>simplexLambda</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The scale of the <a class="xref" href="NanoQL.Numerics.Simplex.html">Simplex</a> used when the method gives no optimizer.</p>
+</dd>
+    <dt><code>maxStationaryStateIterations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number of iterations without improvement.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">bonds</code>, <code class="paramref">dayCounter</code>, <code class="paramref">fittingMethod</code> or
+<code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No bond is given, a helper is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the guess or the method's weights or penalties don't fit
+the bonds or the parameters, or the end criteria refuse the iteration counts.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A bond settles before the reference date or isn't tradable there.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_TermStructures_FittedBondDiscountCurve_FitResults_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.FitResults*"></a>
+
+  <h3 id="NanoQL_TermStructures_FittedBondDiscountCurve_FitResults" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.FitResults">
+  FitResults
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fit's results: the curve's copy of its fitting method, holding the solution, the iterations, the cost,
+the end criterion and the weights used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FittedBondDiscountCurveFittingMethod FitResults { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurveFittingMethod.html">FittedBondDiscountCurveFittingMethod</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_FittedBondDiscountCurve_MaxDate_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.MaxDate*"></a>
+
+  <h3 id="NanoQL_TermStructures_FittedBondDiscountCurve_MaxDate" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.MaxDate">
+  MaxDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the latest date for which the curve can return values: the last bond's pillar, or the given date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date MaxDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_FittedBondDiscountCurve_NumberOfBonds_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.NumberOfBonds*"></a>
+
+  <h3 id="NanoQL_TermStructures_FittedBondDiscountCurve_NumberOfBonds" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.NumberOfBonds">
+  NumberOfBonds
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the total number of bonds used to fit the curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NumberOfBonds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_FittedBondDiscountCurve_Create_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.Create*"></a>
+
+  <h3 id="NanoQL_TermStructures_FittedBondDiscountCurve_Create_System_Int32_NanoQL_Time_Calendar_NanoQL_TermStructures_FittedBondDiscountCurveFittingMethod_System_Collections_Generic_IEnumerable_System_Double__NanoQL_Time_Date_NanoQL_Time_DayCounter_NanoQL_EvaluationContext_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.Create(System.Int32,NanoQL.Time.Calendar,NanoQL.TermStructures.FittedBondDiscountCurveFittingMethod,System.Collections.Generic.IEnumerable{System.Double},NanoQL.Time.Date,NanoQL.Time.DayCounter,NanoQL.EvaluationContext)">
+  Create(int, Calendar, FittedBondDiscountCurveFittingMethod, IEnumerable&lt;double&gt;, Date, DayCounter, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A curve whose reference date is the evaluation date advanced by settlement days on a calendar, which doesn't fit
+but evaluates the method on given parameters: QuantLib's constructor taking settlement days. The curve is built
+for the context's evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FittedBondDiscountCurve Create(int settlementDays, Calendar calendar, FittedBondDiscountCurveFittingMethod fittingMethod, IEnumerable&lt;double&gt; parameters, Date maxDate, DayCounter dayCounter, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The settlement days.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar the settlement days are counted on.</p>
+</dd>
+    <dt><code>fittingMethod</code> <a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurveFittingMethod.html">FittedBondDiscountCurveFittingMethod</a></dt>
+    <dd><p>The fitting method whose discount function the curve evaluates.</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The precalculated parameters, the method's <a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurveFittingMethod.html#NanoQL_TermStructures_FittedBondDiscountCurveFittingMethod_Size">Size</a> of them.</p>
+</dd>
+    <dt><code>maxDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The latest date the curve gives values for.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurve.html">FittedBondDiscountCurve</a></dt>
+    <dd><p>The curve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">calendar</code>, <code class="paramref">fittingMethod</code>, <code class="paramref">parameters</code>,
+<code class="paramref">dayCounter</code> or <code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">settlementDays</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The maximum date is <code>default(Date)</code>, or the parameters aren't the method's number.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_FittedBondDiscountCurve_Create_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.Create*"></a>
+
+  <h3 id="NanoQL_TermStructures_FittedBondDiscountCurve_Create_System_Int32_NanoQL_Time_Calendar_System_Collections_Generic_IEnumerable_NanoQL_TermStructures_BondHelper__NanoQL_Time_DayCounter_NanoQL_TermStructures_FittedBondDiscountCurveFittingMethod_NanoQL_EvaluationContext_System_Double_System_Int32_System_Collections_Generic_IEnumerable_System_Double__System_Double_System_Int32_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.Create(System.Int32,NanoQL.Time.Calendar,System.Collections.Generic.IEnumerable{NanoQL.TermStructures.BondHelper},NanoQL.Time.DayCounter,NanoQL.TermStructures.FittedBondDiscountCurveFittingMethod,NanoQL.EvaluationContext,System.Double,System.Int32,System.Collections.Generic.IEnumerable{System.Double},System.Double,System.Int32)">
+  Create(int, Calendar, IEnumerable&lt;BondHelper&gt;, DayCounter, FittedBondDiscountCurveFittingMethod, EvaluationContext, double, int, IEnumerable&lt;double&gt;?, double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A curve whose reference date is the evaluation date advanced by settlement days on a calendar, fitted: QuantLib's
+constructor taking settlement days, whose reference date moves with the evaluation date. The curve is built for
+the context's evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FittedBondDiscountCurve Create(int settlementDays, Calendar calendar, IEnumerable&lt;BondHelper&gt; bonds, DayCounter dayCounter, FittedBondDiscountCurveFittingMethod fittingMethod, EvaluationContext context, double accuracy = 1E-10, int maxEvaluations = 10000, IEnumerable&lt;double&gt;? guess = null, double simplexLambda = 1, int maxStationaryStateIterations = 100)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The settlement days.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar the settlement days are counted on.</p>
+</dd>
+    <dt><code>bonds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.TermStructures.BondHelper.html">BondHelper</a>&gt;</dt>
+    <dd><p>The bond helpers the curve is fitted to.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>fittingMethod</code> <a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurveFittingMethod.html">FittedBondDiscountCurveFittingMethod</a></dt>
+    <dd><p>The fitting method; the curve fits a copy of it.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The optimization's root, function and gradient-norm accuracy.</p>
+</dd>
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The optimization's maximum number of iterations; 0 to use the guess as the parameters.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The fit's starting point, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty for zeros.</p>
+</dd>
+    <dt><code>simplexLambda</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The scale of the <a class="xref" href="NanoQL.Numerics.Simplex.html">Simplex</a> used when the method gives no optimizer.</p>
+</dd>
+    <dt><code>maxStationaryStateIterations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number of iterations without improvement.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurve.html">FittedBondDiscountCurve</a></dt>
+    <dd><p>The fitted curve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">calendar</code>, <code class="paramref">bonds</code>, <code class="paramref">dayCounter</code>,
+<code class="paramref">fittingMethod</code> or <code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">settlementDays</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No bond is given, a helper is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the guess or the method's weights or penalties don't fit
+the bonds or the parameters, or the end criteria refuse the iteration counts.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A bond settles before the reference date or isn't tradable there.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_FittedBondDiscountCurve_DiscountImpl_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.DiscountImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_FittedBondDiscountCurve_DiscountImpl_System_Double_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.DiscountImpl(System.Double)">
+  DiscountImpl(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fitting method's discount at the fitted parameters, or at the fit's trial ones while it runs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double DiscountImpl(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_FittedBondDiscountCurve_ResetGuess_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.ResetGuess*"></a>
+
+  <h3 id="NanoQL_TermStructures_FittedBondDiscountCurve_ResetGuess_System_Collections_Generic_IEnumerable_System_Double__NanoQL_EvaluationContext_" data-uid="NanoQL.TermStructures.FittedBondDiscountCurve.ResetGuess(System.Collections.Generic.IEnumerable{System.Double},NanoQL.EvaluationContext)">
+  ResetGuess(IEnumerable&lt;double&gt;, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The curve refitted from another guess, to try out several and avoid local minima: QuantLib's <code>resetGuess</code>,
+which refits the curve in place. A curve built from given parameters takes the guess as its parameters. A curve
+built from settlement days is dated for the context's evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FittedBondDiscountCurve ResetGuess(IEnumerable&lt;double&gt; guess, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The guess, empty or the method's number of parameters.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the bonds are settled and priced in.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurve.html">FittedBondDiscountCurve</a></dt>
+    <dd><p>The refitted curve, which allows extrapolation as this one does.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">guess</code> or <code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The guess is neither empty nor the method's number of parameters, or the curve refuses it as its constructor
+does.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The curve's constructor refuses its bonds for the context.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class BlackVolTermStructure | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BlackVolTermStructure | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Black-volatility term structure: the base of the structures that give Black volatilities and variances by maturity and strike. Volatilities are on an annual basis.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.BlackVolTermStructure">
+
+
+
+  <h1 id="NanoQL_TermStructures_BlackVolTermStructure" data-uid="NanoQL.TermStructures.BlackVolTermStructure" class="text-break">
+Class BlackVolTermStructure  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Black-volatility term structure: the base of the structures that give Black volatilities and variances by
+maturity and strike. Volatilities are on an annual basis.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class BlackVolTermStructure : VolatilityTermStructure</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html">VolatilityTermStructure</a></div>
+      <div><span class="xref">BlackVolTermStructure</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.TermStructures.BlackVarianceTermStructure.html">BlackVarianceTermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.BlackVolatilityTermStructure.html">BlackVolatilityTermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.HestonBlackVolSurface.html">HestonBlackVolSurface</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_OptionDateFromTenor_NanoQL_Time_Period_">VolatilityTermStructure.OptionDateFromTenor(Period)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_MinStrike">VolatilityTermStructure.MinStrike()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_MaxStrike">VolatilityTermStructure.MaxStrike()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_CheckStrike_System_Double_System_Boolean_">VolatilityTermStructure.CheckStrike(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_BusinessDayConvention">VolatilityTermStructure.BusinessDayConvention</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_TimeFromReference_NanoQL_Time_Date_">TermStructure.TimeFromReference(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_CheckRange_NanoQL_Time_Date_System_Boolean_">TermStructure.CheckRange(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_CheckRange_System_Double_System_Boolean_">TermStructure.CheckRange(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_ReferenceDate">TermStructure.ReferenceDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_DayCounter">TermStructure.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_Calendar">TermStructure.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_SettlementDays">TermStructure.SettlementDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_MaxDate">TermStructure.MaxDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_MaxTime">TermStructure.MaxTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_TermStructures_BlackVolTermStructure_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>An extension point, as in QuantLib: the Black volatility and variance structures derive from it, through
+<a class="xref" href="NanoQL.TermStructures.BlackVolatilityTermStructure.html">BlackVolatilityTermStructure</a> and <a class="xref" href="NanoQL.TermStructures.BlackVarianceTermStructure.html">BlackVarianceTermStructure</a>. A structure is immutable,
+its reference date fixed at construction.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure__ctor_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure__ctor_NanoQL_Time_Date_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_NanoQL_Time_DayCounter_System_Nullable_System_Int32__" data-uid="NanoQL.TermStructures.BlackVolTermStructure.#ctor(NanoQL.Time.Date,NanoQL.Time.Calendar,NanoQL.Time.BusinessDayConvention,NanoQL.Time.DayCounter,System.Nullable{System.Int32})">
+  BlackVolTermStructure(Date, Calendar?, BusinessDayConvention, DayCounter, int?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a> class at a reference date; with
+settlement days, for a structure a factory dates by the context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BlackVolTermStructure(Date referenceDate, Calendar? calendar, BusinessDayConvention bdc, DayCounter dayCounter, int? settlementDays = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>referenceDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The reference date.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty one.</p>
+</dd>
+    <dt><code>bdc</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The business-day convention of the option dates; QuantLib's default is
+<code>Following</code>.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The settlement days the reference date was moved by, or
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">dayCounter</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The reference date is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">bdc</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_AtmLevel_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.AtmLevel*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_AtmLevel_System_Double_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.AtmLevel(System.Double)">
+  AtmLevel(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The at-the-money level at a time, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> where the structure gives none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual double? AtmLevel(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's default.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_BlackForwardVariance_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackForwardVariance*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_BlackForwardVariance_NanoQL_Time_Date_NanoQL_Time_Date_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackForwardVariance(NanoQL.Time.Date,NanoQL.Time.Date,System.Double,System.Boolean)">
+  BlackForwardVariance(Date, Date, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The forward (at-the-money) variance between two dates, at a strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BlackForwardVariance(Date date1, Date date2, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>date1</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The first date.</p>
+</dd>
+    <dt><code>date2</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The second date, not before the first.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to allow extrapolation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A date is <code>default(Date)</code>, or the first is later than the
+second.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The second date or the strike is out of range, or the variance
+decreases.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_BlackForwardVariance_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackForwardVariance*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_BlackForwardVariance_System_Double_System_Double_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackForwardVariance(System.Double,System.Double,System.Double,System.Boolean)">
+  BlackForwardVariance(double, double, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The forward (at-the-money) variance between two times, at a strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BlackForwardVariance(double time1, double time2, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first time.</p>
+</dd>
+    <dt><code>time2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second time, not before the first.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to allow extrapolation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The first time is later than the second.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The second time or the strike is out of range, or the variance
+decreases.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_BlackForwardVol_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackForwardVol*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_BlackForwardVol_NanoQL_Time_Date_NanoQL_Time_Date_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackForwardVol(NanoQL.Time.Date,NanoQL.Time.Date,System.Double,System.Boolean)">
+  BlackForwardVol(Date, Date, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The forward (at-the-money) volatility between two dates, at a strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BlackForwardVol(Date date1, Date date2, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>date1</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The first date.</p>
+</dd>
+    <dt><code>date2</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The second date, not before the first.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to allow extrapolation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A date is <code>default(Date)</code>, or the first is later than the
+second.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The second date or the strike is out of range, or the variance
+decreases.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_BlackForwardVol_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackForwardVol*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_BlackForwardVol_System_Double_System_Double_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackForwardVol(System.Double,System.Double,System.Double,System.Boolean)">
+  BlackForwardVol(double, double, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The forward (at-the-money) volatility between two times, at a strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BlackForwardVol(double time1, double time2, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first time.</p>
+</dd>
+    <dt><code>time2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second time, not before the first.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to allow extrapolation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The first time is later than the second.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The second time or the strike is out of range, or the variance
+decreases.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_BlackVariance_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackVariance*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_BlackVariance_NanoQL_Time_Date_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackVariance(NanoQL.Time.Date,System.Double,System.Boolean)">
+  BlackVariance(Date, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The spot variance at a maturity date and strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BlackVariance(Date maturity, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maturity</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The maturity date.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to allow extrapolation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">maturity</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date or strike is out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_BlackVariance_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackVariance*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_BlackVariance_System_Double_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackVariance(System.Double,System.Double,System.Boolean)">
+  BlackVariance(double, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The spot variance at a maturity time and strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BlackVariance(double maturity, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maturity time.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to allow extrapolation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The time or strike is out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_BlackVarianceImpl_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackVarianceImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_BlackVarianceImpl_System_Double_System_Double_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackVarianceImpl(System.Double,System.Double)">
+  BlackVarianceImpl(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The variance at a time and strike, the range already checked; it must extrapolate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract double BlackVarianceImpl(double t, double strike)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_BlackVol_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackVol*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_BlackVol_NanoQL_Time_Date_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackVol(NanoQL.Time.Date,System.Double,System.Boolean)">
+  BlackVol(Date, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The spot volatility at a maturity date and strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BlackVol(Date maturity, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maturity</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The maturity date.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to allow extrapolation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">maturity</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date or strike is out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_BlackVol_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackVol*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_BlackVol_System_Double_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackVol(System.Double,System.Double,System.Boolean)">
+  BlackVol(double, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The spot volatility at a maturity time and strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BlackVol(double maturity, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maturity time.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to allow extrapolation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The time or strike is out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_BlackVolImpl_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackVolImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_BlackVolImpl_System_Double_System_Double_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.BlackVolImpl(System.Double,System.Double)">
+  BlackVolImpl(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility at a time and strike, the range already checked; it must extrapolate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract double BlackVolImpl(double t, double strike)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_SmileSection_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.SmileSection*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_SmileSection_NanoQL_Time_Date_System_Boolean_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.SmileSection(NanoQL.Time.Date,System.Boolean)">
+  SmileSection(Date, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The smile section at a maturity date: the structure's volatilities at that maturity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SmileSection SmileSection(Date maturity, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maturity</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The maturity date.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to allow extrapolation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></dt>
+    <dd><p>A smile section.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">maturity</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date is out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_SmileSection_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.SmileSection*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_SmileSection_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.SmileSection(System.Double,System.Boolean)">
+  SmileSection(double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The smile section at a maturity time: the structure's volatilities at that maturity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SmileSection SmileSection(double maturity, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maturity time.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to allow extrapolation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></dt>
+    <dd><p>A smile section.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The time is out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolTermStructure_SmileSectionImpl_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.SmileSectionImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolTermStructure_SmileSectionImpl_System_Double_" data-uid="NanoQL.TermStructures.BlackVolTermStructure.SmileSectionImpl(System.Double)">
+  SmileSectionImpl(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The smile section at a time: by default an adapter over this structure, which reads its volatilities with
+extrapolation. A structure with a smile representation of its own overrides it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual SmileSection SmileSectionImpl(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></dt>
+    <dd><p>A smile section.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_TermStructures_BlackVolTermStructure_SmileSectionImpl_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>QuantLib's adapter holds a <code>shared_ptr</code> to the structure through <code>shared_from_this</code>, and refuses a
+structure no <code>shared_ptr</code> holds; a .NET object is always held by reference, so the refusal has no
+counterpart.</p>
+</div>
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

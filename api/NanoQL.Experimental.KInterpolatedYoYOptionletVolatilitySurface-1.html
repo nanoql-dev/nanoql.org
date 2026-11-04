@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class KInterpolatedYoYOptionletVolatilitySurface&lt;TInterpolator&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class KInterpolatedYoYOptionletVolatilitySurface&lt;TInterpolator&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A year-on-year optionlet volatility surface stripped along each strike of a cap and floor price surface and interpolated across the strikes: QuantLib&#39;s KInterpolatedYoYOptionletVolatilitySurface.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1">
+
+
+
+  <h1 id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1" class="text-break">
+Class KInterpolatedYoYOptionletVolatilitySurface&lt;TInterpolator&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A year-on-year optionlet volatility surface stripped along each strike of a cap and floor price surface and
+interpolated across the strikes: QuantLib's <code>KInterpolatedYoYOptionletVolatilitySurface</code>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public class KInterpolatedYoYOptionletVolatilitySurface&lt;TInterpolator&gt; : YoYOptionletVolatilitySurface where TInterpolator : struct, IInterpolator</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TInterpolator</code></dt>
+    <dd><p>The interpolator across the strikes.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html">VolatilityTermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html">YoYOptionletVolatilitySurface</a></div>
+      <div><span class="xref">KInterpolatedYoYOptionletVolatilitySurface&lt;TInterpolator&gt;</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.KInterpolatedYoYInflationOptionletVolatilitySurface.html">KInterpolatedYoYInflationOptionletVolatilitySurface</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_BaseDate">YoYOptionletVolatilitySurface.BaseDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_TimeFromBase_NanoQL_Time_Date_System_Nullable_NanoQL_Time_Period__">YoYOptionletVolatilitySurface.TimeFromBase(Date, Period?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_BaseLevel">YoYOptionletVolatilitySurface.BaseLevel()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_Volatility_NanoQL_Time_Date_System_Double_System_Nullable_NanoQL_Time_Period__System_Boolean_">YoYOptionletVolatilitySurface.Volatility(Date, double, Period?, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_Volatility_NanoQL_Time_Period_System_Double_System_Nullable_NanoQL_Time_Period__System_Boolean_">YoYOptionletVolatilitySurface.Volatility(Period, double, Period?, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_Volatility_System_Double_System_Double_">YoYOptionletVolatilitySurface.Volatility(double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_TotalVariance_NanoQL_Time_Date_System_Double_System_Nullable_NanoQL_Time_Period__System_Boolean_">YoYOptionletVolatilitySurface.TotalVariance(Date, double, Period?, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_TotalVariance_NanoQL_Time_Period_System_Double_System_Nullable_NanoQL_Time_Period__System_Boolean_">YoYOptionletVolatilitySurface.TotalVariance(Period, double, Period?, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_SetBaseLevel_System_Double_">YoYOptionletVolatilitySurface.SetBaseLevel(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_CheckRange_NanoQL_Time_Date_System_Double_System_Boolean_">YoYOptionletVolatilitySurface.CheckRange(Date, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_CheckRange_System_Double_System_Double_System_Boolean_">YoYOptionletVolatilitySurface.CheckRange(double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_ObservationLag">YoYOptionletVolatilitySurface.ObservationLag</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_Frequency">YoYOptionletVolatilitySurface.Frequency</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_IndexIsInterpolated">YoYOptionletVolatilitySurface.IndexIsInterpolated</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_VolatilityType">YoYOptionletVolatilitySurface.VolatilityType</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html#NanoQL_TermStructures_YoYOptionletVolatilitySurface_Displacement">YoYOptionletVolatilitySurface.Displacement</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_OptionDateFromTenor_NanoQL_Time_Period_">VolatilityTermStructure.OptionDateFromTenor(Period)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_CheckStrike_System_Double_System_Boolean_">VolatilityTermStructure.CheckStrike(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_BusinessDayConvention">VolatilityTermStructure.BusinessDayConvention</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_TimeFromReference_NanoQL_Time_Date_">TermStructure.TimeFromReference(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_CheckRange_NanoQL_Time_Date_System_Boolean_">TermStructure.CheckRange(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_CheckRange_System_Double_System_Boolean_">TermStructure.CheckRange(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_ReferenceDate">TermStructure.ReferenceDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_DayCounter">TermStructure.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_Calendar">TermStructure.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_SettlementDays">TermStructure.SettlementDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_MaxTime">TermStructure.MaxTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The stripper strips the price surface at construction (<a class="xref" href="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface-1.html#NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_Create_System_Int32_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_NanoQL_Time_DayCounter_NanoQL_Time_Period_NanoQL_Experimental_YoYCapFloorTermPriceSurface_System_Func_NanoQL_Instruments_YoYInflationCapFloor_NanoQL_EvaluationContext_NanoQL_TermStructures_YoYOptionletVolatilitySurface_NanoQL_InstrumentResults__NanoQL_Experimental_YoYOptionletStripper_System_Double_NanoQL_EvaluationContext__0_NanoQL_TermStructures_VolatilityType_System_Double_">Create(int, Calendar, BusinessDayConvention, DayCounter, Period, YoYCapFloorTermPriceSurface, Func&lt;YoYInflationCapFloor, EvaluationContext, YoYOptionletVolatilitySurface, InstrumentResults&gt;, YoYOptionletStripper, double, EvaluationContext, TInterpolator, VolatilityType, double)</a>), in the context given, and the surface
+holds the result; a volatility is the strikes' interpolation of the stripped curves' volatilities at the time,
+extrapolated only when the surface allows it. The index is observed flat, at the start of its inflation period, as
+QuantLib's. QuantLib's memo of the last date's slice isn't ported: each query reads its slice.
+</p>
+<p>
+A volatility reads the stripped curves at the surface's time for the observed date
+(<code>Divergences/KInterpolatedYoYVolatilityTests.cs</code>): each strike's stripped curve at that date when the surface
+is on the stripper's clock, the price surface's reference date and day counter, and on another clock the curves read
+early or late by the clocks' difference (on QuantLib's euro case, up to 2.7e-5 at 2 settlement days and 4.2e-5 on
+Actual/360, where QuantLib's lag error on the stripper's clock is 6.1e-4). QuantLib's turns the time back into a
+date, its whole years and the fraction's days at 365 a year, and reads each curve at that date through the curve's
+own lag, so the curves are read a lag early, and off Actual/365 a day or so further. QuantLib's case reads
+<a class="xref" href="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface-1.html#NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_Dslice_NanoQL_Time_Date_">Dslice(Date)</a>, the curves' own date route, which is QuantLib's here; its protected date form, which only its
+time form calls, isn't ported.
+</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_MaxDate_" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.MaxDate*"></a>
+
+  <h3 id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_MaxDate" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.MaxDate">
+  MaxDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the latest date for which the curve can return values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date MaxDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_MaxDate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The reference date plus the price surface's last maturity.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_Stripped_" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.Stripped*"></a>
+
+  <h3 id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_Stripped" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.Stripped">
+  Stripped
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the stripped volatilities the surface interpolates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StrippedYoYOptionlets Stripped { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.StrippedYoYOptionlets.html">StrippedYoYOptionlets</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_Create_" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.Create*"></a>
+
+  <h3 id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_Create_System_Int32_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_NanoQL_Time_DayCounter_NanoQL_Time_Period_NanoQL_Experimental_YoYCapFloorTermPriceSurface_System_Func_NanoQL_Instruments_YoYInflationCapFloor_NanoQL_EvaluationContext_NanoQL_TermStructures_YoYOptionletVolatilitySurface_NanoQL_InstrumentResults__NanoQL_Experimental_YoYOptionletStripper_System_Double_NanoQL_EvaluationContext__0_NanoQL_TermStructures_VolatilityType_System_Double_" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.Create(System.Int32,NanoQL.Time.Calendar,NanoQL.Time.BusinessDayConvention,NanoQL.Time.DayCounter,NanoQL.Time.Period,NanoQL.Experimental.YoYCapFloorTermPriceSurface,System.Func{NanoQL.Instruments.YoYInflationCapFloor,NanoQL.EvaluationContext,NanoQL.TermStructures.YoYOptionletVolatilitySurface,NanoQL.InstrumentResults},NanoQL.Experimental.YoYOptionletStripper,System.Double,NanoQL.EvaluationContext,`0,NanoQL.TermStructures.VolatilityType,System.Double)">
+  Create(int, Calendar, BusinessDayConvention, DayCounter, Period, YoYCapFloorTermPriceSurface, Func&lt;YoYInflationCapFloor, EvaluationContext, YoYOptionletVolatilitySurface, InstrumentResults&gt;, YoYOptionletStripper, double, EvaluationContext, TInterpolator, VolatilityType, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds the surface on the reference date the settlement days give after the evaluation date, stripping the price
+surface in the context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static KInterpolatedYoYOptionletVolatilitySurface&lt;TInterpolator&gt; Create(int settlementDays, Calendar cal, BusinessDayConvention bdc, DayCounter dc, Period lag, YoYCapFloorTermPriceSurface capFloorPrices, Func&lt;YoYInflationCapFloor, EvaluationContext, YoYOptionletVolatilitySurface, InstrumentResults&gt; pricer, YoYOptionletStripper yoyOptionletStripper, double slope, EvaluationContext context, TInterpolator interpolator = default, VolatilityType volType = VolatilityType.ShiftedLognormal, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The business days from the evaluation date to the reference date.</p>
+</dd>
+    <dt><code>cal</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar.</p>
+</dd>
+    <dt><code>bdc</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The convention adjusting option dates computed from tenors.</p>
+</dd>
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>lag</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The observation lag.</p>
+</dd>
+    <dt><code>capFloorPrices</code> <a class="xref" href="NanoQL.Experimental.YoYCapFloorTermPriceSurface.html">YoYCapFloorTermPriceSurface</a></dt>
+    <dd><p>The cap and floor price surface.</p>
+</dd>
+    <dt><code>pricer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.YoYInflationCapFloor.html">YoYInflationCapFloor</a>, <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html">YoYOptionletVolatilitySurface</a>, <a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a>&gt;</dt>
+    <dd><p>The cap and floor engine, a function of the instrument, the context and the trial
+volatility.</p>
+</dd>
+    <dt><code>yoyOptionletStripper</code> <a class="xref" href="NanoQL.Experimental.YoYOptionletStripper.html">YoYOptionletStripper</a></dt>
+    <dd><p>The stripper.</p>
+</dd>
+    <dt><code>slope</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The assumption on the initial optionlet volatilities' change over time, in proportion to
+their level.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context: its evaluation date, and the market the stripping prices
+in.</p>
+</dd>
+    <dt><code>interpolator</code> <span class="xref">TInterpolator</span></dt>
+    <dd><p>The interpolator across the strikes.</p>
+</dd>
+    <dt><code>volType</code> <a class="xref" href="NanoQL.TermStructures.VolatilityType.html">VolatilityType</a></dt>
+    <dd><p>The volatility type.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of a shifted lognormal volatility, 0 or 1.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface-1.html">KInterpolatedYoYOptionletVolatilitySurface</a>&lt;TInterpolator&gt;</dt>
+    <dd><p>The surface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">displacement</code> isn't 0 or 1.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">settlementDays</code> is negative, or an enum argument
+isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The stripping fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_Dslice_" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.Dslice*"></a>
+
+  <h3 id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_Dslice_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.Dslice(NanoQL.Time.Date)">
+  Dslice(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The stripped volatilities at a date, each strike's curve read at the date: QuantLib's
+<code>Dslice</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (ImmutableArray&lt;double&gt; Strikes, ImmutableArray&lt;double&gt; Volatilities) Dslice(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date, observed through each curve's own lag.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.immutable.immutablearray-system.double-,system.collections.immutable.immutablearray-system.double--.times">Times</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.immutable.immutablearray-system.double-,system.collections.immutable.immutablearray-system.double--.rates">Rates</a>)</dt>
+    <dd><p>The strikes and the volatilities.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A curve can't give a volatility at the date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_MaxStrike_" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.MaxStrike*"></a>
+
+  <h3 id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_MaxStrike" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.MaxStrike">
+  MaxStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum strike for which the structure returns values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MaxStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_MaxStrike_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The price surface's highest strike.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_MinStrike_" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.MinStrike*"></a>
+
+  <h3 id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_MinStrike" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.MinStrike">
+  MinStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The minimum strike for which the structure returns values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MinStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_MinStrike_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The price surface's lowest strike.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_VolatilityImpl_" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.VolatilityImpl*"></a>
+
+  <h3 id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_VolatilityImpl_System_Double_System_Double_" data-uid="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface`1.VolatilityImpl(System.Double,System.Double)">
+  VolatilityImpl(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility at a time and a strike, which a derived structure computes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double VolatilityImpl(double length, double strike)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Experimental_KInterpolatedYoYOptionletVolatilitySurface_1_VolatilityImpl_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The strikes' interpolation of the stripped curves' volatilities at the time.</p>
+</div>
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

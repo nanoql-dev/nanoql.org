@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class InflationIndex | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class InflationIndex | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The base class of inflation indexes, whose fixings cover a period: a month, a quarter, a year.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Indexes.InflationIndex">
+
+
+
+  <h1 id="NanoQL_Indexes_InflationIndex" data-uid="NanoQL.Indexes.InflationIndex" class="text-break">
+Class InflationIndex  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Indexes.html">Indexes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base class of inflation indexes, whose fixings cover a period: a month, a quarter, a year.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class InflationIndex : FinancialIndex</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.FinancialIndex.html">FinancialIndex</a></div>
+      <div><span class="xref">InflationIndex</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Indexes.YoYInflationIndex.html">YoYInflationIndex</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.ZeroInflationIndex.html">ZeroInflationIndex</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.FinancialIndex.html#NanoQL_FinancialIndex_HasHistoricalFixing_NanoQL_Time_Date_NanoQL_EvaluationContext_">FinancialIndex.HasHistoricalFixing(Date, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.FinancialIndex.html#NanoQL_FinancialIndex_TimeSeries_NanoQL_EvaluationContext_">FinancialIndex.TimeSeries(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.FinancialIndex.html#NanoQL_FinancialIndex_AllowsNativeFixings">FinancialIndex.AllowsNativeFixings</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Indexes_InflationIndex_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A fixing stored through <a class="xref" href="NanoQL.Indexes.IndexFixings.html#NanoQL_Indexes_IndexFixings_AddFixing_NanoQL_FinancialIndex_NanoQL_Time_Date_System_Double_System_Boolean_">AddFixing(FinancialIndex, Date, double, bool)</a> is written on every day of its date's inflation period,
+as QuantLib's <code>addFixing</code> writes it, through <a class="xref" href="NanoQL.Indexes.InflationIndex.html#NanoQL_Indexes_InflationIndex_FixingDates_NanoQL_Time_Date_">FixingDates(Date)</a>; the reads key on the period's first day.
+The store's bulk writers store the dates they are given, as QuantLib's non-virtual <code>addFixings</code> does.
+</p>
+<p>
+Inflation indexes aren't associated with a day but with a period, so they have no fixing calendar: QuantLib's
+<a class="xref" href="NanoQL.Time.NullCalendar.html">NullCalendar</a> stands in, and every date is a valid fixing date. An extension point.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Indexes_InflationIndex__ctor_" data-uid="NanoQL.Indexes.InflationIndex.#ctor*"></a>
+
+  <h3 id="NanoQL_Indexes_InflationIndex__ctor_System_String_NanoQL_Indexes_Region_System_Boolean_NanoQL_Time_Frequency_NanoQL_Time_Period_NanoQL_Currency_" data-uid="NanoQL.Indexes.InflationIndex.#ctor(System.String,NanoQL.Indexes.Region,System.Boolean,NanoQL.Time.Frequency,NanoQL.Time.Period,NanoQL.Currency)">
+  InflationIndex(string, Region, bool, Frequency, Period, Currency)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Indexes.InflationIndex.html">InflationIndex</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected InflationIndex(string familyName, Region region, bool revised, Frequency frequency, Period availabilityLag, Currency currency)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>familyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The index's family name, such as &quot;RPI&quot;.</p>
+</dd>
+    <dt><code>region</code> <a class="xref" href="NanoQL.Indexes.Region.html">Region</a></dt>
+    <dd><p>The region the index is published for.</p>
+</dd>
+    <dt><code>revised</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the index's fixings are revised after publication.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The index's frequency.</p>
+</dd>
+    <dt><code>availabilityLag</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The lag after which a period's fixing is available; the fixing stays the
+period's, whenever it is published.</p>
+</dd>
+    <dt><code>currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The index's currency.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">familyName</code>, <code class="paramref">region</code> or
+<code class="paramref">currency</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">frequency</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Indexes_InflationIndex_AvailabilityLag_" data-uid="NanoQL.Indexes.InflationIndex.AvailabilityLag*"></a>
+
+  <h3 id="NanoQL_Indexes_InflationIndex_AvailabilityLag" data-uid="NanoQL.Indexes.InflationIndex.AvailabilityLag">
+  AvailabilityLag
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the lag after which a period's fixing is available: January's value may only be published in April, and
+it is still January's fixing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Period AvailabilityLag { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_InflationIndex_Currency_" data-uid="NanoQL.Indexes.InflationIndex.Currency*"></a>
+
+  <h3 id="NanoQL_Indexes_InflationIndex_Currency" data-uid="NanoQL.Indexes.InflationIndex.Currency">
+  Currency
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the index's currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Currency Currency { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_InflationIndex_FamilyName_" data-uid="NanoQL.Indexes.InflationIndex.FamilyName*"></a>
+
+  <h3 id="NanoQL_Indexes_InflationIndex_FamilyName" data-uid="NanoQL.Indexes.InflationIndex.FamilyName">
+  FamilyName
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the index's family name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FamilyName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_InflationIndex_FixingCalendar_" data-uid="NanoQL.Indexes.InflationIndex.FixingCalendar*"></a>
+
+  <h3 id="NanoQL_Indexes_InflationIndex_FixingCalendar" data-uid="NanoQL.Indexes.InflationIndex.FixingCalendar">
+  FixingCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets QuantLib's null calendar, since inflation indexes have no fixing calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Calendar FixingCalendar { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_InflationIndex_Frequency_" data-uid="NanoQL.Indexes.InflationIndex.Frequency*"></a>
+
+  <h3 id="NanoQL_Indexes_InflationIndex_Frequency" data-uid="NanoQL.Indexes.InflationIndex.Frequency">
+  Frequency
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the index's frequency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Frequency Frequency { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_InflationIndex_Name_" data-uid="NanoQL.Indexes.InflationIndex.Name*"></a>
+
+  <h3 id="NanoQL_Indexes_InflationIndex_Name" data-uid="NanoQL.Indexes.InflationIndex.Name">
+  Name
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the index's name: the region's name, a space and the family name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_InflationIndex_Region_" data-uid="NanoQL.Indexes.InflationIndex.Region*"></a>
+
+  <h3 id="NanoQL_Indexes_InflationIndex_Region" data-uid="NanoQL.Indexes.InflationIndex.Region">
+  Region
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the region the index is published for.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Region Region { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.Region.html">Region</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_InflationIndex_Revised_" data-uid="NanoQL.Indexes.InflationIndex.Revised*"></a>
+
+  <h3 id="NanoQL_Indexes_InflationIndex_Revised" data-uid="NanoQL.Indexes.InflationIndex.Revised">
+  Revised
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the index's fixings are revised after publication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Revised { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Indexes_InflationIndex_Fixing_" data-uid="NanoQL.Indexes.InflationIndex.Fixing*"></a>
+
+  <h3 id="NanoQL_Indexes_InflationIndex_Fixing_NanoQL_Time_Date_NanoQL_EvaluationContext_System_Boolean_" data-uid="NanoQL.Indexes.InflationIndex.Fixing(NanoQL.Time.Date,NanoQL.EvaluationContext,System.Boolean)">
+  Fixing(Date, EvaluationContext, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fixing on a date, stored or forecast: a fixing covers its inflation period, and forecasting needs a term
+structure whose base date is earlier than its reference date, since fixings are available only with a lag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override abstract double Fixing(Date fixingDate, EvaluationContext context, bool forecastTodaysFixing = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fixingDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The fixing date.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>forecastTodaysFixing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Ignored, as QuantLib ignores it.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fixing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_InflationIndex_FixingDates_" data-uid="NanoQL.Indexes.InflationIndex.FixingDates*"></a>
+
+  <h3 id="NanoQL_Indexes_InflationIndex_FixingDates_NanoQL_Time_Date_" data-uid="NanoQL.Indexes.InflationIndex.FixingDates(NanoQL.Time.Date)">
+  FixingDates(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Every day of the date's inflation period, on which a fixing is stored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IEnumerable&lt;Date&gt; FixingDates(Date fixingDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fixingDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The fixing date given to the store.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The days, from the period's first to its last.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The index's frequency isn't one
+<a class="xref" href="NanoQL.TermStructures.InflationTermStructureFunctions.html#NanoQL_TermStructures_InflationTermStructureFunctions_InflationPeriod_NanoQL_Time_Date_NanoQL_Time_Frequency_">InflationPeriod(Date, Frequency)</a> handles.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Indexes_InflationIndex_IsValidFixingDate_" data-uid="NanoQL.Indexes.InflationIndex.IsValidFixingDate*"></a>
+
+  <h3 id="NanoQL_Indexes_InflationIndex_IsValidFixingDate_NanoQL_Time_Date_" data-uid="NanoQL.Indexes.InflationIndex.IsValidFixingDate(NanoQL.Time.Date)">
+  IsValidFixingDate(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a date is a valid fixing date: every date is, since the index has no fixing calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsValidFixingDate(Date fixingDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fixingDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_InflationIndex_PastFixing_" data-uid="NanoQL.Indexes.InflationIndex.PastFixing*"></a>
+
+  <h3 id="NanoQL_Indexes_InflationIndex_PastFixing_NanoQL_Time_Date_NanoQL_EvaluationContext_" data-uid="NanoQL.Indexes.InflationIndex.PastFixing(NanoQL.Time.Date,NanoQL.EvaluationContext)">
+  PastFixing(Date, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The stored fixing on a date, read on the first day of its inflation period.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override abstract double? PastFixing(Date fixingDate, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fixingDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The fixing date.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose fixings are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The fixing, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when none is stored.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

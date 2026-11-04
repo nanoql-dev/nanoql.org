@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class ZabrSwaptionVolatilityCube | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ZabrSwaptionVolatilityCube | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The ZABR swaption volatility cube: QuantLib&#39;s ZabrSwaptionVolatilityCube, the XABR cube on the ZABR model with its default kernel, whose smiles are  fits and whose sections are s, on the short-maturity lognormal kernel.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.ZabrSwaptionVolatilityCube">
+
+
+
+  <h1 id="NanoQL_TermStructures_ZabrSwaptionVolatilityCube" data-uid="NanoQL.TermStructures.ZabrSwaptionVolatilityCube" class="text-break">
+Class ZabrSwaptionVolatilityCube  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The ZABR swaption volatility cube: QuantLib's <code>ZabrSwaptionVolatilityCube</code>, the XABR cube on the ZABR model with
+its default kernel, whose smiles are <a class="xref" href="NanoQL.Numerics.ZabrInterpolation-1.html">ZabrInterpolation&lt;TEvaluation&gt;</a> fits and whose sections are
+<a class="xref" href="NanoQL.TermStructures.ZabrSmileSection-1.html">ZabrSmileSection&lt;TEvaluation&gt;</a>s, on the short-maturity lognormal kernel.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ZabrSwaptionVolatilityCube : XabrSwaptionVolatilityCube&lt;SwaptionVolCubeZabrModel&lt;ZabrShortMaturityLognormal&gt;&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html">VolatilityTermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html">SwaptionVolatilityStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityDiscrete.html">SwaptionVolatilityDiscrete</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html">SwaptionVolatilityCube</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.XabrSwaptionVolatilityCube-1.html">XabrSwaptionVolatilityCube</a>&lt;<a class="xref" href="NanoQL.TermStructures.SwaptionVolCubeZabrModel-1.html">SwaptionVolCubeZabrModel</a>&lt;<a class="xref" href="NanoQL.TermStructures.ZabrShortMaturityLognormal.html">ZabrShortMaturityLognormal</a>&gt;&gt;</div>
+      <div><span class="xref">ZabrSwaptionVolatilityCube</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.XabrSwaptionVolatilityCube-1.html#NanoQL_TermStructures_XabrSwaptionVolatilityCube_1_SparseSabrParameters">XabrSwaptionVolatilityCube&lt;SwaptionVolCubeZabrModel&lt;ZabrShortMaturityLognormal&gt;&gt;.SparseSabrParameters()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.XabrSwaptionVolatilityCube-1.html#NanoQL_TermStructures_XabrSwaptionVolatilityCube_1_DenseSabrParameters">XabrSwaptionVolatilityCube&lt;SwaptionVolCubeZabrModel&lt;ZabrShortMaturityLognormal&gt;&gt;.DenseSabrParameters()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.XabrSwaptionVolatilityCube-1.html#NanoQL_TermStructures_XabrSwaptionVolatilityCube_1_MarketVolCube">XabrSwaptionVolatilityCube&lt;SwaptionVolCubeZabrModel&lt;ZabrShortMaturityLognormal&gt;&gt;.MarketVolCube()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.XabrSwaptionVolatilityCube-1.html#NanoQL_TermStructures_XabrSwaptionVolatilityCube_1_VolCubeAtmCalibrated">XabrSwaptionVolatilityCube&lt;SwaptionVolCubeZabrModel&lt;ZabrShortMaturityLognormal&gt;&gt;.VolCubeAtmCalibrated()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.XabrSwaptionVolatilityCube-1.html#NanoQL_TermStructures_XabrSwaptionVolatilityCube_1_MarketVolCube_System_Int32_">XabrSwaptionVolatilityCube&lt;SwaptionVolCubeZabrModel&lt;ZabrShortMaturityLognormal&gt;&gt;.MarketVolCube(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.XabrSwaptionVolatilityCube-1.html#NanoQL_TermStructures_XabrSwaptionVolatilityCube_1_Recalibration_System_Double_NanoQL_Time_Period_NanoQL_EvaluationContext_">XabrSwaptionVolatilityCube&lt;SwaptionVolCubeZabrModel&lt;ZabrShortMaturityLognormal&gt;&gt;.Recalibration(double, Period, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.XabrSwaptionVolatilityCube-1.html#NanoQL_TermStructures_XabrSwaptionVolatilityCube_1_Recalibration_System_Collections_Generic_IEnumerable_System_Double__NanoQL_Time_Period_NanoQL_EvaluationContext_">XabrSwaptionVolatilityCube&lt;SwaptionVolCubeZabrModel&lt;ZabrShortMaturityLognormal&gt;&gt;.Recalibration(IEnumerable&lt;double&gt;, Period, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.XabrSwaptionVolatilityCube-1.html#NanoQL_TermStructures_XabrSwaptionVolatilityCube_1_Recalibration_System_Collections_Generic_IEnumerable_NanoQL_Time_Period__System_Collections_Generic_IEnumerable_System_Double__NanoQL_Time_Period_NanoQL_EvaluationContext_">XabrSwaptionVolatilityCube&lt;SwaptionVolCubeZabrModel&lt;ZabrShortMaturityLognormal&gt;&gt;.Recalibration(IEnumerable&lt;Period&gt;, IEnumerable&lt;double&gt;, Period, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_VolSpreads">SwaptionVolatilityCube.VolSpreads()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_AtmStrike_NanoQL_Time_Date_NanoQL_Time_Period_NanoQL_EvaluationContext_">SwaptionVolatilityCube.AtmStrike(Date, Period, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_AtmStrike_NanoQL_Time_Period_NanoQL_Time_Period_NanoQL_EvaluationContext_">SwaptionVolatilityCube.AtmStrike(Period, Period, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_MinStrike">SwaptionVolatilityCube.MinStrike()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_MaxStrike">SwaptionVolatilityCube.MaxStrike()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_AtmVol">SwaptionVolatilityCube.AtmVol</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_StrikeSpreads">SwaptionVolatilityCube.StrikeSpreads</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_SwapIndexBase">SwaptionVolatilityCube.SwapIndexBase</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_ShortSwapIndexBase">SwaptionVolatilityCube.ShortSwapIndexBase</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_VegaWeightedSmileFit">SwaptionVolatilityCube.VegaWeightedSmileFit</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_MaxDate">SwaptionVolatilityCube.MaxDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_MaxTime">SwaptionVolatilityCube.MaxTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_MaxSwapTenor">SwaptionVolatilityCube.MaxSwapTenor</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html#NanoQL_TermStructures_SwaptionVolatilityCube_VolatilityType">SwaptionVolatilityCube.VolatilityType</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityDiscrete.html#NanoQL_TermStructures_SwaptionVolatilityDiscrete_OptionDateFromTime_System_Double_">SwaptionVolatilityDiscrete.OptionDateFromTime(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityDiscrete.html#NanoQL_TermStructures_SwaptionVolatilityDiscrete_DayCounter">SwaptionVolatilityDiscrete.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityDiscrete.html#NanoQL_TermStructures_SwaptionVolatilityDiscrete_Calendar">SwaptionVolatilityDiscrete.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityDiscrete.html#NanoQL_TermStructures_SwaptionVolatilityDiscrete_BusinessDayConvention">SwaptionVolatilityDiscrete.BusinessDayConvention</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityDiscrete.html#NanoQL_TermStructures_SwaptionVolatilityDiscrete_OptionTenors">SwaptionVolatilityDiscrete.OptionTenors</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityDiscrete.html#NanoQL_TermStructures_SwaptionVolatilityDiscrete_OptionDates">SwaptionVolatilityDiscrete.OptionDates</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityDiscrete.html#NanoQL_TermStructures_SwaptionVolatilityDiscrete_OptionTimes">SwaptionVolatilityDiscrete.OptionTimes</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityDiscrete.html#NanoQL_TermStructures_SwaptionVolatilityDiscrete_SwapTenors">SwaptionVolatilityDiscrete.SwapTenors</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityDiscrete.html#NanoQL_TermStructures_SwaptionVolatilityDiscrete_SwapLengths">SwaptionVolatilityDiscrete.SwapLengths</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_Volatility_NanoQL_Time_Period_NanoQL_Time_Period_System_Double_System_Boolean_">SwaptionVolatilityStructure.Volatility(Period, Period, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_Volatility_NanoQL_Time_Date_NanoQL_Time_Period_System_Double_System_Boolean_">SwaptionVolatilityStructure.Volatility(Date, Period, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_Volatility_System_Double_NanoQL_Time_Period_System_Double_System_Boolean_">SwaptionVolatilityStructure.Volatility(double, Period, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_Volatility_NanoQL_Time_Period_System_Double_System_Double_System_Boolean_">SwaptionVolatilityStructure.Volatility(Period, double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_Volatility_NanoQL_Time_Date_System_Double_System_Double_System_Boolean_">SwaptionVolatilityStructure.Volatility(Date, double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_Volatility_System_Double_System_Double_System_Double_System_Boolean_">SwaptionVolatilityStructure.Volatility(double, double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_BlackVariance_NanoQL_Time_Period_NanoQL_Time_Period_System_Double_System_Boolean_">SwaptionVolatilityStructure.BlackVariance(Period, Period, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_BlackVariance_NanoQL_Time_Date_NanoQL_Time_Period_System_Double_System_Boolean_">SwaptionVolatilityStructure.BlackVariance(Date, Period, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_BlackVariance_System_Double_NanoQL_Time_Period_System_Double_System_Boolean_">SwaptionVolatilityStructure.BlackVariance(double, Period, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_BlackVariance_NanoQL_Time_Period_System_Double_System_Double_System_Boolean_">SwaptionVolatilityStructure.BlackVariance(Period, double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_BlackVariance_NanoQL_Time_Date_System_Double_System_Double_System_Boolean_">SwaptionVolatilityStructure.BlackVariance(Date, double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_BlackVariance_System_Double_System_Double_System_Double_System_Boolean_">SwaptionVolatilityStructure.BlackVariance(double, double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_Shift_NanoQL_Time_Period_NanoQL_Time_Period_System_Boolean_">SwaptionVolatilityStructure.Shift(Period, Period, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_Shift_NanoQL_Time_Date_NanoQL_Time_Period_System_Boolean_">SwaptionVolatilityStructure.Shift(Date, Period, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_Shift_System_Double_NanoQL_Time_Period_System_Boolean_">SwaptionVolatilityStructure.Shift(double, Period, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_Shift_NanoQL_Time_Period_System_Double_System_Boolean_">SwaptionVolatilityStructure.Shift(Period, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_Shift_NanoQL_Time_Date_System_Double_System_Boolean_">SwaptionVolatilityStructure.Shift(Date, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_Shift_System_Double_System_Double_System_Boolean_">SwaptionVolatilityStructure.Shift(double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_SmileSection_NanoQL_Time_Period_NanoQL_Time_Period_System_Boolean_">SwaptionVolatilityStructure.SmileSection(Period, Period, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_SmileSection_NanoQL_Time_Date_NanoQL_Time_Period_System_Boolean_">SwaptionVolatilityStructure.SmileSection(Date, Period, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_SmileSection_System_Double_NanoQL_Time_Period_System_Boolean_">SwaptionVolatilityStructure.SmileSection(double, Period, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_SmileSection_NanoQL_Time_Period_System_Double_System_Boolean_">SwaptionVolatilityStructure.SmileSection(Period, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_SmileSection_NanoQL_Time_Date_System_Double_System_Boolean_">SwaptionVolatilityStructure.SmileSection(Date, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_SmileSection_System_Double_System_Double_System_Boolean_">SwaptionVolatilityStructure.SmileSection(double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_MaxSwapLength">SwaptionVolatilityStructure.MaxSwapLength()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_SwapLength_NanoQL_Time_Period_">SwaptionVolatilityStructure.SwapLength(Period)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html#NanoQL_TermStructures_SwaptionVolatilityStructure_SwapLength_NanoQL_Time_Date_NanoQL_Time_Date_">SwaptionVolatilityStructure.SwapLength(Date, Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_OptionDateFromTenor_NanoQL_Time_Period_">VolatilityTermStructure.OptionDateFromTenor(Period)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_TimeFromReference_NanoQL_Time_Date_">TermStructure.TimeFromReference(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_ReferenceDate">TermStructure.ReferenceDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_SettlementDays">TermStructure.SettlementDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_TermStructures_ZabrSwaptionVolatilityCube_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>QuantLib's typedef of <code>XabrSwaptionVolatilityCube&lt;SwaptionVolCubeZabrModel&lt;&gt;&gt;</code>, sealed over the generic
+cube, which it adds nothing to: see <a class="xref" href="NanoQL.TermStructures.XabrSwaptionVolatilityCube-1.html">XabrSwaptionVolatilityCube&lt;TModel&gt;</a>. Its guesses and fixed flags are
+five per pair, γ the fifth; a shifted at-the-money structure is refused where a section is built
+(<a class="xref" href="NanoQL.TermStructures.SwaptionVolCubeZabrModel-1.html">SwaptionVolCubeZabrModel&lt;TEvaluation&gt;</a>).</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_ZabrSwaptionVolatilityCube__ctor_" data-uid="NanoQL.TermStructures.ZabrSwaptionVolatilityCube.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_ZabrSwaptionVolatilityCube__ctor_NanoQL_TermStructures_SwaptionVolatilityStructure_System_Collections_Generic_IEnumerable_NanoQL_Time_Period__System_Collections_Generic_IEnumerable_NanoQL_Time_Period__System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_Double___NanoQL_Indexes_SwapIndex_NanoQL_Indexes_SwapIndex_System_Boolean_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_Double___System_Collections_Generic_IEnumerable_System_Boolean__System_Boolean_NanoQL_EvaluationContext_NanoQL_Numerics_EndCriteria_System_Nullable_System_Double__NanoQL_Numerics_OptimizationMethod_System_Nullable_System_Double__System_Boolean_System_Int32_System_Boolean_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.ZabrSwaptionVolatilityCube.#ctor(NanoQL.TermStructures.SwaptionVolatilityStructure,System.Collections.Generic.IEnumerable{NanoQL.Time.Period},System.Collections.Generic.IEnumerable{NanoQL.Time.Period},System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Double}},NanoQL.Indexes.SwapIndex,NanoQL.Indexes.SwapIndex,System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Double}},System.Collections.Generic.IEnumerable{System.Boolean},System.Boolean,NanoQL.EvaluationContext,NanoQL.Numerics.EndCriteria,System.Nullable{System.Double},NanoQL.Numerics.OptimizationMethod,System.Nullable{System.Double},System.Boolean,System.Int32,System.Boolean,System.Double,System.Boolean)">
+  ZabrSwaptionVolatilityCube(SwaptionVolatilityStructure, IEnumerable&lt;Period&gt;, IEnumerable&lt;Period&gt;, IEnumerable&lt;double&gt;, IEnumerable&lt;IEnumerable&lt;double&gt;&gt;, SwapIndex, SwapIndex, bool, IEnumerable&lt;IEnumerable&lt;double&gt;&gt;, IEnumerable&lt;bool&gt;, bool, EvaluationContext, EndCriteria?, double?, OptimizationMethod?, double?, bool, int, bool, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.ZabrSwaptionVolatilityCube.html">ZabrSwaptionVolatilityCube</a> class, and calibrates it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ZabrSwaptionVolatilityCube(SwaptionVolatilityStructure atmVolStructure, IEnumerable&lt;Period&gt; optionTenors, IEnumerable&lt;Period&gt; swapTenors, IEnumerable&lt;double&gt; strikeSpreads, IEnumerable&lt;IEnumerable&lt;double&gt;&gt; volSpreads, SwapIndex swapIndexBase, SwapIndex shortSwapIndexBase, bool vegaWeightedSmileFit, IEnumerable&lt;IEnumerable&lt;double&gt;&gt; parametersGuess, IEnumerable&lt;bool&gt; isParameterFixed, bool isAtmCalibrated, EvaluationContext context, EndCriteria? endCriteria = null, double? maxErrorTolerance = null, OptimizationMethod? optMethod = null, double? errorAccept = null, bool useMaxError = false, int maxGuesses = 50, bool backwardFlat = false, double cutoffStrike = 0.0001, bool singlePassCalibration = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atmVolStructure</code> <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html">SwaptionVolatilityStructure</a></dt>
+    <dd><p>The at-the-money volatility structure; a <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityDiscrete.html">SwaptionVolatilityDiscrete</a>
+for an at-the-money-calibrated or single-pass cube.</p>
+</dd>
+    <dt><code>optionTenors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Period.html">Period</a>&gt;</dt>
+    <dd><p>The option tenors, positive and increasing; at least 2.</p>
+</dd>
+    <dt><code>swapTenors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Period.html">Period</a>&gt;</dt>
+    <dd><p>The swap tenors, positive, increasing, and in months or years; at least 2.</p>
+</dd>
+    <dt><code>strikeSpreads</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The strike spreads from the at-the-money strike, increasing; at least 1.</p>
+</dd>
+    <dt><code>volSpreads</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd><p>The volatility spreads: a row per option and swap tenor pair, the pair (j, k) in row
+j·(swap tenors) + k, with a spread per strike spread.</p>
+</dd>
+    <dt><code>swapIndexBase</code> <a class="xref" href="NanoQL.Indexes.SwapIndex.html">SwapIndex</a></dt>
+    <dd><p>The swap index whose family and conventions give the at-the-money strikes of the swap
+tenors past the short index's.</p>
+</dd>
+    <dt><code>shortSwapIndexBase</code> <a class="xref" href="NanoQL.Indexes.SwapIndex.html">SwapIndex</a></dt>
+    <dd><p>The swap index whose family and conventions give the at-the-money strikes of the
+other swap tenors.</p>
+</dd>
+    <dt><code>vegaWeightedSmileFit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the fits weight their errors by the strikes' vegas.</p>
+</dd>
+    <dt><code>parametersGuess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd><p>The guesses of α, β, ν, ρ and γ: a row per option and swap tenor pair, laid out as the
+volatility spreads.</p>
+</dd>
+    <dt><code>isParameterFixed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Whether each of α, β, ν, ρ and γ is fixed at its guess.</p>
+</dd>
+    <dt><code>isAtmCalibrated</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the cube fills and fits its dense grid.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, which the at-the-money strikes read.</p>
+</dd>
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>The fits' end criteria, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the ZABR fit's default.</p>
+</dd>
+    <dt><code>maxErrorTolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The error a fit must stay below, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's 0.01,
+0.0015 with vega weights.</p>
+</dd>
+    <dt><code>optMethod</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The fits' optimizer, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the ZABR fit's default.</p>
+</dd>
+    <dt><code>errorAccept</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The error at or below which a fit is accepted and its restarts stop, or
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for a fifth of the tolerance.</p>
+</dd>
+    <dt><code>useMaxError</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether a fit is scored by its maximum error, not its root-mean-square error.</p>
+</dd>
+    <dt><code>maxGuesses</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The most minimizations of a fit.</p>
+</dd>
+    <dt><code>backwardFlat</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the parameters are interpolated backward flat in option time.</p>
+</dd>
+    <dt><code>cutoffStrike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The lowest strike plus shift a fit takes.</p>
+</dd>
+    <dt><code>singlePassCalibration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the cube fits its dense grid alone, from the quoted spreads.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code>, the structure, a collection or an index is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The generic cube refuses its arguments.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxGuesses</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A fit fails or reaches the tolerance, an at-the-money strike can't be computed,
+or the dense grid reaches past the cube's.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

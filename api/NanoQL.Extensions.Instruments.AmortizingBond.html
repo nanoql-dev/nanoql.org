@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class AmortizingBond | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AmortizingBond | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A fixed-rate bond held at amortised cost: the effective rate of its purchase, and its carrying amount over its life, the difference between its cost and its face amount amortised by the effective interest method.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Extensions.Instruments.AmortizingBond">
+
+
+
+  <h1 id="NanoQL_Extensions_Instruments_AmortizingBond" data-uid="NanoQL.Extensions.Instruments.AmortizingBond" class="text-break">
+Class AmortizingBond  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<span class="xref">Extensions</span>.<a class="xref" href="NanoQL.Extensions.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.Extensions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A fixed-rate bond held at amortised cost: the effective rate of its purchase, and its carrying amount over its life,
+the difference between its cost and its face amount amortised by the effective interest method.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AmortizingBond : Bond</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.Bond.html">Bond</a></div>
+      <div><span class="xref">AmortizingBond</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_IsExpired_NanoQL_EvaluationContext_">Bond.IsExpired(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_SetupExpired">Bond.SetupExpired()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_Validate">Bond.Validate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_FetchResults_NanoQL_InstrumentResults_">Bond.FetchResults(InstrumentResults)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_Notional_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">Bond.Notional(EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_Redemption">Bond.Redemption()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_StartDate">Bond.StartDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_MaturityDate">Bond.MaturityDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_IsTradable_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">Bond.IsTradable(EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_SettlementDate_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">Bond.SettlementDate(EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_CleanPrice_NanoQL_Instruments_BondResults_NanoQL_EvaluationContext_">Bond.CleanPrice(BondResults, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_DirtyPrice_NanoQL_Instruments_BondResults_NanoQL_EvaluationContext_">Bond.DirtyPrice(BondResults, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_SettlementValue_System_Double_NanoQL_EvaluationContext_">Bond.SettlementValue(double, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_Yield_NanoQL_Instruments_BondResults_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Double_System_Int32_System_Double_NanoQL_Instruments_BondPriceType_">Bond.Yield(BondResults, DayCounter, Compounding, Frequency, EvaluationContext, double, int, double, BondPriceType)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_CleanPrice_System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">Bond.CleanPrice(double, DayCounter, Compounding, Frequency, EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_DirtyPrice_System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">Bond.DirtyPrice(double, DayCounter, Compounding, Frequency, EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_Yield_NanoQL_Instruments_BondPrice_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__System_Double_System_Int32_System_Double_">Bond.Yield(BondPrice, DayCounter, Compounding, Frequency, EvaluationContext, Date?, double, int, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_AccruedAmount_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">Bond.AccruedAmount(EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_NextCouponRate_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">Bond.NextCouponRate(EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_PreviousCouponRate_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">Bond.PreviousCouponRate(EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_NextCashFlowDate_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">Bond.NextCashFlowDate(EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_PreviousCashFlowDate_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">Bond.PreviousCashFlowDate(EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_SettlementDays">Bond.SettlementDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_Calendar">Bond.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_Notionals">Bond.Notionals</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_Cashflows">Bond.Cashflows</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_Redemptions">Bond.Redemptions</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_IssueDate">Bond.IssueDate</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Extensions_Instruments_AmortizingBond_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The effective rate is solved on the trade date, at initial recognition, as IFRS 9 and ASC 310-20's interest method
+require: the rate, simple within each coupon period and compounded at each coupon date, at which the bond's
+remaining coupons and redemption are worth the price paid, the cost plus the accrued interest purchased
+(<a class="xref" href="NanoQL.Coupons.CashFlows.html#NanoQL_Coupons_CashFlows_Yield_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__System_Double_System_Int32_System_Double_">Yield(ImmutableArray&lt;CashFlow&gt;, double, DayCounter, Compounding, Frequency, EvaluationContext, bool?, Date?, Date?, double, int, double)</a>, settled on the trade date). Each coupon date after
+the trade books an amortisation (<a class="xref" href="NanoQL.Extensions.Instruments.AmortizingBond.html#NanoQL_Extensions_Instruments_AmortizingBond_Amortizations">Amortizations</a>): the interest at the effective rate on the carrying
+amount, over the yield's own time, less the coupon (less the accrued interest purchased, in the first period),
+rounded to the cent, positive when the carrying amount accretes toward a face above it; the last closes the carrying
+amount to the face amount. <a class="xref" href="NanoQL.Extensions.Instruments.AmortizingBond.html#NanoQL_Extensions_Instruments_AmortizingBond_AmortizationValue_NanoQL_Time_Date_">AmortizationValue(Date)</a> is the carrying amount, without accrued interest, at
+any date of the bond's life: the cost on the trade date, continuous, and the face amount at maturity.
+</p>
+<p>
+Ported from QLNet. Its departures from QLNet: the rate is solved at the trade date with the accrued interest
+purchased, where QLNet solves at the coupon date on or before the trade (or at its global evaluation date, with no
+coupon before it) and its carrying amount jumps at the first coupon date; a partial period accrues on the carrying
+amount at its start, where QLNet's accrues on the cost; the coupon is the leg's own, day-counted, where QLNet's
+amortisation pays the face amount times the rate over the frequency; an amortisation's sign is its interest less
+its coupon, where QLNet's is the bond's being at a premium; the last amortisation closes to the face amount, where
+QLNet's cents leave it off; a given yield of 0 is taken, where QLNet solves instead; the bond's calendar is the one
+given, where QLNet's base uses TARGET; and the bond's cash flows are its coupons and redemption, where QLNet's hold
+the accounting entries and coupons whose amounts it overrides. On a purchase on a coupon date the method is QLNet's.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Extensions_Instruments_AmortizingBond__ctor_" data-uid="NanoQL.Extensions.Instruments.AmortizingBond.#ctor*"></a>
+
+  <h3 id="NanoQL_Extensions_Instruments_AmortizingBond__ctor_System_Double_System_Double_System_Double_NanoQL_Time_Date_NanoQL_Time_Date_NanoQL_Time_Date_NanoQL_Time_Frequency_NanoQL_Time_DayCounter_NanoQL_Extensions_Instruments_AmortizingMethod_NanoQL_Time_Calendar_NanoQL_EvaluationContext_System_Nullable_System_Double__" data-uid="NanoQL.Extensions.Instruments.AmortizingBond.#ctor(System.Double,System.Double,System.Double,NanoQL.Time.Date,NanoQL.Time.Date,NanoQL.Time.Date,NanoQL.Time.Frequency,NanoQL.Time.DayCounter,NanoQL.Extensions.Instruments.AmortizingMethod,NanoQL.Time.Calendar,NanoQL.EvaluationContext,System.Nullable{System.Double})">
+  AmortizingBond(double, double, double, Date, Date, Date, Frequency, DayCounter, AmortizingMethod, Calendar?, EvaluationContext, double?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Extensions.Instruments.AmortizingBond.html">AmortizingBond</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AmortizingBond(double faceValue, double marketValue, double couponRate, Date issueDate, Date maturityDate, Date tradeDate, Frequency payFrequency, DayCounter dCounter, AmortizingMethod method, Calendar? calendar, EvaluationContext context, double? gYield = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>faceValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The face amount held.</p>
+</dd>
+    <dt><code>marketValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The cost: the price paid, without the accrued interest purchased.</p>
+</dd>
+    <dt><code>couponRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The coupon rate, simple and annual.</p>
+</dd>
+    <dt><code>issueDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The issue date, the start of the coupon schedule.</p>
+</dd>
+    <dt><code>maturityDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The maturity date.</p>
+</dd>
+    <dt><code>tradeDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The trade date, the purchase's initial recognition.</p>
+</dd>
+    <dt><code>payFrequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The coupon frequency.</p>
+</dd>
+    <dt><code>dCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The coupons' day counter, and the effective rate's.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Extensions.Instruments.AmortizingMethod.html">AmortizingMethod</a></dt>
+    <dd><p>The amortisation method.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The bond's calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty calendar.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, which the yield's solve reads for a flow's occurrence.</p>
+</dd>
+    <dt><code>gYield</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The effective rate, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to solve it.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">dCounter</code> or <code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">method</code> isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The trade date isn't before the maturity date, or the frequency gives no coupon period.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The yield's solver fails.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Extensions_Instruments_AmortizingBond_Amortizations_" data-uid="NanoQL.Extensions.Instruments.AmortizingBond.Amortizations*"></a>
+
+  <h3 id="NanoQL_Extensions_Instruments_AmortizingBond_Amortizations" data-uid="NanoQL.Extensions.Instruments.AmortizingBond.Amortizations">
+  Amortizations
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the amortisations, one at each coupon date after the trade, in date order: the change in the carrying
+amount, positive where it accretes, negative where a premium amortises. They are accounting entries, not
+payments, so they aren't among the bond's cash flows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;AmortizingPayment&gt; Amortizations { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Coupons.AmortizingPayment.html">AmortizingPayment</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Instruments_AmortizingBond_IsPremium_" data-uid="NanoQL.Extensions.Instruments.AmortizingBond.IsPremium*"></a>
+
+  <h3 id="NanoQL_Extensions_Instruments_AmortizingBond_IsPremium" data-uid="NanoQL.Extensions.Instruments.AmortizingBond.IsPremium">
+  IsPremium
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the cost is above the face amount.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPremium { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Extensions_Instruments_AmortizingBond_AmortizationValue_" data-uid="NanoQL.Extensions.Instruments.AmortizingBond.AmortizationValue*"></a>
+
+  <h3 id="NanoQL_Extensions_Instruments_AmortizingBond_AmortizationValue_NanoQL_Time_Date_" data-uid="NanoQL.Extensions.Instruments.AmortizingBond.AmortizationValue(NanoQL.Time.Date)">
+  AmortizationValue(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The carrying amount at a date, without accrued interest: the cost on the trade date; at a coupon date the
+amortisations booked; between them the last carrying amount plus the interest on it at the effective rate, less
+the coupon's, since that date, both over the coupon period's stepwise time, as the effective rate's solve counts
+it; the face amount at maturity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AmortizationValue(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The carrying amount; 0 before the trade date and after maturity, as QLNet returns.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Instruments_AmortizingBond_Yield_" data-uid="NanoQL.Extensions.Instruments.AmortizingBond.Yield*"></a>
+
+  <h3 id="NanoQL_Extensions_Instruments_AmortizingBond_Yield" data-uid="NanoQL.Extensions.Instruments.AmortizingBond.Yield">
+  Yield()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The effective rate, simple within each coupon period and compounded at the coupon frequency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Yield()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

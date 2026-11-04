@@ -1,0 +1,2438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Basket | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Basket | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A credit basket: credit names, each with a notional, drawn from a pool of issuers, and a tranche of the pool&#39;s loss, with the default loss model that gives its loss statistics.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.Basket">
+
+
+
+  <h1 id="NanoQL_Experimental_Basket" data-uid="NanoQL.Experimental.Basket" class="text-break">
+Class Basket  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A credit basket: credit names, each with a notional, drawn from a pool of issuers, and a tranche of the pool's loss,
+with the default loss model that gives its loss statistics.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public sealed class Basket</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Basket</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_Basket_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable, of its terms and its evaluation context: it computes QuantLib's <code>computeBasket()</code> at the context's
+evaluation date at construction, its live names, notionals and keys, its settled loss and its remaining tranche, and
+keeps the context, since QuantLib's statistics take no date of evaluation and its cached state is that date's.
+QuantLib's constructor computes that state before it sets the tranche's attachment and detachment amounts, so its
+remaining amounts read 0 until the first statistic (<code>basket.cpp:57-68</code>); here they are computed after them
+(<code>Divergences/BasketConstructionOrderTests.cs</code>).
+</p>
+<p>
+<a class="xref" href="NanoQL.Experimental.Basket.html#NanoQL_Experimental_Basket_SetLossModel_NanoQL_Experimental_IDefaultLossModel_">SetLossModel(IDefaultLossModel?)</a> returns a basket of the same terms and context whose <a class="xref" href="NanoQL.Experimental.Basket.html#NanoQL_Experimental_Basket_LossModel">LossModel</a> is the model
+bound to it, its precomputation run once, there: QuantLib's flows set a model on a basket and change it through
+observers, which become rebuilds. A basket with no model refuses its statistics with QuantLib's "Basket has no
+default loss model assigned."
+</p>
+<p>
+The live reads take the live names' positions: QuantLib's <code>remainingNotionals(d)</code> and
+<code>remainingProbabilities(d)</code> index the live list's positions, not its names (<code>basket.cpp:196-220</code>), so after
+the first of three names defaults they read the first two names' values (<code>Divergences/BasketLiveReadsTests.cs</code>).
+Every curve read before a curve's reference date is a default probability of 0, where QuantLib's refuses it
+("negative time").
+</p>
+<p>
+<b>Realized defaults</b>. QuantLib's basket misprices once a name has defaulted: its expected tranche loss adds the
+whole settled loss, its models tranche the live names' loss against min(D, A + max(0, L − A)) where its own header
+means max(0, A − L), its n-th-to-default probabilities ignore the defaults, and an unsettled default's recovery is a
+null; its header warns "Baskets with realized defaults not tested/WIP." Here the names defaulted by the evaluation
+date leave the pricing basket: the lost notional L writes the tranche down from its attachment, the recovered
+notional amortizes it from its detachment's side (min(D, N − recovered)), and the model is bound to a basket of the
+live names over that restated tranche, each latent model restricted to their rows (<a class="xref" href="NanoQL.Experimental.Basket.html#NanoQL_Experimental_Basket_PricingBasket">PricingBasket</a>). Its
+statistics add the realized tranche loss: the expected tranche loss, the percentile and the expected shortfall add
+it to the live model's; <a class="xref" href="NanoQL.Experimental.Basket.html#NanoQL_Experimental_Basket_ProbOverLoss_NanoQL_Time_Date_System_Double_">ProbOverLoss(Date, double)</a> maps its inception fraction onto the restated tranche, 1 at or
+below the realized loss; the loss distribution is the live one shifted by the realized loss; the event counts take
+the order less the realized defaults, 1 (and QuantLib's zeros) once they reach it; the vectors run over the live
+names; the name-indexed reads take pool positions, a defaulted name's recovery its settled one and its default
+correlation refused. A default not settled for the name's key's seniority is refused, QuantLib's own <code>\todo</code>
+(<code>basket.cpp:128-131</code>). An event dated after the evaluation date isn't realized there, so it stays out of the
+restatement, and the reads with a date argument keep QuantLib's use of such "programmed" events for jump-to-default
+analysis (<code>basket.hpp:138-141</code>). On a basket with no realized default, QuantLib's values, bit for bit.
+<code>Divergences/BasketRealizedDefaultsTests.cs</code>.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_Basket__ctor_" data-uid="NanoQL.Experimental.Basket.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket__ctor_NanoQL_Time_Date_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_Double__NanoQL_Experimental_Pool_NanoQL_EvaluationContext_System_Double_System_Double_NanoQL_Instruments_Claim_" data-uid="NanoQL.Experimental.Basket.#ctor(NanoQL.Time.Date,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Double},NanoQL.Experimental.Pool,NanoQL.EvaluationContext,System.Double,System.Double,NanoQL.Instruments.Claim)">
+  Basket(Date, IEnumerable&lt;string&gt;, IEnumerable&lt;double&gt;, Pool, EvaluationContext, double, double, Claim?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.Basket.html">Basket</a> class: constant notional positions subject to
+default risk only, with no loss model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Basket(Date refDate, IEnumerable&lt;string&gt; names, IEnumerable&lt;double&gt; notionals, Pool pool, EvaluationContext context, double attachmentRatio = 0, double detachmentRatio = 1, Claim? claim = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>refDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The basket's inception date, from which default events count.</p>
+</dd>
+    <dt><code>names</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The names, which QuantLib ignores for the pool's, and so does nanoql.</p>
+</dd>
+    <dt><code>notionals</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The notionals, one per pool name.</p>
+</dd>
+    <dt><code>pool</code> <a class="xref" href="NanoQL.Experimental.Pool.html">Pool</a></dt>
+    <dd><p>The pool.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, at whose date the basket's state is computed.</p>
+</dd>
+    <dt><code>attachmentRatio</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The tranche's attachment, a fraction of the inception notional.</p>
+</dd>
+    <dt><code>detachmentRatio</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The tranche's detachment, a fraction of the inception notional.</p>
+</dd>
+    <dt><code>claim</code> <a class="xref" href="NanoQL.Instruments.Claim.html">Claim</a></dt>
+    <dd><p>The claim, the same for every name; a <a class="xref" href="NanoQL.Instruments.FaceValueClaim.html">FaceValueClaim</a> when
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument but <code class="paramref">claim</code> is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">refDate</code> is <code>default(Date)</code>; the notionals are empty
+(&quot;notionals empty&quot;); the ratios aren't 0 ≤ attachment ≤ detachment ≤ 1 (&quot;invalid attachment/detachment ratio&quot;);
+or the notionals don't number the pool's names (&quot;unmatched data entry sizes in basket&quot;).</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The evaluation date precedes the inception (&quot;Target date lies before basket
+inception&quot;), or a name has defaulted by it without a settlement for its key's seniority.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_Basket_AttachmentAmount_" data-uid="NanoQL.Experimental.Basket.AttachmentAmount*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_AttachmentAmount" data-uid="NanoQL.Experimental.Basket.AttachmentAmount">
+  AttachmentAmount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the attachment amount: the attachment ratio times each notional, summed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AttachmentAmount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_AttachmentRatio_" data-uid="NanoQL.Experimental.Basket.AttachmentRatio*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_AttachmentRatio" data-uid="NanoQL.Experimental.Basket.AttachmentRatio">
+  AttachmentRatio
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the tranche's attachment, a fraction of the inception notional.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AttachmentRatio { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_BasketNotional_" data-uid="NanoQL.Experimental.Basket.BasketNotional*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_BasketNotional" data-uid="NanoQL.Experimental.Basket.BasketNotional">
+  BasketNotional
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the inception notional, losses ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BasketNotional { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_Claim_" data-uid="NanoQL.Experimental.Basket.Claim*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_Claim" data-uid="NanoQL.Experimental.Basket.Claim">
+  Claim
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the claim, the same for every name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Claim Claim { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.Claim.html">Claim</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_Context_" data-uid="NanoQL.Experimental.Basket.Context*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_Context" data-uid="NanoQL.Experimental.Basket.Context">
+  Context
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the evaluation context, at whose date the basket's state is computed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EvaluationContext Context { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_DefaultKeys_" data-uid="NanoQL.Experimental.Basket.DefaultKeys*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_DefaultKeys" data-uid="NanoQL.Experimental.Basket.DefaultKeys">
+  DefaultKeys
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the keys each name enters the basket with, in pool order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;DefaultProbKey&gt; DefaultKeys { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Experimental.DefaultProbKey.html">DefaultProbKey</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_DetachmentAmount_" data-uid="NanoQL.Experimental.Basket.DetachmentAmount*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_DetachmentAmount" data-uid="NanoQL.Experimental.Basket.DetachmentAmount">
+  DetachmentAmount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the detachment amount: the detachment ratio times each notional, summed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DetachmentAmount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_DetachmentRatio_" data-uid="NanoQL.Experimental.Basket.DetachmentRatio*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_DetachmentRatio" data-uid="NanoQL.Experimental.Basket.DetachmentRatio">
+  DetachmentRatio
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the tranche's detachment, a fraction of the inception notional.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DetachmentRatio { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_LossModel_" data-uid="NanoQL.Experimental.Basket.LossModel*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_LossModel" data-uid="NanoQL.Experimental.Basket.LossModel">
+  LossModel
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the default loss model bound to the basket, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> where none is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDefaultLossModel? LossModel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.IDefaultLossModel.html">IDefaultLossModel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_Names_" data-uid="NanoQL.Experimental.Basket.Names*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_Names" data-uid="NanoQL.Experimental.Basket.Names">
+  Names
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the names at inception, the pool's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;string&gt; Names { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_Notional_" data-uid="NanoQL.Experimental.Basket.Notional*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_Notional" data-uid="NanoQL.Experimental.Basket.Notional">
+  Notional
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the inception notional, the notionals summed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Notional { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_Notionals_" data-uid="NanoQL.Experimental.Basket.Notionals*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_Notionals" data-uid="NanoQL.Experimental.Basket.Notionals">
+  Notionals
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the notionals at inception.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Notionals { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_Pool_" data-uid="NanoQL.Experimental.Basket.Pool*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_Pool" data-uid="NanoQL.Experimental.Basket.Pool">
+  Pool
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pool Pool { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Pool.html">Pool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_PricingBasket_" data-uid="NanoQL.Experimental.Basket.PricingBasket*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_PricingBasket" data-uid="NanoQL.Experimental.Basket.PricingBasket">
+  PricingBasket
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the basket the loss model prices on: the basket itself where no name has defaulted by the evaluation date,
+otherwise the live names over the restated tranche; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> where every name has defaulted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Basket? PricingBasket { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Basket.html">Basket</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_RealizedTrancheLoss_" data-uid="NanoQL.Experimental.Basket.RealizedTrancheLoss*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RealizedTrancheLoss" data-uid="NanoQL.Experimental.Basket.RealizedTrancheLoss">
+  RealizedTrancheLoss
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the tranche's loss realized by the evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RealizedTrancheLoss { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_RefDate_" data-uid="NanoQL.Experimental.Basket.RefDate*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RefDate" data-uid="NanoQL.Experimental.Basket.RefDate">
+  RefDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the basket's inception date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date RefDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_Size_" data-uid="NanoQL.Experimental.Basket.Size*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_Size" data-uid="NanoQL.Experimental.Basket.Size">
+  Size
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of names at inception.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_TrancheNotional_" data-uid="NanoQL.Experimental.Basket.TrancheNotional*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_TrancheNotional" data-uid="NanoQL.Experimental.Basket.TrancheNotional">
+  TrancheNotional
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the tranche's inception notional, losses ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double TrancheNotional { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_Basket_CumulatedLoss_" data-uid="NanoQL.Experimental.Basket.CumulatedLoss*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_CumulatedLoss" data-uid="NanoQL.Experimental.Basket.CumulatedLoss">
+  CumulatedLoss()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the losses settled by the evaluation date: QuantLib's <code>cumulatedLoss()</code>, the same as
+<a class="xref" href="NanoQL.Experimental.Basket.html#NanoQL_Experimental_Basket_SettledLoss">SettledLoss()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CumulatedLoss()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_CumulatedLoss_" data-uid="NanoQL.Experimental.Basket.CumulatedLoss*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_CumulatedLoss_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.CumulatedLoss(NanoQL.Time.Date)">
+  CumulatedLoss(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The losses settled between the inception and a date: QuantLib's <code>cumulatedLoss(date)</code>, the same as
+<a class="xref" href="NanoQL.Experimental.Basket.html#NanoQL_Experimental_Basket_SettledLoss_NanoQL_Time_Date_">SettledLoss(Date)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CumulatedLoss(Date endDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The losses.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Experimental.Basket.html#NanoQL_Experimental_Basket_SettledLoss_NanoQL_Time_Date_">SettledLoss(Date)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_DefaultCorrelation_" data-uid="NanoQL.Experimental.Basket.DefaultCorrelation*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_DefaultCorrelation_NanoQL_Time_Date_System_Int32_System_Int32_" data-uid="NanoQL.Experimental.Basket.DefaultCorrelation(NanoQL.Time.Date,System.Int32,System.Int32)">
+  DefaultCorrelation(Date, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pearson's correlation of two names' default indicators by a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DefaultCorrelation(Date d, int iName, int jName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>iName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The first name's pool position.</p>
+</dd>
+    <dt><code>jName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The second name's pool position.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The basket has no loss model, the model refuses, or a name has defaulted, its
+correlation 0/0.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_ExpectedShortfall_" data-uid="NanoQL.Experimental.Basket.ExpectedShortfall*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_ExpectedShortfall_NanoQL_Time_Date_System_Double_" data-uid="NanoQL.Experimental.Basket.ExpectedShortfall(NanoQL.Time.Date,System.Double)">
+  ExpectedShortfall(Date, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expected shortfall at a percentile: the realized tranche loss and the live model's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ExpectedShortfall(Date d, double prob)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>prob</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The percentile.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The shortfall.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The basket has no loss model, or the model refuses.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_ExpectedTrancheLoss_" data-uid="NanoQL.Experimental.Basket.ExpectedTrancheLoss*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_ExpectedTrancheLoss_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.ExpectedTrancheLoss(NanoQL.Time.Date)">
+  ExpectedTrancheLoss(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expected tranche loss by a date: the realized tranche loss and the live model's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ExpectedTrancheLoss(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The loss, an amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The basket has no loss model, or the model refuses.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_Exposure_" data-uid="NanoQL.Experimental.Basket.Exposure*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_Exposure_System_String_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Experimental.Basket.Exposure(System.String,System.Nullable{NanoQL.Time.Date})">
+  Exposure(string, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A name's exposure: the notionals of every position on it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Exposure(string name, Date? d = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date, unused: positions don't amortize.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The exposure.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The name isn't in the basket (&quot;Name not in basket.&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_LiveList_" data-uid="NanoQL.Experimental.Basket.LiveList*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_LiveList" data-uid="NanoQL.Experimental.Basket.LiveList">
+  LiveList()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the pool positions of the names alive at the evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;int&gt; LiveList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_LiveList_" data-uid="NanoQL.Experimental.Basket.LiveList*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_LiveList_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.LiveList(NanoQL.Time.Date)">
+  LiveList(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The pool positions of the names alive at a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;int&gt; LiveList(Date endDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The positions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_LossDistribution_" data-uid="NanoQL.Experimental.Basket.LossDistribution*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_LossDistribution_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.LossDistribution(NanoQL.Time.Date)">
+  LossDistribution(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The full loss distribution: the live model's, shifted by the realized loss, the settled loss where the
+model's distribution is the pool's and the realized tranche loss where it is the tranche's (the random
+models').</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableSortedDictionary&lt;double, double&gt; LossDistribution(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablesorteddictionary-2">ImmutableSortedDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>Each loss level's probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The basket has no loss model, or the model refuses.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_Percentile_" data-uid="NanoQL.Experimental.Basket.Percentile*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_Percentile_NanoQL_Time_Date_System_Double_" data-uid="NanoQL.Experimental.Basket.Percentile(NanoQL.Time.Date,System.Double)">
+  Percentile(Date, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The tranche loss at a percentile: the realized tranche loss and the live model's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Percentile(Date d, double prob)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>prob</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The percentile.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The loss.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The basket has no loss model, or the model refuses.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_ProbAtLeastNEvents_" data-uid="NanoQL.Experimental.Basket.ProbAtLeastNEvents*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_ProbAtLeastNEvents_System_Int32_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.ProbAtLeastNEvents(System.Int32,NanoQL.Time.Date)">
+  ProbAtLeastNEvents(int, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The probability of n or more defaults in the basket by a date: 1 where the realized defaults reach n,
+the live model's for the order less them otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ProbAtLeastNEvents(int n, Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">n</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The basket has no loss model, or the model refuses.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_ProbOverLoss_" data-uid="NanoQL.Experimental.Basket.ProbOverLoss*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_ProbOverLoss_NanoQL_Time_Date_System_Double_" data-uid="NanoQL.Experimental.Basket.ProbOverLoss(NanoQL.Time.Date,System.Double)">
+  ProbOverLoss(Date, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The probability of the tranche losing a fraction of its inception notional or more: 1 at or below the
+realized tranche loss, the live model's on the restated tranche above it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ProbOverLoss(Date d, double lossFraction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>lossFraction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fraction of the tranche's inception notional (attachment 0, detachment 1).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The basket has no loss model, or the model refuses.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_Probabilities_" data-uid="NanoQL.Experimental.Basket.Probabilities*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_Probabilities_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.Probabilities(NanoQL.Time.Date)">
+  Probabilities(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each name's default probability by a date, 0 before its curve's reference date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Probabilities(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The probabilities, in pool order.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_ProbsBeingNthEvent_" data-uid="NanoQL.Experimental.Basket.ProbsBeingNthEvent*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_ProbsBeingNthEvent_System_Int32_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.ProbsBeingNthEvent(System.Int32,NanoQL.Time.Date)">
+  ProbsBeingNthEvent(int, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each live name's probability of being the n-th default of the basket by a date: zeros where the realized
+defaults reach n, the live model's for the order less them otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; ProbsBeingNthEvent(int n, Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The default's order.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The probabilities, by live name.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">n</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The basket has no loss model, or the model refuses.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_RecoveryRate_" data-uid="NanoQL.Experimental.Basket.RecoveryRate*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RecoveryRate_NanoQL_Time_Date_System_Int32_" data-uid="NanoQL.Experimental.Basket.RecoveryRate(NanoQL.Time.Date,System.Int32)">
+  RecoveryRate(Date, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A name's expected recovery rate given its default on a date: a defaulted name's settled recovery, a
+live name's from the model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RecoveryRate(Date d, int iName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>iName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The name's pool position.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The recovery.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The basket has no loss model, or the model refuses.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingAttachmentAmount_" data-uid="NanoQL.Experimental.Basket.RemainingAttachmentAmount*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingAttachmentAmount" data-uid="NanoQL.Experimental.Basket.RemainingAttachmentAmount">
+  RemainingAttachmentAmount()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the restated tranche's attachment amount on the live names at the evaluation date:
+max(0, A − L), the lost notional writing the tranche down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RemainingAttachmentAmount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingAttachmentAmount_" data-uid="NanoQL.Experimental.Basket.RemainingAttachmentAmount*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingAttachmentAmount_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.RemainingAttachmentAmount(NanoQL.Time.Date)">
+  RemainingAttachmentAmount(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The restated tranche's attachment amount on the names alive at a date, its settled events to that date
+counted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RemainingAttachmentAmount(Date endDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date precedes the inception, or an event settled other seniorities than
+its name's key's.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingDefaultKeys_" data-uid="NanoQL.Experimental.Basket.RemainingDefaultKeys*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingDefaultKeys" data-uid="NanoQL.Experimental.Basket.RemainingDefaultKeys">
+  RemainingDefaultKeys()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the keys of the names alive at the evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;DefaultProbKey&gt; RemainingDefaultKeys()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Experimental.DefaultProbKey.html">DefaultProbKey</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingDefaultKeys_" data-uid="NanoQL.Experimental.Basket.RemainingDefaultKeys*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingDefaultKeys_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.RemainingDefaultKeys(NanoQL.Time.Date)">
+  RemainingDefaultKeys(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The keys of the names alive at a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;DefaultProbKey&gt; RemainingDefaultKeys(Date endDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Experimental.DefaultProbKey.html">DefaultProbKey</a>&gt;</dt>
+    <dd><p>The keys.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date precedes the inception.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingDetachmentAmount_" data-uid="NanoQL.Experimental.Basket.RemainingDetachmentAmount*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingDetachmentAmount" data-uid="NanoQL.Experimental.Basket.RemainingDetachmentAmount">
+  RemainingDetachmentAmount()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the restated tranche's detachment amount on the live names at the evaluation date:
+min(D, N − recovered) − L, the recovered notional amortizing the tranche.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RemainingDetachmentAmount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingDetachmentAmount_" data-uid="NanoQL.Experimental.Basket.RemainingDetachmentAmount*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingDetachmentAmount_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.RemainingDetachmentAmount(NanoQL.Time.Date)">
+  RemainingDetachmentAmount(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The restated tranche's detachment amount on the names alive at a date, its settled events to that date
+counted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RemainingDetachmentAmount(Date endDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Experimental.Basket.html#NanoQL_Experimental_Basket_RemainingAttachmentAmount_NanoQL_Time_Date_">RemainingAttachmentAmount(Date)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingNames_" data-uid="NanoQL.Experimental.Basket.RemainingNames*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingNames" data-uid="NanoQL.Experimental.Basket.RemainingNames">
+  RemainingNames()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the names alive at the evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;string&gt; RemainingNames()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingNames_" data-uid="NanoQL.Experimental.Basket.RemainingNames*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingNames_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.RemainingNames(NanoQL.Time.Date)">
+  RemainingNames(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The names alive at a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;string&gt; RemainingNames(Date endDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date precedes the inception.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingNotional_" data-uid="NanoQL.Experimental.Basket.RemainingNotional*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingNotional" data-uid="NanoQL.Experimental.Basket.RemainingNotional">
+  RemainingNotional()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the notional of the names alive at the evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RemainingNotional()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingNotional_" data-uid="NanoQL.Experimental.Basket.RemainingNotional*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingNotional_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.RemainingNotional(NanoQL.Time.Date)">
+  RemainingNotional(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The notional of the names alive at a date, recovery ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RemainingNotional(Date endDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The notional.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingNotionals_" data-uid="NanoQL.Experimental.Basket.RemainingNotionals*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingNotionals" data-uid="NanoQL.Experimental.Basket.RemainingNotionals">
+  RemainingNotionals()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the notionals of the names alive at the evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; RemainingNotionals()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingNotionals_" data-uid="NanoQL.Experimental.Basket.RemainingNotionals*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingNotionals_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.RemainingNotionals(NanoQL.Time.Date)">
+  RemainingNotionals(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The notionals of the names alive at a date, recovery ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; RemainingNotionals(Date endDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The notionals, in pool order.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date precedes the inception (&quot;Target date lies before basket
+inception&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingProbabilities_" data-uid="NanoQL.Experimental.Basket.RemainingProbabilities*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingProbabilities_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.RemainingProbabilities(NanoQL.Time.Date)">
+  RemainingProbabilities(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default probabilities by a date of the names alive at the evaluation date, extrapolated, 0 before
+a curve's reference date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; RemainingProbabilities(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The probabilities, in pool order.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date precedes the inception.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingSize_" data-uid="NanoQL.Experimental.Basket.RemainingSize*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingSize" data-uid="NanoQL.Experimental.Basket.RemainingSize">
+  RemainingSize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of names alive at the evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int RemainingSize()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingSize_" data-uid="NanoQL.Experimental.Basket.RemainingSize*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingSize_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.RemainingSize(NanoQL.Time.Date)">
+  RemainingSize(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of names alive at a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int RemainingSize(Date endDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date precedes the inception.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingTrancheNotional_" data-uid="NanoQL.Experimental.Basket.RemainingTrancheNotional*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingTrancheNotional" data-uid="NanoQL.Experimental.Basket.RemainingTrancheNotional">
+  RemainingTrancheNotional()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The tranche's outstanding notional at the evaluation date: the restated detachment less the restated
+attachment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RemainingTrancheNotional()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The notional.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The basket has no loss model, which QuantLib's read requires.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_RemainingTrancheNotional_" data-uid="NanoQL.Experimental.Basket.RemainingTrancheNotional*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_RemainingTrancheNotional_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.RemainingTrancheNotional(NanoQL.Time.Date)">
+  RemainingTrancheNotional(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The tranche's outstanding notional at a date, its events to that date counted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RemainingTrancheNotional(Date endDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The notional.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The basket has no loss model, which QuantLib's read requires; or the date
+precedes the inception.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_SetLossModel_" data-uid="NanoQL.Experimental.Basket.SetLossModel*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_SetLossModel_NanoQL_Experimental_IDefaultLossModel_" data-uid="NanoQL.Experimental.Basket.SetLossModel(NanoQL.Experimental.IDefaultLossModel)">
+  SetLossModel(IDefaultLossModel?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A basket of the same terms and context with a loss model bound to it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Basket SetLossModel(IDefaultLossModel? lossModel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lossModel</code> <a class="xref" href="NanoQL.Experimental.IDefaultLossModel.html">IDefaultLossModel</a></dt>
+    <dd><p>The model, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Basket.html">Basket</a></dt>
+    <dd><p>The basket.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>Every name has defaulted, or the model can't be bound.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_SettledLoss_" data-uid="NanoQL.Experimental.Basket.SettledLoss*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_SettledLoss" data-uid="NanoQL.Experimental.Basket.SettledLoss">
+  SettledLoss()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the losses settled by the evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SettledLoss()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Basket_SettledLoss_" data-uid="NanoQL.Experimental.Basket.SettledLoss*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_SettledLoss_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.Basket.SettledLoss(NanoQL.Time.Date)">
+  SettledLoss(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The losses settled between the inception and a date, at the events' realized recoveries; an event
+not yet settled is left out. A date after the evaluation date counts the &quot;programmed&quot; events stored to
+it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SettledLoss(Date endDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The losses.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date precedes the inception, or an event settled other seniorities than
+its name's key's.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Basket_SplitVaRLevel_" data-uid="NanoQL.Experimental.Basket.SplitVaRLevel*"></a>
+
+  <h3 id="NanoQL_Experimental_Basket_SplitVaRLevel_NanoQL_Time_Date_System_Double_" data-uid="NanoQL.Experimental.Basket.SplitVaRLevel(NanoQL.Time.Date,System.Double)">
+  SplitVaRLevel(Date, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each live name's share of a loss level, typically a percentile's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; SplitVaRLevel(Date date, double loss)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>date</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>loss</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The loss level.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The shares, by live name.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The basket has no loss model, or the model refuses.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">date</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

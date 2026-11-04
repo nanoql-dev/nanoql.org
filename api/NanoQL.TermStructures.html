@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace NanoQL.TermStructures | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace NanoQL.TermStructures | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures">
+
+  <h1 id="NanoQL_TermStructures" data-uid="NanoQL.TermStructures" class="text-break">Namespace NanoQL.TermStructures</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.AbcdCalibration.html">AbcdCalibration</a></dt>
+      <dd><p>The abcd instantaneous volatility fitted to Black volatilities by their maturities: the root-mean-square error of
+the abcd Black volatilities, minimized over a, b, c and d through QuantLib's transformation (c, d and a + d
+positive), the fixed parameters at their guesses.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.AbcdFunction.html">AbcdFunction</a></dt>
+      <dd><p>The abcd functional form for instantaneous volatility, f(T − t) = (a + b·(T − t))·e<sup>−c·(T − t)</sup> + d, in
+Rebonato's notation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.AbcdFunctions.html">AbcdFunctions</a></dt>
+      <dd><p>QuantLib's free function of <code>abcd.hpp</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.AbcdSquared.html">AbcdSquared</a></dt>
+      <dd><p>The instantaneous covariance of two abcd rates as a function of time, f(T − t)·f(S − t): QuantLib's helper for its
+integration tests.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.AdditionalBootstrapVariables.html">AdditionalBootstrapVariables</a></dt>
+      <dd><p>Variables a global bootstrap optimizes beside the curve's nodes, such as model parameters its helpers read (a
+futures helper's convexity adjustment): QuantLib's <code>AdditionalBootstrapVariables</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.AndreasenHugeLocalVolAdapter.html">AndreasenHugeLocalVolAdapter</a></dt>
+      <dd><p>The local volatility structure of an <a class="xref" href="NanoQL.TermStructures.AndreasenHugeVolatilityInterpl.html">AndreasenHugeVolatilityInterpl</a>: its local volatility, the strike
+clamped to its grid.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.AndreasenHugeVolatilityAdapter.html">AndreasenHugeVolatilityAdapter</a></dt>
+      <dd><p>The Black volatility structure of an <a class="xref" href="NanoQL.TermStructures.AndreasenHugeVolatilityInterpl.html">AndreasenHugeVolatilityInterpl</a>: at a time and strike, the implied
+variance of its out-of-the-money option's price, by Li's rational approximation refined.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.AndreasenHugeVolatilityInterpl.html">AndreasenHugeVolatilityInterpl</a></dt>
+      <dd><p>Andreasen and Huge's calibration of a local volatility surface to a sparse grid of European options: at each expiry
+a piecewise volatility in log strike, fitted so that one implicit step of the forward equation from the previous
+expiry's prices reprices the expiry's options; prices and local volatilities between expiries by partial steps.
+Andreasen J., Huge B., 2010. Volatility Interpolation, <a href="https://ssrn.com/abstract=1694972">https://ssrn.com/abstract=1694972</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.AtmAdjustedSmileSection.html">AtmAdjustedSmileSection</a></dt>
+      <dd><p>A smile section with an at-the-money level of its own, the source section's smile optionally recentred on it: the
+volatility at a strike is the source's at that strike moved by the source's level less the given one.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.AtmSmileSection.html">AtmSmileSection</a></dt>
+      <dd><p>A smile section with an at-the-money level of its own: another section's volatilities, its options priced on the
+given level.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BMASwapRateHelper.html">BMASwapRateHelper</a></dt>
+      <dd><p>A rate helper for bootstrapping over BMA swap rates: the Libor fraction of the BMA swap, built at construction, that
+the curve prices at par.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BlackConstantVol.html">BlackConstantVol</a></dt>
+      <dd><p>A constant Black volatility, with no time or strike dependence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BlackVarianceCurve.html">BlackVarianceCurve</a></dt>
+      <dd><p>A Black volatility curve modelled as a variance curve: the market's at-the-money Black volatilities at a set of
+dates, interpolated on their variances, linearly by default. For strike dependence, see
+<a class="xref" href="NanoQL.TermStructures.BlackVarianceSurface.html">BlackVarianceSurface</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BlackVarianceSurface.html">BlackVarianceSurface</a></dt>
+      <dd><p>A Black volatility surface modelled as a variance surface: a matrix of the market's Black volatilities by strike
+and date, interpolated on their variances, bilinearly by default.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BlackVarianceTermStructure.html">BlackVarianceTermStructure</a></dt>
+      <dd><p>The adapter that lets a Black-volatility structure implement only
+<a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html#NanoQL_TermStructures_BlackVolTermStructure_BlackVarianceImpl_System_Double_System_Double_">BlackVarianceImpl(double, double)</a>: its volatility is the square root of the variance over the
+time, at a time of 0.00001 where the time is 0.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a></dt>
+      <dd><p>The Black-volatility term structure: the base of the structures that give Black volatilities and variances by
+maturity and strike. Volatilities are on an annual basis.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BlackVolTimeExtrapolation.html">BlackVolTimeExtrapolation</a></dt>
+      <dd><p>The time extrapolation of Black volatility structures beyond their last time, for a strike-dependent surface and
+for an at-the-money curve, by one of <a class="xref" href="NanoQL.TermStructures.BlackVolTimeExtrapolationType.html">BlackVolTimeExtrapolationType</a>'s strategies.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.html">BlackVolatilitySurfaceDelta</a></dt>
+      <dd><p>A Black volatility surface quoted by delta: put deltas, call deltas and optionally an at-the-money quote at each
+expiry, each delta's volatilities a <a class="xref" href="NanoQL.TermStructures.BlackVarianceCurve.html">BlackVarianceCurve</a> in time, its smile at a time the deltas
+converted to strikes on the spot and the domestic and foreign curves under the delta and at-the-money conventions,
+interpolated in strike.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BlackVolatilityTermStructure.html">BlackVolatilityTermStructure</a></dt>
+      <dd><p>The adapter that lets a Black-volatility structure implement only <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html#NanoQL_TermStructures_BlackVolTermStructure_BlackVolImpl_System_Double_System_Double_">BlackVolImpl(double, double)</a>:
+its variance is the volatility squared times the time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BondHelper.html">BondHelper</a></dt>
+      <dd><p>A rate helper for bootstrapping over bond prices: the bond's clean or dirty price on the curve.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BootstrapHelperExtensions.html">BootstrapHelperExtensions</a></dt>
+      <dd><p>QuantLib's <code>setTermStructure</code>, as a copy of the helper's own static type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BootstrapHelperFunctions.html">BootstrapHelperFunctions</a></dt>
+      <dd><p>The free functions of QuantLib's <code>bootstraphelper.hpp</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html">BootstrapHelper&lt;TTermStructure&gt;</a></dt>
+      <dd><p>The base of the helpers a term structure is bootstrapped on: an instrument's quote, the dates it determines, and the
+quote the curve implies.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html">BootstrapState&lt;TTermStructure&gt;</a></dt>
+      <dd><p>The working state of a curve under construction: QuantLib's friend access to the curve's instruments, dates, times,
+data, interpolation and maximum date, which its bootstrap reads and writes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CPIBondHelper.html">CPIBondHelper</a></dt>
+      <dd><p>A rate helper for bootstrapping over the prices of CPI bonds: a <a class="xref" href="NanoQL.TermStructures.BondHelper.html">BondHelper</a> on the
+<a class="xref" href="NanoQL.Instruments.CPIBond.html">CPIBond</a> its arguments describe.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CPIVolatilitySurface.html">CPIVolatilitySurface</a></dt>
+      <dd><p>The base class of zero-inflation (CPI, RPI, HICP) volatility structures, which observe an index with a lag.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CapFloorTermVolCurve.html">CapFloorTermVolCurve</a></dt>
+      <dd><p>The at-the-money cap and floor term-volatility curve: the volatility of a cap or floor of a given length,
+interpolated in the market volatilities of caps and floors of given lengths, whatever the strike.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CapFloorTermVolSurface.html">CapFloorTermVolSurface</a></dt>
+      <dd><p>The cap/floor smile volatility surface: the volatility for a given cap/floor, interpolated in a surface of the
+market term volatilities of a set of caps and floors of given lengths and strikes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CapFloorTermVolatilityStructure.html">CapFloorTermVolatilityStructure</a></dt>
+      <dd><p>The base class of cap/floor term-volatility structures: the volatility of a cap or floor of a given length and
+strike.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CapletVarianceCurve.html">CapletVarianceCurve</a></dt>
+      <dd><p>A caplet volatility curve: the caplet volatilities by date, interpolated in variance by a
+<a class="xref" href="NanoQL.TermStructures.BlackVarianceCurve.html">BlackVarianceCurve</a> (not forced monotone), the same at every strike.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CdsHelper.html">CdsHelper</a></dt>
+      <dd><p>The base of the credit-default-swap bootstrap helpers: a standard swap from the evaluation date, repriced on the
+default-probability curve under construction.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CmsMarket.html">CmsMarket</a></dt>
+      <dd><p>A set of CMS quotes: the bid and ask spreads over the Ibor leg of CMS swaps of each length on each swap index, with
+the spreads, spot and forward CMS leg NPVs the market implies and the model gives.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CmsMarketCalibration.html">CmsMarketCalibration</a></dt>
+      <dd><p>The calibration of a SABR swaption cube's βs, and of the CMS pricers' mean reversion, to a CMS market: QuantLib's
+<code>CmsMarketCalibration</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CmsMarketCalibrationResults-1.html">CmsMarketCalibrationResults&lt;TResult&gt;</a></dt>
+      <dd><p>A CMS market calibration's results: QuantLib's <code>compute</code> result and the members it leaves on the calibration
+and its cube and market (<code>sparseSabrParameters_</code>, <code>denseSabrParameters_</code>, <code>browseCmsMarket_</code>,
+<code>error()</code>, <code>endCriteria()</code>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CompositeZeroYieldStructure.html">CompositeZeroYieldStructure</a></dt>
+      <dd><p>A zero-yield term structure composed of two curves: its zero rate is a function of the two curves' zero rates, in
+the given compounding and frequency.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ConstantCPIVolatility.html">ConstantCPIVolatility</a></dt>
+      <dd><p>A constant CPI volatility, with no strike or time dependence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ConstantCapFloorTermVolatility.html">ConstantCapFloorTermVolatility</a></dt>
+      <dd><p>A constant cap and floor term volatility, for every length and strike.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ConstantOptionletVolatility.html">ConstantOptionletVolatility</a></dt>
+      <dd><p>A constant caplet and floorlet volatility, for every option date and strike.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ConstantSwaptionVolatility.html">ConstantSwaptionVolatility</a></dt>
+      <dd><p>A constant swaption volatility, for every option date, swap tenor and strike.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ConstantYoYOptionletVolatility.html">ConstantYoYOptionletVolatility</a></dt>
+      <dd><p>A constant year-on-year optionlet volatility, with no strike or time dependence, over a strike range.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CubicBSplinesFitting.html">CubicBSplinesFitting</a></dt>
+      <dd><p>The cubic B-splines fitting method: a discount function d(t) = Σ_{i=0}^{n} c_i N_{i,3}(t) over a set of cubic
+B-splines.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CubicForwardCurve.html">CubicForwardCurve</a></dt>
+      <dd><p>A yield term structure based on cubic interpolation of instantaneous forward rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CubicInterpolatedSmileSection.html">CubicInterpolatedSmileSection</a></dt>
+      <dd><p>QuantLib-Python's <code>CubicInterpolatedSmileSection</code>: an <a class="xref" href="NanoQL.TermStructures.InterpolatedSmileSection-1.html">InterpolatedSmileSection&lt;TInterpolator&gt;</a> with cubic interpolation, QuantLib's default <a class="xref" href="NanoQL.Numerics.Cubic.html">Cubic</a> unless another is given.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CubicZeroCurve.html">CubicZeroCurve</a></dt>
+      <dd><p>A yield term structure based on cubic interpolation of zero rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.DefaultDensityCurve.html">DefaultDensityCurve</a></dt>
+      <dd><p>The default-density curve with linear interpolation: QuantLib-Python's <code>DefaultDensityCurve</code>, QuantLib's
+<code>InterpolatedDefaultDensityCurve&lt;Linear&gt;</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.DefaultDensityStructure.html">DefaultDensityStructure</a></dt>
+      <dd><p>The default-density term structure: an adapter that lets a derived curve implement the default density, from which
+the hazard rates follow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.DefaultProbabilityHelperExtensions.html">DefaultProbabilityHelperExtensions</a></dt>
+      <dd><p>QuantLib's <code>setTermStructure</code> for default-probability helpers, as a copy of the helper's own static type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html">DefaultProbabilityTermStructure</a></dt>
+      <dd><p>The default-probability term structure: the base of the credit curves that give survival and default
+probabilities, default densities and hazard rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.DepositRateHelper.html">DepositRateHelper</a></dt>
+      <dd><p>A rate helper for bootstrapping over deposit rates: the deposit's rate is the index fixing the curve forecasts for
+its fixing date.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.DiscountCurve.html">DiscountCurve</a></dt>
+      <dd><p>A yield term structure based on log-linear interpolation of discount factors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ExponentialSplinesFitting.html">ExponentialSplinesFitting</a></dt>
+      <dd><p>The exponential-splines fitting method: a discount function d(t) = Σ_{i=1}^{9} c_i e^(−κ i t), the constants c_i
+and κ determined by the fit.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurve.html">FittedBondDiscountCurve</a></dt>
+      <dd><p>A discount curve fitted to a set of bonds: a discount function d(t), a fitting method's, fitted so that the bonds'
+cash flows discounted on it reproduce their prices in an optimized sense, the price errors weighted by the inverse of
+the bonds' durations.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurveFittingMethod.html">FittedBondDiscountCurveFittingMethod</a></dt>
+      <dd><p>The base fitting method of a <a class="xref" href="NanoQL.TermStructures.FittedBondDiscountCurve.html">FittedBondDiscountCurve</a>: the methodology that constructs the curve, a
+discount function of parameters fitted to the bonds' prices.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.FixedLocalVolSurface.html">FixedLocalVolSurface</a></dt>
+      <dd><p>A local volatility surface on fixed values: a matrix of local volatilities, one column per time and one row per
+strike, each time's strikes its own; interpolated in strike at each time, linearly by default, and linearly in time
+between them, clamped to the first and last times.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.FixedRateBondHelper.html">FixedRateBondHelper</a></dt>
+      <dd><p>A rate helper for bootstrapping over the prices of fixed-rate bonds: a <a class="xref" href="NanoQL.TermStructures.BondHelper.html">BondHelper</a> on the
+<a class="xref" href="NanoQL.Instruments.FixedRateBond.html">FixedRateBond</a> its arguments describe.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.FlatForward.html">FlatForward</a></dt>
+      <dd><p>A flat forward rate term structure.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.FlatHazardRate.html">FlatHazardRate</a></dt>
+      <dd><p>A flat hazard-rate curve.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.FlatSmileSection.html">FlatSmileSection</a></dt>
+      <dd><p>A flat smile section: one volatility at every strike.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ForwardCurve.html">ForwardCurve</a></dt>
+      <dd><p>A yield term structure based on backward-flat interpolation of instantaneous forward rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ForwardFlatForwardCurve.html">ForwardFlatForwardCurve</a></dt>
+      <dd><p>A yield term structure based on forward-flat interpolation of instantaneous forward rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ForwardSpreadedTermStructure.html">ForwardSpreadedTermStructure</a></dt>
+      <dd><p>A term structure with a spread added to the instantaneous forward rate of another curve, the original.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.FraRateHelper.html">FraRateHelper</a></dt>
+      <dd><p>A rate helper for bootstrapping over FRA rates: the index fixing the curve forecasts for the FRA's start, or, without
+the indexed coupon, the simple forward rate between its start and maturity dates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.FuturesRateHelper.html">FuturesRateHelper</a></dt>
+      <dd><p>A rate helper for bootstrapping over Ibor index futures prices: the price is 100 less the forward rate the curve
+implies between the start and maturity dates, plus the convexity adjustment, in percent.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.FxSwapRateHelper.html">FxSwapRateHelper</a></dt>
+      <dd><p>A rate helper for bootstrapping over FX swap rates: the forward points the curve and the collateral curve imply
+between the swap's earliest and latest dates, the forward being the spot plus the points.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.Gaussian1dSmileSection.html">Gaussian1dSmileSection</a></dt>
+      <dd><p>A smile section generated by a Gaussian1d model: on a swap index, the model's swaption prices on the swap rate
+fixing on the section's date, per unit of annuity; on an Ibor index, its caplet prices per unit of the caplet's
+accrued discount. Its volatility is the lognormal one implied from them, 0 where it can't be implied.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.Gaussian1dSwaptionVolatility.html">Gaussian1dSwaptionVolatility</a></dt>
+      <dd><p>The swaption volatilities a Gaussian1d model implies: each option date and swap tenor's
+<a class="xref" href="NanoQL.TermStructures.Gaussian1dSmileSection.html">Gaussian1dSmileSection</a> on the index base cloned to the tenor.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GlobalLinearSimpleZeroCurve.html">GlobalLinearSimpleZeroCurve</a></dt>
+      <dd><p>A piecewise linear simple-zero-rate curve bootstrapped globally:
+QuantLib-Python's <code>GlobalLinearSimpleZeroCurve</code>,
+the <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a> on <a class="xref" href="NanoQL.TermStructures.SimpleZeroYield.html">SimpleZeroYield</a>,
+<a class="xref" href="NanoQL.Numerics.Linear.html">Linear</a> and <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GlobalPiecewiseConvexMonotoneForward.html">GlobalPiecewiseConvexMonotoneForward</a></dt>
+      <dd><p>A piecewise convex-monotone forward-rate curve bootstrapped globally:
+QuantLib-Python's <code>GlobalPiecewiseConvexMonotoneForward</code>,
+the <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a> on <a class="xref" href="NanoQL.TermStructures.ForwardRate.html">ForwardRate</a>,
+<a class="xref" href="NanoQL.Numerics.ConvexMonotone.html">ConvexMonotone</a> and <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GlobalPiecewiseConvexMonotoneZero.html">GlobalPiecewiseConvexMonotoneZero</a></dt>
+      <dd><p>A piecewise convex-monotone zero-rate curve bootstrapped globally:
+QuantLib-Python's <code>GlobalPiecewiseConvexMonotoneZero</code>,
+the <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a> on <a class="xref" href="NanoQL.TermStructures.ZeroYield.html">ZeroYield</a>,
+<a class="xref" href="NanoQL.Numerics.ConvexMonotone.html">ConvexMonotone</a> and <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GlobalPiecewiseCubicZero.html">GlobalPiecewiseCubicZero</a></dt>
+      <dd><p>A piecewise cubic zero-rate curve bootstrapped globally:
+QuantLib-Python's <code>GlobalPiecewiseCubicZero</code>,
+the <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a> on <a class="xref" href="NanoQL.TermStructures.ZeroYield.html">ZeroYield</a>,
+<a class="xref" href="NanoQL.Numerics.Cubic.html">Cubic</a> and <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GlobalPiecewiseFlatForward.html">GlobalPiecewiseFlatForward</a></dt>
+      <dd><p>A piecewise flat (backward-flat) forward-rate curve bootstrapped globally:
+QuantLib-Python's <code>GlobalPiecewiseFlatForward</code>,
+the <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a> on <a class="xref" href="NanoQL.TermStructures.ForwardRate.html">ForwardRate</a>,
+<a class="xref" href="NanoQL.Numerics.BackwardFlat.html">BackwardFlat</a> and <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GlobalPiecewiseKrugerLogDiscount.html">GlobalPiecewiseKrugerLogDiscount</a></dt>
+      <dd><p>A piecewise Kruger log-cubic discount curve bootstrapped globally:
+QuantLib-Python's <code>GlobalPiecewiseKrugerLogDiscount</code>,
+the <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a> on <a class="xref" href="NanoQL.TermStructures.Discount.html">Discount</a>,
+<a class="xref" href="NanoQL.Numerics.KrugerLog.html">KrugerLog</a> and <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GlobalPiecewiseLinearForward.html">GlobalPiecewiseLinearForward</a></dt>
+      <dd><p>A piecewise linear forward-rate curve bootstrapped globally:
+QuantLib-Python's <code>GlobalPiecewiseLinearForward</code>,
+the <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a> on <a class="xref" href="NanoQL.TermStructures.ForwardRate.html">ForwardRate</a>,
+<a class="xref" href="NanoQL.Numerics.Linear.html">Linear</a> and <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GlobalPiecewiseLinearZero.html">GlobalPiecewiseLinearZero</a></dt>
+      <dd><p>A piecewise linear zero-rate curve bootstrapped globally:
+QuantLib-Python's <code>GlobalPiecewiseLinearZero</code>,
+the <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a> on <a class="xref" href="NanoQL.TermStructures.ZeroYield.html">ZeroYield</a>,
+<a class="xref" href="NanoQL.Numerics.Linear.html">Linear</a> and <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GlobalPiecewiseLogCubicDiscount.html">GlobalPiecewiseLogCubicDiscount</a></dt>
+      <dd><p>A piecewise log-cubic discount curve bootstrapped globally:
+QuantLib-Python's <code>GlobalPiecewiseLogCubicDiscount</code>,
+the <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a> on <a class="xref" href="NanoQL.TermStructures.Discount.html">Discount</a>,
+<a class="xref" href="NanoQL.Numerics.LogCubic.html">LogCubic</a> and <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GlobalPiecewiseLogLinearDiscount.html">GlobalPiecewiseLogLinearDiscount</a></dt>
+      <dd><p>A piecewise log-linear discount curve bootstrapped globally:
+QuantLib-Python's <code>GlobalPiecewiseLogLinearDiscount</code>,
+the <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a> on <a class="xref" href="NanoQL.TermStructures.Discount.html">Discount</a>,
+<a class="xref" href="NanoQL.Numerics.LogLinear.html">LogLinear</a> and <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GlobalPiecewiseLogMixedLinearCubicDiscount.html">GlobalPiecewiseLogMixedLinearCubicDiscount</a></dt>
+      <dd><p>A piecewise log-mixed linear-cubic discount curve bootstrapped globally:
+QuantLib-Python's <code>GlobalPiecewiseLogMixedLinearCubicDiscount</code>,
+the <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a> on <a class="xref" href="NanoQL.TermStructures.Discount.html">Discount</a>,
+<a class="xref" href="NanoQL.Numerics.LogMixedLinearCubic.html">LogMixedLinearCubic</a> and <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GlobalPiecewiseSplineCubicDiscount.html">GlobalPiecewiseSplineCubicDiscount</a></dt>
+      <dd><p>A piecewise cubic-spline discount curve bootstrapped globally:
+QuantLib-Python's <code>GlobalPiecewiseSplineCubicDiscount</code>,
+the <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a> on <a class="xref" href="NanoQL.TermStructures.Discount.html">Discount</a>,
+<a class="xref" href="NanoQL.Numerics.Cubic.html">Cubic</a> and <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GridModelLocalVolSurface.html">GridModelLocalVolSurface</a></dt>
+      <dd><p>A local volatility surface parameterised for calibration: one positive parameter per grid point of dates and
+strikes, all starting at 1, the surface a <a class="xref" href="NanoQL.TermStructures.FixedLocalVolSurface.html">FixedLocalVolSurface</a> on them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.HazardRateCurve.html">HazardRateCurve</a></dt>
+      <dd><p>The hazard-rate curve with backward-flat interpolation: QuantLib-Python's <code>HazardRateCurve</code>, QuantLib's
+<code>InterpolatedHazardRateCurve&lt;BackwardFlat&gt;</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.HazardRateStructure.html">HazardRateStructure</a></dt>
+      <dd><p>The hazard-rate term structure: an adapter that lets a derived curve implement the hazard rate, from which the
+default densities follow. Hazard rates have annual frequency and continuous compounding.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.HestonBlackVolSurface.html">HestonBlackVolSurface</a></dt>
+      <dd><p>The Black volatility surface of a Heston model: at each time and strike, the volatility whose Black price is the
+model's price of the out-of-the-money option, by <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html">AnalyticHestonEngine</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ImpliedTermStructure.html">ImpliedTermStructure</a></dt>
+      <dd><p>The term structure another curve implies at a date in the future, its reference date: the original's discounts
+divided by its discount at that date.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ImpliedVolTermStructure.html">ImpliedVolTermStructure</a></dt>
+      <dd><p>The Black-volatility structure another implies at a date in the future, its reference date: the original's forward
+variance from that date.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InflationTermStructure.html">InflationTermStructure</a></dt>
+      <dd><p>The base class of inflation term structures: a base date, a frequency and an optional seasonality.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InflationTermStructureExtensions.html">InflationTermStructureExtensions</a></dt>
+      <dd><p>QuantLib's <code>InflationTermStructure::setSeasonality</code>, which changes a built structure, as a copy of the
+receiver's own type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InflationTermStructureFunctions.html">InflationTermStructureFunctions</a></dt>
+      <dd><p>QuantLib's free functions of <code>inflationtermstructure.hpp</code>: inflation periods and times.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedCurve-1.html">InterpolatedCurve&lt;TInterpolator&gt;</a></dt>
+      <dd><p>The data of an interpolated term structure: the times of its nodes, its data at them, their interpolation and the
+maximum date, which an interpolated curve holds and answers from.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedDefaultDensityCurve-1.html">InterpolatedDefaultDensityCurve&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A default-probability term structure interpolating default densities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedDiscountCurve-1.html">InterpolatedDiscountCurve&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A yield term structure based on the interpolation of discount factors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedForwardCurve-1.html">InterpolatedForwardCurve&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A yield term structure based on the interpolation of instantaneous forward rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedHazardRateCurve-1.html">InterpolatedHazardRateCurve&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A default-probability term structure interpolating hazard rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedPiecewiseForwardSpreadedTermStructure-1.html">InterpolatedPiecewiseForwardSpreadedTermStructure&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A yield curve with spreads added to the instantaneous forward rate of another curve, the original, the spread at
+any time interpolated between the spreads given at dates and held flat before the first and after the last.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedPiecewiseZeroSpreadedTermStructure-1.html">InterpolatedPiecewiseZeroSpreadedTermStructure&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A yield curve with spreads added to the zero rate of another curve, the original, the spread at any time
+interpolated between the spreads given at dates and held flat before the first and after the last.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedSimpleZeroCurve-1.html">InterpolatedSimpleZeroCurve&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A yield term structure based on the interpolation of simply compounded zero rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedSmileSection-1.html">InterpolatedSmileSection&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A smile section interpolated between volatilities at given strikes, from the standard deviations given there.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedSpreadDiscountCurve-1.html">InterpolatedSpreadDiscountCurve&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A yield curve over a base curve, its discount the base's times an interpolated spread discount factor.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve-1.html">InterpolatedSurvivalProbabilityCurve&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A default-probability term structure interpolating survival probabilities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedSwaptionVolatilityCube.html">InterpolatedSwaptionVolatilityCube</a></dt>
+      <dd><p>The swaption volatility cube that interpolates its volatility spreads: the fit-later, interpolate-early cube.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedYoYInflationCurve-1.html">InterpolatedYoYInflationCurve&lt;TInterpolator&gt;</a></dt>
+      <dd><p>An inflation term structure interpolating year-on-year inflation rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedZeroCurve-1.html">InterpolatedZeroCurve&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A yield term structure based on the interpolation of zero rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.InterpolatedZeroInflationCurve-1.html">InterpolatedZeroInflationCurve&lt;TInterpolator&gt;</a></dt>
+      <dd><p>An inflation term structure interpolating zero-coupon inflation rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.KahaleSmileSection.html">KahaleSmileSection</a></dt>
+      <dd><p>An arbitrage-free smile section by Kahale's C¹ interpolation and extrapolation of a source section's call prices
+(Kahale, &quot;An arbitrage-free interpolation of volatilities&quot;, Risk, May 2004).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.KerkhofSeasonality.html">KerkhofSeasonality</a></dt>
+      <dd><p>Kerkhof's seasonality: twelve monthly factors, the correction between two months the product of the factors of the
+months between them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.KrugerLogDiscountCurve.html">KrugerLogDiscountCurve</a></dt>
+      <dd><p>A yield term structure based on log-cubic interpolation of discount factors with Kruger's derivatives.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.LinearForwardCurve.html">LinearForwardCurve</a></dt>
+      <dd><p>A yield term structure based on linear interpolation of instantaneous forward rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.LinearInterpolatedSmileSection.html">LinearInterpolatedSmileSection</a></dt>
+      <dd><p>QuantLib-Python's <code>LinearInterpolatedSmileSection</code>: an <a class="xref" href="NanoQL.TermStructures.InterpolatedSmileSection-1.html">InterpolatedSmileSection&lt;TInterpolator&gt;</a> with linear interpolation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.LocalConstantVol.html">LocalConstantVol</a></dt>
+      <dd><p>A constant local volatility, with no time or asset dependence. Local and Black volatility are the same when the
+volatility depends at most on time, so this is a proxy for a constant Black volatility.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.LocalVolCurve.html">LocalVolCurve</a></dt>
+      <dd><p>The local volatility curve of a Black variance curve: where ∫₀ᵀ σ_L²(t) dt = σ_B(T)² T, the local volatility is
+σ_L(t) = √(d(σ_B²(t) t)/dt), taken by a forward difference over one day.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.LocalVolSurface.html">LocalVolSurface</a></dt>
+      <dd><p>The local volatility surface implied by a Black volatility surface and the risk-free and dividend curves, by
+Dupire's formula in the total variance, as in J. Gatheral, &quot;Stochastic Volatility and Local Volatility&quot;, Case
+Studies and Financial Modelling Course Notes, Fall 2003.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></dt>
+      <dd><p>The local-volatility term structure: the base of the structures that give the local volatility at a time and an
+underlying level. Volatilities are on an annual basis.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.LogCubicDiscountCurve.html">LogCubicDiscountCurve</a></dt>
+      <dd><p>A yield term structure based on log-cubic interpolation of discount factors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.LogCubicSpreadDiscountCurve.html">LogCubicSpreadDiscountCurve</a></dt>
+      <dd><p>A spread yield curve based on log-cubic interpolation of spread discount factors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.LogCubicZeroCurve.html">LogCubicZeroCurve</a></dt>
+      <dd><p>A yield term structure based on log-cubic interpolation of zero rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.LogLinearZeroCurve.html">LogLinearZeroCurve</a></dt>
+      <dd><p>A yield term structure based on log-linear interpolation of zero rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.LogMixedLinearCubicDiscountCurve.html">LogMixedLinearCubicDiscountCurve</a></dt>
+      <dd><p>A yield term structure based on log-mixed-linear-cubic interpolation of discount factors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.LogMixedLinearCubicSpreadDiscountCurve.html">LogMixedLinearCubicSpreadDiscountCurve</a></dt>
+      <dd><p>A spread yield curve based on log-mixed-linear-cubic interpolation of spread discount factors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.MonotonicCubicInterpolatedSmileSection.html">MonotonicCubicInterpolatedSmileSection</a></dt>
+      <dd><p>QuantLib-Python's <code>MonotonicCubicInterpolatedSmileSection</code>: an <a class="xref" href="NanoQL.TermStructures.InterpolatedSmileSection-1.html">InterpolatedSmileSection&lt;TInterpolator&gt;</a> with QuantLib-Python's <code>MonotonicCubic</code>, <a class="xref" href="NanoQL.Numerics.Cubic.html">Cubic</a> with the spline's derivatives and Hyman's monotonicity filter.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.MultiCurve.html">MultiCurve</a></dt>
+      <dd><p>Builds a set of curves that form a dependency cycle, solving the bootstrapped ones together with one optimizer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.MultiCurveMember.html">MultiCurveMember</a></dt>
+      <dd><p>A member of a cycle of curves (<a class="xref" href="NanoQL.TermStructures.MultiCurve.html">MultiCurve</a>): QuantLib's internal handle, a curve on which the cycle's
+indexes and helpers are built before the member exists, and which the multicurve's <a class="xref" href="NanoQL.TermStructures.MultiCurve.html#NanoQL_TermStructures_MultiCurve_Build_NanoQL_EvaluationContext_">Build(EvaluationContext)</a>
+links once to the member it builds.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.MultipleResetsSwapRateHelper.html">MultipleResetsSwapRateHelper</a></dt>
+      <dd><p>A rate helper bootstrapping from the quotes of multiple-resets swaps.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.MultiplicativePriceSeasonality.html">MultiplicativePriceSeasonality</a></dt>
+      <dd><p>Multiplicative seasonality in the price index (CPI, RPI, HICP).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.NaturalCubicDiscountCurve.html">NaturalCubicDiscountCurve</a></dt>
+      <dd><p>A yield term structure based on natural cubic-spline interpolation of discount factors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.NaturalCubicFitting.html">NaturalCubicFitting</a></dt>
+      <dd><p>The natural cubic spline fitting method: a discount function interpolated by a natural cubic spline, its second
+derivative 0 at both ends, through nodal discount values d(t_i), the parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.NelsonSiegelFitting.html">NelsonSiegelFitting</a></dt>
+      <dd><p>The Nelson-Siegel fitting method: a discount function d(t) = e^(−r t), the zero rate
+r = c_0 + (c_1 + c_2)(1 − e^(−κt))/(κt) − c_2 e^(−κt).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.NoExceptLocalVolSurface.html">NoExceptLocalVolSurface</a></dt>
+      <dd><p>Dupire's local volatility surface that answers a given value where <a class="xref" href="NanoQL.TermStructures.LocalVolSurface.html">LocalVolSurface</a> refuses, as where
+the local variance turns negative.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.OISRateHelper.html">OISRateHelper</a></dt>
+      <dd><p>A rate helper for bootstrapping over overnight indexed swap rates: the fixed rate of the overnight indexed swap,
+built at construction, that the curve prices at par.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.OptionletStripper.html">OptionletStripper</a></dt>
+      <dd><p>The base class of the strippers of optionlet (caplet and floorlet) volatilities from a cap and floor term-volatility
+surface.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.OptionletStripper1.html">OptionletStripper1</a></dt>
+      <dd><p>Strips optionlet (caplet and floorlet) volatilities, also called forward-forward volatilities, from the cap and
+floor term volatilities of a <a class="xref" href="NanoQL.TermStructures.CapFloorTermVolSurface.html">CapFloorTermVolSurface</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.OptionletStripper2.html">OptionletStripper2</a></dt>
+      <dd><p>Extends an <a class="xref" href="NanoQL.TermStructures.OptionletStripper1.html">OptionletStripper1</a>'s optionlet volatilities with those stripped from the at-the-money cap
+and floor term volatilities of a <a class="xref" href="NanoQL.TermStructures.CapFloorTermVolCurve.html">CapFloorTermVolCurve</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.OptionletVolatilityStructure.html">OptionletVolatilityStructure</a></dt>
+      <dd><p>The base class of caplet and floorlet volatility structures.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.OvernightIndexFutureRateHelper.html">OvernightIndexFutureRateHelper</a></dt>
+      <dd><p>A rate helper bootstrapping a curve on an overnight index future's price.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseBlackVarianceSurface.html">PiecewiseBlackVarianceSurface</a></dt>
+      <dd><p>A Black volatility surface built from smile sections, one per tenor: linear in total variance between tenors at a
+strike, linear from zero to the first tenor and at the last tenor's volatility past it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseConvexMonotoneForward.html">PiecewiseConvexMonotoneForward</a></dt>
+      <dd><p>A yield term structure bootstrapped on rate helpers, on convex-monotone interpolated instantaneous forward rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseConvexMonotoneZero.html">PiecewiseConvexMonotoneZero</a></dt>
+      <dd><p>A yield term structure bootstrapped on rate helpers, on convex-monotone interpolated zero rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseCubicZero.html">PiecewiseCubicZero</a></dt>
+      <dd><p>A yield term structure bootstrapped on rate helpers, on cubic-interpolated zero rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseDefaultCurve-3.html">PiecewiseDefaultCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a></dt>
+      <dd><p>A default-probability term structure bootstrapped on credit helpers: each helper's pillar marks the end of an
+interpolated segment, solved so that the helper reprices its quote.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseFlatForward.html">PiecewiseFlatForward</a></dt>
+      <dd><p>A yield term structure bootstrapped on rate helpers, on backward-flat instantaneous forward rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseFlatHazardRate.html">PiecewiseFlatHazardRate</a></dt>
+      <dd><p>The piecewise hazard-rate curve with backward-flat interpolation: QuantLib-Python's <code>PiecewiseFlatHazardRate</code>,
+QuantLib's <code>PiecewiseDefaultCurve&lt;HazardRate, BackwardFlat&gt;</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseForwardSpreadedTermStructure.html">PiecewiseForwardSpreadedTermStructure</a></dt>
+      <dd><p>A yield curve with spreads added to another curve's instantaneous forward rates, backward-flat between
+their dates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseKrugerLogDiscount.html">PiecewiseKrugerLogDiscount</a></dt>
+      <dd><p>A yield term structure bootstrapped on rate helpers, on log-cubic interpolated discount factors with Kruger's
+derivatives.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseLinearForward.html">PiecewiseLinearForward</a></dt>
+      <dd><p>A yield term structure bootstrapped on rate helpers, on linearly interpolated instantaneous forward rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseLinearForwardSpreadedTermStructure.html">PiecewiseLinearForwardSpreadedTermStructure</a></dt>
+      <dd><p>A yield curve with spreads added to another curve's instantaneous forward rates, interpolated linearly
+between their dates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseLinearSimpleZero.html">PiecewiseLinearSimpleZero</a></dt>
+      <dd><p>A yield term structure bootstrapped on rate helpers, on linearly interpolated simply compounded zero rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseLinearZero.html">PiecewiseLinearZero</a></dt>
+      <dd><p>A yield term structure bootstrapped on rate helpers, on linearly interpolated zero rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseLogCubicDiscount.html">PiecewiseLogCubicDiscount</a></dt>
+      <dd><p>A yield term structure bootstrapped on rate helpers, on log-cubic interpolated discount factors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseLogCubicSpreadDiscount.html">PiecewiseLogCubicSpreadDiscount</a></dt>
+      <dd><p>A spread discount curve over a base curve, bootstrapped iteratively on log-cubic interpolation of its spread
+discount factors: QuantLib-Python's <code>PiecewiseLogCubicSpreadDiscount</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseLogLinearDiscount.html">PiecewiseLogLinearDiscount</a></dt>
+      <dd><p>A yield term structure bootstrapped on rate helpers, on log-linearly interpolated discount factors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseLogLinearSpreadDiscount.html">PiecewiseLogLinearSpreadDiscount</a></dt>
+      <dd><p>A spread discount curve over a base curve, bootstrapped iteratively on log-linear interpolation of its spread
+discount factors: QuantLib-Python's <code>PiecewiseLogLinearSpreadDiscount</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseLogMixedLinearCubicDiscount.html">PiecewiseLogMixedLinearCubicDiscount</a></dt>
+      <dd><p>A yield term structure bootstrapped on rate helpers, on log-mixed-linear-cubic interpolated discount factors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseLogMixedLinearCubicSpreadDiscount.html">PiecewiseLogMixedLinearCubicSpreadDiscount</a></dt>
+      <dd><p>A spread discount curve over a base curve, bootstrapped iteratively on log-mixed-linear-cubic interpolation of its
+spread discount factors: QuantLib-Python's <code>PiecewiseLogMixedLinearCubicSpreadDiscount</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseSplineCubicDiscount.html">PiecewiseSplineCubicDiscount</a></dt>
+      <dd><p>A piecewise cubic-spline discount curve bootstrapped iteratively: QuantLib-Python's
+<code>PiecewiseSplineCubicDiscount</code>, the <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a> on
+<a class="xref" href="NanoQL.TermStructures.Discount.html">Discount</a>, <a class="xref" href="NanoQL.Numerics.Cubic.html">Cubic</a> and <a class="xref" href="NanoQL.TermStructures.IterativeBootstrap.html">IterativeBootstrap</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseSpreadYieldCurve-2.html">PiecewiseSpreadYieldCurve&lt;TInterpolator, TBootstrap&gt;</a></dt>
+      <dd><p>A spread curve bootstrapped on rate helpers over a base curve: its nodes are discount factors whose product with
+the base's discount reprices each helper.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a></dt>
+      <dd><p>A yield term structure bootstrapped on rate helpers: each helper's pillar marks the end of an interpolated segment,
+solved so that the helper reprices its quote.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseYoYInflation.html">PiecewiseYoYInflation</a></dt>
+      <dd><p>A year-on-year inflation term structure bootstrapped on inflation helpers, on linearly interpolated year-on-year
+inflation rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseYoYInflationCurve-3.html">PiecewiseYoYInflationCurve&lt;TInterpolator, TBootstrap, TTraits&gt;</a></dt>
+      <dd><p>A year-on-year inflation term structure bootstrapped on inflation helpers: each helper's pillar marks the end of an
+interpolated segment of year-on-year inflation rates, solved so that the helper reprices its quote.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseZeroInflation.html">PiecewiseZeroInflation</a></dt>
+      <dd><p>A zero-inflation term structure bootstrapped on inflation helpers, on linearly interpolated zero-coupon inflation
+rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseZeroInflationCurve-3.html">PiecewiseZeroInflationCurve&lt;TInterpolator, TBootstrap, TTraits&gt;</a></dt>
+      <dd><p>A zero-inflation term structure bootstrapped on inflation helpers: each helper's pillar marks the end of an
+interpolated segment of zero-coupon inflation rates, solved so that the helper reprices its quote.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PiecewiseZeroSpreadedTermStructure.html">PiecewiseZeroSpreadedTermStructure</a></dt>
+      <dd><p>A yield curve with spreads added to another curve's zero rates, interpolated linearly between their dates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.QuantoTermStructure.html">QuantoTermStructure</a></dt>
+      <dd><p>The quanto-adjusted dividend curve of an underlying in a foreign currency, for quanto option pricing: the zero
+yield q + r − r_f + ρ σ_S σ_X, from the underlying's dividend curve, the domestic and foreign risk-free curves, the
+underlying's and the exchange rate's Black volatilities and their correlation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.RateHelper.html">RateHelper</a></dt>
+      <dd><p>The base of the helpers a yield curve is bootstrapped on: QuantLib's <code>RateHelper</code>, a typedef of
+<code>BootstrapHelper&lt;YieldTermStructure&gt;</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.RelativeDateBootstrapHelper-1.html">RelativeDateBootstrapHelper&lt;TTermStructure&gt;</a></dt>
+      <dd><p>The base of a bootstrap helper whose dates follow the evaluation date: QuantLib's
+<code>RelativeDateBootstrapHelper</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.RelativeDateRateHelper.html">RelativeDateRateHelper</a></dt>
+      <dd><p>The base of a yield helper whose dates follow the evaluation date: QuantLib's <code>RelativeDateRateHelper</code>, a
+typedef of <code>RelativeDateBootstrapHelper&lt;YieldTermStructure&gt;</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SabrFunctions.html">SabrFunctions</a></dt>
+      <dd><p>The SABR functions: Hagan's lognormal and normal expansions of the SABR volatility, Le Floc'h and Kennedy's
+expansion, the parameters' validation and Le Floc'h and Kennedy's initial guess for a calibration.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SabrInterpolatedSmileSection.html">SabrInterpolatedSmileSection</a></dt>
+      <dd><p>A shifted lognormal smile section whose volatilities are a SABR fit to market volatilities at given strikes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SabrSmileSection.html">SabrSmileSection</a></dt>
+      <dd><p>A SABR smile section: the shifted SABR volatility at given parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SabrSwaptionVolatilityCube.html">SabrSwaptionVolatilityCube</a></dt>
+      <dd><p>The SABR swaption volatility cube: QuantLib's <code>SabrSwaptionVolatilityCube</code>, the XABR cube on the SABR model,
+whose smiles are <a class="xref" href="NanoQL.Numerics.SABRInterpolation.html">SABRInterpolation</a> fits and whose sections are <a class="xref" href="NanoQL.TermStructures.SabrSmileSection.html">SabrSmileSection</a>s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.Seasonality.html">Seasonality</a></dt>
+      <dd><p>A seasonality: a correction of an inflation term structure's zero and year-on-year rates for seasonal effects in the
+price index.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SimplePolynomialFitting.html">SimplePolynomialFitting</a></dt>
+      <dd><p>The simple polynomial fitting method: a discount function d(t) = Σ_{i=0}^{degree} c_i t^i, a simple and crude, but
+fast and robust, means of fitting a yield curve.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SimpleQuoteVariables.html">SimpleQuoteVariables</a></dt>
+      <dd><p>Additional bootstrap variables that are plain values, each with an initial guess and an optional lower bound:
+QuantLib's <code>SimpleQuoteVariables</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SimpleZeroCurve.html">SimpleZeroCurve</a></dt>
+      <dd><p>A yield term structure based on linear interpolation of simply compounded zero rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></dt>
+      <dd><p>An interest-rate volatility smile section: the volatilities of options on one exercise date.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SmileSectionUtils.html">SmileSectionUtils</a></dt>
+      <dd><p>A smile section's grid of strikes and call prices and its arbitrage-free region: the widest range of the grid,
+around the at-the-money point, on which the call prices decrease and are convex in the strike.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SofrFutureRateHelper.html">SofrFutureRateHelper</a></dt>
+      <dd><p>A rate helper on a CME SOFR future: overnight SOFR rates from the reference month's third Wednesday, inclusive, to
+the third Wednesday a quarter later, exclusive, compounded; or over the reference month, averaged.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SplineCubicInterpolatedSmileSection.html">SplineCubicInterpolatedSmileSection</a></dt>
+      <dd><p>QuantLib-Python's <code>SplineCubicInterpolatedSmileSection</code>: an <a class="xref" href="NanoQL.TermStructures.InterpolatedSmileSection-1.html">InterpolatedSmileSection&lt;TInterpolator&gt;</a> with QuantLib-Python's <code>SplineCubic</code>, <a class="xref" href="NanoQL.Numerics.Cubic.html">Cubic</a> with the spline's derivatives and no monotonicity filter.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SpreadCdsHelper.html">SpreadCdsHelper</a></dt>
+      <dd><p>A bootstrap helper on a credit default swap quoted as a running spread: its implied quote is the swap's
+fair spread.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SpreadDiscountCurve.html">SpreadDiscountCurve</a></dt>
+      <dd><p>A spread yield curve based on log-linear interpolation of spread discount factors, which gives piecewise-constant
+spreads.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SpreadFittingMethod.html">SpreadFittingMethod</a></dt>
+      <dd><p>The spread fitting method: a spread curve fitted on top of a discounting curve, by an underlying parametric method,
+so that the fitted discount is the method's times the discounting curve's.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SpreadedBackwardFlatZeroInterpolatedTermStructure.html">SpreadedBackwardFlatZeroInterpolatedTermStructure</a></dt>
+      <dd><p>A yield curve with spreads added to another curve's zero rates, backward-flat between their
+dates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SpreadedCubicZeroInterpolatedTermStructure.html">SpreadedCubicZeroInterpolatedTermStructure</a></dt>
+      <dd><p>A yield curve with spreads added to another curve's zero rates, interpolated cubically between their
+dates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SpreadedOptionletVolatility.html">SpreadedOptionletVolatility</a></dt>
+      <dd><p>An optionlet volatility structure that adds a constant spread to another's volatilities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SpreadedSmileSection.html">SpreadedSmileSection</a></dt>
+      <dd><p>A smile section shifted by a volatility spread: another section's volatilities plus the spread.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SpreadedSwaptionVolatility.html">SpreadedSwaptionVolatility</a></dt>
+      <dd><p>A swaption volatility structure that adds a constant spread to another's volatilities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.StrippedOptionlet.html">StrippedOptionlet</a></dt>
+      <dd><p>A matrix of optionlet (caplet and floorlet) volatilities, also called forward-forward volatilities, calculated
+elsewhere, as a <a class="xref" href="NanoQL.TermStructures.StrippedOptionletBase.html">StrippedOptionletBase</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.StrippedOptionletAdapter.html">StrippedOptionletAdapter</a></dt>
+      <dd><p>An optionlet volatility structure on a <a class="xref" href="NanoQL.TermStructures.StrippedOptionletBase.html">StrippedOptionletBase</a>: linear in strike at each fixing date,
+then linear in time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.StrippedOptionletBase.html">StrippedOptionletBase</a></dt>
+      <dd><p>The base class of a vector, indexed by time, of optionlet (caplet and floorlet) volatilities indexed by strike.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SurvivalProbabilityCurve.html">SurvivalProbabilityCurve</a></dt>
+      <dd><p>The survival-probability curve with linear interpolation: QuantLib-Python's <code>SurvivalProbabilityCurve</code>,
+QuantLib's <code>InterpolatedSurvivalProbabilityCurve&lt;Linear&gt;</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SurvivalProbabilityStructure.html">SurvivalProbabilityStructure</a></dt>
+      <dd><p>The survival-probability term structure: an adapter that lets a derived curve implement the survival probability,
+from which the default densities and hazard rates follow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SvenssonFitting.html">SvenssonFitting</a></dt>
+      <dd><p>The Svensson fitting method: a discount function d(t) = e^(−r t), the zero rate
+r = c_0 + (c_1 + c_2)(1 − e^(−κt))/(κt) − c_2 e^(−κt) + c_3((1 − e^(−κ_1 t))/(κ_1 t) − e^(−κ_1 t)).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SwapRateHelper.html">SwapRateHelper</a></dt>
+      <dd><p>A rate helper for bootstrapping over swap rates: the fixed rate of the vanilla swap, built at construction, that
+the curve prices at par.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityCube.html">SwaptionVolatilityCube</a></dt>
+      <dd><p>The base class of swaption volatility cubes: an at-the-money swaption volatility structure, and the smile around
+it given by volatility spreads at strike spreads from the at-the-money strike, on a grid of option and swap
+tenors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityDiscrete.html">SwaptionVolatilityDiscrete</a></dt>
+      <dd><p>The base class of swaption volatility structures given on a grid of option dates and swap tenors: the grid's
+dates, times and lengths, and the interpolation from an option time to its date.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityMatrix.html">SwaptionVolatilityMatrix</a></dt>
+      <dd><p>The at-the-money swaption-volatility matrix: the volatility of a swaption, bilinearly interpolated in the swap
+length and the option time between the market volatilities of a grid of option dates and swap tenors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html">SwaptionVolatilityStructure</a></dt>
+      <dd><p>The base class of swaption volatility structures: volatilities by option date and swap tenor.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.UltimateForwardTermStructure.html">UltimateForwardTermStructure</a></dt>
+      <dd><p>The Dutch regulatory term structure for pension funds: another curve, the original, up to a first smoothing point,
+and past it a forward rate extrapolated from the last liquid forward rate towards an ultimate forward rate, for
+discounting long-dated liabilities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.UpfrontCdsHelper.html">UpfrontCdsHelper</a></dt>
+      <dd><p>A bootstrap helper on a credit default swap quoted as an upfront, in fractional units, with a running
+spread: its implied quote is the swap's fair upfront.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html">VolatilityTermStructure</a></dt>
+      <dd><p>The base class of volatility term structures.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.XabrSwaptionVolatilityCube-1.html">XabrSwaptionVolatilityCube&lt;TModel&gt;</a></dt>
+      <dd><p>The swaption volatility cube that fits a smile model per option and swap tenor: the fit-early, interpolate-later
+cube, generic over its model.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.YearOnYearInflationSwapHelper.html">YearOnYearInflationSwapHelper</a></dt>
+      <dd><p>A bootstrap helper for year-on-year inflation term structures, on a year-on-year inflation swap's quoted fixed rate.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+      <dd><p>The interest-rate term structure: the base of the curves that give discount factors, zero rates and forward rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.YoYInflationCurve.html">YoYInflationCurve</a></dt>
+      <dd><p>A year-on-year inflation curve interpolating its rates linearly: QuantLib's typedef
+<code>InterpolatedYoYInflationCurve&lt;Linear&gt;</code>, named as QuantLib-Python names it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.YoYInflationHelperExtensions.html">YoYInflationHelperExtensions</a></dt>
+      <dd><p>QuantLib's <code>setTermStructure</code> for year-on-year inflation helpers, as a copy of the helper's own static type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.YoYInflationTermStructure.html">YoYInflationTermStructure</a></dt>
+      <dd><p>The base class of year-on-year inflation term structures.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html">YoYOptionletVolatilitySurface</a></dt>
+      <dd><p>The base class of year-on-year inflation optionlet volatility structures, which give total variances and observe an
+index with a lag.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrFullFdInterpolatedSmileSection.html">ZabrFullFdInterpolatedSmileSection</a></dt>
+      <dd><p>QuantLib-Python's <code>ZabrFullFdInterpolatedSmileSection</code>: a
+<a class="xref" href="NanoQL.TermStructures.ZabrInterpolatedSmileSection-1.html">ZabrInterpolatedSmileSection&lt;TEvaluation&gt;</a> with the full finite-difference kernel.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrFullFdSmileSection.html">ZabrFullFdSmileSection</a></dt>
+      <dd><p>QuantLib-Python's <code>ZabrFullFdSmileSection</code>: a <a class="xref" href="NanoQL.TermStructures.ZabrSmileSection-1.html">ZabrSmileSection&lt;TEvaluation&gt;</a> with the
+full finite-difference kernel.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrInterpolatedSmileSection-1.html">ZabrInterpolatedSmileSection&lt;TEvaluation&gt;</a></dt>
+      <dd><p>A smile section whose volatilities are a ZABR fit to market volatilities at given strikes, by the kernel
+<code class="typeparamref">TEvaluation</code> names.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrLocalVolatilityInterpolatedSmileSection.html">ZabrLocalVolatilityInterpolatedSmileSection</a></dt>
+      <dd><p>QuantLib-Python's <code>ZabrLocalVolatilityInterpolatedSmileSection</code>: a
+<a class="xref" href="NanoQL.TermStructures.ZabrInterpolatedSmileSection-1.html">ZabrInterpolatedSmileSection&lt;TEvaluation&gt;</a> with the local-volatility kernel.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrLocalVolatilitySmileSection.html">ZabrLocalVolatilitySmileSection</a></dt>
+      <dd><p>QuantLib-Python's <code>ZabrLocalVolatilitySmileSection</code>: a <a class="xref" href="NanoQL.TermStructures.ZabrSmileSection-1.html">ZabrSmileSection&lt;TEvaluation&gt;</a> with the
+local-volatility kernel.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrModel.html">ZabrModel</a></dt>
+      <dd><p>The ZABR model (J. Andreasen and B. Huge, &quot;ZABR - Expansions for the masses&quot;, 2011): SABR with the volatility's own
+volatility scaled by a power γ of the volatility. Its short-maturity lognormal and normal volatilities, and its
+local volatility, and call prices by finite differences: on the Dupire equation in the strike under that local
+volatility, and on the model's full two-dimensional equation in the forward and the volatility.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrShortMaturityLognormalInterpolatedSmileSection.html">ZabrShortMaturityLognormalInterpolatedSmileSection</a></dt>
+      <dd><p>QuantLib-Python's <code>ZabrShortMaturityLognormalInterpolatedSmileSection</code>: a
+<a class="xref" href="NanoQL.TermStructures.ZabrInterpolatedSmileSection-1.html">ZabrInterpolatedSmileSection&lt;TEvaluation&gt;</a> with the short-maturity lognormal kernel.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrShortMaturityLognormalSmileSection.html">ZabrShortMaturityLognormalSmileSection</a></dt>
+      <dd><p>QuantLib-Python's <code>ZabrShortMaturityLognormalSmileSection</code>: a <a class="xref" href="NanoQL.TermStructures.ZabrSmileSection-1.html">ZabrSmileSection&lt;TEvaluation&gt;</a> with
+the short-maturity lognormal kernel.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrShortMaturityNormalInterpolatedSmileSection.html">ZabrShortMaturityNormalInterpolatedSmileSection</a></dt>
+      <dd><p>QuantLib-Python's <code>ZabrShortMaturityNormalInterpolatedSmileSection</code>: a
+<a class="xref" href="NanoQL.TermStructures.ZabrInterpolatedSmileSection-1.html">ZabrInterpolatedSmileSection&lt;TEvaluation&gt;</a> with the short-maturity normal kernel.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrShortMaturityNormalSmileSection.html">ZabrShortMaturityNormalSmileSection</a></dt>
+      <dd><p>QuantLib-Python's <code>ZabrShortMaturityNormalSmileSection</code>: a <a class="xref" href="NanoQL.TermStructures.ZabrSmileSection-1.html">ZabrSmileSection&lt;TEvaluation&gt;</a> with the
+short-maturity normal kernel.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrSmileSection-1.html">ZabrSmileSection&lt;TEvaluation&gt;</a></dt>
+      <dd><p>A ZABR smile section: the volatilities and option prices of the ZABR model at given parameters, by the kernel
+<code class="typeparamref">TEvaluation</code> names.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrSwaptionVolatilityCube.html">ZabrSwaptionVolatilityCube</a></dt>
+      <dd><p>The ZABR swaption volatility cube: QuantLib's <code>ZabrSwaptionVolatilityCube</code>, the XABR cube on the ZABR model with
+its default kernel, whose smiles are <a class="xref" href="NanoQL.Numerics.ZabrInterpolation-1.html">ZabrInterpolation&lt;TEvaluation&gt;</a> fits and whose sections are
+<a class="xref" href="NanoQL.TermStructures.ZabrSmileSection-1.html">ZabrSmileSection&lt;TEvaluation&gt;</a>s, on the short-maturity lognormal kernel.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZeroCouponInflationSwapHelper.html">ZeroCouponInflationSwapHelper</a></dt>
+      <dd><p>A bootstrap helper for zero-inflation term structures, on a zero-coupon inflation swap's quoted fixed rate.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZeroCurve.html">ZeroCurve</a></dt>
+      <dd><p>A yield term structure based on linear interpolation of zero rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZeroInflationCurve.html">ZeroInflationCurve</a></dt>
+      <dd><p>A zero-inflation curve interpolating its rates linearly: QuantLib's typedef
+<code>InterpolatedZeroInflationCurve&lt;Linear&gt;</code>, named as QuantLib-Python names it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZeroInflationHelperExtensions.html">ZeroInflationHelperExtensions</a></dt>
+      <dd><p>QuantLib's <code>setTermStructure</code> for zero-inflation helpers, as a copy of the helper's own static type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZeroInflationTermStructure.html">ZeroInflationTermStructure</a></dt>
+      <dd><p>The base class of zero-inflation term structures, which give zero-coupon inflation rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZeroSpreadedTermStructure.html">ZeroSpreadedTermStructure</a></dt>
+      <dd><p>A term structure with a spread added to the zero yield rate of another curve, the original.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZeroYieldStructure.html">ZeroYieldStructure</a></dt>
+      <dd><p>A zero-yield term structure: an adapter to <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a> that lets a derived class implement
+only <a class="xref" href="NanoQL.TermStructures.ZeroYieldStructure.html#NanoQL_TermStructures_ZeroYieldStructure_ZeroYieldImpl_System_Double_">ZeroYieldImpl(double)</a>; discount factors and forward rates are calculated from the zero yields, which are
+continuously compounded with an annual time unit.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.AndreasenHugeCalibrationError.html">AndreasenHugeCalibrationError</a></dt>
+      <dd><p><a class="xref" href="NanoQL.TermStructures.AndreasenHugeVolatilityInterpl.html">AndreasenHugeVolatilityInterpl</a>'s calibration error in volatility units, QuantLib's
+<code>calibrationError()</code> tuple: each calibrated option's price error divided by its vega.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.DefaultDensity.html">DefaultDensity</a></dt>
+      <dd><p>The default-density curve traits: the bootstrap of default densities, and the formulas of
+<a class="xref" href="NanoQL.TermStructures.InterpolatedDefaultDensityCurve-1.html">InterpolatedDefaultDensityCurve&lt;TInterpolator&gt;</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.Discount.html">Discount</a></dt>
+      <dd><p>The discount-curve traits: the curve's data are discount factors, interpolated as an
+<a class="xref" href="NanoQL.TermStructures.InterpolatedDiscountCurve-1.html">InterpolatedDiscountCurve&lt;TInterpolator&gt;</a>'s are.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ForwardRate.html">ForwardRate</a></dt>
+      <dd><p>The forward-curve traits: the curve's data are instantaneous forward rates, interpolated as an interpolated forward
+curve's are.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a></dt>
+      <dd><p>The global bootstrapper, with additional restrictions: the curve's nodes are solved together, by an optimizer that
+minimizes the helpers' quote errors and any additional penalties.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.HazardRate.html">HazardRate</a></dt>
+      <dd><p>The hazard-rate curve traits: the bootstrap of hazard rates, and the formulas of
+<a class="xref" href="NanoQL.TermStructures.InterpolatedHazardRateCurve-1.html">InterpolatedHazardRateCurve&lt;TInterpolator&gt;</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.IterativeBootstrap.html">IterativeBootstrap</a></dt>
+      <dd><p>The universal piecewise-term-structure bootstrapper: each node is solved in turn so that the helper whose pillar it
+is reprices its quote, and the passes repeat until the nodes stop moving when the interpolation is global or a
+pillar comes before its helper's latest relevant date.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.LocalBootstrap.html">LocalBootstrap</a></dt>
+      <dd><p>The localised bootstrapper: QuantLib's <code>LocalBootstrap</code>, which solves each section of a curve on a non-local
+interpolation from the few helpers around it, so that each helper's risk stays local.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SimpleZeroYield.html">SimpleZeroYield</a></dt>
+      <dd><p>The simple zero-curve traits: the curve's data are simply compounded zero rates, interpolated as an interpolated
+simple zero curve's are.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SurvivalProbability.html">SurvivalProbability</a></dt>
+      <dd><p>The survival-probability curve traits: the bootstrap of survival probabilities, and the formulas of
+<a class="xref" href="NanoQL.TermStructures.InterpolatedSurvivalProbabilityCurve-1.html">InterpolatedSurvivalProbabilityCurve&lt;TInterpolator&gt;</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SwaptionVolCubeSabrModel.html">SwaptionVolCubeSabrModel</a></dt>
+      <dd><p>The SABR model of a swaption volatility cube: QuantLib's <code>SwaptionVolCubeSabrModel</code> on the primary
+<code>XabrModelTraits</code>, its smiles fitted by <a class="xref" href="NanoQL.Numerics.SABRInterpolation.html">SABRInterpolation</a> and its sections
+<a class="xref" href="NanoQL.TermStructures.SabrSmileSection.html">SabrSmileSection</a>s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.SwaptionVolCubeZabrModel-1.html">SwaptionVolCubeZabrModel&lt;TEvaluation&gt;</a></dt>
+      <dd><p>The ZABR model of a swaption volatility cube: QuantLib's <code>SwaptionVolCubeZabrModel&lt;Kernel&gt;</code> with its
+<code>XabrModelTraits</code> specialization, its smiles fitted by <a class="xref" href="NanoQL.Numerics.ZabrInterpolation-1.html">ZabrInterpolation&lt;TEvaluation&gt;</a> and its
+sections <a class="xref" href="NanoQL.TermStructures.ZabrSmileSection-1.html">ZabrSmileSection&lt;TEvaluation&gt;</a>s, five parameters α, β, ν, ρ and γ.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.YoYInflationTraits.html">YoYInflationTraits</a></dt>
+      <dd><p>The year-on-year inflation curve's bootstrap traits: the curve's data are year-on-year rates, from the base date, starting at the curve's base rate.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrFullFd.html">ZabrFullFd</a></dt>
+      <dd><p>QuantLib's full finite-difference kernel for <a class="xref" href="NanoQL.TermStructures.ZabrSmileSection-1.html">ZabrSmileSection&lt;TEvaluation&gt;</a>: calls priced at the
+section's strike grid, each by finite differences on the model's two-dimensional equation
+(<a class="xref" href="NanoQL.TermStructures.ZabrModel.html#NanoQL_TermStructures_ZabrModel_FullFdPrice_System_Double_">FullFdPrice(double)</a>), interpolated by a spline, and the volatility implied from those prices.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrLocalVolatility.html">ZabrLocalVolatility</a></dt>
+      <dd><p>QuantLib's local-volatility kernel for <a class="xref" href="NanoQL.TermStructures.ZabrSmileSection-1.html">ZabrSmileSection&lt;TEvaluation&gt;</a>: calls priced at the section's
+strike grid by finite differences on the Dupire equation under the model's local volatility
+(<a class="xref" href="NanoQL.TermStructures.ZabrModel.html#NanoQL_TermStructures_ZabrModel_FdPrice_System_ReadOnlySpan_System_Double__">FdPrice(ReadOnlySpan&lt;double&gt;)</a>), interpolated by a spline, and the volatility implied from
+those prices.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrShortMaturityLognormal.html">ZabrShortMaturityLognormal</a></dt>
+      <dd><p>QuantLib's short-maturity lognormal kernel for <a class="xref" href="NanoQL.TermStructures.ZabrSmileSection-1.html">ZabrSmileSection&lt;TEvaluation&gt;</a>: the volatility is the
+model's lognormal volatility at the strike, floored at 1e-6, and the option prices are <a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a>'s,
+Black's on that volatility.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZabrShortMaturityNormal.html">ZabrShortMaturityNormal</a></dt>
+      <dd><p>QuantLib's short-maturity normal kernel for <a class="xref" href="NanoQL.TermStructures.ZabrSmileSection-1.html">ZabrSmileSection&lt;TEvaluation&gt;</a>: the option prices are
+Bachelier's on the model's normal volatility at the strike, and the volatility is the lognormal one implied from the
+out-of-the-money price, 0 where it can't be implied.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZeroInflationTraits.html">ZeroInflationTraits</a></dt>
+      <dd><p>The zero-inflation curve's bootstrap traits: the curve's data are zero-coupon inflation rates, from the base date.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ZeroYield.html">ZeroYield</a></dt>
+      <dd><p>The zero-curve traits: the curve's data are continuously compounded zero rates, interpolated as an interpolated
+zero curve's are.</p>
+</dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.IBootstrap.html">IBootstrap</a></dt>
+      <dd><p>A bootstrap: QuantLib's <code>Bootstrap</code> template parameter (<code>IterativeBootstrap</code>, <code>GlobalBootstrap</code>), as
+a configuration struct whose <a class="xref" href="NanoQL.TermStructures.IBootstrap.html#NanoQL_TermStructures_IBootstrap_Calculate__3_NanoQL_TermStructures_BootstrapState___0____2_NanoQL_EvaluationContext_">Calculate&lt;TTermStructure, TTraits, TInterpolator&gt;(BootstrapState&lt;TTermStructure&gt;, TInterpolator, EvaluationContext)</a> fills a curve's working state.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.IBootstrapHelper.html">IBootstrapHelper</a></dt>
+      <dd><p>A bootstrap helper seen without its term structure's type: what a global bootstrap's penalties and initial-guess
+function read of the helpers they are given (<a class="xref" href="NanoQL.TermStructures.IBootstrapState.html">IBootstrapState</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.IBootstrapState.html">IBootstrapState</a></dt>
+      <dd><p>The working state of a curve under construction, seen without its term structure's type: what a global bootstrap's
+penalties and initial-guess function read (<a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html">BootstrapState&lt;TTermStructure&gt;</a> implements it).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.IBootstrapTraits-1.html">IBootstrapTraits&lt;TTermStructure&gt;</a></dt>
+      <dd><p>A bootstrap's traits: what the bootstraps ask of a curve kind (QuantLib's <code>Discount</code>, <code>ZeroYield</code> and the
+other traits structs), as static members.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.IDefaultProbabilityTraits.html">IDefaultProbabilityTraits</a></dt>
+      <dd><p>A default-probability curve's bootstrap traits, which also carry the curve kind they bootstrap: its survival
+probability, default density and hazard rate, and its maximum-date rule.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.IInterpolatedCurve-2.html">IInterpolatedCurve&lt;TTraits, TInterpolator&gt;</a></dt>
+      <dd><p>An interpolated curve of the kind its traits name, over the given interpolator: QuantLib's
+<code>Traits::curve&lt;Interpolator&gt;::type</code>, which a piecewise curve on those traits derives from.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.ILocalInterpolator.html">ILocalInterpolator</a></dt>
+      <dd><p>An interpolation factory that builds a curve a section at a time: the interpolator <a class="xref" href="NanoQL.TermStructures.LocalBootstrap.html">LocalBootstrap</a>
+needs, QuantLib's <code>localInterpolate</code> and <code>dataSizeAdjustment</code> (of its interpolators, only
+<a class="xref" href="NanoQL.Numerics.ConvexMonotone.html">ConvexMonotone</a> has them).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.IXabrCubeModel.html">IXabrCubeModel</a></dt>
+      <dd><p>The smile model of an XABR swaption volatility cube, QuantLib's <code>XabrModelTraits&lt;Model&gt;</code> with its
+model's <code>Interpolation</code> and <code>SmileSection</code> types: the model's parameter count, the fit of a smile, the
+fitted fifth parameter of a five-parameter model, and the smile section at given parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.IYieldTraits.html">IYieldTraits</a></dt>
+      <dd><p>A yield curve's bootstrap traits, which also carry the curve kind they bootstrap: its discount formula and its
+maximum-date rule.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.IYoYInflationTraits.html">IYoYInflationTraits</a></dt>
+      <dd><p>A year-on-year inflation curve's bootstrap traits, which also carry the curve kind they bootstrap: its rate formula and
+its maximum-date rule.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.IZabrEvaluation.html">IZabrEvaluation</a></dt>
+      <dd><p>QuantLib's ZABR evaluation tags: the kernel a <a class="xref" href="NanoQL.TermStructures.ZabrSmileSection-1.html">ZabrSmileSection&lt;TEvaluation&gt;</a> prices with. Its static
+members answer the section's members that QuantLib dispatches on the tag.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.IZeroInflationTraits.html">IZeroInflationTraits</a></dt>
+      <dd><p>A zero inflation curve's bootstrap traits, which also carry the curve kind they bootstrap: its rate formula and
+its maximum-date rule.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.AndreasenHugeVolatilityInterplCalibrationType.html">AndreasenHugeVolatilityInterplCalibrationType</a></dt>
+      <dd><p>Which options <a class="xref" href="NanoQL.TermStructures.AndreasenHugeVolatilityInterpl.html">AndreasenHugeVolatilityInterpl</a> calibrates to: QuantLib's
+<code>AndreasenHugeVolatilityInterpl::CalibrationType</code>, its values QuantLib's.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.AndreasenHugeVolatilityInterplInterpolationType.html">AndreasenHugeVolatilityInterplInterpolationType</a></dt>
+      <dd><p>How <a class="xref" href="NanoQL.TermStructures.AndreasenHugeVolatilityInterpl.html">AndreasenHugeVolatilityInterpl</a> interpolates its calibrated volatilities between the calibration
+strikes: QuantLib's <code>AndreasenHugeVolatilityInterpl::InterpolationType</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BlackVarianceSurfaceExtrapolation.html">BlackVarianceSurfaceExtrapolation</a></dt>
+      <dd><p>How a <a class="xref" href="NanoQL.TermStructures.BlackVarianceSurface.html">BlackVarianceSurface</a> extrapolates beyond its strikes: QuantLib's
+<code>BlackVarianceSurface::Extrapolation</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BlackVolTimeExtrapolationType.html">BlackVolTimeExtrapolationType</a></dt>
+      <dd><p>How a Black volatility structure extrapolates beyond its last time: QuantLib's
+<code>BlackVolTimeExtrapolation::Type</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.BlackVolatilitySurfaceDeltaSmileInterpolationMethod.html">BlackVolatilitySurfaceDeltaSmileInterpolationMethod</a></dt>
+      <dd><p>How <a class="xref" href="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.html">BlackVolatilitySurfaceDelta</a> interpolates its smile sections in strike: QuantLib's
+<code>BlackVolatilitySurfaceDelta::SmileInterpolationMethod</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.CmsMarketCalibrationCalibrationType.html">CmsMarketCalibrationCalibrationType</a></dt>
+      <dd><p>What a CMS market calibration fits: QuantLib's <code>CmsMarketCalibration::CalibrationType</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.FixedLocalVolSurfaceExtrapolation.html">FixedLocalVolSurfaceExtrapolation</a></dt>
+      <dd><p>How a <a class="xref" href="NanoQL.TermStructures.FixedLocalVolSurface.html">FixedLocalVolSurface</a> extrapolates beyond a time's strikes: QuantLib's
+<code>FixedLocalVolSurface::Extrapolation</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.PillarChoice.html">PillarChoice</a></dt>
+      <dd><p>The alternative ways of determining a bootstrap helper's pillar date: QuantLib's <code>Pillar::Choice</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.TermStructures.VolatilityType.html">VolatilityType</a></dt>
+      <dd><p>The type of a volatility: shifted lognormal (Black) or normal (Bachelier).</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

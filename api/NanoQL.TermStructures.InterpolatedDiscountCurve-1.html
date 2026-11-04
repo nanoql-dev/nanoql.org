@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class InterpolatedDiscountCurve&lt;TInterpolator&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class InterpolatedDiscountCurve&lt;TInterpolator&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A yield term structure based on the interpolation of discount factors.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1">
+
+
+
+  <h1 id="NanoQL_TermStructures_InterpolatedDiscountCurve_1" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1" class="text-break">
+Class InterpolatedDiscountCurve&lt;TInterpolator&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A yield term structure based on the interpolation of discount factors.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class InterpolatedDiscountCurve&lt;TInterpolator&gt; : YieldTermStructure, IInterpolatedCurve&lt;Discount, TInterpolator&gt; where TInterpolator : struct, IInterpolator</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TInterpolator</code></dt>
+    <dd><p>The interpolator.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></div>
+      <div><span class="xref">InterpolatedDiscountCurve&lt;TInterpolator&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.TermStructures.IInterpolatedCurve-2.html">IInterpolatedCurve</a>&lt;<a class="xref" href="NanoQL.TermStructures.Discount.html">Discount</a>, TInterpolator&gt;</div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.TermStructures.DiscountCurve.html">DiscountCurve</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.KrugerLogDiscountCurve.html">KrugerLogDiscountCurve</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.LogCubicDiscountCurve.html">LogCubicDiscountCurve</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.LogMixedLinearCubicDiscountCurve.html">LogMixedLinearCubicDiscountCurve</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.NaturalCubicDiscountCurve.html">NaturalCubicDiscountCurve</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_Discount_NanoQL_Time_Date_System_Boolean_">YieldTermStructure.Discount(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_Discount_System_Double_System_Boolean_">YieldTermStructure.Discount(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_ZeroRate_NanoQL_Time_Date_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_System_Boolean_">YieldTermStructure.ZeroRate(Date, DayCounter, Compounding, Frequency, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_ZeroRate_System_Double_NanoQL_Compounding_NanoQL_Time_Frequency_System_Boolean_">YieldTermStructure.ZeroRate(double, Compounding, Frequency, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_ForwardRate_NanoQL_Time_Date_NanoQL_Time_Date_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_System_Boolean_">YieldTermStructure.ForwardRate(Date, Date, DayCounter, Compounding, Frequency, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_ForwardRate_NanoQL_Time_Date_NanoQL_Time_Period_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_System_Boolean_">YieldTermStructure.ForwardRate(Date, Period, DayCounter, Compounding, Frequency, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_ForwardRate_System_Double_System_Double_NanoQL_Compounding_NanoQL_Time_Frequency_System_Boolean_">YieldTermStructure.ForwardRate(double, double, Compounding, Frequency, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_JumpDates">YieldTermStructure.JumpDates()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html#NanoQL_TermStructures_YieldTermStructure_JumpTimes">YieldTermStructure.JumpTimes()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_TimeFromReference_NanoQL_Time_Date_">TermStructure.TimeFromReference(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_CheckRange_NanoQL_Time_Date_System_Boolean_">TermStructure.CheckRange(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_CheckRange_System_Double_System_Boolean_">TermStructure.CheckRange(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_ReferenceDate">TermStructure.ReferenceDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_DayCounter">TermStructure.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_Calendar">TermStructure.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_SettlementDays">TermStructure.SettlementDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_MaxTime">TermStructure.MaxTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Past its last node the curve extrapolates with a flat instantaneous forward rate. Its formula and maximum date are
+the <a class="xref" href="NanoQL.TermStructures.Discount.html">Discount</a> traits', which a <a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html">PiecewiseYieldCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a>
+on those traits shares. Unsealed for its named classes, which add constructors only. QuantLib's protected
+constructors, through which its piecewise curve derives, aren't ported: no class derives through them here.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_InterpolatedDiscountCurve_1__ctor_" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedDiscountCurve_1__ctor_System_Collections_Generic_IEnumerable_NanoQL_Time_Date__System_Collections_Generic_IEnumerable_System_Double__NanoQL_Time_DayCounter_NanoQL_Time_Calendar_System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_NanoQL_Time_Date___0_" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.#ctor(System.Collections.Generic.IEnumerable{NanoQL.Time.Date},System.Collections.Generic.IEnumerable{System.Double},NanoQL.Time.DayCounter,NanoQL.Time.Calendar,System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{NanoQL.Time.Date},`0)">
+  InterpolatedDiscountCurve(IEnumerable&lt;Date&gt;, IEnumerable&lt;double&gt;, DayCounter, Calendar?, IEnumerable&lt;double&gt;?, IEnumerable&lt;Date&gt;?, TInterpolator)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.InterpolatedDiscountCurve-1.html">InterpolatedDiscountCurve&lt;TInterpolator&gt;</a> class from its nodes;
+the first date is the reference date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InterpolatedDiscountCurve(IEnumerable&lt;Date&gt; dates, IEnumerable&lt;double&gt; dfs, DayCounter dayCounter, Calendar? calendar = null, IEnumerable&lt;double&gt;? jumps = null, IEnumerable&lt;Date&gt;? jumpDates = null, TInterpolator interpolator = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The nodes' dates, sorted.</p>
+</dd>
+    <dt><code>dfs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The discount factors at the nodes, the first one 1.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty calendar.</p>
+</dd>
+    <dt><code>jumps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The discount-factor jumps, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>jumpDates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The jumps' dates, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for 31 December of successive years.</p>
+</dd>
+    <dt><code>interpolator</code> <span class="xref">TInterpolator</span></dt>
+    <dd><p>The interpolator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">dates</code>, <code class="paramref">dfs</code> or <code class="paramref">dayCounter</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There are fewer dates than the interpolation needs, the counts of dates and discounts differ, the first discount
+isn't 1, a discount isn't positive, the dates aren't sorted or two of them give the same time, the jumps and
+their dates differ in number, or the interpolation refuses the nodes.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The interpolation refuses the nodes.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_MaxDate_" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.MaxDate*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_MaxDate" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.MaxDate">
+  MaxDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the latest date for which the curve can return values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override sealed Date MaxDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_Data_" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.Data*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_Data" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.Data">
+  Data()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The curve's data at its nodes, as its traits read them (discount factors, rates).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Data()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_Dates_" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.Dates*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_Dates" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.Dates">
+  Dates()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The dates of the curve's nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;Date&gt; Dates()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The dates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_DiscountImpl_" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.DiscountImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_DiscountImpl_System_Double_" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.DiscountImpl(System.Double)">
+  DiscountImpl(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The discount factor at a time, which derived curves calculate. Range checks have already been performed, so it
+must assume that extrapolation is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override sealed double DiscountImpl(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_Discounts_" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.Discounts*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_Discounts" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.Discounts">
+  Discounts()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The discount factors at the curve's nodes, its data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Discounts()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The discount factors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_Nodes_" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.Nodes*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_Nodes" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.Nodes">
+  Nodes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The curve's nodes: each date with the data at it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;KeyValuePair&lt;Date, double&gt;&gt; Nodes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd><p>The nodes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_Times_" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.Times*"></a>
+
+  <h3 id="NanoQL_TermStructures_InterpolatedDiscountCurve_1_Times" data-uid="NanoQL.TermStructures.InterpolatedDiscountCurve`1.Times">
+  Times()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The times of the curve's nodes, from the reference date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Times()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The times.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

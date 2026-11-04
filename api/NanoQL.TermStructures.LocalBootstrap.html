@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Struct LocalBootstrap | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct LocalBootstrap | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The localised bootstrapper: QuantLib&#39;s LocalBootstrap, which solves each section of a curve on a non-local interpolation from the few helpers around it, so that each helper&#39;s risk stays local.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.LocalBootstrap">
+
+
+
+  <h1 id="NanoQL_TermStructures_LocalBootstrap" data-uid="NanoQL.TermStructures.LocalBootstrap" class="text-break">
+Struct LocalBootstrap  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The localised bootstrapper: QuantLib's <code>LocalBootstrap</code>, which solves each section of a curve on a non-local
+interpolation from the few helpers around it, so that each helper's risk stays local.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly struct LocalBootstrap : IBootstrap</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.TermStructures.IBootstrap.html">IBootstrap</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_TermStructures_LocalBootstrap_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A configuration struct (<a class="xref" href="NanoQL.TermStructures.IBootstrap.html">IBootstrap</a>, D12): its zero value is QuantLib's default construction, a
+localisation of 2, positivity forced and the curve's accuracy. The curve's nodes are its first date and every
+helper's pillar, sorted; two helpers on one pillar are refused. From the localisation-th helper on, each step builds
+the interpolation over the nodes so far through <a class="xref" href="NanoQL.TermStructures.ILocalInterpolator.html#NanoQL_TermStructures_ILocalInterpolator_LocalInterpolate_System_ReadOnlySpan_System_Double__System_ReadOnlySpan_System_Double__System_Int32_NanoQL_Numerics_Interpolation_System_Int32_">LocalInterpolate(ReadOnlySpan&lt;double&gt;, ReadOnlySpan&lt;double&gt;, int, Interpolation?, int)</a>, keeping the
+earlier sections, and solves the step's last nodes by Levenberg-Marquardt (at most 100 iterations, the accuracy as
+the function's tolerance, positive values where positivity is forced) so that its last localisation helpers reprice
+their quotes.
+</p>
+<p>
+The interpolator must be an <a class="xref" href="NanoQL.TermStructures.ILocalInterpolator.html">ILocalInterpolator</a> (of QuantLib's, <a class="xref" href="NanoQL.Numerics.ConvexMonotone.html">ConvexMonotone</a>); another is
+refused when the curve is built, where QuantLib's template fails to compile. As QuantLib's, each calculation is a
+cold start, and a step's guess for its new node is the traits' guess at the step's index, QuantLib's
+<code>Traits::guess(iInst, ts_, false, 0)</code> (<code>localbootstrap.hpp:229</code>), kept as written.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_LocalBootstrap__ctor_" data-uid="NanoQL.TermStructures.LocalBootstrap.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_LocalBootstrap__ctor_System_Int32_System_Boolean_System_Nullable_System_Double__" data-uid="NanoQL.TermStructures.LocalBootstrap.#ctor(System.Int32,System.Boolean,System.Nullable{System.Double})">
+  LocalBootstrap(int, bool, double?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.LocalBootstrap.html">LocalBootstrap</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LocalBootstrap(int localisation = 2, bool forcePositive = true, double? accuracy = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>localisation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of helpers each step solves on.</p>
+</dd>
+    <dt><code>forcePositive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the solved values are kept positive.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The solver's accuracy; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> takes the curve's.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">localisation</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_TermStructures_LocalBootstrap_Accuracy_" data-uid="NanoQL.TermStructures.LocalBootstrap.Accuracy*"></a>
+
+  <h3 id="NanoQL_TermStructures_LocalBootstrap_Accuracy" data-uid="NanoQL.TermStructures.LocalBootstrap.Accuracy">
+  Accuracy
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the solver's accuracy; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the curve's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? Accuracy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_LocalBootstrap_ForcePositive_" data-uid="NanoQL.TermStructures.LocalBootstrap.ForcePositive*"></a>
+
+  <h3 id="NanoQL_TermStructures_LocalBootstrap_ForcePositive" data-uid="NanoQL.TermStructures.LocalBootstrap.ForcePositive">
+  ForcePositive
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the solved values are kept positive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ForcePositive { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_LocalBootstrap_Localisation_" data-uid="NanoQL.TermStructures.LocalBootstrap.Localisation*"></a>
+
+  <h3 id="NanoQL_TermStructures_LocalBootstrap_Localisation" data-uid="NanoQL.TermStructures.LocalBootstrap.Localisation">
+  Localisation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of helpers each step solves on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Localisation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_LocalBootstrap_Calculate_" data-uid="NanoQL.TermStructures.LocalBootstrap.Calculate*"></a>
+
+  <h3 id="NanoQL_TermStructures_LocalBootstrap_Calculate__3_NanoQL_TermStructures_BootstrapState___0____2_NanoQL_EvaluationContext_" data-uid="NanoQL.TermStructures.LocalBootstrap.Calculate``3(NanoQL.TermStructures.BootstrapState{``0},``2,NanoQL.EvaluationContext)">
+  Calculate&lt;TTermStructure, TTraits, TInterpolator&gt;(BootstrapState&lt;TTermStructure&gt;, TInterpolator, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fills the working state: the dates, times and data of the curve's nodes, its interpolation and maximum date, so
+that each helper reprices its quote.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Calculate&lt;TTermStructure, TTraits, TInterpolator&gt;(BootstrapState&lt;TTermStructure&gt; state, TInterpolator interpolator, EvaluationContext context) where TTermStructure : TermStructure where TTraits : struct, IBootstrapTraits&lt;TTermStructure&gt; where TInterpolator : struct, IInterpolator</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html">BootstrapState</a>&lt;TTermStructure&gt;</dt>
+    <dd><p>The working state of the curve under construction.</p>
+</dd>
+    <dt><code>interpolator</code> <span class="xref">TInterpolator</span></dt>
+    <dd><p>The curve's interpolator.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the helpers are priced in.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TTermStructure</code></dt>
+    <dd><p>The kind of term structure bootstrapped.</p>
+</dd>
+    <dt><code>TTraits</code></dt>
+    <dd><p>The curve's traits.</p>
+</dd>
+    <dt><code>TInterpolator</code></dt>
+    <dd><p>The curve's interpolator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The interpolator isn't an <a class="xref" href="NanoQL.TermStructures.ILocalInterpolator.html">ILocalInterpolator</a> (&quot;LocalBootstrap needs a local interpolation&quot;), or the
+localisation is below 1 or below the interpolator's data size adjustment, where QuantLib's steps read out of
+their arrays.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There are fewer helpers than the interpolation requires or than the localisation and one, two helpers have the same
+pillar, or a step's solve doesn't reach the accuracy.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

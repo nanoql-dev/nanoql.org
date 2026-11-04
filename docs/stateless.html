@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>The stateless design | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="The stateless design | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="the-stateless-design">The stateless design</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>Every price nanoql computes is a function of its inputs: the instrument, the evaluation context and the market data
+the engine takes. Nothing outside them reaches the result, and no call changes what a later one returns. So the same
+inputs give the same result, bit for bit, whenever and on whichever thread they are priced.</p>
+<p>Keeping a book's prices current as its market data moves is the application's part: it knows which inputs changed and
+what depends on them, and calls the library again. This page shows the patterns it builds that layer from. Each
+sample prices a ten-year Euribor swap on the curve of <a href="rates/curves.html">the curves guide</a>.</p>
+<h2 id="rebuild-on-change">Rebuild on change</h2>
+<p>When a quote moves, build the objects that depend on it again from the new inputs, and price on them. The old curve
+and the prices made on it stand as they were.</p>
+<pre><code class="lang-csharp">// A swap is a value: its price is a function of the swap, the context and the curve.
+static double Price(YieldTermStructure curve, EvaluationContext context)
+{
+    VanillaSwap swap = new MakeVanillaSwap(new Period(10, TimeUnit.Years), new Euribor6M(curve))
+        .WithFixedRate(0.027)
+        .WithNominal(10e6)
+        .ToVanillaSwap(context);
+    return DiscountingSwapEngine.Calculate(swap, context, curve).NPV!.Value;
+}
+
+// A quote moves: build the curve again from the new quotes, and price on it.
+double before = Price(Curves.Build(), context);
+double after = Price(Curves.Build(shift: 0.0001), context);
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align: right;">Quotes</th>
+<th style="text-align: right;">NPV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">as quoted</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">+1 bp</td>
+<td style="text-align: right;">8,721.66</td>
+</tr>
+</tbody>
+</table>
+<h2 id="memoize-by-inputs">Memoize by inputs</h2>
+<p>The same inputs build the same curve, so an application can keep what it has built under a key made of its inputs and
+share it: an immutable object is safe to read from any number of threads.</p>
+<pre><code class="lang-csharp">// The same inputs give the same curve, so a cache keyed by the inputs can share it, across threads too.
+var curves = new ConcurrentDictionary&lt;double, YieldTermStructure&gt;();
+YieldTermStructure CurveFor(double shift) =&gt; curves.GetOrAdd(shift, s =&gt; Curves.Build(s));
+</code></pre><h2 id="price-scenarios-in-parallel">Price scenarios in parallel</h2>
+<p>Scenarios are independent calls on immutable inputs, so they run side by side with no locks:</p>
+<pre><code class="lang-csharp">double[] shifts = [-0.0050, -0.0025, -0.0010, 0.0, 0.0010, 0.0025, 0.0050];
+double[] npvs = new double[shifts.Length];
+Parallel.For(0, shifts.Length, i =&gt; npvs[i] = Price(CurveFor(shifts[i]), context));
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align: right;">Shift</th>
+<th style="text-align: right;">NPV</th>
+<th style="text-align: right;">Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">-50 bp</td>
+<td style="text-align: right;">-447,832.36</td>
+<td style="text-align: right;">-447,832.36</td>
+</tr>
+<tr>
+<td style="text-align: right;">-25 bp</td>
+<td style="text-align: right;">-221,007.55</td>
+<td style="text-align: right;">-221,007.55</td>
+</tr>
+<tr>
+<td style="text-align: right;">-10 bp</td>
+<td style="text-align: right;">-87,715.64</td>
+<td style="text-align: right;">-87,715.64</td>
+</tr>
+<tr>
+<td style="text-align: right;">0 bp</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr>
+<td style="text-align: right;">+10 bp</td>
+<td style="text-align: right;">86,811.36</td>
+<td style="text-align: right;">86,811.36</td>
+</tr>
+<tr>
+<td style="text-align: right;">+25 bp</td>
+<td style="text-align: right;">215,355.44</td>
+<td style="text-align: right;">215,355.44</td>
+</tr>
+<tr>
+<td style="text-align: right;">+50 bp</td>
+<td style="text-align: right;">425,218.79</td>
+<td style="text-align: right;">425,218.79</td>
+</tr>
+</tbody>
+</table>
+
+<p>Run again, in any order or on any number of threads, the scenarios give the same bits.</p>
+<h2 id="the-one-global">The one global</h2>
+<p><code>ConventionProvider.Default</code>, the conventions the library's presets and builders take when nothing else is given, is
+the one global value (<a href="conventions.html">conventions.md</a>). It is read when an object is built, never while it prices:
+an object keeps the conventions it was built with, and a change of the default reaches the objects built after it.
+Set it once at start-up, or open a scope with <code>ConventionProvider.Use</code> for one flow's builds; a scope flows with
+asynchronous calls, as a culture does.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

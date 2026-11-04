@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CurveState | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CurveState | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The curve state of a market-model simulation: the yield curve at the simulation&#39;s fixed rate times, the workhorse discounting object a product reads, so that a product runs on any kind of model (LIBOR, coterminal swap or constant-maturity swap).">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models.CurveState">
+
+
+
+  <h1 id="NanoQL_Models_CurveState" data-uid="NanoQL.Models.CurveState" class="text-break">
+Class CurveState  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The curve state of a market-model simulation: the yield curve at the simulation's fixed rate times, the workhorse
+discounting object a product reads, so that a product runs on any kind of model (LIBOR, coterminal swap or
+constant-maturity swap).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public abstract class CurveState</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CurveState</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Models.CMSwapCurveState.html">CMSwapCurveState</a></div>
+      <div><a class="xref" href="NanoQL.Models.CoterminalSwapCurveState.html">CoterminalSwapCurveState</a></div>
+      <div><a class="xref" href="NanoQL.Models.LMMCurveState.html">LMMCurveState</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Models_CurveState_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+There are n + 1 rate times, the payment and reset times of n forward rates: t₀ … tₙ, the forwards f₀ … fₙ₋₁, the
+discount bonds d₀ … dₙ, the discount ratios dᵢ/d₀, and the coterminal swap rates sr₀ … srₙ₋₁.
+</p>
+<p>
+A working type: a derived state changes in place when it is set, and computes some of its reads lazily into buffers
+of its own, so it is owned by one computation and isn't thread-safe. Its vector reads (<a class="xref" href="NanoQL.Models.CurveState.html#NanoQL_Models_CurveState_ForwardRates">ForwardRates()</a>,
+<a class="xref" href="NanoQL.Models.CurveState.html#NanoQL_Models_CurveState_CoterminalSwapRates">CoterminalSwapRates()</a>, <a class="xref" href="NanoQL.Models.CurveState.html#NanoQL_Models_CurveState_CmSwapRates_System_Int32_">CmSwapRates(int)</a>) are views of its own buffers, valid until it is next
+set or the same read is made with another argument; a caller that keeps one copies it, and <a class="xref" href="NanoQL.Models.CurveState.html#NanoQL_Models_CurveState_Clone">Clone()</a> keeps
+the whole state. An extension point, as in QuantLib; the setters live on the derived states only.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Models_CurveState__ctor_" data-uid="NanoQL.Models.CurveState.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_CurveState__ctor_NanoQL_Models_CurveState_" data-uid="NanoQL.Models.CurveState.#ctor(NanoQL.Models.CurveState)">
+  CurveState(CurveState)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.CurveState.html">CurveState</a> class as a copy of another's times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected CurveState(CurveState other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Models.CurveState.html">CurveState</a></dt>
+    <dd><p>The state copied.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CurveState__ctor_" data-uid="NanoQL.Models.CurveState.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_CurveState__ctor_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Models.CurveState.#ctor(System.ReadOnlySpan{System.Double})">
+  CurveState(ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.CurveState.html">CurveState</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected CurveState(ReadOnlySpan&lt;double&gt; rateTimes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rateTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The rate times: at least two, strictly increasing, the first greater than zero.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The rate times aren't two or more strictly increasing positive times.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Models_CurveState_NumberOfRates_" data-uid="NanoQL.Models.CurveState.NumberOfRates*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_NumberOfRates" data-uid="NanoQL.Models.CurveState.NumberOfRates">
+  NumberOfRates
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of rates, one less than the rate times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NumberOfRates { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CurveState_RateTaus_" data-uid="NanoQL.Models.CurveState.RateTaus*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_RateTaus" data-uid="NanoQL.Models.CurveState.RateTaus">
+  RateTaus
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the rates' accrual periods, the differences of consecutive rate times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; RateTaus { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CurveState_RateTimes_" data-uid="NanoQL.Models.CurveState.RateTimes*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_RateTimes" data-uid="NanoQL.Models.CurveState.RateTimes">
+  RateTimes
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the rate times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; RateTimes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Models_CurveState_Clone_" data-uid="NanoQL.Models.CurveState.Clone*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_Clone" data-uid="NanoQL.Models.CurveState.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A deep copy: the state, its buffers and its lazy reads.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract CurveState Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.CurveState.html">CurveState</a></dt>
+    <dd><p>The copy, of the receiver's type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CurveState_CmSwapAnnuity_" data-uid="NanoQL.Models.CurveState.CmSwapAnnuity*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_CmSwapAnnuity_System_Int32_System_Int32_System_Int32_" data-uid="NanoQL.Models.CurveState.CmSwapAnnuity(System.Int32,System.Int32,System.Int32)">
+  CmSwapAnnuity(int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The annuity of the <code class="paramref">i</code>-th constant-maturity swap, spanning
+<code class="paramref">spanningForwards</code> forwards, in units of a numeraire bond.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double CmSwapAnnuity(int numeraire, int i, int spanningForwards)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numeraire</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The numeraire bond's index, in [the first valid index, the number of rates].</p>
+</dd>
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The swap's index, in [the first valid index, the number of rates).</p>
+</dd>
+    <dt><code>spanningForwards</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The forwards each swap spans.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The annuity.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CurveState_CmSwapRate_" data-uid="NanoQL.Models.CurveState.CmSwapRate*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_CmSwapRate_System_Int32_System_Int32_" data-uid="NanoQL.Models.CurveState.CmSwapRate(System.Int32,System.Int32)">
+  CmSwapRate(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <code class="paramref">i</code>-th constant-maturity swap rate, spanning <code class="paramref">spanningForwards</code> forwards.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double CmSwapRate(int i, int spanningForwards)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index, in [the first valid index, the number of rates).</p>
+</dd>
+    <dt><code>spanningForwards</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The forwards each swap spans.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The swap rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CurveState_CmSwapRates_" data-uid="NanoQL.Models.CurveState.CmSwapRates*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_CmSwapRates_System_Int32_" data-uid="NanoQL.Models.CurveState.CmSwapRates(System.Int32)">
+  CmSwapRates(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The constant-maturity swap rates spanning <code class="paramref">spanningForwards</code> forwards: a view of the state's
+buffer, valid until the state is next set or the read is made with another number of forwards.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ReadOnlySpan&lt;double&gt; CmSwapRates(int spanningForwards)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spanningForwards</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The forwards each swap spans.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The swap rates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CurveState_CoterminalSwapAnnuity_" data-uid="NanoQL.Models.CurveState.CoterminalSwapAnnuity*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_CoterminalSwapAnnuity_System_Int32_System_Int32_" data-uid="NanoQL.Models.CurveState.CoterminalSwapAnnuity(System.Int32,System.Int32)">
+  CoterminalSwapAnnuity(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The annuity of the <code class="paramref">i</code>-th coterminal swap in units of a numeraire bond.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double CoterminalSwapAnnuity(int numeraire, int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numeraire</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The numeraire bond's index, in [the first valid index, the number of rates].</p>
+</dd>
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The swap's index, in [the first valid index, the number of rates).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The annuity.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CurveState_CoterminalSwapRate_" data-uid="NanoQL.Models.CurveState.CoterminalSwapRate*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_CoterminalSwapRate_System_Int32_" data-uid="NanoQL.Models.CurveState.CoterminalSwapRate(System.Int32)">
+  CoterminalSwapRate(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <code class="paramref">i</code>-th coterminal swap rate, of the swap from tᵢ to tₙ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double CoterminalSwapRate(int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index, in [the first valid index, the number of rates).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The swap rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CurveState_CoterminalSwapRates_" data-uid="NanoQL.Models.CurveState.CoterminalSwapRates*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_CoterminalSwapRates" data-uid="NanoQL.Models.CurveState.CoterminalSwapRates">
+  CoterminalSwapRates()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The coterminal swap rates: a view of the state's buffer, valid until the state is next set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ReadOnlySpan&lt;double&gt; CoterminalSwapRates()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The coterminal swap rates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CurveState_DiscountRatio_" data-uid="NanoQL.Models.CurveState.DiscountRatio*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_DiscountRatio_System_Int32_System_Int32_" data-uid="NanoQL.Models.CurveState.DiscountRatio(System.Int32,System.Int32)">
+  DiscountRatio(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ratio of the <code class="paramref">i</code>-th discount bond to the <code class="paramref">j</code>-th.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double DiscountRatio(int i, int j)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The numerator's index, in [the first valid index, the number of rates].</p>
+</dd>
+    <dt><code>j</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The denominator's index, in the same range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>dᵢ/dⱼ.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CurveState_ForwardRate_" data-uid="NanoQL.Models.CurveState.ForwardRate*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_ForwardRate_System_Int32_" data-uid="NanoQL.Models.CurveState.ForwardRate(System.Int32)">
+  ForwardRate(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <code class="paramref">i</code>-th forward rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double ForwardRate(int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index, in [the first valid index, the number of rates).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CurveState_ForwardRates_" data-uid="NanoQL.Models.CurveState.ForwardRates*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_ForwardRates" data-uid="NanoQL.Models.CurveState.ForwardRates">
+  ForwardRates()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The forward rates: a view of the state's buffer, valid until the state is next set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ReadOnlySpan&lt;double&gt; ForwardRates()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The forward rates, those below the first valid index as the buffer holds them.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CurveState_SwapRate_" data-uid="NanoQL.Models.CurveState.SwapRate*"></a>
+
+  <h3 id="NanoQL_Models_CurveState_SwapRate_System_Int32_System_Int32_" data-uid="NanoQL.Models.CurveState.SwapRate(System.Int32,System.Int32)">
+  SwapRate(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rate of the swap from the <code class="paramref">begin</code>-th rate time to the <code class="paramref">end</code>-th.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SwapRate(int begin, int end)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>begin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The first rate's index.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index after the last rate, at most the number of rates.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The swap rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The range is empty, or ends past the rates.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

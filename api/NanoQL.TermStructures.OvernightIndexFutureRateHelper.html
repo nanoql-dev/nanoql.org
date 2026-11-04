@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class OvernightIndexFutureRateHelper | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class OvernightIndexFutureRateHelper | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A rate helper bootstrapping a curve on an overnight index future&#39;s price.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.OvernightIndexFutureRateHelper">
+
+
+
+  <h1 id="NanoQL_TermStructures_OvernightIndexFutureRateHelper" data-uid="NanoQL.TermStructures.OvernightIndexFutureRateHelper" class="text-break">
+Class OvernightIndexFutureRateHelper  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A rate helper bootstrapping a curve on an overnight index future's price.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class OvernightIndexFutureRateHelper : RateHelper, IBootstrapHelper</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html">BootstrapHelper</a>&lt;<a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a>&gt;</div>
+      <div><a class="xref" href="NanoQL.TermStructures.RateHelper.html">RateHelper</a></div>
+      <div><span class="xref">OvernightIndexFutureRateHelper</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.TermStructures.IBootstrapHelper.html">IBootstrapHelper</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.TermStructures.SofrFutureRateHelper.html">SofrFutureRateHelper</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_earliestDate">BootstrapHelper&lt;YieldTermStructure&gt;.earliestDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_latestDate">BootstrapHelper&lt;YieldTermStructure&gt;.latestDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_maturityDate">BootstrapHelper&lt;YieldTermStructure&gt;.maturityDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_latestRelevantDate">BootstrapHelper&lt;YieldTermStructure&gt;.latestRelevantDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_pillarDate">BootstrapHelper&lt;YieldTermStructure&gt;.pillarDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_QuoteError_NanoQL_EvaluationContext_">BootstrapHelper&lt;YieldTermStructure&gt;.QuoteError(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_InitializeDates_NanoQL_EvaluationContext_">BootstrapHelper&lt;YieldTermStructure&gt;.InitializeDates(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_RequireTermStructure">BootstrapHelper&lt;YieldTermStructure&gt;.RequireTermStructure()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_Quote">BootstrapHelper&lt;YieldTermStructure&gt;.Quote</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_EarliestDate">BootstrapHelper&lt;YieldTermStructure&gt;.EarliestDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_MaturityDate">BootstrapHelper&lt;YieldTermStructure&gt;.MaturityDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_LatestRelevantDate">BootstrapHelper&lt;YieldTermStructure&gt;.LatestRelevantDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_PillarDate">BootstrapHelper&lt;YieldTermStructure&gt;.PillarDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_LatestDate">BootstrapHelper&lt;YieldTermStructure&gt;.LatestDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_UpdateDates">BootstrapHelper&lt;YieldTermStructure&gt;.UpdateDates</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_EvaluationDate">BootstrapHelper&lt;YieldTermStructure&gt;.EvaluationDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html#NanoQL_TermStructures_BootstrapHelper_1_TermStructure">BootstrapHelper&lt;YieldTermStructure&gt;.TermStructure</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.TermStructures.BootstrapHelperExtensions.html#NanoQL_TermStructures_BootstrapHelperExtensions_SetTermStructure__1___0_NanoQL_TermStructures_YieldTermStructure_">BootstrapHelperExtensions.SetTermStructure&lt;T&gt;(T, YieldTermStructure)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_TermStructures_OvernightIndexFutureRateHelper_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The future is priced on a copy of the index forwarding on the curve the helper is bound to (the rate helpers'
+contract), QuantLib's index cloned on the helper's relinkable handle; its dates are fixed, so it has none to
+re-date. Its earliest date is the reference period's first day, its latest the delivery date.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_OvernightIndexFutureRateHelper__ctor_" data-uid="NanoQL.TermStructures.OvernightIndexFutureRateHelper.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_OvernightIndexFutureRateHelper__ctor_System_Double_NanoQL_Time_Date_NanoQL_Time_Date_NanoQL_Indexes_OvernightIndex_System_Nullable_System_Double__NanoQL_Coupons_RateAveragingType_NanoQL_TermStructures_PillarChoice_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.TermStructures.OvernightIndexFutureRateHelper.#ctor(System.Double,NanoQL.Time.Date,NanoQL.Time.Date,NanoQL.Indexes.OvernightIndex,System.Nullable{System.Double},NanoQL.Coupons.RateAveragingType,NanoQL.TermStructures.PillarChoice,System.Nullable{NanoQL.Time.Date})">
+  OvernightIndexFutureRateHelper(double, Date, Date, OvernightIndex, double?, RateAveragingType, PillarChoice, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.OvernightIndexFutureRateHelper.html">OvernightIndexFutureRateHelper</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightIndexFutureRateHelper(double price, Date valueDate, Date maturityDate, OvernightIndex overnightIndex, double? convexityAdjustment = null, RateAveragingType averagingMethod = RateAveragingType.Compound, PillarChoice pillar = PillarChoice.LastRelevantDate, Date? customPillarDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>price</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The future's price.</p>
+</dd>
+    <dt><code>valueDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The first day of the reference period.</p>
+</dd>
+    <dt><code>maturityDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The delivery date.</p>
+</dd>
+    <dt><code>overnightIndex</code> <a class="xref" href="NanoQL.Indexes.OvernightIndex.html">OvernightIndex</a></dt>
+    <dd><p>The overnight index; its own curve is replaced by the one the helper is bound
+to.</p>
+</dd>
+    <dt><code>convexityAdjustment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The convexity adjustment, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>averagingMethod</code> <a class="xref" href="NanoQL.Coupons.RateAveragingType.html">RateAveragingType</a></dt>
+    <dd><p>Whether the future's rate compounds or averages.</p>
+</dd>
+    <dt><code>pillar</code> <a class="xref" href="NanoQL.TermStructures.PillarChoice.html">PillarChoice</a></dt>
+    <dd><p>The pillar choice.</p>
+</dd>
+    <dt><code>customPillarDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The pillar date for <a class="xref" href="NanoQL.TermStructures.PillarChoice.html#NanoQL_TermStructures_PillarChoice_CustomDate">CustomDate</a>, or
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">overnightIndex</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>An enum argument isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A custom pillar is missing, before the reference period or after it, each
+with QuantLib's text.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_TermStructures_OvernightIndexFutureRateHelper_ConvexityAdjustment_" data-uid="NanoQL.TermStructures.OvernightIndexFutureRateHelper.ConvexityAdjustment*"></a>
+
+  <h3 id="NanoQL_TermStructures_OvernightIndexFutureRateHelper_ConvexityAdjustment" data-uid="NanoQL.TermStructures.OvernightIndexFutureRateHelper.ConvexityAdjustment">
+  ConvexityAdjustment
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the future's convexity adjustment, 0 for none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ConvexityAdjustment { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_OvernightIndexFutureRateHelper_Future_" data-uid="NanoQL.TermStructures.OvernightIndexFutureRateHelper.Future*"></a>
+
+  <h3 id="NanoQL_TermStructures_OvernightIndexFutureRateHelper_Future" data-uid="NanoQL.TermStructures.OvernightIndexFutureRateHelper.Future">
+  Future
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the future, on the bound curve once the helper is bound.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightIndexFuture Future { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OvernightIndexFuture.html">OvernightIndexFuture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_OvernightIndexFutureRateHelper_ImpliedQuote_" data-uid="NanoQL.TermStructures.OvernightIndexFutureRateHelper.ImpliedQuote*"></a>
+
+  <h3 id="NanoQL_TermStructures_OvernightIndexFutureRateHelper_ImpliedQuote_NanoQL_EvaluationContext_" data-uid="NanoQL.TermStructures.OvernightIndexFutureRateHelper.ImpliedQuote(NanoQL.EvaluationContext)">
+  ImpliedQuote(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The quote implied by the term structure the helper is bound to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double ImpliedQuote(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied quote.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The helper isn't bound to a term structure.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No term structure is bound, or the future refuses, as on a missing past
+fixing.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_OvernightIndexFutureRateHelper_WithTermStructure_" data-uid="NanoQL.TermStructures.OvernightIndexFutureRateHelper.WithTermStructure*"></a>
+
+  <h3 id="NanoQL_TermStructures_OvernightIndexFutureRateHelper_WithTermStructure_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.TermStructures.OvernightIndexFutureRateHelper.WithTermStructure(NanoQL.TermStructures.YieldTermStructure)">
+  WithTermStructure(YieldTermStructure)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the helper bound to a term structure: QuantLib's <code>setTermStructure</code>. A derived helper that prices
+against the term structure overrides it, calls the base, and rebuilds on the copy what prices against it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override BootstrapHelper&lt;YieldTermStructure&gt; WithTermStructure(YieldTermStructure t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The term structure.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html">BootstrapHelper</a>&lt;<a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a>&gt;</dt>
+    <dd><p>The copy, of the receiver's runtime type; the receiver is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">t</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class FdmVPPStepCondition | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FdmVPPStepCondition | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The step condition of a virtual power plant valued by dynamic programming: each step adds the running states&#39; spark-spread earnings, at the minimum or the maximum output, then lets each point&#39;s states change as the plant&#39;s rules allow, at the gas price there.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.FdmVPPStepCondition">
+
+
+
+  <h1 id="NanoQL_Experimental_FdmVPPStepCondition" data-uid="NanoQL.Experimental.FdmVPPStepCondition" class="text-break">
+Class FdmVPPStepCondition  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The step condition of a virtual power plant valued by dynamic programming: each step adds the running states'
+spark-spread earnings, at the minimum or the maximum output, then lets each point's states change as the plant's
+rules allow, at the gas price there.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public abstract class FdmVPPStepCondition : StepCondition</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Methods.StepCondition.html">StepCondition</a></div>
+      <div><span class="xref">FdmVPPStepCondition</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.FdmVPPStartLimitStepCondition.html">FdmVPPStartLimitStepCondition</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_FdmVPPStepCondition_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The plant's states cycle in blocks of 2·tMinUp + tMinDown: tMinUp states running at the minimum output, tMinUp at the
+maximum, and tMinDown off. A derived condition gives the state changes and the value of a point's states.
+</p>
+<p>
+A step condition is a solver's working state: it holds the states it changes at a point.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition__ctor_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition__ctor_NanoQL_Experimental_FdmVPPStepConditionParams_System_Int32_NanoQL_Experimental_FdmVPPStepConditionMesher_NanoQL_Methods_FdmInnerValueCalculator_NanoQL_Methods_FdmInnerValueCalculator_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.#ctor(NanoQL.Experimental.FdmVPPStepConditionParams,System.Int32,NanoQL.Experimental.FdmVPPStepConditionMesher,NanoQL.Methods.FdmInnerValueCalculator,NanoQL.Methods.FdmInnerValueCalculator)">
+  FdmVPPStepCondition(FdmVPPStepConditionParams, int, FdmVPPStepConditionMesher, FdmInnerValueCalculator, FdmInnerValueCalculator)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.FdmVPPStepCondition.html">FdmVPPStepCondition</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected FdmVPPStepCondition(FdmVPPStepConditionParams parameters, int nStates, FdmVPPStepConditionMesher mesh, FdmInnerValueCalculator gasPrice, FdmInnerValueCalculator sparkSpreadPrice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameters</code> <a class="xref" href="NanoQL.Experimental.FdmVPPStepConditionParams.html">FdmVPPStepConditionParams</a></dt>
+    <dd><p>The plant's parameters.</p>
+</dd>
+    <dt><code>nStates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of states.</p>
+</dd>
+    <dt><code>mesh</code> <a class="xref" href="NanoQL.Experimental.FdmVPPStepConditionMesher.html">FdmVPPStepConditionMesher</a></dt>
+    <dd><p>The mesher and the states' direction.</p>
+</dd>
+    <dt><code>gasPrice</code> <a class="xref" href="NanoQL.Methods.FdmInnerValueCalculator.html">FdmInnerValueCalculator</a></dt>
+    <dd><p>The gas price.</p>
+</dd>
+    <dt><code>sparkSpreadPrice</code> <a class="xref" href="NanoQL.Methods.FdmInnerValueCalculator.html">FdmInnerValueCalculator</a></dt>
+    <dd><p>The spark spread.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The mesher's states direction doesn't hold the number of states (&quot;mesher does
+not fit to vpp arguments&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_FuelCostAddon_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.FuelCostAddon*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_FuelCostAddon" data-uid="NanoQL.Experimental.FdmVPPStepCondition.FuelCostAddon">
+  FuelCostAddon
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the cost added to each unit of fuel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double FuelCostAddon { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_HeatRate_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.HeatRate*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_HeatRate" data-uid="NanoQL.Experimental.FdmVPPStepCondition.HeatRate">
+  HeatRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the heat rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double HeatRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_NStates_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.NStates*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_NStates" data-uid="NanoQL.Experimental.FdmVPPStepCondition.NStates">
+  NStates
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of states.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NStates { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_PMax_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.PMax*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_PMax" data-uid="NanoQL.Experimental.FdmVPPStepCondition.PMax">
+  PMax
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maximum output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double PMax { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_PMin_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.PMin*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_PMin" data-uid="NanoQL.Experimental.FdmVPPStepCondition.PMin">
+  PMin
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum output while running.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double PMin { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_StartUpFixCost_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.StartUpFixCost*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_StartUpFixCost" data-uid="NanoQL.Experimental.FdmVPPStepCondition.StartUpFixCost">
+  StartUpFixCost
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a start's fixed cost.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double StartUpFixCost { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_StartUpFuel_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.StartUpFuel*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_StartUpFuel" data-uid="NanoQL.Experimental.FdmVPPStepCondition.StartUpFuel">
+  StartUpFuel
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fuel a start burns.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double StartUpFuel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_TMinDown_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.TMinDown*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_TMinDown" data-uid="NanoQL.Experimental.FdmVPPStepCondition.TMinDown">
+  TMinDown
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum down time, in steps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int TMinDown { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_TMinUp_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.TMinUp*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_TMinUp" data-uid="NanoQL.Experimental.FdmVPPStepCondition.TMinUp">
+  TMinUp
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the minimum up time, in steps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int TMinUp { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_ApplyTo_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.ApplyTo*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_ApplyTo_System_Span_System_Double__System_Double_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.ApplyTo(System.Span{System.Double},System.Double)">
+  ApplyTo(Span&lt;double&gt;, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies the condition to the values at time <code class="paramref">t</code>, in place.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ApplyTo(Span&lt;double&gt; a, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The values.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_ChangeState_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.ChangeState*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_ChangeState_System_Double_System_ReadOnlySpan_System_Double__System_Double_System_Span_System_Double__" data-uid="NanoQL.Experimental.FdmVPPStepCondition.ChangeState(System.Double,System.ReadOnlySpan{System.Double},System.Double,System.Span{System.Double})">
+  ChangeState(double, ReadOnlySpan&lt;double&gt;, double, Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A point's states after the plant's allowed changes, at the gas price there.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void ChangeState(double gasPrice, ReadOnlySpan&lt;double&gt; state, double t, Span&lt;double&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gasPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The gas price.</p>
+</dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The states' values before the change.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The states' values after it.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_Evolve_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.Evolve*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_Evolve_NanoQL_Methods_FdmLinearOpIterator_System_Double_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.Evolve(NanoQL.Methods.FdmLinearOpIterator,System.Double)">
+  Evolve(FdmLinearOpIterator, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The earnings of a step in the state at a point: 0 off.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double Evolve(FdmLinearOpIterator iter, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>iter</code> <a class="xref" href="NanoQL.Methods.FdmLinearOpIterator.html">FdmLinearOpIterator</a></dt>
+    <dd><p>The point.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The earnings.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_EvolveAtPMax_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.EvolveAtPMax*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_EvolveAtPMax_System_Double_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.EvolveAtPMax(System.Double)">
+  EvolveAtPMax(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The earnings of a step at the maximum output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double EvolveAtPMax(double sparkSpread)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sparkSpread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spark spread.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The earnings.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_EvolveAtPMin_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.EvolveAtPMin*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_EvolveAtPMin_System_Double_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.EvolveAtPMin(System.Double)">
+  EvolveAtPMin(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The earnings of a step at the minimum output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double EvolveAtPMin(double sparkSpread)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sparkSpread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spark spread.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The earnings.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_FdmVPPStepCondition_MaxValue_" data-uid="NanoQL.Experimental.FdmVPPStepCondition.MaxValue*"></a>
+
+  <h3 id="NanoQL_Experimental_FdmVPPStepCondition_MaxValue_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Experimental.FdmVPPStepCondition.MaxValue(System.ReadOnlySpan{System.Double})">
+  MaxValue(ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The value of a point's states: the best of them the plant can be in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double MaxValue(ReadOnlySpan&lt;double&gt; states)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>states</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The values of a point's states.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

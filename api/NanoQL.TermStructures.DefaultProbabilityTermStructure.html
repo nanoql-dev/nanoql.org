@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class DefaultProbabilityTermStructure | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DefaultProbabilityTermStructure | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The default-probability term structure: the base of the credit curves that give survival and default probabilities, default densities and hazard rates.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure">
+
+
+
+  <h1 id="NanoQL_TermStructures_DefaultProbabilityTermStructure" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure" class="text-break">
+Class DefaultProbabilityTermStructure  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The default-probability term structure: the base of the credit curves that give survival and default
+probabilities, default densities and hazard rates.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class DefaultProbabilityTermStructure : TermStructure</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></div>
+      <div><span class="xref">DefaultProbabilityTermStructure</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.TermStructures.DefaultDensityStructure.html">DefaultDensityStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.HazardRateStructure.html">HazardRateStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.PiecewiseDefaultCurve-3.html">PiecewiseDefaultCurve&lt;TTraits, TInterpolator, TBootstrap&gt;</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.SurvivalProbabilityStructure.html">SurvivalProbabilityStructure</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_TimeFromReference_NanoQL_Time_Date_">TermStructure.TimeFromReference(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_CheckRange_NanoQL_Time_Date_System_Boolean_">TermStructure.CheckRange(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_CheckRange_System_Double_System_Boolean_">TermStructure.CheckRange(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_ReferenceDate">TermStructure.ReferenceDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_DayCounter">TermStructure.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_Calendar">TermStructure.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_SettlementDays">TermStructure.SettlementDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_MaxDate">TermStructure.MaxDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_MaxTime">TermStructure.MaxTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An extension point. Every built structure has a fixed reference date: QuantLib's constructor that takes neither a
+reference date nor settlement days is the reference-date form, and the settlement-days form takes the reference date
+its concrete class's <code>Create</code> computed from the evaluation context.
+</p>
+<p>
+QuantLib's jumps are quotes; here they are values, each multiplying the survival probabilities past its date, and
+each checked to lie in (0, 1] when a probability reads it, with QuantLib's "invalid … jump value".
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure__ctor_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure__ctor_NanoQL_Time_Date_NanoQL_Time_Calendar_NanoQL_Time_DayCounter_System_Nullable_System_Int32__System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_NanoQL_Time_Date__" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.#ctor(NanoQL.Time.Date,NanoQL.Time.Calendar,NanoQL.Time.DayCounter,System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{NanoQL.Time.Date})">
+  DefaultProbabilityTermStructure(Date, Calendar?, DayCounter, int?, IEnumerable&lt;double&gt;?, IEnumerable&lt;Date&gt;?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.DefaultProbabilityTermStructure.html">DefaultProbabilityTermStructure</a> class with a fixed reference
+date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DefaultProbabilityTermStructure(Date referenceDate, Calendar? cal, DayCounter dc, int? settlementDays = null, IEnumerable&lt;double&gt;? jumps = null, IEnumerable&lt;Date&gt;? jumpDates = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>referenceDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The reference date.</p>
+</dd>
+    <dt><code>cal</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar used for reference and option date calculation, if any.</p>
+</dd>
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter used for date/time conversion.</p>
+</dd>
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The settlement days the reference date was calculated with, if any.</p>
+</dd>
+    <dt><code>jumps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The survival-probability jumps, each applied to the probabilities past its date; none when
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>jumpDates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The jumps' dates, one per jump; when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty, the jumps fall on 31 December of the
+reference date's year and of the years after it, one per jump.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">dc</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Jump dates are given and their number differs from the jumps', or one of them is <code>default(Date)</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultDensity_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultDensity*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultDensity_NanoQL_Time_Date_System_Boolean_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultDensity(NanoQL.Time.Date,System.Boolean)">
+  DefaultDensity(Date, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default density at a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DefaultDensity(Date d, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate past the curve's maximum date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The density.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date is out of the curve's range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultDensity_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultDensity*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultDensity_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultDensity(System.Double,System.Boolean)">
+  DefaultDensity(double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default density at a time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DefaultDensity(double t, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate past the curve's maximum time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The density.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The time is out of the curve's range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultDensityImpl_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultDensityImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultDensityImpl_System_Double_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultDensityImpl(System.Double)">
+  DefaultDensityImpl(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default density at a time, which derived curves calculate. Range checks have already been performed, so it
+must assume that extrapolation is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract double DefaultDensityImpl(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The density.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultProbability_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultProbability*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultProbability_NanoQL_Time_Date_NanoQL_Time_Date_System_Boolean_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultProbability(NanoQL.Time.Date,NanoQL.Time.Date,System.Boolean)">
+  DefaultProbability(Date, Date, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The probability of default between two dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DefaultProbability(Date d1, Date d2, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d1</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The initial date, which may precede the reference date: the probability of default before it
+is taken as null, so that a protection rolled to the next business day still starts at its date.</p>
+</dd>
+    <dt><code>d2</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The final date.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate past the curve's maximum date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A date is <code>default(Date)</code>, or <code class="paramref">d1</code> is after
+<code class="paramref">d2</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A date is out of the curve's range, or a jump isn't in (0, 1].</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultProbability_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultProbability*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultProbability_NanoQL_Time_Date_System_Boolean_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultProbability(NanoQL.Time.Date,System.Boolean)">
+  DefaultProbability(Date, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The probability of default from the reference date to a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DefaultProbability(Date d, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate past the curve's maximum date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date is out of the curve's range, or a jump before it isn't in
+(0, 1].</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultProbability_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultProbability*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultProbability_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultProbability(System.Double,System.Boolean)">
+  DefaultProbability(double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The probability of default from the reference date to a time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DefaultProbability(double t, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate past the curve's maximum time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The time is out of the curve's range, or a jump before it isn't in
+(0, 1].</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultProbability_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultProbability*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_DefaultProbability_System_Double_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.DefaultProbability(System.Double,System.Double,System.Boolean)">
+  DefaultProbability(double, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The probability of default between two times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DefaultProbability(double t1, double t2, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The initial time, which may be negative: the probability of default before the reference date
+is taken as null.</p>
+</dd>
+    <dt><code>t2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The final time.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate past the curve's maximum time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">t1</code> is after <code class="paramref">t2</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A time is out of the curve's range, or a jump isn't in (0, 1].</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_HazardRate_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.HazardRate*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_HazardRate_NanoQL_Time_Date_System_Boolean_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.HazardRate(NanoQL.Time.Date,System.Boolean)">
+  HazardRate(Date, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The hazard rate at a date, with annual frequency and continuous compounding.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double HazardRate(Date d, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate past the curve's maximum date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date is out of the curve's range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_HazardRate_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.HazardRate*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_HazardRate_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.HazardRate(System.Double,System.Boolean)">
+  HazardRate(double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The hazard rate at a time, with annual frequency and continuous compounding.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double HazardRate(double t, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate past the curve's maximum time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The time is out of the curve's range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_HazardRateImpl_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.HazardRateImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_HazardRateImpl_System_Double_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.HazardRateImpl(System.Double)">
+  HazardRateImpl(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The hazard rate at a time: by default the default density over the survival probability, 0 where the
+probability is. Derived curves may override it with a more efficient calculation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual double HazardRateImpl(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_JumpDates_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.JumpDates*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_JumpDates" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.JumpDates">
+  JumpDates()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The dates of the survival-probability jumps, one per jump.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ImmutableArray&lt;Date&gt; JumpDates()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The dates, empty for a curve without jumps.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_JumpTimes_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.JumpTimes*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_JumpTimes" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.JumpTimes">
+  JumpTimes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The times of the survival-probability jumps, measured from the reference date by the curve's day
+counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ImmutableArray&lt;double&gt; JumpTimes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The times, one per jump, empty for a curve without jumps.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_SurvivalProbability_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.SurvivalProbability*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_SurvivalProbability_NanoQL_Time_Date_System_Boolean_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.SurvivalProbability(NanoQL.Time.Date,System.Boolean)">
+  SurvivalProbability(Date, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The probability of survival from the reference date to a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SurvivalProbability(Date d, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate past the curve's maximum date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date is out of the curve's range, or a jump before it isn't in
+(0, 1].</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_SurvivalProbability_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.SurvivalProbability*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_SurvivalProbability_System_Double_System_Boolean_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.SurvivalProbability(System.Double,System.Boolean)">
+  SurvivalProbability(double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The probability of survival from the reference date to a time, measured by the curve's day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SurvivalProbability(double t, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate past the curve's maximum time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The time is out of the curve's range, or a jump before it isn't in
+(0, 1].</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_DefaultProbabilityTermStructure_SurvivalProbabilityImpl_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.SurvivalProbabilityImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_DefaultProbabilityTermStructure_SurvivalProbabilityImpl_System_Double_" data-uid="NanoQL.TermStructures.DefaultProbabilityTermStructure.SurvivalProbabilityImpl(System.Double)">
+  SurvivalProbabilityImpl(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The survival probability at a time, which derived curves calculate. Range checks have already been performed, so
+it must assume that extrapolation is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract double SurvivalProbabilityImpl(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

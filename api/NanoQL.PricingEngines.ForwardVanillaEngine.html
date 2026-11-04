@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class ForwardVanillaEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ForwardVanillaEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The forward-start engine for vanilla options: a vanilla engine run on the forward process from the reset date, at the moneyness times the spot, its results discounted on the dividend curve to the reset date.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.ForwardVanillaEngine">
+
+
+
+  <h1 id="NanoQL_PricingEngines_ForwardVanillaEngine" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine" class="text-break">
+Class ForwardVanillaEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The forward-start engine for vanilla options: a vanilla engine run on the forward process from the reset date, at
+the moneyness times the spot, its results discounted on the dividend curve to the reset date.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ForwardVanillaEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ForwardVanillaEngine</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.PricingEngines.ForwardPerformanceVanillaEngine.html">ForwardPerformanceVanillaEngine</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_ForwardVanillaEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An extension point, as QuantLib's template: <a class="xref" href="NanoQL.PricingEngines.ForwardPerformanceVanillaEngine.html">ForwardPerformanceVanillaEngine</a> derives it and overrides
+<a class="xref" href="NanoQL.PricingEngines.ForwardVanillaEngine.html#NanoQL_PricingEngines_ForwardVanillaEngine_OriginalResults_NanoQL_Instruments_ForwardVanillaOption_NanoQL_Instruments_OneAssetOptionResults_">OriginalResults(ForwardVanillaOption, OneAssetOptionResults)</a>. Immutable; it holds the process and the inner engine, a delegate in the engines' form
+taking the forward process; the forward process is built per call.
+</p>
+<p>
+The payoff must be a plain vanilla one: QuantLib builds the inner option's plain vanilla payoff from the payoff's
+type alone, so a cash-or-nothing forward start prices as the vanilla
+(<code>Divergences/ForwardNonPlainPayoffTests.cs</code>); it is refused with the text of QuantLib's Monte Carlo forward
+engines. The vega is the derivative under a parallel shift of the input volatilities, the inner vega in the period's
+forward volatility times dσ_f/dε, where QuantLib's is the inner vega alone
+(<code>Divergences/ForwardVegaTermStructureTests.cs</code>): exactly QuantLib's where the volatilities at the reset and at
+expiry are equal. The dividend rate read for the theta is on the process's clock (<a class="xref" href="NanoQL.Methods.FdmBlackScholesOp.html#NanoQL_Methods_FdmBlackScholesOp_Clock_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_Methods_FdmQuantoHelper_">Clock(GeneralizedBlackScholesProcess, FdmQuantoHelper?)</a>), each curve read by date, and the dividend rho's reset term on the dividend
+curve's own time, the derivative of its zero rates (<code>Divergences/ExoticMismatchedTimesTests.cs</code>); on structures
+dated alike, QuantLib's reads.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_ForwardVanillaEngine__ctor_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_ForwardVanillaEngine__ctor_NanoQL_Processes_GeneralizedBlackScholesProcess_System_Func_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_Instruments_OneAssetOptionResults__" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.#ctor(NanoQL.Processes.GeneralizedBlackScholesProcess,System.Func{NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,NanoQL.Instruments.OneAssetOptionResults})">
+  ForwardVanillaEngine(GeneralizedBlackScholesProcess, Func&lt;VanillaOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.ForwardVanillaEngine.html">ForwardVanillaEngine</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ForwardVanillaEngine(GeneralizedBlackScholesProcess process, Func&lt;VanillaOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt; engine)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The underlying's process.</p>
+</dd>
+    <dt><code>engine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a>, <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a>, <a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a>&gt;</dt>
+    <dd><p>The vanilla engine run on the forward process.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_ForwardVanillaEngine_Engine_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.Engine*"></a>
+
+  <h3 id="NanoQL_PricingEngines_ForwardVanillaEngine_Engine" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.Engine">
+  Engine
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the vanilla engine run on the forward process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Func&lt;VanillaOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt; Engine { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a>, <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a>, <a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_ForwardVanillaEngine_Process_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.Process*"></a>
+
+  <h3 id="NanoQL_PricingEngines_ForwardVanillaEngine_Process" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.Process">
+  Process
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the underlying's process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected GeneralizedBlackScholesProcess Process { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_ForwardVanillaEngine_Calculate_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_ForwardVanillaEngine_Calculate_NanoQL_Instruments_ForwardVanillaOption_NanoQL_EvaluationContext_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.Calculate(NanoQL.Instruments.ForwardVanillaOption,NanoQL.EvaluationContext)">
+  Calculate(ForwardVanillaOption, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a forward-start option: QuantLib's <code>calculate</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OneAssetOptionResults Calculate(ForwardVanillaOption option, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.ForwardVanillaOption.html">ForwardVanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results; the expired results when it has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The option's terms are invalid, its payoff isn't plain vanilla, the spot isn't positive, or the inner engine
+refuses.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_ForwardVanillaEngine_Calculate_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_ForwardVanillaEngine_Calculate_NanoQL_Instruments_ForwardVanillaOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_System_Func_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_Instruments_OneAssetOptionResults__" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.Calculate(NanoQL.Instruments.ForwardVanillaOption,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,System.Func{NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,NanoQL.Instruments.OneAssetOptionResults})">
+  Calculate(ForwardVanillaOption, EvaluationContext, GeneralizedBlackScholesProcess, Func&lt;VanillaOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a forward-start option: QuantLib's <code>ForwardVanillaEngine&lt;Engine&gt;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(ForwardVanillaOption option, EvaluationContext context, GeneralizedBlackScholesProcess process, Func&lt;VanillaOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt; engine)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.ForwardVanillaOption.html">ForwardVanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The underlying's process.</p>
+</dd>
+    <dt><code>engine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a>, <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a>, <a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a>&gt;</dt>
+    <dd><p>The vanilla engine run on the forward process.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results: the value and the inner engine's Greeks, carried to today.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The option's terms are invalid, its payoff isn't plain vanilla, the spot isn't positive, or the inner engine
+refuses.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_ForwardVanillaEngine_ForwardProcess_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.ForwardProcess*"></a>
+
+  <h3 id="NanoQL_PricingEngines_ForwardVanillaEngine_ForwardProcess_NanoQL_Instruments_ForwardVanillaOption_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.ForwardProcess(NanoQL.Instruments.ForwardVanillaOption)">
+  ForwardProcess(ForwardVanillaOption)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The forward process: QuantLib's <code>setup</code>, the curves and the volatility implied from the reset date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GeneralizedBlackScholesProcess ForwardProcess(ForwardVanillaOption option)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.ForwardVanillaOption.html">ForwardVanillaOption</a></dt>
+    <dd><p>The forward-start option.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The process the inner engine reads.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">option</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The spot isn't positive.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_ForwardVanillaEngine_OriginalResults_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.OriginalResults*"></a>
+
+  <h3 id="NanoQL_PricingEngines_ForwardVanillaEngine_OriginalResults_NanoQL_Instruments_ForwardVanillaOption_NanoQL_Instruments_OneAssetOptionResults_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.OriginalResults(NanoQL.Instruments.ForwardVanillaOption,NanoQL.Instruments.OneAssetOptionResults)">
+  OriginalResults(ForwardVanillaOption, OneAssetOptionResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The forward-start option's results from the inner engine's: QuantLib's <code>getOriginalResults</code>, with the vega
+under a parallel shift and the reset term on the dividend curve's own time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual OneAssetOptionResults OriginalResults(ForwardVanillaOption option, OneAssetOptionResults originalResults)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.ForwardVanillaOption.html">ForwardVanillaOption</a></dt>
+    <dd><p>The forward-start option.</p>
+</dd>
+    <dt><code>originalResults</code> <a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The inner engine's results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The forward-start option's results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_ForwardVanillaEngine_ResetRate_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.ResetRate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_ForwardVanillaEngine_ResetRate_NanoQL_TermStructures_YieldTermStructure_NanoQL_Instruments_ForwardVanillaOption_NanoQL_TermStructure_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.ResetRate(NanoQL.TermStructures.YieldTermStructure,NanoQL.Instruments.ForwardVanillaOption,NanoQL.TermStructure)">
+  ResetRate(YieldTermStructure, ForwardVanillaOption, TermStructure)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A curve's continuous zero rate to the reset: QuantLib's <code>zeroRate(resetDate, dayCounter, Continuous)</code> where
+the curve shares the clock's times; otherwise the rate of the discount it accrues over the clock's reset time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static double ResetRate(YieldTermStructure curve, ForwardVanillaOption option, TermStructure clock)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>curve</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve.</p>
+</dd>
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.ForwardVanillaOption.html">ForwardVanillaOption</a></dt>
+    <dd><p>The forward-start option.</p>
+</dd>
+    <dt><code>clock</code> <a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></dt>
+    <dd><p>The process's clock.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_ForwardVanillaEngine_ResetTime_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.ResetTime*"></a>
+
+  <h3 id="NanoQL_PricingEngines_ForwardVanillaEngine_ResetTime_NanoQL_Instruments_ForwardVanillaOption_NanoQL_TermStructure_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.ResetTime(NanoQL.Instruments.ForwardVanillaOption,NanoQL.TermStructure)">
+  ResetTime(ForwardVanillaOption, TermStructure)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The time to the reset on a curve's own clock, none before its date: the time over which a parallel shift of the
+curve's zero rates discounts the value to the reset, where QuantLib reads the risk-free curve's year fraction for
+every curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static double ResetTime(ForwardVanillaOption option, TermStructure curve)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.ForwardVanillaOption.html">ForwardVanillaOption</a></dt>
+    <dd><p>The forward-start option.</p>
+</dd>
+    <dt><code>curve</code> <a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></dt>
+    <dd><p>The curve.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The reset time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_ForwardVanillaEngine_ShiftedVega_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.ShiftedVega*"></a>
+
+  <h3 id="NanoQL_PricingEngines_ForwardVanillaEngine_ShiftedVega_NanoQL_Instruments_ForwardVanillaOption_System_Double_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.ShiftedVega(NanoQL.Instruments.ForwardVanillaOption,System.Double)">
+  ShiftedVega(ForwardVanillaOption, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The vega under a parallel shift of the input volatilities (<span class="xref">NanoQL.PricingEngines.ForwardVanillaEngine.ShiftedVega(NanoQL.TermStructures.BlackVolTermStructure,NanoQL.Time.Date,NanoQL.Time.Date,System.Double,System.Boolean,System.Double)</span>) over the option's period, from the reset to expiry, at the inner strike, the
+period at its forward where the spot's forward over it is close to that strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double ShiftedVega(ForwardVanillaOption option, double innerVega)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.ForwardVanillaOption.html">ForwardVanillaOption</a></dt>
+    <dd><p>The forward-start option.</p>
+</dd>
+    <dt><code>innerVega</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The inner engine's vega.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The shifted vega.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_ForwardVanillaEngine_Underlying_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.Underlying*"></a>
+
+  <h3 id="NanoQL_PricingEngines_ForwardVanillaEngine_Underlying_NanoQL_Instruments_ForwardVanillaOption_" data-uid="NanoQL.PricingEngines.ForwardVanillaEngine.Underlying(NanoQL.Instruments.ForwardVanillaOption)">
+  Underlying(ForwardVanillaOption)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The inner vanilla option: QuantLib's <code>setup</code>, the plain vanilla payoff at the moneyness times the spot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VanillaOption Underlying(ForwardVanillaOption option)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.ForwardVanillaOption.html">ForwardVanillaOption</a></dt>
+    <dd><p>The forward-start option.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The vanilla option the inner engine prices.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">option</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The payoff isn't plain vanilla.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class FourierIntegration | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FourierIntegration | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Fourier integration of characteristic-function pricing engines: a quadrature or an adaptive integrator, with the change of variables that maps the semi-infinite integration range onto the domain the algorithm expects. The decay rate c_∞ of the characteristic function along the integration contour drives the mapping.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.FourierIntegration">
+
+
+
+  <h1 id="NanoQL_Numerics_FourierIntegration" data-uid="NanoQL.Numerics.FourierIntegration" class="text-break">
+Class FourierIntegration  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Fourier integration of characteristic-function pricing engines: a quadrature or an adaptive integrator, with the
+change of variables that maps the semi-infinite integration range onto the domain the algorithm expects. The decay
+rate c_∞ of the characteristic function along the integration contour drives the mapping.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class FourierIntegration</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">FourierIntegration</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Numerics_FourierIntegration_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable: <a class="xref" href="NanoQL.Numerics.FourierIntegration.html#NanoQL_Numerics_FourierIntegration_CalculateWithStatistics_System_Double_System_Func_System_Double_System_Double__System_Func_System_Nullable_System_Double___System_Double_">CalculateWithStatistics(double, Func&lt;double, double&gt;, Func&lt;double?&gt;?, double)</a> returns each call's number of evaluations with the value (the
+quadrature's order, or the integrator's count), which QuantLib's <code>numberOfEvaluations()</code> reads after the call.</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_IsAdaptiveIntegration_" data-uid="NanoQL.Numerics.FourierIntegration.IsAdaptiveIntegration*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_IsAdaptiveIntegration" data-uid="NanoQL.Numerics.FourierIntegration.IsAdaptiveIntegration">
+  IsAdaptiveIntegration
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the integration is adaptive, its range possibly bounded by the
+caller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsAdaptiveIntegration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_AndersenPiterbargIntegrationLimit_" data-uid="NanoQL.Numerics.FourierIntegration.AndersenPiterbargIntegrationLimit*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_AndersenPiterbargIntegrationLimit_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.Numerics.FourierIntegration.AndersenPiterbargIntegrationLimit(System.Double,System.Double,System.Double,System.Double)">
+  AndersenPiterbargIntegrationLimit(double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Andersen and Piterbarg's integration limit: the larger of the roots of c_∞·u + ln u + ln ε and of
+(v₀t/2)·u² + ln u + ln ε, or the first alone where the second can't be bracketed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double AndersenPiterbargIntegrationLimit(double c_inf, double epsilon, double v0, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c_inf</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The decay rate c_∞.</p>
+</dd>
+    <dt><code>epsilon</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The tolerance ε.</p>
+</dd>
+    <dt><code>v0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The initial variance.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The limit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The first root can't be bracketed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_Calculate_" data-uid="NanoQL.Numerics.FourierIntegration.Calculate*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_Calculate_System_Double_System_Func_System_Double_System_Double__System_Double_" data-uid="NanoQL.Numerics.FourierIntegration.Calculate(System.Double,System.Func{System.Double,System.Double},System.Double)">
+  Calculate(double, Func&lt;double, double&gt;, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The integral of <code class="paramref">f</code> on [0, ∞), an adaptive integrator's range bounded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Calculate(double c_inf, Func&lt;double, double&gt; f, double maxBound)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c_inf</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The decay rate c_∞ of the mapping.</p>
+</dd>
+    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The integrand.</p>
+</dd>
+    <dt><code>maxBound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>For an adaptive integrator, the range's bound.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The integral.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">f</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The integrator doesn't reach its accuracy.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_Calculate_" data-uid="NanoQL.Numerics.FourierIntegration.Calculate*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_Calculate_System_Double_System_Func_System_Double_System_Double__System_Func_System_Nullable_System_Double___System_Double_" data-uid="NanoQL.Numerics.FourierIntegration.Calculate(System.Double,System.Func{System.Double,System.Double},System.Func{System.Nullable{System.Double}},System.Double)">
+  Calculate(double, Func&lt;double, double&gt;, Func&lt;double?&gt;?, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The integral of <code class="paramref">f</code> on [0, ∞).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Calculate(double c_inf, Func&lt;double, double&gt; f, Func&lt;double?&gt;? maxBound = null, double scaling = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c_inf</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The decay rate c_∞ of the mapping.</p>
+</dd>
+    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The integrand.</p>
+</dd>
+    <dt><code>maxBound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</dt>
+    <dd><p>For an adaptive integrator, the range's bound, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> (or a bound
+returning <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null</code>) for the mapped range.</p>
+</dd>
+    <dt><code>scaling</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>For the exp-sinh integration, the scale s of its abscissas: it integrates s·f(s·x) over
+[0, ∞); the other algorithms ignore it.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The integral.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">f</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The integrator doesn't reach its accuracy.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_CalculateWithStatistics_" data-uid="NanoQL.Numerics.FourierIntegration.CalculateWithStatistics*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_CalculateWithStatistics_System_Double_System_Func_System_Double_System_Double__System_Func_System_Nullable_System_Double___System_Double_" data-uid="NanoQL.Numerics.FourierIntegration.CalculateWithStatistics(System.Double,System.Func{System.Double,System.Double},System.Func{System.Nullable{System.Double}},System.Double)">
+  CalculateWithStatistics(double, Func&lt;double, double&gt;, Func&lt;double?&gt;?, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The integral of <code class="paramref">f</code> on [0, ∞), with the call's number of evaluations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntegrationResult CalculateWithStatistics(double c_inf, Func&lt;double, double&gt; f, Func&lt;double?&gt;? maxBound = null, double scaling = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c_inf</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The decay rate c_∞ of the mapping.</p>
+</dd>
+    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The integrand.</p>
+</dd>
+    <dt><code>maxBound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</dt>
+    <dd><p>For an adaptive integrator, the range's bound, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> (or a bound
+returning <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null</code>) for the mapped range.</p>
+</dd>
+    <dt><code>scaling</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>For the exp-sinh integration, the scale s of its abscissas: it integrates s·f(s·x) over
+[0, ∞); the other algorithms ignore it.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.IntegrationResult.html">IntegrationResult</a></dt>
+    <dd><p>The integral and the number of evaluations: the quadrature's order, or the integrator's count; for
+the exp-sinh integration, Boost's error estimate too, scaled with the integral.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">f</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The integrator doesn't reach its accuracy.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_DiscreteSimpson_" data-uid="NanoQL.Numerics.FourierIntegration.DiscreteSimpson*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_DiscreteSimpson_System_Int32_" data-uid="NanoQL.Numerics.FourierIntegration.DiscreteSimpson(System.Int32)">
+  DiscreteSimpson(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Simpson's rule on a fixed number of evaluations, on [0, the caller's bound] or on [0, 1] mapped by
+−ln(1 − x)/c_∞.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FourierIntegration DiscreteSimpson(int evaluations = 1000)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>evaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of evaluations, at least 2.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">evaluations</code> is below 2
+(<a class="xref" href="NanoQL.Numerics.DiscreteSimpsonIntegrator.html">DiscreteSimpsonIntegrator</a>).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_DiscreteTrapezoid_" data-uid="NanoQL.Numerics.FourierIntegration.DiscreteTrapezoid*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_DiscreteTrapezoid_System_Int32_" data-uid="NanoQL.Numerics.FourierIntegration.DiscreteTrapezoid(System.Int32)">
+  DiscreteTrapezoid(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The trapezoid rule on a fixed number of evaluations, on [0, the caller's bound] or on [0, 1] mapped by
+−ln(1 − x)/c_∞.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FourierIntegration DiscreteTrapezoid(int evaluations = 1000)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>evaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of evaluations, at least 2.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">evaluations</code> is below 2
+(<a class="xref" href="NanoQL.Numerics.DiscreteTrapezoidIntegrator.html">DiscreteTrapezoidIntegrator</a>).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_ExpSinh_" data-uid="NanoQL.Numerics.FourierIntegration.ExpSinh*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_ExpSinh_System_Double_" data-uid="NanoQL.Numerics.FourierIntegration.ExpSinh(System.Double)">
+  ExpSinh(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The exp-sinh integration, on [0, ∞) directly, its abscissas scaled by the caller's scaling.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FourierIntegration ExpSinh(double relTolerance = 1E-08)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>relTolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The tolerance relative to the integral's L1 norm.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_GaussChebyshev_" data-uid="NanoQL.Numerics.FourierIntegration.GaussChebyshev*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_GaussChebyshev_System_Int32_" data-uid="NanoQL.Numerics.FourierIntegration.GaussChebyshev(System.Int32)">
+  GaussChebyshev(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Gauss-Chebyshev quadrature, on [−1, 1] mapped by −ln((1 − x)/2)/c_∞.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FourierIntegration GaussChebyshev(int integrationOrder = 128)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>integrationOrder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The order, positive.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The order is zero.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The order is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_GaussChebyshev2nd_" data-uid="NanoQL.Numerics.FourierIntegration.GaussChebyshev2nd*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_GaussChebyshev2nd_System_Int32_" data-uid="NanoQL.Numerics.FourierIntegration.GaussChebyshev2nd(System.Int32)">
+  GaussChebyshev2nd(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Gauss-Chebyshev quadrature of the second kind, on [−1, 1] mapped by −ln((1 − x)/2)/c_∞.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FourierIntegration GaussChebyshev2nd(int integrationOrder = 128)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>integrationOrder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The order, positive.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The order is zero.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The order is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_GaussKronrod_" data-uid="NanoQL.Numerics.FourierIntegration.GaussKronrod*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_GaussKronrod_System_Double_System_Int32_" data-uid="NanoQL.Numerics.FourierIntegration.GaussKronrod(System.Double,System.Int32)">
+  GaussKronrod(double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The adaptive Gauss-Kronrod integration, on [0, the caller's bound] or on [0, 1] mapped by −ln(x)/c_∞; its
+convergence is usually poor, as QuantLib documents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FourierIntegration GaussKronrod(double absTolerance, int maxEvaluations = 1000)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>absTolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The absolute tolerance, above machine epsilon.</p>
+</dd>
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number of evaluations, at least 15.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The tolerance isn't above machine epsilon, or the maximum is below
+15.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The maximum is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_GaussLaguerre_" data-uid="NanoQL.Numerics.FourierIntegration.GaussLaguerre*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_GaussLaguerre_System_Int32_" data-uid="NanoQL.Numerics.FourierIntegration.GaussLaguerre(System.Int32)">
+  GaussLaguerre(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Gauss-Laguerre quadrature, on the semi-infinite range directly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FourierIntegration GaussLaguerre(int integrationOrder = 128)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>integrationOrder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The order, positive, at most 192.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The order is zero or above 192.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The order is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_GaussLegendre_" data-uid="NanoQL.Numerics.FourierIntegration.GaussLegendre*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_GaussLegendre_System_Int32_" data-uid="NanoQL.Numerics.FourierIntegration.GaussLegendre(System.Int32)">
+  GaussLegendre(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Gauss-Legendre quadrature, on [−1, 1] mapped by −ln((1 − x)/2)/c_∞.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FourierIntegration GaussLegendre(int integrationOrder = 128)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>integrationOrder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The order, positive.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The order is zero.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The order is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_GaussLobatto_" data-uid="NanoQL.Numerics.FourierIntegration.GaussLobatto*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_GaussLobatto_System_Nullable_System_Double__System_Nullable_System_Double__System_Int32_System_Boolean_" data-uid="NanoQL.Numerics.FourierIntegration.GaussLobatto(System.Nullable{System.Double},System.Nullable{System.Double},System.Int32,System.Boolean)">
+  GaussLobatto(double?, double?, int, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The adaptive Gauss-Lobatto integration, on [0, the caller's bound] or on [0, 1] mapped by −ln(x)/c_∞. Too large
+a maximum number of evaluations deepens the recursion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FourierIntegration GaussLobatto(double? relTolerance, double? absTolerance, int maxEvaluations = 1000, bool useConvergenceEstimate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>relTolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The relative tolerance, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> (QuantLib's <code>Null</code>) for
+none.</p>
+</dd>
+    <dt><code>absTolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The absolute tolerance, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> (QuantLib's <code>Null</code>, a number
+above any) for none.</p>
+</dd>
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number of evaluations.</p>
+</dd>
+    <dt><code>useConvergenceEstimate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the tolerance is scaled by the convergence estimate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The absolute tolerance isn't above machine epsilon.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The maximum number of evaluations is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_Simpson_" data-uid="NanoQL.Numerics.FourierIntegration.Simpson*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_Simpson_System_Double_System_Int32_" data-uid="NanoQL.Numerics.FourierIntegration.Simpson(System.Double,System.Int32)">
+  Simpson(double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Simpson's integration, on [0, the caller's bound] or on [0, 1] mapped by −ln(x)/c_∞.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FourierIntegration Simpson(double absTolerance, int maxEvaluations = 1000)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>absTolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The absolute tolerance, above machine epsilon.</p>
+</dd>
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number of refinements.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The tolerance isn't above machine epsilon.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The maximum is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_TanhSinh_" data-uid="NanoQL.Numerics.FourierIntegration.TanhSinh*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_TanhSinh_System_Double_" data-uid="NanoQL.Numerics.FourierIntegration.TanhSinh(System.Double)">
+  TanhSinh(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The tanh-sinh integration, on [0, ∞) directly, Boost's map of a half-infinite range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FourierIntegration TanhSinh(double relTolerance = 1E-08)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>relTolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The tolerance relative to the integral's L1 norm.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_FourierIntegration_Trapezoid_" data-uid="NanoQL.Numerics.FourierIntegration.Trapezoid*"></a>
+
+  <h3 id="NanoQL_Numerics_FourierIntegration_Trapezoid_System_Double_System_Int32_" data-uid="NanoQL.Numerics.FourierIntegration.Trapezoid(System.Double,System.Int32)">
+  Trapezoid(double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The trapezoid integration, on [0, the caller's bound] or on [0, 1] mapped by −ln(x)/c_∞.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FourierIntegration Trapezoid(double absTolerance, int maxEvaluations = 1000)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>absTolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The absolute tolerance, above machine epsilon.</p>
+</dd>
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number of refinements.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The tolerance isn't above machine epsilon.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The maximum is negative.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

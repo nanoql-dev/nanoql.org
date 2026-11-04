@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Gaussian1dSwaptionEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Gaussian1dSwaptionEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The one-factor model swaption engine: a European or Bermudan swaption rolled back over a grid of a Gaussian1d model&#39;s state, each step integrating the next exercise&#39;s values&#39; cubic spline against the state&#39;s Gaussian density.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.Gaussian1dSwaptionEngine">
+
+
+
+  <h1 id="NanoQL_PricingEngines_Gaussian1dSwaptionEngine" data-uid="NanoQL.PricingEngines.Gaussian1dSwaptionEngine" class="text-break">
+Class Gaussian1dSwaptionEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The one-factor model swaption engine: a European or Bermudan swaption rolled back over a grid of a Gaussian1d
+model's state, each step integrating the next exercise's values' cubic spline against the state's Gaussian density.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Gaussian1dSwaptionEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Gaussian1dSwaptionEngine</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_Gaussian1dSwaptionEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A static class (the playbook's engine row): <code>Calculate</code> runs QuantLib's four steps (playbook §2.1), the model
+and QuantLib's settings arguments. Every fixed coupon whose start is on or after an exercise date is part of the
+swap exercised into there. An overnight-indexed underlying is supported: a compounded coupon's daily compounding
+telescopes to a zero bonds' ratio over its rate period, over the shifted value dates under an observation shift,
+normalised by the coupon's own rate accrual, which is exact for plain compounding and a lookback with the shift; a
+lookback without the shift and a lockout are priced as if they weren't there. A payment delay is handled statically.
+Cash-settled swaptions and arithmetically averaged overnight coupons aren't supported.
+</p>
+<p>
+One call shares one memo of the model's terms, built inside it. QuantLib's OpenMP branch, which warms the model's
+caches before a parallel loop, isn't ported: the loop runs in sequence, as QuantLib's default build does.
+</p>
+<p>
+Two documented divergences. A discount or forwarding curve on another clock than the model's is read at the instants
+QuantLib's arguments denote: the exercise's date in the numeraire's read and the Digital probabilities' discount,
+the coupons' dates where QuantLib passes them; QuantLib's reads where the curves share a clock
+(<code>Divergences/Gaussian1dMismatchedTimesTests.cs</code>). With <code>flatPayoffExtrapolation</code>, the right tail
+integrates the payoff's last node, where QuantLib's integrates its second-last
+(<code>Divergences/FlatPayoffExtrapolationTests.cs</code>).
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_Gaussian1dSwaptionEngine_Calculate_" data-uid="NanoQL.PricingEngines.Gaussian1dSwaptionEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_Gaussian1dSwaptionEngine_Calculate_NanoQL_Instruments_Swaption_NanoQL_EvaluationContext_NanoQL_Models_Gaussian1dModel_System_Int32_System_Double_System_Boolean_System_Boolean_NanoQL_TermStructures_YieldTermStructure_NanoQL_PricingEngines_Gaussian1dSwaptionEngineProbabilities_" data-uid="NanoQL.PricingEngines.Gaussian1dSwaptionEngine.Calculate(NanoQL.Instruments.Swaption,NanoQL.EvaluationContext,NanoQL.Models.Gaussian1dModel,System.Int32,System.Double,System.Boolean,System.Boolean,NanoQL.TermStructures.YieldTermStructure,NanoQL.PricingEngines.Gaussian1dSwaptionEngineProbabilities)">
+  Calculate(Swaption, EvaluationContext, Gaussian1dModel, int, double, bool, bool, YieldTermStructure?, Gaussian1dSwaptionEngineProbabilities)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a swaption on a Gaussian1d model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static InstrumentResults Calculate(Swaption swaption, EvaluationContext context, Gaussian1dModel model, int integrationPoints = 64, double stddevs = 7, bool extrapolatePayoff = true, bool flatPayoffExtrapolation = false, YieldTermStructure? discountCurve = null, Gaussian1dSwaptionEngineProbabilities probabilities = Gaussian1dSwaptionEngineProbabilities.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>swaption</code> <a class="xref" href="NanoQL.Instruments.Swaption.html">Swaption</a></dt>
+    <dd><p>The swaption.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.Gaussian1dModel.html">Gaussian1dModel</a></dt>
+    <dd><p>The model.</p>
+</dd>
+    <dt><code>integrationPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The grid's points on each side of the state's mean; 64 by default.</p>
+</dd>
+    <dt><code>stddevs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The grid's width, in standard deviations; 7 by default.</p>
+</dd>
+    <dt><code>extrapolatePayoff</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to integrate the payoff past the grid; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> by
+default.</p>
+</dd>
+    <dt><code>flatPayoffExtrapolation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether past the grid the payoff is flat; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> by
+default.</p>
+</dd>
+    <dt><code>discountCurve</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The discount curve; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty handle, for the
+model's.</p>
+</dd>
+    <dt><code>probabilities</code> <a class="xref" href="NanoQL.PricingEngines.Gaussian1dSwaptionEngineProbabilities.html">Gaussian1dSwaptionEngineProbabilities</a></dt>
+    <dd><p>The exercise probabilities to compute, an additional result; none by
+default.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a></dt>
+    <dd><p>The swaption's results: the expired results when it has expired; with <code class="paramref">probabilities</code>, the
+additional result <code>probabilities</code>, one per exercise alive and the last the probability of no exercise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The swaption, the context or the model is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The swaption's terms are inconsistent, it is cash settled at the par yield curve, or its swap's nominals aren't
+constant.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

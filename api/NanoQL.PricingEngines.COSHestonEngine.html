@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class COSHestonEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class COSHestonEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The COS-method Heston engine, on efficient Fourier-cosine series expansions.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.COSHestonEngine">
+
+
+
+  <h1 id="NanoQL_PricingEngines_COSHestonEngine" data-uid="NanoQL.PricingEngines.COSHestonEngine" class="text-break">
+Class COSHestonEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The COS-method Heston engine, on efficient Fourier-cosine series expansions.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class COSHestonEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">COSHestonEngine</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_COSHestonEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An immutable object over its <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a>, the truncation range's width and the series' length; the
+static <a class="xref" href="NanoQL.PricingEngines.COSHestonEngine.html#NanoQL_PricingEngines_COSHestonEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_HestonModel_System_Double_System_Int32_">Calculate(VanillaOption, EvaluationContext, HestonModel, double, int)</a> builds one and prices
+through it. The model's time runs from the earliest curve date and the forward and discount are read by date (<a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html">AnalyticHestonEngine</a>'s reads); at the model's time 0 the price is QuantLib's bound, the forward's
+discounted intrinsic value, before any cumulant.
+</p>
+<p>
+The cumulants are QuantLib's expressions, evaluated where κt calls for it in another arithmetic: QuantLib's double,
+and so its bits, from each cumulant's cut to its upper cut; double-double below the cut, quad-double below
+double-double's floor and, below quad-double's, each cumulant's cubic in κ through four quad-double values; past the
+upper cut, where e^{nκt} overflows, an extended-range double, each cut measured at the run against QuantLib's
+expressions in 50 to 250 digits. At a term of 0 the cumulants, the skew and the kurtosis are their limits, 0. Below
+σ = <span class="xref">NanoQL.PricingEngines.COSHestonEngine.SigmaCut</span>, where the classic form's division by σ² cancels, the characteristic function is
+<a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_ChF_System_Numerics_Complex_System_Double_">ChF(Complex, double)</a>'s, the same function in Andersen and Lake's form.
+</p>
+<p>
+The series' length has to grow with the vol of variance and the term: at QuantLib's defaults, a range of 16 and 200
+terms, a vol of variance of 1 prices a five-year call at twice the forward at −7.8 times its value and a twenty-year
+one 39% low, where 2,000 terms bring them within 0.6% and 0.02%; QuantLib's own large-σ case takes a range of 25 and
+600 terms.
+</p>
+<p>
+References: F. Fang, C.W. Oosterlee, A Novel Pricing Method for European Options based on Fourier-Cosine Series
+Expansions; F. Le Floc'h, Fourier Integration and Stochastic Volatility Calibration.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_COSHestonEngine__ctor_" data-uid="NanoQL.PricingEngines.COSHestonEngine.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_COSHestonEngine__ctor_NanoQL_Models_HestonModel_System_Double_System_Int32_" data-uid="NanoQL.PricingEngines.COSHestonEngine.#ctor(NanoQL.Models.HestonModel,System.Double,System.Int32)">
+  COSHestonEngine(HestonModel, double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.COSHestonEngine.html">COSHestonEngine</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public COSHestonEngine(HestonModel model, double l = 16, int n = 200)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The truncation range's half-width in standard deviations.</p>
+</dd>
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of terms of the cosine series.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">model</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_COSHestonEngine_C1_" data-uid="NanoQL.PricingEngines.COSHestonEngine.C1*"></a>
+
+  <h3 id="NanoQL_PricingEngines_COSHestonEngine_C1_System_Double_" data-uid="NanoQL.PricingEngines.COSHestonEngine.C1(System.Double)">
+  C1(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The first cumulant of the log-forward's return at a time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double C1(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The cumulant; 0 at a time of 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_COSHestonEngine_C2_" data-uid="NanoQL.PricingEngines.COSHestonEngine.C2*"></a>
+
+  <h3 id="NanoQL_PricingEngines_COSHestonEngine_C2_System_Double_" data-uid="NanoQL.PricingEngines.COSHestonEngine.C2(System.Double)">
+  C2(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The second cumulant at a time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double C2(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The cumulant; 0 at a time of 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_COSHestonEngine_C3_" data-uid="NanoQL.PricingEngines.COSHestonEngine.C3*"></a>
+
+  <h3 id="NanoQL_PricingEngines_COSHestonEngine_C3_System_Double_" data-uid="NanoQL.PricingEngines.COSHestonEngine.C3(System.Double)">
+  C3(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The third cumulant at a time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double C3(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The cumulant; 0 at a time of 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_COSHestonEngine_C4_" data-uid="NanoQL.PricingEngines.COSHestonEngine.C4*"></a>
+
+  <h3 id="NanoQL_PricingEngines_COSHestonEngine_C4_System_Double_" data-uid="NanoQL.PricingEngines.COSHestonEngine.C4(System.Double)">
+  C4(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fourth cumulant at a time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double C4(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The cumulant; 0 at a time of 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_COSHestonEngine_Calculate_" data-uid="NanoQL.PricingEngines.COSHestonEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_COSHestonEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_" data-uid="NanoQL.PricingEngines.COSHestonEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext)">
+  Calculate(VanillaOption, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a European plain-vanilla option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The exercise isn't European, the payoff isn't plain vanilla or the underlying
+isn't positive.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_COSHestonEngine_Calculate_" data-uid="NanoQL.PricingEngines.COSHestonEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_COSHestonEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_HestonModel_System_Double_System_Int32_" data-uid="NanoQL.PricingEngines.COSHestonEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Models.HestonModel,System.Double,System.Int32)">
+  Calculate(VanillaOption, EvaluationContext, HestonModel, double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a European plain-vanilla option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context, HestonModel model, double l = 16, int n = 200)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The truncation range's half-width in standard deviations.</p>
+</dd>
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of terms of the cosine series.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The exercise isn't European, the payoff isn't plain vanilla or the underlying
+isn't positive.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_COSHestonEngine_ChF_" data-uid="NanoQL.PricingEngines.COSHestonEngine.ChF*"></a>
+
+  <h3 id="NanoQL_PricingEngines_COSHestonEngine_ChF_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.COSHestonEngine.ChF(System.Double,System.Double)">
+  ChF(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The normalized characteristic function of the log-forward's return at <code class="paramref">u</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Complex ChF(double u, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>u</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The argument.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.complex">Complex</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_COSHestonEngine_Kurtosis_" data-uid="NanoQL.PricingEngines.COSHestonEngine.Kurtosis*"></a>
+
+  <h3 id="NanoQL_PricingEngines_COSHestonEngine_Kurtosis_System_Double_" data-uid="NanoQL.PricingEngines.COSHestonEngine.Kurtosis(System.Double)">
+  Kurtosis(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The excess kurtosis at a time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Kurtosis(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The kurtosis; its limit 0 at a time of 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_COSHestonEngine_Mu_" data-uid="NanoQL.PricingEngines.COSHestonEngine.Mu*"></a>
+
+  <h3 id="NanoQL_PricingEngines_COSHestonEngine_Mu_System_Double_" data-uid="NanoQL.PricingEngines.COSHestonEngine.Mu(System.Double)">
+  Mu(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The mean of the log-forward's return at a time, its first cumulant.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Mu(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The mean.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_COSHestonEngine_Skew_" data-uid="NanoQL.PricingEngines.COSHestonEngine.Skew*"></a>
+
+  <h3 id="NanoQL_PricingEngines_COSHestonEngine_Skew_System_Double_" data-uid="NanoQL.PricingEngines.COSHestonEngine.Skew(System.Double)">
+  Skew(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The skewness at a time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Skew(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The skewness; its limit 0 at a time of 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_COSHestonEngine_Var_" data-uid="NanoQL.PricingEngines.COSHestonEngine.Var*"></a>
+
+  <h3 id="NanoQL_PricingEngines_COSHestonEngine_Var_System_Double_" data-uid="NanoQL.PricingEngines.COSHestonEngine.Var(System.Double)">
+  Var(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The variance at a time, the second cumulant.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Var(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

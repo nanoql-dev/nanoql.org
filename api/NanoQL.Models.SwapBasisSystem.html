@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class SwapBasisSystem | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SwapBasisSystem | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The basis functions 1, the next forward rate and the coterminal swap rate after it, at each exercise; at an exercise on the last rate, 1 and the forward rate.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models.SwapBasisSystem">
+
+
+
+  <h1 id="NanoQL_Models_SwapBasisSystem" data-uid="NanoQL.Models.SwapBasisSystem" class="text-break">
+Class SwapBasisSystem  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The basis functions 1, the next forward rate and the coterminal swap rate after it, at each exercise; at an exercise
+on the last rate, 1 and the forward rate.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public sealed class SwapBasisSystem : MarketModelBasisSystem</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Models.MarketModelNodeDataProvider.html">MarketModelNodeDataProvider</a></div>
+      <div><a class="xref" href="NanoQL.Models.MarketModelBasisSystem.html">MarketModelBasisSystem</a></div>
+      <div><span class="xref">SwapBasisSystem</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Models.MarketModelBasisSystem.html#NanoQL_Models_MarketModelBasisSystem_NumberOfData">MarketModelBasisSystem.NumberOfData()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Models_SwapBasisSystem_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A working type.</p>
+<p>
+Each exercise's number of functions follows its own rate (a documented divergence): QuantLib adjusts only the last
+exercise's count (<code>swapbasissystem.cpp:46</code>), so an earlier exercise on the last rate reports 3 functions where
+<a class="xref" href="NanoQL.Models.SwapBasisSystem.html#NanoQL_Models_SwapBasisSystem_Values_NanoQL_Models_CurveState_System_Span_System_Double__">Values(CurveState, Span&lt;double&gt;)</a> gives 2 (<code>Divergences/BasisSystemFunctionCountTests.cs</code>).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Models_SwapBasisSystem__ctor_" data-uid="NanoQL.Models.SwapBasisSystem.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_SwapBasisSystem__ctor_System_ReadOnlySpan_System_Double__System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Models.SwapBasisSystem.#ctor(System.ReadOnlySpan{System.Double},System.ReadOnlySpan{System.Double})">
+  SwapBasisSystem(ReadOnlySpan&lt;double&gt;, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.SwapBasisSystem.html">SwapBasisSystem</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SwapBasisSystem(ReadOnlySpan&lt;double&gt; rateTimes, ReadOnlySpan&lt;double&gt; exerciseTimes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rateTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The rate times.</p>
+</dd>
+    <dt><code>exerciseTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The exercise times, the basis system's evolution.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The times don't make an evolution.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Models_SwapBasisSystem_Evolution_" data-uid="NanoQL.Models.SwapBasisSystem.Evolution*"></a>
+
+  <h3 id="NanoQL_Models_SwapBasisSystem_Evolution" data-uid="NanoQL.Models.SwapBasisSystem.Evolution">
+  Evolution
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the evolution: its rate times and the times it is stepped at, its exercise times included.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override EvolutionDescription Evolution { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.EvolutionDescription.html">EvolutionDescription</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_SwapBasisSystem_NumberOfExercises_" data-uid="NanoQL.Models.SwapBasisSystem.NumberOfExercises*"></a>
+
+  <h3 id="NanoQL_Models_SwapBasisSystem_NumberOfExercises" data-uid="NanoQL.Models.SwapBasisSystem.NumberOfExercises">
+  NumberOfExercises
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of exercises.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int NumberOfExercises { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Models_SwapBasisSystem_Clone_" data-uid="NanoQL.Models.SwapBasisSystem.Clone*"></a>
+
+  <h3 id="NanoQL_Models_SwapBasisSystem_Clone" data-uid="NanoQL.Models.SwapBasisSystem.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A deep copy of the basis system, its state included.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override MarketModelBasisSystem Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarketModelBasisSystem.html">MarketModelBasisSystem</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_SwapBasisSystem_IsExerciseTime_" data-uid="NanoQL.Models.SwapBasisSystem.IsExerciseTime*"></a>
+
+  <h3 id="NanoQL_Models_SwapBasisSystem_IsExerciseTime" data-uid="NanoQL.Models.SwapBasisSystem.IsExerciseTime">
+  IsExerciseTime()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Every evolution time is an exercise time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ImmutableArray&lt;bool&gt; IsExerciseTime()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>One flag an exercise, every one set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_SwapBasisSystem_NextStep_" data-uid="NanoQL.Models.SwapBasisSystem.NextStep*"></a>
+
+  <h3 id="NanoQL_Models_SwapBasisSystem_NextStep_NanoQL_Models_CurveState_" data-uid="NanoQL.Models.SwapBasisSystem.NextStep(NanoQL.Models.CurveState)">
+  NextStep(CurveState)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves to the next evolution time, in the given state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void NextStep(CurveState currentState)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>currentState</code> <a class="xref" href="NanoQL.Models.CurveState.html">CurveState</a></dt>
+    <dd><p>The state.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_SwapBasisSystem_NumberOfFunctions_" data-uid="NanoQL.Models.SwapBasisSystem.NumberOfFunctions*"></a>
+
+  <h3 id="NanoQL_Models_SwapBasisSystem_NumberOfFunctions" data-uid="NanoQL.Models.SwapBasisSystem.NumberOfFunctions">
+  NumberOfFunctions()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of basis functions at each exercise: 3, or 2 at an exercise on the last rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ImmutableArray&lt;int&gt; NumberOfFunctions()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>One count an exercise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_SwapBasisSystem_Reset_" data-uid="NanoQL.Models.SwapBasisSystem.Reset*"></a>
+
+  <h3 id="NanoQL_Models_SwapBasisSystem_Reset" data-uid="NanoQL.Models.SwapBasisSystem.Reset">
+  Reset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Puts the provider at the start of a path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_SwapBasisSystem_Values_" data-uid="NanoQL.Models.SwapBasisSystem.Values*"></a>
+
+  <h3 id="NanoQL_Models_SwapBasisSystem_Values_NanoQL_Models_CurveState_System_Span_System_Double__" data-uid="NanoQL.Models.SwapBasisSystem.Values(NanoQL.Models.CurveState,System.Span{System.Double})">
+  Values(CurveState, Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the current exercise's data in the given state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Values(CurveState currentState, Span&lt;double&gt; results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>currentState</code> <a class="xref" href="NanoQL.Models.CurveState.html">CurveState</a></dt>
+    <dd><p>The state.</p>
+</dd>
+    <dt><code>results</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The data written, the current exercise's count of them.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

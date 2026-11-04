@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class MultiCurve | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MultiCurve | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Builds a set of curves that form a dependency cycle, solving the bootstrapped ones together with one optimizer.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.MultiCurve">
+
+
+
+  <h1 id="NanoQL_TermStructures_MultiCurve" data-uid="NanoQL.TermStructures.MultiCurve" class="text-break">
+Class MultiCurve  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Builds a set of curves that form a dependency cycle, solving the bootstrapped ones together with one optimizer.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record MultiCurve : IEquatable&lt;MultiCurve&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MultiCurve</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.TermStructures.MultiCurve.html">MultiCurve</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_TermStructures_MultiCurve_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The steps to set up the cycle's members:
+</p>
+<ol><li>Create a <a class="xref" href="NanoQL.TermStructures.MultiCurveMember.html">MultiCurveMember</a> for each member, with the member's reference date and day counter, to
+represent it: QuantLib's empty internal handle.</li><li>Build the cycle's indexes and rate helpers on the members.</li><li>Add each member with its curve's arguments: <a class="xref" href="NanoQL.TermStructures.MultiCurve.html#NanoQL_TermStructures_MultiCurve_AddBootstrappedCurve__2_NanoQL_TermStructures_MultiCurveMember_NanoQL_Time_Date_System_Collections_Generic_IEnumerable_NanoQL_TermStructures_BootstrapHelper_NanoQL_TermStructures_YieldTermStructure___NanoQL_Time_DayCounter_System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_NanoQL_Time_Date____1_NanoQL_TermStructures_GlobalBootstrap_">AddBootstrappedCurve&lt;TTraits, TInterpolator&gt;(MultiCurveMember, Date, IEnumerable&lt;BootstrapHelper&lt;YieldTermStructure&gt;&gt;, DayCounter, IEnumerable&lt;double&gt;?, IEnumerable&lt;Date&gt;?, TInterpolator, GlobalBootstrap)</a>
+for a piecewise curve on a <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a>, in either of the piecewise curve's forms, and
+<a class="xref" href="NanoQL.TermStructures.MultiCurve.html#NanoQL_TermStructures_MultiCurve_AddNonBootstrappedCurve_NanoQL_TermStructures_MultiCurveMember_NanoQL_TermStructures_YieldTermStructure_">AddNonBootstrappedCurve(MultiCurveMember, YieldTermStructure)</a> for any other curve.</li><li><a class="xref" href="NanoQL.TermStructures.MultiCurve.html#NanoQL_TermStructures_MultiCurve_Build_NanoQL_EvaluationContext_">Build(EvaluationContext)</a>: it builds the bootstrapped members, links each member once to its curve, bootstraps the
+bootstrapped curves jointly, every curve's data being set before any helper is priced, and returns the curves in
+the order they were added.</li></ol>
+<p>
+An immutable builder: each <code>Add…</code> returns a copy. The members are linked by <a class="xref" href="NanoQL.TermStructures.MultiCurve.html#NanoQL_TermStructures_MultiCurve_Build_NanoQL_EvaluationContext_">Build(EvaluationContext)</a>, not by the
+<code>Add…</code> calls, since a curve is built in an evaluation context; a member already linked, or already added, is
+refused, so a second <a class="xref" href="NanoQL.TermStructures.MultiCurve.html#NanoQL_TermStructures_MultiCurve_Build_NanoQL_EvaluationContext_">Build(EvaluationContext)</a> of the same builder refuses. A non-bootstrapped curve reads the curves it
+references when it is queried, so it needs nothing from the joint bootstrap. QuantLib's checks that a curve is a
+multicurve bootstrap provider with a contributor have no counterpart: a bootstrapped member is built on
+<a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a> by <a class="xref" href="NanoQL.TermStructures.MultiCurve.html#NanoQL_TermStructures_MultiCurve_Build_NanoQL_EvaluationContext_">Build(EvaluationContext)</a> itself.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_MultiCurve__ctor_" data-uid="NanoQL.TermStructures.MultiCurve.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_MultiCurve__ctor_NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_" data-uid="NanoQL.TermStructures.MultiCurve.#ctor(NanoQL.Numerics.OptimizationMethod,NanoQL.Numerics.EndCriteria)">
+  MultiCurve(OptimizationMethod?, EndCriteria?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.MultiCurve.html">MultiCurve</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiCurve(OptimizationMethod? optimizer = null, EndCriteria? endCriteria = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optimizer</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The joint bootstrap's optimization method; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for Levenberg–Marquardt at an accuracy of 1e-10.</p>
+</dd>
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>The joint bootstrap's end criteria; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for 1000 iterations and 10 stationary ones at an
+accuracy of 1e-10.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_MultiCurve__ctor_" data-uid="NanoQL.TermStructures.MultiCurve.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_MultiCurve__ctor_System_Double_" data-uid="NanoQL.TermStructures.MultiCurve.#ctor(System.Double)">
+  MultiCurve(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.MultiCurve.html">MultiCurve</a> class whose joint bootstrap runs the Levenberg–Marquardt
+method and end criteria of 1000 iterations and 10 stationary ones, each tolerance the accuracy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiCurve(double accuracy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accuracy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_MultiCurve_AddBootstrappedCurve_" data-uid="NanoQL.TermStructures.MultiCurve.AddBootstrappedCurve*"></a>
+
+  <h3 id="NanoQL_TermStructures_MultiCurve_AddBootstrappedCurve__2_NanoQL_TermStructures_MultiCurveMember_NanoQL_Time_Date_System_Collections_Generic_IEnumerable_NanoQL_TermStructures_BootstrapHelper_NanoQL_TermStructures_YieldTermStructure___NanoQL_Time_DayCounter_System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_NanoQL_Time_Date____1_NanoQL_TermStructures_GlobalBootstrap_" data-uid="NanoQL.TermStructures.MultiCurve.AddBootstrappedCurve``2(NanoQL.TermStructures.MultiCurveMember,NanoQL.Time.Date,System.Collections.Generic.IEnumerable{NanoQL.TermStructures.BootstrapHelper{NanoQL.TermStructures.YieldTermStructure}},NanoQL.Time.DayCounter,System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{NanoQL.Time.Date},``1,NanoQL.TermStructures.GlobalBootstrap)">
+  AddBootstrappedCurve&lt;TTraits, TInterpolator&gt;(MultiCurveMember, Date, IEnumerable&lt;BootstrapHelper&lt;YieldTermStructure&gt;&gt;, DayCounter, IEnumerable&lt;double&gt;?, IEnumerable&lt;Date&gt;?, TInterpolator, GlobalBootstrap)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the builder with a member whose curve is a piecewise curve with a fixed reference date, bootstrapped
+with the cycle's other bootstrapped curves.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiCurve AddBootstrappedCurve&lt;TTraits, TInterpolator&gt;(MultiCurveMember internalHandle, Date referenceDate, IEnumerable&lt;BootstrapHelper&lt;YieldTermStructure&gt;&gt; instruments, DayCounter dayCounter, IEnumerable&lt;double&gt;? jumps = null, IEnumerable&lt;Date&gt;? jumpDates = null, TInterpolator i = default, GlobalBootstrap bootstrap = default) where TTraits : struct, IYieldTraits where TInterpolator : struct, IInterpolator</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>internalHandle</code> <a class="xref" href="NanoQL.TermStructures.MultiCurveMember.html">MultiCurveMember</a></dt>
+    <dd><p>The member, on which the cycle's indexes and helpers are built.</p>
+</dd>
+    <dt><code>referenceDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The curve's reference date.</p>
+</dd>
+    <dt><code>instruments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html">BootstrapHelper</a>&lt;<a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a>&gt;&gt;</dt>
+    <dd><p>The helpers the curve is bootstrapped on.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The curve's day counter.</p>
+</dd>
+    <dt><code>jumps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The discount-factor jumps, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>jumpDates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The jumps' dates, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for 31 December of successive years.</p>
+</dd>
+    <dt><code>i</code> <span class="xref">TInterpolator</span></dt>
+    <dd><p>The interpolator.</p>
+</dd>
+    <dt><code>bootstrap</code> <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a></dt>
+    <dd><p>The curve's global bootstrap, whose own optimizer and end criteria the joint bootstrap doesn't use.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.MultiCurve.html">MultiCurve</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TTraits</code></dt>
+    <dd><p>The curve's traits.</p>
+</dd>
+    <dt><code>TInterpolator</code></dt>
+    <dd><p>The curve's interpolator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">internalHandle</code>, <code class="paramref">instruments</code> or <code class="paramref">dayCounter</code> is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The member is already linked or added, or a helper is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_MultiCurve_AddBootstrappedCurve_" data-uid="NanoQL.TermStructures.MultiCurve.AddBootstrappedCurve*"></a>
+
+  <h3 id="NanoQL_TermStructures_MultiCurve_AddBootstrappedCurve__2_NanoQL_TermStructures_MultiCurveMember_System_Int32_NanoQL_Time_Calendar_System_Collections_Generic_IEnumerable_NanoQL_TermStructures_BootstrapHelper_NanoQL_TermStructures_YieldTermStructure___NanoQL_Time_DayCounter_System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_NanoQL_Time_Date____1_NanoQL_TermStructures_GlobalBootstrap_" data-uid="NanoQL.TermStructures.MultiCurve.AddBootstrappedCurve``2(NanoQL.TermStructures.MultiCurveMember,System.Int32,NanoQL.Time.Calendar,System.Collections.Generic.IEnumerable{NanoQL.TermStructures.BootstrapHelper{NanoQL.TermStructures.YieldTermStructure}},NanoQL.Time.DayCounter,System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{NanoQL.Time.Date},``1,NanoQL.TermStructures.GlobalBootstrap)">
+  AddBootstrappedCurve&lt;TTraits, TInterpolator&gt;(MultiCurveMember, int, Calendar, IEnumerable&lt;BootstrapHelper&lt;YieldTermStructure&gt;&gt;, DayCounter, IEnumerable&lt;double&gt;?, IEnumerable&lt;Date&gt;?, TInterpolator, GlobalBootstrap)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the builder with a member whose curve is a piecewise curve whose reference date is the evaluation date
+advanced by settlement days on a calendar, bootstrapped with the cycle's other bootstrapped curves: the curve
+<a class="xref" href="NanoQL.TermStructures.PiecewiseYieldCurve-3.html#NanoQL_TermStructures_PiecewiseYieldCurve_3_Create_System_Int32_NanoQL_Time_Calendar_System_Collections_Generic_IEnumerable_NanoQL_TermStructures_BootstrapHelper_NanoQL_TermStructures_YieldTermStructure___NanoQL_Time_DayCounter_NanoQL_EvaluationContext_System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_NanoQL_Time_Date___1__2_">Create(int, Calendar, IEnumerable&lt;BootstrapHelper&lt;YieldTermStructure&gt;&gt;, DayCounter, EvaluationContext, IEnumerable&lt;double&gt;?, IEnumerable&lt;Date&gt;?, TInterpolator, TBootstrap)</a> builds in <a class="xref" href="NanoQL.TermStructures.MultiCurve.html#NanoQL_TermStructures_MultiCurve_Build_NanoQL_EvaluationContext_">Build(EvaluationContext)</a>'s
+context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiCurve AddBootstrappedCurve&lt;TTraits, TInterpolator&gt;(MultiCurveMember internalHandle, int settlementDays, Calendar calendar, IEnumerable&lt;BootstrapHelper&lt;YieldTermStructure&gt;&gt; instruments, DayCounter dayCounter, IEnumerable&lt;double&gt;? jumps = null, IEnumerable&lt;Date&gt;? jumpDates = null, TInterpolator i = default, GlobalBootstrap bootstrap = default) where TTraits : struct, IYieldTraits where TInterpolator : struct, IInterpolator</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>internalHandle</code> <a class="xref" href="NanoQL.TermStructures.MultiCurveMember.html">MultiCurveMember</a></dt>
+    <dd><p>The member, on which the cycle's indexes and helpers are built.</p>
+</dd>
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The settlement days.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar the settlement days are counted on.</p>
+</dd>
+    <dt><code>instruments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html">BootstrapHelper</a>&lt;<a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a>&gt;&gt;</dt>
+    <dd><p>The helpers the curve is bootstrapped on.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The curve's day counter.</p>
+</dd>
+    <dt><code>jumps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The discount-factor jumps, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>jumpDates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The jumps' dates, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for 31 December of successive years.</p>
+</dd>
+    <dt><code>i</code> <span class="xref">TInterpolator</span></dt>
+    <dd><p>The interpolator.</p>
+</dd>
+    <dt><code>bootstrap</code> <a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html">GlobalBootstrap</a></dt>
+    <dd><p>The curve's global bootstrap, whose own optimizer and end criteria the joint bootstrap doesn't use.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.MultiCurve.html">MultiCurve</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TTraits</code></dt>
+    <dd><p>The curve's traits.</p>
+</dd>
+    <dt><code>TInterpolator</code></dt>
+    <dd><p>The curve's interpolator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">internalHandle</code>, <code class="paramref">calendar</code>, <code class="paramref">instruments</code> or
+<code class="paramref">dayCounter</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">settlementDays</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The member is already linked or added, or a helper is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_MultiCurve_AddNonBootstrappedCurve_" data-uid="NanoQL.TermStructures.MultiCurve.AddNonBootstrappedCurve*"></a>
+
+  <h3 id="NanoQL_TermStructures_MultiCurve_AddNonBootstrappedCurve_NanoQL_TermStructures_MultiCurveMember_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.TermStructures.MultiCurve.AddNonBootstrappedCurve(NanoQL.TermStructures.MultiCurveMember,NanoQL.TermStructures.YieldTermStructure)">
+  AddNonBootstrappedCurve(MultiCurveMember, YieldTermStructure)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the builder with a member whose curve isn't bootstrapped: a curve that reads other members when it is
+queried, as a spread over one of them does.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiCurve AddNonBootstrappedCurve(MultiCurveMember internalHandle, YieldTermStructure curve)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>internalHandle</code> <a class="xref" href="NanoQL.TermStructures.MultiCurveMember.html">MultiCurveMember</a></dt>
+    <dd><p>The member, on which the cycle's indexes and helpers are built.</p>
+</dd>
+    <dt><code>curve</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The member's curve.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.MultiCurve.html">MultiCurve</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">internalHandle</code> or <code class="paramref">curve</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The member is already linked or added.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_MultiCurve_Build_" data-uid="NanoQL.TermStructures.MultiCurve.Build*"></a>
+
+  <h3 id="NanoQL_TermStructures_MultiCurve_Build_NanoQL_EvaluationContext_" data-uid="NanoQL.TermStructures.MultiCurve.Build(NanoQL.EvaluationContext)">
+  Build(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds the members' curves, links each member to its curve and bootstraps the bootstrapped curves jointly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;YieldTermStructure&gt; Build(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the curves are built in.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a>&gt;</dt>
+    <dd><p>The curves, in the order they were added.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A member was linked since it was added, a curve's reference date or day counter differs from its member's, a
+curve's bootstrap setup refuses, or the joint optimization fails to minimize to the required accuracy; no member
+is then linked.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_MultiCurve_Equals_" data-uid="NanoQL.TermStructures.MultiCurve.Equals*"></a>
+
+  <h3 id="NanoQL_TermStructures_MultiCurve_Equals_NanoQL_TermStructures_MultiCurve_" data-uid="NanoQL.TermStructures.MultiCurve.Equals(NanoQL.TermStructures.MultiCurve)">
+  Equals(MultiCurve?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(MultiCurve? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.TermStructures.MultiCurve.html">MultiCurve</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_MultiCurve_Equals_" data-uid="NanoQL.TermStructures.MultiCurve.Equals*"></a>
+
+  <h3 id="NanoQL_TermStructures_MultiCurve_Equals_System_Object_" data-uid="NanoQL.TermStructures.MultiCurve.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_MultiCurve_GetHashCode_" data-uid="NanoQL.TermStructures.MultiCurve.GetHashCode*"></a>
+
+  <h3 id="NanoQL_TermStructures_MultiCurve_GetHashCode" data-uid="NanoQL.TermStructures.MultiCurve.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_MultiCurve_ToString_" data-uid="NanoQL.TermStructures.MultiCurve.ToString*"></a>
+
+  <h3 id="NanoQL_TermStructures_MultiCurve_ToString" data-uid="NanoQL.TermStructures.MultiCurve.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_TermStructures_MultiCurve_op_Equality_" data-uid="NanoQL.TermStructures.MultiCurve.op_Equality*"></a>
+
+  <h3 id="NanoQL_TermStructures_MultiCurve_op_Equality_NanoQL_TermStructures_MultiCurve_NanoQL_TermStructures_MultiCurve_" data-uid="NanoQL.TermStructures.MultiCurve.op_Equality(NanoQL.TermStructures.MultiCurve,NanoQL.TermStructures.MultiCurve)">
+  operator ==(MultiCurve?, MultiCurve?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(MultiCurve? left, MultiCurve? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.TermStructures.MultiCurve.html">MultiCurve</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.TermStructures.MultiCurve.html">MultiCurve</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_MultiCurve_op_Inequality_" data-uid="NanoQL.TermStructures.MultiCurve.op_Inequality*"></a>
+
+  <h3 id="NanoQL_TermStructures_MultiCurve_op_Inequality_NanoQL_TermStructures_MultiCurve_NanoQL_TermStructures_MultiCurve_" data-uid="NanoQL.TermStructures.MultiCurve.op_Inequality(NanoQL.TermStructures.MultiCurve,NanoQL.TermStructures.MultiCurve)">
+  operator !=(MultiCurve?, MultiCurve?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(MultiCurve? left, MultiCurve? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.TermStructures.MultiCurve.html">MultiCurve</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.TermStructures.MultiCurve.html">MultiCurve</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

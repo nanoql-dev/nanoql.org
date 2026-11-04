@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class AbcdCalibration | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AbcdCalibration | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The abcd instantaneous volatility fitted to Black volatilities by their maturities: the root-mean-square error of the abcd Black volatilities, minimized over a, b, c and d through QuantLib&#39;s transformation (c, d and a + d positive), the fixed parameters at their guesses.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.AbcdCalibration">
+
+
+
+  <h1 id="NanoQL_TermStructures_AbcdCalibration" data-uid="NanoQL.TermStructures.AbcdCalibration" class="text-break">
+Class AbcdCalibration  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The abcd instantaneous volatility fitted to Black volatilities by their maturities: the root-mean-square error of
+the abcd Black volatilities, minimized over a, b, c and d through QuantLib's transformation (c, d and a + d
+positive), the fixed parameters at their guesses.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AbcdCalibration</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AbcdCalibration</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_TermStructures_AbcdCalibration_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable: <a class="xref" href="NanoQL.TermStructures.AbcdCalibration.html#NanoQL_TermStructures_AbcdCalibration_Compute">Compute()</a> returns the fitted calibration, where QuantLib's <code>compute()</code> changes the
+object; before it the parameters are the guesses, and the weights 1/n.
+</p>
+<p>
+One of QuantLib's refusals is narrowed: QuantLib's transformation leaves b free, so its optimizer can step to a
+trial point the abcd function's validation refuses, and the fit throws. Here such a trial point's residuals are 1.0
+each, a guard that keeps every fit QuantLib completes bit for bit, since none of them reaches such a point. A fit on
+which the guard acted is returned where it ends inside the valid region and refused with QuantLib's text, its first
+invalid trial point's, where it ends against the zero floor: its lowest instantaneous volatility below 1% of the
+smallest Black volatility given, as for data whose total variance shrinks, which no valid curve fits.
+</p>
+<p>
+One of QuantLib's defects is fixed: its transformation gives a as a positive a + d less d, so with a fixed and d
+free it fixes a + d, and the fit moves a by what it moves d. Here a fixed keeps its guess, and d stays above
+max(0, −a), the same region; every other choice of fixed parameters is QuantLib's.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration__ctor_" data-uid="NanoQL.TermStructures.AbcdCalibration.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration__ctor_System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_System_Double__System_Double_System_Double_System_Double_System_Double_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_NanoQL_Numerics_EndCriteria_NanoQL_Numerics_OptimizationMethod_" data-uid="NanoQL.TermStructures.AbcdCalibration.#ctor(System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.Double},System.Double,System.Double,System.Double,System.Double,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,NanoQL.Numerics.EndCriteria,NanoQL.Numerics.OptimizationMethod)">
+  AbcdCalibration(IEnumerable&lt;double&gt;, IEnumerable&lt;double&gt;, double, double, double, double, bool, bool, bool, bool, bool, EndCriteria?, OptimizationMethod?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.AbcdCalibration.html">AbcdCalibration</a> class, not yet fitted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AbcdCalibration(IEnumerable&lt;double&gt; t, IEnumerable&lt;double&gt; blackVols, double aGuess = -0.06, double bGuess = 0.17, double cGuess = 0.54, double dGuess = 0.17, bool aIsFixed = false, bool bIsFixed = false, bool cIsFixed = false, bool dIsFixed = false, bool vegaWeighted = false, EndCriteria? endCriteria = null, OptimizationMethod? method = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The maturities.</p>
+</dd>
+    <dt><code>blackVols</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The Black volatilities, one per maturity.</p>
+</dd>
+    <dt><code>aGuess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>a's guess.</p>
+</dd>
+    <dt><code>bGuess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>b's guess.</p>
+</dd>
+    <dt><code>cGuess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>c's guess, positive.</p>
+</dd>
+    <dt><code>dGuess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>d's guess, non-negative.</p>
+</dd>
+    <dt><code>aIsFixed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether a is fixed at its guess.</p>
+</dd>
+    <dt><code>bIsFixed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether b is fixed at its guess.</p>
+</dd>
+    <dt><code>cIsFixed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether c is fixed at its guess.</p>
+</dd>
+    <dt><code>dIsFixed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether d is fixed at its guess.</p>
+</dd>
+    <dt><code>vegaWeighted</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the errors are weighted by the at-the-money vegas.</p>
+</dd>
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>The end criteria, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's
+<code>EndCriteria(10000, 1000, 1e-8, 0.3e-4, 0.3e-4)</code>.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The optimizer, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's
+<code>LevenbergMarquardt(1e-8, 1e-8, 1e-8, false)</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">t</code> or <code class="paramref">blackVols</code> is
+null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The guesses fail <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_Validate_System_Double_System_Double_System_Double_System_Double_">Validate(double, double, double, double)</a>, or the sizes
+differ.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_A_" data-uid="NanoQL.TermStructures.AbcdCalibration.A*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_A" data-uid="NanoQL.TermStructures.AbcdCalibration.A">
+  A
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a: the guess, or the fit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double A { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_AIsFixed_" data-uid="NanoQL.TermStructures.AbcdCalibration.AIsFixed*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_AIsFixed" data-uid="NanoQL.TermStructures.AbcdCalibration.AIsFixed">
+  AIsFixed
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether a is fixed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AIsFixed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_B_" data-uid="NanoQL.TermStructures.AbcdCalibration.B*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_B" data-uid="NanoQL.TermStructures.AbcdCalibration.B">
+  B
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets b: the guess, or the fit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double B { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_BIsFixed_" data-uid="NanoQL.TermStructures.AbcdCalibration.BIsFixed*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_BIsFixed" data-uid="NanoQL.TermStructures.AbcdCalibration.BIsFixed">
+  BIsFixed
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether b is fixed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool BIsFixed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_C_" data-uid="NanoQL.TermStructures.AbcdCalibration.C*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_C" data-uid="NanoQL.TermStructures.AbcdCalibration.C">
+  C
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets c: the guess, or the fit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double C { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_CIsFixed_" data-uid="NanoQL.TermStructures.AbcdCalibration.CIsFixed*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_CIsFixed" data-uid="NanoQL.TermStructures.AbcdCalibration.CIsFixed">
+  CIsFixed
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether c is fixed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CIsFixed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_D_" data-uid="NanoQL.TermStructures.AbcdCalibration.D*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_D" data-uid="NanoQL.TermStructures.AbcdCalibration.D">
+  D
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets d: the guess, or the fit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double D { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_DIsFixed_" data-uid="NanoQL.TermStructures.AbcdCalibration.DIsFixed*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_DIsFixed" data-uid="NanoQL.TermStructures.AbcdCalibration.DIsFixed">
+  DIsFixed
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether d is fixed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DIsFixed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_EndCriteria_" data-uid="NanoQL.TermStructures.AbcdCalibration.EndCriteria*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_EndCriteria" data-uid="NanoQL.TermStructures.AbcdCalibration.EndCriteria">
+  EndCriteria
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the end criterion the fit met: <a class="xref" href="NanoQL.Numerics.EndCriteriaType.html#NanoQL_Numerics_EndCriteriaType_None">None</a> before <a class="xref" href="NanoQL.TermStructures.AbcdCalibration.html#NanoQL_TermStructures_AbcdCalibration_Compute">Compute()</a>
+and with every parameter fixed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EndCriteriaType EndCriteria { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.EndCriteriaType.html">EndCriteriaType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_Transformation_" data-uid="NanoQL.TermStructures.AbcdCalibration.Transformation*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_Transformation" data-uid="NanoQL.TermStructures.AbcdCalibration.Transformation">
+  Transformation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the parameters' transformation the fit used, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> before a fit, QuantLib's
+empty pointer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ParametersTransformation? Transformation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.ParametersTransformation.html">ParametersTransformation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_Compute_" data-uid="NanoQL.TermStructures.AbcdCalibration.Compute*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_Compute" data-uid="NanoQL.TermStructures.AbcdCalibration.Compute">
+  Compute()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fit, from the guesses: QuantLib's <code>compute()</code>, the receiver unchanged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AbcdCalibration Compute()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.AbcdCalibration.html">AbcdCalibration</a></dt>
+    <dd><p>The fitted calibration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The optimizer fails, or the fit ends against the zero floor after reaching a
+trial point QuantLib's validation refuses, with that refusal's text.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_Error_" data-uid="NanoQL.TermStructures.AbcdCalibration.Error*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_Error" data-uid="NanoQL.TermStructures.AbcdCalibration.Error">
+  Error()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The weighted root-mean-square error, √(n·Σwᵢeᵢ²/(n − 1)).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Error()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The error.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_Errors_" data-uid="NanoQL.TermStructures.AbcdCalibration.Errors*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_Errors" data-uid="NanoQL.TermStructures.AbcdCalibration.Errors">
+  Errors()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The weighted errors, eᵢ·√wᵢ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector Errors()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The errors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_K_" data-uid="NanoQL.TermStructures.AbcdCalibration.K*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_K_System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_System_Double__" data-uid="NanoQL.TermStructures.AbcdCalibration.K(System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.Double})">
+  K(IEnumerable&lt;double&gt;, IEnumerable&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The adjustment factors that match the Black volatilities: each volatility over the fitted
+one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; K(IEnumerable&lt;double&gt; t, IEnumerable&lt;double&gt; blackVols)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The maturities.</p>
+</dd>
+    <dt><code>blackVols</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The Black volatilities, one per maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The factors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_MaxError_" data-uid="NanoQL.TermStructures.AbcdCalibration.MaxError*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_MaxError" data-uid="NanoQL.TermStructures.AbcdCalibration.MaxError">
+  MaxError()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The largest absolute error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MaxError()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The error.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdCalibration_Value_" data-uid="NanoQL.TermStructures.AbcdCalibration.Value*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdCalibration_Value_System_Double_" data-uid="NanoQL.TermStructures.AbcdCalibration.Value(System.Double)">
+  Value(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fitted abcd Black volatility at a maturity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Value(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The parameters fail <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_Validate_System_Double_System_Double_System_Double_System_Double_">Validate(double, double, double, double)</a>, or the maturity
+is negative.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

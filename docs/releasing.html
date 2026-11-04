@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Releasing nanoql | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Releasing nanoql | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="releasing-nanoql">Releasing nanoql</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>A release publishes, from one commit and its tag:</p>
+<ul>
+<li><strong>On NuGet:</strong> <code>NanoQL</code>, <code>NanoQL.Extensions</code>, <code>NanoQL.Bind</code> and <code>NanoQL.Excel</code>, each with its symbol package on
+NuGet's symbol server.</li>
+<li><strong>On PyPI:</strong> <code>nanoql</code>, a wheel per platform: <code>win_amd64</code>, <code>win_arm64</code>, <code>manylinux_2_28_x86_64</code>,
+<code>manylinux_2_28_aarch64</code> and <code>macosx_14_0_arm64</code>; no source distribution, since one would need the .NET SDK and the
+whole repository to build.</li>
+<li><strong>On GitHub, the release <code>v&lt;version&gt;</code>:</strong> the C archive and the native symbols archive for each of the five
+platforms, the Excel add-in's zip and its symbols zip, <code>SHA256SUMS</code> over them, and the notes: <code>CHANGELOG.md</code>'s
+section with the platforms' readings from the release run's own tests.</li>
+<li><strong>The site,</strong> nanoql.org, built from the tag.</li>
+</ul>
+<h2 id="what-cant-be-undone">What can't be undone</h2>
+<p>Every name and file is permanent from its first upload.</p>
+<ul>
+<li><strong>nuget.org</strong> deletes no package: a mistake is unlisted and deprecated, and a fix ships as the next version
+(<code>2.0.1</code>).</li>
+<li><strong>PyPI</strong> never takes a deleted file's name again: a mistake is yanked, and a fix ships as the next version.</li>
+<li><strong>A published GitHub Release</strong> keeps its files (immutable releases): a fix is a new release.</li>
+<li><strong>The site</strong> redeploys from a later commit.</li>
+</ul>
+<h2 id="before-the-tag">Before the tag</h2>
+<ol>
+<li><strong>The release commit:</strong> the versions in step (<code>python -I tools/release/versions.py v&lt;version&gt;</code> checks the bindings
+tool's, the C header's, <code>surface.json</code>'s, <code>Directory.Build.props</code>'s, the wheel's and the Java layer's); the shipped
+names frozen (<code>dotnet run --project src/NanoQL.Bind -c Release -- freeze</code>, once <code>check</code> and <code>excel check</code> are
+green); the README's validation statement written from the release's gates run (<code>tools/docs/validation-report.py --readme</code>); <code>CHANGELOG.md</code>'s section for the version.</li>
+<li><strong>The checks CI can't run,</strong> on the release commit:
+<ul>
+<li>the suite inside Excel, <code>python -I bindings/excel/xltests/run.py</code> on a machine with 64-bit Excel
+(CONTRIBUTING.md); a red stops the release;</li>
+<li>the SOFR example's trades (docs/sofr-example.md) priced again by an independent pricer, each within $0.01 on $10
+million; a residual past it stops the release.</li>
+</ul>
+</li>
+<li><strong>The dry run:</strong> <code>release.yml</code> dispatched on <code>main</code> at the release commit. It runs <code>ci.yml</code> on every system and
+platform, builds and inspects every package and file, writes the notes, logs in to NuGet and uploads the wheels to
+TestPyPI, and publishes nothing else. TestPyPI takes a filename once, as PyPI does, so a second dry run passes
+<code>testpypi: false</code>.</li>
+</ol>
+<h2 id="the-tag">The tag</h2>
+<p>An annotated tag <code>v&lt;version&gt;</code> at the release commit, pushed, runs <code>release.yml</code> again from the tag: <code>ci.yml</code>'s gates,
+the packages and the files built and inspected, and the GitHub Release drafted with every file. Then, each after its
+environment's approval: <code>nuget</code> pushes the four packages and their symbol packages, <code>pypi</code> the five wheels, and
+<code>release</code> publishes the draft.</p>
+<ul>
+<li><strong>Windows x64 blocks the release:</strong> a red there stops the run. Linux's and macOS's test failures are counted in the
+notes. A bindings leg that can't go green ships best-effort only by the maintainers' decision, named in the
+repository variable <code>NANOQL_BEST_EFFORT</code> (its runtime identifier) for the tag's run, its red checks listed in the
+notes; the variable is cleared once the release is out, so the next release's run starts from none.</li>
+<li><strong>A publishing job that fails partway</strong> is not rerun: nuget.org and PyPI each take a version's file once, so the rerun
+fails at the first file already up, and skipping what is up (<code>--skip-duplicate</code>, <code>skip-existing</code>) would hide a
+retagged release's files from two commits. Either the files it didn't push go up by hand from the same run's
+artifact (<code>nanoql-nuget</code>, <code>nanoql-python-*</code>), with a key or token scoped to those packages and deleted once used,
+or the version is abandoned, unlisted on nuget.org and yanked on PyPI, and the fix ships as the next version.</li>
+<li><strong>After it:</strong> each package installed from its registry and checked (the first swap from NuGet, <code>pip install nanoql</code>
+with <code>bindings/python/tests/wheel_check.py</code>, the C archive with <code>bindings/c/tests/archive_check.py</code>, the add-in's zip
+opened); then the site built from the tag and deployed.</li>
+</ul>
+<h2 id="set-up-once">Set up once</h2>
+<ul>
+<li><strong>GitHub:</strong> the environments <code>nuget</code>, <code>pypi</code>, <code>testpypi</code> and <code>github-release</code>, each with a maintainer as its required
+reviewer; immutable releases on.</li>
+<li><strong>NuGet:</strong> a trusted publishing policy, owned by the organization that owns the packages, naming the repository, the
+workflow <code>release.yml</code> and the environment <code>nuget</code>; the <code>nuget</code> environment's secret <code>NUGET_USER</code>, the nuget.org
+user name of a member of that organization, which <code>NuGet/login</code> exchanges with GitHub's token for a key that lasts
+an hour. No API key is stored.</li>
+<li><strong>PyPI and TestPyPI:</strong> a trusted publisher on each, naming the repository, <code>release.yml</code> and the environment <code>pypi</code>
+or <code>testpypi</code>. No token is stored.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

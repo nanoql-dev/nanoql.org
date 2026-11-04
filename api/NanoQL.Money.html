@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Money | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Money | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An amount of cash in a given currency.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Money">
+
+
+
+  <h1 id="NanoQL_Money" data-uid="NanoQL.Money" class="text-break">
+Struct Money  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An amount of cash in a given currency.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly struct Money : IEquatable&lt;Money&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Money.html">Money</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Money_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A value: its zero value, <code>default(Money)</code>, is QuantLib's <code>Money()</code>, 0.0 in the empty currency, a
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> <a class="xref" href="NanoQL.Money.html#NanoQL_Money_Currency">Currency</a>.
+</p>
+<p>
+The operators combine amounts in one currency as QuantLib's do, and never convert: QuantLib's operators read the
+global <code>Money::Settings</code>, and these see no context, so they behave as under its <code>NoConversion</code>. On a
+currency mismatch every operator but <code>==</code> and <code>!=</code> throws QuantLib's "currency mismatch and no conversion
+specified";
+<code>==</code> returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> and <code>!=</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, where QuantLib's throw. The
+conversion modes are methods that take the context, which holds the settings
+(<a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_MoneySettings">MoneySettings</a>) and the exchange rates
+(<a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_ExchangeRates">ExchangeRates</a>): <a class="xref" href="NanoQL.Money.html#NanoQL_Money_Add_NanoQL_Money_NanoQL_EvaluationContext_">Add(Money, EvaluationContext)</a>,
+<a class="xref" href="NanoQL.Money.html#NanoQL_Money_Subtract_NanoQL_Money_NanoQL_EvaluationContext_">Subtract(Money, EvaluationContext)</a>, <a class="xref" href="NanoQL.Money.html#NanoQL_Money_Divide_NanoQL_Money_NanoQL_EvaluationContext_">Divide(Money, EvaluationContext)</a>,
+<a class="xref" href="NanoQL.Money.html#NanoQL_Money_Equals_NanoQL_Money_NanoQL_EvaluationContext_">Equals(Money, EvaluationContext)</a>, <a class="xref" href="NanoQL.Money.html#NanoQL_Money_LessThan_NanoQL_Money_NanoQL_EvaluationContext_">LessThan(Money, EvaluationContext)</a>, <a class="xref" href="NanoQL.Money.html#NanoQL_Money_LessThanOrEqual_NanoQL_Money_NanoQL_EvaluationContext_">LessThanOrEqual(Money, EvaluationContext)</a>,
+<a class="xref" href="NanoQL.Money.html#NanoQL_Money_GreaterThan_NanoQL_Money_NanoQL_EvaluationContext_">GreaterThan(Money, EvaluationContext)</a>, <a class="xref" href="NanoQL.Money.html#NanoQL_Money_GreaterThanOrEqual_NanoQL_Money_NanoQL_EvaluationContext_">GreaterThanOrEqual(Money, EvaluationContext)</a>, and <a class="xref" href="NanoQL.MoneyFunctions.html">MoneyFunctions</a>' <code>Close</code> and
+<code>CloseEnough</code>.
+</p>
+<p>
+<a class="xref" href="NanoQL.Money.html#NanoQL_Money_Equals_NanoQL_Money_">Equals(Money)</a> and <a class="xref" href="NanoQL.Money.html#NanoQL_Money_GetHashCode">GetHashCode()</a> compare the currency and the value, the value by
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double.equals#system-double-equals(system-double)">Equals(double)</a>, so that equality is reflexive, as .NET's own <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> keeps
+<code>==</code> IEEE's.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Money__ctor_" data-uid="NanoQL.Money.#ctor*"></a>
+
+  <h3 id="NanoQL_Money__ctor_NanoQL_Currency_System_Double_" data-uid="NanoQL.Money.#ctor(NanoQL.Currency,System.Double)">
+  Money(Currency?, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Money.html">Money</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Money(Currency? currency, double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The currency; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty currency.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Money__ctor_" data-uid="NanoQL.Money.#ctor*"></a>
+
+  <h3 id="NanoQL_Money__ctor_System_Double_NanoQL_Currency_" data-uid="NanoQL.Money.#ctor(System.Double,NanoQL.Currency)">
+  Money(double, Currency?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Money.html">Money</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Money(double value, Currency? currency)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount.</p>
+</dd>
+    <dt><code>currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The currency; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty currency.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Money_Currency_" data-uid="NanoQL.Money.Currency*"></a>
+
+  <h3 id="NanoQL_Money_Currency" data-uid="NanoQL.Money.Currency">
+  Currency
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the currency; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Currency? Currency { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Money_Value_" data-uid="NanoQL.Money.Value*"></a>
+
+  <h3 id="NanoQL_Money_Value" data-uid="NanoQL.Money.Value">
+  Value
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the amount.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Value { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Money_Add_" data-uid="NanoQL.Money.Add*"></a>
+
+  <h3 id="NanoQL_Money_Add_NanoQL_Money_NanoQL_EvaluationContext_" data-uid="NanoQL.Money.Add(NanoQL.Money,NanoQL.EvaluationContext)">
+  Add(Money, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sum of this amount and another, converting as the context's <a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_MoneySettings">MoneySettings</a>
+say: QuantLib's <code>operator+</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Money Add(Money other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The amount added.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose money settings and exchange rates are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The sum: in this amount's currency, or in the base currency under
+<a class="xref" href="NanoQL.MoneyConversionType.html#NanoQL_MoneyConversionType_BaseCurrencyConversion">BaseCurrencyConversion</a> when the currencies differ.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The currencies differ under <a class="xref" href="NanoQL.MoneyConversionType.html#NanoQL_MoneyConversionType_NoConversion">NoConversion</a>; no base currency is set under
+<a class="xref" href="NanoQL.MoneyConversionType.html#NanoQL_MoneyConversionType_BaseCurrencyConversion">BaseCurrencyConversion</a>; or an exchange rate can't be found.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_Divide_" data-uid="NanoQL.Money.Divide*"></a>
+
+  <h3 id="NanoQL_Money_Divide_NanoQL_Money_NanoQL_EvaluationContext_" data-uid="NanoQL.Money.Divide(NanoQL.Money,NanoQL.EvaluationContext)">
+  Divide(Money, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ratio of this amount to another, converting as the context's money settings say.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Divide(Money other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The divisor.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose money settings and exchange rates are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The ratio of their values, once converted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Money.html#NanoQL_Money_Add_NanoQL_Money_NanoQL_EvaluationContext_">Add(Money, EvaluationContext)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_Equals_" data-uid="NanoQL.Money.Equals*"></a>
+
+  <h3 id="NanoQL_Money_Equals_NanoQL_Money_" data-uid="NanoQL.Money.Equals(NanoQL.Money)">
+  Equals(Money)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this amount has another's currency and value, the value by
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double.equals#system-double-equals(system-double)">Equals(double)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Money other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The other amount.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when both are the same.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Money_Equals_" data-uid="NanoQL.Money.Equals*"></a>
+
+  <h3 id="NanoQL_Money_Equals_NanoQL_Money_NanoQL_EvaluationContext_" data-uid="NanoQL.Money.Equals(NanoQL.Money,NanoQL.EvaluationContext)">
+  Equals(Money, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this amount equals another, converting as the context's money settings say: QuantLib's
+<code>operator==</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Money other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The other amount.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose money settings and exchange rates are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the values, once converted, compare equal; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> on a currency mismatch under
+<a class="xref" href="NanoQL.MoneyConversionType.html#NanoQL_MoneyConversionType_NoConversion">NoConversion</a>, as <code>==</code> returns, where QuantLib's throws.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No base currency is set, or an exchange rate can't be found.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_Equals_" data-uid="NanoQL.Money.Equals*"></a>
+
+  <h3 id="NanoQL_Money_Equals_System_Object_" data-uid="NanoQL.Money.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Money_GetHashCode_" data-uid="NanoQL.Money.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Money_GetHashCode" data-uid="NanoQL.Money.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Money_GreaterThan_" data-uid="NanoQL.Money.GreaterThan*"></a>
+
+  <h3 id="NanoQL_Money_GreaterThan_NanoQL_Money_NanoQL_EvaluationContext_" data-uid="NanoQL.Money.GreaterThan(NanoQL.Money,NanoQL.EvaluationContext)">
+  GreaterThan(Money, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this amount is greater than another: QuantLib's <code>m1 &gt; m2</code>, which is <code>m2 &lt; m1</code>, so an
+automated conversion converts this amount into the other's currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GreaterThan(Money other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The other amount.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose money settings and exchange rates are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this value is greater, once converted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Money.html#NanoQL_Money_Add_NanoQL_Money_NanoQL_EvaluationContext_">Add(Money, EvaluationContext)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_GreaterThanOrEqual_" data-uid="NanoQL.Money.GreaterThanOrEqual*"></a>
+
+  <h3 id="NanoQL_Money_GreaterThanOrEqual_NanoQL_Money_NanoQL_EvaluationContext_" data-uid="NanoQL.Money.GreaterThanOrEqual(NanoQL.Money,NanoQL.EvaluationContext)">
+  GreaterThanOrEqual(Money, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this amount is at least another: QuantLib's <code>m1 &gt;= m2</code>, which is <code>m2 &lt;= m1</code>, so an
+automated conversion converts this amount into the other's currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GreaterThanOrEqual(Money other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The other amount.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose money settings and exchange rates are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this value is at least the other, once converted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Money.html#NanoQL_Money_Add_NanoQL_Money_NanoQL_EvaluationContext_">Add(Money, EvaluationContext)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_LessThan_" data-uid="NanoQL.Money.LessThan*"></a>
+
+  <h3 id="NanoQL_Money_LessThan_NanoQL_Money_NanoQL_EvaluationContext_" data-uid="NanoQL.Money.LessThan(NanoQL.Money,NanoQL.EvaluationContext)">
+  LessThan(Money, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this amount is less than another, converting as the context's money settings say.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool LessThan(Money other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The other amount.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose money settings and exchange rates are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this value is less, once converted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Money.html#NanoQL_Money_Add_NanoQL_Money_NanoQL_EvaluationContext_">Add(Money, EvaluationContext)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_LessThanOrEqual_" data-uid="NanoQL.Money.LessThanOrEqual*"></a>
+
+  <h3 id="NanoQL_Money_LessThanOrEqual_NanoQL_Money_NanoQL_EvaluationContext_" data-uid="NanoQL.Money.LessThanOrEqual(NanoQL.Money,NanoQL.EvaluationContext)">
+  LessThanOrEqual(Money, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this amount is at most another, converting as the context's money settings say.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool LessThanOrEqual(Money other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The other amount.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose money settings and exchange rates are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this value is at most the other, once converted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Money.html#NanoQL_Money_Add_NanoQL_Money_NanoQL_EvaluationContext_">Add(Money, EvaluationContext)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_Rounded_" data-uid="NanoQL.Money.Rounded*"></a>
+
+  <h3 id="NanoQL_Money_Rounded" data-uid="NanoQL.Money.Rounded">
+  Rounded()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The amount rounded by its currency's rounding convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Money Rounded()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The rounded amount, in the same currency.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The currency is QuantLib's empty one, a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_Subtract_" data-uid="NanoQL.Money.Subtract*"></a>
+
+  <h3 id="NanoQL_Money_Subtract_NanoQL_Money_NanoQL_EvaluationContext_" data-uid="NanoQL.Money.Subtract(NanoQL.Money,NanoQL.EvaluationContext)">
+  Subtract(Money, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The difference of this amount and another, converting as <a class="xref" href="NanoQL.Money.html#NanoQL_Money_Add_NanoQL_Money_NanoQL_EvaluationContext_">Add(Money, EvaluationContext)</a> does:
+QuantLib's <code>operator-</code>, which adds the negated amount.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Money Subtract(Money other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The amount subtracted.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose money settings and exchange rates are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The difference.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Money.html#NanoQL_Money_Add_NanoQL_Money_NanoQL_EvaluationContext_">Add(Money, EvaluationContext)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_ToString_" data-uid="NanoQL.Money.ToString*"></a>
+
+  <h3 id="NanoQL_Money_ToString" data-uid="NanoQL.Money.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The amount as QuantLib's <code>operator&lt;&lt;</code> writes it: the rounded value in C++'s default stream format,
+six significant digits, then a space and the currency's code (&quot;1.23457e+06 EUR&quot;, &quot;0.12 EUR&quot;, &quot;nan EUR&quot;,
+&quot;-inf EUR&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The currency is QuantLib's empty one, which has no rounding.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Money_op_Addition_" data-uid="NanoQL.Money.op_Addition*"></a>
+
+  <h3 id="NanoQL_Money_op_Addition_NanoQL_Money_NanoQL_Money_" data-uid="NanoQL.Money.op_Addition(NanoQL.Money,NanoQL.Money)">
+  operator +(Money, Money)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sum of two amounts in one currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Money operator +(Money m1, Money m2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m1</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The first amount.</p>
+</dd>
+    <dt><code>m2</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The second amount.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The sum, in their currency.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The currencies differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_op_Division_" data-uid="NanoQL.Money.op_Division*"></a>
+
+  <h3 id="NanoQL_Money_op_Division_NanoQL_Money_NanoQL_Money_" data-uid="NanoQL.Money.op_Division(NanoQL.Money,NanoQL.Money)">
+  operator /(Money, Money)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ratio of two amounts in one currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double operator /(Money m1, Money m2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m1</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The dividend.</p>
+</dd>
+    <dt><code>m2</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The divisor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The ratio of their values.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The currencies differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_op_Division_" data-uid="NanoQL.Money.op_Division*"></a>
+
+  <h3 id="NanoQL_Money_op_Division_NanoQL_Money_System_Double_" data-uid="NanoQL.Money.op_Division(NanoQL.Money,System.Double)">
+  operator /(Money, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An amount divided by a number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Money operator /(Money m, double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The amount.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The number.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The quotient, in the amount's currency.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Money_op_Equality_" data-uid="NanoQL.Money.op_Equality*"></a>
+
+  <h3 id="NanoQL_Money_op_Equality_NanoQL_Money_NanoQL_Money_" data-uid="NanoQL.Money.op_Equality(NanoQL.Money,NanoQL.Money)">
+  operator ==(Money, Money)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether two amounts are equal: the same currency and equal values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Money m1, Money m2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m1</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The first amount.</p>
+</dd>
+    <dt><code>m2</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The second amount.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the currencies are the same and the values compare equal; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> on
+a currency mismatch, where QuantLib's throws.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Money_op_GreaterThan_" data-uid="NanoQL.Money.op_GreaterThan*"></a>
+
+  <h3 id="NanoQL_Money_op_GreaterThan_NanoQL_Money_NanoQL_Money_" data-uid="NanoQL.Money.op_GreaterThan(NanoQL.Money,NanoQL.Money)">
+  operator &gt;(Money, Money)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether one amount is greater than another in the same currency: QuantLib's <code>m2 &lt;
+m1</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;(Money m1, Money m2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m1</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The first amount.</p>
+</dd>
+    <dt><code>m2</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The second amount.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the first value is greater.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The currencies differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_op_GreaterThanOrEqual_" data-uid="NanoQL.Money.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="NanoQL_Money_op_GreaterThanOrEqual_NanoQL_Money_NanoQL_Money_" data-uid="NanoQL.Money.op_GreaterThanOrEqual(NanoQL.Money,NanoQL.Money)">
+  operator &gt;=(Money, Money)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether one amount is at least another in the same currency: QuantLib's <code>m2 &lt;= m1</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(Money m1, Money m2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m1</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The first amount.</p>
+</dd>
+    <dt><code>m2</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The second amount.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the first value is at least the second.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The currencies differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_op_Inequality_" data-uid="NanoQL.Money.op_Inequality*"></a>
+
+  <h3 id="NanoQL_Money_op_Inequality_NanoQL_Money_NanoQL_Money_" data-uid="NanoQL.Money.op_Inequality(NanoQL.Money,NanoQL.Money)">
+  operator !=(Money, Money)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether two amounts differ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Money m1, Money m2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m1</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The first amount.</p>
+</dd>
+    <dt><code>m2</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The second amount.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The negation of <code>==</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Money_op_LessThan_" data-uid="NanoQL.Money.op_LessThan*"></a>
+
+  <h3 id="NanoQL_Money_op_LessThan_NanoQL_Money_NanoQL_Money_" data-uid="NanoQL.Money.op_LessThan(NanoQL.Money,NanoQL.Money)">
+  operator &lt;(Money, Money)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether one amount is less than another in the same currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(Money m1, Money m2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m1</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The first amount.</p>
+</dd>
+    <dt><code>m2</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The second amount.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the first value is less.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The currencies differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_op_LessThanOrEqual_" data-uid="NanoQL.Money.op_LessThanOrEqual*"></a>
+
+  <h3 id="NanoQL_Money_op_LessThanOrEqual_NanoQL_Money_NanoQL_Money_" data-uid="NanoQL.Money.op_LessThanOrEqual(NanoQL.Money,NanoQL.Money)">
+  operator &lt;=(Money, Money)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether one amount is at most another in the same currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(Money m1, Money m2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m1</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The first amount.</p>
+</dd>
+    <dt><code>m2</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The second amount.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the first value is at most the second.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The currencies differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_op_Multiply_" data-uid="NanoQL.Money.op_Multiply*"></a>
+
+  <h3 id="NanoQL_Money_op_Multiply_NanoQL_Money_System_Double_" data-uid="NanoQL.Money.op_Multiply(NanoQL.Money,System.Double)">
+  operator *(Money, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An amount multiplied by a number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Money operator *(Money m, double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The amount.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The number.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The product, in the amount's currency.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Money_op_Multiply_" data-uid="NanoQL.Money.op_Multiply*"></a>
+
+  <h3 id="NanoQL_Money_op_Multiply_System_Double_NanoQL_Money_" data-uid="NanoQL.Money.op_Multiply(System.Double,NanoQL.Money)">
+  operator *(double, Money)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An amount multiplied by a number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Money operator *(double x, Money m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The number.</p>
+</dd>
+    <dt><code>m</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The amount.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The product, in the amount's currency.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Money_op_Subtraction_" data-uid="NanoQL.Money.op_Subtraction*"></a>
+
+  <h3 id="NanoQL_Money_op_Subtraction_NanoQL_Money_NanoQL_Money_" data-uid="NanoQL.Money.op_Subtraction(NanoQL.Money,NanoQL.Money)">
+  operator -(Money, Money)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The difference of two amounts in one currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Money operator -(Money m1, Money m2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m1</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The first amount.</p>
+</dd>
+    <dt><code>m2</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The amount subtracted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The difference, in their currency.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The currencies differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Money_op_UnaryNegation_" data-uid="NanoQL.Money.op_UnaryNegation*"></a>
+
+  <h3 id="NanoQL_Money_op_UnaryNegation_NanoQL_Money_" data-uid="NanoQL.Money.op_UnaryNegation(NanoQL.Money)">
+  operator -(Money)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The negated amount, in the same currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Money operator -(Money m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The amount.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The negated amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Money_op_UnaryPlus_" data-uid="NanoQL.Money.op_UnaryPlus*"></a>
+
+  <h3 id="NanoQL_Money_op_UnaryPlus_NanoQL_Money_" data-uid="NanoQL.Money.op_UnaryPlus(NanoQL.Money)">
+  operator +(Money)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The same amount itself.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Money operator +(Money m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The amount.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p><code class="paramref">m</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

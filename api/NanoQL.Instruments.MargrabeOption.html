@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class MargrabeOption | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MargrabeOption | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Margrabe&#39;s option on two assets: the right to exchange Q₂ units of the second asset for Q₁ of the first at expiry.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Instruments.MargrabeOption">
+
+
+
+  <h1 id="NanoQL_Instruments_MargrabeOption" data-uid="NanoQL.Instruments.MargrabeOption" class="text-break">
+Class MargrabeOption  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Margrabe's option on two assets: the right to exchange Q₂ units of the second asset for Q₁ of the first at expiry.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class MargrabeOption : MultiAssetOption</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><a class="xref" href="NanoQL.Option.html">Option</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.MultiAssetOption.html">MultiAssetOption</a></div>
+      <div><span class="xref">MargrabeOption</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.MultiAssetOption.html#NanoQL_Instruments_MultiAssetOption_IsExpired_NanoQL_EvaluationContext_">MultiAssetOption.IsExpired(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Option.html#NanoQL_Option_Payoff">Option.Payoff</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Option.html#NanoQL_Option_Exercise">Option.Exercise</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Instruments_MargrabeOption_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable; its payoff is a <a class="xref" href="NanoQL.Instruments.NullPayoff.html">NullPayoff</a>, the quantities giving the exchange. Its engines return a
+<a class="xref" href="NanoQL.Instruments.MargrabeOptionResults.html">MargrabeOptionResults</a>, with each asset's delta and gamma.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Instruments_MargrabeOption__ctor_" data-uid="NanoQL.Instruments.MargrabeOption.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_MargrabeOption__ctor_System_Int32_System_Int32_NanoQL_Exercise_" data-uid="NanoQL.Instruments.MargrabeOption.#ctor(System.Int32,System.Int32,NanoQL.Exercise)">
+  MargrabeOption(int, int, Exercise)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.MargrabeOption.html">MargrabeOption</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MargrabeOption(int q1, int q2, Exercise exercise)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The quantity of the first asset received.</p>
+</dd>
+    <dt><code>q2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The quantity of the second asset given.</p>
+</dd>
+    <dt><code>exercise</code> <a class="xref" href="NanoQL.Exercise.html">Exercise</a></dt>
+    <dd><p>The exercise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">exercise</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Instruments_MargrabeOption_Q1_" data-uid="NanoQL.Instruments.MargrabeOption.Q1*"></a>
+
+  <h3 id="NanoQL_Instruments_MargrabeOption_Q1" data-uid="NanoQL.Instruments.MargrabeOption.Q1">
+  Q1
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the quantity of the first asset received.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Q1 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MargrabeOption_Q2_" data-uid="NanoQL.Instruments.MargrabeOption.Q2*"></a>
+
+  <h3 id="NanoQL_Instruments_MargrabeOption_Q2" data-uid="NanoQL.Instruments.MargrabeOption.Q2">
+  Q2
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the quantity of the second asset given.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Q2 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Instruments_MargrabeOption_FetchResults_" data-uid="NanoQL.Instruments.MargrabeOption.FetchResults*"></a>
+
+  <h3 id="NanoQL_Instruments_MargrabeOption_FetchResults_NanoQL_InstrumentResults_" data-uid="NanoQL.Instruments.MargrabeOption.FetchResults(NanoQL.InstrumentResults)">
+  FetchResults(InstrumentResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads an engine's results into the instrument's, applying any derivations the instrument makes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override MargrabeOptionResults FetchResults(InstrumentResults results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a></dt>
+    <dd><p>The engine's results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MargrabeOptionResults.html">MargrabeOptionResults</a></dt>
+    <dd><p>The instrument's results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The results aren't a multi-asset option's.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The results aren't a Margrabe option's.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_MargrabeOption_SetupExpired_" data-uid="NanoQL.Instruments.MargrabeOption.SetupExpired*"></a>
+
+  <h3 id="NanoQL_Instruments_MargrabeOption_SetupExpired" data-uid="NanoQL.Instruments.MargrabeOption.SetupExpired">
+  SetupExpired()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The results of an expired instrument: a zero value and error estimate, and no valuation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override MargrabeOptionResults SetupExpired()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MargrabeOptionResults.html">MargrabeOptionResults</a></dt>
+    <dd><p>The expired results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_MargrabeOption_SetupExpired_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>An expired option's NPV and Greeks are all 0, as QuantLib's.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Instruments_MargrabeOption_Validate_" data-uid="NanoQL.Instruments.MargrabeOption.Validate*"></a>
+
+  <h3 id="NanoQL_Instruments_MargrabeOption_Validate" data-uid="NanoQL.Instruments.MargrabeOption.Validate">
+  Validate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks the option's terms before an engine prices it: QuantLib's <code>Option::arguments::validate</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Validate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The option has no payoff.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A quantity isn't positive.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

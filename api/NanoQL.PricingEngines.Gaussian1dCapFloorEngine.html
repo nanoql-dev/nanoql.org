@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Gaussian1dCapFloorEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Gaussian1dCapFloorEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Gaussian1d cap/floor engine: each optionlet&#39;s payoff in the model&#39;s state at its fixing, deflated by the numeraire and integrated over the state grid.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.Gaussian1dCapFloorEngine">
+
+
+
+  <h1 id="NanoQL_PricingEngines_Gaussian1dCapFloorEngine" data-uid="NanoQL.PricingEngines.Gaussian1dCapFloorEngine" class="text-break">
+Class Gaussian1dCapFloorEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Gaussian1d cap/floor engine: each optionlet's payoff in the model's state at its fixing, deflated by the
+numeraire and integrated over the state grid.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Gaussian1dCapFloorEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Gaussian1dCapFloorEngine</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_Gaussian1dCapFloorEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A static class: <code>Calculate</code> runs QuantLib's four steps (playbook §2.1) on the model, an argument where
+QuantLib's engine holds it. The coupons must carry no spread. The results add each optionlet's price and its
+at-the-money forward, the coupon's (<code>optionletsPrice</code>, <code>optionletsAtmForward</code>).
+</p>
+<p>
+Seven of QuantLib's defects are fixed. The strike's leg is discounted on the discount curve, as the floating leg and
+the swaption engine's are, where QuantLib's reads the model curve (<code>:86-89</code>, <code>:158-161</code>); the at-the-money
+forwards are the coupons', where QuantLib's are left 0; a caplet fixed before today is the known payoff discounted
+to its payment, where QuantLib's is undiscounted; a curve on another clock is read at a caplet's fixing date; a CMS
+coupon's rate is the model's swap rate at its fixing, and a CMS spread coupon's the geared spread of its two
+indexes' swap rates, the float-float engine's estimates, where QuantLib's prices the coupon period's simple forward;
+flat payoff extrapolation's right tail reads the last node. And a compounded overnight coupon, which QuantLib prices
+on its last day's rate times the whole accrual, is a Black call on its window's compounding factor on GSR: each
+daily factor is a zero bond affine in the state, so the factor is lognormal given the state at the window's start,
+exactly for plain compounding and an observation shift and to second order for a lookback without the shift and a
+lockout, its log-variance the discrete sum's over the fixing dates; fixings already made come from the index's
+history, and a payment after the window's end is handled statically, the window end's forward deflated by the
+payment date's bond. On a Markov-functional model, which defines no short rate, such a coupon is refused.
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_Gaussian1dCapFloorEngine_Calculate_" data-uid="NanoQL.PricingEngines.Gaussian1dCapFloorEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_Gaussian1dCapFloorEngine_Calculate_NanoQL_Instruments_CapFloor_NanoQL_EvaluationContext_NanoQL_Models_Gaussian1dModel_System_Int32_System_Double_System_Boolean_System_Boolean_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.PricingEngines.Gaussian1dCapFloorEngine.Calculate(NanoQL.Instruments.CapFloor,NanoQL.EvaluationContext,NanoQL.Models.Gaussian1dModel,System.Int32,System.Double,System.Boolean,System.Boolean,NanoQL.TermStructures.YieldTermStructure)">
+  Calculate(CapFloor, EvaluationContext, Gaussian1dModel, int, double, bool, bool, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a cap, floor or collar on a Gaussian1d model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static InstrumentResults Calculate(CapFloor capFloor, EvaluationContext context, Gaussian1dModel model, int integrationPoints = 64, double stddevs = 7, bool extrapolatePayoff = true, bool flatPayoffExtrapolation = false, YieldTermStructure? discountCurve = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>capFloor</code> <a class="xref" href="NanoQL.Instruments.CapFloor.html">CapFloor</a></dt>
+    <dd><p>The cap, floor or collar.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.Gaussian1dModel.html">Gaussian1dModel</a></dt>
+    <dd><p>The model.</p>
+</dd>
+    <dt><code>integrationPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The state grid's points on each side.</p>
+</dd>
+    <dt><code>stddevs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The state grid's width, in standard deviations.</p>
+</dd>
+    <dt><code>extrapolatePayoff</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the payoff is extrapolated past the grid.</p>
+</dd>
+    <dt><code>flatPayoffExtrapolation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the extrapolation is flat, else the end segment's cubic.</p>
+</dd>
+    <dt><code>discountCurve</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The discount curve; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the model's.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a></dt>
+    <dd><p>The results: the NPV and the optionlets' prices and forwards.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The cap/floor, the context or the model is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A coupon has a spread, or its index is neither an Ibor, a swap nor a swap
+spread index; or
+a compounded overnight coupon is priced on a model that defines no short rate.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class BlackVolatilitySurfaceDelta | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BlackVolatilitySurfaceDelta | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A Black volatility surface quoted by delta: put deltas, call deltas and optionally an at-the-money quote at each expiry, each delta&#39;s volatilities a  in time, its smile at a time the deltas converted to strikes on the spot and the domestic and foreign curves under the delta and at-the-money conventions, interpolated in strike.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta">
+
+
+
+  <h1 id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta" class="text-break">
+Class BlackVolatilitySurfaceDelta  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A Black volatility surface quoted by delta: put deltas, call deltas and optionally an at-the-money quote at each
+expiry, each delta's volatilities a <a class="xref" href="NanoQL.TermStructures.BlackVarianceCurve.html">BlackVarianceCurve</a> in time, its smile at a time the deltas
+converted to strikes on the spot and the domestic and foreign curves under the delta and at-the-money conventions,
+interpolated in strike.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class BlackVolatilitySurfaceDelta : BlackVolatilityTermStructure</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html">VolatilityTermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.BlackVolatilityTermStructure.html">BlackVolatilityTermStructure</a></div>
+      <div><span class="xref">BlackVolatilitySurfaceDelta</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html#NanoQL_TermStructures_BlackVolTermStructure_BlackVol_NanoQL_Time_Date_System_Double_System_Boolean_">BlackVolTermStructure.BlackVol(Date, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html#NanoQL_TermStructures_BlackVolTermStructure_BlackVol_System_Double_System_Double_System_Boolean_">BlackVolTermStructure.BlackVol(double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html#NanoQL_TermStructures_BlackVolTermStructure_BlackVariance_NanoQL_Time_Date_System_Double_System_Boolean_">BlackVolTermStructure.BlackVariance(Date, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html#NanoQL_TermStructures_BlackVolTermStructure_BlackVariance_System_Double_System_Double_System_Boolean_">BlackVolTermStructure.BlackVariance(double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html#NanoQL_TermStructures_BlackVolTermStructure_BlackForwardVol_NanoQL_Time_Date_NanoQL_Time_Date_System_Double_System_Boolean_">BlackVolTermStructure.BlackForwardVol(Date, Date, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html#NanoQL_TermStructures_BlackVolTermStructure_BlackForwardVol_System_Double_System_Double_System_Double_System_Boolean_">BlackVolTermStructure.BlackForwardVol(double, double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html#NanoQL_TermStructures_BlackVolTermStructure_BlackForwardVariance_NanoQL_Time_Date_NanoQL_Time_Date_System_Double_System_Boolean_">BlackVolTermStructure.BlackForwardVariance(Date, Date, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html#NanoQL_TermStructures_BlackVolTermStructure_BlackForwardVariance_System_Double_System_Double_System_Double_System_Boolean_">BlackVolTermStructure.BlackForwardVariance(double, double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html#NanoQL_TermStructures_BlackVolTermStructure_SmileSection_NanoQL_Time_Date_System_Boolean_">BlackVolTermStructure.SmileSection(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html#NanoQL_TermStructures_BlackVolTermStructure_SmileSection_System_Double_System_Boolean_">BlackVolTermStructure.SmileSection(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_OptionDateFromTenor_NanoQL_Time_Period_">VolatilityTermStructure.OptionDateFromTenor(Period)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_BusinessDayConvention">VolatilityTermStructure.BusinessDayConvention</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_TimeFromReference_NanoQL_Time_Date_">TermStructure.TimeFromReference(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_ReferenceDate">TermStructure.ReferenceDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_DayCounter">TermStructure.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_Calendar">TermStructure.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_SettlementDays">TermStructure.SettlementDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_MaxTime">TermStructure.MaxTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable; its smile is built at each query, as QuantLib builds it.
+</p>
+<p>
+Its curves are read at the instants its times denote, each on its own clock, where QuantLib reads them at the
+surface's own times (<code>blackvolsurfacedelta.cpp:96-97</code>, <code>:210</code>): curves on Actual/360 under a surface on
+Actual/365 (Fixed) gave the strikes of curves on Actual/365 (Fixed). Where the curves share the surface's day
+counter and reference date, QuantLib's bits stand.
+</p>
+<p>
+Its smile section's at-the-money level is the surface's forward, <a class="xref" href="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.html#NanoQL_TermStructures_BlackVolatilitySurfaceDelta_AtmLevel_System_Double_">AtmLevel(double)</a>, where QuantLib passes the
+at-the-money volatility, or 1 without an at-the-money quote (<code>blackvolsurfacedelta.cpp:118</code>, <code>:135</code>),
+which the section's option prices, vega, digital prices and density read as the forward. Its volatilities are
+QuantLib's. A documented divergence.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta__ctor_" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta__ctor_NanoQL_Time_Date_System_Collections_Generic_IEnumerable_NanoQL_Time_Date__System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_System_Double__System_Boolean_NanoQL_Numerics_Matrix_NanoQL_Time_DayCounter_NanoQL_Time_Calendar_System_Double_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_YieldTermStructure_NanoQL_Quotes_DeltaVolQuoteDeltaType_NanoQL_Quotes_DeltaVolQuoteAtmType_System_Nullable_NanoQL_Quotes_DeltaVolQuoteDeltaType__NanoQL_TermStructures_BlackVolatilitySurfaceDeltaSmileInterpolationMethod_System_Boolean_NanoQL_TermStructures_BlackVolTimeExtrapolationType_System_Nullable_NanoQL_Time_Period__NanoQL_Quotes_DeltaVolQuoteDeltaType_NanoQL_Quotes_DeltaVolQuoteAtmType_System_Nullable_NanoQL_Quotes_DeltaVolQuoteDeltaType__" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.#ctor(NanoQL.Time.Date,System.Collections.Generic.IEnumerable{NanoQL.Time.Date},System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.Double},System.Boolean,NanoQL.Numerics.Matrix,NanoQL.Time.DayCounter,NanoQL.Time.Calendar,System.Double,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.YieldTermStructure,NanoQL.Quotes.DeltaVolQuoteDeltaType,NanoQL.Quotes.DeltaVolQuoteAtmType,System.Nullable{NanoQL.Quotes.DeltaVolQuoteDeltaType},NanoQL.TermStructures.BlackVolatilitySurfaceDeltaSmileInterpolationMethod,System.Boolean,NanoQL.TermStructures.BlackVolTimeExtrapolationType,System.Nullable{NanoQL.Time.Period},NanoQL.Quotes.DeltaVolQuoteDeltaType,NanoQL.Quotes.DeltaVolQuoteAtmType,System.Nullable{NanoQL.Quotes.DeltaVolQuoteDeltaType})">
+  BlackVolatilitySurfaceDelta(Date, IEnumerable&lt;Date&gt;, IEnumerable&lt;double&gt;, IEnumerable&lt;double&gt;, bool, Matrix, DayCounter, Calendar?, double, YieldTermStructure, YieldTermStructure, DeltaVolQuoteDeltaType, DeltaVolQuoteAtmType, DeltaVolQuoteDeltaType?, BlackVolatilitySurfaceDeltaSmileInterpolationMethod, bool, BlackVolTimeExtrapolationType, Period?, DeltaVolQuoteDeltaType, DeltaVolQuoteAtmType, DeltaVolQuoteDeltaType?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.html">BlackVolatilitySurfaceDelta</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlackVolatilitySurfaceDelta(Date referenceDate, IEnumerable&lt;Date&gt; dates, IEnumerable&lt;double&gt; putDeltas, IEnumerable&lt;double&gt; callDeltas, bool hasAtm, Matrix blackVolMatrix, DayCounter dayCounter, Calendar? cal, double spot, YieldTermStructure domesticTS, YieldTermStructure foreignTS, DeltaVolQuoteDeltaType deltaType = DeltaVolQuoteDeltaType.Spot, DeltaVolQuoteAtmType atmType = DeltaVolQuoteAtmType.AtmDeltaNeutral, DeltaVolQuoteDeltaType? atmDeltaType = null, BlackVolatilitySurfaceDeltaSmileInterpolationMethod interpolationMethod = BlackVolatilitySurfaceDeltaSmileInterpolationMethod.Linear, bool flatStrikeExtrapolation = false, BlackVolTimeExtrapolationType timeExtrapolationType = BlackVolTimeExtrapolationType.FlatVolatility, Period? switchTenor = null, DeltaVolQuoteDeltaType longTermDeltaType = DeltaVolQuoteDeltaType.Fwd, DeltaVolQuoteAtmType longTermAtmType = DeltaVolQuoteAtmType.AtmDeltaNeutral, DeltaVolQuoteDeltaType? longTermAtmDeltaType = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>referenceDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The reference date.</p>
+</dd>
+    <dt><code>dates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The expiries, increasing and after the reference date; at least two.</p>
+</dd>
+    <dt><code>putDeltas</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The put deltas of the matrix's first columns.</p>
+</dd>
+    <dt><code>callDeltas</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The call deltas of its last columns.</p>
+</dd>
+    <dt><code>hasAtm</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether an at-the-money column sits between them.</p>
+</dd>
+    <dt><code>blackVolMatrix</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The volatilities, one row per expiry and one column per delta.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>cal</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty one.</p>
+</dd>
+    <dt><code>spot</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+    <dt><code>domesticTS</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The domestic curve.</p>
+</dd>
+    <dt><code>foreignTS</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The foreign curve.</p>
+</dd>
+    <dt><code>deltaType</code> <a class="xref" href="NanoQL.Quotes.DeltaVolQuoteDeltaType.html">DeltaVolQuoteDeltaType</a></dt>
+    <dd><p>The delta convention.</p>
+</dd>
+    <dt><code>atmType</code> <a class="xref" href="NanoQL.Quotes.DeltaVolQuoteAtmType.html">DeltaVolQuoteAtmType</a></dt>
+    <dd><p>The at-the-money convention.</p>
+</dd>
+    <dt><code>atmDeltaType</code> <a class="xref" href="NanoQL.Quotes.DeltaVolQuoteDeltaType.html">DeltaVolQuoteDeltaType</a>?</dt>
+    <dd><p>The at-the-money quote's delta convention; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for
+<code class="paramref">deltaType</code>.</p>
+</dd>
+    <dt><code>interpolationMethod</code> <a class="xref" href="NanoQL.TermStructures.BlackVolatilitySurfaceDeltaSmileInterpolationMethod.html">BlackVolatilitySurfaceDeltaSmileInterpolationMethod</a></dt>
+    <dd><p>The smile's interpolation in strike.</p>
+</dd>
+    <dt><code>flatStrikeExtrapolation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the smile is flat outside its strikes.</p>
+</dd>
+    <dt><code>timeExtrapolationType</code> <a class="xref" href="NanoQL.TermStructures.BlackVolTimeExtrapolationType.html">BlackVolTimeExtrapolationType</a></dt>
+    <dd><p>How the volatilities extrapolate past the last expiry.</p>
+</dd>
+    <dt><code>switchTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a>?</dt>
+    <dd><p>The tenor from which the long-term conventions apply; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's
+0 days, for none.</p>
+</dd>
+    <dt><code>longTermDeltaType</code> <a class="xref" href="NanoQL.Quotes.DeltaVolQuoteDeltaType.html">DeltaVolQuoteDeltaType</a></dt>
+    <dd><p>The long-term delta convention.</p>
+</dd>
+    <dt><code>longTermAtmType</code> <a class="xref" href="NanoQL.Quotes.DeltaVolQuoteAtmType.html">DeltaVolQuoteAtmType</a></dt>
+    <dd><p>The long-term at-the-money convention.</p>
+</dd>
+    <dt><code>longTermAtmDeltaType</code> <a class="xref" href="NanoQL.Quotes.DeltaVolQuoteDeltaType.html">DeltaVolQuoteDeltaType</a>?</dt>
+    <dd><p>The long-term at-the-money quote's delta convention; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>
+for <code class="paramref">longTermDeltaType</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>An enum argument isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Fewer than two dates are given, a date isn't after the reference date, the dates aren't sorted and unique, no
+deltas are given, or the matrix's size doesn't match them; with QuantLib's messages.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A switch tenor is given and the surface has no calendar.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_Dates_" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.Dates*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_Dates" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.Dates">
+  Dates
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the expiries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;Date&gt; Dates { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_MaxDate_" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.MaxDate*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_MaxDate" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.MaxDate">
+  MaxDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the latest date: QuantLib's <code>Date::maxDate()</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date MaxDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_AtmLevel_" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.AtmLevel*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_AtmLevel_System_Double_" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.AtmLevel(System.Double)">
+  AtmLevel(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The forward at a time: the spot times the foreign discount over the domestic one, each read at the
+instant the time denotes on its own clock.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double? AtmLevel(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The forward.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A curve can't give its discount there.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_BlackVolImpl_" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.BlackVolImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_BlackVolImpl_System_Double_System_Double_" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.BlackVolImpl(System.Double,System.Double)">
+  BlackVolImpl(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility at a time and strike: the smile's, past the last expiry at the last expiry's time under flat
+extrapolation; at a strike of 0 or QuantLib's null, the at-the-money quote's, or the smile's at the forward.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double BlackVolImpl(double t, double strike)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_BlackVolSmile_" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.BlackVolSmile*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_BlackVolSmile_NanoQL_Time_Date_" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.BlackVolSmile(NanoQL.Time.Date)">
+  BlackVolSmile(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The smile at a date: <a class="xref" href="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.html#NanoQL_TermStructures_BlackVolatilitySurfaceDelta_BlackVolSmile_System_Double_">BlackVolSmile(double)</a> at its time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SmileSection BlackVolSmile(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></dt>
+    <dd><p>The smile section.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A strike can't be found from its delta, or a curve can't give its
+discount.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_BlackVolSmile_" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.BlackVolSmile*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_BlackVolSmile_System_Double_" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.BlackVolSmile(System.Double)">
+  BlackVolSmile(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The smile at a time: the deltas' strikes and volatilities there, interpolated in strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SmileSection BlackVolSmile(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></dt>
+    <dd><p>The smile section, its at-the-money level the forward.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A strike can't be found from its delta, or a curve can't give its
+discount.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_MaxStrike_" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.MaxStrike*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_MaxStrike" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.MaxStrike">
+  MaxStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The highest strike, unbounded: QuantLib's <code>QL_MAX_REAL</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MaxStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>1.7976931348623157e308.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_MinStrike_" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.MinStrike*"></a>
+
+  <h3 id="NanoQL_TermStructures_BlackVolatilitySurfaceDelta_MinStrike" data-uid="NanoQL.TermStructures.BlackVolatilitySurfaceDelta.MinStrike">
+  MinStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lowest strike, 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MinStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><ol start="0">
+<li></li>
+</ol>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

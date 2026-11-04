@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class EquityTotalReturnSwap | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class EquityTotalReturnSwap | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An equity total return swap: the total return of an equity index, N&#183;[I(T_M)/I(T_0) − 1], exchanged for floating cash flows on an Ibor index, or on an overnight index compounded over each accrual period.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Instruments.EquityTotalReturnSwap">
+
+
+
+  <h1 id="NanoQL_Instruments_EquityTotalReturnSwap" data-uid="NanoQL.Instruments.EquityTotalReturnSwap" class="text-break">
+Class EquityTotalReturnSwap  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An equity total return swap: the total return of an equity index, N·[I(T_M)/I(T_0) − 1], exchanged for floating
+cash flows on an Ibor index, or on an overnight index compounded over each accrual period.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class EquityTotalReturnSwap : Swap</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.Swap.html">Swap</a></div>
+      <div><span class="xref">EquityTotalReturnSwap</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_IsExpired_NanoQL_EvaluationContext_">Swap.IsExpired(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_SetupExpired">Swap.SetupExpired()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Validate">Swap.Validate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_FetchResults_NanoQL_InstrumentResults_">Swap.FetchResults(InstrumentResults)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_StartDate">Swap.StartDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_MaturityDate">Swap.MaturityDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Leg_System_Int32_">Swap.Leg(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Payer_System_Int32_">Swap.Payer(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_NumberOfLegs">Swap.NumberOfLegs</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Legs">Swap.Legs</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Instruments_EquityTotalReturnSwap_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable. The equity leg is the first, its one cash flow paid the payment delay's days after the schedule's end on
+the payment calendar, or on the schedule's own; the interest-rate leg is the second. The swap's type refers to the
+equity leg: a payer pays the equity return and receives the floating leg.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap__ctor_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap__ctor_NanoQL_Instruments_SwapType_System_Double_NanoQL_Time_Schedule_NanoQL_Indexes_EquityIndex_NanoQL_Indexes_IborIndex_NanoQL_Time_DayCounter_System_Double_NanoQL_EvaluationContext_System_Double_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_System_Int32_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.#ctor(NanoQL.Instruments.SwapType,System.Double,NanoQL.Time.Schedule,NanoQL.Indexes.EquityIndex,NanoQL.Indexes.IborIndex,NanoQL.Time.DayCounter,System.Double,NanoQL.EvaluationContext,System.Double,NanoQL.Time.Calendar,NanoQL.Time.BusinessDayConvention,System.Int32)">
+  EquityTotalReturnSwap(SwapType, double, Schedule, EquityIndex, IborIndex, DayCounter, double, EvaluationContext, double, Calendar?, BusinessDayConvention, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.EquityTotalReturnSwap.html">EquityTotalReturnSwap</a> class on an Ibor index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EquityTotalReturnSwap(SwapType type, double nominal, Schedule schedule, EquityIndex equityIndex, IborIndex interestRateIndex, DayCounter dayCounter, double margin, EvaluationContext context, double gearing = 1, Calendar? paymentCalendar = null, BusinessDayConvention paymentConvention = BusinessDayConvention.Unadjusted, int paymentDelay = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="NanoQL.Instruments.SwapType.html">SwapType</a></dt>
+    <dd><p>Whether the equity return is paid (payer) or received.</p>
+</dd>
+    <dt><code>nominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The swap's nominal.</p>
+</dd>
+    <dt><code>schedule</code> <a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd><p>The schedule of the interest-rate leg, whose start and end date the equity leg.</p>
+</dd>
+    <dt><code>equityIndex</code> <a class="xref" href="NanoQL.Indexes.EquityIndex.html">EquityIndex</a></dt>
+    <dd><p>The equity index.</p>
+</dd>
+    <dt><code>interestRateIndex</code> <a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd><p>The Ibor index of the interest-rate leg.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The interest-rate leg's payment day counter.</p>
+</dd>
+    <dt><code>margin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The margin over the interest-rate index.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose at-par switch the interest-rate leg's pricer reads.</p>
+</dd>
+    <dt><code>gearing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The gearing of the interest-rate index.</p>
+</dd>
+    <dt><code>paymentCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The payment calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the schedule's.</p>
+</dd>
+    <dt><code>paymentConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The payment dates' convention.</p>
+</dd>
+    <dt><code>paymentDelay</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The payment delay, in days.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument but the payment calendar is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The type or the convention isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The nominal is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>Neither the payment calendar nor the schedule has a calendar, or the interest-rate leg can't be built.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap__ctor_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap__ctor_NanoQL_Instruments_SwapType_System_Double_NanoQL_Time_Schedule_NanoQL_Indexes_EquityIndex_NanoQL_Indexes_OvernightIndex_NanoQL_Time_DayCounter_System_Double_System_Double_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_System_Int32_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.#ctor(NanoQL.Instruments.SwapType,System.Double,NanoQL.Time.Schedule,NanoQL.Indexes.EquityIndex,NanoQL.Indexes.OvernightIndex,NanoQL.Time.DayCounter,System.Double,System.Double,NanoQL.Time.Calendar,NanoQL.Time.BusinessDayConvention,System.Int32)">
+  EquityTotalReturnSwap(SwapType, double, Schedule, EquityIndex, OvernightIndex, DayCounter, double, double, Calendar?, BusinessDayConvention, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.EquityTotalReturnSwap.html">EquityTotalReturnSwap</a> class on an overnight index, compounded
+over each accrual period.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EquityTotalReturnSwap(SwapType type, double nominal, Schedule schedule, EquityIndex equityIndex, OvernightIndex interestRateIndex, DayCounter dayCounter, double margin, double gearing = 1, Calendar? paymentCalendar = null, BusinessDayConvention paymentConvention = BusinessDayConvention.Unadjusted, int paymentDelay = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="NanoQL.Instruments.SwapType.html">SwapType</a></dt>
+    <dd><p>Whether the equity return is paid (payer) or received.</p>
+</dd>
+    <dt><code>nominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The swap's nominal.</p>
+</dd>
+    <dt><code>schedule</code> <a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd><p>The schedule of the interest-rate leg, whose start and end date the equity leg.</p>
+</dd>
+    <dt><code>equityIndex</code> <a class="xref" href="NanoQL.Indexes.EquityIndex.html">EquityIndex</a></dt>
+    <dd><p>The equity index.</p>
+</dd>
+    <dt><code>interestRateIndex</code> <a class="xref" href="NanoQL.Indexes.OvernightIndex.html">OvernightIndex</a></dt>
+    <dd><p>The overnight index of the interest-rate leg.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The interest-rate leg's payment day counter.</p>
+</dd>
+    <dt><code>margin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The margin over the interest-rate index.</p>
+</dd>
+    <dt><code>gearing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The gearing of the interest-rate index.</p>
+</dd>
+    <dt><code>paymentCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The payment calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the schedule's.</p>
+</dd>
+    <dt><code>paymentConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The payment dates' convention.</p>
+</dd>
+    <dt><code>paymentDelay</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The payment delay, in days.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument but the payment calendar is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The type or the convention isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The nominal is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>Neither the payment calendar nor the schedule has a calendar, or the interest-rate leg can't be built.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_DayCounter_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.DayCounter*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_DayCounter" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.DayCounter">
+  DayCounter
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the interest-rate leg's payment day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DayCounter DayCounter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_EquityIndex_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.EquityIndex*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_EquityIndex" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.EquityIndex">
+  EquityIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the equity index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EquityIndex EquityIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.EquityIndex.html">EquityIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_EquityLeg_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.EquityLeg*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_EquityLeg" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.EquityLeg">
+  EquityLeg
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the equity leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; EquityLeg { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_Gearing_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.Gearing*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_Gearing" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.Gearing">
+  Gearing
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the gearing of the interest-rate index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Gearing { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_InterestRateIndex_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.InterestRateIndex*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_InterestRateIndex" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.InterestRateIndex">
+  InterestRateIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the interest-rate leg's index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InterestRateIndex InterestRateIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.InterestRateIndex.html">InterestRateIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_InterestRateLeg_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.InterestRateLeg*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_InterestRateLeg" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.InterestRateLeg">
+  InterestRateLeg
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the interest-rate leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; InterestRateLeg { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_Margin_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.Margin*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_Margin" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.Margin">
+  Margin
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the margin over the interest-rate index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Margin { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_Nominal_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.Nominal*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_Nominal" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.Nominal">
+  Nominal
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the swap's nominal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Nominal { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_PaymentCalendar_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.PaymentCalendar*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_PaymentCalendar" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.PaymentCalendar">
+  PaymentCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the payment calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the schedule's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Calendar? PaymentCalendar { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_PaymentConvention_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.PaymentConvention*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_PaymentConvention" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.PaymentConvention">
+  PaymentConvention
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the payment dates' convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BusinessDayConvention PaymentConvention { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_PaymentDelay_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.PaymentDelay*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_PaymentDelay" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.PaymentDelay">
+  PaymentDelay
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the payment delay, in days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PaymentDelay { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_Schedule_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.Schedule*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_Schedule" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.Schedule">
+  Schedule
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the interest-rate leg's schedule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Schedule Schedule { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_Type_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.Type*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_Type" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.Type">
+  Type
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the equity return is paid (payer) or received.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SwapType Type { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.SwapType.html">SwapType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_EquityLegNPV_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.EquityLegNPV*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_EquityLegNPV_NanoQL_Instruments_SwapResults_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.EquityLegNPV(NanoQL.Instruments.SwapResults)">
+  EquityLegNPV(SwapResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The equity leg's NPV in a swap engine's results.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double? EquityLegNPV(SwapResults results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.Instruments.SwapResults.html">SwapResults</a></dt>
+    <dd><p>The results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The NPV, signed by whether the leg is paid, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> where QuantLib refuses &quot;result
+not available&quot;.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">results</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_FairMargin_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.FairMargin*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_FairMargin_NanoQL_Instruments_SwapResults_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.FairMargin(NanoQL.Instruments.SwapResults)">
+  FairMargin(SwapResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The margin that gives the swap a zero NPV in a swap engine's results: QuantLib's <code>fairMargin</code>,
+−(equity leg NPV + interest-rate leg NPV without its margin) / interest-rate leg BPS per unit of rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double FairMargin(SwapResults results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.Instruments.SwapResults.html">SwapResults</a></dt>
+    <dd><p>The results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fair margin.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">results</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A leg's NPV or the interest-rate leg's BPS isn't in the results, QuantLib's
+&quot;result not available&quot;.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_EquityTotalReturnSwap_InterestRateLegNPV_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.InterestRateLegNPV*"></a>
+
+  <h3 id="NanoQL_Instruments_EquityTotalReturnSwap_InterestRateLegNPV_NanoQL_Instruments_SwapResults_" data-uid="NanoQL.Instruments.EquityTotalReturnSwap.InterestRateLegNPV(NanoQL.Instruments.SwapResults)">
+  InterestRateLegNPV(SwapResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The interest-rate leg's NPV in a swap engine's results.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double? InterestRateLegNPV(SwapResults results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.Instruments.SwapResults.html">SwapResults</a></dt>
+    <dd><p>The results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The NPV, signed by whether the leg is paid, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> where QuantLib refuses &quot;result
+not available&quot;.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">results</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

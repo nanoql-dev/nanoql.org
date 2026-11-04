@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Gsr | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Gsr | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The one-factor GSR model, formulated in the forward measure of its numeraire time: piecewise constant volatilities on the step dates, and a constant reversion or piecewise constant reversions on the same dates.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models.Gsr">
+
+
+
+  <h1 id="NanoQL_Models_Gsr" data-uid="NanoQL.Models.Gsr" class="text-break">
+Class Gsr  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The one-factor GSR model, formulated in the forward measure of its numeraire time: piecewise constant volatilities
+on the step dates, and a constant reversion or piecewise constant reversions on the same dates.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Gsr : Gaussian1dModel, ITermStructureConsistentModel, ICalibratedModel</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Models.Gaussian1dModel.html">Gaussian1dModel</a></div>
+      <div><span class="xref">Gsr</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Models.ITermStructureConsistentModel.html">ITermStructureConsistentModel</a></div>
+      <div><a class="xref" href="NanoQL.Models.ICalibratedModel.html">ICalibratedModel</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_GaussianPolynomialIntegral_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_">Gaussian1dModel.GaussianPolynomialIntegral(double, double, double, double, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_GaussianShiftedPolynomialIntegral_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_">Gaussian1dModel.GaussianShiftedPolynomialIntegral(double, double, double, double, double, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_StateProcess">Gaussian1dModel.StateProcess()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_Numeraire_System_Double_System_Double_NanoQL_TermStructures_YieldTermStructure_">Gaussian1dModel.Numeraire(double, double, YieldTermStructure)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_Zerobond_System_Double_System_Double_System_Double_NanoQL_TermStructures_YieldTermStructure_">Gaussian1dModel.Zerobond(double, double, double, YieldTermStructure)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_Numeraire_NanoQL_Time_Date_System_Double_NanoQL_TermStructures_YieldTermStructure_">Gaussian1dModel.Numeraire(Date, double, YieldTermStructure)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_Zerobond_NanoQL_Time_Date_System_Nullable_NanoQL_Time_Date__System_Double_NanoQL_TermStructures_YieldTermStructure_">Gaussian1dModel.Zerobond(Date, Date?, double, YieldTermStructure)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_ZerobondOption_NanoQL_OptionType_NanoQL_Time_Date_NanoQL_Time_Date_NanoQL_Time_Date_System_Double_System_Nullable_NanoQL_Time_Date__System_Double_NanoQL_TermStructures_YieldTermStructure_System_Double_System_Int32_System_Boolean_System_Boolean_">Gaussian1dModel.ZerobondOption(OptionType, Date, Date, Date, double, Date?, double, YieldTermStructure, double, int, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_ForwardRate_NanoQL_Time_Date_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__System_Double_NanoQL_Indexes_IborIndex_">Gaussian1dModel.ForwardRate(Date, EvaluationContext, Date?, double, IborIndex)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_CompoundedRate_NanoQL_Coupons_OvernightIndexedCoupon_System_Nullable_NanoQL_Time_Date__System_Double_NanoQL_TermStructures_YieldTermStructure_">Gaussian1dModel.CompoundedRate(OvernightIndexedCoupon, Date?, double, YieldTermStructure)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_SwapRate_NanoQL_Time_Date_NanoQL_Time_Period_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__System_Double_NanoQL_Indexes_SwapIndex_">Gaussian1dModel.SwapRate(Date, Period, EvaluationContext, Date?, double, SwapIndex)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_SwapAnnuity_NanoQL_Time_Date_NanoQL_Time_Period_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__System_Double_NanoQL_Indexes_SwapIndex_">Gaussian1dModel.SwapAnnuity(Date, Period, EvaluationContext, Date?, double, SwapIndex)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_YGrid_System_Double_System_Int32_System_Double_System_Double_System_Double_">Gaussian1dModel.YGrid(double, int, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.Gaussian1dModel.html#NanoQL_Models_Gaussian1dModel_TermStructure">Gaussian1dModel.TermStructure</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModelExtensions.html#NanoQL_Models_CalibratedModelExtensions_Calibrate__1___0_System_Collections_Generic_IEnumerable_NanoQL_Models_CalibrationHelper__NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_NanoQL_EvaluationContext_NanoQL_Numerics_Constraint_System_ReadOnlySpan_System_Double__System_ReadOnlySpan_System_Boolean__">CalibratedModelExtensions.Calibrate&lt;TModel&gt;(TModel, IEnumerable&lt;CalibrationHelper&gt;, OptimizationMethod, EndCriteria, EvaluationContext, Constraint?, ReadOnlySpan&lt;double&gt;, ReadOnlySpan&lt;bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModelExtensions.html#NanoQL_Models_CalibratedModelExtensions_SetParams__1___0_NanoQL_Numerics_Vector_">CalibratedModelExtensions.SetParams&lt;TModel&gt;(TModel, Vector)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModelExtensions.html#NanoQL_Models_CalibratedModelExtensions_Value_NanoQL_Models_ICalibratedModel_NanoQL_Numerics_Vector_System_Collections_Generic_IEnumerable_NanoQL_Models_CalibrationHelper__NanoQL_EvaluationContext_">CalibratedModelExtensions.Value(ICalibratedModel, Vector, IEnumerable&lt;CalibrationHelper&gt;, EvaluationContext)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_Models_Gsr_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable, a <a class="xref" href="NanoQL.Models.Gaussian1dModel.html">Gaussian1dModel</a> implementing <a class="xref" href="NanoQL.Models.ICalibratedModel.html">ICalibratedModel</a> over its two arguments, the
+reversions and the volatilities, in QuantLib's order (the playbook's calibration row): a calibration returns a new
+model. QuantLib's quotes are values (the playbook's quote row), so its four constructors are two. Its memo of the
+process's integrals lives for one call, so QuantLib's <code>flushCache</code> and its observers have no counterpart.
+</p>
+<p>
+<a class="xref" href="NanoQL.Models.Gsr.html#NanoQL_Models_Gsr_WithNumeraireTime_System_Double_">WithNumeraireTime(double)</a> returns a copy, its process moved to the new forward measure time with its core, and
+refuses a time below the last step time, as QuantLib's master does after the pin (#2842); QuantLib 1.44's moves the
+process and leaves its core at the constructor's time. A curve given to the numeraire is read with extrapolation, as
+the model's own is, where QuantLib's reads a given one at the numeraire time without it
+(<code>Divergences/Gaussian1dNumeraireExtrapolationTests.cs</code>).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Models_Gsr__ctor_" data-uid="NanoQL.Models.Gsr.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_Gsr__ctor_NanoQL_TermStructures_YieldTermStructure_System_Collections_Generic_IEnumerable_NanoQL_Time_Date__System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_System_Double__System_Double_" data-uid="NanoQL.Models.Gsr.#ctor(NanoQL.TermStructures.YieldTermStructure,System.Collections.Generic.IEnumerable{NanoQL.Time.Date},System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.Double},System.Double)">
+  Gsr(YieldTermStructure, IEnumerable&lt;Date&gt;, IEnumerable&lt;double&gt;, IEnumerable&lt;double&gt;, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.Gsr.html">Gsr</a> class, with piecewise constant
+reversions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Gsr(YieldTermStructure termStructure, IEnumerable&lt;Date&gt; volstepdates, IEnumerable&lt;double&gt; volatilities, IEnumerable&lt;double&gt; reversions, double T = 60)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>termStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The model's curve.</p>
+</dd>
+    <dt><code>volstepdates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The step dates of the volatilities and reversions, increasing, after the curve's
+reference date.</p>
+</dd>
+    <dt><code>volatilities</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The volatilities: one more than the step dates.</p>
+</dd>
+    <dt><code>reversions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The reversions: one, constant, or one more than the step dates.</p>
+</dd>
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The numeraire time, the process's forward measure time; 60 by default, QuantLib's. It may lie
+below the last step date, as QuantLib accepts it: a step past it moves nothing, and nothing past it is read.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A step date isn't after the reference date or after the date before it, or the volatilities or the reversions
+don't match the step dates.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Gsr__ctor_" data-uid="NanoQL.Models.Gsr.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_Gsr__ctor_NanoQL_TermStructures_YieldTermStructure_System_Collections_Generic_IEnumerable_NanoQL_Time_Date__System_Collections_Generic_IEnumerable_System_Double__System_Double_System_Double_" data-uid="NanoQL.Models.Gsr.#ctor(NanoQL.TermStructures.YieldTermStructure,System.Collections.Generic.IEnumerable{NanoQL.Time.Date},System.Collections.Generic.IEnumerable{System.Double},System.Double,System.Double)">
+  Gsr(YieldTermStructure, IEnumerable&lt;Date&gt;, IEnumerable&lt;double&gt;, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.Gsr.html">Gsr</a> class, with a constant reversion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Gsr(YieldTermStructure termStructure, IEnumerable&lt;Date&gt; volstepdates, IEnumerable&lt;double&gt; volatilities, double reversion, double T = 60)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>termStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The model's curve.</p>
+</dd>
+    <dt><code>volstepdates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The volatilities' step dates, increasing, after the curve's reference date.</p>
+</dd>
+    <dt><code>volatilities</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The volatilities: one more than the step dates.</p>
+</dd>
+    <dt><code>reversion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The constant reversion.</p>
+</dd>
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The numeraire time, the process's forward measure time; 60 by default, QuantLib's. It may lie
+below the last step date, as QuantLib accepts it: a step past it moves nothing, and nothing past it is read.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">termStructure</code>, <code class="paramref">volstepdates</code> or
+<code class="paramref">volatilities</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A step date isn't after the reference date or after the date before it, or the volatilities aren't one more
+than the step dates.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Models_Gsr_Arguments_" data-uid="NanoQL.Models.Gsr.Arguments*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_Arguments" data-uid="NanoQL.Models.Gsr.Arguments">
+  Arguments
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the model's arguments, the parameters calibration works on, in order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;Parameter&gt; Arguments { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Models.Parameter.html">Parameter</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Gsr_Constraint_" data-uid="NanoQL.Models.Gsr.Constraint*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_Constraint" data-uid="NanoQL.Models.Gsr.Constraint">
+  Constraint
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the constraint the model imposes on its parameters: each argument's own, on its slice.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Constraint Constraint { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Constraint.html">Constraint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Gsr_NumeraireTime_" data-uid="NanoQL.Models.Gsr.NumeraireTime*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_NumeraireTime" data-uid="NanoQL.Models.Gsr.NumeraireTime">
+  NumeraireTime
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the numeraire time, the state process's forward measure time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double NumeraireTime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Gsr_Reversion_" data-uid="NanoQL.Models.Gsr.Reversion*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_Reversion" data-uid="NanoQL.Models.Gsr.Reversion">
+  Reversion
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the reversions: QuantLib's <code>reversion()</code>, the reversion argument's parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Reversion { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Gsr_Volatility_" data-uid="NanoQL.Models.Gsr.Volatility*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_Volatility" data-uid="NanoQL.Models.Gsr.Volatility">
+  Volatility
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the volatilities: QuantLib's <code>volatility()</code>, the volatility argument's parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Volatility { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Models_Gsr_CalibrateReversionsIterative_" data-uid="NanoQL.Models.Gsr.CalibrateReversionsIterative*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_CalibrateReversionsIterative_System_Collections_Generic_IEnumerable_NanoQL_Models_BlackCalibrationHelper__NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_NanoQL_EvaluationContext_NanoQL_Numerics_Constraint_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Models.Gsr.CalibrateReversionsIterative(System.Collections.Generic.IEnumerable{NanoQL.Models.BlackCalibrationHelper},NanoQL.Numerics.OptimizationMethod,NanoQL.Numerics.EndCriteria,NanoQL.EvaluationContext,NanoQL.Numerics.Constraint,System.ReadOnlySpan{System.Double})">
+  CalibrateReversionsIterative(IEnumerable&lt;BlackCalibrationHelper&gt;, OptimizationMethod, EndCriteria, EvaluationContext, Constraint?, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calibrates the reversions one by one to the given helpers, the volatilities fixed: QuantLib's
+<code>calibrateReversionsIterative</code>, each step calibrating one reversion to its own helper.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CalibrationResults&lt;Gsr&gt; CalibrateReversionsIterative(IEnumerable&lt;BlackCalibrationHelper&gt; helpers, OptimizationMethod method, EndCriteria endCriteria, EvaluationContext context, Constraint? constraint = null, ReadOnlySpan&lt;double&gt; weights = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>helpers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Models.BlackCalibrationHelper.html">BlackCalibrationHelper</a>&gt;</dt>
+    <dd><p>The helpers, one per reversion to move, in order; the step dates should follow their
+maturities.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The optimization method.</p>
+</dd>
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>The criteria that end each step.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the helpers price under.</p>
+</dd>
+    <dt><code>constraint</code> <a class="xref" href="NanoQL.Numerics.Constraint.html">Constraint</a></dt>
+    <dd><p>A constraint added to the model's own; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty
+constraint, by default.</p>
+</dd>
+    <dt><code>weights</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>One weight per helper, each step weighted by its own helper's; empty, the default, for all
+1.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.CalibrationResults-1.html">CalibrationResults</a>&lt;<a class="xref" href="NanoQL.Models.Gsr.html">Gsr</a>&gt;</dt>
+    <dd><p>The last step's record, its model the calibrated one: what QuantLib's model reports after the
+loop.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Models_Gsr_CalibrateReversionsIterative_System_Collections_Generic_IEnumerable_NanoQL_Models_BlackCalibrationHelper__NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_NanoQL_EvaluationContext_NanoQL_Numerics_Constraint_System_ReadOnlySpan_System_Double___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>As <a class="xref" href="NanoQL.Models.Gsr.html#NanoQL_Models_Gsr_CalibrateVolatilitiesIterative_System_Collections_Generic_IEnumerable_NanoQL_Models_BlackCalibrationHelper__NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_NanoQL_EvaluationContext_NanoQL_Numerics_Constraint_System_ReadOnlySpan_System_Double__">CalibrateVolatilitiesIterative(IEnumerable&lt;BlackCalibrationHelper&gt;, OptimizationMethod, EndCriteria, EvaluationContext, Constraint?, ReadOnlySpan&lt;double&gt;)</a>'s, for the weights and an empty set of
+helpers.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument but the constraint is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No helper is given, or a null one; the weights aren't one per helper; or a helper has no reversion to move.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>An optimization or a helper's pricing fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Gsr_CalibrateVolatilitiesIterative_" data-uid="NanoQL.Models.Gsr.CalibrateVolatilitiesIterative*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_CalibrateVolatilitiesIterative_System_Collections_Generic_IEnumerable_NanoQL_Models_BlackCalibrationHelper__NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_NanoQL_EvaluationContext_NanoQL_Numerics_Constraint_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Models.Gsr.CalibrateVolatilitiesIterative(System.Collections.Generic.IEnumerable{NanoQL.Models.BlackCalibrationHelper},NanoQL.Numerics.OptimizationMethod,NanoQL.Numerics.EndCriteria,NanoQL.EvaluationContext,NanoQL.Numerics.Constraint,System.ReadOnlySpan{System.Double})">
+  CalibrateVolatilitiesIterative(IEnumerable&lt;BlackCalibrationHelper&gt;, OptimizationMethod, EndCriteria, EvaluationContext, Constraint?, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calibrates the volatilities one by one to the given helpers, the reversions fixed: QuantLib's
+<code>calibrateVolatilitiesIterative</code>, each step calibrating one volatility to its own helper.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CalibrationResults&lt;Gsr&gt; CalibrateVolatilitiesIterative(IEnumerable&lt;BlackCalibrationHelper&gt; helpers, OptimizationMethod method, EndCriteria endCriteria, EvaluationContext context, Constraint? constraint = null, ReadOnlySpan&lt;double&gt; weights = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>helpers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Models.BlackCalibrationHelper.html">BlackCalibrationHelper</a>&gt;</dt>
+    <dd><p>The helpers, one per volatility to move, in order; the step dates should be their fixing
+dates but the last.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The optimization method.</p>
+</dd>
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>The criteria that end each step.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the helpers price under.</p>
+</dd>
+    <dt><code>constraint</code> <a class="xref" href="NanoQL.Numerics.Constraint.html">Constraint</a></dt>
+    <dd><p>A constraint added to the model's own; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty
+constraint, by default.</p>
+</dd>
+    <dt><code>weights</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>One weight per helper, each step weighted by its own helper's; empty, the default, for all
+1.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.CalibrationResults-1.html">CalibrationResults</a>&lt;<a class="xref" href="NanoQL.Models.Gsr.html">Gsr</a>&gt;</dt>
+    <dd><p>The last step's record, its model the calibrated one: what QuantLib's model reports after the
+loop.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Models_Gsr_CalibrateVolatilitiesIterative_System_Collections_Generic_IEnumerable_NanoQL_Models_BlackCalibrationHelper__NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_NanoQL_EvaluationContext_NanoQL_Numerics_Constraint_System_ReadOnlySpan_System_Double___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>QuantLib's passes the whole weight vector to each one-helper step, which its calibration refuses for every
+non-empty vector of more than one weight: a documented divergence
+(<code>Divergences/GsrIterativeWeightsTests.cs</code>). With no helper, QuantLib's loop does nothing and leaves the
+model's last record; here there is no record to return, so it is refused with its calibration's text.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument but the constraint is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No helper is given, or a null one; the weights aren't one per helper; or a helper has no volatility to move.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>An optimization or a helper's pricing fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Gsr_FixedReversions_" data-uid="NanoQL.Models.Gsr.FixedReversions*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_FixedReversions" data-uid="NanoQL.Models.Gsr.FixedReversions">
+  FixedReversions()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The calibration flags that fix the reversions, the volatilities free.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;bool&gt; FixedReversions()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>One flag per parameter: the reversions' set, the volatilities' clear.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Gsr_FixedVolatilities_" data-uid="NanoQL.Models.Gsr.FixedVolatilities*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_FixedVolatilities" data-uid="NanoQL.Models.Gsr.FixedVolatilities">
+  FixedVolatilities()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The calibration flags that fix the volatilities, the reversions free.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;bool&gt; FixedVolatilities()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>One flag per parameter: the reversions' clear, the volatilities' set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Gsr_MoveReversion_" data-uid="NanoQL.Models.Gsr.MoveReversion*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_MoveReversion_System_Int32_" data-uid="NanoQL.Models.Gsr.MoveReversion(System.Int32)">
+  MoveReversion(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The calibration flags that leave only one reversion free.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;bool&gt; MoveReversion(int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The reversion's index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>One flag per parameter, every one set but the reversion's.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">i</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No reversion has the index.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Gsr_MoveVolatility_" data-uid="NanoQL.Models.Gsr.MoveVolatility*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_MoveVolatility_System_Int32_" data-uid="NanoQL.Models.Gsr.MoveVolatility(System.Int32)">
+  MoveVolatility(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The calibration flags that leave only one volatility free.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;bool&gt; MoveVolatility(int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The volatility's index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>One flag per parameter, every one set but the volatility's.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">i</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No volatility has the index.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Gsr_NumeraireImpl_" data-uid="NanoQL.Models.Gsr.NumeraireImpl*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_NumeraireImpl_System_Double_System_Double_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Models.Gsr.NumeraireImpl(System.Double,System.Double,NanoQL.TermStructures.YieldTermStructure)">
+  NumeraireImpl(double, double, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The numeraire at a time, for a value of the standardized state: the hook a derived model
+implements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double NumeraireImpl(double t, double y, YieldTermStructure? yts)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standardized state.</p>
+</dd>
+    <dt><code>yts</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve to read instead of the model's, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The numeraire.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Gsr_Params_" data-uid="NanoQL.Models.Gsr.Params*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_Params" data-uid="NanoQL.Models.Gsr.Params">
+  Params()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The parameters calibration works on: every argument's parameters, in order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector Params()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector holding them.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Gsr_WithNumeraireTime_" data-uid="NanoQL.Models.Gsr.WithNumeraireTime*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_WithNumeraireTime_System_Double_" data-uid="NanoQL.Models.Gsr.WithNumeraireTime(System.Double)">
+  WithNumeraireTime(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the model at another numeraire time: QuantLib's <code>numeraireTime(T)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Gsr WithNumeraireTime(double T)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The numeraire time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.Gsr.html">Gsr</a></dt>
+    <dd><p>The copy; the receiver doesn't change.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">T</code> is below the last step time.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Gsr_WithParams_" data-uid="NanoQL.Models.Gsr.WithParams*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_WithParams_NanoQL_Numerics_Vector_" data-uid="NanoQL.Models.Gsr.WithParams(NanoQL.Numerics.Vector)">
+  WithParams(Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A new model, of the receiver's type, with the given parameters: QuantLib's <code>setParams</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICalibratedModel WithParams(Vector parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameters</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The parameters, as many as <a class="xref" href="NanoQL.Models.ICalibratedModel.html#NanoQL_Models_ICalibratedModel_Params">Params()</a> gives.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.ICalibratedModel.html">ICalibratedModel</a></dt>
+    <dd><p>The new model; the receiver doesn't change.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Models_Gsr_WithParams_NanoQL_Numerics_Vector__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>QuantLib's <code>setParams</code> with its <code>generateArguments</code>: the process takes the new volatilities and
+reversions, its step times and forward measure time kept. As QuantLib's, the parameters aren't checked against
+the arguments' constraints, and the refusals of a wrong size come before any write. The copy's core takes its
+zero-reversion flags from the new reversions, the model built at them; QuantLib's recomputes them from the old
+ones before it sets the new, so its model keeps the previous parameters' flags
+(<code>Divergences/GsrWithParamsTests.cs</code>).</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Models_Gsr_ZerobondImpl_" data-uid="NanoQL.Models.Gsr.ZerobondImpl*"></a>
+
+  <h3 id="NanoQL_Models_Gsr_ZerobondImpl_System_Double_System_Double_System_Double_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Models.Gsr.ZerobondImpl(System.Double,System.Double,System.Double,NanoQL.TermStructures.YieldTermStructure)">
+  ZerobondImpl(double, double, double, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The zero bond maturing at a time, at another time, for a value of the standardized state: the hook a
+derived model implements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double ZerobondImpl(double T, double t, double y, YieldTermStructure? yts)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maturity.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standardized state at <code class="paramref">t</code>.</p>
+</dd>
+    <dt><code>yts</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve to read instead of the model's, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The zero bond.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

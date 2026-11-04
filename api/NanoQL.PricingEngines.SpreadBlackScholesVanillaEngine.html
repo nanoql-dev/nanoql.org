@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class SpreadBlackScholesVanillaEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SpreadBlackScholesVanillaEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The base of the spread engines on two Black-Scholes processes: a European spread option priced from the two forwards, their variances at the forwards and the first process&#39;s discount, by the derived engine&#39;s formula.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine">
+
+
+
+  <h1 id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine" data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine" class="text-break">
+Class SpreadBlackScholesVanillaEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base of the spread engines on two Black-Scholes processes: a European spread option priced from the two
+forwards, their variances at the forwards and the first process's discount, by the derived engine's formula.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class SpreadBlackScholesVanillaEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SpreadBlackScholesVanillaEngine</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.PricingEngines.BjerksundStenslandSpreadEngine.html">BjerksundStenslandSpreadEngine</a></div>
+      <div><a class="xref" href="NanoQL.PricingEngines.KirkEngine.html">KirkEngine</a></div>
+      <div><a class="xref" href="NanoQL.PricingEngines.OperatorSplittingSpreadEngine.html">OperatorSplittingSpreadEngine</a></div>
+      <div><a class="xref" href="NanoQL.PricingEngines.PearsonSpreadEngine.html">PearsonSpreadEngine</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An extension point, as QuantLib's class: an engine derives from it and implements
+<a class="xref" href="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.html#NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine_Calculate_System_Double_System_Double_System_Double_NanoQL_OptionType_System_Double_System_Double_System_Double_">Calculate(double, double, double, OptionType, double, double, double)</a>. Immutable. Each forward reads
+its own process's curves and the payoff is discounted on the first process's risk-free curve, QuantLib's reading.
+</p>
+<p>
+Each structure is read by date and accrues nothing before its reference date (the playbook's row for structures on
+another clock), where QuantLib's read throws for an option expiring before a later structure's date; on structures
+dated alike the reads are QuantLib's (<code>Divergences/TwoAssetMismatchedTimesTests.cs</code>).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine__ctor_" data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine__ctor_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_Processes_GeneralizedBlackScholesProcess_System_Double_" data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.#ctor(NanoQL.Processes.GeneralizedBlackScholesProcess,NanoQL.Processes.GeneralizedBlackScholesProcess,System.Double)">
+  SpreadBlackScholesVanillaEngine(GeneralizedBlackScholesProcess, GeneralizedBlackScholesProcess, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.html">SpreadBlackScholesVanillaEngine</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SpreadBlackScholesVanillaEngine(GeneralizedBlackScholesProcess process1, GeneralizedBlackScholesProcess process2, double correlation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>process1</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The first asset's process.</p>
+</dd>
+    <dt><code>process2</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The second asset's process.</p>
+</dd>
+    <dt><code>correlation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation of the two assets.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A process is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine_Process1_" data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.Process1*"></a>
+
+  <h3 id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine_Process1" data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.Process1">
+  Process1
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the first asset's process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected GeneralizedBlackScholesProcess Process1 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine_Process2_" data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.Process2*"></a>
+
+  <h3 id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine_Process2" data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.Process2">
+  Process2
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the second asset's process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected GeneralizedBlackScholesProcess Process2 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine_Rho_" data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.Rho*"></a>
+
+  <h3 id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine_Rho" data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.Rho">
+  Rho
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the correlation of the two assets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double Rho { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine_Calculate_" data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine_Calculate_NanoQL_Instruments_BasketOption_NanoQL_EvaluationContext_" data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.Calculate(NanoQL.Instruments.BasketOption,NanoQL.EvaluationContext)">
+  Calculate(BasketOption, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a European spread option: QuantLib's <code>calculate</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiAssetOptionResults Calculate(BasketOption option, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.BasketOption.html">BasketOption</a></dt>
+    <dd><p>The option, on a <a class="xref" href="NanoQL.Instruments.SpreadBasketPayoff.html">SpreadBasketPayoff</a> over a plain vanilla payoff.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MultiAssetOptionResults.html">MultiAssetOptionResults</a></dt>
+    <dd><p>The option's results: the value; the expired results when it has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The exercise isn't European, the payoff isn't a spread payoff over a plain vanilla payoff, or the formula
+refuses the market.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine_Calculate_" data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_SpreadBlackScholesVanillaEngine_Calculate_System_Double_System_Double_System_Double_NanoQL_OptionType_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.SpreadBlackScholesVanillaEngine.Calculate(System.Double,System.Double,System.Double,NanoQL.OptionType,System.Double,System.Double,System.Double)">
+  Calculate(double, double, double, OptionType, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The value of a spread option on two forwards.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract double Calculate(double f1, double f2, double strike, OptionType optionType, double variance1, double variance2, double df)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first forward.</p>
+</dd>
+    <dt><code>f2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second forward.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>The option's type.</p>
+</dd>
+    <dt><code>variance1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first forward's Black variance to expiry.</p>
+</dd>
+    <dt><code>variance2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second forward's Black variance to expiry.</p>
+</dd>
+    <dt><code>df</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor to expiry.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

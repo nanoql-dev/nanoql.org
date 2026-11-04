@@ -1,0 +1,3383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class ConventionSet | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ConventionSet | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An immutable set of convention records, layered snapshot on snapshot, and the  that answers from them: QuantLib&#39;s shipped presets () or none (), with a user&#39;s files on top.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Extensions.Conventions.ConventionSet">
+
+
+
+  <h1 id="NanoQL_Extensions_Conventions_ConventionSet" data-uid="NanoQL.Extensions.Conventions.ConventionSet" class="text-break">
+Class ConventionSet  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<span class="xref">Extensions</span>.<a class="xref" href="NanoQL.Extensions.Conventions.html">Conventions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.Extensions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An immutable set of convention records, layered snapshot on snapshot, and the <a class="xref" href="NanoQL.ConventionProvider.html">ConventionProvider</a>
+that answers from them: QuantLib's shipped presets (<a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html#NanoQL_Extensions_Conventions_ConventionSet_QuantLib">QuantLib</a>) or none (<a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html#NanoQL_Extensions_Conventions_ConventionSet_Empty">Empty</a>), with a
+user's files on top.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ConventionSet : ConventionProvider, IEquatable&lt;ConventionSet&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.ConventionProvider.html">ConventionProvider</a></div>
+      <div><span class="xref">ConventionSet</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html">ConventionSet</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_Use_NanoQL_ConventionProvider_">ConventionProvider.Use(ConventionProvider)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_Default">ConventionProvider.Default</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_Current">ConventionProvider.Current</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Extensions_Conventions_ConventionSet_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+<a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html#NanoQL_Extensions_Conventions_ConventionSet_QuantLib">QuantLib</a> is the shipped records; <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_Default">Default</a>,
+<a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_Current">Current</a> and <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_Use_NanoQL_ConventionProvider_">Use(ConventionProvider)</a> are the provider's, so a set
+configures the system as <code>ConventionProvider.Default = ConventionSet.QuantLib.With(...)</code>.
+</p>
+<p>
+A lookup builds a new object each time, inside the set's scope, so a preset comes out as its own class with the
+set's values, and an index keeps the set as its provider. A field comes from its record, then the record's base
+chain, then QuantLib's reference. Calendars, day counters and currencies are code kinds: a name the set doesn't
+define, but a coded preset has, resolves to QuantLib's preset, with no edits, even on <a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html#NanoQL_Extensions_Conventions_ConventionSet_Empty">Empty</a>.
+</p>
+<p>
+A record named after a coded preset must be one the preset's class can take, since a coded construction can't
+become another kind: a calendar preset takes its own preset record or a calendar record based on itself, a day
+counter or currency preset a record of its own kind based on itself, and an alias between two presets only where
+QuantLib shares their implementation. <a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html#NanoQL_Extensions_Conventions_ConventionSet_With_NanoQL_Extensions_Conventions_ConventionSnapshot_">With(ConventionSnapshot)</a> refuses any other, and resolves every record of the new
+set, so a name a later layer breaks, a cycle or a value the core refuses fails when the file is loaded.
+</p>
+<p>
+Two sets are equal when they hold equal snapshots in the same order on the same base.
+</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Empty_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Empty*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Empty" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Empty">
+  Empty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a set without QuantLib's records, for files that define every convention themselves: calendars, day
+counters and currencies still resolve to QuantLib's coded presets, which are code.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ConventionSet Empty { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html">ConventionSet</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_IsOnQuantLib_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.IsOnQuantLib*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_IsOnQuantLib" data-uid="NanoQL.Extensions.Conventions.ConventionSet.IsOnQuantLib">
+  IsOnQuantLib
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the set is built on QuantLib's shipped presets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsOnQuantLib { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Layers_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Layers*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Layers" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Layers">
+  Layers
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the snapshots the set layers, bottom first: QuantLib's shipped one first on
+<a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html#NanoQL_Extensions_Conventions_ConventionSet_QuantLib">QuantLib</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ConventionSnapshot&gt; Layers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Extensions.Conventions.ConventionSnapshot.html">ConventionSnapshot</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_QuantLib_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.QuantLib*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_QuantLib" data-uid="NanoQL.Extensions.Conventions.ConventionSet.QuantLib">
+  QuantLib
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets QuantLib's shipped presets: every calendar, day counter and currency QuantLib codes, with QuantLib's
+values, and FpML's exact codes as aliases. It hides the provider's <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_QuantLib">QuantLib</a>,
+QuantLib's coded values, which give the same presets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ConventionSet QuantLib { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html">ConventionSet</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Bond_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Bond*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Bond_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Bond(System.String)">
+  Bond(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A government bond market's convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BondConvention Bond(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.BondConvention.html">BondConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No BondConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Calendar_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Calendar*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Calendar_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Calendar(System.String)">
+  Calendar(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A calendar by name, built in the set: a preset as its own class with the set's edits.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Calendar Calendar(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The calendar's name: a preset's, a record's or an alias.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>A new calendar.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No calendar has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_CapFloor_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.CapFloor*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_CapFloor_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.CapFloor(System.String)">
+  CapFloor(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A cap and floor convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CapFloorConvention CapFloor(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.CapFloorConvention.html">CapFloorConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No CapFloorConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Cds_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Cds*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Cds_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Cds(System.String)">
+  Cds(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A credit default swap convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CdsConvention Cds(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.CdsConvention.html">CdsConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No CdsConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Cms_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Cms*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Cms_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Cms(System.String)">
+  Cms(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A CMS swap convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CmsConvention Cms(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.CmsConvention.html">CmsConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No CmsConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_CommodityIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.CommodityIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_CommodityIndex_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.CommodityIndex(System.String)">
+  CommodityIndex(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A commodity index by name, built in the set, with no forward curve and no exchange contracts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public CommodityIndex CommodityIndex(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommodityIndex.html">CommodityIndex</a></dt>
+    <dd><p>A new index, keeping the set as its provider.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Extensions_Conventions_ConventionSet_CommodityIndex_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The forward curve and the exchange contracts are market and contract data, which no record holds: build
+the index with them from this one's fields.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No CommodityIndex record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_CommoditySettings_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.CommoditySettings*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_CommoditySettings_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.CommoditySettings(System.String)">
+  CommoditySettings(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Commodity settings by name, built in the set: QuantLib's defaults' record by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public CommoditySettings CommoditySettings(string name = &quot;CommoditySettings&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name; <code>CommoditySettings</code>, QuantLib's defaults, by default.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommoditySettings.html">CommoditySettings</a></dt>
+    <dd><p>New settings, a field the record's chain leaves out the type's own default built in the set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No CommoditySettings record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_CommodityType_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.CommodityType*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_CommodityType_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.CommodityType(System.String)">
+  CommodityType(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A commodity type by name, built from its record.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public CommodityType CommodityType(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommodityType.html">CommodityType</a></dt>
+    <dd><p>A new commodity type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Extensions_Conventions_ConventionSet_CommodityType_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>QuantLib's null commodity type, which its known factors take, has no record: a conversion or an index
+takes it by leaving its commodity type out.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No CommodityType record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_CrossCurrencyBasisSwap_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.CrossCurrencyBasisSwap*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_CrossCurrencyBasisSwap_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.CrossCurrencyBasisSwap(System.String)">
+  CrossCurrencyBasisSwap(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A cross-currency basis swap convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public CrossCurrencyBasisSwapConvention CrossCurrencyBasisSwap(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.CrossCurrencyBasisSwapConvention.html">CrossCurrencyBasisSwapConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No CrossCurrencyBasisSwapConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_CrossCurrencySwap_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.CrossCurrencySwap*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_CrossCurrencySwap_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.CrossCurrencySwap(System.String)">
+  CrossCurrencySwap(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A cross-currency fixed-against-floating swap convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public CrossCurrencySwapConvention CrossCurrencySwap(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.CrossCurrencySwapConvention.html">CrossCurrencySwapConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No CrossCurrencySwapConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Currency_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Currency*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Currency_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Currency(System.String)">
+  Currency(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A currency by its code, built in the set: the preset's class with the set's data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Currency Currency(string code)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>code</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The currency's ISO 4217 code, or an alias.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>A new currency.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">code</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No currency has the code.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_DayCounter_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.DayCounter*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_DayCounter_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.DayCounter(System.String)">
+  DayCounter(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A day counter by name, built in the set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DayCounter DayCounter(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The day counter's name: a preset's, a record's or an alias.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>A new day counter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No day counter has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Equals_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Equals*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Equals_NanoQL_Extensions_Conventions_ConventionSet_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Equals(NanoQL.Extensions.Conventions.ConventionSet)">
+  Equals(ConventionSet?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(ConventionSet? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html">ConventionSet</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Equals_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Equals*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Equals_System_Object_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_FxSwap_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.FxSwap*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_FxSwap_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.FxSwap(System.String)">
+  FxSwap(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An FX swap and forward convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FxSwapConvention FxSwap(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.FxSwapConvention.html">FxSwapConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No FxSwapConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_GetHashCode_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_GetHashCode" data-uid="NanoQL.Extensions.Conventions.ConventionSet.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_IborIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.IborIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_IborIndex_System_String_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.IborIndex(System.String,NanoQL.TermStructures.YieldTermStructure)">
+  IborIndex(string, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An Ibor index by name, built in the set on its forwarding curve: a preset as its own class, an overnight index
+among them, or an index of a user's own by its style.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborIndex IborIndex(string name, YieldTermStructure? h = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The index's name (<code>Euribor6M</code>, <code>Sofr</code>) or an alias.</p>
+</dd>
+    <dt><code>h</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The forwarding curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd><p>A new index, keeping the set as its provider.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Extensions_Conventions_ConventionSet_IborIndex_System_String_NanoQL_TermStructures_YieldTermStructure__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Build an index on its curve here, as a preset's own constructor does, rather than clone one: QuantLib's clones
+are its base classes', so a clone of <a class="xref" href="NanoQL.Indexes.Sonia.html">Sonia</a> is an <a class="xref" href="NanoQL.Indexes.OvernightIndex.html">OvernightIndex</a>, which a
+builder defaulting by class (<a class="xref" href="NanoQL.Instruments.MakeOIS.html">MakeOIS</a>'s settlement days) reads as another index.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No Ibor index has the name, the name is a family's, which takes a tenor, or
+the preset takes its settlement days as an argument (<a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html#NanoQL_Extensions_Conventions_ConventionSet_IborIndex_System_String_System_Int32_NanoQL_TermStructures_YieldTermStructure_">IborIndex(string, int, YieldTermStructure?)</a>
+takes them, or a record based on it gives them).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_IborIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.IborIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_IborIndex_System_String_NanoQL_Time_Period_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.IborIndex(System.String,NanoQL.Time.Period,NanoQL.TermStructures.YieldTermStructure)">
+  IborIndex(string, Period, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An Ibor family's index at a tenor, built in the set on its forwarding curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborIndex IborIndex(string name, Period tenor, YieldTermStructure? h = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The family's name (<code>Euribor</code>, <code>USDLibor</code>) or an alias (<code>EUR-EURIBOR</code>).</p>
+</dd>
+    <dt><code>tenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The tenor.</p>
+</dd>
+    <dt><code>h</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The forwarding curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd><p>A new index; at a tenor a fixed-tenor preset of the family has, that preset's values.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No family has the name, or it takes no tenor in the tenor's unit.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_IborIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.IborIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_IborIndex_System_String_System_Int32_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.IborIndex(System.String,System.Int32,NanoQL.TermStructures.YieldTermStructure)">
+  IborIndex(string, int, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An Ibor preset that takes its settlement days (the daily-tenor LIBORs), built in the set on its forwarding
+curve, as QuantLib-Python's constructor takes them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborIndex IborIndex(string name, int settlementDays, YieldTermStructure? h = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The preset's name (<code>DailyTenorUSDLibor</code>) or an alias of it.</p>
+</dd>
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The settlement days.</p>
+</dd>
+    <dt><code>h</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The forwarding curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd><p>A new index, of its preset's class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No Ibor preset of the name takes its settlement days.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_InterestRateIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.InterestRateIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_InterestRateIndex_System_String_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.InterestRateIndex(System.String,NanoQL.TermStructures.YieldTermStructure)">
+  InterestRateIndex(string, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An interest-rate index by name, built in the set on its forwarding curve: a preset that is no Ibor index (the
+BMA index), or an Ibor or overnight index as <a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html#NanoQL_Extensions_Conventions_ConventionSet_IborIndex_System_String_NanoQL_TermStructures_YieldTermStructure_">IborIndex(string, YieldTermStructure?)</a> gives it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InterestRateIndex InterestRateIndex(string name, YieldTermStructure? h = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The preset's name (<code>BMAIndex</code>) or an alias of it, or an Ibor or overnight index's
+name or alias.</p>
+</dd>
+    <dt><code>h</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The forwarding curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.InterestRateIndex.html">InterestRateIndex</a></dt>
+    <dd><p>A new index, of its preset's class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No such index has the name, or <a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html#NanoQL_Extensions_Conventions_ConventionSet_IborIndex_System_String_NanoQL_TermStructures_YieldTermStructure_">IborIndex(string, YieldTermStructure?)</a> refuses it.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_MultipleResetsSwap_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.MultipleResetsSwap*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_MultipleResetsSwap_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.MultipleResetsSwap(System.String)">
+  MultipleResetsSwap(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A multiple-resets swap convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultipleResetsSwapConvention MultipleResetsSwap(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.MultipleResetsSwapConvention.html">MultipleResetsSwapConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No MultipleResetsSwapConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Ois_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Ois*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Ois_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Ois(System.String)">
+  Ois(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An overnight-indexed swap convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OisConvention Ois(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.OisConvention.html">OisConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No OisConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_OvernightIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.OvernightIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_OvernightIndex_System_String_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.OvernightIndex(System.String,NanoQL.TermStructures.YieldTermStructure)">
+  OvernightIndex(string, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An overnight index by name, built in the set on its forwarding curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightIndex OvernightIndex(string name, YieldTermStructure? h = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The index's name (<code>Sofr</code>) or an alias (<code>USD-SOFR</code>).</p>
+</dd>
+    <dt><code>h</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The forwarding curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.OvernightIndex.html">OvernightIndex</a></dt>
+    <dd><p>A new index, of its preset's class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No overnight index has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_OvernightIndexedSwapIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.OvernightIndexedSwapIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_OvernightIndexedSwapIndex_System_String_NanoQL_Time_Period_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.OvernightIndexedSwapIndex(System.String,NanoQL.Time.Period,NanoQL.TermStructures.YieldTermStructure)">
+  OvernightIndexedSwapIndex(string, Period, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An overnight-indexed swap index at a tenor, built in the set with its overnight index on a forwarding curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightIndexedSwapIndex OvernightIndexedSwapIndex(string name, Period tenor, YieldTermStructure? h = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The index's record name.</p>
+</dd>
+    <dt><code>tenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The swap's tenor.</p>
+</dd>
+    <dt><code>h</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The overnight index's forwarding curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.OvernightIndexedSwapIndex.html">OvernightIndexedSwapIndex</a></dt>
+    <dd><p>A new index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No overnight-indexed swap index has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_PaymentTerm_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.PaymentTerm*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_PaymentTerm_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.PaymentTerm(System.String)">
+  PaymentTerm(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A commodity payment term by name, built in the set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public PaymentTerm PaymentTerm(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.PaymentTerm.html">PaymentTerm</a></dt>
+    <dd><p>A new payment term.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No PaymentTerm record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Provenance_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Provenance*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Provenance" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Provenance">
+  Provenance()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Where each name the set defines comes from, QuantLib's presets or a file's record, and a warning for each
+record that overrides no name and that no record references, as a likely misspelling.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConventionProvenance Provenance()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.ConventionProvenance.html">ConventionProvenance</a></dt>
+    <dd><p>The report.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_QuantitySettings_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.QuantitySettings*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_QuantitySettings_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.QuantitySettings(System.String)">
+  QuantitySettings(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Quantity settings by name, built in the set: QuantLib's defaults' record by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public QuantitySettings QuantitySettings(string name = &quot;QuantitySettings&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name; <code>QuantitySettings</code>, QuantLib's defaults, by default.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.QuantitySettings.html">QuantitySettings</a></dt>
+    <dd><p>New settings, a field the record's chain leaves out the type's own default.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No QuantitySettings record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Region_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Region*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Region_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Region(System.String)">
+  Region(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A region by name, built in the set: a preset as its own class, or a region of a user's own.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Region Region(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The region's record name (<code>EURegion</code>) or an alias.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.Region.html">Region</a></dt>
+    <dd><p>A new region.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No region has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveBond_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveBond*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveBond_System_String_System_Func_NanoQL_Instruments_BondConventions__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveBond(System.String,System.Func{NanoQL.Instruments.BondConventions})">
+  ResolveBond(string, Func&lt;BondConventions&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The conventions of a fixed-rate bond preset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override BondConventions ResolveBond(string preset, Func&lt;BondConventions&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>preset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The preset's class name (<code>BTP</code>).</p>
+</dd>
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.BondConventions.html">BondConventions</a>&gt;</dt>
+    <dd><p>Builds QuantLib's conventions.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.BondConventions.html">BondConventions</a></dt>
+    <dd><p>The conventions the bond is built on; its terms are its constructor's arguments.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveBusiness252Calendar_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveBusiness252Calendar*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveBusiness252Calendar_System_Func_NanoQL_Time_Calendar__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveBusiness252Calendar(System.Func{NanoQL.Time.Calendar})">
+  ResolveBusiness252Calendar(Func&lt;Calendar&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The calendar of a <a class="xref" href="NanoQL.Time.Business252.html">Business252</a> day counter built without one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Calendar ResolveBusiness252Calendar(Func&lt;Calendar&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a>&gt;</dt>
+    <dd><p>Builds QuantLib's, the Brazilian settlement calendar.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar whose business days are counted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveCalendarEdits_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveCalendarEdits*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveCalendarEdits_System_String_NanoQL_Time_CalendarEdits_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveCalendarEdits(System.String,NanoQL.Time.CalendarEdits)">
+  ResolveCalendarEdits(string, CalendarEdits)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The holiday edits of a calendar preset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override CalendarEdits ResolveCalendarEdits(string preset, CalendarEdits reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>preset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The preset's name, its type and market (<code>TARGET</code>, <code>UnitedStates.NYSE</code>).</p>
+</dd>
+    <dt><code>reference</code> <a class="xref" href="NanoQL.Time.CalendarEdits.html">CalendarEdits</a></dt>
+    <dd><p>QuantLib's edits, none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.CalendarEdits.html">CalendarEdits</a></dt>
+    <dd><p>The edits to apply to the preset's holiday rules.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveCapFloorDefaults_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveCapFloorDefaults*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveCapFloorDefaults_System_Func_NanoQL_Instruments_CapFloorDefaults__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveCapFloorDefaults(System.Func{NanoQL.Instruments.CapFloorDefaults})">
+  ResolveCapFloorDefaults(Func&lt;CapFloorDefaults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The defaults a <a class="xref" href="NanoQL.Instruments.MakeCapFloor.html">MakeCapFloor</a> takes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override CapFloorDefaults ResolveCapFloorDefaults(Func&lt;CapFloorDefaults&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.CapFloorDefaults.html">CapFloorDefaults</a>&gt;</dt>
+    <dd><p>Builds QuantLib's defaults.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.CapFloorDefaults.html">CapFloorDefaults</a></dt>
+    <dd><p>The defaults.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveCdsDefaults_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveCdsDefaults*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveCdsDefaults_System_Func_NanoQL_Instruments_CdsDefaults__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveCdsDefaults(System.Func{NanoQL.Instruments.CdsDefaults})">
+  ResolveCdsDefaults(Func&lt;CdsDefaults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The defaults a <a class="xref" href="NanoQL.Instruments.MakeCreditDefaultSwap.html">MakeCreditDefaultSwap</a> takes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override CdsDefaults ResolveCdsDefaults(Func&lt;CdsDefaults&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.CdsDefaults.html">CdsDefaults</a>&gt;</dt>
+    <dd><p>Builds QuantLib's defaults.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.CdsDefaults.html">CdsDefaults</a></dt>
+    <dd><p>The defaults.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveCmsDefaults_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveCmsDefaults*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveCmsDefaults_System_Func_NanoQL_Instruments_CmsDefaults__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveCmsDefaults(System.Func{NanoQL.Instruments.CmsDefaults})">
+  ResolveCmsDefaults(Func&lt;CmsDefaults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The defaults a <a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a> takes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override CmsDefaults ResolveCmsDefaults(Func&lt;CmsDefaults&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.CmsDefaults.html">CmsDefaults</a>&gt;</dt>
+    <dd><p>Builds QuantLib's defaults.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.CmsDefaults.html">CmsDefaults</a></dt>
+    <dd><p>The defaults.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveCurrency_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveCurrency*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveCurrency_System_String_System_Func_NanoQL_CurrencyData__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveCurrency(System.String,System.Func{NanoQL.CurrencyData})">
+  ResolveCurrency(string, Func&lt;CurrencyData&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The data of a currency preset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override CurrencyData ResolveCurrency(string code, Func&lt;CurrencyData&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>code</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The currency's ISO 4217 code.</p>
+</dd>
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.CurrencyData.html">CurrencyData</a>&gt;</dt>
+    <dd><p>Builds QuantLib's data.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.CurrencyData.html">CurrencyData</a></dt>
+    <dd><p>The currency's data. Its ISO code, numeric code and name are its identity, which its equality and the exchange-rate
+registries read, so they are QuantLib's; the preset refuses data that changes them. The symbols, the fractions,
+the rounding and the triangulation currency are the provider's to configure.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveIborFamily_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveIborFamily*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveIborFamily_System_String_NanoQL_Time_Period_System_Func_NanoQL_Indexes_IborIndexConventions__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveIborFamily(System.String,NanoQL.Time.Period,System.Func{NanoQL.Indexes.IborIndexConventions})">
+  ResolveIborFamily(string, Period, Func&lt;IborIndexConventions&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The conventions of an Ibor or Libor family at a tenor, its fixed-tenor presets' among them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IborIndexConventions ResolveIborFamily(string family, Period tenor, Func&lt;IborIndexConventions&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>family</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The family's class name (<code>Euribor</code>, <code>USDLibor</code>).</p>
+</dd>
+    <dt><code>tenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The tenor.</p>
+</dd>
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Indexes.IborIndexConventions.html">IborIndexConventions</a>&gt;</dt>
+    <dd><p>Builds QuantLib's conventions at the tenor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.IborIndexConventions.html">IborIndexConventions</a></dt>
+    <dd><p>The conventions the index is built on.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Extensions_Conventions_ConventionSet_ResolveIborFamily_System_String_NanoQL_Time_Period_System_Func_NanoQL_Indexes_IborIndexConventions___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A fixed-tenor preset (<a class="xref" href="NanoQL.Indexes.Euribor6M.html">Euribor6M</a>) is its family at its tenor, so the two read one
+member.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveIborIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveIborIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveIborIndex_System_String_System_Func_NanoQL_Indexes_IborIndexConventions__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveIborIndex(System.String,System.Func{NanoQL.Indexes.IborIndexConventions})">
+  ResolveIborIndex(string, Func&lt;IborIndexConventions&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The conventions of an index preset its class names: a daily-tenor Libor, or the BMA index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IborIndexConventions ResolveIborIndex(string preset, Func&lt;IborIndexConventions&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>preset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The preset's name, its class's (<code>DailyTenorUSDLibor</code>, <code>USDLiborON</code>,
+<code>BMAIndex</code>).</p>
+</dd>
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Indexes.IborIndexConventions.html">IborIndexConventions</a>&gt;</dt>
+    <dd><p>Builds QuantLib's conventions, a daily-tenor Libor's settlement days its argument.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.IborIndexConventions.html">IborIndexConventions</a></dt>
+    <dd><p>The conventions the preset is built on.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveInflationIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveInflationIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveInflationIndex_System_String_System_Func_NanoQL_Indexes_InflationIndexConventions__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveInflationIndex(System.String,System.Func{NanoQL.Indexes.InflationIndexConventions})">
+  ResolveInflationIndex(string, Func&lt;InflationIndexConventions&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The conventions of a zero or quoted year-on-year inflation index preset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override InflationIndexConventions ResolveInflationIndex(string preset, Func&lt;InflationIndexConventions&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>preset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The preset's class name (<code>EUHICP</code>, <code>YYEUHICP</code>).</p>
+</dd>
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Indexes.InflationIndexConventions.html">InflationIndexConventions</a>&gt;</dt>
+    <dd><p>Builds QuantLib's conventions, with the preset's arguments.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.InflationIndexConventions.html">InflationIndexConventions</a></dt>
+    <dd><p>The conventions the index is built on.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveMultipleResetsSwapDefaults_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveMultipleResetsSwapDefaults*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveMultipleResetsSwapDefaults_System_Func_NanoQL_Instruments_MultipleResetsSwapDefaults__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveMultipleResetsSwapDefaults(System.Func{NanoQL.Instruments.MultipleResetsSwapDefaults})">
+  ResolveMultipleResetsSwapDefaults(Func&lt;MultipleResetsSwapDefaults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The defaults a <a class="xref" href="NanoQL.Instruments.MakeMultipleResetsSwap.html">MakeMultipleResetsSwap</a> takes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override MultipleResetsSwapDefaults ResolveMultipleResetsSwapDefaults(Func&lt;MultipleResetsSwapDefaults&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.MultipleResetsSwapDefaults.html">MultipleResetsSwapDefaults</a>&gt;</dt>
+    <dd><p>Builds QuantLib's defaults.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MultipleResetsSwapDefaults.html">MultipleResetsSwapDefaults</a></dt>
+    <dd><p>The defaults.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveOisDefaults_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveOisDefaults*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveOisDefaults_System_String_System_Func_NanoQL_Instruments_OisDefaults__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveOisDefaults(System.String,System.Func{NanoQL.Instruments.OisDefaults})">
+  ResolveOisDefaults(string, Func&lt;OisDefaults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The defaults a <a class="xref" href="NanoQL.Instruments.MakeOIS.html">MakeOIS</a> takes on an overnight index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override OisDefaults ResolveOisDefaults(string index, Func&lt;OisDefaults&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The index's class name (<code>Sonia</code>, <code>OvernightIndex</code>), by which QuantLib chooses the
+settlement days.</p>
+</dd>
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.OisDefaults.html">OisDefaults</a>&gt;</dt>
+    <dd><p>Builds QuantLib's defaults for the class.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OisDefaults.html">OisDefaults</a></dt>
+    <dd><p>The defaults.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveOvernightIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveOvernightIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveOvernightIndex_System_String_System_Func_NanoQL_Indexes_IborIndexConventions__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveOvernightIndex(System.String,System.Func{NanoQL.Indexes.IborIndexConventions})">
+  ResolveOvernightIndex(string, Func&lt;IborIndexConventions&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The conventions of an overnight index preset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IborIndexConventions ResolveOvernightIndex(string preset, Func&lt;IborIndexConventions&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>preset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The preset's class name (<code>Sofr</code>).</p>
+</dd>
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Indexes.IborIndexConventions.html">IborIndexConventions</a>&gt;</dt>
+    <dd><p>Builds QuantLib's conventions.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.IborIndexConventions.html">IborIndexConventions</a></dt>
+    <dd><p>The conventions the index is built on: an overnight index's convention is Following, without end of
+month, which the preset refuses to change.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveRegion_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveRegion*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveRegion_System_String_System_Func_NanoQL_Indexes_RegionData__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveRegion(System.String,System.Func{NanoQL.Indexes.RegionData})">
+  ResolveRegion(string, Func&lt;RegionData&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The data of a region preset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override RegionData ResolveRegion(string preset, Func&lt;RegionData&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>preset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The preset's class name (<code>EURegion</code>).</p>
+</dd>
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Indexes.RegionData.html">RegionData</a>&gt;</dt>
+    <dd><p>Builds QuantLib's data.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.RegionData.html">RegionData</a></dt>
+    <dd><p>The region's data. Its name is its identity, which its equality and its inflation indexes' names read,
+so it is QuantLib's, and the preset refuses data that changes it; the code is the provider's to configure.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveSwapIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveSwapIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveSwapIndex_System_String_NanoQL_Time_Period_System_Func_NanoQL_Indexes_SwapIndexConventions__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveSwapIndex(System.String,NanoQL.Time.Period,System.Func{NanoQL.Indexes.SwapIndexConventions})">
+  ResolveSwapIndex(string, Period, Func&lt;SwapIndexConventions&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The conventions of a swap index family at a tenor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override SwapIndexConventions ResolveSwapIndex(string family, Period tenor, Func&lt;SwapIndexConventions&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>family</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The family's class name (<code>EuriborSwapIsdaFixA</code>).</p>
+</dd>
+    <dt><code>tenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The swap's tenor.</p>
+</dd>
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Indexes.SwapIndexConventions.html">SwapIndexConventions</a>&gt;</dt>
+    <dd><p>Builds QuantLib's conventions at the tenor, the Ibor index on the swap index's
+forwarding curve.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.SwapIndexConventions.html">SwapIndexConventions</a></dt>
+    <dd><p>The conventions the index is built on.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveSwaptionDefaults_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveSwaptionDefaults*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveSwaptionDefaults_System_Func_NanoQL_Instruments_SwaptionDefaults__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveSwaptionDefaults(System.Func{NanoQL.Instruments.SwaptionDefaults})">
+  ResolveSwaptionDefaults(Func&lt;SwaptionDefaults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The defaults a <a class="xref" href="NanoQL.Instruments.MakeSwaption.html">MakeSwaption</a> takes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override SwaptionDefaults ResolveSwaptionDefaults(Func&lt;SwaptionDefaults&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.SwaptionDefaults.html">SwaptionDefaults</a>&gt;</dt>
+    <dd><p>Builds QuantLib's defaults.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.SwaptionDefaults.html">SwaptionDefaults</a></dt>
+    <dd><p>The defaults.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveUnitOfMeasure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveUnitOfMeasure*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveUnitOfMeasure_System_String_System_Func_NanoQL_Experimental_UnitOfMeasureData__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveUnitOfMeasure(System.String,System.Func{NanoQL.Experimental.UnitOfMeasureData})">
+  ResolveUnitOfMeasure(string, Func&lt;UnitOfMeasureData&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The data of a unit of measure preset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public override UnitOfMeasureData ResolveUnitOfMeasure(string preset, Func&lt;UnitOfMeasureData&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>preset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The preset's class name (<code>BarrelUnitOfMeasure</code>).</p>
+</dd>
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Experimental.UnitOfMeasureData.html">UnitOfMeasureData</a>&gt;</dt>
+    <dd><p>Builds QuantLib's data.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.UnitOfMeasureData.html">UnitOfMeasureData</a></dt>
+    <dd><p>The unit's data. Its code is its identity, which its equality and the conversions' lookups read, so it
+is QuantLib's, and the preset refuses data that changes it; the name, the type and the triangulation unit are
+the provider's to configure.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveVanillaSwapDefaults_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveVanillaSwapDefaults*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveVanillaSwapDefaults_NanoQL_Currency_System_Func_NanoQL_Instruments_VanillaSwapDefaults__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveVanillaSwapDefaults(NanoQL.Currency,System.Func{NanoQL.Instruments.VanillaSwapDefaults})">
+  ResolveVanillaSwapDefaults(Currency?, Func&lt;VanillaSwapDefaults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The defaults a <a class="xref" href="NanoQL.Instruments.MakeVanillaSwap.html">MakeVanillaSwap</a> takes on an index of a currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override VanillaSwapDefaults ResolveVanillaSwapDefaults(Currency? currency, Func&lt;VanillaSwapDefaults&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The index's currency, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.VanillaSwapDefaults.html">VanillaSwapDefaults</a>&gt;</dt>
+    <dd><p>Builds QuantLib's defaults for the currency.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.VanillaSwapDefaults.html">VanillaSwapDefaults</a></dt>
+    <dd><p>The defaults; a fixed leg's tenor or day counter left <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is unknown for the
+currency, which the builder refuses when it needs one. A threshold is compared with the swap's tenor, or, with
+a termination date given, with QuantLib's approximate months of the swap's length, (12 days + 182) / 365, when
+the builder needs its fixed leg's tenor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ResolveYoYInflationCapFloorDefaults_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveYoYInflationCapFloorDefaults*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ResolveYoYInflationCapFloorDefaults_System_Func_NanoQL_Instruments_YoYInflationCapFloorDefaults__" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ResolveYoYInflationCapFloorDefaults(System.Func{NanoQL.Instruments.YoYInflationCapFloorDefaults})">
+  ResolveYoYInflationCapFloorDefaults(Func&lt;YoYInflationCapFloorDefaults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The defaults a <a class="xref" href="NanoQL.Instruments.MakeYoYInflationCapFloor.html">MakeYoYInflationCapFloor</a> takes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override YoYInflationCapFloorDefaults ResolveYoYInflationCapFloorDefaults(Func&lt;YoYInflationCapFloorDefaults&gt; reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.YoYInflationCapFloorDefaults.html">YoYInflationCapFloorDefaults</a>&gt;</dt>
+    <dd><p>Builds QuantLib's defaults.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.YoYInflationCapFloorDefaults.html">YoYInflationCapFloorDefaults</a></dt>
+    <dd><p>The defaults.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Schedule_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Schedule*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Schedule_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Schedule(System.String)">
+  Schedule(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A schedule convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScheduleConvention Schedule(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.ScheduleConvention.html">ScheduleConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No ScheduleConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Swap_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Swap*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Swap_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Swap(System.String)">
+  Swap(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A swap convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SwapConvention Swap(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.SwapConvention.html">SwapConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No SwapConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_SwapIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.SwapIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_SwapIndex_System_String_NanoQL_Time_Period_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.SwapIndex(System.String,NanoQL.Time.Period,NanoQL.TermStructures.YieldTermStructure)">
+  SwapIndex(string, Period, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A swap index family's index at a tenor, built in the set with its Ibor index on a forwarding curve, which also
+discounts, as QuantLib's one-curve constructor builds it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SwapIndex SwapIndex(string name, Period tenor, YieldTermStructure? forwarding = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The family's name (<code>EuriborSwapIsdaFixA</code>) or an alias.</p>
+</dd>
+    <dt><code>tenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The swap's tenor.</p>
+</dd>
+    <dt><code>forwarding</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The forwarding curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.SwapIndex.html">SwapIndex</a></dt>
+    <dd><p>A new index, of its preset's class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No swap index family has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_SwapIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.SwapIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_SwapIndex_System_String_NanoQL_Time_Period_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.SwapIndex(System.String,NanoQL.Time.Period,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.YieldTermStructure)">
+  SwapIndex(string, Period, YieldTermStructure?, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A swap index family's index at a tenor, built in the set with its Ibor index on a forwarding curve and an
+exogenous discount curve, as QuantLib's two-curve constructor builds it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SwapIndex SwapIndex(string name, Period tenor, YieldTermStructure? forwarding, YieldTermStructure? discounting)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The family's name (<code>EuriborSwapIsdaFixA</code>) or an alias.</p>
+</dd>
+    <dt><code>tenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The swap's tenor.</p>
+</dd>
+    <dt><code>forwarding</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The forwarding curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>discounting</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The discount curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.SwapIndex.html">SwapIndex</a></dt>
+    <dd><p>A new index, of its preset's class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No swap index family has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_Swaption_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Swaption*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_Swaption_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.Swaption(System.String)">
+  Swaption(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A swaption convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SwaptionConvention Swaption(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.SwaptionConvention.html">SwaptionConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No SwaptionConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_UnitOfMeasure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.UnitOfMeasure*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_UnitOfMeasure_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.UnitOfMeasure(System.String)">
+  UnitOfMeasure(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A unit of measure by name, built in the set: a preset as its own class, or a unit of a user's own.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public UnitOfMeasure UnitOfMeasure(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unit's record name (<code>BarrelUnitOfMeasure</code>) or an alias.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.UnitOfMeasure.html">UnitOfMeasure</a></dt>
+    <dd><p>A new unit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No unit of measure has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_UnitOfMeasureConversions_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.UnitOfMeasureConversions*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_UnitOfMeasureConversions" data-uid="NanoQL.Extensions.Conventions.ConventionSet.UnitOfMeasureConversions">
+  UnitOfMeasureConversions()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The unit of measure conversions the set holds: QuantLib's known factors,
+<a class="xref" href="NanoQL.Experimental.UnitOfMeasureConversions.html#NanoQL_Experimental_UnitOfMeasureConversions_Default">Default</a>, with each of the set's conversion records added in
+the order the set's layers first give them, as QuantLib's <code>add</code> adds one, so a record between a known
+factor's two units replaces it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public UnitOfMeasureConversions UnitOfMeasureConversions()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.UnitOfMeasureConversions.html">UnitOfMeasureConversions</a></dt>
+    <dd><p>A new registry. The shipped records are the known factors, so on <a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html#NanoQL_Extensions_Conventions_ConventionSet_QuantLib">QuantLib</a> it equals
+<a class="xref" href="NanoQL.Experimental.UnitOfMeasureConversions.html#NanoQL_Experimental_UnitOfMeasureConversions_Default">Default</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Extensions_Conventions_ConventionSet_UnitOfMeasureConversions_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>QuantLib's manager holds its known factors from its start and after <code>clear()</code>, so a set on
+<a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html#NanoQL_Extensions_Conventions_ConventionSet_Empty">Empty</a> holds them too, as code built under QuantLib's conventions, until its records replace
+them.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_With_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.With*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_With_NanoQL_Extensions_Conventions_ConventionSnapshot_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.With(NanoQL.Extensions.Conventions.ConventionSnapshot)">
+  With(ConventionSnapshot)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A set with a snapshot layered on top: its records override the set's of the same names, and the rest stay.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConventionSet With(ConventionSnapshot snapshot)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>snapshot</code> <a class="xref" href="NanoQL.Extensions.Conventions.ConventionSnapshot.html">ConventionSnapshot</a></dt>
+    <dd><p>The snapshot.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.ConventionSet.html">ConventionSet</a></dt>
+    <dd><p>The new set; the receiver and <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_Default">Default</a> are unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">snapshot</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A record names an unknown record, takes a coded preset's name in a kind its class can't take, edits a preset's
+QuantLib name, defines a currency QuantLib doesn't have, lacks a field it can't take from a base, or is part
+of a cycle; or the core refuses a record's value.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_YearOnYearInflationSwap_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.YearOnYearInflationSwap*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_YearOnYearInflationSwap_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.YearOnYearInflationSwap(System.String)">
+  YearOnYearInflationSwap(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A year-on-year inflation swap convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YearOnYearInflationSwapConvention YearOnYearInflationSwap(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.YearOnYearInflationSwapConvention.html">YearOnYearInflationSwapConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No YearOnYearInflationSwapConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_YoYInflationCapFloor_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.YoYInflationCapFloor*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_YoYInflationCapFloor_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.YoYInflationCapFloor(System.String)">
+  YoYInflationCapFloor(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A year-on-year inflation cap and floor convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YoYInflationCapFloorConvention YoYInflationCapFloor(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.YoYInflationCapFloorConvention.html">YoYInflationCapFloorConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No YoYInflationCapFloorConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_YoYInflationIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.YoYInflationIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_YoYInflationIndex_System_String_NanoQL_TermStructures_YoYInflationTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.YoYInflationIndex(System.String,NanoQL.TermStructures.YoYInflationTermStructure)">
+  YoYInflationIndex(string, YoYInflationTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A year-on-year inflation index by name, built in the set on its curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YoYInflationIndex YoYInflationIndex(string name, YoYInflationTermStructure? ts = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The index's name (<code>YYEUHICP</code>) or an alias.</p>
+</dd>
+    <dt><code>ts</code> <a class="xref" href="NanoQL.TermStructures.YoYInflationTermStructure.html">YoYInflationTermStructure</a></dt>
+    <dd><p>The year-on-year inflation curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.YoYInflationIndex.html">YoYInflationIndex</a></dt>
+    <dd><p>A new index, quoted or the ratio of its underlying zero index's, which is built without a
+curve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No year-on-year inflation index has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_YoYInflationIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.YoYInflationIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_YoYInflationIndex_System_String_NanoQL_Time_Frequency_System_Boolean_NanoQL_TermStructures_YoYInflationTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.YoYInflationIndex(System.String,NanoQL.Time.Frequency,System.Boolean,NanoQL.TermStructures.YoYInflationTermStructure)">
+  YoYInflationIndex(string, Frequency, bool, YoYInflationTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A year-on-year inflation preset that takes its frequency and revised flag (YYAUCPI), built in the set on its
+curve, as QuantLib-Python's constructor takes them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YoYInflationIndex YoYInflationIndex(string name, Frequency frequency, bool revised, YoYInflationTermStructure? ts = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The preset's name or an alias of it.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The index's frequency.</p>
+</dd>
+    <dt><code>revised</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the index is revised.</p>
+</dd>
+    <dt><code>ts</code> <a class="xref" href="NanoQL.TermStructures.YoYInflationTermStructure.html">YoYInflationTermStructure</a></dt>
+    <dd><p>The year-on-year inflation curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.YoYInflationIndex.html">YoYInflationIndex</a></dt>
+    <dd><p>A new index, of its preset's class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No year-on-year inflation preset of the name takes a frequency and a revised
+flag.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_YoYInflationIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.YoYInflationIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_YoYInflationIndex_System_String_NanoQL_Time_Frequency_System_Boolean_NanoQL_Time_Period_NanoQL_Currency_NanoQL_TermStructures_YoYInflationTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.YoYInflationIndex(System.String,NanoQL.Time.Frequency,System.Boolean,NanoQL.Time.Period,NanoQL.Currency,NanoQL.TermStructures.YoYInflationTermStructure)">
+  YoYInflationIndex(string, Frequency, bool, Period, Currency, YoYInflationTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A year-on-year inflation preset that takes its frequency, revised flag, availability lag and currency
+(YYGenericCPI), built in the set on its curve, as QuantLib-Python's constructor takes them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YoYInflationIndex YoYInflationIndex(string name, Frequency frequency, bool revised, Period availabilityLag, Currency currency, YoYInflationTermStructure? ts = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The preset's name or an alias of it.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The index's frequency.</p>
+</dd>
+    <dt><code>revised</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the index is revised.</p>
+</dd>
+    <dt><code>availabilityLag</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The availability lag.</p>
+</dd>
+    <dt><code>currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The currency.</p>
+</dd>
+    <dt><code>ts</code> <a class="xref" href="NanoQL.TermStructures.YoYInflationTermStructure.html">YoYInflationTermStructure</a></dt>
+    <dd><p>The year-on-year inflation curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.YoYInflationIndex.html">YoYInflationIndex</a></dt>
+    <dd><p>A new index, of its preset's class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No year-on-year inflation preset of the name takes a lag and a
+currency.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ZeroCouponInflationSwap_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ZeroCouponInflationSwap*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ZeroCouponInflationSwap_System_String_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ZeroCouponInflationSwap(System.String)">
+  ZeroCouponInflationSwap(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A zero-coupon inflation swap convention by name, its record's base chain merged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ZeroCouponInflationSwapConvention ZeroCouponInflationSwap(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.ZeroCouponInflationSwapConvention.html">ZeroCouponInflationSwapConvention</a></dt>
+    <dd><p>The convention, on the set's names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No ZeroCouponInflationSwapConvention record has the name.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ZeroInflationIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ZeroInflationIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ZeroInflationIndex_System_String_NanoQL_TermStructures_ZeroInflationTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ZeroInflationIndex(System.String,NanoQL.TermStructures.ZeroInflationTermStructure)">
+  ZeroInflationIndex(string, ZeroInflationTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A zero inflation index by name, built in the set on its curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ZeroInflationIndex ZeroInflationIndex(string name, ZeroInflationTermStructure? ts = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The index's name (<code>EUHICP</code>, a record based on <code>AUCPI</code> or <code>GenericCPI</code> giving its
+arguments) or an alias.</p>
+</dd>
+    <dt><code>ts</code> <a class="xref" href="NanoQL.TermStructures.ZeroInflationTermStructure.html">ZeroInflationTermStructure</a></dt>
+    <dd><p>The zero inflation curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.ZeroInflationIndex.html">ZeroInflationIndex</a></dt>
+    <dd><p>A new index, of its preset's class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No zero inflation index has the name, or the preset takes arguments a record
+based on it gives.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ZeroInflationIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ZeroInflationIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ZeroInflationIndex_System_String_NanoQL_Time_Frequency_System_Boolean_NanoQL_TermStructures_ZeroInflationTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ZeroInflationIndex(System.String,NanoQL.Time.Frequency,System.Boolean,NanoQL.TermStructures.ZeroInflationTermStructure)">
+  ZeroInflationIndex(string, Frequency, bool, ZeroInflationTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A zero inflation preset that takes its frequency and revised flag (AUCPI), built in the set on its curve, as
+QuantLib-Python's constructor takes them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ZeroInflationIndex ZeroInflationIndex(string name, Frequency frequency, bool revised, ZeroInflationTermStructure? ts = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The preset's name or an alias of it.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The index's frequency.</p>
+</dd>
+    <dt><code>revised</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the index is revised.</p>
+</dd>
+    <dt><code>ts</code> <a class="xref" href="NanoQL.TermStructures.ZeroInflationTermStructure.html">ZeroInflationTermStructure</a></dt>
+    <dd><p>The zero inflation curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.ZeroInflationIndex.html">ZeroInflationIndex</a></dt>
+    <dd><p>A new index, of its preset's class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No zero inflation preset of the name takes a frequency and a revised
+flag.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_ConventionSet_ZeroInflationIndex_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ZeroInflationIndex*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_ConventionSet_ZeroInflationIndex_System_String_NanoQL_Time_Frequency_System_Boolean_NanoQL_Time_Period_NanoQL_Currency_NanoQL_TermStructures_ZeroInflationTermStructure_" data-uid="NanoQL.Extensions.Conventions.ConventionSet.ZeroInflationIndex(System.String,NanoQL.Time.Frequency,System.Boolean,NanoQL.Time.Period,NanoQL.Currency,NanoQL.TermStructures.ZeroInflationTermStructure)">
+  ZeroInflationIndex(string, Frequency, bool, Period, Currency, ZeroInflationTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A zero inflation preset that takes its frequency, revised flag, availability lag and currency (GenericCPI),
+built in the set on its curve, as QuantLib-Python's constructor takes them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ZeroInflationIndex ZeroInflationIndex(string name, Frequency frequency, bool revised, Period availabilityLag, Currency currency, ZeroInflationTermStructure? ts = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The preset's name or an alias of it.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The index's frequency.</p>
+</dd>
+    <dt><code>revised</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the index is revised.</p>
+</dd>
+    <dt><code>availabilityLag</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The availability lag.</p>
+</dd>
+    <dt><code>currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The currency.</p>
+</dd>
+    <dt><code>ts</code> <a class="xref" href="NanoQL.TermStructures.ZeroInflationTermStructure.html">ZeroInflationTermStructure</a></dt>
+    <dd><p>The zero inflation curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.ZeroInflationIndex.html">ZeroInflationIndex</a></dt>
+    <dd><p>A new index, of its preset's class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">name</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No zero inflation preset of the name takes a lag and a currency.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

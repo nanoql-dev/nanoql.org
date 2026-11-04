@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class BootstrapState&lt;TTermStructure&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BootstrapState&lt;TTermStructure&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The working state of a curve under construction: QuantLib&#39;s friend access to the curve&#39;s instruments, dates, times, data, interpolation and maximum date, which its bootstrap reads and writes.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.BootstrapState`1">
+
+
+
+  <h1 id="NanoQL_TermStructures_BootstrapState_1" data-uid="NanoQL.TermStructures.BootstrapState`1" class="text-break">
+Class BootstrapState&lt;TTermStructure&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The working state of a curve under construction: QuantLib's friend access to the curve's instruments, dates, times,
+data, interpolation and maximum date, which its bootstrap reads and writes.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public sealed class BootstrapState&lt;TTermStructure&gt; : IBootstrapState where TTermStructure : TermStructure</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TTermStructure</code></dt>
+    <dd><p>The kind of term structure bootstrapped.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">BootstrapState&lt;TTermStructure&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.TermStructures.IBootstrapState.html">IBootstrapState</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_TermStructures_BootstrapState_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A working type, as <a class="xref" href="NanoQL.Numerics.ProblemState.html">ProblemState</a> is: it lives only while its curve's constructor runs, belongs to that
+one computation and isn't thread-safe. The curve under construction answers from it, as QuantLib's curve answers
+from its members while its bootstrap fills them, and freezes it into its immutable nodes when its bootstrap
+returns. A bootstrap of one's own reads and writes its members and sets <a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html#NanoQL_TermStructures_BootstrapState_1_Interpolation">Interpolation</a> itself.
+</p>
+<p>
+The instruments are the curve's helpers, each re-dated for the curve's evaluation date (see
+<a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html">BootstrapHelper&lt;TTermStructure&gt;</a>). A bootstrap binds the ones it prices to the curve with
+<a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html#NanoQL_TermStructures_BootstrapState_1_Bind_NanoQL_TermStructures_BootstrapHelper__0__">Bind(BootstrapHelper&lt;TTermStructure&gt;)</a> and keeps the bound copies in <a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html#NanoQL_TermStructures_BootstrapState_1_Instruments">Instruments</a>, as QuantLib's binds its curve's helpers
+in place.
+</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_TermStructures_BootstrapState_1_Accuracy_" data-uid="NanoQL.TermStructures.BootstrapState`1.Accuracy*"></a>
+
+  <h3 id="NanoQL_TermStructures_BootstrapState_1_Accuracy" data-uid="NanoQL.TermStructures.BootstrapState`1.Accuracy">
+  Accuracy
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the accuracy a bootstrap uses when it isn't given one: QuantLib's curve's <code>accuracy_</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Accuracy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BootstrapState_1_AdditionalHelpers_" data-uid="NanoQL.TermStructures.BootstrapState`1.AdditionalHelpers*"></a>
+
+  <h3 id="NanoQL_TermStructures_BootstrapState_1_AdditionalHelpers" data-uid="NanoQL.TermStructures.BootstrapState`1.AdditionalHelpers">
+  AdditionalHelpers
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a global bootstrap's additional helpers, which add no pillar of their own: re-dated for the curve's
+evaluation date, and the ones alive at its first date bound to the curve. Empty for another bootstrap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BootstrapHelper&lt;TTermStructure&gt;[] AdditionalHelpers { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html">BootstrapHelper</a>&lt;TTermStructure&gt;[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BootstrapState_1_AdditionalVariables_" data-uid="NanoQL.TermStructures.BootstrapState`1.AdditionalVariables*"></a>
+
+  <h3 id="NanoQL_TermStructures_BootstrapState_1_AdditionalVariables" data-uid="NanoQL.TermStructures.BootstrapState`1.AdditionalVariables">
+  AdditionalVariables
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the values of a global bootstrap's additional variables
+(<a class="xref" href="NanoQL.TermStructures.GlobalBootstrap.html#NanoQL_TermStructures_GlobalBootstrap_AdditionalVariables">AdditionalVariables</a>) at its last evaluation, the optimum when it returns, which
+the curve keeps. Empty for another bootstrap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; AdditionalVariables { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BootstrapState_1_Context_" data-uid="NanoQL.TermStructures.BootstrapState`1.Context*"></a>
+
+  <h3 id="NanoQL_TermStructures_BootstrapState_1_Context" data-uid="NanoQL.TermStructures.BootstrapState`1.Context">
+  Context
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the evaluation context the curve is built in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EvaluationContext Context { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BootstrapState_1_Curve_" data-uid="NanoQL.TermStructures.BootstrapState`1.Curve*"></a>
+
+  <h3 id="NanoQL_TermStructures_BootstrapState_1_Curve" data-uid="NanoQL.TermStructures.BootstrapState`1.Curve">
+  Curve
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the curve under construction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TTermStructure Curve { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TTermStructure</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BootstrapState_1_Data_" data-uid="NanoQL.TermStructures.BootstrapState`1.Data*"></a>
+
+  <h3 id="NanoQL_TermStructures_BootstrapState_1_Data" data-uid="NanoQL.TermStructures.BootstrapState`1.Data">
+  Data
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the curve's data at its nodes, as its traits read them (discount factors, rates).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] Data { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BootstrapState_1_Dates_" data-uid="NanoQL.TermStructures.BootstrapState`1.Dates*"></a>
+
+  <h3 id="NanoQL_TermStructures_BootstrapState_1_Dates" data-uid="NanoQL.TermStructures.BootstrapState`1.Dates">
+  Dates
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the dates of the curve's nodes, the first one the curve's initial date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date[] Dates { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BootstrapState_1_Instruments_" data-uid="NanoQL.TermStructures.BootstrapState`1.Instruments*"></a>
+
+  <h3 id="NanoQL_TermStructures_BootstrapState_1_Instruments" data-uid="NanoQL.TermStructures.BootstrapState`1.Instruments">
+  Instruments
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the curve's helpers, re-dated for its evaluation date; a bootstrap sorts them in place and replaces the ones
+it prices with copies bound to the curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BootstrapHelper&lt;TTermStructure&gt;[] Instruments { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html">BootstrapHelper</a>&lt;TTermStructure&gt;[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BootstrapState_1_Interpolation_" data-uid="NanoQL.TermStructures.BootstrapState`1.Interpolation*"></a>
+
+  <h3 id="NanoQL_TermStructures_BootstrapState_1_Interpolation" data-uid="NanoQL.TermStructures.BootstrapState`1.Interpolation">
+  Interpolation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the interpolation the curve answers from, over its first nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Interpolation? Interpolation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Interpolation.html">Interpolation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BootstrapState_1_MaxDate_" data-uid="NanoQL.TermStructures.BootstrapState`1.MaxDate*"></a>
+
+  <h3 id="NanoQL_TermStructures_BootstrapState_1_MaxDate" data-uid="NanoQL.TermStructures.BootstrapState`1.MaxDate">
+  MaxDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the latest date the curve's helpers need, which may be past the last node: QuantLib's
+<code>maxDate_</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date? MaxDate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_BootstrapState_1_Times_" data-uid="NanoQL.TermStructures.BootstrapState`1.Times*"></a>
+
+  <h3 id="NanoQL_TermStructures_BootstrapState_1_Times" data-uid="NanoQL.TermStructures.BootstrapState`1.Times">
+  Times
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the times of the curve's nodes, from the reference date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] Times { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_BootstrapState_1_Bind_" data-uid="NanoQL.TermStructures.BootstrapState`1.Bind*"></a>
+
+  <h3 id="NanoQL_TermStructures_BootstrapState_1_Bind_NanoQL_TermStructures_BootstrapHelper__0__" data-uid="NanoQL.TermStructures.BootstrapState`1.Bind(NanoQL.TermStructures.BootstrapHelper{`0})">
+  Bind(BootstrapHelper&lt;TTermStructure&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of a helper re-dated for the curve's evaluation date and bound to the curve under construction: QuantLib's
+<code>setTermStructure(this)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BootstrapHelper&lt;TTermStructure&gt; Bind(BootstrapHelper&lt;TTermStructure&gt; helper)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>helper</code> <a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html">BootstrapHelper</a>&lt;TTermStructure&gt;</dt>
+    <dd><p>The helper.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.BootstrapHelper-1.html">BootstrapHelper</a>&lt;TTermStructure&gt;</dt>
+    <dd><p>The bound copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">helper</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

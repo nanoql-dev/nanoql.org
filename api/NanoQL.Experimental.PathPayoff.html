@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class PathPayoff | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PathPayoff | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A payoff on the assets&#39; whole paths at the fixing dates: its payments and early-termination values, and the state on which a Longstaff-Schwartz regression decides an exercise.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.PathPayoff">
+
+
+
+  <h1 id="NanoQL_Experimental_PathPayoff" data-uid="NanoQL.Experimental.PathPayoff" class="text-break">
+Class PathPayoff  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A payoff on the assets' whole paths at the fixing dates: its payments and early-termination values, and the state
+on which a Longstaff-Schwartz regression decides an exercise.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public abstract class PathPayoff</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PathPayoff</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.AdaptedPathPayoff.html">AdaptedPathPayoff</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_PathPayoff_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>An extension point, as in QuantLib: a product derives it (or <a class="xref" href="NanoQL.Experimental.AdaptedPathPayoff.html">AdaptedPathPayoff</a>). QuantLib's visitor
+isn't ported (the playbook's visitor row).</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_PathPayoff__ctor_" data-uid="NanoQL.Experimental.PathPayoff.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_PathPayoff__ctor" data-uid="NanoQL.Experimental.PathPayoff.#ctor">
+  PathPayoff()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected PathPayoff()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_PathPayoff_BasisSystemDimension_" data-uid="NanoQL.Experimental.PathPayoff.BasisSystemDimension*"></a>
+
+  <h3 id="NanoQL_Experimental_PathPayoff_BasisSystemDimension" data-uid="NanoQL.Experimental.PathPayoff.BasisSystemDimension">
+  BasisSystemDimension
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the dimension of the basis functions: the size of every state <a class="xref" href="NanoQL.Experimental.PathPayoff.html#NanoQL_Experimental_PathPayoff_Value_NanoQL_Numerics_Matrix_System_Collections_Immutable_ImmutableArray_NanoQL_TermStructures_YieldTermStructure__NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector___">Value(Matrix, ImmutableArray&lt;YieldTermStructure&gt;, Vector, Vector, Vector[])</a> writes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int BasisSystemDimension { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_PathPayoff_Description_" data-uid="NanoQL.Experimental.PathPayoff.Description*"></a>
+
+  <h3 id="NanoQL_Experimental_PathPayoff_Description" data-uid="NanoQL.Experimental.PathPayoff.Description">
+  Description
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the payoff's description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string Description { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_PathPayoff_Name_" data-uid="NanoQL.Experimental.PathPayoff.Name*"></a>
+
+  <h3 id="NanoQL_Experimental_PathPayoff_Name" data-uid="NanoQL.Experimental.PathPayoff.Name">
+  Name
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the payoff's name, for output and comparison, not for switching on its type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_PathPayoff_Value_" data-uid="NanoQL.Experimental.PathPayoff.Value*"></a>
+
+  <h3 id="NanoQL_Experimental_PathPayoff_Value_NanoQL_Numerics_Matrix_System_Collections_Immutable_ImmutableArray_NanoQL_TermStructures_YieldTermStructure__NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector___" data-uid="NanoQL.Experimental.PathPayoff.Value(NanoQL.Numerics.Matrix,System.Collections.Immutable.ImmutableArray{NanoQL.TermStructures.YieldTermStructure},NanoQL.Numerics.Vector,NanoQL.Numerics.Vector,NanoQL.Numerics.Vector[])">
+  Value(Matrix, ImmutableArray&lt;YieldTermStructure&gt;, Vector, Vector, Vector[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The payoff and early-termination payments of one path. If the option is cancelled at time i, every payment on and
+before i counts, plus the exercise value at i: cancellation at i doesn't cancel the payment at i.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Value(Matrix path, ImmutableArray&lt;YieldTermStructure&gt; forwardTermStructures, Vector payments, Vector exercises, Vector[] states)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The assets' values at the fixing times, one row per asset.</p>
+</dd>
+    <dt><code>forwardTermStructures</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a>&gt;</dt>
+    <dd><p>The yield curve at each fixing date.</p>
+</dd>
+    <dt><code>payments</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The payments at each fixing time, written.</p>
+</dd>
+    <dt><code>exercises</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The exercise values at each fixing time, written; empty where no exercise is possible.</p>
+</dd>
+    <dt><code>states</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a>[]</dt>
+    <dd><p>The regression state at each fixing time; empty where no exercise is possible, and an
+empty state signals that no exercise is possible at its time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

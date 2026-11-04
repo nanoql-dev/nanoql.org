@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class FdmQuantoHelper | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FdmQuantoHelper | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The market data a quanto option&#39;s finite-difference operator needs for its drift adjustment: the domestic and foreign curves, the exchange rate&#39;s volatility, its at-the-money level and its correlation with the equity.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Methods.FdmQuantoHelper">
+
+
+
+  <h1 id="NanoQL_Methods_FdmQuantoHelper" data-uid="NanoQL.Methods.FdmQuantoHelper" class="text-break">
+Class FdmQuantoHelper  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Methods.html">Methods</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The market data a quanto option's finite-difference operator needs for its drift adjustment: the domestic and
+foreign curves, the exchange rate's volatility, its at-the-money level and its correlation with the equity.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class FdmQuantoHelper</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">FdmQuantoHelper</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Methods_FdmQuantoHelper_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Methods_FdmQuantoHelper__ctor_" data-uid="NanoQL.Methods.FdmQuantoHelper.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_FdmQuantoHelper__ctor_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_BlackVolTermStructure_System_Double_System_Double_" data-uid="NanoQL.Methods.FdmQuantoHelper.#ctor(NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.BlackVolTermStructure,System.Double,System.Double)">
+  FdmQuantoHelper(YieldTermStructure, YieldTermStructure, BlackVolTermStructure, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.FdmQuantoHelper.html">FdmQuantoHelper</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FdmQuantoHelper(YieldTermStructure rTS, YieldTermStructure fTS, BlackVolTermStructure fxVolTS, double equityFxCorrelation, double exchRateATMlevel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rTS</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The domestic risk-free curve.</p>
+</dd>
+    <dt><code>fTS</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The foreign risk-free curve.</p>
+</dd>
+    <dt><code>fxVolTS</code> <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a></dt>
+    <dd><p>The exchange rate's Black volatility.</p>
+</dd>
+    <dt><code>equityFxCorrelation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation of the equity with the exchange rate.</p>
+</dd>
+    <dt><code>exchRateATMlevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The exchange rate's at-the-money level, the strike its volatility is read
+at.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A curve or the volatility is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Methods_FdmQuantoHelper_EquityFxCorrelation_" data-uid="NanoQL.Methods.FdmQuantoHelper.EquityFxCorrelation*"></a>
+
+  <h3 id="NanoQL_Methods_FdmQuantoHelper_EquityFxCorrelation" data-uid="NanoQL.Methods.FdmQuantoHelper.EquityFxCorrelation">
+  EquityFxCorrelation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the correlation of the equity with the exchange rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double EquityFxCorrelation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_FdmQuantoHelper_ExchRateATMlevel_" data-uid="NanoQL.Methods.FdmQuantoHelper.ExchRateATMlevel*"></a>
+
+  <h3 id="NanoQL_Methods_FdmQuantoHelper_ExchRateATMlevel" data-uid="NanoQL.Methods.FdmQuantoHelper.ExchRateATMlevel">
+  ExchRateATMlevel
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the exchange rate's at-the-money level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ExchRateATMlevel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_FdmQuantoHelper_FTS_" data-uid="NanoQL.Methods.FdmQuantoHelper.FTS*"></a>
+
+  <h3 id="NanoQL_Methods_FdmQuantoHelper_FTS" data-uid="NanoQL.Methods.FdmQuantoHelper.FTS">
+  FTS
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the foreign risk-free curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YieldTermStructure FTS { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_FdmQuantoHelper_FxVolTS_" data-uid="NanoQL.Methods.FdmQuantoHelper.FxVolTS*"></a>
+
+  <h3 id="NanoQL_Methods_FdmQuantoHelper_FxVolTS" data-uid="NanoQL.Methods.FdmQuantoHelper.FxVolTS">
+  FxVolTS
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the exchange rate's Black volatility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlackVolTermStructure FxVolTS { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_FdmQuantoHelper_RTS_" data-uid="NanoQL.Methods.FdmQuantoHelper.RTS*"></a>
+
+  <h3 id="NanoQL_Methods_FdmQuantoHelper_RTS" data-uid="NanoQL.Methods.FdmQuantoHelper.RTS">
+  RTS
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the domestic risk-free curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YieldTermStructure RTS { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Methods_FdmQuantoHelper_QuantoAdjustment_" data-uid="NanoQL.Methods.FdmQuantoHelper.QuantoAdjustment*"></a>
+
+  <h3 id="NanoQL_Methods_FdmQuantoHelper_QuantoAdjustment_NanoQL_Numerics_Vector_System_Double_System_Double_" data-uid="NanoQL.Methods.FdmQuantoHelper.QuantoAdjustment(NanoQL.Numerics.Vector,System.Double,System.Double)">
+  QuantoAdjustment(Vector, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The quanto adjustment of the drift over [t1, t2] at each of several equity volatilities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector QuantoAdjustment(Vector equityVol, double t1, double t2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>equityVol</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The equity's volatilities.</p>
+</dd>
+    <dt><code>t1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start time.</p>
+</dd>
+    <dt><code>t2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The end time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector of the adjustments, one per volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">equityVol</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_FdmQuantoHelper_QuantoAdjustment_" data-uid="NanoQL.Methods.FdmQuantoHelper.QuantoAdjustment*"></a>
+
+  <h3 id="NanoQL_Methods_FdmQuantoHelper_QuantoAdjustment_System_Double_System_Double_System_Double_" data-uid="NanoQL.Methods.FdmQuantoHelper.QuantoAdjustment(System.Double,System.Double,System.Double)">
+  QuantoAdjustment(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The quanto adjustment of the drift over [t1, t2] at an equity volatility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double QuantoAdjustment(double equityVol, double t1, double t2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>equityVol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The equity's volatility.</p>
+</dd>
+    <dt><code>t1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start time.</p>
+</dd>
+    <dt><code>t2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The end time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The domestic less the foreign forward rate, plus the volatilities' product times the
+correlation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_FdmQuantoHelper_QuantoAdjustment_" data-uid="NanoQL.Methods.FdmQuantoHelper.QuantoAdjustment*"></a>
+
+  <h3 id="NanoQL_Methods_FdmQuantoHelper_QuantoAdjustment_System_ReadOnlySpan_System_Double__System_Double_System_Double_System_Span_System_Double__" data-uid="NanoQL.Methods.FdmQuantoHelper.QuantoAdjustment(System.ReadOnlySpan{System.Double},System.Double,System.Double,System.Span{System.Double})">
+  QuantoAdjustment(ReadOnlySpan&lt;double&gt;, double, double, Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The quanto adjustment of the drift over [t1, t2] at each of several equity volatilities, written into the
+caller's span (the in-place form the operator's time step uses).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void QuantoAdjustment(ReadOnlySpan&lt;double&gt; equityVol, double t1, double t2, Span&lt;double&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>equityVol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The equity's volatilities.</p>
+</dd>
+    <dt><code>t1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start time.</p>
+</dd>
+    <dt><code>t2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The end time.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The adjustments, one per volatility; it may be <code class="paramref">equityVol</code> itself.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">result</code> is shorter than <code class="paramref">equityVol</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

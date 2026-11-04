@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Solver1D&lt;TSelf, TFunction&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Solver1D&lt;TSelf, TFunction&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The base class of 1-D solvers: QuantLib&#39;s curiously recurring Solver1D&amp;lt;Impl&amp;gt;. It brackets the zero of a function, then hands the bracket to the solver&#39;s .">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.Solver1D`2">
+
+
+
+  <h1 id="NanoQL_Numerics_Solver1D_2" data-uid="NanoQL.Numerics.Solver1D`2" class="text-break">
+Class Solver1D&lt;TSelf, TFunction&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base class of 1-D solvers: QuantLib's curiously recurring <code>Solver1D&lt;Impl&gt;</code>. It brackets the zero
+of a function, then hands the bracket to the solver's <a class="xref" href="NanoQL.Numerics.Solver1D-2.html#NanoQL_Numerics_Solver1D_2_SolveCore__1___0_System_Double_NanoQL_Numerics_Solver1DBracket_">SolveCore&lt;TF&gt;(TF, double, Solver1DBracket)</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Solver1D&lt;TSelf, TFunction&gt; where TSelf : Solver1D&lt;TSelf, TFunction&gt; where TFunction : ISolver1DFunction</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TSelf</code></dt>
+    <dd><p>The concrete solver, which the setters return.</p>
+</dd>
+    <dt><code>TFunction</code></dt>
+    <dd><p>The function concept the solver needs: <a class="xref" href="NanoQL.Numerics.ISolver1DFunction.html">ISolver1DFunction</a>, or <a class="xref" href="NanoQL.Numerics.IDerivativeSolver1DFunction.html">IDerivativeSolver1DFunction</a>
+for a solver that also calls the derivative.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Solver1D&lt;TSelf, TFunction&gt;</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Numerics.Bisection.html">Bisection</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Brent.html">Brent</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.FalsePosition.html">FalsePosition</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.FiniteDifferenceNewtonSafe.html">FiniteDifferenceNewtonSafe</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Halley.html">Halley</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Newton.html">Newton</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.NewtonSafe.html">NewtonSafe</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Ridder.html">Ridder</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Secant.html">Secant</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Numerics_Solver1D_2_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A concrete solver is declared as <code>sealed class Foo : Solver1D&lt;Foo, ISolver1DFunction&gt;</code> and implements
+<a class="xref" href="NanoQL.Numerics.Solver1D-2.html#NanoQL_Numerics_Solver1D_2_SolveCore__1___0_System_Double_NanoQL_Numerics_Solver1DBracket_">SolveCore&lt;TF&gt;(TF, double, Solver1DBracket)</a>, which can assume what <a class="xref" href="NanoQL.Numerics.Solver1DBracket.html">Solver1DBracket</a> holds: a valid bracket, the
+function's values at its ends, and a valid initial guess.
+</p>
+<p>
+Immutable: <a class="xref" href="NanoQL.Numerics.Solver1D-2.html#NanoQL_Numerics_Solver1D_2_SetMaxEvaluations_System_Int32_">SetMaxEvaluations(int)</a>, <a class="xref" href="NanoQL.Numerics.Solver1D-2.html#NanoQL_Numerics_Solver1D_2_SetLowerBound_System_Double_">SetLowerBound(double)</a> and <a class="xref" href="NanoQL.Numerics.Solver1D-2.html#NanoQL_Numerics_Solver1D_2_SetUpperBound_System_Double_">SetUpperBound(double)</a> return a
+modified copy, where QuantLib's setters change the solver. The bracketing's state, which QuantLib keeps in
+<code>mutable</code> members, lives inside each <code>Solve</code> call.
+</p>
+<p>
+An extension point, as in QuantLib: the other 1-D solvers derive from it.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Numerics_Solver1D_2__ctor_" data-uid="NanoQL.Numerics.Solver1D`2.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_Solver1D_2__ctor" data-uid="NanoQL.Numerics.Solver1D`2.#ctor">
+  Solver1D()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.Solver1D-2.html">Solver1D&lt;TSelf, TFunction&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Solver1D()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="NanoQL_Numerics_Solver1D_2_MaxFunctionEvaluations" data-uid="NanoQL.Numerics.Solver1D`2.MaxFunctionEvaluations">
+  MaxFunctionEvaluations
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default maximum number of function evaluations: QuantLib's <code>MAX_FUNCTION_EVALUATIONS</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxFunctionEvaluations = 100</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Numerics_Solver1D_2_MaxEvaluations_" data-uid="NanoQL.Numerics.Solver1D`2.MaxEvaluations*"></a>
+
+  <h3 id="NanoQL_Numerics_Solver1D_2_MaxEvaluations" data-uid="NanoQL.Numerics.Solver1D`2.MaxEvaluations">
+  MaxEvaluations
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maximum number of function evaluations, for the bracketing and the solver alike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int MaxEvaluations { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_Solver1D_2_SetLowerBound_" data-uid="NanoQL.Numerics.Solver1D`2.SetLowerBound*"></a>
+
+  <h3 id="NanoQL_Numerics_Solver1D_2_SetLowerBound_System_Double_" data-uid="NanoQL.Numerics.Solver1D`2.SetLowerBound(System.Double)">
+  SetLowerBound(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the solver with the lower bound of the function's domain set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TSelf SetLowerBound(double lowerBound)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lowerBound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The lower bound.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TSelf</span></dt>
+    <dd><p>The modified copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Solver1D_2_SetMaxEvaluations_" data-uid="NanoQL.Numerics.Solver1D`2.SetMaxEvaluations*"></a>
+
+  <h3 id="NanoQL_Numerics_Solver1D_2_SetMaxEvaluations_System_Int32_" data-uid="NanoQL.Numerics.Solver1D`2.SetMaxEvaluations(System.Int32)">
+  SetMaxEvaluations(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the solver with the maximum number of function evaluations set; the bracketing throws if it finds
+no bracket within that number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TSelf SetMaxEvaluations(int evaluations)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>evaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number of function evaluations.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TSelf</span></dt>
+    <dd><p>The modified copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The number is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Solver1D_2_SetUpperBound_" data-uid="NanoQL.Numerics.Solver1D`2.SetUpperBound*"></a>
+
+  <h3 id="NanoQL_Numerics_Solver1D_2_SetUpperBound_System_Double_" data-uid="NanoQL.Numerics.Solver1D`2.SetUpperBound(System.Double)">
+  SetUpperBound(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the solver with the upper bound of the function's domain set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TSelf SetUpperBound(double upperBound)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>upperBound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The upper bound.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TSelf</span></dt>
+    <dd><p>The modified copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Solver1D_2_SolveCore_" data-uid="NanoQL.Numerics.Solver1D`2.SolveCore*"></a>
+
+  <h3 id="NanoQL_Numerics_Solver1D_2_SolveCore__1___0_System_Double_NanoQL_Numerics_Solver1DBracket_" data-uid="NanoQL.Numerics.Solver1D`2.SolveCore``1(``0,System.Double,NanoQL.Numerics.Solver1DBracket)">
+  SolveCore&lt;TF&gt;(TF, double, Solver1DBracket)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The solver's algorithm, QuantLib's <code>solveImpl</code>: the zero of <code class="paramref">f</code> within the bracket the
+public <code>Solve</code> found or checked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract double SolveCore&lt;TF&gt;(TF f, double accuracy, Solver1DBracket bracket) where TF : struct, TFunction</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <span class="xref">TF</span></dt>
+    <dd><p>The function.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accuracy, at least machine epsilon.</p>
+</dd>
+    <dt><code>bracket</code> <a class="xref" href="NanoQL.Numerics.Solver1DBracket.html">Solver1DBracket</a></dt>
+    <dd><p>The bracket, the function's values at its ends, the initial guess and the evaluations so far.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The zero.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TF</code></dt>
+    <dd><p>The function's type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Solver1D_2_Solve_" data-uid="NanoQL.Numerics.Solver1D`2.Solve*"></a>
+
+  <h3 id="NanoQL_Numerics_Solver1D_2_Solve__1___0_System_Double_System_Double_System_Double_" data-uid="NanoQL.Numerics.Solver1D`2.Solve``1(``0,System.Double,System.Double,System.Double)">
+  Solve&lt;TF&gt;(TF, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The zero of <code class="paramref">f</code>, determined with the given accuracy ε: depending on the solver, the returned x
+is such that |f(x)| &lt; ε, or |x − ξ| &lt; ε where ξ is the real zero. A bracketing routine first searches for
+a bracket, from the initial guess, in steps of <code class="paramref">step</code> that grow by 1.6 each time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Solve&lt;TF&gt;(TF f, double accuracy, double guess, double step) where TF : struct, TFunction</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <span class="xref">TF</span></dt>
+    <dd><p>The function.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accuracy, positive; one below machine epsilon is taken as machine epsilon.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The initial guess.</p>
+</dd>
+    <dt><code>step</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first step of the bracketing.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The zero.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TF</code></dt>
+    <dd><p>The function's type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The accuracy isn't positive.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No bracket is found, or the solver exceeds its function evaluations.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Solver1D_2_Solve_" data-uid="NanoQL.Numerics.Solver1D`2.Solve*"></a>
+
+  <h3 id="NanoQL_Numerics_Solver1D_2_Solve__1___0_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.Numerics.Solver1D`2.Solve``1(``0,System.Double,System.Double,System.Double,System.Double)">
+  Solve&lt;TF&gt;(TF, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The zero of <code class="paramref">f</code>, determined with the given accuracy ε, within a bracket: either
+f(<code class="paramref">xMin</code>) ≤ 0 ≤ f(<code class="paramref">xMax</code>), or f(<code class="paramref">xMax</code>) ≤ 0 ≤
+f(<code class="paramref">xMin</code>). Depending on the solver, the returned x is such that |f(x)| &lt; ε, or |x − ξ| &lt;
+ε where ξ is the real zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Solve&lt;TF&gt;(TF f, double accuracy, double guess, double xMin, double xMax) where TF : struct, TFunction</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <span class="xref">TF</span></dt>
+    <dd><p>The function.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accuracy, positive; one below machine epsilon is taken as machine epsilon.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The initial guess, strictly inside the bracket.</p>
+</dd>
+    <dt><code>xMin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bracket's lower end, not below an enforced lower bound.</p>
+</dd>
+    <dt><code>xMax</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bracket's upper end, not above an enforced upper bound.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The zero.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TF</code></dt>
+    <dd><p>The function's type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The accuracy isn't positive, the range is empty or outside the enforced bounds, or the guess is outside it.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The range doesn't bracket a zero, or the solver exceeds its function evaluations.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

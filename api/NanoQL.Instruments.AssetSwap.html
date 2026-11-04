@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class AssetSwap | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AssetSwap | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A bond&#39;s asset swap: the bond&#39;s coupons and final payment against a floating leg, at par (the bond bought at par, an upfront paying its premium) or at market (the floating notional scaled by the bond&#39;s dirty price); D. O&#39;Kane, &amp;quot;Introduction to Asset Swaps&amp;quot;, Lehman Brothers European Fixed Income Research, January 2000.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Instruments.AssetSwap">
+
+
+
+  <h1 id="NanoQL_Instruments_AssetSwap" data-uid="NanoQL.Instruments.AssetSwap" class="text-break">
+Class AssetSwap  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A bond's asset swap: the bond's coupons and final payment against a floating leg, at par (the bond bought at par,
+an upfront paying its premium) or at market (the floating notional scaled by the bond's dirty price); D. O'Kane,
+&quot;Introduction to Asset Swaps&quot;, Lehman Brothers European Fixed Income Research, January 2000.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AssetSwap : Swap</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.Swap.html">Swap</a></div>
+      <div><span class="xref">AssetSwap</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_IsExpired_NanoQL_EvaluationContext_">Swap.IsExpired(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Validate">Swap.Validate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_StartDate">Swap.StartDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_MaturityDate">Swap.MaturityDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Leg_System_Int32_">Swap.Leg(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Payer_System_Int32_">Swap.Payer(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_NumberOfLegs">Swap.NumberOfLegs</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Legs">Swap.Legs</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Instruments_AssetSwap_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The bond's clean price is its (forward) price at the floating schedule's start, the upfront date. On an overnight
+index the floating schedule must be given, and the floating coupons are overnight-indexed. QuantLib warns that the
+fair prices are wrong with indexed coupons.
+</p>
+<p>
+A non-par repayment is per 100 of the bond's notional at the upfront date, as the fair repayment reads it, and paid
+as that share of the notional, where QuantLib's pays the number given as an amount (<code>assetswap.cpp:125-134</code>);
+with none given the swap repays the bond's redemption, and its repayment is that redemption per 100 of notional,
+where QuantLib's stores 100 whatever the redemption (<code>:130</code>). On a bond of 100 redeemed at 100 the two agree.
+</p>
+<p>
+The swap is priced by <a class="xref" href="NanoQL.PricingEngines.DiscountingSwapEngine.html">DiscountingSwapEngine</a>'s asset swap overload, its fair values
+derived from the swap's results; QuantLib's <code>AssetSwap::arguments</code>, which no QuantLib engine reads, aren't
+ported.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Instruments_AssetSwap__ctor_" data-uid="NanoQL.Instruments.AssetSwap.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap__ctor_System_Boolean_NanoQL_Instruments_Bond_System_Double_NanoQL_Indexes_IborIndex_System_Double_NanoQL_EvaluationContext_NanoQL_Time_Schedule_NanoQL_Time_DayCounter_System_Boolean_System_Double_System_Nullable_System_Double__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.AssetSwap.#ctor(System.Boolean,NanoQL.Instruments.Bond,System.Double,NanoQL.Indexes.IborIndex,System.Double,NanoQL.EvaluationContext,NanoQL.Time.Schedule,NanoQL.Time.DayCounter,System.Boolean,System.Double,System.Nullable{System.Double},System.Nullable{NanoQL.Time.Date})">
+  AssetSwap(bool, Bond, double, IborIndex, double, EvaluationContext, Schedule?, DayCounter?, bool, double, double?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.AssetSwap.html">AssetSwap</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetSwap(bool payBondCoupon, Bond bond, double bondCleanPrice, IborIndex iborIndex, double spread, EvaluationContext context, Schedule? floatSchedule = null, DayCounter? floatingDayCount = null, bool parSwap = true, double gearing = 1, double? nonParRepayment = null, Date? dealMaturity = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payBondCoupon</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the bond's coupons are paid (the floating leg received).</p>
+</dd>
+    <dt><code>bond</code> <a class="xref" href="NanoQL.Instruments.Bond.html">Bond</a></dt>
+    <dd><p>The bond.</p>
+</dd>
+    <dt><code>bondCleanPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bond's clean price at the upfront date, per 100 of notional.</p>
+</dd>
+    <dt><code>iborIndex</code> <a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd><p>The floating leg's index, an Ibor or an overnight one.</p>
+</dd>
+    <dt><code>spread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The floating leg's spread.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, from which the bond's settlement date starts a default floating
+schedule, and whose at-par switch the floating coupons' default pricer reads.</p>
+</dd>
+    <dt><code>floatSchedule</code> <a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd><p>The floating schedule, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for one from the bond's
+settlement date to its maturity on the index's tenor, calendar and convention; required on an overnight
+index.</p>
+</dd>
+    <dt><code>floatingDayCount</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The floating coupons' day counter, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the
+index's.</p>
+</dd>
+    <dt><code>parSwap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the swap is at par, or at market.</p>
+</dd>
+    <dt><code>gearing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The floating leg's gearing.</p>
+</dd>
+    <dt><code>nonParRepayment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The final repayment per 100 of notional, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the bond's
+redemption.</p>
+</dd>
+    <dt><code>dealMaturity</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The deal's maturity, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the floating schedule's
+end.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">bond</code>, <code class="paramref">iborIndex</code> or
+<code class="paramref">context</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The deal maturity is after the schedule's end or not after its start, each
+with QuantLib's text.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>An overnight index without a floating schedule, or a bond without cash
+flows, each with QuantLib's text.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Instruments_AssetSwap_Bond_" data-uid="NanoQL.Instruments.AssetSwap.Bond*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_Bond" data-uid="NanoQL.Instruments.AssetSwap.Bond">
+  Bond
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the bond.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Bond Bond { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.Bond.html">Bond</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_BondLeg_" data-uid="NanoQL.Instruments.AssetSwap.BondLeg*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_BondLeg" data-uid="NanoQL.Instruments.AssetSwap.BondLeg">
+  BondLeg
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the bond leg: its coupons up to the deal's maturity, any accrued coupon, and the final
+payment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; BondLeg { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_CleanPrice_" data-uid="NanoQL.Instruments.AssetSwap.CleanPrice*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_CleanPrice" data-uid="NanoQL.Instruments.AssetSwap.CleanPrice">
+  CleanPrice
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the bond's clean price at the upfront date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CleanPrice { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_FloatingLeg_" data-uid="NanoQL.Instruments.AssetSwap.FloatingLeg*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_FloatingLeg" data-uid="NanoQL.Instruments.AssetSwap.FloatingLeg">
+  FloatingLeg
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the floating leg, with the upfront and the back payment of a par swap, or the final notional
+exchange of a market one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; FloatingLeg { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_NonParRepayment_" data-uid="NanoQL.Instruments.AssetSwap.NonParRepayment*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_NonParRepayment" data-uid="NanoQL.Instruments.AssetSwap.NonParRepayment">
+  NonParRepayment
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the final repayment per 100 of notional: the one given, or the bond's redemption's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double NonParRepayment { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_ParSwap_" data-uid="NanoQL.Instruments.AssetSwap.ParSwap*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_ParSwap" data-uid="NanoQL.Instruments.AssetSwap.ParSwap">
+  ParSwap
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the swap is at par, or at market.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ParSwap { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_PayBondCoupon_" data-uid="NanoQL.Instruments.AssetSwap.PayBondCoupon*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_PayBondCoupon" data-uid="NanoQL.Instruments.AssetSwap.PayBondCoupon">
+  PayBondCoupon
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the bond's coupons are paid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PayBondCoupon { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_Spread_" data-uid="NanoQL.Instruments.AssetSwap.Spread*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_Spread" data-uid="NanoQL.Instruments.AssetSwap.Spread">
+  Spread
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the floating leg's spread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Spread { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_UpfrontDate_" data-uid="NanoQL.Instruments.AssetSwap.UpfrontDate*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_UpfrontDate" data-uid="NanoQL.Instruments.AssetSwap.UpfrontDate">
+  UpfrontDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the upfront date, the floating schedule's start.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date UpfrontDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Instruments_AssetSwap_FairCleanPrice_" data-uid="NanoQL.Instruments.AssetSwap.FairCleanPrice*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_FairCleanPrice_NanoQL_Instruments_AssetSwapResults_" data-uid="NanoQL.Instruments.AssetSwap.FairCleanPrice(NanoQL.Instruments.AssetSwapResults)">
+  FairCleanPrice(AssetSwapResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The bond's clean price that gives the swap a zero NPV.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double FairCleanPrice(AssetSwapResults results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.Instruments.AssetSwapResults.html">AssetSwapResults</a></dt>
+    <dd><p>The swap's results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fair clean price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">results</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The results hold none, a seasoned deal's, QuantLib's &quot;fair clean price not
+available for seasoned deal&quot;.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_FairNonParRepayment_" data-uid="NanoQL.Instruments.AssetSwap.FairNonParRepayment*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_FairNonParRepayment_NanoQL_Instruments_AssetSwapResults_" data-uid="NanoQL.Instruments.AssetSwap.FairNonParRepayment(NanoQL.Instruments.AssetSwapResults)">
+  FairNonParRepayment(AssetSwapResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The final repayment that gives the swap a zero NPV.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double FairNonParRepayment(AssetSwapResults results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.Instruments.AssetSwapResults.html">AssetSwapResults</a></dt>
+    <dd><p>The swap's results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fair repayment.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">results</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The results hold none, an expired leg's, QuantLib's &quot;fair non par repayment
+not available for expired leg&quot;.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_FairSpread_" data-uid="NanoQL.Instruments.AssetSwap.FairSpread*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_FairSpread_NanoQL_Instruments_AssetSwapResults_" data-uid="NanoQL.Instruments.AssetSwap.FairSpread(NanoQL.Instruments.AssetSwapResults)">
+  FairSpread(AssetSwapResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The spread that gives the swap a zero NPV.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double FairSpread(AssetSwapResults results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.Instruments.AssetSwapResults.html">AssetSwapResults</a></dt>
+    <dd><p>The swap's results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fair spread.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">results</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The results hold none, QuantLib's &quot;fair spread not available&quot;.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_FetchResults_" data-uid="NanoQL.Instruments.AssetSwap.FetchResults*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_FetchResults_NanoQL_InstrumentResults_" data-uid="NanoQL.Instruments.AssetSwap.FetchResults(NanoQL.InstrumentResults)">
+  FetchResults(InstrumentResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads an engine's results into the instrument's, applying any derivations the instrument makes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override AssetSwapResults FetchResults(InstrumentResults results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a></dt>
+    <dd><p>The engine's results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.AssetSwapResults.html">AssetSwapResults</a></dt>
+    <dd><p>The instrument's results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_AssetSwap_FetchResults_NanoQL_InstrumentResults__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>QuantLib's <code>fairSpread</code>, <code>fairCleanPrice</code> and <code>fairNonParRepayment</code>, each derived from
+the swap's results unless the results hold it: the fair clean price needs the floating leg's start discount,
+unknown for a seasoned deal, and the fair repayment its end discount.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The results aren't a swap's, or a per-leg result has the wrong number of legs.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_FloatingLegBPS_" data-uid="NanoQL.Instruments.AssetSwap.FloatingLegBPS*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_FloatingLegBPS_NanoQL_Instruments_AssetSwapResults_" data-uid="NanoQL.Instruments.AssetSwap.FloatingLegBPS(NanoQL.Instruments.AssetSwapResults)">
+  FloatingLegBPS(AssetSwapResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The floating leg's BPS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double FloatingLegBPS(AssetSwapResults results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.Instruments.AssetSwapResults.html">AssetSwapResults</a></dt>
+    <dd><p>The swap's results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The BPS.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">results</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The results hold none, QuantLib's &quot;floating-leg BPS not
+available&quot;.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_FloatingLegNPV_" data-uid="NanoQL.Instruments.AssetSwap.FloatingLegNPV*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_FloatingLegNPV_NanoQL_Instruments_AssetSwapResults_" data-uid="NanoQL.Instruments.AssetSwap.FloatingLegNPV(NanoQL.Instruments.AssetSwapResults)">
+  FloatingLegNPV(AssetSwapResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The floating leg's NPV.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double FloatingLegNPV(AssetSwapResults results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.Instruments.AssetSwapResults.html">AssetSwapResults</a></dt>
+    <dd><p>The swap's results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The NPV.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">results</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The results hold none, QuantLib's &quot;floating-leg NPV not
+available&quot;.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_AssetSwap_SetupExpired_" data-uid="NanoQL.Instruments.AssetSwap.SetupExpired*"></a>
+
+  <h3 id="NanoQL_Instruments_AssetSwap_SetupExpired" data-uid="NanoQL.Instruments.AssetSwap.SetupExpired">
+  SetupExpired()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The results of an expired instrument: a zero value and error estimate, and no valuation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override AssetSwapResults SetupExpired()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.AssetSwapResults.html">AssetSwapResults</a></dt>
+    <dd><p>The expired results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_AssetSwap_SetupExpired_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>An expired swap has zero leg NPVs, BPS and discounts, so fair values of NaN, the quotients of zeros
+QuantLib derives (<code>assetswap.cpp:236-304</code>).</p>
+</div>
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

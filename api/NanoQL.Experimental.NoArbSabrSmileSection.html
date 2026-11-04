@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class NoArbSabrSmileSection | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NoArbSabrSmileSection | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A smile section on Doust&#39;s no-arbitrage SABR model: its prices, digitals and density are the model&#39;s, its volatilities those prices&#39; implied Black volatilities, the SABR expansion&#39;s where none is found.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.NoArbSabrSmileSection">
+
+
+
+  <h1 id="NanoQL_Experimental_NoArbSabrSmileSection" data-uid="NanoQL.Experimental.NoArbSabrSmileSection" class="text-break">
+Class NoArbSabrSmileSection  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A smile section on Doust's no-arbitrage SABR model: its prices, digitals and density are the model's, its
+volatilities those prices' implied Black volatilities, the SABR expansion's where none is found.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public sealed class NoArbSabrSmileSection : SmileSection</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></div>
+      <div><span class="xref">NoArbSabrSmileSection</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_ReferenceDate">SmileSection.ReferenceDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Variance_System_Double_">SmileSection.Variance(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Volatility_System_Double_">SmileSection.Volatility(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Volatility_System_Double_NanoQL_TermStructures_VolatilityType_System_Double_">SmileSection.Volatility(double, VolatilityType, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Vega_System_Double_System_Double_">SmileSection.Vega(double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_ExerciseDate">SmileSection.ExerciseDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_VolatilityType">SmileSection.VolatilityType</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Shift">SmileSection.Shift</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_ExerciseTime">SmileSection.ExerciseTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_DayCounter">SmileSection.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_NoArbSabrSmileSection_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable, the model built at construction. QuantLib's section dated by a date floats with the evaluation date; here
+the date's constructor takes the reference date, and <a class="xref" href="NanoQL.Experimental.NoArbSabrSmileSection.html#NanoQL_Experimental_NoArbSabrSmileSection_Create_NanoQL_Time_Date_System_Double_System_ReadOnlySpan_System_Double__NanoQL_EvaluationContext_NanoQL_Time_DayCounter_System_Double_NanoQL_TermStructures_VolatilityType_">Create(Date, double, ReadOnlySpan&lt;double&gt;, EvaluationContext, DayCounter?, double, VolatilityType)</a> the context.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_NoArbSabrSmileSection__ctor_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_NoArbSabrSmileSection__ctor_NanoQL_Time_Date_System_Double_System_ReadOnlySpan_System_Double__NanoQL_Time_Date_NanoQL_Time_DayCounter_System_Double_NanoQL_TermStructures_VolatilityType_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.#ctor(NanoQL.Time.Date,System.Double,System.ReadOnlySpan{System.Double},NanoQL.Time.Date,NanoQL.Time.DayCounter,System.Double,NanoQL.TermStructures.VolatilityType)">
+  NoArbSabrSmileSection(Date, double, ReadOnlySpan&lt;double&gt;, Date, DayCounter?, double, VolatilityType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.NoArbSabrSmileSection.html">NoArbSabrSmileSection</a> class at an exercise date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NoArbSabrSmileSection(Date d, double forward, ReadOnlySpan&lt;double&gt; sabrParameters, Date referenceDate, DayCounter? dc = null, double shift = 0, VolatilityType volatilityType = VolatilityType.ShiftedLognormal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The exercise date.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward, positive.</p>
+</dd>
+    <dt><code>sabrParameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>α, β, ν and ρ.</p>
+</dd>
+    <dt><code>referenceDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The reference date.</p>
+</dd>
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's default, Actual/365 (Fixed).</p>
+</dd>
+    <dt><code>shift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The shift, which must be 0.</p>
+</dd>
+    <dt><code>volatilityType</code> <a class="xref" href="NanoQL.TermStructures.VolatilityType.html">VolatilityType</a></dt>
+    <dd><p>The volatility type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There are fewer than four parameters, the forward isn't positive, the shift
+isn't 0, a date is <code>default(Date)</code>, or the model refuses the parameters.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">volatilityType</code> isn't a member of its
+type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model's integration fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_NoArbSabrSmileSection__ctor_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_NoArbSabrSmileSection__ctor_System_Double_System_Double_System_ReadOnlySpan_System_Double__System_Double_NanoQL_TermStructures_VolatilityType_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.#ctor(System.Double,System.Double,System.ReadOnlySpan{System.Double},System.Double,NanoQL.TermStructures.VolatilityType)">
+  NoArbSabrSmileSection(double, double, ReadOnlySpan&lt;double&gt;, double, VolatilityType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.NoArbSabrSmileSection.html">NoArbSabrSmileSection</a> class at a time to expiry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NoArbSabrSmileSection(double timeToExpiry, double forward, ReadOnlySpan&lt;double&gt; sabrParameters, double shift = 0, VolatilityType volatilityType = VolatilityType.ShiftedLognormal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>timeToExpiry</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to expiry.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward, positive.</p>
+</dd>
+    <dt><code>sabrParameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>α, β, ν and ρ.</p>
+</dd>
+    <dt><code>shift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The shift, which must be 0.</p>
+</dd>
+    <dt><code>volatilityType</code> <a class="xref" href="NanoQL.TermStructures.VolatilityType.html">VolatilityType</a></dt>
+    <dd><p>The volatility type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There are fewer than four parameters, the forward isn't positive, the shift
+isn't 0, or the model refuses the parameters.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">volatilityType</code> isn't a member of its
+type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model's integration fails.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_NoArbSabrSmileSection_Model_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.Model*"></a>
+
+  <h3 id="NanoQL_Experimental_NoArbSabrSmileSection_Model" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.Model">
+  Model
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the no-arbitrage SABR model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NoArbSabrModel Model { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.NoArbSabrModel.html">NoArbSabrModel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_NoArbSabrSmileSection_AtmLevel_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.AtmLevel*"></a>
+
+  <h3 id="NanoQL_Experimental_NoArbSabrSmileSection_AtmLevel" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.AtmLevel">
+  AtmLevel()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The at-the-money level, the forward the options are priced on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double? AtmLevel()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The level; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null&lt;Real&gt;()</code>, where the section has none.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NoArbSabrSmileSection_Create_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.Create*"></a>
+
+  <h3 id="NanoQL_Experimental_NoArbSabrSmileSection_Create_NanoQL_Time_Date_System_Double_System_ReadOnlySpan_System_Double__NanoQL_EvaluationContext_NanoQL_Time_DayCounter_System_Double_NanoQL_TermStructures_VolatilityType_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.Create(NanoQL.Time.Date,System.Double,System.ReadOnlySpan{System.Double},NanoQL.EvaluationContext,NanoQL.Time.DayCounter,System.Double,NanoQL.TermStructures.VolatilityType)">
+  Create(Date, double, ReadOnlySpan&lt;double&gt;, EvaluationContext, DayCounter?, double, VolatilityType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the section at an exercise date, its reference date the context's evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NoArbSabrSmileSection Create(Date d, double forward, ReadOnlySpan&lt;double&gt; sabrParameters, EvaluationContext context, DayCounter? dc = null, double shift = 0, VolatilityType volatilityType = VolatilityType.ShiftedLognormal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The exercise date.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward, positive.</p>
+</dd>
+    <dt><code>sabrParameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>α, β, ν and ρ.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's default, Actual/365 (Fixed).</p>
+</dd>
+    <dt><code>shift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The shift, which must be 0.</p>
+</dd>
+    <dt><code>volatilityType</code> <a class="xref" href="NanoQL.TermStructures.VolatilityType.html">VolatilityType</a></dt>
+    <dd><p>The volatility type.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.NoArbSabrSmileSection.html">NoArbSabrSmileSection</a></dt>
+    <dd><p>The section.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There are fewer than four parameters, the forward isn't positive, the shift
+isn't 0, a date is <code>default(Date)</code>, or the model refuses the parameters.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model's integration fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_NoArbSabrSmileSection_Density_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.Density*"></a>
+
+  <h3 id="NanoQL_Experimental_NoArbSabrSmileSection_Density_System_Double_System_Double_System_Double_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.Density(System.Double,System.Double,System.Double)">
+  Density(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The model's density at a strike; the gap isn't read.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Density(double strike, double discount = 1, double gap = 0.0001)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>gap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The gap, which the model's exact density doesn't read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The density.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NoArbSabrSmileSection_DigitalOptionPrice_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.DigitalOptionPrice*"></a>
+
+  <h3 id="NanoQL_Experimental_NoArbSabrSmileSection_DigitalOptionPrice_System_Double_NanoQL_OptionType_System_Double_System_Double_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.DigitalOptionPrice(System.Double,NanoQL.OptionType,System.Double,System.Double)">
+  DigitalOptionPrice(double, OptionType, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The model's digital price at a strike, a put as its complement; the gap isn't read.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double DigitalOptionPrice(double strike, OptionType type = OptionType.Call, double discount = 1, double gap = 1E-05)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>The option type.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>gap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The gap, which the model's exact digital doesn't read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NoArbSabrSmileSection_MaxStrike_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.MaxStrike*"></a>
+
+  <h3 id="NanoQL_Experimental_NoArbSabrSmileSection_MaxStrike" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.MaxStrike">
+  MaxStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum strike for which the section returns volatilities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MaxStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NoArbSabrSmileSection_MinStrike_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.MinStrike*"></a>
+
+  <h3 id="NanoQL_Experimental_NoArbSabrSmileSection_MinStrike" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.MinStrike">
+  MinStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The minimum strike for which the section returns volatilities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MinStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NoArbSabrSmileSection_OptionPrice_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.OptionPrice*"></a>
+
+  <h3 id="NanoQL_Experimental_NoArbSabrSmileSection_OptionPrice_System_Double_NanoQL_OptionType_System_Double_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.OptionPrice(System.Double,NanoQL.OptionType,System.Double)">
+  OptionPrice(double, OptionType, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The model's price at a strike, a put by parity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double OptionPrice(double strike, OptionType type = OptionType.Call, double discount = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>The option type.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NoArbSabrSmileSection_VolatilityImpl_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.VolatilityImpl*"></a>
+
+  <h3 id="NanoQL_Experimental_NoArbSabrSmileSection_VolatilityImpl_System_Double_" data-uid="NanoQL.Experimental.NoArbSabrSmileSection.VolatilityImpl(System.Double)">
+  VolatilityImpl(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility at a strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double VolatilityImpl(double strike)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

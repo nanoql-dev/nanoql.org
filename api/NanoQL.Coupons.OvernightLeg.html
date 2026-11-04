@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class OvernightLeg | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class OvernightLeg | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A helper class building a sequence of overnight-indexed coupons.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Coupons.OvernightLeg">
+
+
+
+  <h1 id="NanoQL_Coupons_OvernightLeg" data-uid="NanoQL.Coupons.OvernightLeg" class="text-break">
+Class OvernightLeg  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Coupons.html">Coupons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A helper class building a sequence of overnight-indexed coupons.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record OvernightLeg : IEquatable&lt;OvernightLeg&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">OvernightLeg</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Coupons_OvernightLeg_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An immutable builder: each method returns a modified copy, so a builder kept and reused never changes under its
+holder. <a class="xref" href="NanoQL.Coupons.OvernightLeg.html#NanoQL_Coupons_OvernightLeg_ToLeg">ToLeg()</a> builds the leg, in place of QuantLib's conversion operator; it reads no evaluation date,
+since the coupons' value dates are always the full daily list. A builder has no value equality: its vectors compare
+by reference.
+</p>
+<p>
+A period whose gearing is zero is a <a class="xref" href="NanoQL.Coupons.FixedRateCoupon.html">FixedRateCoupon</a> at the spread, capped and floored; a period with a
+cap or a floor is a <a class="xref" href="NanoQL.Coupons.CappedFlooredOvernightIndexedCoupon.html">CappedFlooredOvernightIndexedCoupon</a>. A coupon pricer given with
+<a class="xref" href="NanoQL.Coupons.OvernightLeg.html#NanoQL_Coupons_OvernightLeg_WithCouponPricer_NanoQL_Coupons_OvernightIndexedCouponPricer_">WithCouponPricer(OvernightIndexedCouponPricer?)</a> is set on each coupon and capped coupon; otherwise the coupons keep their default
+pricers, and the capped coupons have none.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Coupons_OvernightLeg__ctor_" data-uid="NanoQL.Coupons.OvernightLeg.#ctor*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg__ctor_NanoQL_Time_Schedule_NanoQL_Indexes_OvernightIndex_" data-uid="NanoQL.Coupons.OvernightLeg.#ctor(NanoQL.Time.Schedule,NanoQL.Indexes.OvernightIndex)">
+  OvernightLeg(Schedule, OvernightIndex)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a> record.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg(Schedule schedule, OvernightIndex overnightIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>schedule</code> <a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd><p>The schedule; its calendar is the default payment calendar.</p>
+</dd>
+    <dt><code>overnightIndex</code> <a class="xref" href="NanoQL.Indexes.OvernightIndex.html">OvernightIndex</a></dt>
+    <dd><p>The overnight index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_CompoundingSpreadDaily_" data-uid="NanoQL.Coupons.OvernightLeg.CompoundingSpreadDaily*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_CompoundingSpreadDaily_System_Boolean_" data-uid="NanoQL.Coupons.OvernightLeg.CompoundingSpreadDaily(System.Boolean)">
+  CompoundingSpreadDaily(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the spread compounds daily.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg CompoundingSpreadDaily(bool compoundSpreadDaily = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>compoundSpreadDaily</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The flag.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_Equals_" data-uid="NanoQL.Coupons.OvernightLeg.Equals*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_Equals_NanoQL_Coupons_OvernightLeg_" data-uid="NanoQL.Coupons.OvernightLeg.Equals(NanoQL.Coupons.OvernightLeg)">
+  Equals(OvernightLeg?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(OvernightLeg? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_Equals_" data-uid="NanoQL.Coupons.OvernightLeg.Equals*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_Equals_System_Object_" data-uid="NanoQL.Coupons.OvernightLeg.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_GetHashCode_" data-uid="NanoQL.Coupons.OvernightLeg.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_GetHashCode" data-uid="NanoQL.Coupons.OvernightLeg.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_InArrears_" data-uid="NanoQL.Coupons.OvernightLeg.InArrears*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_InArrears_System_Boolean_" data-uid="NanoQL.Coupons.OvernightLeg.InArrears(System.Boolean)">
+  InArrears(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the rates are computed over each coupon's own period (in arrears, the default) or over the period
+before (in advance).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg InArrears(bool inArrears)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inArrears</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The flag.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_ToLeg_" data-uid="NanoQL.Coupons.OvernightLeg.ToLeg*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_ToLeg" data-uid="NanoQL.Coupons.OvernightLeg.ToLeg">
+  ToLeg()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The leg: QuantLib's conversion to <code>Leg</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; ToLeg()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg; empty for a schedule of one date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No nominal is given, the coupon pricer doesn't suit the averaging method, the
+schedule is empty, the explicit payment dates don't match the periods, or, after every refusal QuantLib raises
+while it builds the leg, a period of zero gearing has no payment day counter.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_ToString_" data-uid="NanoQL.Coupons.OvernightLeg.ToString*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_ToString" data-uid="NanoQL.Coupons.OvernightLeg.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithAveragingMethod_" data-uid="NanoQL.Coupons.OvernightLeg.WithAveragingMethod*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithAveragingMethod_NanoQL_Coupons_RateAveragingType_" data-uid="NanoQL.Coupons.OvernightLeg.WithAveragingMethod(NanoQL.Coupons.RateAveragingType)">
+  WithAveragingMethod(RateAveragingType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the averaging method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithAveragingMethod(RateAveragingType averagingMethod)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>averagingMethod</code> <a class="xref" href="NanoQL.Coupons.RateAveragingType.html">RateAveragingType</a></dt>
+    <dd><p>The method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithCaps_" data-uid="NanoQL.Coupons.OvernightLeg.WithCaps*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithCaps_System_Collections_Generic_IEnumerable_System_Nullable_System_Double___" data-uid="NanoQL.Coupons.OvernightLeg.WithCaps(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+  WithCaps(IEnumerable&lt;double?&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the coupons' caps, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none; the last one repeats past the end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithCaps(IEnumerable&lt;double?&gt; caps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>caps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</dt>
+    <dd><p>The caps.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithCaps_" data-uid="NanoQL.Coupons.OvernightLeg.WithCaps*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithCaps_System_Nullable_System_Double__" data-uid="NanoQL.Coupons.OvernightLeg.WithCaps(System.Nullable{System.Double})">
+  WithCaps(double?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets one cap for every coupon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithCaps(double? cap)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The cap, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null&lt;Rate&gt;()</code>, for none: the coupons are then
+uncapped.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithCouponPricer_" data-uid="NanoQL.Coupons.OvernightLeg.WithCouponPricer*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithCouponPricer_NanoQL_Coupons_OvernightIndexedCouponPricer_" data-uid="NanoQL.Coupons.OvernightLeg.WithCouponPricer(NanoQL.Coupons.OvernightIndexedCouponPricer)">
+  WithCouponPricer(OvernightIndexedCouponPricer?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the pricer of every coupon and capped coupon: a compounding pricer for compounded coupons, an averaging
+pricer for averaged ones; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> keeps the coupons' default pricers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithCouponPricer(OvernightIndexedCouponPricer? couponPricer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>couponPricer</code> <a class="xref" href="NanoQL.Coupons.OvernightIndexedCouponPricer.html">OvernightIndexedCouponPricer</a></dt>
+    <dd><p>The pricer.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithDailyCapFloor_" data-uid="NanoQL.Coupons.OvernightLeg.WithDailyCapFloor*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithDailyCapFloor_System_Boolean_" data-uid="NanoQL.Coupons.OvernightLeg.WithDailyCapFloor(System.Boolean)">
+  WithDailyCapFloor(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the caps and floors apply to the daily rates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithDailyCapFloor(bool dailyCapFloor = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dailyCapFloor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The flag.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithFloors_" data-uid="NanoQL.Coupons.OvernightLeg.WithFloors*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithFloors_System_Collections_Generic_IEnumerable_System_Nullable_System_Double___" data-uid="NanoQL.Coupons.OvernightLeg.WithFloors(System.Collections.Generic.IEnumerable{System.Nullable{System.Double}})">
+  WithFloors(IEnumerable&lt;double?&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the coupons' floors, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none; the last one repeats past the end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithFloors(IEnumerable&lt;double?&gt; floors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>floors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</dt>
+    <dd><p>The floors.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithFloors_" data-uid="NanoQL.Coupons.OvernightLeg.WithFloors*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithFloors_System_Nullable_System_Double__" data-uid="NanoQL.Coupons.OvernightLeg.WithFloors(System.Nullable{System.Double})">
+  WithFloors(double?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets one floor for every coupon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithFloors(double? floor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>floor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The floor, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null&lt;Rate&gt;()</code>, for none: the coupons are then
+unfloored.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithGearings_" data-uid="NanoQL.Coupons.OvernightLeg.WithGearings*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithGearings_System_Collections_Generic_IEnumerable_System_Double__" data-uid="NanoQL.Coupons.OvernightLeg.WithGearings(System.Collections.Generic.IEnumerable{System.Double})">
+  WithGearings(IEnumerable&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the coupons' gearings; the last one repeats past the end, and 1 applies when none is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithGearings(IEnumerable&lt;double&gt; gearings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gearings</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The gearings.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithGearings_" data-uid="NanoQL.Coupons.OvernightLeg.WithGearings*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithGearings_System_Double_" data-uid="NanoQL.Coupons.OvernightLeg.WithGearings(System.Double)">
+  WithGearings(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets one gearing for every coupon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithGearings(double gearing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gearing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The gearing.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithLastRecentPeriod_" data-uid="NanoQL.Coupons.OvernightLeg.WithLastRecentPeriod*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithLastRecentPeriod_System_Nullable_NanoQL_Time_Period__" data-uid="NanoQL.Coupons.OvernightLeg.WithLastRecentPeriod(System.Nullable{NanoQL.Time.Period})">
+  WithLastRecentPeriod(Period?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the period before each rate computation's end where the computation starts, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to
+compute over the whole period.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithLastRecentPeriod(Period? lastRecentPeriod)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lastRecentPeriod</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a>?</dt>
+    <dd><p>The period.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithLastRecentPeriodCalendar_" data-uid="NanoQL.Coupons.OvernightLeg.WithLastRecentPeriodCalendar*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithLastRecentPeriodCalendar_NanoQL_Time_Calendar_" data-uid="NanoQL.Coupons.OvernightLeg.WithLastRecentPeriodCalendar(NanoQL.Time.Calendar)">
+  WithLastRecentPeriodCalendar(Calendar?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the calendar of the last recent period; the schedule's when none is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithLastRecentPeriodCalendar(Calendar? lastRecentPeriodCalendar)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lastRecentPeriodCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar; the schedule's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's
+empty calendar.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithLockoutDays_" data-uid="NanoQL.Coupons.OvernightLeg.WithLockoutDays*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithLockoutDays_System_Int32_" data-uid="NanoQL.Coupons.OvernightLeg.WithLockoutDays(System.Int32)">
+  WithLockoutDays(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the lockout days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithLockoutDays(int lockoutDays)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lockoutDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The lockout.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The lockout is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithLookbackDays_" data-uid="NanoQL.Coupons.OvernightLeg.WithLookbackDays*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithLookbackDays_System_Nullable_System_Int32__" data-uid="NanoQL.Coupons.OvernightLeg.WithLookbackDays(System.Nullable{System.Int32})">
+  WithLookbackDays(int?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the lookback days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithLookbackDays(int? lookbackDays)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lookbackDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The lookback, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null&lt;Natural&gt;()</code> and its default, for none: the
+coupons then fix by the index's fixing days.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The lookback is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithNakedOption_" data-uid="NanoQL.Coupons.OvernightLeg.WithNakedOption*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithNakedOption_System_Boolean_" data-uid="NanoQL.Coupons.OvernightLeg.WithNakedOption(System.Boolean)">
+  WithNakedOption(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the capped coupons pay the options alone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithNakedOption(bool nakedOption)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nakedOption</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The flag.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithNotionals_" data-uid="NanoQL.Coupons.OvernightLeg.WithNotionals*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithNotionals_System_Collections_Generic_IEnumerable_System_Double__" data-uid="NanoQL.Coupons.OvernightLeg.WithNotionals(System.Collections.Generic.IEnumerable{System.Double})">
+  WithNotionals(IEnumerable&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the coupons' nominals; the last one repeats past the end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithNotionals(IEnumerable&lt;double&gt; notionals)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>notionals</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The nominals.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithNotionals_" data-uid="NanoQL.Coupons.OvernightLeg.WithNotionals*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithNotionals_System_Double_" data-uid="NanoQL.Coupons.OvernightLeg.WithNotionals(System.Double)">
+  WithNotionals(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets one nominal for every coupon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithNotionals(double notional)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>notional</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The nominal.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithObservationShift_" data-uid="NanoQL.Coupons.OvernightLeg.WithObservationShift*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithObservationShift_System_Boolean_" data-uid="NanoQL.Coupons.OvernightLeg.WithObservationShift(System.Boolean)">
+  WithObservationShift(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the observation shift applies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithObservationShift(bool applyObservationShift = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>applyObservationShift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The flag.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithPaymentAdjustment_" data-uid="NanoQL.Coupons.OvernightLeg.WithPaymentAdjustment*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithPaymentAdjustment_NanoQL_Time_BusinessDayConvention_" data-uid="NanoQL.Coupons.OvernightLeg.WithPaymentAdjustment(NanoQL.Time.BusinessDayConvention)">
+  WithPaymentAdjustment(BusinessDayConvention)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the convention adjusting the payment dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithPaymentAdjustment(BusinessDayConvention convention)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>convention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The convention.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithPaymentCalendar_" data-uid="NanoQL.Coupons.OvernightLeg.WithPaymentCalendar*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithPaymentCalendar_NanoQL_Time_Calendar_" data-uid="NanoQL.Coupons.OvernightLeg.WithPaymentCalendar(NanoQL.Time.Calendar)">
+  WithPaymentCalendar(Calendar?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the payment calendar; the schedule's when none is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithPaymentCalendar(Calendar? cal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cal</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar; the schedule's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty calendar, and
+<a class="xref" href="NanoQL.Time.WeekendsOnly.html">WeekendsOnly</a> when the schedule's is empty too.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithPaymentDates_" data-uid="NanoQL.Coupons.OvernightLeg.WithPaymentDates*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithPaymentDates_System_Collections_Generic_IEnumerable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.OvernightLeg.WithPaymentDates(System.Collections.Generic.IEnumerable{NanoQL.Time.Date})">
+  WithPaymentDates(IEnumerable&lt;Date&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets explicit payment dates, one per period, in place of the lagged and adjusted accrual ends.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithPaymentDates(IEnumerable&lt;Date&gt; paymentDates)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>paymentDates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The dates.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithPaymentDayCounter_" data-uid="NanoQL.Coupons.OvernightLeg.WithPaymentDayCounter*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithPaymentDayCounter_NanoQL_Time_DayCounter_" data-uid="NanoQL.Coupons.OvernightLeg.WithPaymentDayCounter(NanoQL.Time.DayCounter)">
+  WithPaymentDayCounter(DayCounter?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the coupons' accrual day counter; the index's when none is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithPaymentDayCounter(DayCounter? dc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter; the index's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty day counter. A
+period with a zero gearing then refuses the conversion, its fixed-rate coupon needing one, after every refusal
+QuantLib raises while it builds the leg.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithPaymentLag_" data-uid="NanoQL.Coupons.OvernightLeg.WithPaymentLag*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithPaymentLag_System_Int32_" data-uid="NanoQL.Coupons.OvernightLeg.WithPaymentLag(System.Int32)">
+  WithPaymentLag(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the payment lag, in business days after each accrual end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithPaymentLag(int lag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The lag.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithRoundingPrecision_" data-uid="NanoQL.Coupons.OvernightLeg.WithRoundingPrecision*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithRoundingPrecision_System_Int32_" data-uid="NanoQL.Coupons.OvernightLeg.WithRoundingPrecision(System.Int32)">
+  WithRoundingPrecision(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the decimal places the coupons' rates are rounded to before their amounts are computed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithRoundingPrecision(int roundingPrecision)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>roundingPrecision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The precision.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The precision is outside [0, 16].</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithSpreads_" data-uid="NanoQL.Coupons.OvernightLeg.WithSpreads*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithSpreads_System_Collections_Generic_IEnumerable_System_Double__" data-uid="NanoQL.Coupons.OvernightLeg.WithSpreads(System.Collections.Generic.IEnumerable{System.Double})">
+  WithSpreads(IEnumerable&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the coupons' spreads; the last one repeats past the end, and 0 applies when none is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithSpreads(IEnumerable&lt;double&gt; spreads)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spreads</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The spreads.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithSpreads_" data-uid="NanoQL.Coupons.OvernightLeg.WithSpreads*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithSpreads_System_Double_" data-uid="NanoQL.Coupons.OvernightLeg.WithSpreads(System.Double)">
+  WithSpreads(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets one spread for every coupon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithSpreads(double spread)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spread.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_WithTelescopicValueDates_" data-uid="NanoQL.Coupons.OvernightLeg.WithTelescopicValueDates*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_WithTelescopicValueDates_System_Boolean_" data-uid="NanoQL.Coupons.OvernightLeg.WithTelescopicValueDates(System.Boolean)">
+  WithTelescopicValueDates(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets QuantLib's telescopic value dates, which on averaged coupons select the averaging pricer's approximation;
+the value dates are the full daily list either way.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OvernightLeg WithTelescopicValueDates(bool telescopicValueDates)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>telescopicValueDates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The flag.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_op_Equality_" data-uid="NanoQL.Coupons.OvernightLeg.op_Equality*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_op_Equality_NanoQL_Coupons_OvernightLeg_NanoQL_Coupons_OvernightLeg_" data-uid="NanoQL.Coupons.OvernightLeg.op_Equality(NanoQL.Coupons.OvernightLeg,NanoQL.Coupons.OvernightLeg)">
+  operator ==(OvernightLeg?, OvernightLeg?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(OvernightLeg? left, OvernightLeg? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_OvernightLeg_op_Inequality_" data-uid="NanoQL.Coupons.OvernightLeg.op_Inequality*"></a>
+
+  <h3 id="NanoQL_Coupons_OvernightLeg_op_Inequality_NanoQL_Coupons_OvernightLeg_NanoQL_Coupons_OvernightLeg_" data-uid="NanoQL.Coupons.OvernightLeg.op_Inequality(NanoQL.Coupons.OvernightLeg,NanoQL.Coupons.OvernightLeg)">
+  operator !=(OvernightLeg?, OvernightLeg?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(OvernightLeg? left, OvernightLeg? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Coupons.OvernightLeg.html">OvernightLeg</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

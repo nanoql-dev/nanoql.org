@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class YoYInflationCouponPricer | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class YoYInflationCouponPricer | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The base pricer of year-on-year inflation coupons, capped and floored ones included: the swaplet is the gearing times the coupon&#39;s fixing plus the spread; a volatility-dependent optionlet needs a derived pricer.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Coupons.YoYInflationCouponPricer">
+
+
+
+  <h1 id="NanoQL_Coupons_YoYInflationCouponPricer" data-uid="NanoQL.Coupons.YoYInflationCouponPricer" class="text-break">
+Class YoYInflationCouponPricer  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Coupons.html">Coupons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base pricer of year-on-year inflation coupons, capped and floored ones included: the swaplet is the gearing
+times the coupon's fixing plus the spread; a volatility-dependent optionlet needs a derived pricer.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class YoYInflationCouponPricer : InflationCouponPricer</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.InflationCouponPricer.html">InflationCouponPricer</a></div>
+      <div><span class="xref">YoYInflationCouponPricer</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Coupons.BachelierYoYInflationCouponPricer.html">BachelierYoYInflationCouponPricer</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.BlackYoYInflationCouponPricer.html">BlackYoYInflationCouponPricer</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.UnitDisplacedBlackYoYInflationCouponPricer.html">UnitDisplacedBlackYoYInflationCouponPricer</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Coupons_YoYInflationCouponPricer_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An empty handle is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>. A price discounts on the nominal curve, at the payment date when it is
+after the curve's reference date, at 1 otherwise; with no nominal curve, a price refuses "no nominal term structure
+provided", while a rate needs none.
+</p>
+<p>
+An optionlet whose fixing date is at or before the volatility's base date pays its intrinsic value on the fixing.
+QuantLib reads the volatility's base date before checking that there is a volatility, so its "missing optionlet
+volatility" is unreachable and a missing one throws the empty handle's text; here the check comes first, a
+documented divergence. An extension point: the Black, unit-displaced Black and Bachelier pricers derive from it.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer__ctor_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.#ctor*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer__ctor_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.#ctor(NanoQL.TermStructures.YieldTermStructure)">
+  YoYInflationCouponPricer(YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Coupons.YoYInflationCouponPricer.html">YoYInflationCouponPricer</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YoYInflationCouponPricer(YieldTermStructure? nominalTermStructure = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nominalTermStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The nominal curve the prices discount on, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for
+none.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer__ctor_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.#ctor*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer__ctor_NanoQL_TermStructures_YoYOptionletVolatilitySurface_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.#ctor(NanoQL.TermStructures.YoYOptionletVolatilitySurface,NanoQL.TermStructures.YieldTermStructure)">
+  YoYInflationCouponPricer(YoYOptionletVolatilitySurface?, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Coupons.YoYInflationCouponPricer.html">YoYInflationCouponPricer</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YoYInflationCouponPricer(YoYOptionletVolatilitySurface? capletVol, YieldTermStructure? nominalTermStructure)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>capletVol</code> <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html">YoYOptionletVolatilitySurface</a></dt>
+    <dd><p>The optionlet volatility, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>nominalTermStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The nominal curve the prices discount on, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for
+none.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer_CapletVolatility_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.CapletVolatility*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer_CapletVolatility" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.CapletVolatility">
+  CapletVolatility
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the optionlet volatility, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual YoYOptionletVolatilitySurface? CapletVolatility { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html">YoYOptionletVolatilitySurface</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer_NominalTermStructure_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.NominalTermStructure*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer_NominalTermStructure" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.NominalTermStructure">
+  NominalTermStructure
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the nominal curve the prices discount on, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual YieldTermStructure? NominalTermStructure { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer_AdjustedFixing_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.AdjustedFixing*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer_AdjustedFixing_NanoQL_Coupons_YoYInflationCoupon_NanoQL_EvaluationContext_System_Nullable_System_Double__" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.AdjustedFixing(NanoQL.Coupons.YoYInflationCoupon,NanoQL.EvaluationContext,System.Nullable{System.Double})">
+  AdjustedFixing(YoYInflationCoupon, EvaluationContext, double?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fixing the optionlets are priced on: the coupon's fixing, with no convexity adjustment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual double AdjustedFixing(YoYInflationCoupon coupon, EvaluationContext context, double? fixing = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.YoYInflationCoupon.html">YoYInflationCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>fixing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>A fixing to adjust, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the coupon's own.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fixing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer_CapletPrice_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.CapletPrice*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer_CapletPrice_NanoQL_Coupons_InflationCoupon_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.CapletPrice(NanoQL.Coupons.InflationCoupon,System.Double,NanoQL.EvaluationContext)">
+  CapletPrice(InflationCoupon, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The caplet's price at an effective cap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double CapletPrice(InflationCoupon coupon, double effectiveCap, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.InflationCoupon.html">InflationCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>effectiveCap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The effective cap.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't a year-on-year inflation coupon.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer_CapletRate_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.CapletRate*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer_CapletRate_NanoQL_Coupons_InflationCoupon_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.CapletRate(NanoQL.Coupons.InflationCoupon,System.Double,NanoQL.EvaluationContext)">
+  CapletRate(InflationCoupon, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The caplet's rate at an effective cap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double CapletRate(InflationCoupon coupon, double effectiveCap, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.InflationCoupon.html">InflationCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>effectiveCap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The effective cap.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't a year-on-year inflation coupon.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer_FloorletPrice_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.FloorletPrice*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer_FloorletPrice_NanoQL_Coupons_InflationCoupon_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.FloorletPrice(NanoQL.Coupons.InflationCoupon,System.Double,NanoQL.EvaluationContext)">
+  FloorletPrice(InflationCoupon, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The floorlet's price at an effective floor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double FloorletPrice(InflationCoupon coupon, double effectiveFloor, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.InflationCoupon.html">InflationCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>effectiveFloor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The effective floor.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't a year-on-year inflation coupon.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer_FloorletRate_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.FloorletRate*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer_FloorletRate_NanoQL_Coupons_InflationCoupon_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.FloorletRate(NanoQL.Coupons.InflationCoupon,System.Double,NanoQL.EvaluationContext)">
+  FloorletRate(InflationCoupon, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The floorlet's rate at an effective floor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double FloorletRate(InflationCoupon coupon, double effectiveFloor, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.InflationCoupon.html">InflationCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>effectiveFloor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The effective floor.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't a year-on-year inflation coupon.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer_OptionletPrice_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.OptionletPrice*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer_OptionletPrice_NanoQL_Coupons_YoYInflationCoupon_NanoQL_OptionType_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.OptionletPrice(NanoQL.Coupons.YoYInflationCoupon,NanoQL.OptionType,System.Double,NanoQL.EvaluationContext)">
+  OptionletPrice(YoYInflationCoupon, OptionType, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An optionlet's price: its rate, accrued and discounted on the nominal curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual double OptionletPrice(YoYInflationCoupon coupon, OptionType optionType, double effStrike, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.YoYInflationCoupon.html">YoYInflationCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>A call for a caplet, a put for a floorlet.</p>
+</dd>
+    <dt><code>effStrike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The effective strike.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The pricer has no nominal curve.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer_OptionletPriceImp_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.OptionletPriceImp*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer_OptionletPriceImp_NanoQL_OptionType_System_Double_System_Double_System_Double_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.OptionletPriceImp(NanoQL.OptionType,System.Double,System.Double,System.Double)">
+  OptionletPriceImp(OptionType, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An optionlet's rate, not discounted and not accrued, from the strike, the forward and the standard deviation,
+which a derived pricer computes; QuantLib's misleading name is kept.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual double OptionletPriceImp(OptionType optionType, double strike, double forward, double stdDev)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>A call for a caplet, a put for a floorlet.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>Always, here: a volatility-dependent price needs a derived pricer.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer_OptionletRate_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.OptionletRate*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer_OptionletRate_NanoQL_Coupons_YoYInflationCoupon_NanoQL_OptionType_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.OptionletRate(NanoQL.Coupons.YoYInflationCoupon,NanoQL.OptionType,System.Double,NanoQL.EvaluationContext)">
+  OptionletRate(YoYInflationCoupon, OptionType, double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An optionlet's rate: its intrinsic value on the fixing when the fixing date is at or before the volatility's
+base date, else <a class="xref" href="NanoQL.Coupons.YoYInflationCouponPricer.html#NanoQL_Coupons_YoYInflationCouponPricer_OptionletPriceImp_NanoQL_OptionType_System_Double_System_Double_System_Double_">OptionletPriceImp(OptionType, double, double, double)</a> on the adjusted fixing and the volatility's total variance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual double OptionletRate(YoYInflationCoupon coupon, OptionType optionType, double effStrike, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.YoYInflationCoupon.html">YoYInflationCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>A call for a caplet, a put for a floorlet.</p>
+</dd>
+    <dt><code>effStrike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The effective strike.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The pricer has no optionlet volatility.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer_SetCapletVolatility_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.SetCapletVolatility*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer_SetCapletVolatility_NanoQL_TermStructures_YoYOptionletVolatilitySurface_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.SetCapletVolatility(NanoQL.TermStructures.YoYOptionletVolatilitySurface)">
+  SetCapletVolatility(YoYOptionletVolatilitySurface)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the pricer with another optionlet volatility: QuantLib's
+<code>setCapletVolatility</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual YoYInflationCouponPricer SetCapletVolatility(YoYOptionletVolatilitySurface capletVol)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>capletVol</code> <a class="xref" href="NanoQL.TermStructures.YoYOptionletVolatilitySurface.html">YoYOptionletVolatilitySurface</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.YoYInflationCouponPricer.html">YoYInflationCouponPricer</a></dt>
+    <dd><p>The copy, of the pricer's own type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">capletVol</code> is null, QuantLib's &quot;empty capletVol
+handle&quot;.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer_SwapletPrice_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.SwapletPrice*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer_SwapletPrice_NanoQL_Coupons_InflationCoupon_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.SwapletPrice(NanoQL.Coupons.InflationCoupon,NanoQL.EvaluationContext)">
+  SwapletPrice(InflationCoupon, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The swaplet's price: the coupon's rate, accrued and discounted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double SwapletPrice(InflationCoupon coupon, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.InflationCoupon.html">InflationCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't a year-on-year inflation coupon.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The pricer has no nominal curve.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_YoYInflationCouponPricer_SwapletRate_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.SwapletRate*"></a>
+
+  <h3 id="NanoQL_Coupons_YoYInflationCouponPricer_SwapletRate_NanoQL_Coupons_InflationCoupon_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.YoYInflationCouponPricer.SwapletRate(NanoQL.Coupons.InflationCoupon,NanoQL.EvaluationContext)">
+  SwapletRate(InflationCoupon, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The swaplet's rate: the coupon's rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double SwapletRate(InflationCoupon coupon, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coupon</code> <a class="xref" href="NanoQL.Coupons.InflationCoupon.html">InflationCoupon</a></dt>
+    <dd><p>The coupon.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coupon isn't a year-on-year inflation coupon.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

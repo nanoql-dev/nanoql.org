@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class SobolBrownianBridgeRsg | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SobolBrownianBridgeRsg | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Sobol Brownian-bridge sequence generator: each sequence a path of &#39;s, its steps&#39; Gaussian variates one after another, the factors of each step together.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.SobolBrownianBridgeRsg">
+
+
+
+  <h1 id="NanoQL_Numerics_SobolBrownianBridgeRsg" data-uid="NanoQL.Numerics.SobolBrownianBridgeRsg" class="text-break">
+Class SobolBrownianBridgeRsg  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Sobol Brownian-bridge sequence generator: each sequence a path of <a class="xref" href="NanoQL.Models.SobolBrownianGenerator.html">SobolBrownianGenerator</a>'s, its
+steps' Gaussian variates one after another, the factors of each step together.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public sealed class SobolBrownianBridgeRsg : IRsg</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SobolBrownianBridgeRsg</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Numerics.IRsg.html">IRsg</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Numerics_SobolBrownianBridgeRsg_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A working type, as every <a class="xref" href="NanoQL.Numerics.IRsg.html">IRsg</a>: each draw changes it. Its seed is explicit, in [1, 4294967295], as
+<a class="xref" href="NanoQL.Models.SobolBrownianGenerator.html">SobolBrownianGenerator</a> takes it: QuantLib's default 0 draws one from the clock. Every sequence's
+weight is 1. <a class="xref" href="NanoQL.Numerics.SobolBrownianBridgeRsg.html#NanoQL_Numerics_SobolBrownianBridgeRsg_Clone">Clone()</a> builds the generator again from its arguments and draws the paths this one has
+drawn, the Sobol sequence being deterministic, so the copy's next draw is this one's.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Numerics_SobolBrownianBridgeRsg__ctor_" data-uid="NanoQL.Numerics.SobolBrownianBridgeRsg.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_SobolBrownianBridgeRsg__ctor_System_Int32_System_Int32_NanoQL_Models_SobolBrownianGeneratorBaseOrdering_System_Int64_NanoQL_Numerics_SobolRsgDirectionIntegers_" data-uid="NanoQL.Numerics.SobolBrownianBridgeRsg.#ctor(System.Int32,System.Int32,NanoQL.Models.SobolBrownianGeneratorBaseOrdering,System.Int64,NanoQL.Numerics.SobolRsgDirectionIntegers)">
+  SobolBrownianBridgeRsg(int, int, SobolBrownianGeneratorBaseOrdering, long, SobolRsgDirectionIntegers)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.SobolBrownianBridgeRsg.html">SobolBrownianBridgeRsg</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SobolBrownianBridgeRsg(int factors, int steps, SobolBrownianGeneratorBaseOrdering ordering, long seed, SobolRsgDirectionIntegers directionIntegers = SobolRsgDirectionIntegers.JoeKuoD7)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>factors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of factors each step draws, at least 1.</p>
+</dd>
+    <dt><code>steps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of steps each sequence draws, at least 1.</p>
+</dd>
+    <dt><code>ordering</code> <a class="xref" href="NanoQL.Models.SobolBrownianGeneratorBaseOrdering.html">SobolBrownianGeneratorBaseOrdering</a></dt>
+    <dd><p>How the variates are assigned to the factors and steps.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The Sobol sequence's seed, in [1, 4294967295].</p>
+</dd>
+    <dt><code>directionIntegers</code> <a class="xref" href="NanoQL.Numerics.SobolRsgDirectionIntegers.html">SobolRsgDirectionIntegers</a></dt>
+    <dd><p>The Sobol sequence's direction integers.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">factors</code> or <code class="paramref">steps</code> is below 1, their product is outside the Sobol
+sequence's dimensions, or <code class="paramref">ordering</code>, <code class="paramref">seed</code> or
+<code class="paramref">directionIntegers</code> is out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Numerics_SobolBrownianBridgeRsg_Dimension_" data-uid="NanoQL.Numerics.SobolBrownianBridgeRsg.Dimension*"></a>
+
+  <h3 id="NanoQL_Numerics_SobolBrownianBridgeRsg_Dimension" data-uid="NanoQL.Numerics.SobolBrownianBridgeRsg.Dimension">
+  Dimension
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the dimension of each sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Dimension { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_SobolBrownianBridgeRsg_Clone_" data-uid="NanoQL.Numerics.SobolBrownianBridgeRsg.Clone*"></a>
+
+  <h3 id="NanoQL_Numerics_SobolBrownianBridgeRsg_Clone" data-uid="NanoQL.Numerics.SobolBrownianBridgeRsg.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the generator deeply, its state and its buffers: the copy's next draw equals this generator's, into its
+own buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRsg Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.IRsg.html">IRsg</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_SobolBrownianBridgeRsg_LastSequence_" data-uid="NanoQL.Numerics.SobolBrownianBridgeRsg.LastSequence*"></a>
+
+  <h3 id="NanoQL_Numerics_SobolBrownianBridgeRsg_LastSequence" data-uid="NanoQL.Numerics.SobolBrownianBridgeRsg.LastSequence">
+  LastSequence()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the sequence the last draw gave (QuantLib's <code>lastSequence()</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Sample&lt;ReadOnlyMemory&lt;double&gt;&gt; LastSequence()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.Sample-1.html">Sample</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlymemory-1">ReadOnlyMemory</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd><p>The sequence, a view of the generator's buffer valid until its next draw, and its weight.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_SobolBrownianBridgeRsg_NextSequence_" data-uid="NanoQL.Numerics.SobolBrownianBridgeRsg.NextSequence*"></a>
+
+  <h3 id="NanoQL_Numerics_SobolBrownianBridgeRsg_NextSequence" data-uid="NanoQL.Numerics.SobolBrownianBridgeRsg.NextSequence">
+  NextSequence()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draws the next sequence, changing the generator (QuantLib's <code>nextSequence()</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Sample&lt;ReadOnlyMemory&lt;double&gt;&gt; NextSequence()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.Sample-1.html">Sample</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlymemory-1">ReadOnlyMemory</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd><p>The sequence, a view of the generator's buffer valid until its next draw, and its weight.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

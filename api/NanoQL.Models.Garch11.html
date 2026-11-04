@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Garch11 | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Garch11 | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The GARCH(1,1) volatility model: σ&#178;ₜ = ω + α u&#178;ₜ₋₁ + β σ&#178;ₜ₋₁, ω = γ V_L with γ = 1 − α − β and V_L the long-term variance. Volatilities are assumed to be expressed on an annual basis.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models.Garch11">
+
+
+
+  <h1 id="NanoQL_Models_Garch11" data-uid="NanoQL.Models.Garch11" class="text-break">
+Class Garch11  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The GARCH(1,1) volatility model: σ²ₜ = ω + α u²ₜ₋₁ + β σ²ₜ₋₁, ω = γ V_L with γ = 1 − α − β and V_L the long-term
+variance. Volatilities are assumed to be expressed on an annual basis.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Garch11 : VolatilityCompositor</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.VolatilityCompositor.html">VolatilityCompositor</a></div>
+      <div><span class="xref">Garch11</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Models_Garch11_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable: a model built from a series is calibrated at construction, and each <code>Calibrate</code> returns a new model
+with the receiver's mode, where QuantLib's change the object. The statics are QuantLib's:
+<a class="xref" href="NanoQL.Models.Garch11.html#NanoQL_Models_Garch11_Calculate_NanoQL_TimeSeries_System_Double__System_Double_System_Double_System_Double_">Calculate(TimeSeries&lt;double&gt;, double, double, double)</a>, <a class="xref" href="NanoQL.Models.Garch11.html#NanoQL_Models_Garch11_ToR2_System_ReadOnlySpan_System_Double__">ToR2(ReadOnlySpan&lt;double&gt;)</a>, <a class="xref" href="NanoQL.Models.Garch11.html#NanoQL_Models_Garch11_CostFunction_System_ReadOnlySpan_System_Double__System_Double_System_Double_System_Double_">CostFunction(ReadOnlySpan&lt;double&gt;, double, double, double)</a>
+and <code>CalibrateR2</code>'s six overloads, each returning the parameters and the minimization's results that QuantLib
+writes through its references and returns.
+</p>
+<p>
+Documented divergences:
+</p>
+<ul><li>A calibration whose minimizer doesn't converge is refused, "GARCH(1,1) calibration did not
+converge: optimizer stopped with end criterion …", which the mode-based calibrations catch and fall back to their
+initial guess: QuantLib's master (#2844), which 1.44 doesn't check
+(<code>Divergences/GarchConvergenceTests.cs</code>).</li><li>The cost's gradient is the gradient of its value, the recursive ∂σ²ₜ/∂θ = (1, u²ₜ₋₁, σ²ₜ₋₁) + β
+∂σ²ₜ₋₁/∂θ, where QuantLib's takes the direct term alone, 0.13 to 0.80 times the true gradient; QuantLib's own paths,
+the Simplex and the ACF fit, never read it (<code>Divergences/GarchGradientTests.cs</code>).</li><li>The cost refuses a conditional variance that isn't positive, which only the overloads that
+subtract the mean from the squared returns can produce, where QuantLib takes its log, NaN
+(<code>Divergences/GarchDemeanedVarianceTests.cs</code>).</li><li>A series of fewer than two points is refused by <a class="xref" href="NanoQL.Models.Garch11.html#NanoQL_Models_Garch11_Calculate_NanoQL_TimeSeries_System_Double__System_Double_System_Double_System_Double_">Calculate(TimeSeries&lt;double&gt;, double, double, double)</a>, where QuantLib reads before its start.</li><li>The mode-based initial guesses fit the autocorrelations by <a class="xref" href="NanoQL.Numerics.NonLinearLeastSquare.html">NonLinearLeastSquare</a> on
+the conjugate gradient, whose returned point is the last one its line search accepted
+(<code>Divergences/LineSearchReturnTests.cs</code>), so the Simplex starts a hair from QuantLib's guess and the calibrated
+parameters end within its tolerance, 1e-8, of QuantLib's, the log-likelihood the same.</li><li>The second initial guess (the ACF fit's, which <a class="xref" href="NanoQL.Models.Garch11Mode.html#NanoQL_Models_Garch11Mode_GammaGuess">GammaGuess</a> and
+<a class="xref" href="NanoQL.Models.Garch11Mode.html#NanoQL_Models_Garch11Mode_BestOfTwo">BestOfTwo</a> take) sets α = γ − β, as the first does, where the fit fails or its guess misses
+the constraint; QuantLib leaves α there as its caller's, an uninitialized element of its guess array
+(<code>garch.cpp:318-368</code>, <code>:435-439</code>), so its value is undefined.</li></ul>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Models_Garch11__ctor_" data-uid="NanoQL.Models.Garch11.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_Garch11__ctor_NanoQL_TimeSeries_System_Double__NanoQL_Models_Garch11Mode_" data-uid="NanoQL.Models.Garch11.#ctor(NanoQL.TimeSeries{System.Double},NanoQL.Models.Garch11Mode)">
+  Garch11(TimeSeries&lt;double&gt;, Garch11Mode)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.Garch11.html">Garch11</a> class calibrated to a series.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Garch11(TimeSeries&lt;double&gt; qs, Garch11Mode mode = Garch11Mode.BestOfTwo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>qs</code> <a class="xref" href="NanoQL.TimeSeries-1.html">TimeSeries</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The series of returns.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="NanoQL.Models.Garch11Mode.html">Garch11Mode</a></dt>
+    <dd><p>The initial guess.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">qs</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">mode</code> isn't a <a class="xref" href="NanoQL.Models.Garch11Mode.html">Garch11Mode</a>
+member.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The series is too short or constant.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Garch11__ctor_" data-uid="NanoQL.Models.Garch11.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_Garch11__ctor_System_Double_System_Double_System_Double_" data-uid="NanoQL.Models.Garch11.#ctor(System.Double,System.Double,System.Double)">
+  Garch11(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.Garch11.html">Garch11</a> class from its parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Garch11(double a, double b, double vl)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>α.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>β.</p>
+</dd>
+    <dt><code>vl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The long-term variance V_L.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Models_Garch11_Alpha_" data-uid="NanoQL.Models.Garch11.Alpha*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_Alpha" data-uid="NanoQL.Models.Garch11.Alpha">
+  Alpha
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets α.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Alpha { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Garch11_Beta_" data-uid="NanoQL.Models.Garch11.Beta*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_Beta" data-uid="NanoQL.Models.Garch11.Beta">
+  Beta
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets β.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Beta { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Garch11_LogLikelihood_" data-uid="NanoQL.Models.Garch11.LogLikelihood*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_LogLikelihood" data-uid="NanoQL.Models.Garch11.LogLikelihood">
+  LogLikelihood
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the log-likelihood of the calibration, 0 for a model built from its parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double LogLikelihood { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Garch11_LtVol_" data-uid="NanoQL.Models.Garch11.LtVol*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_LtVol" data-uid="NanoQL.Models.Garch11.LtVol">
+  LtVol
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the long-term variance V_L.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double LtVol { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Garch11_Mode_" data-uid="NanoQL.Models.Garch11.Mode*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_Mode" data-uid="NanoQL.Models.Garch11.Mode">
+  Mode
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the initial guess the model's calibrations take.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Garch11Mode Mode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.Garch11Mode.html">Garch11Mode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Garch11_Omega_" data-uid="NanoQL.Models.Garch11.Omega*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_Omega" data-uid="NanoQL.Models.Garch11.Omega">
+  Omega
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets ω = γ V_L.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Omega { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Models_Garch11_Calculate_" data-uid="NanoQL.Models.Garch11.Calculate*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_Calculate_NanoQL_TimeSeries_System_Double__" data-uid="NanoQL.Models.Garch11.Calculate(NanoQL.TimeSeries{System.Double})">
+  Calculate(TimeSeries&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatilities the model gives on the series.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TimeSeries&lt;double&gt; Calculate(TimeSeries&lt;double&gt; volatilitySeries)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>volatilitySeries</code> <a class="xref" href="NanoQL.TimeSeries-1.html">TimeSeries</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The series.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TimeSeries-1.html">TimeSeries</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The volatility series.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">volatilitySeries</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The series has fewer than two points.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Garch11_Calculate_" data-uid="NanoQL.Models.Garch11.Calculate*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_Calculate_NanoQL_TimeSeries_System_Double__System_Double_System_Double_System_Double_" data-uid="NanoQL.Models.Garch11.Calculate(NanoQL.TimeSeries{System.Double},System.Double,System.Double,System.Double)">
+  Calculate(TimeSeries&lt;double&gt;, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The model's volatilities on a series of returns: at each date after the first, the square root of the variance
+the returns before it give, and one more at the last date plus its spacing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TimeSeries&lt;double&gt; Calculate(TimeSeries&lt;double&gt; quoteSeries, double alpha, double beta, double omega)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quoteSeries</code> <a class="xref" href="NanoQL.TimeSeries-1.html">TimeSeries</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The series of returns.</p>
+</dd>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>α.</p>
+</dd>
+    <dt><code>beta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>β.</p>
+</dd>
+    <dt><code>omega</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>ω.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TimeSeries-1.html">TimeSeries</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The volatility series.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">quoteSeries</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The series has fewer than two points.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Garch11_Calibrate_" data-uid="NanoQL.Models.Garch11.Calibrate*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_Calibrate_NanoQL_TimeSeries_System_Double__" data-uid="NanoQL.Models.Garch11.Calibrate(NanoQL.TimeSeries{System.Double})">
+  Calibrate(TimeSeries&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The model calibrated to the series.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Garch11 Calibrate(TimeSeries&lt;double&gt; volatilitySeries)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>volatilitySeries</code> <a class="xref" href="NanoQL.TimeSeries-1.html">TimeSeries</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The series.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.Garch11.html">Garch11</a></dt>
+    <dd><p>A new model, or this one where calibration changes nothing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">volatilitySeries</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The series is too short or constant.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Garch11_Calibrate_" data-uid="NanoQL.Models.Garch11.Calibrate*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_Calibrate_NanoQL_TimeSeries_System_Double__NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_" data-uid="NanoQL.Models.Garch11.Calibrate(NanoQL.TimeSeries{System.Double},NanoQL.Numerics.OptimizationMethod,NanoQL.Numerics.EndCriteria)">
+  Calibrate(TimeSeries&lt;double&gt;, OptimizationMethod, EndCriteria)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The model calibrated by its mode's initial guess and an optimization method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Garch11 Calibrate(TimeSeries&lt;double&gt; quoteSeries, OptimizationMethod method, EndCriteria endCriteria)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quoteSeries</code> <a class="xref" href="NanoQL.TimeSeries-1.html">TimeSeries</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The series of returns.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The optimization method.</p>
+</dd>
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>Its end criteria.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.Garch11.html">Garch11</a></dt>
+    <dd><p>A new model, with this one's mode.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The series is too short or constant.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Garch11_Calibrate_" data-uid="NanoQL.Models.Garch11.Calibrate*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_Calibrate_NanoQL_TimeSeries_System_Double__NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Models.Garch11.Calibrate(NanoQL.TimeSeries{System.Double},NanoQL.Numerics.OptimizationMethod,NanoQL.Numerics.EndCriteria,System.ReadOnlySpan{System.Double})">
+  Calibrate(TimeSeries&lt;double&gt;, OptimizationMethod, EndCriteria, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The model calibrated from an initial guess by an optimization method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Garch11 Calibrate(TimeSeries&lt;double&gt; quoteSeries, OptimizationMethod method, EndCriteria endCriteria, ReadOnlySpan&lt;double&gt; initialGuess)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quoteSeries</code> <a class="xref" href="NanoQL.TimeSeries-1.html">TimeSeries</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The series of returns.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The optimization method.</p>
+</dd>
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>Its end criteria.</p>
+</dd>
+    <dt><code>initialGuess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The initial ω, α and β.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.Garch11.html">Garch11</a></dt>
+    <dd><p>A new model, with this one's mode.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The minimizer doesn't converge.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">initialGuess</code> holds fewer than three values, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Garch11_CalibrateR2_" data-uid="NanoQL.Models.Garch11.CalibrateR2*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_CalibrateR2_NanoQL_Models_Garch11Mode_System_ReadOnlySpan_System_Double__System_Double_" data-uid="NanoQL.Models.Garch11.CalibrateR2(NanoQL.Models.Garch11Mode,System.ReadOnlySpan{System.Double},System.Double)">
+  CalibrateR2(Garch11Mode, ReadOnlySpan&lt;double&gt;, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calibrates GARCH for r² by a mode's initial guess and QuantLib's Simplex.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Garch11Calibration CalibrateR2(Garch11Mode mode, ReadOnlySpan&lt;double&gt; r2, double meanR2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <a class="xref" href="NanoQL.Models.Garch11Mode.html">Garch11Mode</a></dt>
+    <dd><p>The initial guess.</p>
+</dd>
+    <dt><code>r2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The squared returns.</p>
+</dd>
+    <dt><code>meanR2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Their mean.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.Garch11Calibration.html">Garch11Calibration</a></dt>
+    <dd><p>The parameters and the minimization's results, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> where it fell back to its
+guess.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">mode</code> isn't a <a class="xref" href="NanoQL.Models.Garch11Mode.html">Garch11Mode</a>
+member.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The series is too short or constant.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Garch11_CalibrateR2_" data-uid="NanoQL.Models.Garch11.CalibrateR2*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_CalibrateR2_NanoQL_Models_Garch11Mode_System_ReadOnlySpan_System_Double__System_Double_NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_" data-uid="NanoQL.Models.Garch11.CalibrateR2(NanoQL.Models.Garch11Mode,System.ReadOnlySpan{System.Double},System.Double,NanoQL.Numerics.OptimizationMethod,NanoQL.Numerics.EndCriteria)">
+  CalibrateR2(Garch11Mode, ReadOnlySpan&lt;double&gt;, double, OptimizationMethod, EndCriteria)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calibrates GARCH for r² by a mode's initial guess and an optimization method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Garch11Calibration CalibrateR2(Garch11Mode mode, ReadOnlySpan&lt;double&gt; r2, double meanR2, OptimizationMethod method, EndCriteria endCriteria)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <a class="xref" href="NanoQL.Models.Garch11Mode.html">Garch11Mode</a></dt>
+    <dd><p>The initial guess.</p>
+</dd>
+    <dt><code>r2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The squared returns.</p>
+</dd>
+    <dt><code>meanR2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Their mean.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The optimization method.</p>
+</dd>
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>Its end criteria.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.Garch11Calibration.html">Garch11Calibration</a></dt>
+    <dd><p>The parameters and the minimization's results, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> where it fell back to its
+guess.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">method</code> or <code class="paramref">endCriteria</code> is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">mode</code> isn't a <a class="xref" href="NanoQL.Models.Garch11Mode.html">Garch11Mode</a>
+member.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The series is too short or constant.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Garch11_CalibrateR2_" data-uid="NanoQL.Models.Garch11.CalibrateR2*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_CalibrateR2_System_ReadOnlySpan_System_Double__NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_Constraint_NanoQL_Numerics_EndCriteria_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Models.Garch11.CalibrateR2(System.ReadOnlySpan{System.Double},NanoQL.Numerics.OptimizationMethod,NanoQL.Numerics.Constraint,NanoQL.Numerics.EndCriteria,System.ReadOnlySpan{System.Double})">
+  CalibrateR2(ReadOnlySpan&lt;double&gt;, OptimizationMethod, Constraint, EndCriteria, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calibrates GARCH for r² from an initial guess, by an optimization method under a constraint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Garch11Calibration CalibrateR2(ReadOnlySpan&lt;double&gt; r2, OptimizationMethod method, Constraint constraints, EndCriteria endCriteria, ReadOnlySpan&lt;double&gt; initialGuess)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The squared returns.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The optimization method.</p>
+</dd>
+    <dt><code>constraints</code> <a class="xref" href="NanoQL.Numerics.Constraint.html">Constraint</a></dt>
+    <dd><p>The constraint.</p>
+</dd>
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>Its end criteria.</p>
+</dd>
+    <dt><code>initialGuess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The initial ω, α and β.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.Garch11Calibration.html">Garch11Calibration</a></dt>
+    <dd><p>The parameters and the minimization's results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The minimizer doesn't converge (#2844).</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">initialGuess</code> holds fewer than three values, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Garch11_CalibrateR2_" data-uid="NanoQL.Models.Garch11.CalibrateR2*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_CalibrateR2_System_ReadOnlySpan_System_Double__NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Models.Garch11.CalibrateR2(System.ReadOnlySpan{System.Double},NanoQL.Numerics.OptimizationMethod,NanoQL.Numerics.EndCriteria,System.ReadOnlySpan{System.Double})">
+  CalibrateR2(ReadOnlySpan&lt;double&gt;, OptimizationMethod, EndCriteria, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calibrates GARCH for r² from an initial guess, by an optimization method under the constraint ω &gt; 0, α, β ≥ 0,
+α + β &lt; 1 − 1e-8.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Garch11Calibration CalibrateR2(ReadOnlySpan&lt;double&gt; r2, OptimizationMethod method, EndCriteria endCriteria, ReadOnlySpan&lt;double&gt; initialGuess)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The squared returns.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The optimization method.</p>
+</dd>
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>Its end criteria.</p>
+</dd>
+    <dt><code>initialGuess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The initial ω, α and β.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.Garch11Calibration.html">Garch11Calibration</a></dt>
+    <dd><p>The parameters and the minimization's results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">method</code> or <code class="paramref">endCriteria</code> is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The minimizer doesn't converge.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">initialGuess</code> holds fewer than three values, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Garch11_CalibrateR2_" data-uid="NanoQL.Models.Garch11.CalibrateR2*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_CalibrateR2_System_ReadOnlySpan_System_Double__System_Double_NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_Constraint_NanoQL_Numerics_EndCriteria_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Models.Garch11.CalibrateR2(System.ReadOnlySpan{System.Double},System.Double,NanoQL.Numerics.OptimizationMethod,NanoQL.Numerics.Constraint,NanoQL.Numerics.EndCriteria,System.ReadOnlySpan{System.Double})">
+  CalibrateR2(ReadOnlySpan&lt;double&gt;, double, OptimizationMethod, Constraint, EndCriteria, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calibrates GARCH for r² less its mean from an initial guess, by an optimization method under a
+constraint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Garch11Calibration CalibrateR2(ReadOnlySpan&lt;double&gt; r2, double meanR2, OptimizationMethod method, Constraint constraints, EndCriteria endCriteria, ReadOnlySpan&lt;double&gt; initialGuess)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The squared returns.</p>
+</dd>
+    <dt><code>meanR2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Their mean, subtracted from each.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The optimization method.</p>
+</dd>
+    <dt><code>constraints</code> <a class="xref" href="NanoQL.Numerics.Constraint.html">Constraint</a></dt>
+    <dd><p>The constraint.</p>
+</dd>
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>Its end criteria.</p>
+</dd>
+    <dt><code>initialGuess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The initial ω, α and β.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.Garch11Calibration.html">Garch11Calibration</a></dt>
+    <dd><p>The parameters and the minimization's results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The minimizer doesn't converge, or the cost reaches a conditional variance that
+isn't positive.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">initialGuess</code> holds fewer than three values, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Garch11_CalibrateR2_" data-uid="NanoQL.Models.Garch11.CalibrateR2*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_CalibrateR2_System_ReadOnlySpan_System_Double__System_Double_NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Models.Garch11.CalibrateR2(System.ReadOnlySpan{System.Double},System.Double,NanoQL.Numerics.OptimizationMethod,NanoQL.Numerics.EndCriteria,System.ReadOnlySpan{System.Double})">
+  CalibrateR2(ReadOnlySpan&lt;double&gt;, double, OptimizationMethod, EndCriteria, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calibrates GARCH for r² less its mean from an initial guess, by an optimization method under the constraint
+ω &gt; 0, α, β ≥ 0, α + β &lt; 1 − 1e-8.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Garch11Calibration CalibrateR2(ReadOnlySpan&lt;double&gt; r2, double meanR2, OptimizationMethod method, EndCriteria endCriteria, ReadOnlySpan&lt;double&gt; initialGuess)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The squared returns.</p>
+</dd>
+    <dt><code>meanR2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Their mean, subtracted from each.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The optimization method.</p>
+</dd>
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>Its end criteria.</p>
+</dd>
+    <dt><code>initialGuess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The initial ω, α and β.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.Garch11Calibration.html">Garch11Calibration</a></dt>
+    <dd><p>The parameters and the minimization's results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">method</code> or <code class="paramref">endCriteria</code> is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The minimizer doesn't converge, or the cost reaches a conditional variance that
+isn't positive.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">initialGuess</code> holds fewer than three values, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_Garch11_CostFunction_" data-uid="NanoQL.Models.Garch11.CostFunction*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_CostFunction_System_ReadOnlySpan_System_Double__System_Double_System_Double_System_Double_" data-uid="NanoQL.Models.Garch11.CostFunction(System.ReadOnlySpan{System.Double},System.Double,System.Double,System.Double)">
+  CostFunction(ReadOnlySpan&lt;double&gt;, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The model's cost on a series of returns: Σ(ln σ²ₜ + u²ₜ/σ²ₜ)/(2N), 0 on an empty series.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double CostFunction(ReadOnlySpan&lt;double&gt; values, double alpha, double beta, double omega)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The returns.</p>
+</dd>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>α.</p>
+</dd>
+    <dt><code>beta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>β.</p>
+</dd>
+    <dt><code>omega</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>ω.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The cost, the negated log-likelihood.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Garch11_Forecast_" data-uid="NanoQL.Models.Garch11.Forecast*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_Forecast_System_Double_System_Double_" data-uid="NanoQL.Models.Garch11.Forecast(System.Double,System.Double)">
+  Forecast(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The variance forecast after a return r at a variance σ², γ V_L + α r² + β σ².</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Forecast(double r, double sigma2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The return.</p>
+</dd>
+    <dt><code>sigma2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The next variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_Garch11_ToR2_" data-uid="NanoQL.Models.Garch11.ToR2*"></a>
+
+  <h3 id="NanoQL_Models_Garch11_ToR2_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Models.Garch11.ToR2(System.ReadOnlySpan{System.Double})">
+  ToR2(ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The squared returns and their mean, QuantLib's <code>to_r2</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (ImmutableArray&lt;double&gt; R2, double MeanR2) ToR2(ReadOnlySpan&lt;double&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The returns.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.immutable.immutablearray-system.double-,system.double-.r2">R2</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.collections.immutable.immutablearray-system.double-,system.double-.meanr2">MeanR2</a>)</dt>
+    <dd><p>The squared returns, and their running mean.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

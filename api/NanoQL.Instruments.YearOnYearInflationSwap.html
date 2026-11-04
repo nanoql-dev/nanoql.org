@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class YearOnYearInflationSwap | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class YearOnYearInflationSwap | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A year-on-year inflation-indexed swap, quoted as a fixed rate K: each period exchanges N K against the index&#39;s year-on-year growth, N [I(t_i)/I(t_i - 1) - 1], plus a spread.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Instruments.YearOnYearInflationSwap">
+
+
+
+  <h1 id="NanoQL_Instruments_YearOnYearInflationSwap" data-uid="NanoQL.Instruments.YearOnYearInflationSwap" class="text-break">
+Class YearOnYearInflationSwap  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A year-on-year inflation-indexed swap, quoted as a fixed rate <code>K</code>: each period exchanges <code>N K</code> against the
+index's year-on-year growth, <code>N [I(t_i)/I(t_i - 1) - 1]</code>, plus a spread.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class YearOnYearInflationSwap : Swap</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.Swap.html">Swap</a></div>
+      <div><span class="xref">YearOnYearInflationSwap</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_IsExpired_NanoQL_EvaluationContext_">Swap.IsExpired(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Validate">Swap.Validate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_StartDate">Swap.StartDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_MaturityDate">Swap.MaturityDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Leg_System_Int32_">Swap.Leg(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Payer_System_Int32_">Swap.Payer(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_NumberOfLegs">Swap.NumberOfLegs</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instruments.Swap.html#NanoQL_Instruments_Swap_Legs">Swap.Legs</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Instruments_YearOnYearInflationSwap_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The type, payer or receiver, refers to the fixed leg. The fixed leg is the first leg, fixed-rate coupons on the
+fixed schedule; the year-on-year leg is the second, <a class="xref" href="NanoQL.Coupons.YoYInflationLeg.html">YoYInflationLeg</a>'s coupons with its default pricer,
+paying on the payment calendar, since an inflation index has none. Both legs pay on the payment convention.
+</p>
+<p>
+The constructor reads no evaluation date. An engine's results are a <a class="xref" href="NanoQL.Instruments.YearOnYearInflationSwapResults.html">YearOnYearInflationSwapResults</a>,
+whose fair rate and spread <a class="xref" href="NanoQL.Instruments.YearOnYearInflationSwap.html#NanoQL_Instruments_YearOnYearInflationSwap_FetchResults_NanoQL_InstrumentResults_">FetchResults(InstrumentResults)</a> derives from the legs' BPS, as QuantLib's swap derives them
+from a swap engine's results; QuantLib's own arguments and engine classes aren't ported, since no engine uses them.
+A type that isn't a member of <a class="xref" href="NanoQL.Instruments.SwapType.html">SwapType</a> is refused, where QuantLib takes it as a receiver.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap__ctor_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap__ctor_NanoQL_Instruments_SwapType_System_Double_NanoQL_Time_Schedule_System_Double_NanoQL_Time_DayCounter_NanoQL_Time_Schedule_NanoQL_Indexes_YoYInflationIndex_NanoQL_Time_Period_NanoQL_Indexes_CPIInterpolationType_System_Double_NanoQL_Time_DayCounter_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.#ctor(NanoQL.Instruments.SwapType,System.Double,NanoQL.Time.Schedule,System.Double,NanoQL.Time.DayCounter,NanoQL.Time.Schedule,NanoQL.Indexes.YoYInflationIndex,NanoQL.Time.Period,NanoQL.Indexes.CPIInterpolationType,System.Double,NanoQL.Time.DayCounter,NanoQL.Time.Calendar,NanoQL.Time.BusinessDayConvention)">
+  YearOnYearInflationSwap(SwapType, double, Schedule, double, DayCounter, Schedule, YoYInflationIndex, Period, CPIInterpolationType, double, DayCounter?, Calendar?, BusinessDayConvention)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.YearOnYearInflationSwap.html">YearOnYearInflationSwap</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YearOnYearInflationSwap(SwapType type, double nominal, Schedule fixedSchedule, double fixedRate, DayCounter fixedDayCount, Schedule yoySchedule, YoYInflationIndex yoyIndex, Period observationLag, CPIInterpolationType interpolation, double spread, DayCounter? yoyDayCount, Calendar? paymentCalendar, BusinessDayConvention paymentConvention = BusinessDayConvention.ModifiedFollowing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="NanoQL.Instruments.SwapType.html">SwapType</a></dt>
+    <dd><p>Whether the fixed leg is paid or received.</p>
+</dd>
+    <dt><code>nominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The nominal of both legs.</p>
+</dd>
+    <dt><code>fixedSchedule</code> <a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd><p>The fixed leg's schedule.</p>
+</dd>
+    <dt><code>fixedRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fixed rate.</p>
+</dd>
+    <dt><code>fixedDayCount</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The fixed leg's day counter.</p>
+</dd>
+    <dt><code>yoySchedule</code> <a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd><p>The year-on-year leg's schedule.</p>
+</dd>
+    <dt><code>yoyIndex</code> <a class="xref" href="NanoQL.Indexes.YoYInflationIndex.html">YoYInflationIndex</a></dt>
+    <dd><p>The year-on-year inflation index.</p>
+</dd>
+    <dt><code>observationLag</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The observation lag.</p>
+</dd>
+    <dt><code>interpolation</code> <a class="xref" href="NanoQL.Indexes.CPIInterpolationType.html">CPIInterpolationType</a></dt>
+    <dd><p>How the index is observed.</p>
+</dd>
+    <dt><code>spread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spread over the year-on-year leg.</p>
+</dd>
+    <dt><code>yoyDayCount</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The year-on-year leg's day counter, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty one,
+which the leg refuses.</p>
+</dd>
+    <dt><code>paymentCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The year-on-year leg's payment calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's
+empty calendar, used unchecked as QuantLib uses it.</p>
+</dd>
+    <dt><code>paymentConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>Both legs' payment convention.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A schedule, <code class="paramref">fixedDayCount</code> or
+<code class="paramref">yoyIndex</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">type</code>, <code class="paramref">interpolation</code> or
+<code class="paramref">paymentConvention</code> isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A leg can't be built from its arguments.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_FixedDayCount_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.FixedDayCount*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_FixedDayCount" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.FixedDayCount">
+  FixedDayCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed leg's day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DayCounter FixedDayCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_FixedLeg_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.FixedLeg*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_FixedLeg" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.FixedLeg">
+  FixedLeg
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; FixedLeg { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_FixedRate_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.FixedRate*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_FixedRate" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.FixedRate">
+  FixedRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double FixedRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_FixedSchedule_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.FixedSchedule*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_FixedSchedule" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.FixedSchedule">
+  FixedSchedule
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed leg's schedule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Schedule FixedSchedule { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_Nominal_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.Nominal*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_Nominal" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.Nominal">
+  Nominal
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the nominal of both legs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Nominal { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_ObservationLag_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.ObservationLag*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_ObservationLag" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.ObservationLag">
+  ObservationLag
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the observation lag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Period ObservationLag { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_PaymentCalendar_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.PaymentCalendar*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_PaymentCalendar" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.PaymentCalendar">
+  PaymentCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the year-on-year leg's payment calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty
+calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Calendar? PaymentCalendar { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_PaymentConvention_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.PaymentConvention*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_PaymentConvention" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.PaymentConvention">
+  PaymentConvention
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets both legs' payment convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BusinessDayConvention PaymentConvention { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_Spread_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.Spread*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_Spread" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.Spread">
+  Spread
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the spread over the year-on-year leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Spread { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_Type_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.Type*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_Type" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.Type">
+  Type
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the fixed leg is paid or received.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SwapType Type { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.SwapType.html">SwapType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_YoYDayCount_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.YoYDayCount*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_YoYDayCount" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.YoYDayCount">
+  YoYDayCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the year-on-year leg's day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DayCounter? YoYDayCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_YoYInflationIndex_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.YoYInflationIndex*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_YoYInflationIndex" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.YoYInflationIndex">
+  YoYInflationIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the year-on-year inflation index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YoYInflationIndex YoYInflationIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.YoYInflationIndex.html">YoYInflationIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_YoYLeg_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.YoYLeg*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_YoYLeg" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.YoYLeg">
+  YoYLeg
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the year-on-year leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; YoYLeg { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_YoYSchedule_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.YoYSchedule*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_YoYSchedule" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.YoYSchedule">
+  YoYSchedule
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the year-on-year leg's schedule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Schedule YoYSchedule { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_FetchResults_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.FetchResults*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_FetchResults_NanoQL_InstrumentResults_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.FetchResults(NanoQL.InstrumentResults)">
+  FetchResults(InstrumentResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads an engine's results into the instrument's, applying any derivations the instrument makes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override YearOnYearInflationSwapResults FetchResults(InstrumentResults results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a></dt>
+    <dd><p>The engine's results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.YearOnYearInflationSwapResults.html">YearOnYearInflationSwapResults</a></dt>
+    <dd><p>The instrument's results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_YearOnYearInflationSwap_FetchResults_NanoQL_InstrumentResults__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The fair rate and spread are the engine's when it gives them; otherwise each is derived from the NPV and its
+leg's BPS, and is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when that BPS is zero or unknown.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The results aren't a swap's, or a per-leg result has the wrong number of legs.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_YearOnYearInflationSwap_SetupExpired_" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.SetupExpired*"></a>
+
+  <h3 id="NanoQL_Instruments_YearOnYearInflationSwap_SetupExpired" data-uid="NanoQL.Instruments.YearOnYearInflationSwap.SetupExpired">
+  SetupExpired()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The results of an expired instrument: a zero value and error estimate, and no valuation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override YearOnYearInflationSwapResults SetupExpired()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.YearOnYearInflationSwapResults.html">YearOnYearInflationSwapResults</a></dt>
+    <dd><p>The expired results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_YearOnYearInflationSwap_SetupExpired_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>An expired swap has zero leg BPS and neither a fair rate nor a fair spread.</p>
+</div>
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

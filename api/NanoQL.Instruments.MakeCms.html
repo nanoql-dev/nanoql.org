@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class MakeCms | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MakeCms | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A builder of standard market constant maturity swaps: a CMS leg against an Ibor leg.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Instruments.MakeCms">
+
+
+
+  <h1 id="NanoQL_Instruments_MakeCms" data-uid="NanoQL.Instruments.MakeCms" class="text-break">
+Class MakeCms  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A builder of standard market constant maturity swaps: a CMS leg against an Ibor leg.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record MakeCms : IEquatable&lt;MakeCms&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MakeCms</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Instruments_MakeCms_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An immutable builder, as <a class="xref" href="NanoQL.Instruments.MakeVanillaSwap.html">MakeVanillaSwap</a>: each method returns a modified copy, and
+<a class="xref" href="NanoQL.Instruments.MakeCms.html#NanoQL_Instruments_MakeCms_ToSwap_NanoQL_EvaluationContext_">ToSwap(EvaluationContext)</a> builds the swap, in place of QuantLib's conversion operators; it takes the context for the
+evaluation date the default start date counts from, and for the at-par switch the Ibor leg reads. A builder has no
+value equality.
+</p>
+<p>
+The engine, <a class="xref" href="NanoQL.PricingEngines.DiscountingSwapEngine.html">DiscountingSwapEngine</a> on the swap index's forwarding curve unless
+<a class="xref" href="NanoQL.Instruments.MakeCms.html#NanoQL_Instruments_MakeCms_WithDiscountingTermStructure_NanoQL_TermStructures_YieldTermStructure_">WithDiscountingTermStructure(YieldTermStructure?)</a> sets another curve, prices the at-the-money spread
+(<a class="xref" href="NanoQL.Instruments.MakeCms.html#NanoQL_Instruments_MakeCms_WithAtmSpread_System_Boolean_">WithAtmSpread(bool)</a>) and is never stored: the swap returned holds no engine, where QuantLib's builder
+attaches it. QuantLib's two constructors taking the Ibor spread and the forward start, deprecated in 1.44, aren't
+ported: <a class="xref" href="NanoQL.Instruments.MakeCms.html#NanoQL_Instruments_MakeCms_WithIborSpread_System_Double_">WithIborSpread(double)</a> and <a class="xref" href="NanoQL.Instruments.MakeCms.html#NanoQL_Instruments_MakeCms_WithForwardStart_NanoQL_Time_Period_">WithForwardStart(Period)</a> set them.
+</p>
+<p>
+An option the builder isn't given that QuantLib's builder fixes takes the builder's provider's default
+(<a class="xref" href="NanoQL.Instruments.MakeCms.html#NanoQL_Instruments_MakeCms_Defaults_NanoQL_ConventionProvider_">Defaults(ConventionProvider)</a>), read when the swap is built: QuantLib's values with nothing configured.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Instruments_MakeCms__ctor_" data-uid="NanoQL.Instruments.MakeCms.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms__ctor_NanoQL_Time_Period_NanoQL_Indexes_SwapIndex_NanoQL_Indexes_IborIndex_" data-uid="NanoQL.Instruments.MakeCms.#ctor(NanoQL.Time.Period,NanoQL.Indexes.SwapIndex,NanoQL.Indexes.IborIndex)">
+  MakeCms(Period, SwapIndex, IborIndex?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a> record.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms(Period swapTenor, SwapIndex swapIndex, IborIndex? iborIndex = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>swapTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The swap's tenor.</p>
+</dd>
+    <dt><code>swapIndex</code> <a class="xref" href="NanoQL.Indexes.SwapIndex.html">SwapIndex</a></dt>
+    <dd><p>The CMS leg's swap index.</p>
+</dd>
+    <dt><code>iborIndex</code> <a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd><p>The Ibor leg's index; the swap index's own when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The swap index is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Instruments_MakeCms_Defaults_" data-uid="NanoQL.Instruments.MakeCms.Defaults*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_Defaults_NanoQL_ConventionProvider_" data-uid="NanoQL.Instruments.MakeCms.Defaults(NanoQL.ConventionProvider)">
+  Defaults(ConventionProvider)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The defaults a builder takes under a provider for the options it isn't given.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CmsDefaults Defaults(ConventionProvider provider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>provider</code> <a class="xref" href="NanoQL.ConventionProvider.html">ConventionProvider</a></dt>
+    <dd><p>The provider, the index's, which a builder on the index takes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.CmsDefaults.html">CmsDefaults</a></dt>
+    <dd><p>The provider's defaults; QuantLib's under <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_QuantLib">QuantLib</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">provider</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The provider has no defaults (a set without QuantLib's presets).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_Equals_" data-uid="NanoQL.Instruments.MakeCms.Equals*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_Equals_NanoQL_Instruments_MakeCms_" data-uid="NanoQL.Instruments.MakeCms.Equals(NanoQL.Instruments.MakeCms)">
+  Equals(MakeCms?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(MakeCms? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_Equals_" data-uid="NanoQL.Instruments.MakeCms.Equals*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_Equals_System_Object_" data-uid="NanoQL.Instruments.MakeCms.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_GetHashCode_" data-uid="NanoQL.Instruments.MakeCms.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_GetHashCode" data-uid="NanoQL.Instruments.MakeCms.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_ReceiveCms_" data-uid="NanoQL.Instruments.MakeCms.ReceiveCms*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_ReceiveCms_System_Boolean_" data-uid="NanoQL.Instruments.MakeCms.ReceiveCms(System.Boolean)">
+  ReceiveCms(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the CMS leg is received (or paid).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms ReceiveCms(bool flag = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the CMS leg is received.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_ToString_" data-uid="NanoQL.Instruments.MakeCms.ToString*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_ToString" data-uid="NanoQL.Instruments.MakeCms.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_ToSwap_" data-uid="NanoQL.Instruments.MakeCms.ToSwap*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_ToSwap_NanoQL_EvaluationContext_" data-uid="NanoQL.Instruments.MakeCms.ToSwap(NanoQL.EvaluationContext)">
+  ToSwap(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The swap: QuantLib's conversion to <code>Swap</code>, the CMS leg first when it is paid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Swap ToSwap(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context: the default start date counts from its evaluation date, the Ibor
+leg reads its at-par switch, and the at-the-money spread is priced under it.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.Swap.html">Swap</a></dt>
+    <dd><p>The swap, which holds no engine.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The context is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>With the at-the-money spread, an index has no forwarding curve, no CMS coupon pricer is set, or the engine can't
+price the swap.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithAtmSpread_" data-uid="NanoQL.Instruments.MakeCms.WithAtmSpread*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithAtmSpread_System_Boolean_" data-uid="NanoQL.Instruments.MakeCms.WithAtmSpread(System.Boolean)">
+  WithAtmSpread(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the Ibor leg's spread is the one at which the swap is worth 0, in place of the given
+one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithAtmSpread(bool flag = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The flag.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithCmsCouponPricer_" data-uid="NanoQL.Instruments.MakeCms.WithCmsCouponPricer*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithCmsCouponPricer_NanoQL_Coupons_CmsCouponPricer_" data-uid="NanoQL.Instruments.MakeCms.WithCmsCouponPricer(NanoQL.Coupons.CmsCouponPricer)">
+  WithCmsCouponPricer(CmsCouponPricer?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the CMS leg's coupon pricer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithCmsCouponPricer(CmsCouponPricer? couponPricer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>couponPricer</code> <a class="xref" href="NanoQL.Coupons.CmsCouponPricer.html">CmsCouponPricer</a></dt>
+    <dd><p>The pricer, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithCmsLegCalendar_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegCalendar*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithCmsLegCalendar_NanoQL_Time_Calendar_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegCalendar(NanoQL.Time.Calendar)">
+  WithCmsLegCalendar(Calendar)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the CMS leg's calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithCmsLegCalendar(Calendar cal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cal</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The calendar is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithCmsLegConvention_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegConvention*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithCmsLegConvention_NanoQL_Time_BusinessDayConvention_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegConvention(NanoQL.Time.BusinessDayConvention)">
+  WithCmsLegConvention(BusinessDayConvention)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the CMS leg's business-day convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithCmsLegConvention(BusinessDayConvention bdc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bdc</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The convention.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The convention isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithCmsLegDayCount_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegDayCount*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithCmsLegDayCount_NanoQL_Time_DayCounter_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegDayCount(NanoQL.Time.DayCounter)">
+  WithCmsLegDayCount(DayCounter)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the CMS leg's day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithCmsLegDayCount(DayCounter dc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The day counter is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithCmsLegEndOfMonth_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegEndOfMonth*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithCmsLegEndOfMonth_System_Boolean_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegEndOfMonth(System.Boolean)">
+  WithCmsLegEndOfMonth(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the CMS leg's dates stay at month end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithCmsLegEndOfMonth(bool flag = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The flag.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithCmsLegFirstDate_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegFirstDate*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithCmsLegFirstDate_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegFirstDate(System.Nullable{NanoQL.Time.Date})">
+  WithCmsLegFirstDate(Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the CMS leg's first date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithCmsLegFirstDate(Date? d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithCmsLegNextToLastDate_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegNextToLastDate*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithCmsLegNextToLastDate_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegNextToLastDate(System.Nullable{NanoQL.Time.Date})">
+  WithCmsLegNextToLastDate(Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the CMS leg's next-to-last date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithCmsLegNextToLastDate(Date? d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithCmsLegRule_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegRule*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithCmsLegRule_NanoQL_Time_DateGenerationRule_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegRule(NanoQL.Time.DateGenerationRule)">
+  WithCmsLegRule(DateGenerationRule)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the CMS leg's date-generation rule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithCmsLegRule(DateGenerationRule r)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="NanoQL.Time.DateGenerationRule.html">DateGenerationRule</a></dt>
+    <dd><p>The rule.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The rule isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithCmsLegTenor_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegTenor*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithCmsLegTenor_NanoQL_Time_Period_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegTenor(NanoQL.Time.Period)">
+  WithCmsLegTenor(Period)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the CMS leg's tenor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithCmsLegTenor(Period t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The tenor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithCmsLegTerminationDateConvention_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegTerminationDateConvention*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithCmsLegTerminationDateConvention_NanoQL_Time_BusinessDayConvention_" data-uid="NanoQL.Instruments.MakeCms.WithCmsLegTerminationDateConvention(NanoQL.Time.BusinessDayConvention)">
+  WithCmsLegTerminationDateConvention(BusinessDayConvention)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the CMS leg's termination date convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithCmsLegTerminationDateConvention(BusinessDayConvention bdc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bdc</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The convention.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The convention isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithDiscountingTermStructure_" data-uid="NanoQL.Instruments.MakeCms.WithDiscountingTermStructure*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithDiscountingTermStructure_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Instruments.MakeCms.WithDiscountingTermStructure(NanoQL.TermStructures.YieldTermStructure)">
+  WithDiscountingTermStructure(YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the engine's discounting curve, which prices the at-the-money spread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithDiscountingTermStructure(YieldTermStructure? discountingTermStructure)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>discountingTermStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty handle: the engine
+then refuses to price.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithEffectiveDate_" data-uid="NanoQL.Instruments.MakeCms.WithEffectiveDate*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithEffectiveDate_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.MakeCms.WithEffectiveDate(System.Nullable{NanoQL.Time.Date})">
+  WithEffectiveDate(Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the effective date, in place of the spot date and the forward start.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithEffectiveDate(Date? effectiveDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>effectiveDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The effective date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithFloatingLegCalendar_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegCalendar*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithFloatingLegCalendar_NanoQL_Time_Calendar_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegCalendar(NanoQL.Time.Calendar)">
+  WithFloatingLegCalendar(Calendar)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the Ibor leg's calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithFloatingLegCalendar(Calendar cal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cal</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The calendar is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithFloatingLegConvention_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegConvention*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithFloatingLegConvention_NanoQL_Time_BusinessDayConvention_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegConvention(NanoQL.Time.BusinessDayConvention)">
+  WithFloatingLegConvention(BusinessDayConvention)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the Ibor leg's business-day convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithFloatingLegConvention(BusinessDayConvention bdc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bdc</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The convention.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The convention isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithFloatingLegDayCount_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegDayCount*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithFloatingLegDayCount_NanoQL_Time_DayCounter_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegDayCount(NanoQL.Time.DayCounter)">
+  WithFloatingLegDayCount(DayCounter)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the Ibor leg's day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithFloatingLegDayCount(DayCounter dc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The day counter is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithFloatingLegEndOfMonth_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegEndOfMonth*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithFloatingLegEndOfMonth_System_Boolean_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegEndOfMonth(System.Boolean)">
+  WithFloatingLegEndOfMonth(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the Ibor leg's dates stay at month end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithFloatingLegEndOfMonth(bool flag = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>flag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The flag.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithFloatingLegFirstDate_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegFirstDate*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithFloatingLegFirstDate_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegFirstDate(System.Nullable{NanoQL.Time.Date})">
+  WithFloatingLegFirstDate(Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the Ibor leg's first date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithFloatingLegFirstDate(Date? d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithFloatingLegNextToLastDate_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegNextToLastDate*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithFloatingLegNextToLastDate_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegNextToLastDate(System.Nullable{NanoQL.Time.Date})">
+  WithFloatingLegNextToLastDate(Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the Ibor leg's next-to-last date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithFloatingLegNextToLastDate(Date? d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithFloatingLegRule_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegRule*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithFloatingLegRule_NanoQL_Time_DateGenerationRule_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegRule(NanoQL.Time.DateGenerationRule)">
+  WithFloatingLegRule(DateGenerationRule)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the Ibor leg's date-generation rule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithFloatingLegRule(DateGenerationRule r)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="NanoQL.Time.DateGenerationRule.html">DateGenerationRule</a></dt>
+    <dd><p>The rule.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The rule isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithFloatingLegTenor_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegTenor*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithFloatingLegTenor_NanoQL_Time_Period_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegTenor(NanoQL.Time.Period)">
+  WithFloatingLegTenor(Period)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the Ibor leg's tenor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithFloatingLegTenor(Period t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The tenor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithFloatingLegTerminationDateConvention_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegTerminationDateConvention*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithFloatingLegTerminationDateConvention_NanoQL_Time_BusinessDayConvention_" data-uid="NanoQL.Instruments.MakeCms.WithFloatingLegTerminationDateConvention(NanoQL.Time.BusinessDayConvention)">
+  WithFloatingLegTerminationDateConvention(BusinessDayConvention)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the Ibor leg's termination date convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithFloatingLegTerminationDateConvention(BusinessDayConvention bdc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bdc</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The convention.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The convention isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithForwardStart_" data-uid="NanoQL.Instruments.MakeCms.WithForwardStart*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithForwardStart_NanoQL_Time_Period_" data-uid="NanoQL.Instruments.MakeCms.WithForwardStart(NanoQL.Time.Period)">
+  WithForwardStart(Period)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the forward start from the spot date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithForwardStart(Period f)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The forward start.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithIborSpread_" data-uid="NanoQL.Instruments.MakeCms.WithIborSpread*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithIborSpread_System_Double_" data-uid="NanoQL.Instruments.MakeCms.WithIborSpread(System.Double)">
+  WithIborSpread(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the Ibor leg's spread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithIborSpread(double s)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spread.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_WithNominal_" data-uid="NanoQL.Instruments.MakeCms.WithNominal*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_WithNominal_System_Double_" data-uid="NanoQL.Instruments.MakeCms.WithNominal(System.Double)">
+  WithNominal(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the nominal of both legs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeCms WithNominal(double n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The nominal.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Instruments_MakeCms_op_Equality_" data-uid="NanoQL.Instruments.MakeCms.op_Equality*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_op_Equality_NanoQL_Instruments_MakeCms_NanoQL_Instruments_MakeCms_" data-uid="NanoQL.Instruments.MakeCms.op_Equality(NanoQL.Instruments.MakeCms,NanoQL.Instruments.MakeCms)">
+  operator ==(MakeCms?, MakeCms?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(MakeCms? left, MakeCms? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_MakeCms_op_Inequality_" data-uid="NanoQL.Instruments.MakeCms.op_Inequality*"></a>
+
+  <h3 id="NanoQL_Instruments_MakeCms_op_Inequality_NanoQL_Instruments_MakeCms_NanoQL_Instruments_MakeCms_" data-uid="NanoQL.Instruments.MakeCms.op_Inequality(NanoQL.Instruments.MakeCms,NanoQL.Instruments.MakeCms)">
+  operator !=(MakeCms?, MakeCms?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(MakeCms? left, MakeCms? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Instruments.MakeCms.html">MakeCms</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

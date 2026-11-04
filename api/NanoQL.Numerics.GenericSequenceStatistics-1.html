@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class GenericSequenceStatistics&lt;TStats&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GenericSequenceStatistics&lt;TStats&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Statistics of N-dimensional samples: each component&#39;s one-dimensional statistics, kept by a TStats per component, and the samples&#39; covariance and correlation.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.GenericSequenceStatistics`1">
+
+
+
+  <h1 id="NanoQL_Numerics_GenericSequenceStatistics_1" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1" class="text-break">
+Class GenericSequenceStatistics&lt;TStats&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Statistics of N-dimensional samples: each component's one-dimensional statistics, kept by a
+<code class="typeparamref">TStats</code> per component, and the samples' covariance and correlation.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public class GenericSequenceStatistics&lt;TStats&gt; where TStats : IStatistics, new()</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TStats</code></dt>
+    <dd><p>The one-dimensional statistics of each component.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">GenericSequenceStatistics&lt;TStats&gt;</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Numerics.SequenceStatistics.html">SequenceStatistics</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.SequenceStatisticsInc.html">SequenceStatisticsInc</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Numerics_GenericSequenceStatistics_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A working type: <a class="xref" href="NanoQL.Numerics.GenericSequenceStatistics-1.html#NanoQL_Numerics_GenericSequenceStatistics_1_Add_System_ReadOnlySpan_System_Double__System_Double_">Add(ReadOnlySpan&lt;double&gt;, double)</a> and <a class="xref" href="NanoQL.Numerics.GenericSequenceStatistics-1.html#NanoQL_Numerics_GenericSequenceStatistics_1_Reset_System_Int32_">Reset(int)</a> change it, and it isn't thread-safe. Its dimension is set
+by the constructor, by <a class="xref" href="NanoQL.Numerics.GenericSequenceStatistics-1.html#NanoQL_Numerics_GenericSequenceStatistics_1_Reset_System_Int32_">Reset(int)</a>, or by the first sample added to a statistics of dimension 0, QuantLib's
+lazy dimension.
+</p>
+<p>
+Each member of <a class="xref" href="NanoQL.Numerics.IStatistics.html">IStatistics</a> and of the Gaussian layer (<a class="xref" href="NanoQL.Numerics.GaussianStatisticsExtensions.html">GaussianStatisticsExtensions</a>) is
+lifted over the components, returning one value per component; the empirical risk measures, which need a statistics
+that keeps its samples, are extension members on statistics over an <a class="xref" href="NanoQL.Numerics.IEmpiricalStatistics.html">IEmpiricalStatistics</a>
+(<a class="xref" href="NanoQL.Numerics.GenericSequenceStatisticsExtensions.html">GenericSequenceStatisticsExtensions</a>), as QuantLib's template compiles a lifted member only where its
+type parameter has it.
+</p>
+<p>
+An extension point: QuantLib's protected members are protected here, <a class="xref" href="NanoQL.Numerics.GenericSequenceStatistics-1.html#NanoQL_Numerics_GenericSequenceStatistics_1_Dimension">Dimension</a>,
+<a class="xref" href="NanoQL.Numerics.GenericSequenceStatistics-1.html#NanoQL_Numerics_GenericSequenceStatistics_1_ComponentStatistics">ComponentStatistics</a> and <a class="xref" href="NanoQL.Numerics.GenericSequenceStatistics-1.html#NanoQL_Numerics_GenericSequenceStatistics_1_QuadraticSum">QuadraticSum</a>, and <a class="xref" href="NanoQL.Numerics.GenericSequenceStatistics-1.html#NanoQL_Numerics_GenericSequenceStatistics_1_Add_System_ReadOnlySpan_System_Double__System_Double_">Add(ReadOnlySpan&lt;double&gt;, double)</a> and <a class="xref" href="NanoQL.Numerics.GenericSequenceStatistics-1.html#NanoQL_Numerics_GenericSequenceStatistics_1_Reset_System_Int32_">Reset(int)</a> are
+virtual. The constructor, and <a class="xref" href="NanoQL.Numerics.GenericSequenceStatistics-1.html#NanoQL_Numerics_GenericSequenceStatistics_1_Add_System_ReadOnlySpan_System_Double__System_Double_">Add(ReadOnlySpan&lt;double&gt;, double)</a> where the first sample sets the dimension, reset this class's own
+state, not a derived class's, as QuantLib's call its own <code>reset</code>: a derived override isn't run before its
+class's constructor.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1__ctor_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1__ctor_System_Int32_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.#ctor(System.Int32)">
+  GenericSequenceStatistics(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.GenericSequenceStatistics-1.html">GenericSequenceStatistics&lt;TStats&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GenericSequenceStatistics(int dimension = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dimension</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The samples' dimension; 0 to take it from the first sample.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">dimension</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_ComponentStatistics_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.ComponentStatistics*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_ComponentStatistics" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.ComponentStatistics">
+  ComponentStatistics
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each component's statistics, QuantLib's protected <code>stats_</code>: a view of the held
+array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ReadOnlySpan&lt;TStats&gt; ComponentStatistics { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;TStats&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_Dimension_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Dimension*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_Dimension" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Dimension">
+  Dimension
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the dimension, QuantLib's protected <code>dimension_</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int Dimension { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_QuadraticSum_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.QuadraticSum*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_QuadraticSum" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.QuadraticSum">
+  QuadraticSum
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the weighted sum of the samples' outer products, Σ wₖ xₖ xₖᵀ, QuantLib's protected <code>quadraticSum_</code>: a
+read-only view of its elements, row by row.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ReadOnlySpan&lt;double&gt; QuadraticSum { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_Samples_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Samples*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_Samples" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Samples">
+  Samples
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of samples collected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Samples { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_Size_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Size*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_Size" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Size">
+  Size
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the samples' dimension, 0 before the first sample of a statistics built without one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_Add_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Add*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_Add_System_ReadOnlySpan_System_Double__System_Double_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Add(System.ReadOnlySpan{System.Double},System.Double)">
+  Add(ReadOnlySpan&lt;double&gt;, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sample, with a weight. The first sample of a statistics of dimension 0 sets its dimension. Allocates
+nothing once the dimension is set: the outer product is added in place, wₖ (xᵢ xⱼ) into each element, QuantLib's
+arithmetic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Add(ReadOnlySpan&lt;double&gt; sample, double weight = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sample</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The sample, one value per component.</p>
+</dd>
+    <dt><code>weight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Its weight.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The sample is empty where the dimension is 0, or its size isn't the dimension.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_Correlation_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Correlation*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_Correlation" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Correlation">
+  Correlation()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The correlation matrix: the covariance scaled by the components' standard deviations, 1 on the diagonal and
+between two components of no variance, 0 between one of no variance and another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix Correlation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The weights sum to 0 or less, or there are fewer than two samples.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_Covariance_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Covariance*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_Covariance" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Covariance">
+  Covariance()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The covariance matrix, N/(N − 1) (Σ wₖ xₖ xₖᵀ / Σ wₖ − m mᵀ), m the components' means.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix Covariance()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The weights sum to 0 or less, or there are fewer than two samples.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_ErrorEstimate_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.ErrorEstimate*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_ErrorEstimate" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.ErrorEstimate">
+  ErrorEstimate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's error estimate on its mean.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; ErrorEstimate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The error estimates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_GaussianAverageShortfall_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.GaussianAverageShortfall*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_GaussianAverageShortfall_System_Double_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.GaussianAverageShortfall(System.Double)">
+  GaussianAverageShortfall(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's Gaussian-assumption average shortfall below a target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; GaussianAverageShortfall(double target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The target.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The average shortfalls.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_GaussianExpectedShortfall_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.GaussianExpectedShortfall*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_GaussianExpectedShortfall_System_Double_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.GaussianExpectedShortfall(System.Double)">
+  GaussianExpectedShortfall(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's Gaussian-assumption expected shortfall at a percentile.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; GaussianExpectedShortfall(double percentile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>percentile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The percentile, in [0.9, 1).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The expected shortfalls.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_GaussianPercentile_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.GaussianPercentile*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_GaussianPercentile_System_Double_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.GaussianPercentile(System.Double)">
+  GaussianPercentile(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's Gaussian-assumption percentile.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; GaussianPercentile(double y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The percentile, in (0, 1).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The percentiles.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_GaussianPotentialUpside_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.GaussianPotentialUpside*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_GaussianPotentialUpside_System_Double_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.GaussianPotentialUpside(System.Double)">
+  GaussianPotentialUpside(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's Gaussian-assumption potential upside at a percentile.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; GaussianPotentialUpside(double percentile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>percentile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The percentile, in [0.9, 1).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The potential upsides.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_GaussianShortfall_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.GaussianShortfall*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_GaussianShortfall_System_Double_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.GaussianShortfall(System.Double)">
+  GaussianShortfall(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's Gaussian-assumption probability of falling below a target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; GaussianShortfall(double target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The target.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The shortfalls.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_GaussianValueAtRisk_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.GaussianValueAtRisk*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_GaussianValueAtRisk_System_Double_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.GaussianValueAtRisk(System.Double)">
+  GaussianValueAtRisk(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's Gaussian-assumption value-at-risk at a percentile.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; GaussianValueAtRisk(double percentile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>percentile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The percentile, in [0.9, 1).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The values-at-risk.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_Kurtosis_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Kurtosis*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_Kurtosis" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Kurtosis">
+  Kurtosis()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's excess kurtosis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Kurtosis()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The kurtoses.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_Max_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Max*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_Max" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Max">
+  Max()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's largest sample.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Max()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The maxima.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_Mean_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Mean*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_Mean" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Mean">
+  Mean()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's mean.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Mean()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The means.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_Min_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Min*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_Min" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Min">
+  Min()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's smallest sample.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Min()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The minima.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_Reset_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Reset*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_Reset_System_Int32_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Reset(System.Int32)">
+  Reset(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the statistics to no sample. A positive dimension sets the dimension, resetting each component's
+statistics where it is the current one and replacing them where it isn't; 0 sets the dimension to 0, so that
+the next sample sets it, and leaves the components' statistics as they are, as QuantLib's does.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Reset(int dimension = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dimension</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The samples' dimension.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Numerics_GenericSequenceStatistics_1_Reset_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>After a reset to 0 the lifted members return no value until the next sample sets the dimension, where QuantLib's
+return their last call's values (<code>sequencestatistics.hpp:178-185</code>), a stale read.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">dimension</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_Skewness_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Skewness*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_Skewness" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Skewness">
+  Skewness()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's skewness.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Skewness()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The skewnesses.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_StandardDeviation_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.StandardDeviation*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_StandardDeviation" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.StandardDeviation">
+  StandardDeviation()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's standard deviation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; StandardDeviation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The standard deviations.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_Variance_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Variance*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_Variance" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.Variance">
+  Variance()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Each component's variance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Variance()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The variances.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_GenericSequenceStatistics_1_WeightSum_" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.WeightSum*"></a>
+
+  <h3 id="NanoQL_Numerics_GenericSequenceStatistics_1_WeightSum" data-uid="NanoQL.Numerics.GenericSequenceStatistics`1.WeightSum">
+  WeightSum()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sum of the samples' weights.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double WeightSum()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The sum of the weights, 0 with no component.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

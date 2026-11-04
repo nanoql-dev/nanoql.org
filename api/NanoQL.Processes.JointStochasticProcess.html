@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class JointStochasticProcess | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class JointStochasticProcess | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A multi-model process for hybrid products: its constituents&#39; states stacked, their factors correlated across models by a derived class&#39;s cross-model correlation.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Processes.JointStochasticProcess">
+
+
+
+  <h1 id="NanoQL_Processes_JointStochasticProcess" data-uid="NanoQL.Processes.JointStochasticProcess" class="text-break">
+Class JointStochasticProcess  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Processes.html">Processes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A multi-model process for hybrid products: its constituents' states stacked, their factors correlated across models
+by a derived class's cross-model correlation.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class JointStochasticProcess : StochasticProcess</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.StochasticProcess.html">StochasticProcess</a></div>
+      <div><span class="xref">JointStochasticProcess</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_discretization">StochasticProcess.discretization</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_InitialValues_System_Span_System_Double__">StochasticProcess.InitialValues(Span&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Evolve_System_Double_System_ReadOnlySpan_System_Double__System_Double_System_ReadOnlySpan_System_Double__System_Span_System_Double__">StochasticProcess.Evolve(double, ReadOnlySpan&lt;double&gt;, double, ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Processes_JointStochasticProcess_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An extension point, as in QuantLib: a derived class gives the cross-model correlation, whether it depends on the
+state, the numeraire and the hooks around each step. The constituents are fixed at construction.
+</p>
+<p>
+Each step builds its correlation from the constituents' standard deviations at the step's state, where QuantLib
+caches it by (t₀, dt) when the derived class says the cross-model correlation doesn't depend on the state
+(<code>jointstochasticprocess.cpp:189-268</code>): its key leaves out the state the constituents' deviations read, so a
+later path at the same step can reuse an earlier path's matrix, and no class in QuantLib derives the process to
+measure what the cache pays.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess__ctor_" data-uid="NanoQL.Processes.JointStochasticProcess.#ctor*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess__ctor_System_Collections_Immutable_ImmutableArray_NanoQL_StochasticProcess__System_Nullable_System_Int32__" data-uid="NanoQL.Processes.JointStochasticProcess.#ctor(System.Collections.Immutable.ImmutableArray{NanoQL.StochasticProcess},System.Nullable{System.Int32})">
+  JointStochasticProcess(ImmutableArray&lt;StochasticProcess&gt;, int?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Processes.JointStochasticProcess.html">JointStochasticProcess</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected JointStochasticProcess(ImmutableArray&lt;StochasticProcess&gt; l, int? factors = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.StochasticProcess.html">StochasticProcess</a>&gt;</dt>
+    <dd><p>The constituent processes.</p>
+</dd>
+    <dt><code>factors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The joint process's factors, at most its size, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the sum of the
+constituents' factors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A constituent is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">factors</code> exceeds the joint size (&quot;too many factors
+given&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_Constituents_" data-uid="NanoQL.Processes.JointStochasticProcess.Constituents*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_Constituents" data-uid="NanoQL.Processes.JointStochasticProcess.Constituents">
+  Constituents
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the constituent processes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;StochasticProcess&gt; Constituents { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.StochasticProcess.html">StochasticProcess</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_Factors_" data-uid="NanoQL.Processes.JointStochasticProcess.Factors*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_Factors" data-uid="NanoQL.Processes.JointStochasticProcess.Factors">
+  Factors
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of independent factors of the process; by default, its <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Size">Size</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Factors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_Size_" data-uid="NanoQL.Processes.JointStochasticProcess.Size*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_Size" data-uid="NanoQL.Processes.JointStochasticProcess.Size">
+  Size
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of dimensions of the process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_Apply_" data-uid="NanoQL.Processes.JointStochasticProcess.Apply*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_Apply_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.JointStochasticProcess.Apply(NanoQL.Numerics.Vector,NanoQL.Numerics.Vector)">
+  Apply(Vector, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies a change to the state; by default x + Δx.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Apply(Vector x0, Vector dx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state.</p>
+</dd>
+    <dt><code>dx</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The change.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_CorrelationIsStateDependent_" data-uid="NanoQL.Processes.JointStochasticProcess.CorrelationIsStateDependent*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_CorrelationIsStateDependent" data-uid="NanoQL.Processes.JointStochasticProcess.CorrelationIsStateDependent">
+  CorrelationIsStateDependent()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the cross-model correlation depends on the state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool CorrelationIsStateDependent()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> where it does.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_Covariance_" data-uid="NanoQL.Processes.JointStochasticProcess.Covariance*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_Covariance_System_Double_NanoQL_Numerics_Vector_System_Double_" data-uid="NanoQL.Processes.JointStochasticProcess.Covariance(System.Double,NanoQL.Numerics.Vector,System.Double)">
+  Covariance(double, Vector, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The covariance V(x_{t0 + Δt} | x_{t0} = x0) of the process after a time interval Δt; by default, the
+discretization's covariance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Matrix Covariance(double t0, Vector x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The process has no discretization.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_CrossModelCorrelation_" data-uid="NanoQL.Processes.JointStochasticProcess.CrossModelCorrelation*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_CrossModelCorrelation_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.JointStochasticProcess.CrossModelCorrelation(System.Double,NanoQL.Numerics.Vector)">
+  CrossModelCorrelation(double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cross-model correlation at a time and state: the correlation of each pair of variables of
+different constituents, zero within a constituent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Matrix CrossModelCorrelation(double t0, Vector x0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The joint state.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The correlation, a <a class="xref" href="NanoQL.Processes.JointStochasticProcess.html#NanoQL_Processes_JointStochasticProcess_Size">Size</a> square matrix the caller may modify.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_Diffusion_" data-uid="NanoQL.Processes.JointStochasticProcess.Diffusion*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_Diffusion_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.JointStochasticProcess.Diffusion(System.Double,NanoQL.Numerics.Vector)">
+  Diffusion(double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The diffusion part of the equation, σ(t, x_t).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Matrix Diffusion(double t, Vector x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Processes_JointStochasticProcess_Diffusion_System_Double_NanoQL_Numerics_Vector__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The pseudo square root of the covariance over a step of 0.001 per unit of time, QuantLib's.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_Drift_" data-uid="NanoQL.Processes.JointStochasticProcess.Drift*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_Drift_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.JointStochasticProcess.Drift(System.Double,NanoQL.Numerics.Vector)">
+  Drift(double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The drift part of the equation, μ(t, x_t).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Drift(double t, Vector x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_Evolve_" data-uid="NanoQL.Processes.JointStochasticProcess.Evolve*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_Evolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.JointStochasticProcess.Evolve(System.Double,NanoQL.Numerics.Vector,System.Double,NanoQL.Numerics.Vector)">
+  Evolve(double, Vector, double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The state after a time interval Δt; by default E(x0, t0, Δt) + S(x0, t0, Δt) · Δw, where E is the expectation
+and S the standard deviation, applied to the expectation by <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Apply_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">Apply(Vector, Vector)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Evolve(double t0, Vector x0, double dt, Vector dw)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+    <dt><code>dw</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The Brownian increments, one per factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Processes_JointStochasticProcess_Evolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The step's correlation is built at each call; the derived class's <a class="xref" href="NanoQL.Processes.JointStochasticProcess.html#NanoQL_Processes_JointStochasticProcess_PreEvolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_">PreEvolve(double, Vector, double, Vector)</a> sees the
+correlated increments before the constituents step, and its <a class="xref" href="NanoQL.Processes.JointStochasticProcess.html#NanoQL_Processes_JointStochasticProcess_PostEvolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">PostEvolve(double, Vector, double, Vector, Vector)</a> returns the joint state
+from theirs.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes don't match.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_Expectation_" data-uid="NanoQL.Processes.JointStochasticProcess.Expectation*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_Expectation_System_Double_NanoQL_Numerics_Vector_System_Double_" data-uid="NanoQL.Processes.JointStochasticProcess.Expectation(System.Double,NanoQL.Numerics.Vector,System.Double)">
+  Expectation(double, Vector, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expectation E(x_{t0 + Δt} | x_{t0} = x0) of the process after a time interval Δt; by default, the
+discretization's drift applied to x0 by <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Apply_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">Apply(Vector, Vector)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Expectation(double t0, Vector x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The process has no discretization.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_InitialValues_" data-uid="NanoQL.Processes.JointStochasticProcess.InitialValues*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_InitialValues" data-uid="NanoQL.Processes.JointStochasticProcess.InitialValues">
+  InitialValues()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The initial values of the state variables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector InitialValues()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_Numeraire_" data-uid="NanoQL.Processes.JointStochasticProcess.Numeraire*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_Numeraire_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.JointStochasticProcess.Numeraire(System.Double,NanoQL.Numerics.Vector)">
+  Numeraire(double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The numeraire at a time and state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double Numeraire(double t, Vector x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The joint state.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The numeraire's value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_PostEvolve_" data-uid="NanoQL.Processes.JointStochasticProcess.PostEvolve*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_PostEvolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.JointStochasticProcess.PostEvolve(System.Double,NanoQL.Numerics.Vector,System.Double,NanoQL.Numerics.Vector,NanoQL.Numerics.Vector)">
+  PostEvolve(double, Vector, double, Vector, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The joint state after a step, from the constituents' stepped states.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Vector PostEvolve(double t0, Vector x0, double dt, Vector dw, Vector y0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The step's start.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The joint state at the start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The step.</p>
+</dd>
+    <dt><code>dw</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The correlated increments.</p>
+</dd>
+    <dt><code>y0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The constituents' stepped states, stacked.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The joint state.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_PreEvolve_" data-uid="NanoQL.Processes.JointStochasticProcess.PreEvolve*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_PreEvolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.JointStochasticProcess.PreEvolve(System.Double,NanoQL.Numerics.Vector,System.Double,NanoQL.Numerics.Vector)">
+  PreEvolve(double, Vector, double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called with the correlated increments before the constituents step.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void PreEvolve(double t0, Vector x0, double dt, Vector dw)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The step's start.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The joint state at the start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The step.</p>
+</dd>
+    <dt><code>dw</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The correlated increments, the constituents' factors stacked.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_Slice_" data-uid="NanoQL.Processes.JointStochasticProcess.Slice*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_Slice_NanoQL_Numerics_Vector_System_Int32_" data-uid="NanoQL.Processes.JointStochasticProcess.Slice(NanoQL.Numerics.Vector,System.Int32)">
+  Slice(Vector, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <code class="paramref">i</code>-th constituent's variables of a joint state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Vector Slice(Vector x, int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The joint state.</p>
+</dd>
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The constituent's index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A copy of its variables.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_StdDeviation_" data-uid="NanoQL.Processes.JointStochasticProcess.StdDeviation*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_StdDeviation_System_Double_NanoQL_Numerics_Vector_System_Double_" data-uid="NanoQL.Processes.JointStochasticProcess.StdDeviation(System.Double,NanoQL.Numerics.Vector,System.Double)">
+  StdDeviation(double, Vector, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The standard deviation S(x_{t0 + Δt} | x_{t0} = x0) of the process after a time interval Δt; by default, the
+discretization's diffusion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Matrix StdDeviation(double t0, Vector x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The process has no discretization.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_JointStochasticProcess_Time_" data-uid="NanoQL.Processes.JointStochasticProcess.Time*"></a>
+
+  <h3 id="NanoQL_Processes_JointStochasticProcess_Time_NanoQL_Time_Date_" data-uid="NanoQL.Processes.JointStochasticProcess.Time(NanoQL.Time.Date)">
+  Time(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The time of a date: the first constituent's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Time(Date date)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>date</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There's no constituent (&quot;process list is empty&quot;).</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

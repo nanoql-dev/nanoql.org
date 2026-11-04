@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Monte Carlo lookback engine&#39;s builder, QuantLib&#39;s MakeMCLookbackEngine: its members, defaults, checks and texts, the seed required.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3">
+
+
+
+  <h1 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3" class="text-break">
+Class MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Monte Carlo lookback engine's builder, QuantLib's <code>MakeMCLookbackEngine</code>: its members, defaults, checks and
+texts, the seed required.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt; : IEquatable&lt;MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;&gt; where TOption : OneAssetOption where TRng : IRngTraits where TStats : IStatistics, new()</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TOption</code></dt>
+    <dd><p>The lookback instrument the engine prices: one of the four continuous lookback
+options.</p>
+</dd>
+    <dt><code>TRng</code></dt>
+    <dd><p>The random-number traits.</p>
+</dd>
+    <dt><code>TStats</code></dt>
+    <dd><p>The statistics accumulator.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A sealed, immutable record: each <code>With</code> member returns a copy. <a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html#NanoQL_PricingEngines_MakeMCLookbackEngine_3_ToEngine">ToEngine()</a> returns
+<a class="xref" href="NanoQL.PricingEngines.MCLookbackEngine.html">MCLookbackEngine</a>'s overload for the instrument type; another type, which QuantLib's template can't
+instantiate, is refused there.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3__ctor_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3__ctor_NanoQL_Processes_GeneralizedBlackScholesProcess_System_Int64_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.#ctor(NanoQL.Processes.GeneralizedBlackScholesProcess,System.Int64)">
+  MakeMCLookbackEngine(GeneralizedBlackScholesProcess, long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCLookbackEngine(GeneralizedBlackScholesProcess process, long seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The Black-Scholes process.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The seed, in [1, 4294967295].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">process</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The seed is outside its range.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_Equals_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.Equals*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_Equals_NanoQL_PricingEngines_MakeMCLookbackEngine__0__1__2__" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.Equals(NanoQL.PricingEngines.MakeMCLookbackEngine{`0,`1,`2})">
+  Equals(MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_Equals_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.Equals*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_Equals_System_Object_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_GetHashCode_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.GetHashCode*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_GetHashCode" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_ToEngine_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.ToEngine*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_ToEngine" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.ToEngine">
+  ToEngine()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The engine: QuantLib's conversion to a pricing engine, its checks of the steps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;TOption, EvaluationContext, OneAssetOptionResults&gt; ToEngine()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TOption, <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, <a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a>&gt;</dt>
+    <dd><p>The engine as a delegate on the instrument and the evaluation context.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The steps are given neither or both ways, or the instrument type isn't one of the four continuous lookback
+options.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_ToString_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.ToString*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_ToString" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithAbsoluteTolerance_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithAbsoluteTolerance*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithAbsoluteTolerance_System_Double_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithAbsoluteTolerance(System.Double)">
+  WithAbsoluteTolerance(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the absolute tolerance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt; WithAbsoluteTolerance(double tolerance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The tolerance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;</dt>
+    <dd><p>A copy with the tolerance set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A number of samples is already set, or the traits give no error
+estimate.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithAntitheticVariate_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithAntitheticVariate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithAntitheticVariate_System_Boolean_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithAntitheticVariate(System.Boolean)">
+  WithAntitheticVariate(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether antithetic variates are used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt; WithAntitheticVariate(bool b = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to use antithetic variates.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;</dt>
+    <dd><p>A copy with the choice set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithBrownianBridge_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithBrownianBridge*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithBrownianBridge_System_Boolean_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithBrownianBridge(System.Boolean)">
+  WithBrownianBridge(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the draws are ordered by a Brownian bridge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt; WithBrownianBridge(bool b = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to use a Brownian bridge.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;</dt>
+    <dd><p>A copy with the choice set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithMaxSamples_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithMaxSamples*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithMaxSamples_System_Int32_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithMaxSamples(System.Int32)">
+  WithMaxSamples(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the most samples for a tolerance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt; WithMaxSamples(int samples)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>samples</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The most samples.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;</dt>
+    <dd><p>A copy with the limit set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">samples</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithSamples_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithSamples*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithSamples_System_Int32_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithSamples(System.Int32)">
+  WithSamples(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the number of samples.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt; WithSamples(int samples)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>samples</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of samples.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;</dt>
+    <dd><p>A copy with the samples set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A tolerance is already set.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">samples</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithSeed_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithSeed*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithSeed_System_Int64_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithSeed(System.Int64)">
+  WithSeed(long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the seed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt; WithSeed(long seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The seed, in [1, 4294967295].</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;</dt>
+    <dd><p>A copy with the seed set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The seed is outside its range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithSteps_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithSteps*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithSteps_System_Int32_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithSteps(System.Int32)">
+  WithSteps(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the number of time steps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt; WithSteps(int steps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>steps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of time steps.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;</dt>
+    <dd><p>A copy with the steps set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithStepsPerYear_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithStepsPerYear*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_WithStepsPerYear_System_Int32_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.WithStepsPerYear(System.Int32)">
+  WithStepsPerYear(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the number of time steps per year.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt; WithStepsPerYear(int steps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>steps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of time steps per year.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;</dt>
+    <dd><p>A copy with the steps per year set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_op_Equality_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.op_Equality*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_op_Equality_NanoQL_PricingEngines_MakeMCLookbackEngine__0__1__2__NanoQL_PricingEngines_MakeMCLookbackEngine__0__1__2__" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.op_Equality(NanoQL.PricingEngines.MakeMCLookbackEngine{`0,`1,`2},NanoQL.PricingEngines.MakeMCLookbackEngine{`0,`1,`2})">
+  operator ==(MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;?, MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;? left, MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;</dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_op_Inequality_" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.op_Inequality*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCLookbackEngine_3_op_Inequality_NanoQL_PricingEngines_MakeMCLookbackEngine__0__1__2__NanoQL_PricingEngines_MakeMCLookbackEngine__0__1__2__" data-uid="NanoQL.PricingEngines.MakeMCLookbackEngine`3.op_Inequality(NanoQL.PricingEngines.MakeMCLookbackEngine{`0,`1,`2},NanoQL.PricingEngines.MakeMCLookbackEngine{`0,`1,`2})">
+  operator !=(MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;?, MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;? left, MakeMCLookbackEngine&lt;TOption, TRng, TStats&gt;? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;</dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.PricingEngines.MakeMCLookbackEngine-3.html">MakeMCLookbackEngine</a>&lt;TOption, TRng, TStats&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class IborIndexConventions | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class IborIndexConventions | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An Ibor, Libor, overnight or BMA index preset&#39;s conventions, which ,  and  return: QuantLib&#39;s values for the preset, which its class builds itself on.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Indexes.IborIndexConventions">
+
+
+
+  <h1 id="NanoQL_Indexes_IborIndexConventions" data-uid="NanoQL.Indexes.IborIndexConventions" class="text-break">
+Class IborIndexConventions  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Indexes.html">Indexes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An Ibor, Libor, overnight or BMA index preset's conventions, which <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_ResolveIborIndex_System_String_System_Func_NanoQL_Indexes_IborIndexConventions__">ResolveIborIndex(string, Func&lt;IborIndexConventions&gt;)</a>,
+<a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_ResolveIborFamily_System_String_NanoQL_Time_Period_System_Func_NanoQL_Indexes_IborIndexConventions__">ResolveIborFamily(string, Period, Func&lt;IborIndexConventions&gt;)</a> and <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_ResolveOvernightIndex_System_String_System_Func_NanoQL_Indexes_IborIndexConventions__">ResolveOvernightIndex(string, Func&lt;IborIndexConventions&gt;)</a>
+return: QuantLib's values for the preset, which its class builds itself on.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record IborIndexConventions : IEquatable&lt;IborIndexConventions&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">IborIndexConventions</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Indexes.IborIndexConventions.html">IborIndexConventions</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Indexes_IborIndexConventions_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A Libor's fixing calendar is London's, and its financial-centre calendar the currency's, which its class joins to
+London's for its value and maturity dates, as QuantLib's does; a EUR Libor's is TARGET. An overnight index and the
+BMA index fix their convention and end of month, so a preset refuses conventions that change them.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions__ctor_" data-uid="NanoQL.Indexes.IborIndexConventions.#ctor*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions__ctor_System_Int32_NanoQL_Currency_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_System_Boolean_NanoQL_Time_DayCounter_NanoQL_Time_Calendar_" data-uid="NanoQL.Indexes.IborIndexConventions.#ctor(System.Int32,NanoQL.Currency,NanoQL.Time.Calendar,NanoQL.Time.BusinessDayConvention,System.Boolean,NanoQL.Time.DayCounter,NanoQL.Time.Calendar)">
+  IborIndexConventions(int, Currency, Calendar, BusinessDayConvention, bool, DayCounter, Calendar?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An Ibor, Libor, overnight or BMA index preset's conventions, which <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_ResolveIborIndex_System_String_System_Func_NanoQL_Indexes_IborIndexConventions__">ResolveIborIndex(string, Func&lt;IborIndexConventions&gt;)</a>,
+<a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_ResolveIborFamily_System_String_NanoQL_Time_Period_System_Func_NanoQL_Indexes_IborIndexConventions__">ResolveIborFamily(string, Period, Func&lt;IborIndexConventions&gt;)</a> and <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_ResolveOvernightIndex_System_String_System_Func_NanoQL_Indexes_IborIndexConventions__">ResolveOvernightIndex(string, Func&lt;IborIndexConventions&gt;)</a>
+return: QuantLib's values for the preset, which its class builds itself on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborIndexConventions(int FixingDays, Currency Currency, Calendar FixingCalendar, BusinessDayConvention Convention, bool EndOfMonth, DayCounter DayCounter, Calendar? FinancialCenterCalendar = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>FixingDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The fixing (settlement) days.</p>
+</dd>
+    <dt><code>Currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The index's currency.</p>
+</dd>
+    <dt><code>FixingCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The fixing calendar; a Libor's, London's.</p>
+</dd>
+    <dt><code>Convention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The business-day convention.</p>
+</dd>
+    <dt><code>EndOfMonth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the end-of-month rule applies.</p>
+</dd>
+    <dt><code>DayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>FinancialCenterCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>A Libor's financial-centre calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for any other
+index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Indexes_IborIndexConventions__ctor_System_Int32_NanoQL_Currency_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_System_Boolean_NanoQL_Time_DayCounter_NanoQL_Time_Calendar__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A Libor's fixing calendar is London's, and its financial-centre calendar the currency's, which its class joins to
+London's for its value and maturity dates, as QuantLib's does; a EUR Libor's is TARGET. An overnight index and the
+BMA index fix their convention and end of month, so a preset refuses conventions that change them.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_Convention_" data-uid="NanoQL.Indexes.IborIndexConventions.Convention*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_Convention" data-uid="NanoQL.Indexes.IborIndexConventions.Convention">
+  Convention
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The business-day convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BusinessDayConvention Convention { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_Currency_" data-uid="NanoQL.Indexes.IborIndexConventions.Currency*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_Currency" data-uid="NanoQL.Indexes.IborIndexConventions.Currency">
+  Currency
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The index's currency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Currency Currency { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_DayCounter_" data-uid="NanoQL.Indexes.IborIndexConventions.DayCounter*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_DayCounter" data-uid="NanoQL.Indexes.IborIndexConventions.DayCounter">
+  DayCounter
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DayCounter DayCounter { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_EndOfMonth_" data-uid="NanoQL.Indexes.IborIndexConventions.EndOfMonth*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_EndOfMonth" data-uid="NanoQL.Indexes.IborIndexConventions.EndOfMonth">
+  EndOfMonth
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the end-of-month rule applies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EndOfMonth { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_FinancialCenterCalendar_" data-uid="NanoQL.Indexes.IborIndexConventions.FinancialCenterCalendar*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_FinancialCenterCalendar" data-uid="NanoQL.Indexes.IborIndexConventions.FinancialCenterCalendar">
+  FinancialCenterCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A Libor's financial-centre calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for any other
+index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Calendar? FinancialCenterCalendar { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_FixingCalendar_" data-uid="NanoQL.Indexes.IborIndexConventions.FixingCalendar*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_FixingCalendar" data-uid="NanoQL.Indexes.IborIndexConventions.FixingCalendar">
+  FixingCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fixing calendar; a Libor's, London's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Calendar FixingCalendar { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_FixingDays_" data-uid="NanoQL.Indexes.IborIndexConventions.FixingDays*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_FixingDays" data-uid="NanoQL.Indexes.IborIndexConventions.FixingDays">
+  FixingDays
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fixing (settlement) days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FixingDays { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_Deconstruct_" data-uid="NanoQL.Indexes.IborIndexConventions.Deconstruct*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_Deconstruct_System_Int32__NanoQL_Currency__NanoQL_Time_Calendar__NanoQL_Time_BusinessDayConvention__System_Boolean__NanoQL_Time_DayCounter__NanoQL_Time_Calendar__" data-uid="NanoQL.Indexes.IborIndexConventions.Deconstruct(System.Int32@,NanoQL.Currency@,NanoQL.Time.Calendar@,NanoQL.Time.BusinessDayConvention@,System.Boolean@,NanoQL.Time.DayCounter@,NanoQL.Time.Calendar@)">
+  Deconstruct(out int, out Currency, out Calendar, out BusinessDayConvention, out bool, out DayCounter, out Calendar?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Deconstruct(out int FixingDays, out Currency Currency, out Calendar FixingCalendar, out BusinessDayConvention Convention, out bool EndOfMonth, out DayCounter DayCounter, out Calendar? FinancialCenterCalendar)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>FixingDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>Currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd></dd>
+    <dt><code>FixingCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+    <dt><code>Convention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+    <dt><code>EndOfMonth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>DayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd></dd>
+    <dt><code>FinancialCenterCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_Equals_" data-uid="NanoQL.Indexes.IborIndexConventions.Equals*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_Equals_NanoQL_Indexes_IborIndexConventions_" data-uid="NanoQL.Indexes.IborIndexConventions.Equals(NanoQL.Indexes.IborIndexConventions)">
+  Equals(IborIndexConventions?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(IborIndexConventions? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Indexes.IborIndexConventions.html">IborIndexConventions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_Equals_" data-uid="NanoQL.Indexes.IborIndexConventions.Equals*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_Equals_System_Object_" data-uid="NanoQL.Indexes.IborIndexConventions.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_GetHashCode_" data-uid="NanoQL.Indexes.IborIndexConventions.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_GetHashCode" data-uid="NanoQL.Indexes.IborIndexConventions.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_ToString_" data-uid="NanoQL.Indexes.IborIndexConventions.ToString*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_ToString" data-uid="NanoQL.Indexes.IborIndexConventions.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_op_Equality_" data-uid="NanoQL.Indexes.IborIndexConventions.op_Equality*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_op_Equality_NanoQL_Indexes_IborIndexConventions_NanoQL_Indexes_IborIndexConventions_" data-uid="NanoQL.Indexes.IborIndexConventions.op_Equality(NanoQL.Indexes.IborIndexConventions,NanoQL.Indexes.IborIndexConventions)">
+  operator ==(IborIndexConventions?, IborIndexConventions?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(IborIndexConventions? left, IborIndexConventions? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Indexes.IborIndexConventions.html">IborIndexConventions</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Indexes.IborIndexConventions.html">IborIndexConventions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_IborIndexConventions_op_Inequality_" data-uid="NanoQL.Indexes.IborIndexConventions.op_Inequality*"></a>
+
+  <h3 id="NanoQL_Indexes_IborIndexConventions_op_Inequality_NanoQL_Indexes_IborIndexConventions_NanoQL_Indexes_IborIndexConventions_" data-uid="NanoQL.Indexes.IborIndexConventions.op_Inequality(NanoQL.Indexes.IborIndexConventions,NanoQL.Indexes.IborIndexConventions)">
+  operator !=(IborIndexConventions?, IborIndexConventions?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(IborIndexConventions? left, IborIndexConventions? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Indexes.IborIndexConventions.html">IborIndexConventions</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Indexes.IborIndexConventions.html">IborIndexConventions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class AnalyticGJRGARCHEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AnalyticGJRGARCHEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The analytic GJR-GARCH(1,1) engine for European options: Duan, Gauthier, Simonato and Sasseville&#39;s Edgeworth approximation, from the first four moments of the log return over the option&#39;s days.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.AnalyticGJRGARCHEngine">
+
+
+
+  <h1 id="NanoQL_PricingEngines_AnalyticGJRGARCHEngine" data-uid="NanoQL.PricingEngines.AnalyticGJRGARCHEngine" class="text-break">
+Class AnalyticGJRGARCHEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The analytic GJR-GARCH(1,1) engine for European options: Duan, Gauthier, Simonato and Sasseville's Edgeworth
+approximation, from the first four moments of the log return over the option's days.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AnalyticGJRGARCHEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AnalyticGJRGARCHEngine</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_AnalyticGJRGARCHEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An immutable object over its <a class="xref" href="NanoQL.Models.GJRGARCHModel.html">GJRGARCHModel</a>. It keeps the moments of each maturity it prices in a memo
+keyed by the day count and the rate they read, each entry QuantLib's arithmetic on the engine's model, whose
+parameters and curves are fixed with it, so a price is a fresh engine's bit for bit whatever the engine priced
+before and on whichever thread; QuantLib's engine keeps one maturity's moments and its key leaves out the rate, so a
+model relinked to another curve can price on the old rate.
+</p>
+<p>
+QuantLib's prices are corrected where they're wrong: the model's time runs from the earliest curve date, as
+<a class="xref" href="NanoQL.Processes.GJRGARCHProcess.html">GJRGARCHProcess</a>'s; a maturity of no day prices the forward's discounted intrinsic value, where
+QuantLib's moments are 0/0; with a dividend yield the call is D_q times QuantLib's approximation and the put D_q·C +
+K·D_r − S·D_q, where QuantLib returns the price over D_q; and a payoff that isn't a plain vanilla is refused, where
+QuantLib returns the call's or put's value by its option type.
+</p>
+<p>
+Two of QuantLib's defects are kept, its prices returned. Its fourth moment is wrong in the variance's own terms:
+where the variance is deterministic (α = γ = 0) the log return is normal, but the engine's kurtosis is about 3 − Σh,
+Σh the total variance, so at a daily variance of 2e-4 a year's calls at 0.9, 1 and 1.1 of the spot price 0.12%,
+0.23% and 0.29% above Black-Scholes at the same variance. And its Edgeworth expansion is a density only for moderate
+skewness and kurtosis: against a Monte Carlo of the discrete model it approximates, the day's shock moving the log
+return and then the next day's variance (QuantLib's gjrgarchmodel test model from its stationary variance, spot 50,
+a flat 4% curve, calls at 45, 50 and 55, 180 days and a year; 2,560,000 paths on QuantLib's Mersenne twister), it
+errs from −3.2% to +0.3% at λ 0, down to −8.8% at λ 0.1 and from −8.3% to −32% at λ 0.2 and 180 days, and at λ 0.2
+and a year its calls are negative, −0.63 to −6.60 where the model's are 10.67 to 5.55 (QuantLib's own Monte Carlo
+engine, daily steps of its continuous-time process, gives the model's prices within 1.3%). Where the variance's
+second or third moment grows without bound its prices run off: −41,067 at two years on that model at λ 0.2 (m₂
+1.0022, m₃ 1.0257), and −3.4e19 at two years at 252 days a year with α 0.05, β 0.85, γ 0.1 and λ 0.3 (m₂ 1.0135, m₃
+1.1208).
+</p>
+<p>
+Where two of the variance's growth factors m₁, m₂ and m₃, or one of them and 1, are equal (α = β = γ = 0; an
+integrated GARCH), QuantLib's divided differences of their powers are 0/0 and its price NaN; here each is taken at
+its limit, the same polynomial in the factors, the limit of QuantLib's prices as the factors meet. QuantLib's own
+prices, kept bit for bit off the meeting point, lose their accuracy within about 1e-7 of all three factors meeting
+at 1 (α = γ = 0, β near 1), where its nested difference quotients cancel: a year's call there moves by as much as
+12%.
+</p>
+<p>
+Reference: Jin-Chuan Duan, Genevieve Gauthier, Jean-Guy Simonato, Caroline Sasseville, 2006. Approximating the
+GJR-GARCH and EGARCH option pricing models analytically. Journal of Computational Finance, Volume 9, Number 3,
+Spring 2006.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_AnalyticGJRGARCHEngine__ctor_" data-uid="NanoQL.PricingEngines.AnalyticGJRGARCHEngine.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticGJRGARCHEngine__ctor_NanoQL_Models_GJRGARCHModel_" data-uid="NanoQL.PricingEngines.AnalyticGJRGARCHEngine.#ctor(NanoQL.Models.GJRGARCHModel)">
+  AnalyticGJRGARCHEngine(GJRGARCHModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.AnalyticGJRGARCHEngine.html">AnalyticGJRGARCHEngine</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnalyticGJRGARCHEngine(GJRGARCHModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.GJRGARCHModel.html">GJRGARCHModel</a></dt>
+    <dd><p>The model.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">model</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_AnalyticGJRGARCHEngine_Model_" data-uid="NanoQL.PricingEngines.AnalyticGJRGARCHEngine.Model*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticGJRGARCHEngine_Model" data-uid="NanoQL.PricingEngines.AnalyticGJRGARCHEngine.Model">
+  Model
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GJRGARCHModel Model { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.GJRGARCHModel.html">GJRGARCHModel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_AnalyticGJRGARCHEngine_Calculate_" data-uid="NanoQL.PricingEngines.AnalyticGJRGARCHEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticGJRGARCHEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_" data-uid="NanoQL.PricingEngines.AnalyticGJRGARCHEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext)">
+  Calculate(VanillaOption, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a European plain-vanilla option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results: its value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The payoff isn't plain vanilla (&quot;non-plain payoff given&quot;).</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The exercise isn't European, or the underlying isn't positive.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_AnalyticGJRGARCHEngine_Calculate_" data-uid="NanoQL.PricingEngines.AnalyticGJRGARCHEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticGJRGARCHEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_GJRGARCHModel_" data-uid="NanoQL.PricingEngines.AnalyticGJRGARCHEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Models.GJRGARCHModel)">
+  Calculate(VanillaOption, EvaluationContext, GJRGARCHModel)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a European plain-vanilla option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context, GJRGARCHModel model)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.GJRGARCHModel.html">GJRGARCHModel</a></dt>
+    <dd><p>The model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results: its value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The payoff isn't plain vanilla (&quot;non-plain payoff given&quot;).</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The exercise isn't European, or the underlying isn't positive.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

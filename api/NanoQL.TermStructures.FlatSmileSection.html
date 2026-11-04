@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class FlatSmileSection | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FlatSmileSection | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A flat smile section: one volatility at every strike.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.FlatSmileSection">
+
+
+
+  <h1 id="NanoQL_TermStructures_FlatSmileSection" data-uid="NanoQL.TermStructures.FlatSmileSection" class="text-break">
+Class FlatSmileSection  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A flat smile section: one volatility at every strike.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class FlatSmileSection : SmileSection</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></div>
+      <div><span class="xref">FlatSmileSection</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_ReferenceDate">SmileSection.ReferenceDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Variance_System_Double_">SmileSection.Variance(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Volatility_System_Double_">SmileSection.Volatility(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Volatility_System_Double_NanoQL_TermStructures_VolatilityType_System_Double_">SmileSection.Volatility(double, VolatilityType, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_OptionPrice_System_Double_NanoQL_OptionType_System_Double_">SmileSection.OptionPrice(double, OptionType, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_DigitalOptionPrice_System_Double_NanoQL_OptionType_System_Double_System_Double_">SmileSection.DigitalOptionPrice(double, OptionType, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Density_System_Double_System_Double_System_Double_">SmileSection.Density(double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Vega_System_Double_System_Double_">SmileSection.Vega(double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_ExerciseDate">SmileSection.ExerciseDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_VolatilityType">SmileSection.VolatilityType</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Shift">SmileSection.Shift</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_ExerciseTime">SmileSection.ExerciseTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_DayCounter">SmileSection.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_TermStructures_FlatSmileSection_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>QuantLib's date constructor without a reference date, whose section floats with the evaluation date, is
+<a class="xref" href="NanoQL.TermStructures.FlatSmileSection.html#NanoQL_TermStructures_FlatSmileSection_Create_NanoQL_Time_Date_System_Double_NanoQL_Time_DayCounter_NanoQL_EvaluationContext_System_Nullable_System_Double__NanoQL_TermStructures_VolatilityType_System_Double_">Create(Date, double, DayCounter, EvaluationContext, double?, VolatilityType, double)</a>, which takes the evaluation context and fixes the date. The date forms need a day counter for
+the exercise time, which QuantLib's empty one can't give.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_FlatSmileSection__ctor_" data-uid="NanoQL.TermStructures.FlatSmileSection.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_FlatSmileSection__ctor_NanoQL_Time_Date_System_Double_NanoQL_Time_DayCounter_NanoQL_Time_Date_System_Nullable_System_Double__NanoQL_TermStructures_VolatilityType_System_Double_" data-uid="NanoQL.TermStructures.FlatSmileSection.#ctor(NanoQL.Time.Date,System.Double,NanoQL.Time.DayCounter,NanoQL.Time.Date,System.Nullable{System.Double},NanoQL.TermStructures.VolatilityType,System.Double)">
+  FlatSmileSection(Date, double, DayCounter, Date, double?, VolatilityType, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.FlatSmileSection.html">FlatSmileSection</a> class for an exercise date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FlatSmileSection(Date d, double vol, DayCounter dc, Date referenceDate, double? atmLevel = null, VolatilityType type = VolatilityType.ShiftedLognormal, double shift = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The exercise date.</p>
+</dd>
+    <dt><code>vol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter of the exercise time.</p>
+</dd>
+    <dt><code>referenceDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The reference date.</p>
+</dd>
+    <dt><code>atmLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The at-the-money level, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none, which leaves the section
+unable to price options.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="NanoQL.TermStructures.VolatilityType.html">VolatilityType</a></dt>
+    <dd><p>The volatility type.</p>
+</dd>
+    <dt><code>shift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The shift of a shifted lognormal volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">dc</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A date is <code>default(Date)</code>, or the exercise date is before the
+reference date.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">type</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_FlatSmileSection__ctor_" data-uid="NanoQL.TermStructures.FlatSmileSection.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_FlatSmileSection__ctor_System_Double_System_Double_NanoQL_Time_DayCounter_System_Nullable_System_Double__NanoQL_TermStructures_VolatilityType_System_Double_" data-uid="NanoQL.TermStructures.FlatSmileSection.#ctor(System.Double,System.Double,NanoQL.Time.DayCounter,System.Nullable{System.Double},NanoQL.TermStructures.VolatilityType,System.Double)">
+  FlatSmileSection(double, double, DayCounter?, double?, VolatilityType, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.FlatSmileSection.html">FlatSmileSection</a> class for an exercise time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FlatSmileSection(double exerciseTime, double vol, DayCounter? dc, double? atmLevel = null, VolatilityType type = VolatilityType.ShiftedLognormal, double shift = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exerciseTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The exercise time.</p>
+</dd>
+    <dt><code>vol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty one; the section only returns
+it.</p>
+</dd>
+    <dt><code>atmLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The at-the-money level, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="NanoQL.TermStructures.VolatilityType.html">VolatilityType</a></dt>
+    <dd><p>The volatility type.</p>
+</dd>
+    <dt><code>shift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The shift of a shifted lognormal volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">exerciseTime</code> is negative or NaN.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">type</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_FlatSmileSection_AtmLevel_" data-uid="NanoQL.TermStructures.FlatSmileSection.AtmLevel*"></a>
+
+  <h3 id="NanoQL_TermStructures_FlatSmileSection_AtmLevel" data-uid="NanoQL.TermStructures.FlatSmileSection.AtmLevel">
+  AtmLevel()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The at-the-money level, the forward the options are priced on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double? AtmLevel()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The level; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null&lt;Real&gt;()</code>, where the section has none.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_FlatSmileSection_Create_" data-uid="NanoQL.TermStructures.FlatSmileSection.Create*"></a>
+
+  <h3 id="NanoQL_TermStructures_FlatSmileSection_Create_NanoQL_Time_Date_System_Double_NanoQL_Time_DayCounter_NanoQL_EvaluationContext_System_Nullable_System_Double__NanoQL_TermStructures_VolatilityType_System_Double_" data-uid="NanoQL.TermStructures.FlatSmileSection.Create(NanoQL.Time.Date,System.Double,NanoQL.Time.DayCounter,NanoQL.EvaluationContext,System.Nullable{System.Double},NanoQL.TermStructures.VolatilityType,System.Double)">
+  Create(Date, double, DayCounter, EvaluationContext, double?, VolatilityType, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A flat smile section for an exercise date, whose reference date is the evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FlatSmileSection Create(Date d, double vol, DayCounter dc, EvaluationContext context, double? atmLevel = null, VolatilityType type = VolatilityType.ShiftedLognormal, double shift = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The exercise date.</p>
+</dd>
+    <dt><code>vol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter of the exercise time.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose evaluation date is the reference date.</p>
+</dd>
+    <dt><code>atmLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The at-the-money level, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="NanoQL.TermStructures.VolatilityType.html">VolatilityType</a></dt>
+    <dd><p>The volatility type.</p>
+</dd>
+    <dt><code>shift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The shift of a shifted lognormal volatility.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.FlatSmileSection.html">FlatSmileSection</a></dt>
+    <dd><p>The section, with a fixed reference date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> or <code class="paramref">dc</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code> or before the evaluation
+date.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">type</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_FlatSmileSection_MaxStrike_" data-uid="NanoQL.TermStructures.FlatSmileSection.MaxStrike*"></a>
+
+  <h3 id="NanoQL_TermStructures_FlatSmileSection_MaxStrike" data-uid="NanoQL.TermStructures.FlatSmileSection.MaxStrike">
+  MaxStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum strike: the largest real.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MaxStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_FlatSmileSection_MinStrike_" data-uid="NanoQL.TermStructures.FlatSmileSection.MinStrike*"></a>
+
+  <h3 id="NanoQL_TermStructures_FlatSmileSection_MinStrike" data-uid="NanoQL.TermStructures.FlatSmileSection.MinStrike">
+  MinStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The minimum strike: the lowest real less the shift.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MinStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_FlatSmileSection_VolatilityImpl_" data-uid="NanoQL.TermStructures.FlatSmileSection.VolatilityImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_FlatSmileSection_VolatilityImpl_System_Double_" data-uid="NanoQL.TermStructures.FlatSmileSection.VolatilityImpl(System.Double)">
+  VolatilityImpl(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility at a strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double VolatilityImpl(double strike)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class G2 | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class G2 | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The two-additive-factor Gaussian model: rₜ = φ(t) + xₜ + yₜ, with dxₜ = −a xₜ dt + σ dW&#185;ₜ, x₀ = 0, dyₜ = −b yₜ dt + η dW&#178;ₜ, y₀ = 0, and dW&#185;ₜdW&#178;ₜ = ρ dt, fitted to a yield curve.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models.G2">
+
+
+
+  <h1 id="NanoQL_Models_G2" data-uid="NanoQL.Models.G2" class="text-break">
+Class G2  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The two-additive-factor Gaussian model: rₜ = φ(t) + xₜ + yₜ, with dxₜ = −a xₜ dt + σ dW¹ₜ, x₀ = 0,
+dyₜ = −b yₜ dt + η dW²ₜ, y₀ = 0, and dW¹ₜdW²ₜ = ρ dt, fitted to a yield curve.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class G2 : TwoFactorModel, ICalibratedModel, IAffineModel, ITermStructureConsistentModel</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Models.CalibratedModel.html">CalibratedModel</a></div>
+      <div><a class="xref" href="NanoQL.Models.ShortRateModel.html">ShortRateModel</a></div>
+      <div><a class="xref" href="NanoQL.Models.TwoFactorModel.html">TwoFactorModel</a></div>
+      <div><span class="xref">G2</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Models.ICalibratedModel.html">ICalibratedModel</a></div>
+      <div><a class="xref" href="NanoQL.Models.IAffineModel.html">IAffineModel</a></div>
+      <div><a class="xref" href="NanoQL.Models.ITermStructureConsistentModel.html">ITermStructureConsistentModel</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Models.TwoFactorModel.html#NanoQL_Models_TwoFactorModel_Tree_NanoQL_TimeGrid_">TwoFactorModel.Tree(TimeGrid)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModel.html#NanoQL_Models_CalibratedModel_Params">CalibratedModel.Params()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModel.html#NanoQL_Models_CalibratedModel_WithParams_NanoQL_Numerics_Vector_">CalibratedModel.WithParams(Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModel.html#NanoQL_Models_CalibratedModel_Arguments">CalibratedModel.Arguments</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModel.html#NanoQL_Models_CalibratedModel_Constraint">CalibratedModel.Constraint</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModelExtensions.html#NanoQL_Models_CalibratedModelExtensions_Calibrate__1___0_System_Collections_Generic_IEnumerable_NanoQL_Models_CalibrationHelper__NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_NanoQL_EvaluationContext_NanoQL_Numerics_Constraint_System_ReadOnlySpan_System_Double__System_ReadOnlySpan_System_Boolean__">CalibratedModelExtensions.Calibrate&lt;TModel&gt;(TModel, IEnumerable&lt;CalibrationHelper&gt;, OptimizationMethod, EndCriteria, EvaluationContext, Constraint?, ReadOnlySpan&lt;double&gt;, ReadOnlySpan&lt;bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModelExtensions.html#NanoQL_Models_CalibratedModelExtensions_SetParams__1___0_NanoQL_Numerics_Vector_">CalibratedModelExtensions.SetParams&lt;TModel&gt;(TModel, Vector)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModelExtensions.html#NanoQL_Models_CalibratedModelExtensions_Value_NanoQL_Models_ICalibratedModel_NanoQL_Numerics_Vector_System_Collections_Generic_IEnumerable_NanoQL_Models_CalibrationHelper__NanoQL_EvaluationContext_">CalibratedModelExtensions.Value(ICalibratedModel, Vector, IEnumerable&lt;CalibrationHelper&gt;, EvaluationContext)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_Models_G2_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Its arguments are a, σ, b and η (positive) and ρ (in [−1, 1]), in that order, each a constant parameter;
+φ is the analytical fitting parameter, φ(t) = f(t) + ½(σ(1 − e^(−at))/a)² + ½(η(1 − e^(−bt))/b)²
++ ρ(σ(1 − e^(−at))/a)(η(1 − e^(−bt))/b), f the curve's instantaneous forward. As in <a class="xref" href="NanoQL.Models.Vasicek.html">Vasicek</a>,
+QuantLib's <code>a()</code> and <code>b()</code> share their names with B(x, t), so they are methods. QuantLib's header warns
+that the class "was not tested enough to guarantee its functionality".
+</p>
+<p>
+V(t) and B(x, t) are QuantLib's master's forms after the pin (#2885), free of cancellation at small mean reversion;
+the members QuantLib leaves, the bond option's σ_P, the fitting parameter and the swaption function's means,
+standard deviations and correlation, are written in the same forms, exact in the limit a, b → 0, so their last bits
+differ from 1.44's at every reversion.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Models_G2__ctor_" data-uid="NanoQL.Models.G2.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_G2__ctor_NanoQL_TermStructures_YieldTermStructure_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.Models.G2.#ctor(NanoQL.TermStructures.YieldTermStructure,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  G2(YieldTermStructure, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.G2.html">G2</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public G2(YieldTermStructure termStructure, double a = 0.1, double sigma = 0.01, double b = 0.1, double eta = 0.01, double rho = -0.75)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>termStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve the model fits.</p>
+</dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first factor's mean reversion, positive.</p>
+</dd>
+    <dt><code>sigma</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first factor's volatility, positive.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second factor's mean reversion, positive.</p>
+</dd>
+    <dt><code>eta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second factor's volatility, positive.</p>
+</dd>
+    <dt><code>rho</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factors' correlation, in [−1, 1].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">termStructure</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is outside its constraint.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Models_G2_Eta_" data-uid="NanoQL.Models.G2.Eta*"></a>
+
+  <h3 id="NanoQL_Models_G2_Eta" data-uid="NanoQL.Models.G2.Eta">
+  Eta
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the second factor's volatility η.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Eta { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_G2_Rho_" data-uid="NanoQL.Models.G2.Rho*"></a>
+
+  <h3 id="NanoQL_Models_G2_Rho" data-uid="NanoQL.Models.G2.Rho">
+  Rho
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the factors' correlation ρ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Rho { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_G2_Sigma_" data-uid="NanoQL.Models.G2.Sigma*"></a>
+
+  <h3 id="NanoQL_Models_G2_Sigma" data-uid="NanoQL.Models.G2.Sigma">
+  Sigma
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the first factor's volatility σ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Sigma { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_G2_TermStructure_" data-uid="NanoQL.Models.G2.TermStructure*"></a>
+
+  <h3 id="NanoQL_Models_G2_TermStructure" data-uid="NanoQL.Models.G2.TermStructure">
+  TermStructure
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the curve the model fits.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YieldTermStructure TermStructure { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Models_G2_A_" data-uid="NanoQL.Models.G2.A*"></a>
+
+  <h3 id="NanoQL_Models_G2_A" data-uid="NanoQL.Models.G2.A">
+  A()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The first factor's mean reversion a.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double A()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>a.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_G2_B_" data-uid="NanoQL.Models.G2.B*"></a>
+
+  <h3 id="NanoQL_Models_G2_B" data-uid="NanoQL.Models.G2.B">
+  B()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The second factor's mean reversion b.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double B()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>b.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_G2_Discount_" data-uid="NanoQL.Models.G2.Discount*"></a>
+
+  <h3 id="NanoQL_Models_G2_Discount_System_Double_" data-uid="NanoQL.Models.G2.Discount(System.Double)">
+  Discount(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The implied discount curve: the curve's own discount factor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Discount(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_G2_DiscountBond_" data-uid="NanoQL.Models.G2.DiscountBond*"></a>
+
+  <h3 id="NanoQL_Models_G2_DiscountBond_System_Double_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Models.G2.DiscountBond(System.Double,System.Double,NanoQL.Numerics.Vector)">
+  DiscountBond(double, double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The price at a time of a unit discount bond maturing later, given the two factors then.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DiscountBond(double now, double maturity, Vector factors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>now</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bond's maturity.</p>
+</dd>
+    <dt><code>factors</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The factors' values at <code class="paramref">now</code>, at least two.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">factors</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">factors</code> holds fewer than two values.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_G2_DiscountBond_" data-uid="NanoQL.Models.G2.DiscountBond*"></a>
+
+  <h3 id="NanoQL_Models_G2_DiscountBond_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.Models.G2.DiscountBond(System.Double,System.Double,System.Double,System.Double)">
+  DiscountBond(double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The price at a time of a unit discount bond maturing later: A(t, T)·exp(−B(a, T − t)x − B(b, T − t)y).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DiscountBond(double t, double T, double x, double y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bond's maturity.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first factor at <code class="paramref">t</code>.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second factor at <code class="paramref">t</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_G2_DiscountBondOption_" data-uid="NanoQL.Models.G2.DiscountBondOption*"></a>
+
+  <h3 id="NanoQL_Models_G2_DiscountBondOption_NanoQL_OptionType_System_Double_System_Double_System_Double_" data-uid="NanoQL.Models.G2.DiscountBondOption(NanoQL.OptionType,System.Double,System.Double,System.Double)">
+  DiscountBondOption(OptionType, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The price of an option on a discount bond, by Black's formula on the curve's discount factors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DiscountBondOption(OptionType type, double strike, double maturity, double bondMaturity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>The option's type.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's maturity.</p>
+</dd>
+    <dt><code>bondMaturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bond's maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">type</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_G2_DiscountBondOption_" data-uid="NanoQL.Models.G2.DiscountBondOption*"></a>
+
+  <h3 id="NanoQL_Models_G2_DiscountBondOption_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.Models.G2.DiscountBondOption(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double)">
+  DiscountBondOption(OptionType, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The price of an option on a discount bond that starts later than the option's maturity: as QuantLib's
+<code>AffineModel</code> default, the option on the bond from the option's maturity, <code class="paramref">bondStart</code> ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DiscountBondOption(OptionType type, double strike, double maturity, double bondStart, double bondMaturity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>The option's type.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's maturity.</p>
+</dd>
+    <dt><code>bondStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bond's start, unused.</p>
+</dd>
+    <dt><code>bondMaturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bond's maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">type</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_G2_Dynamics_" data-uid="NanoQL.Models.G2.Dynamics*"></a>
+
+  <h3 id="NanoQL_Models_G2_Dynamics" data-uid="NanoQL.Models.G2.Dynamics">
+  Dynamics()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The model's short-rate dynamics: r = φ(t) + x + y, x and y Ornstein-Uhlenbeck processes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override TwoFactorModelShortRateDynamics Dynamics()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.TwoFactorModelShortRateDynamics.html">TwoFactorModelShortRateDynamics</a></dt>
+    <dd><p>A new dynamics object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_G2_GenerateArguments_" data-uid="NanoQL.Models.G2.GenerateArguments*"></a>
+
+  <h3 id="NanoQL_Models_G2_GenerateArguments" data-uid="NanoQL.Models.G2.GenerateArguments">
+  GenerateArguments()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The analytical fitting parameter, from the curve and the parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MemberNotNull(&quot;phi&quot;)]
+protected override void GenerateArguments()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

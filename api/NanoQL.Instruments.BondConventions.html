@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class BondConventions | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BondConventions | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A fixed-rate bond preset&#39;s conventions, which  returns: QuantLib&#39;s values for the preset (), which its class builds itself on. The trade&#39;s terms (the maturity, the coupons, the dates and the redemption) are its constructor&#39;s arguments.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Instruments.BondConventions">
+
+
+
+  <h1 id="NanoQL_Instruments_BondConventions" data-uid="NanoQL.Instruments.BondConventions" class="text-break">
+Class BondConventions  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A fixed-rate bond preset's conventions, which <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_ResolveBond_System_String_System_Func_NanoQL_Instruments_BondConventions__">ResolveBond(string, Func&lt;BondConventions&gt;)</a> returns: QuantLib's
+values for the preset (<a class="xref" href="NanoQL.Instruments.BTP.html">BTP</a>), which its class builds itself on. The trade's terms (the maturity, the
+coupons, the dates and the redemption) are its constructor's arguments.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record BondConventions : IEquatable&lt;BondConventions&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">BondConventions</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Instruments.BondConventions.html">BondConventions</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Instruments_BondConventions__ctor_" data-uid="NanoQL.Instruments.BondConventions.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions__ctor_System_Int32_NanoQL_Time_Period_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_NanoQL_Time_BusinessDayConvention_NanoQL_Time_DateGenerationRule_System_Boolean_NanoQL_Time_DayCounter_NanoQL_Time_BusinessDayConvention_NanoQL_Time_Calendar_NanoQL_Time_Period_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_System_Boolean_" data-uid="NanoQL.Instruments.BondConventions.#ctor(System.Int32,NanoQL.Time.Period,NanoQL.Time.Calendar,NanoQL.Time.BusinessDayConvention,NanoQL.Time.BusinessDayConvention,NanoQL.Time.DateGenerationRule,System.Boolean,NanoQL.Time.DayCounter,NanoQL.Time.BusinessDayConvention,NanoQL.Time.Calendar,NanoQL.Time.Period,NanoQL.Time.Calendar,NanoQL.Time.BusinessDayConvention,System.Boolean)">
+  BondConventions(int, Period, Calendar, BusinessDayConvention, BusinessDayConvention, DateGenerationRule, bool, DayCounter, BusinessDayConvention, Calendar?, Period, Calendar?, BusinessDayConvention, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A fixed-rate bond preset's conventions, which <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_ResolveBond_System_String_System_Func_NanoQL_Instruments_BondConventions__">ResolveBond(string, Func&lt;BondConventions&gt;)</a> returns: QuantLib's
+values for the preset (<a class="xref" href="NanoQL.Instruments.BTP.html">BTP</a>), which its class builds itself on. The trade's terms (the maturity, the
+coupons, the dates and the redemption) are its constructor's arguments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BondConventions(int SettlementDays, Period Tenor, Calendar Calendar, BusinessDayConvention Convention, BusinessDayConvention TerminationDateConvention, DateGenerationRule Rule, bool EndOfMonth, DayCounter AccrualDayCounter, BusinessDayConvention PaymentConvention, Calendar? PaymentCalendar, Period ExCouponPeriod, Calendar? ExCouponCalendar, BusinessDayConvention ExCouponConvention, bool ExCouponEndOfMonth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>SettlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The settlement days.</p>
+</dd>
+    <dt><code>Tenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The schedule's tenor.</p>
+</dd>
+    <dt><code>Calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The schedule's calendar.</p>
+</dd>
+    <dt><code>Convention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The schedule's business-day convention.</p>
+</dd>
+    <dt><code>TerminationDateConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The schedule's termination-date convention.</p>
+</dd>
+    <dt><code>Rule</code> <a class="xref" href="NanoQL.Time.DateGenerationRule.html">DateGenerationRule</a></dt>
+    <dd><p>The schedule's date-generation rule.</p>
+</dd>
+    <dt><code>EndOfMonth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the schedule's dates stay at month end.</p>
+</dd>
+    <dt><code>AccrualDayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The coupons' accrual day counter.</p>
+</dd>
+    <dt><code>PaymentConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The payment dates' business-day convention.</p>
+</dd>
+    <dt><code>PaymentCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The payment calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the schedule's.</p>
+</dd>
+    <dt><code>ExCouponPeriod</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The ex-coupon period, or the empty period for none.</p>
+</dd>
+    <dt><code>ExCouponCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The ex-coupon period's calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>ExCouponConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The ex-coupon dates' business-day convention.</p>
+</dd>
+    <dt><code>ExCouponEndOfMonth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the ex-coupon dates stay at month end.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Instruments_BondConventions_AccrualDayCounter_" data-uid="NanoQL.Instruments.BondConventions.AccrualDayCounter*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_AccrualDayCounter" data-uid="NanoQL.Instruments.BondConventions.AccrualDayCounter">
+  AccrualDayCounter
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The coupons' accrual day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DayCounter AccrualDayCounter { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_Calendar_" data-uid="NanoQL.Instruments.BondConventions.Calendar*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_Calendar" data-uid="NanoQL.Instruments.BondConventions.Calendar">
+  Calendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The schedule's calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Calendar Calendar { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_Convention_" data-uid="NanoQL.Instruments.BondConventions.Convention*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_Convention" data-uid="NanoQL.Instruments.BondConventions.Convention">
+  Convention
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The schedule's business-day convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BusinessDayConvention Convention { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_EndOfMonth_" data-uid="NanoQL.Instruments.BondConventions.EndOfMonth*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_EndOfMonth" data-uid="NanoQL.Instruments.BondConventions.EndOfMonth">
+  EndOfMonth
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the schedule's dates stay at month end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EndOfMonth { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_ExCouponCalendar_" data-uid="NanoQL.Instruments.BondConventions.ExCouponCalendar*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_ExCouponCalendar" data-uid="NanoQL.Instruments.BondConventions.ExCouponCalendar">
+  ExCouponCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ex-coupon period's calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Calendar? ExCouponCalendar { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_ExCouponConvention_" data-uid="NanoQL.Instruments.BondConventions.ExCouponConvention*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_ExCouponConvention" data-uid="NanoQL.Instruments.BondConventions.ExCouponConvention">
+  ExCouponConvention
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ex-coupon dates' business-day convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BusinessDayConvention ExCouponConvention { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_ExCouponEndOfMonth_" data-uid="NanoQL.Instruments.BondConventions.ExCouponEndOfMonth*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_ExCouponEndOfMonth" data-uid="NanoQL.Instruments.BondConventions.ExCouponEndOfMonth">
+  ExCouponEndOfMonth
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the ex-coupon dates stay at month end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ExCouponEndOfMonth { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_ExCouponPeriod_" data-uid="NanoQL.Instruments.BondConventions.ExCouponPeriod*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_ExCouponPeriod" data-uid="NanoQL.Instruments.BondConventions.ExCouponPeriod">
+  ExCouponPeriod
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ex-coupon period, or the empty period for none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Period ExCouponPeriod { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_PaymentCalendar_" data-uid="NanoQL.Instruments.BondConventions.PaymentCalendar*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_PaymentCalendar" data-uid="NanoQL.Instruments.BondConventions.PaymentCalendar">
+  PaymentCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The payment calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the schedule's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Calendar? PaymentCalendar { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_PaymentConvention_" data-uid="NanoQL.Instruments.BondConventions.PaymentConvention*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_PaymentConvention" data-uid="NanoQL.Instruments.BondConventions.PaymentConvention">
+  PaymentConvention
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The payment dates' business-day convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BusinessDayConvention PaymentConvention { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_Rule_" data-uid="NanoQL.Instruments.BondConventions.Rule*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_Rule" data-uid="NanoQL.Instruments.BondConventions.Rule">
+  Rule
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The schedule's date-generation rule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateGenerationRule Rule { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.DateGenerationRule.html">DateGenerationRule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_SettlementDays_" data-uid="NanoQL.Instruments.BondConventions.SettlementDays*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_SettlementDays" data-uid="NanoQL.Instruments.BondConventions.SettlementDays">
+  SettlementDays
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The settlement days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SettlementDays { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_Tenor_" data-uid="NanoQL.Instruments.BondConventions.Tenor*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_Tenor" data-uid="NanoQL.Instruments.BondConventions.Tenor">
+  Tenor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The schedule's tenor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Period Tenor { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_TerminationDateConvention_" data-uid="NanoQL.Instruments.BondConventions.TerminationDateConvention*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_TerminationDateConvention" data-uid="NanoQL.Instruments.BondConventions.TerminationDateConvention">
+  TerminationDateConvention
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The schedule's termination-date convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BusinessDayConvention TerminationDateConvention { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Instruments_BondConventions_Deconstruct_" data-uid="NanoQL.Instruments.BondConventions.Deconstruct*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_Deconstruct_System_Int32__NanoQL_Time_Period__NanoQL_Time_Calendar__NanoQL_Time_BusinessDayConvention__NanoQL_Time_BusinessDayConvention__NanoQL_Time_DateGenerationRule__System_Boolean__NanoQL_Time_DayCounter__NanoQL_Time_BusinessDayConvention__NanoQL_Time_Calendar__NanoQL_Time_Period__NanoQL_Time_Calendar__NanoQL_Time_BusinessDayConvention__System_Boolean__" data-uid="NanoQL.Instruments.BondConventions.Deconstruct(System.Int32@,NanoQL.Time.Period@,NanoQL.Time.Calendar@,NanoQL.Time.BusinessDayConvention@,NanoQL.Time.BusinessDayConvention@,NanoQL.Time.DateGenerationRule@,System.Boolean@,NanoQL.Time.DayCounter@,NanoQL.Time.BusinessDayConvention@,NanoQL.Time.Calendar@,NanoQL.Time.Period@,NanoQL.Time.Calendar@,NanoQL.Time.BusinessDayConvention@,System.Boolean@)">
+  Deconstruct(out int, out Period, out Calendar, out BusinessDayConvention, out BusinessDayConvention, out DateGenerationRule, out bool, out DayCounter, out BusinessDayConvention, out Calendar?, out Period, out Calendar?, out BusinessDayConvention, out bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Deconstruct(out int SettlementDays, out Period Tenor, out Calendar Calendar, out BusinessDayConvention Convention, out BusinessDayConvention TerminationDateConvention, out DateGenerationRule Rule, out bool EndOfMonth, out DayCounter AccrualDayCounter, out BusinessDayConvention PaymentConvention, out Calendar? PaymentCalendar, out Period ExCouponPeriod, out Calendar? ExCouponCalendar, out BusinessDayConvention ExCouponConvention, out bool ExCouponEndOfMonth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>SettlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>Tenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd></dd>
+    <dt><code>Calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+    <dt><code>Convention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+    <dt><code>TerminationDateConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+    <dt><code>Rule</code> <a class="xref" href="NanoQL.Time.DateGenerationRule.html">DateGenerationRule</a></dt>
+    <dd></dd>
+    <dt><code>EndOfMonth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>AccrualDayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd></dd>
+    <dt><code>PaymentConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+    <dt><code>PaymentCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+    <dt><code>ExCouponPeriod</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd></dd>
+    <dt><code>ExCouponCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+    <dt><code>ExCouponConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+    <dt><code>ExCouponEndOfMonth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_Equals_" data-uid="NanoQL.Instruments.BondConventions.Equals*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_Equals_NanoQL_Instruments_BondConventions_" data-uid="NanoQL.Instruments.BondConventions.Equals(NanoQL.Instruments.BondConventions)">
+  Equals(BondConventions?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(BondConventions? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Instruments.BondConventions.html">BondConventions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_Equals_" data-uid="NanoQL.Instruments.BondConventions.Equals*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_Equals_System_Object_" data-uid="NanoQL.Instruments.BondConventions.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_GetHashCode_" data-uid="NanoQL.Instruments.BondConventions.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_GetHashCode" data-uid="NanoQL.Instruments.BondConventions.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_ToString_" data-uid="NanoQL.Instruments.BondConventions.ToString*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_ToString" data-uid="NanoQL.Instruments.BondConventions.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Instruments_BondConventions_op_Equality_" data-uid="NanoQL.Instruments.BondConventions.op_Equality*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_op_Equality_NanoQL_Instruments_BondConventions_NanoQL_Instruments_BondConventions_" data-uid="NanoQL.Instruments.BondConventions.op_Equality(NanoQL.Instruments.BondConventions,NanoQL.Instruments.BondConventions)">
+  operator ==(BondConventions?, BondConventions?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(BondConventions? left, BondConventions? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Instruments.BondConventions.html">BondConventions</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Instruments.BondConventions.html">BondConventions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_BondConventions_op_Inequality_" data-uid="NanoQL.Instruments.BondConventions.op_Inequality*"></a>
+
+  <h3 id="NanoQL_Instruments_BondConventions_op_Inequality_NanoQL_Instruments_BondConventions_NanoQL_Instruments_BondConventions_" data-uid="NanoQL.Instruments.BondConventions.op_Inequality(NanoQL.Instruments.BondConventions,NanoQL.Instruments.BondConventions)">
+  operator !=(BondConventions?, BondConventions?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(BondConventions? left, BondConventions? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Instruments.BondConventions.html">BondConventions</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Instruments.BondConventions.html">BondConventions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

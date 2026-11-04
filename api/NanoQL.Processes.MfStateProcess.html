@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class MfStateProcess | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MfStateProcess | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Markov-functional model&#39;s state process, dx = σ(t) e^{at} dW(t), with a piecewise constant volatility σ and a constant reversion a.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Processes.MfStateProcess">
+
+
+
+  <h1 id="NanoQL_Processes_MfStateProcess" data-uid="NanoQL.Processes.MfStateProcess" class="text-break">
+Class MfStateProcess  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Processes.html">Processes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Markov-functional model's state process, dx = σ(t) e^{at} dW(t), with a piecewise constant volatility σ and a
+constant reversion a.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class MfStateProcess : StochasticProcess1D</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.StochasticProcess.html">StochasticProcess</a></div>
+      <div><a class="xref" href="NanoQL.StochasticProcess1D.html">StochasticProcess1D</a></div>
+      <div><span class="xref">MfStateProcess</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Evolve_System_Double_System_Double_System_Double_System_Double_">StochasticProcess1D.Evolve(double, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Apply_System_Double_System_Double_">StochasticProcess1D.Apply(double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_InitialValues">StochasticProcess1D.InitialValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Drift_System_Double_NanoQL_Numerics_Vector_">StochasticProcess1D.Drift(double, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Diffusion_System_Double_NanoQL_Numerics_Vector_">StochasticProcess1D.Diffusion(double, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Expectation_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess1D.Expectation(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_StdDeviation_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess1D.StdDeviation(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Covariance_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess1D.Covariance(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Evolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_">StochasticProcess1D.Evolve(double, Vector, double, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Apply_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">StochasticProcess1D.Apply(Vector, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Size">StochasticProcess1D.Size</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_InitialValues_System_Span_System_Double__">StochasticProcess.InitialValues(Span&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Evolve_System_Double_System_ReadOnlySpan_System_Double__System_Double_System_ReadOnlySpan_System_Double__System_Span_System_Double__">StochasticProcess.Evolve(double, ReadOnlySpan&lt;double&gt;, double, ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Time_NanoQL_Time_Date_">StochasticProcess.Time(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Factors">StochasticProcess.Factors</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Processes_MfStateProcess_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable: the model's calibration, which QuantLib's changes the process's volatilities for, builds a new process.
+A reversion below QuantLib's epsilon in size is taken as 0.
+</p>
+<p>
+Three of QuantLib's defects are fixed. The diffusion is σ(t) e^{at}, its equation's, where QuantLib's omits the
+factor e^{at} (<code>mfstateprocess.cpp:62-66</code>). The variance with no step times is the volatility's square times
+the integral of e^{2as}, where QuantLib's leaves out the square (<code>:80-84</code>), the stepped variance's form with one
+step past the horizon. And below a reversion of 1e-2 in size each step's variance is
+σ² e^{2as}·expm1(2a(u − s))/(2a) over [s, u], continuous in a, where QuantLib's (e^{2au} − e^{2as})/(2a) cancels as
+a falls; at and above 1e-2, QuantLib's form and bits.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Processes_MfStateProcess__ctor_" data-uid="NanoQL.Processes.MfStateProcess.#ctor*"></a>
+
+  <h3 id="NanoQL_Processes_MfStateProcess__ctor_System_Double_System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_System_Double__" data-uid="NanoQL.Processes.MfStateProcess.#ctor(System.Double,System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.Double})">
+  MfStateProcess(double, IEnumerable&lt;double&gt;, IEnumerable&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Processes.MfStateProcess.html">MfStateProcess</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MfStateProcess(double reversion, IEnumerable&lt;double&gt; times, IEnumerable&lt;double&gt; vols)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reversion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The reversion.</p>
+</dd>
+    <dt><code>times</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The step times, increasing.</p>
+</dd>
+    <dt><code>vols</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The volatilities, non negative: one more than the step times.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">times</code> or <code class="paramref">vols</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The counts don't match, the times aren't increasing, or a volatility is
+negative.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Processes_MfStateProcess_X0_" data-uid="NanoQL.Processes.MfStateProcess.X0*"></a>
+
+  <h3 id="NanoQL_Processes_MfStateProcess_X0" data-uid="NanoQL.Processes.MfStateProcess.X0">
+  X0
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets 0, the state's initial value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double X0 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Processes_MfStateProcess_Diffusion_" data-uid="NanoQL.Processes.MfStateProcess.Diffusion*"></a>
+
+  <h3 id="NanoQL_Processes_MfStateProcess_Diffusion_System_Double_System_Double_" data-uid="NanoQL.Processes.MfStateProcess.Diffusion(System.Double,System.Double)">
+  Diffusion(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The diffusion σ(t) e^{at}.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Diffusion(double t, double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The state.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The diffusion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_MfStateProcess_Drift_" data-uid="NanoQL.Processes.MfStateProcess.Drift*"></a>
+
+  <h3 id="NanoQL_Processes_MfStateProcess_Drift_System_Double_System_Double_" data-uid="NanoQL.Processes.MfStateProcess.Drift(System.Double,System.Double)">
+  Drift(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The drift: 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Drift(double t, double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The state.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><ol start="0">
+<li></li>
+</ol>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_MfStateProcess_Expectation_" data-uid="NanoQL.Processes.MfStateProcess.Expectation*"></a>
+
+  <h3 id="NanoQL_Processes_MfStateProcess_Expectation_System_Double_System_Double_System_Double_" data-uid="NanoQL.Processes.MfStateProcess.Expectation(System.Double,System.Double,System.Double)">
+  Expectation(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expectation: the state at the interval's start.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Expectation(double t0, double x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The state at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p><code class="paramref">x0</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_MfStateProcess_StdDeviation_" data-uid="NanoQL.Processes.MfStateProcess.StdDeviation*"></a>
+
+  <h3 id="NanoQL_Processes_MfStateProcess_StdDeviation_System_Double_System_Double_System_Double_" data-uid="NanoQL.Processes.MfStateProcess.StdDeviation(System.Double,System.Double,System.Double)">
+  StdDeviation(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The standard deviation over an interval: the square root of <a class="xref" href="NanoQL.Processes.MfStateProcess.html#NanoQL_Processes_MfStateProcess_Variance_System_Double_System_Double_System_Double_">Variance(double, double, double)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double StdDeviation(double t0, double x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The state at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_MfStateProcess_Variance_" data-uid="NanoQL.Processes.MfStateProcess.Variance*"></a>
+
+  <h3 id="NanoQL_Processes_MfStateProcess_Variance_System_Double_System_Double_System_Double_" data-uid="NanoQL.Processes.MfStateProcess.Variance(System.Double,System.Double,System.Double)">
+  Variance(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The variance over an interval, the integral of σ(s)² e^{2as} over it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Variance(double t0, double x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The state at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance; 0 for an interval shorter than QuantLib's epsilon.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

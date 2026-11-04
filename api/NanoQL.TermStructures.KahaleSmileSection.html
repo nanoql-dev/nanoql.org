@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class KahaleSmileSection | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class KahaleSmileSection | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An arbitrage-free smile section by Kahale&#39;s C&#185; interpolation and extrapolation of a source section&#39;s call prices (Kahale, &amp;quot;An arbitrage-free interpolation of volatilities&amp;quot;, Risk, May 2004).">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.KahaleSmileSection">
+
+
+
+  <h1 id="NanoQL_TermStructures_KahaleSmileSection" data-uid="NanoQL.TermStructures.KahaleSmileSection" class="text-break">
+Class KahaleSmileSection  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An arbitrage-free smile section by Kahale's C¹ interpolation and extrapolation of a source section's call prices
+(Kahale, &quot;An arbitrage-free interpolation of volatilities&quot;, Risk, May 2004).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class KahaleSmileSection : SmileSection</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></div>
+      <div><span class="xref">KahaleSmileSection</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Variance_System_Double_">SmileSection.Variance(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Volatility_System_Double_">SmileSection.Volatility(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Volatility_System_Double_NanoQL_TermStructures_VolatilityType_System_Double_">SmileSection.Volatility(double, VolatilityType, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_DigitalOptionPrice_System_Double_NanoQL_OptionType_System_Double_System_Double_">SmileSection.DigitalOptionPrice(double, OptionType, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Density_System_Double_System_Double_System_Double_">SmileSection.Density(double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.SmileSection.html#NanoQL_TermStructures_SmileSection_Vega_System_Double_System_Double_">SmileSection.Vega(double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_TermStructures_KahaleSmileSection_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The source's arbitrage-free region (<a class="xref" href="NanoQL.TermStructures.SmileSectionUtils.html">SmileSectionUtils</a>) is its core. Left of it the call prices are a
+Black call plus a constant, right of it a Black call or, with exponential extrapolation, an exponential; inside it
+the source's prices are kept, or, with interpolation, replaced by Kahale's segment functions, one per grid interval.
+So in the leftmost interval and right of the last grid point the source's smile is always replaced. A shifted
+source is handled by shifting its forward and strikes and fitting as for a lognormal one; a normal source is
+refused. The fit runs at construction.
+</p>
+<p>
+Five of QuantLib's defects are fixed. The put branch of the volatility implies it from the call at the shifted
+strike, where QuantLib's adds the unshifted one (<code>kahalesmilesection.cpp:255</code>), so with a shift every put-branch
+volatility reads 0. The left wing's check reads a digital at the wing's midpoint, (k₁ − 2·shift)/2 unshifted for the
+wing's shifted end k₁, where QuantLib's reads it at (k₁ − shift)/2 (<code>:109-110</code>), which lies in the core once its
+left end is negative unshifted, so the check fails and the core moves right; with interpolation it also reads a
+segment function not yet fitted, undefined behaviour. A segment that fails to fit removes the unfitted slot after
+its own, where QuantLib's removes the slot at the grid index after the segment's (<code>:163</code>), past the slots' end
+once the core's left index is 2 or more, undefined behaviour; every slot either removes is unfitted, so the two
+agree wherever QuantLib's is in range. And <a class="xref" href="NanoQL.TermStructures.KahaleSmileSection.html#NanoQL_TermStructures_KahaleSmileSection_AtmLevel">AtmLevel()</a> is the given or the source's level, where
+QuantLib's returns it shifted (<code>kahalesmilesection.hpp:142</code>, <code>.cpp:59</code>), so with a shift its vega and its
+converted volatilities read the forward plus the shift. And a segment whose fitted function's forward runs far above
+its strikes, to 10¹⁴ and more, so that QuantLib's Black call and constant cancel and its prices are the
+cancellation's, even below their intrinsic value (<code>:150-173</code>), is solved again, and evaluated, anchored at its
+left end's price, the Black call's change taken through complementary normal integrals; a segment whose terms round
+within 1e-8 of its ends' prices, relative, is QuantLib's, solved and evaluated as QuantLib's, at any scale; one the
+anchored solve can't fit fails as QuantLib's unsolved one, its right point removed.
+</p>
+<p>
+One of QuantLib's defects is kept. With interpolation, a segment's slope is found by a Brent search that stops once
+its bracket is narrow (<code>kahalesmilesection.cpp:151-155</code>, <code>brent.hpp:87-90</code>), so it can end at a sign
+change of the segment's mismatch that isn't a root. The segment it accepts then misses its right end's price, and
+the section's price jumps there, an arbitrage: on a lognormal SABR smile (a forward of 5% for a year, α 0.3, β 1,
+ν 0.3, ρ −0.3) the call is 0.000330 just below a strike of 7.5% and 0.000646 at it, as QuantLib's is. Rejecting such
+a segment as unsolved removes the jump, but its grid point is then removed, as an unsolved segment's is, so the core
+shrinks, and on many such smiles the section misses the source by more or can't be built. Without interpolation,
+the default, no segment is fitted and the core keeps the source's prices.
+</p>
+<p>
+QuantLib's public helper structs (<code>cFunction</code> and the three solvers' functions) are the fit's internals here.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection__ctor_" data-uid="NanoQL.TermStructures.KahaleSmileSection.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection__ctor_NanoQL_TermStructures_SmileSection_System_Nullable_System_Double__System_Boolean_System_Boolean_System_Boolean_System_ReadOnlySpan_System_Double__System_Double_System_Int32_System_Int32_" data-uid="NanoQL.TermStructures.KahaleSmileSection.#ctor(NanoQL.TermStructures.SmileSection,System.Nullable{System.Double},System.Boolean,System.Boolean,System.Boolean,System.ReadOnlySpan{System.Double},System.Double,System.Int32,System.Int32)">
+  KahaleSmileSection(SmileSection, double?, bool, bool, bool, ReadOnlySpan&lt;double&gt;, double, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.KahaleSmileSection.html">KahaleSmileSection</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KahaleSmileSection(SmileSection source, double? atm = null, bool interpolate = false, bool exponentialExtrapolation = false, bool deleteArbitragePoints = false, ReadOnlySpan&lt;double&gt; moneynessGrid = default, double gap = 1E-05, int forcedLeftIndex = -1, int forcedRightIndex = 2147483647)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></dt>
+    <dd><p>The section whose prices it fits, shifted lognormal.</p>
+</dd>
+    <dt><code>atm</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The at-the-money level; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null&lt;Real&gt;()</code>, for the
+source's own.</p>
+</dd>
+    <dt><code>interpolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the core's prices are replaced by Kahale's segment functions.</p>
+</dd>
+    <dt><code>exponentialExtrapolation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the right wing is exponential, rather than a Black call.</p>
+</dd>
+    <dt><code>deleteArbitragePoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the grid points next to the arbitrage-free region are removed
+(<a class="xref" href="NanoQL.TermStructures.SmileSectionUtils.html">SmileSectionUtils</a>).</p>
+</dd>
+    <dt><code>moneynessGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The moneyness grid; empty for QuantLib's default.</p>
+</dd>
+    <dt><code>gap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strikes' distance of the source's digitals the wings read.</p>
+</dd>
+    <dt><code>forcedLeftIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The grid index the core starts at, at the least.</p>
+</dd>
+    <dt><code>forcedRightIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The grid index the core ends at, at the most.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">source</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The source isn't shifted lognormal, or <a class="xref" href="NanoQL.TermStructures.SmileSectionUtils.html">SmileSectionUtils</a>
+refuses the grid or the level.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No arbitrage-free region is found, or a wing can't be fitted short of the
+core's other end.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_DayCounter_" data-uid="NanoQL.TermStructures.KahaleSmileSection.DayCounter*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_DayCounter" data-uid="NanoQL.TermStructures.KahaleSmileSection.DayCounter">
+  DayCounter
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the day counter; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty day counter, where none was given.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override DayCounter? DayCounter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_ExerciseDate_" data-uid="NanoQL.TermStructures.KahaleSmileSection.ExerciseDate*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_ExerciseDate" data-uid="NanoQL.TermStructures.KahaleSmileSection.ExerciseDate">
+  ExerciseDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the exercise date; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for a section built from an exercise time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date? ExerciseDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_ExerciseTime_" data-uid="NanoQL.TermStructures.KahaleSmileSection.ExerciseTime*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_ExerciseTime" data-uid="NanoQL.TermStructures.KahaleSmileSection.ExerciseTime">
+  ExerciseTime
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the exercise time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double ExerciseTime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_Shift_" data-uid="NanoQL.TermStructures.KahaleSmileSection.Shift*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_Shift" data-uid="NanoQL.TermStructures.KahaleSmileSection.Shift">
+  Shift
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the shift of a shifted lognormal volatility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Shift { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_VolatilityType_" data-uid="NanoQL.TermStructures.KahaleSmileSection.VolatilityType*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_VolatilityType" data-uid="NanoQL.TermStructures.KahaleSmileSection.VolatilityType">
+  VolatilityType
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the volatility type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override VolatilityType VolatilityType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.VolatilityType.html">VolatilityType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_AtmLevel_" data-uid="NanoQL.TermStructures.KahaleSmileSection.AtmLevel*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_AtmLevel" data-uid="NanoQL.TermStructures.KahaleSmileSection.AtmLevel">
+  AtmLevel()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The at-the-money level: the one given, or the source's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double? AtmLevel()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The level.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_CoreIndices_" data-uid="NanoQL.TermStructures.KahaleSmileSection.CoreIndices*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_CoreIndices" data-uid="NanoQL.TermStructures.KahaleSmileSection.CoreIndices">
+  CoreIndices()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The core's first and last grid index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int Left, int Right) CoreIndices()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.left">Left</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.right">Right</a>)</dt>
+    <dd><p>The indices.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_LeftCoreStrike_" data-uid="NanoQL.TermStructures.KahaleSmileSection.LeftCoreStrike*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_LeftCoreStrike" data-uid="NanoQL.TermStructures.KahaleSmileSection.LeftCoreStrike">
+  LeftCoreStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The core's first strike, shifted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double LeftCoreStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_MaxStrike_" data-uid="NanoQL.TermStructures.KahaleSmileSection.MaxStrike*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_MaxStrike" data-uid="NanoQL.TermStructures.KahaleSmileSection.MaxStrike">
+  MaxStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum strike: the largest <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MaxStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_MinStrike_" data-uid="NanoQL.TermStructures.KahaleSmileSection.MinStrike*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_MinStrike" data-uid="NanoQL.TermStructures.KahaleSmileSection.MinStrike">
+  MinStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The minimum strike: minus the shift.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MinStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_OptionPrice_" data-uid="NanoQL.TermStructures.KahaleSmileSection.OptionPrice*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_OptionPrice_System_Double_NanoQL_OptionType_System_Double_" data-uid="NanoQL.TermStructures.KahaleSmileSection.OptionPrice(System.Double,NanoQL.OptionType,System.Double)">
+  OptionPrice(double, OptionType, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The price of an option: the fitted functions' in the wings, and in the core the source's, or the segment
+functions' with interpolation; a put by put-call parity on the shifted strike and forward.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double OptionPrice(double strike, OptionType type = OptionType.Call, double discount = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_ReferenceDate_" data-uid="NanoQL.TermStructures.KahaleSmileSection.ReferenceDate*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_ReferenceDate" data-uid="NanoQL.TermStructures.KahaleSmileSection.ReferenceDate">
+  ReferenceDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The reference date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date ReferenceDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The section has no reference date, as one built from an exercise time.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_RightCoreStrike_" data-uid="NanoQL.TermStructures.KahaleSmileSection.RightCoreStrike*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_RightCoreStrike" data-uid="NanoQL.TermStructures.KahaleSmileSection.RightCoreStrike">
+  RightCoreStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The core's last strike, shifted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RightCoreStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_KahaleSmileSection_VolatilityImpl_" data-uid="NanoQL.TermStructures.KahaleSmileSection.VolatilityImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_KahaleSmileSection_VolatilityImpl_System_Double_" data-uid="NanoQL.TermStructures.KahaleSmileSection.VolatilityImpl(System.Double)">
+  VolatilityImpl(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility at a strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double VolatilityImpl(double strike)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

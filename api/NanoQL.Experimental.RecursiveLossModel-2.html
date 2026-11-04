@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class RecursiveLossModel&lt;TCopula, TInitTraits&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RecursiveLossModel&lt;TCopula, TInitTraits&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The recursive STCDO default loss model of a heterogeneous pool: names heterogeneous in their default probabilities, notionals and recoveries, their correlations given by the latent model. The recursive pricing algorithm is Andersen, Sidenius and Basu&#39;s, &amp;quot;All your hedges in one basket&amp;quot;, Risk, November 2003, pages 67-72.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.RecursiveLossModel`2">
+
+
+
+  <h1 id="NanoQL_Experimental_RecursiveLossModel_2" data-uid="NanoQL.Experimental.RecursiveLossModel`2" class="text-break">
+Class RecursiveLossModel&lt;TCopula, TInitTraits&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The recursive STCDO default loss model of a heterogeneous pool: names heterogeneous in their default probabilities,
+notionals and recoveries, their correlations given by the latent model. The recursive pricing algorithm is Andersen,
+Sidenius and Basu's, &quot;All your hedges in one basket&quot;, Risk, November 2003, pages 67-72.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public class RecursiveLossModel&lt;TCopula, TInitTraits&gt; : DefaultLossModel, IDefaultLossModel where TCopula : struct, ICopulaPolicy&lt;TCopula, TInitTraits&gt; where TInitTraits : struct</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TCopula</code></dt>
+    <dd><p>The copula policy.</p>
+</dd>
+    <dt><code>TInitTraits</code></dt>
+    <dd><p>The policy's initialization parameters.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.DefaultLossModel.html">DefaultLossModel</a></div>
+      <div><span class="xref">RecursiveLossModel&lt;TCopula, TInitTraits&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.IDefaultLossModel.html">IDefaultLossModel</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.RecursiveGaussLossModel.html">RecursiveGaussLossModel</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_SetBasket_NanoQL_Experimental_Basket_">DefaultLossModel.SetBasket(Basket)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ProbOverLoss_NanoQL_Time_Date_System_Double_">DefaultLossModel.ProbOverLoss(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_SplitVaRLevel_NanoQL_Time_Date_System_Double_">DefaultLossModel.SplitVaRLevel(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_SplitESFLevel_NanoQL_Time_Date_System_Double_">DefaultLossModel.SplitESFLevel(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_DensityTrancheLoss_NanoQL_Time_Date_System_Double_">DefaultLossModel.DensityTrancheLoss(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ProbsBeingNthEvent_System_Int32_NanoQL_Time_Date_">DefaultLossModel.ProbsBeingNthEvent(int, Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_DefaultCorrelation_NanoQL_Time_Date_System_Int32_System_Int32_">DefaultLossModel.DefaultCorrelation(Date, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ProbAtLeastNEvents_System_Int32_NanoQL_Time_Date_">DefaultLossModel.ProbAtLeastNEvents(int, Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ExpectedRecovery_NanoQL_Time_Date_System_Int32_NanoQL_Experimental_DefaultProbKey_">DefaultLossModel.ExpectedRecovery(Date, int, DefaultProbKey)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_RestrictTo_System_Collections_Immutable_ImmutableArray_System_Int32__System_Int32_">DefaultLossModel.RestrictTo(ImmutableArray&lt;int&gt;, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_Basket">DefaultLossModel.Basket</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_BoundBasket">DefaultLossModel.BoundBasket</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_RecursiveLossModel_2_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+With copulas other than the Gaussian it is only an approximation (see the remark on p. 68). The expected tranche
+loss inverts the sum and the integral (the first, unnumbered, equation on p. 70): EL(t) = ∫ q(ω) dω Σ_k l_k
+P(l_k; t | ω), the conditional expected loss integrated over the factor. The losses are counted in a loss unit, the
+smallest nonzero loss given default over the number of buckets, each name's loss given default rounded to a whole
+number of units, so the distribution's attainable losses are the sums of the names' weights. To be done, as in
+QuantLib: a loss unit from some small fraction of the portfolio's loss weights (fine for pricing, not for risk
+metrics; O'Kane 18.3.2), and integrands reading the inverted probabilities throughout.
+</p>
+<p>
+The loss distribution labels each point by its attainable loss, and the percentile at 0 and 1 is the tranche's loss
+at the first and last, as its interior's are tranche losses: QuantLib's labels the i-th attainable loss i times the
+loss unit, wrong where the weights aren't 0, 1, 2, …, and its percentile returns the distribution's probability at
+both ends (1.0000000003 and 0.717; <code>Divergences/RecursiveLossModelTests.cs</code>). Bound to a basket, a copy
+computes the weights afresh, where QuantLib's appends them to the previous basket's, and prices the live names over
+the restated tranche. Refused, where QuantLib's reads before or past its vectors: a basket whose losses given
+default are all 0, and a percentile or shortfall whose search leaves the distribution. A shortfall the distribution
+never reaches is refused, as the binomial model's is, where QuantLib's reads 0 with its comment "well, we are in
+error.... fix: FAIL" (<code>recursivelossmodel.hpp:298</code>).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_RecursiveLossModel_2__ctor_" data-uid="NanoQL.Experimental.RecursiveLossModel`2.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_RecursiveLossModel_2__ctor_NanoQL_Experimental_ConstantLossLatentModel__0__1__System_Int32_" data-uid="NanoQL.Experimental.RecursiveLossModel`2.#ctor(NanoQL.Experimental.ConstantLossLatentModel{`0,`1},System.Int32)">
+  RecursiveLossModel(ConstantLossLatentModel&lt;TCopula, TInitTraits&gt;, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.RecursiveLossModel-2.html">RecursiveLossModel&lt;TCopula, TInitTraits&gt;</a>
+class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RecursiveLossModel(ConstantLossLatentModel&lt;TCopula, TInitTraits&gt; m, int nbuckets = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="NanoQL.Experimental.ConstantLossLatentModel-2.html">ConstantLossLatentModel</a>&lt;TCopula, TInitTraits&gt;</dt>
+    <dd><p>The constant-loss latent model.</p>
+</dd>
+    <dt><code>nbuckets</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of loss units in the smallest loss given default (nope! use the max common
+divisor, see O'Kane; or give both options at least).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">m</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_RecursiveLossModel_2_ExpectedShortfall_" data-uid="NanoQL.Experimental.RecursiveLossModel`2.ExpectedShortfall*"></a>
+
+  <h3 id="NanoQL_Experimental_RecursiveLossModel_2_ExpectedShortfall_NanoQL_Time_Date_System_Double_" data-uid="NanoQL.Experimental.RecursiveLossModel`2.ExpectedShortfall(NanoQL.Time.Date,System.Double)">
+  ExpectedShortfall(Date, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expected shortfall at a percentile of the default loss.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double ExpectedShortfall(Date d, double percentile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>percentile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The percentile.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The shortfall.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model doesn't implement it.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The distribution reaches the percentile at its first point or at its last,
+where QuantLib reads before its start or past its end, or never (&quot;Recursive model fails to calculate
+ESF.&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_RecursiveLossModel_2_ExpectedTrancheLoss_" data-uid="NanoQL.Experimental.RecursiveLossModel`2.ExpectedTrancheLoss*"></a>
+
+  <h3 id="NanoQL_Experimental_RecursiveLossModel_2_ExpectedTrancheLoss_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.RecursiveLossModel`2.ExpectedTrancheLoss(NanoQL.Time.Date)">
+  ExpectedTrancheLoss(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expected tranche loss by a date, the conditional expected loss integrated over the factor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double ExpectedTrancheLoss(Date date)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>date</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The loss, an amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model isn't bound to a basket.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_RecursiveLossModel_2_LossDistribution_" data-uid="NanoQL.Experimental.RecursiveLossModel`2.LossDistribution*"></a>
+
+  <h3 id="NanoQL_Experimental_RecursiveLossModel_2_LossDistribution_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.RecursiveLossModel`2.LossDistribution(NanoQL.Time.Date)">
+  LossDistribution(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The full loss distribution: each loss level's probability.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ImmutableSortedDictionary&lt;double, double&gt; LossDistribution(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablesorteddictionary-2">ImmutableSortedDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The distribution.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model doesn't implement it.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_RecursiveLossModel_2_LossProbability_" data-uid="NanoQL.Experimental.RecursiveLossModel`2.LossProbability*"></a>
+
+  <h3 id="NanoQL_Experimental_RecursiveLossModel_2_LossProbability_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.RecursiveLossModel`2.LossProbability(NanoQL.Time.Date)">
+  LossProbability(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The probabilities of the attainable losses by a date, in increasing order of the loss.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] LossProbability(Date date)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>date</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd><p>The probabilities.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model isn't bound to a basket.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_RecursiveLossModel_2_Percentile_" data-uid="NanoQL.Experimental.RecursiveLossModel`2.Percentile*"></a>
+
+  <h3 id="NanoQL_Experimental_RecursiveLossModel_2_Percentile_NanoQL_Time_Date_System_Double_" data-uid="NanoQL.Experimental.RecursiveLossModel`2.Percentile(NanoQL.Time.Date,System.Double)">
+  Percentile(Date, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The value at risk at a percentile of the default loss.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Percentile(Date d, double percentile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>percentile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The percentile.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The loss.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model doesn't implement it.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The search ends before the distribution's start or past its end, where
+QuantLib reads there.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_RecursiveLossModel_2_ResetModel_" data-uid="NanoQL.Experimental.RecursiveLossModel`2.ResetModel*"></a>
+
+  <h3 id="NanoQL_Experimental_RecursiveLossModel_2_ResetModel" data-uid="NanoQL.Experimental.RecursiveLossModel`2.ResetModel">
+  ResetModel()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The model's per-basket precomputation, run once on the bound copy: QuantLib's <code>resetModel</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void ResetModel()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>Every live name's loss given default is 0, where QuantLib's loss unit reads
+the minimum of an empty list.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

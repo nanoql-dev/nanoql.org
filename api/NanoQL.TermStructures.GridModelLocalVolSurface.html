@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class GridModelLocalVolSurface | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GridModelLocalVolSurface | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A local volatility surface parameterised for calibration: one positive parameter per grid point of dates and strikes, all starting at 1, the surface a  on them.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.GridModelLocalVolSurface">
+
+
+
+  <h1 id="NanoQL_TermStructures_GridModelLocalVolSurface" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface" class="text-break">
+Class GridModelLocalVolSurface  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A local volatility surface parameterised for calibration: one positive parameter per grid point of dates and
+strikes, all starting at 1, the surface a <a class="xref" href="NanoQL.TermStructures.FixedLocalVolSurface.html">FixedLocalVolSurface</a> on them.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class GridModelLocalVolSurface : LocalVolTermStructure, ICalibratedModel</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html">VolatilityTermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></div>
+      <div><span class="xref">GridModelLocalVolSurface</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Models.ICalibratedModel.html">ICalibratedModel</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html#NanoQL_TermStructures_LocalVolTermStructure_LocalVol_NanoQL_Time_Date_System_Double_System_Boolean_">LocalVolTermStructure.LocalVol(Date, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html#NanoQL_TermStructures_LocalVolTermStructure_LocalVol_System_Double_System_Double_System_Boolean_">LocalVolTermStructure.LocalVol(double, double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_OptionDateFromTenor_NanoQL_Time_Period_">VolatilityTermStructure.OptionDateFromTenor(Period)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_BusinessDayConvention">VolatilityTermStructure.BusinessDayConvention</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_TimeFromReference_NanoQL_Time_Date_">TermStructure.TimeFromReference(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_ReferenceDate">TermStructure.ReferenceDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_DayCounter">TermStructure.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_Calendar">TermStructure.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_SettlementDays">TermStructure.SettlementDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModelExtensions.html#NanoQL_Models_CalibratedModelExtensions_Value_NanoQL_Models_ICalibratedModel_NanoQL_Numerics_Vector_System_Collections_Generic_IEnumerable_NanoQL_Models_CalibrationHelper__NanoQL_EvaluationContext_">CalibratedModelExtensions.Value(ICalibratedModel, Vector, IEnumerable&lt;CalibrationHelper&gt;, EvaluationContext)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModelExtensions.html#NanoQL_Models_CalibratedModelExtensions_Calibrate__1___0_System_Collections_Generic_IEnumerable_NanoQL_Models_CalibrationHelper__NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_EndCriteria_NanoQL_EvaluationContext_NanoQL_Numerics_Constraint_System_ReadOnlySpan_System_Double__System_ReadOnlySpan_System_Boolean__">CalibratedModelExtensions.Calibrate&lt;TModel&gt;(TModel, IEnumerable&lt;CalibrationHelper&gt;, OptimizationMethod, EndCriteria, EvaluationContext, Constraint?, ReadOnlySpan&lt;double&gt;, ReadOnlySpan&lt;bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Models.CalibratedModelExtensions.html#NanoQL_Models_CalibratedModelExtensions_SetParams__1___0_NanoQL_Numerics_Vector_">CalibratedModelExtensions.SetParams&lt;TModel&gt;(TModel, Vector)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_TermStructures_GridModelLocalVolSurface_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable, a <a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a> implementing <a class="xref" href="NanoQL.Models.ICalibratedModel.html">ICalibratedModel</a> over its arguments:
+<a class="xref" href="NanoQL.TermStructures.GridModelLocalVolSurface.html#NanoQL_TermStructures_GridModelLocalVolSurface_WithParams_NanoQL_Numerics_Vector_">WithParams(Vector)</a> returns a copy on its own fixed surface, which a calibration reads, where QuantLib's model
+regenerates its surface in place. QuantLib's <code>update()</code>, which forwards a notification to both its bases, has
+no counterpart: nothing here changes.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_GridModelLocalVolSurface__ctor_" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_GridModelLocalVolSurface__ctor_NanoQL_Time_Date_System_Collections_Generic_IEnumerable_NanoQL_Time_Date__System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_Double___NanoQL_Time_DayCounter_NanoQL_TermStructures_FixedLocalVolSurfaceExtrapolation_NanoQL_TermStructures_FixedLocalVolSurfaceExtrapolation_" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.#ctor(NanoQL.Time.Date,System.Collections.Generic.IEnumerable{NanoQL.Time.Date},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Double}},NanoQL.Time.DayCounter,NanoQL.TermStructures.FixedLocalVolSurfaceExtrapolation,NanoQL.TermStructures.FixedLocalVolSurfaceExtrapolation)">
+  GridModelLocalVolSurface(Date, IEnumerable&lt;Date&gt;, IEnumerable&lt;IEnumerable&lt;double&gt;&gt;, DayCounter, FixedLocalVolSurfaceExtrapolation, FixedLocalVolSurfaceExtrapolation)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.GridModelLocalVolSurface.html">GridModelLocalVolSurface</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GridModelLocalVolSurface(Date referenceDate, IEnumerable&lt;Date&gt; dates, IEnumerable&lt;IEnumerable&lt;double&gt;&gt; strikes, DayCounter dayCounter, FixedLocalVolSurfaceExtrapolation lowerExtrapolation = FixedLocalVolSurfaceExtrapolation.ConstantExtrapolation, FixedLocalVolSurfaceExtrapolation upperExtrapolation = FixedLocalVolSurfaceExtrapolation.ConstantExtrapolation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>referenceDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The reference date.</p>
+</dd>
+    <dt><code>dates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The grid's dates, sorted, not before the reference date.</p>
+</dd>
+    <dt><code>strikes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd><p>Each date's strikes, sorted, all of one size.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>lowerExtrapolation</code> <a class="xref" href="NanoQL.TermStructures.FixedLocalVolSurfaceExtrapolation.html">FixedLocalVolSurfaceExtrapolation</a></dt>
+    <dd><p>How the surface extrapolates below a date's strikes.</p>
+</dd>
+    <dt><code>upperExtrapolation</code> <a class="xref" href="NanoQL.TermStructures.FixedLocalVolSurfaceExtrapolation.html">FixedLocalVolSurfaceExtrapolation</a></dt>
+    <dd><p>How the surface extrapolates above them.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>An extrapolation isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No strikes are given, where QuantLib reads <code>strikes.front()</code> of an empty list; the strike vectors differ in
+size; or the fixed surface refuses the grid; with QuantLib's messages.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_TermStructures_GridModelLocalVolSurface_Arguments_" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.Arguments*"></a>
+
+  <h3 id="NanoQL_TermStructures_GridModelLocalVolSurface_Arguments" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.Arguments">
+  Arguments
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the model's arguments, the parameters calibration works on, in order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;Parameter&gt; Arguments { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Models.Parameter.html">Parameter</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_GridModelLocalVolSurface_Constraint_" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.Constraint*"></a>
+
+  <h3 id="NanoQL_TermStructures_GridModelLocalVolSurface_Constraint" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.Constraint">
+  Constraint
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the constraint the model imposes on its parameters: each argument's own, on its slice.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Constraint Constraint { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Constraint.html">Constraint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_GridModelLocalVolSurface_MaxDate_" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.MaxDate*"></a>
+
+  <h3 id="NanoQL_TermStructures_GridModelLocalVolSurface_MaxDate" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.MaxDate">
+  MaxDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed surface's maximum date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date MaxDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_GridModelLocalVolSurface_MaxTime_" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.MaxTime*"></a>
+
+  <h3 id="NanoQL_TermStructures_GridModelLocalVolSurface_MaxTime" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.MaxTime">
+  MaxTime
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed surface's maximum time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MaxTime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_GridModelLocalVolSurface_LocalVolImpl_" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.LocalVolImpl*"></a>
+
+  <h3 id="NanoQL_TermStructures_GridModelLocalVolSurface_LocalVolImpl_System_Double_System_Double_" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.LocalVolImpl(System.Double,System.Double)">
+  LocalVolImpl(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fixed surface's local volatility, extrapolating.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double LocalVolImpl(double t, double strike)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The local volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_GridModelLocalVolSurface_MaxStrike_" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.MaxStrike*"></a>
+
+  <h3 id="NanoQL_TermStructures_GridModelLocalVolSurface_MaxStrike" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.MaxStrike">
+  MaxStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fixed surface's highest strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MaxStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_GridModelLocalVolSurface_MinStrike_" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.MinStrike*"></a>
+
+  <h3 id="NanoQL_TermStructures_GridModelLocalVolSurface_MinStrike" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.MinStrike">
+  MinStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fixed surface's lowest strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MinStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_GridModelLocalVolSurface_Params_" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.Params*"></a>
+
+  <h3 id="NanoQL_TermStructures_GridModelLocalVolSurface_Params" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.Params">
+  Params()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The parameters calibration works on: every argument's parameters, in order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector Params()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector holding them.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_GridModelLocalVolSurface_WithParams_" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.WithParams*"></a>
+
+  <h3 id="NanoQL_TermStructures_GridModelLocalVolSurface_WithParams_NanoQL_Numerics_Vector_" data-uid="NanoQL.TermStructures.GridModelLocalVolSurface.WithParams(NanoQL.Numerics.Vector)">
+  WithParams(Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the surface on other parameters, its fixed surface rebuilt on them: QuantLib's
+<code>setParams</code> with its <code>generateArguments</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICalibratedModel WithParams(Vector parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameters</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The parameters, one per grid point, row by row of strikes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.ICalibratedModel.html">ICalibratedModel</a></dt>
+    <dd><p>The copy; this surface is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">parameters</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The parameters are too few or too many, with QuantLib's messages.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

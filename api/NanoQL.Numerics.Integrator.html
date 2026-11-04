@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Integrator | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Integrator | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The base of the one-dimensional integrators: QuantLib&#39;s absolute accuracy and maximum number of evaluations, and the integral of a function over an interval.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.Integrator">
+
+
+
+  <h1 id="NanoQL_Numerics_Integrator" data-uid="NanoQL.Numerics.Integrator" class="text-break">
+Class Integrator  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base of the one-dimensional integrators: QuantLib's absolute accuracy and maximum number of evaluations, and the
+integral of a function over an interval.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Integrator</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Integrator</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.PiecewiseIntegral.html">PiecewiseIntegral</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.DiscreteSimpsonIntegrator.html">DiscreteSimpsonIntegrator</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.DiscreteTrapezoidIntegrator.html">DiscreteTrapezoidIntegrator</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.ExpSinhIntegral.html">ExpSinhIntegral</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.FilonIntegral.html">FilonIntegral</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.GaussChebyshev2ndIntegrator.html">GaussChebyshev2ndIntegrator</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.GaussChebyshevIntegrator.html">GaussChebyshevIntegrator</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.GaussKronrodAdaptive.html">GaussKronrodAdaptive</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.GaussKronrodNonAdaptive.html">GaussKronrodNonAdaptive</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.GaussLegendreIntegrator.html">GaussLegendreIntegrator</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.GaussLobattoIntegral.html">GaussLobattoIntegral</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.SegmentIntegral.html">SegmentIntegral</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.TanhSinhIntegral.html">TanhSinhIntegral</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.TrapezoidIntegral-1.html">TrapezoidIntegral&lt;TIntegrationPolicy&gt;</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Numerics_Integrator_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable: <a class="xref" href="NanoQL.Numerics.Integrator.html#NanoQL_Numerics_Integrator_SetAbsoluteAccuracy_System_Double_">SetAbsoluteAccuracy(double)</a> and <a class="xref" href="NanoQL.Numerics.Integrator.html#NanoQL_Numerics_Integrator_SetMaxEvaluations_System_Int32_">SetMaxEvaluations(int)</a> return copies. QuantLib keeps the
+number of evaluations and the error estimate of the last call in mutable members, the count reset by
+<code>operator()</code> (<code>integral.cpp:76-86</code>); here <a class="xref" href="NanoQL.Numerics.Integrator.html#NanoQL_Numerics_Integrator_IntegrateWithStatistics_System_Func_System_Double_System_Double__System_Double_System_Double_">IntegrateWithStatistics(Func&lt;double, double&gt;, double, double)</a> returns both with the
+value, the error <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> where QuantLib's integrator computes none, and
+<a class="xref" href="NanoQL.Numerics.Integrator.html#NanoQL_Numerics_Integrator_IntegrationSuccess_NanoQL_Numerics_IntegrationResult_">IntegrationSuccess(IntegrationResult)</a> reads them from the result.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Numerics_Integrator__ctor_" data-uid="NanoQL.Numerics.Integrator.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_Integrator__ctor_System_Double_System_Int32_" data-uid="NanoQL.Numerics.Integrator.#ctor(System.Double,System.Int32)">
+  Integrator(double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.Integrator.html">Integrator</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Integrator(double absoluteAccuracy, int maxEvaluations)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>absoluteAccuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The absolute accuracy, above machine epsilon.</p>
+</dd>
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number of evaluations, or of iterations for the trapezoid
+family.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">absoluteAccuracy</code> isn't above machine epsilon.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxEvaluations</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Numerics_Integrator_AbsoluteAccuracy_" data-uid="NanoQL.Numerics.Integrator.AbsoluteAccuracy*"></a>
+
+  <h3 id="NanoQL_Numerics_Integrator_AbsoluteAccuracy" data-uid="NanoQL.Numerics.Integrator.AbsoluteAccuracy">
+  AbsoluteAccuracy
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the absolute accuracy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AbsoluteAccuracy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Integrator_MaxEvaluations_" data-uid="NanoQL.Numerics.Integrator.MaxEvaluations*"></a>
+
+  <h3 id="NanoQL_Numerics_Integrator_MaxEvaluations" data-uid="NanoQL.Numerics.Integrator.MaxEvaluations">
+  MaxEvaluations
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maximum number of evaluations, or of iterations for the trapezoid family.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MaxEvaluations { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_Integrator_Integrate_" data-uid="NanoQL.Numerics.Integrator.Integrate*"></a>
+
+  <h3 id="NanoQL_Numerics_Integrator_Integrate_System_Func_System_Double_System_Double__System_Double_System_Double_" data-uid="NanoQL.Numerics.Integrator.Integrate(System.Func{System.Double,System.Double},System.Double,System.Double)">
+  Integrate(Func&lt;double, double&gt;, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The integral of <code class="paramref">f</code> from <code class="paramref">a</code> to <code class="paramref">b</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Integrate(Func&lt;double, double&gt; f, double a, double b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The integrand.</p>
+</dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The lower limit; above <code class="paramref">b</code>, the integral is the negative of the reversed
+one.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The upper limit.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The integral; 0 where the limits are equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">f</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The rule doesn't reach its accuracy within its maximum.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Integrator_IntegrateCore_" data-uid="NanoQL.Numerics.Integrator.IntegrateCore*"></a>
+
+  <h3 id="NanoQL_Numerics_Integrator_IntegrateCore_System_Func_System_Double_System_Double__System_Double_System_Double_" data-uid="NanoQL.Numerics.Integrator.IntegrateCore(System.Func{System.Double,System.Double},System.Double,System.Double)">
+  IntegrateCore(Func&lt;double, double&gt;, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rule's integral over [a, b], a below b, with the number of evaluations it made and its error estimate, if
+it computes one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract IntegrationResult IntegrateCore(Func&lt;double, double&gt; f, double a, double b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The integrand.</p>
+</dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The lower limit.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The upper limit.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.IntegrationResult.html">IntegrationResult</a></dt>
+    <dd><p>The integral, the number of evaluations and the error estimate, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for
+none.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Integrator_IntegrateWithStatistics_" data-uid="NanoQL.Numerics.Integrator.IntegrateWithStatistics*"></a>
+
+  <h3 id="NanoQL_Numerics_Integrator_IntegrateWithStatistics_System_Func_System_Double_System_Double__System_Double_System_Double_" data-uid="NanoQL.Numerics.Integrator.IntegrateWithStatistics(System.Func{System.Double,System.Double},System.Double,System.Double)">
+  IntegrateWithStatistics(Func&lt;double, double&gt;, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The integral of <code class="paramref">f</code> from <code class="paramref">a</code> to <code class="paramref">b</code>, with the number of
+evaluations the call made, QuantLib's <code>numberOfEvaluations()</code> after it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntegrationResult IntegrateWithStatistics(Func&lt;double, double&gt; f, double a, double b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The integrand.</p>
+</dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The lower limit; above <code class="paramref">b</code>, the integral is the negative of the reversed
+one.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The upper limit.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.IntegrationResult.html">IntegrationResult</a></dt>
+    <dd><p>The integral, the number of evaluations and the rule's error estimate, if it computes one; 0, 0 and an error of
+0 where the limits are equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">f</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The rule doesn't reach its accuracy within its maximum.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Integrator_IntegrationSuccess_" data-uid="NanoQL.Numerics.Integrator.IntegrationSuccess*"></a>
+
+  <h3 id="NanoQL_Numerics_Integrator_IntegrationSuccess_NanoQL_Numerics_IntegrationResult_" data-uid="NanoQL.Numerics.Integrator.IntegrationSuccess(NanoQL.Numerics.IntegrationResult)">
+  IntegrationSuccess(IntegrationResult)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether an integration of this integrator succeeded: QuantLib's <code>integrationSuccess()</code>, its number of
+evaluations at most <a class="xref" href="NanoQL.Numerics.Integrator.html#NanoQL_Numerics_Integrator_MaxEvaluations">MaxEvaluations</a> and its error estimate at most <a class="xref" href="NanoQL.Numerics.Integrator.html#NanoQL_Numerics_Integrator_AbsoluteAccuracy">AbsoluteAccuracy</a>
+(<code>integral.cpp:71-74</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IntegrationSuccess(IntegrationResult result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>result</code> <a class="xref" href="NanoQL.Numerics.IntegrationResult.html">IntegrationResult</a></dt>
+    <dd><p>The integration's result, from this integrator.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether it succeeded.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The result carries no error estimate: its integrator computes none, where QuantLib's reads an unset member.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Integrator_SetAbsoluteAccuracy_" data-uid="NanoQL.Numerics.Integrator.SetAbsoluteAccuracy*"></a>
+
+  <h3 id="NanoQL_Numerics_Integrator_SetAbsoluteAccuracy_System_Double_" data-uid="NanoQL.Numerics.Integrator.SetAbsoluteAccuracy(System.Double)">
+  SetAbsoluteAccuracy(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the integrator with the absolute accuracy set; QuantLib's setter checks nothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Integrator SetAbsoluteAccuracy(double accuracy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The absolute accuracy.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Integrator.html">Integrator</a></dt>
+    <dd><p>The modified copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Integrator_SetMaxEvaluations_" data-uid="NanoQL.Numerics.Integrator.SetMaxEvaluations*"></a>
+
+  <h3 id="NanoQL_Numerics_Integrator_SetMaxEvaluations_System_Int32_" data-uid="NanoQL.Numerics.Integrator.SetMaxEvaluations(System.Int32)">
+  SetMaxEvaluations(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the integrator with the maximum number of evaluations set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Integrator SetMaxEvaluations(int maxEvaluations)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number of evaluations.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Integrator.html">Integrator</a></dt>
+    <dd><p>The modified copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxEvaluations</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

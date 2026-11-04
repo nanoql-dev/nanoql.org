@@ -1,0 +1,2298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class BlackFormulaFunctions | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BlackFormulaFunctions | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Black and Bachelier formulas: prices, derivatives, in-the-money probabilities and implied volatilities.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.BlackFormulaFunctions">
+
+
+
+  <h1 id="NanoQL_PricingEngines_BlackFormulaFunctions" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions" class="text-break">
+Class BlackFormulaFunctions  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Black and Bachelier formulas: prices, derivatives, in-the-money probabilities and implied volatilities.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class BlackFormulaFunctions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">BlackFormulaFunctions</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_BlackFormulaFunctions_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The Black formulas take a standard deviation, the volatility times the square root of the time to maturity, instead
+of a volatility; the Bachelier formulas take an absolute (normal) volatility, not a percentage one.
+</p>
+<p>
+Each payoff overload refuses a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> payoff, where QuantLib dereferences it, and passes the
+payoff's option type and strike on: a refusal of the strike names <code>strike</code>, as the overload it calls raises it.
+QuantLib's checks run in QuantLib's order, after the checks nanoql adds on entry (an option type the formula computes
+with, a negative <code>maxIterations</code>), with QuantLib's texts.
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormula_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormula*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormula_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormula(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double)">
+  BachelierBlackFormula(PlainVanillaPayoff, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Bachelier formula on a plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BachelierBlackFormula(PlainVanillaPayoff payoff, double forward, double stdDev, double discount = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, which gives the option type and the strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the normal volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The price comes out negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormula_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormula*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormula_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormula(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double)">
+  BachelierBlackFormula(OptionType, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Bachelier formula: the price of an option on a forward that is normal rather than lognormal, with a normal
+volatility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BachelierBlackFormula(OptionType optionType, double strike, double forward, double stdDev, double discount = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the normal volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">optionType</code> isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The price comes out negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaAssetItmProbability_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaAssetItmProbability*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaAssetItmProbability_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaAssetItmProbability(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double)">
+  BachelierBlackFormulaAssetItmProbability(PlainVanillaPayoff, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Bachelier probability of being in the money in the asset martingale measure, on a plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BachelierBlackFormulaAssetItmProbability(PlainVanillaPayoff payoff, double forward, double stdDev)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, which gives the option type and the strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the normal volatility times the square root of the time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">stdDev</code> is negative or NaN.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaAssetItmProbability_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaAssetItmProbability*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaAssetItmProbability_NanoQL_OptionType_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaAssetItmProbability(NanoQL.OptionType,System.Double,System.Double,System.Double)">
+  BachelierBlackFormulaAssetItmProbability(OptionType, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Bachelier probability of being in the money in the asset martingale measure, N(d): a risk-neutral
+probability, not the real-world one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BachelierBlackFormulaAssetItmProbability(OptionType optionType, double strike, double forward, double stdDev)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the normal volatility times the square root of the time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">stdDev</code> is negative or NaN.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">optionType</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaForwardDerivative_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaForwardDerivative*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaForwardDerivative_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaForwardDerivative(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double)">
+  BachelierBlackFormulaForwardDerivative(PlainVanillaPayoff, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The derivative of the Bachelier formula with respect to the forward, on a plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BachelierBlackFormulaForwardDerivative(PlainVanillaPayoff payoff, double forward, double stdDev, double discount = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, which gives the option type and the strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the normal volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaForwardDerivative_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaForwardDerivative*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaForwardDerivative_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaForwardDerivative(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double)">
+  BachelierBlackFormulaForwardDerivative(OptionType, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The derivative of the Bachelier formula with respect to the forward.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BachelierBlackFormulaForwardDerivative(OptionType optionType, double strike, double forward, double stdDev, double discount = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the normal volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaForwardDerivative_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>With a zero standard deviation, the result follows Boost's <code>sign</code> of the signed moneyness, which for a NaN
+reads its sign bit.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">optionType</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaImpliedVol_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaImpliedVol*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaImpliedVol_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaImpliedVol(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  BachelierBlackFormulaImpliedVol(OptionType, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The exact Bachelier implied volatility: the analytic implied volatility formula of Jaeckel (2017), &quot;Implied
+Normal Volatility&quot;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BachelierBlackFormulaImpliedVol(OptionType optionType, double strike, double forward, double tte, double bachelierPrice, double discount = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put; any value but <a class="xref" href="NanoQL.OptionType.html#NanoQL_OptionType_Call">Call</a> is read as a put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>tte</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to expiry; unchecked.</p>
+</dd>
+    <dt><code>bachelierPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's price.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor; unchecked.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied normal volatility; 0 where the time value isn't positive and the price is close to its
+intrinsic value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaImpliedVol_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The refusal's text names <code>bachelierBlackFormulaImpliedVolExact</code> and the price divided by the discount, as
+QuantLib's does. A price just above its intrinsic value inverts to its volatility, as QuantLib's master does
+after 1.44 (#2924), where 1.44 returns 0: a deep in-the-money price one ulp above its intrinsic value after the
+division by the discount inverts that rounding (<code>Divergences/BlackFormulaUpstreamFixesTests.cs</code>).</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The price implies a negative time value.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaImpliedVolChoi_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaImpliedVolChoi*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaImpliedVolChoi_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaImpliedVolChoi(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  BachelierBlackFormulaImpliedVolChoi(OptionType, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An approximation of the Bachelier implied volatility: the analytic approximation of J. Choi, K. Kim and M. Kwak
+(2009), &quot;Numerical Approximation of the Implied Volatility Under Arithmetic Brownian Motion&quot;, Applied Math.
+Finance, 16(3), pp. 261-268.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BachelierBlackFormulaImpliedVolChoi(OptionType optionType, double strike, double forward, double tte, double bachelierPrice, double discount = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put; any value but <a class="xref" href="NanoQL.OptionType.html#NanoQL_OptionType_Call">Call</a> is read as a put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>tte</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to expiry.</p>
+</dd>
+    <dt><code>bachelierPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's price.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor; unchecked.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied normal volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">tte</code> isn't positive.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The price implies a moneyness ratio ν outside [−1, 1].</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaStdDevDerivative_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaStdDevDerivative*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaStdDevDerivative_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaStdDevDerivative(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double)">
+  BachelierBlackFormulaStdDevDerivative(PlainVanillaPayoff, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The derivative of the Bachelier formula with respect to the standard deviation, on a plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BachelierBlackFormulaStdDevDerivative(PlainVanillaPayoff payoff, double forward, double stdDev, double discount = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, of which only the strike is read.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the normal volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaStdDevDerivative_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaStdDevDerivative*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BachelierBlackFormulaStdDevDerivative_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BachelierBlackFormulaStdDevDerivative(System.Double,System.Double,System.Double,System.Double)">
+  BachelierBlackFormulaStdDevDerivative(double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The derivative of the Bachelier formula with respect to the standard deviation: if T is the time to maturity,
+the vega is this derivative times √T.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BachelierBlackFormulaStdDevDerivative(double strike, double forward, double stdDev, double discount = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the normal volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormula_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormula*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormula_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormula(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormula(PlainVanillaPayoff, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Black's 1976 formula on a plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormula(PlainVanillaPayoff payoff, double forward, double stdDev, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, which gives the option type and the strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter, or the payoff's strike, is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The price comes out negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormula_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormula*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormula_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormula(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormula(OptionType, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Black's 1976 formula: the price of an option on a forward, with a shifted lognormal volatility when a
+displacement is given.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormula(OptionType optionType, double strike, double forward, double stdDev, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">optionType</code> isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The price comes out negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaAssetItmProbability_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaAssetItmProbability*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaAssetItmProbability_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaAssetItmProbability(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double)">
+  BlackFormulaAssetItmProbability(PlainVanillaPayoff, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Black's 1976 probability of being in the money in the asset martingale measure, on a plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaAssetItmProbability(PlainVanillaPayoff payoff, double forward, double stdDev, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, which gives the option type and the strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the volatility times the square root of the time; unchecked.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter, or the payoff's strike, is out of its domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaAssetItmProbability_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaAssetItmProbability*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaAssetItmProbability_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaAssetItmProbability(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaAssetItmProbability(OptionType, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Black's 1976 probability of being in the money in the asset martingale measure, N(d1): a risk-neutral
+probability, not the real-world one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaAssetItmProbability(OptionType optionType, double strike, double forward, double stdDev, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the volatility times the square root of the time; unchecked.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">optionType</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaCashItmProbability_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaCashItmProbability*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaCashItmProbability_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaCashItmProbability(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double)">
+  BlackFormulaCashItmProbability(PlainVanillaPayoff, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Black's 1976 probability of being in the money in the bond martingale measure, on a plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaCashItmProbability(PlainVanillaPayoff payoff, double forward, double stdDev, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, which gives the option type and the strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the volatility times the square root of the time; unchecked.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter, or the payoff's strike, is out of its domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaCashItmProbability_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaCashItmProbability*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaCashItmProbability_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaCashItmProbability(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaCashItmProbability(OptionType, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Black's 1976 probability of being in the money in the bond martingale measure, N(d2): a risk-neutral
+probability, not the real-world one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaCashItmProbability(OptionType optionType, double strike, double forward, double stdDev, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the volatility times the square root of the time; unchecked.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">optionType</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaForwardDerivative_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaForwardDerivative*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaForwardDerivative_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaForwardDerivative(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaForwardDerivative(PlainVanillaPayoff, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The derivative of Black's 1976 formula with respect to the forward, on a plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaForwardDerivative(PlainVanillaPayoff payoff, double forward, double stdDev, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, which gives the option type and the strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter, or the payoff's strike, is out of its domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaForwardDerivative_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaForwardDerivative*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaForwardDerivative_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaForwardDerivative(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaForwardDerivative(OptionType, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The derivative of Black's 1976 formula with respect to the forward.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaForwardDerivative(OptionType optionType, double strike, double forward, double stdDev, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">optionType</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDev_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDev*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDev_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_System_Double_System_Nullable_System_Double__System_Double_System_Int32_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDev(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double,System.Double,System.Nullable{System.Double},System.Double,System.Int32)">
+  BlackFormulaImpliedStdDev(PlainVanillaPayoff, double, double, double, double, double?, double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Black's 1976 implied standard deviation, on a plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaImpliedStdDev(PlainVanillaPayoff payoff, double forward, double blackPrice, double discount = 1, double displacement = 0, double? guess = null, double accuracy = 1E-06, int maxIterations = 100)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, which gives the option type and the strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>blackPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's price.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The solver's initial guess; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the approximation's value.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's accuracy.</p>
+</dd>
+    <dt><code>maxIterations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The solver's maximum number of function evaluations.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied standard deviation, in [0, 24].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter, or the payoff's strike, is out of its domain, the price is refused, or the solver refuses the guess
+or the accuracy.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxIterations</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The solver fails, or the guess's approximation fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDev_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDev*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDev_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_System_Nullable_System_Double__System_Double_System_Int32_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDev(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double,System.Double,System.Nullable{System.Double},System.Double,System.Int32)">
+  BlackFormulaImpliedStdDev(OptionType, double, double, double, double, double, double?, double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Black's 1976 implied standard deviation, solved for with a safe Newton solver on the out-of-the-money option,
+whose greater vega/price ratio makes it the more robust one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaImpliedStdDev(OptionType optionType, double strike, double forward, double blackPrice, double discount = 1, double displacement = 0, double? guess = null, double accuracy = 1E-06, int maxIterations = 100)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>blackPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's price.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The solver's initial guess; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null&lt;Real&gt;()</code>, for
+<a class="xref" href="NanoQL.PricingEngines.BlackFormulaFunctions.html#NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevApproximation_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_">BlackFormulaImpliedStdDevApproximation(OptionType, double, double, double, double, double)</a>'s value,
+which QuantLib computes on the displaced strike and forward and with the displacement again.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's accuracy.</p>
+</dd>
+    <dt><code>maxIterations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The solver's maximum number of function evaluations.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied standard deviation, in [0, 24].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain, the price is negative or implies a negative price of the other option by
+put-call parity, or the solver refuses the guess or the accuracy.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">optionType</code> isn't a member of its type, or <code class="paramref">maxIterations</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The solver finds no root in [0, 24] or exceeds its evaluations, or the guess's approximation fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevApproximation_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevApproximation*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevApproximation_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevApproximation(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaImpliedStdDevApproximation(PlainVanillaPayoff, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The approximation of Black's 1976 implied standard deviation of
+<a class="xref" href="NanoQL.PricingEngines.BlackFormulaFunctions.html#NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevApproximation_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_">BlackFormulaImpliedStdDevApproximation(OptionType, double, double, double, double, double)</a>, on a
+plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaImpliedStdDevApproximation(PlainVanillaPayoff payoff, double forward, double blackPrice, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, which gives the option type and the strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>blackPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's price.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied standard deviation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter, or the payoff's strike, is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The standard deviation comes out negative or NaN.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevApproximation_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevApproximation*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevApproximation_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevApproximation(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaImpliedStdDevApproximation(OptionType, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An approximation of Black's 1976 implied standard deviation: Brenner and Subrahmanyan's (1988) and Feinstein's
+(1988) approximation for an at-the-money forward option, with Corrado and Miller's (1996) extended moneyness
+approximation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaImpliedStdDevApproximation(OptionType optionType, double strike, double forward, double blackPrice, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>blackPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's price.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied standard deviation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">optionType</code> isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The standard deviation comes out negative or NaN.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevApproximationRS_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevApproximationRS*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevApproximationRS_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevApproximationRS(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaImpliedStdDevApproximationRS(PlainVanillaPayoff, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Radoicic and Stefanica's approximation of Black's 1976 implied standard deviation of
+<a class="xref" href="NanoQL.PricingEngines.BlackFormulaFunctions.html#NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevApproximationRS_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_">BlackFormulaImpliedStdDevApproximationRS(OptionType, double, double, double, double, double)</a>, on a
+plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaImpliedStdDevApproximationRS(PlainVanillaPayoff payoff, double forward, double blackPrice, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, which gives the option type and the strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>blackPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's price.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied standard deviation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter, or the payoff's strike, is out of its domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevApproximationRS_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevApproximationRS*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevApproximationRS_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevApproximationRS(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaImpliedStdDevApproximationRS(OptionType, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An approximation of Black's 1976 implied standard deviation following R. Radoicic, D. Stefanica, &quot;An Explicit
+Implicit Volatility Formula&quot;, and J. Gatheral, I. Matic, R. Radoicic, D. Stefanica, &quot;Tighter Bounds for Implied
+Volatility&quot;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaImpliedStdDevApproximationRS(OptionType optionType, double strike, double forward, double blackPrice, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put; any value but <a class="xref" href="NanoQL.OptionType.html#NanoQL_OptionType_Call">Call</a> is read as a put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>blackPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's price.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied standard deviation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevChambers_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevChambers*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevChambers_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevChambers(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaImpliedStdDevChambers(PlainVanillaPayoff, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Chambers and Nawalkha's approximation of Black's 1976 implied standard deviation of
+<a class="xref" href="NanoQL.PricingEngines.BlackFormulaFunctions.html#NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevChambers_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_">BlackFormulaImpliedStdDevChambers(OptionType, double, double, double, double, double, double)</a>, on a
+plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaImpliedStdDevChambers(PlainVanillaPayoff payoff, double forward, double blackPrice, double blackAtmPrice, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, which gives the option type and the strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>blackPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's price.</p>
+</dd>
+    <dt><code>blackAtmPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The at-the-money option's price.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied standard deviation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter, or the payoff's strike, is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The standard deviation comes out negative or NaN.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevChambers_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevChambers*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevChambers_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevChambers(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaImpliedStdDevChambers(OptionType, double, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An approximation of Black's 1976 implied standard deviation following Chambers and Nawalkha, &quot;An improved
+approach to computing implied volatility&quot;, The Financial Review, 2001, 89-100. The at-the-money option's price
+must be known.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaImpliedStdDevChambers(OptionType optionType, double strike, double forward, double blackPrice, double blackAtmPrice, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>blackPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's price.</p>
+</dd>
+    <dt><code>blackAtmPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The at-the-money option's price.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied standard deviation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">optionType</code> isn't a member of its type, which <a class="xref" href="NanoQL.PricingEngines.BlackFormulaFunctions.html#NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormula_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_">BlackFormula(OptionType, double, double, double, double, double)</a>
+refuses.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The standard deviation comes out negative or NaN.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevLiRS_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevLiRS*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevLiRS_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_System_Double_System_Nullable_System_Double__System_Double_System_Double_System_Int32_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevLiRS(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double,System.Double,System.Nullable{System.Double},System.Double,System.Double,System.Int32)">
+  BlackFormulaImpliedStdDevLiRS(PlainVanillaPayoff, double, double, double, double, double?, double, double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Li's implied standard deviation of Black's 1976 formula, on a plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaImpliedStdDevLiRS(PlainVanillaPayoff payoff, double forward, double blackPrice, double discount = 1, double displacement = 0, double? guess = null, double omega = 1, double accuracy = 1E-06, int maxIterations = 100)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, which gives the option type and the strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>blackPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's price.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The iteration's starting point; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the RS approximation's value.</p>
+</dd>
+    <dt><code>omega</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The relaxation parameter ω.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accuracy, the bound on the last step.</p>
+</dd>
+    <dt><code>maxIterations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number of iterations.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied standard deviation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxIterations</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The iteration fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevLiRS_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevLiRS*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevLiRS_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_System_Nullable_System_Double__System_Double_System_Double_System_Int32_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaImpliedStdDevLiRS(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double,System.Double,System.Nullable{System.Double},System.Double,System.Double,System.Int32)">
+  BlackFormulaImpliedStdDevLiRS(OptionType, double, double, double, double, double, double?, double, double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Black's 1976 implied standard deviation by M. Li's &quot;An Adaptive Successive Over-relaxation Method for Computing
+the Black-Scholes Implied Volatility&quot;, starting from R. Radoicic and D. Stefanica's &quot;An Explicit Implicit
+Volatility Formula&quot;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaImpliedStdDevLiRS(OptionType optionType, double strike, double forward, double blackPrice, double discount = 1, double displacement = 0, double? guess = null, double omega = 1, double accuracy = 1E-06, int maxIterations = 100)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>Call or put; any value but <a class="xref" href="NanoQL.OptionType.html#NanoQL_OptionType_Call">Call</a> is read as a put.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>blackPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option's price.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The iteration's starting point; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null&lt;Real&gt;()</code>, for
+<a class="xref" href="NanoQL.PricingEngines.BlackFormulaFunctions.html#NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevApproximationRS_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_">BlackFormulaImpliedStdDevApproximationRS(OptionType, double, double, double, double, double)</a>'s
+value, which QuantLib computes on the displaced strike and forward and with the displacement again.</p>
+</dd>
+    <dt><code>omega</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The relaxation parameter ω.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accuracy, the bound on the last step.</p>
+</dd>
+    <dt><code>maxIterations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number of iterations.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied standard deviation: QuantLib returns the iterate before the last step, which is within
+<code class="paramref">accuracy</code> of the last one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaImpliedStdDevLiRS_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double_System_Nullable_System_Double__System_Double_System_Double_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>QuantLib doesn't check the strike, the forward and the displacement here, as the other formulas do; only the
+guess's approximation does, when it runs.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxIterations</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The normalized price is negative, the iteration doesn't converge within its iterations, or the result is
+negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaStdDevDerivative_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaStdDevDerivative*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaStdDevDerivative_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaStdDevDerivative(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaStdDevDerivative(PlainVanillaPayoff, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The derivative of Black's 1976 formula with respect to the standard deviation, on a plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaStdDevDerivative(PlainVanillaPayoff payoff, double forward, double stdDev, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, of which only the strike is read.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter, or the payoff's strike, is out of its domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaStdDevDerivative_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaStdDevDerivative*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaStdDevDerivative_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaStdDevDerivative(System.Double,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaStdDevDerivative(double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The derivative of Black's 1976 formula with respect to the standard deviation: if T is the time to maturity, the
+Black vega is this derivative times √T.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaStdDevDerivative(double strike, double forward, double stdDev, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaStdDevSecondDerivative_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaStdDevSecondDerivative*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaStdDevSecondDerivative_NanoQL_Instruments_PlainVanillaPayoff_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaStdDevSecondDerivative(NanoQL.Instruments.PlainVanillaPayoff,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaStdDevSecondDerivative(PlainVanillaPayoff, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The second derivative of Black's 1976 formula with respect to the standard deviation, on a plain-vanilla payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaStdDevSecondDerivative(PlainVanillaPayoff payoff, double forward, double stdDev, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff, of which only the strike is read.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter, or the payoff's strike, is out of its domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaStdDevSecondDerivative_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaStdDevSecondDerivative*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaStdDevSecondDerivative_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaStdDevSecondDerivative(System.Double,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaStdDevSecondDerivative(double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The second derivative of Black's 1976 formula with respect to the standard deviation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaStdDevSecondDerivative(double strike, double forward, double stdDev, double discount, double displacement)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the volatility times the square root of the time.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaStdDevSecondDerivative_System_Double_System_Double_System_Double_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This form has no defaults, as QuantLib declares it; the payoff form has.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaVolDerivative_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaVolDerivative*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormulaVolDerivative_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackFormulaFunctions.BlackFormulaVolDerivative(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  BlackFormulaVolDerivative(double, double, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The derivative of Black's 1976 formula with respect to the implied volatility: the vega, which for a 1% change is
+multiplied by 1%.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BlackFormulaVolDerivative(double strike, double forward, double stdDev, double expiry, double discount = 1, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation, the volatility times the square root of the time.</p>
+</dd>
+    <dt><code>expiry</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to expiry; unchecked.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The displacement of the shifted lognormal model.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A parameter is out of its domain.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

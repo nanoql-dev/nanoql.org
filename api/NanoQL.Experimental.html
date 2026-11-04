@@ -1,0 +1,2857 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace NanoQL.Experimental | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace NanoQL.Experimental | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental">
+
+  <h1 id="NanoQL_Experimental" data-uid="NanoQL.Experimental" class="text-break">Namespace NanoQL.Experimental</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.AbcdAtmVolCurve.html">AbcdAtmVolCurve</a></dt>
+      <dd><p>The at-the-money volatility curve of the abcd function fitted to quoted volatilities at option tenors, each fitted
+value scaled by the adjustment factor that matches the quotes, interpolated linearly in time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.AdaptedPathPayoff.html">AdaptedPathPayoff</a></dt>
+      <dd><p>A path payoff that is an adapted function: each payment and exercise reads only the fixings up to its own time, which
+its <a class="xref" href="NanoQL.Experimental.AdaptedPathPayoffValuationData.html">AdaptedPathPayoffValuationData</a> enforces.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.AdaptedPathPayoffValuationData.html">AdaptedPathPayoffValuationData</a></dt>
+      <dd><p>One path's data for an <a class="xref" href="NanoQL.Experimental.AdaptedPathPayoff.html">AdaptedPathPayoff</a>, QuantLib's <code>AdaptedPathPayoff::ValuationData</code>: the
+fixings and curves it reads and the payments and exercise data it writes, refusing a write earlier than the latest
+time read.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.AdaptiveInertia.html">AdaptiveInertia</a></dt>
+      <dd><p>An adaptive inertia, after A. Lukic, &quot;Approximating Kinetic Parameters Using Particle Swarm Optimization&quot;: halved,
+within its bounds, after more than sh iterations' net stalls, and doubled below sl: QuantLib's
+<code>AdaptiveInertia</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.html">AnalyticContinuousGeometricAveragePriceAsianHestonEngine</a></dt>
+      <dd><p>Kim and Wee's analytic engine for continuous geometric average-price Asian options under the Heston model (&quot;Pricing
+of geometric Asian options under Heston's stochastic volatility model&quot;, Quantitative Finance 14:10, 2014): the joint
+characteristic function of the log geometric average and the log spot, <a class="xref" href="NanoQL.Experimental.AnalyticContinuousGeometricAveragePriceAsianHestonEngine.html#NanoQL_Experimental_AnalyticContinuousGeometricAveragePriceAsianHestonEngine_Phi_System_Numerics_Complex_System_Numerics_Complex_System_Double_System_Double_System_Int32_">Phi(Complex, Complex, double, double, int)</a>, inverted by a Fourier
+integral on 128 Gauss-Legendre points.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.AnalyticDiscreteGeometricAveragePriceAsianHestonEngine.html">AnalyticDiscreteGeometricAveragePriceAsianHestonEngine</a></dt>
+      <dd><p>Kim, Kim, Kim and Wee's analytic engine for discrete geometric average-price Asian options under the Heston model:
+the joint characteristic function of the log geometric average, QuantLib's <code>Phi</code>, inverted by a Fourier
+integral.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.AnalyticHestonForwardEuropeanEngine.html">AnalyticHestonForwardEuropeanEngine</a></dt>
+      <dd><p>Kruse's analytic engine for forward-starting, strike-reset European options under the Heston model (&quot;On the Pricing
+of Forward Starting Options under Stochastic Volatility&quot;, 2003): the vanilla's probabilities from the characteristic
+function at each variance the reset may reach, integrated over that variance's law at the reset.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.AssetSwapHelper.html">AssetSwapHelper</a></dt>
+      <dd><p>A risky-asset-swap helper for a default-probability curve's bootstrap: a payer swap of nominal 100 from the
+settlement date, whose fair spread on the curve under construction is the helper's quote.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BankruptcyEvent.html">BankruptcyEvent</a></dt>
+      <dd><p>A bankruptcy: a default event stronger than every other, which matches every contract event type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BarrelUnitOfMeasure.html">BarrelUnitOfMeasure</a></dt>
+      <dd><p>Barrels: code BBL, a volume, the base unit of <a class="xref" href="NanoQL.Experimental.CommoditySettings.html">CommoditySettings</a> by default.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BaseCorrelationLossModel-3.html">BaseCorrelationLossModel&lt;TBaseModel, TInterpolator, TInitTraits&gt;</a></dt>
+      <dd><p>The base correlation loss model, its interpolation by the portfolio's (live) amount percentage: the tranche's
+expected loss is the difference of two equity tranches' to its attachment and detachment, each priced by a base
+model at the correlation the surface gives at its level.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BaseCorrelationTermStructure-1.html">BaseCorrelationTermStructure&lt;TInterpolator&gt;</a></dt>
+      <dd><p>The matrix-based base correlation term structure: a loss level against time interpolated scalar copula-type
+parametric correlation, the correlation of a given portfolio's credit loss at a loss level and time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.Basket.html">Basket</a></dt>
+      <dd><p>A credit basket: credit names, each with a notional, drawn from a pool of issuers, and a tranche of the pool's loss,
+with the default loss model that gives its loss statistics.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BetaRisk.html">BetaRisk</a></dt>
+      <dd><p>A catastrophe risk whose events arrive as a Poisson process of a return period and whose losses follow a beta
+distribution of a mean and standard deviation, scaled to a maximum loss.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BetaRiskSimulation.html">BetaRiskSimulation</a></dt>
+      <dd><p>The simulation of a <a class="xref" href="NanoQL.Experimental.BetaRisk.html">BetaRisk</a>: each path's events arrive as a Poisson process over the period, each
+event's loss the maximum loss times a beta draw, X / (X + Y) of two gamma draws.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BinomialCRRDoubleBarrierEngine.html">BinomialCRRDoubleBarrierEngine</a></dt>
+      <dd><p>The binomial double-barrier engine on the Cox-Ross-Rubinstein tree and Derman and Kani's discretized double-barrier
+option: QuantLib-Python's <code>BinomialCRRDoubleBarrierEngine</code>, QuantLib's
+<code>BinomialDoubleBarrierEngine&lt;CoxRossRubinstein, DiscretizedDermanKaniDoubleBarrierOption&gt;</code>, the wheel's
+closing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BinomialDoubleBarrierEngine.html">BinomialDoubleBarrierEngine</a></dt>
+      <dd><p>The binomial engine for double barrier options: a discretized double-barrier asset rolled back on a Black-Scholes
+lattice over a binomial tree, built on the process's curves and volatility flattened at the option's maturity.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BinomialEQPDoubleBarrierEngine.html">BinomialEQPDoubleBarrierEngine</a></dt>
+      <dd><p>The binomial double-barrier engine on the additive equal-probabilities tree and Derman and Kani's discretized
+double-barrier option: QuantLib-Python's <code>BinomialEQPDoubleBarrierEngine</code>, QuantLib's
+<code>BinomialDoubleBarrierEngine&lt;AdditiveEQPBinomialTree, DiscretizedDermanKaniDoubleBarrierOption&gt;</code>, the
+wheel's closing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BinomialJ4DoubleBarrierEngine.html">BinomialJ4DoubleBarrierEngine</a></dt>
+      <dd><p>The binomial double-barrier engine on the Joshi tree and Derman and Kani's discretized double-barrier option:
+QuantLib-Python's <code>BinomialJ4DoubleBarrierEngine</code>, QuantLib's <code>BinomialDoubleBarrierEngine&lt;Joshi4,
+DiscretizedDermanKaniDoubleBarrierOption&gt;</code>, the wheel's closing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BinomialJRDoubleBarrierEngine.html">BinomialJRDoubleBarrierEngine</a></dt>
+      <dd><p>The binomial double-barrier engine on the Jarrow-Rudd tree and Derman and Kani's discretized double-barrier option:
+QuantLib-Python's <code>BinomialJRDoubleBarrierEngine</code>, QuantLib's <code>BinomialDoubleBarrierEngine&lt;JarrowRudd,
+DiscretizedDermanKaniDoubleBarrierOption&gt;</code>, the wheel's closing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BinomialLRDoubleBarrierEngine.html">BinomialLRDoubleBarrierEngine</a></dt>
+      <dd><p>The binomial double-barrier engine on the Leisen-Reimer tree and Derman and Kani's discretized double-barrier
+option: QuantLib-Python's <code>BinomialLRDoubleBarrierEngine</code>, QuantLib's
+<code>BinomialDoubleBarrierEngine&lt;LeisenReimer, DiscretizedDermanKaniDoubleBarrierOption&gt;</code>, the wheel's
+closing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BinomialLossModel-2.html">BinomialLossModel&lt;TCopula, TInitTraits&gt;</a></dt>
+      <dd><p>The binomial defaultable basket loss model: the portfolio loss distribution approximated by an adjusted binomial,
+which fits the loss distribution's two moments and so allows the portfolio's inhomogeneity at little cost over the
+LHP. See Dominic O'Kane, &quot;Approximating Independent Loss Distributions with an Adjusted Binomial Distribution&quot;,
+EDHEC Risk and Asset Management Research Centre, 2007, and &quot;Modelling single name and multi-name credit
+derivatives&quot;, chapter 18.5.2, Wiley Finance, 2008.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BinomialProbabilityOfAtLeastNEvents.html">BinomialProbabilityOfAtLeastNEvents</a></dt>
+      <dd><p>The binomial probability of at least n default events, as a function of the names' probabilities, the
+first read.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BinomialTianDoubleBarrierEngine.html">BinomialTianDoubleBarrierEngine</a></dt>
+      <dd><p>The binomial double-barrier engine on the Tian tree and Derman and Kani's discretized double-barrier option:
+QuantLib-Python's <code>BinomialTianDoubleBarrierEngine</code>, QuantLib's <code>BinomialDoubleBarrierEngine&lt;Tian,
+DiscretizedDermanKaniDoubleBarrierOption&gt;</code>, the wheel's closing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BinomialTrigeorgisDoubleBarrierEngine.html">BinomialTrigeorgisDoubleBarrierEngine</a></dt>
+      <dd><p>The binomial double-barrier engine on the Trigeorgis tree and Derman and Kani's discretized double-barrier option:
+QuantLib-Python's <code>BinomialTrigeorgisDoubleBarrierEngine</code>, QuantLib's
+<code>BinomialDoubleBarrierEngine&lt;Trigeorgis, DiscretizedDermanKaniDoubleBarrierOption&gt;</code>, the wheel's closing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BlackAtmVolCurve.html">BlackAtmVolCurve</a></dt>
+      <dd><p>The base of Black at-the-money (no-smile) volatility curves. Volatilities are on an annual basis.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BlackCallableFixedRateBondEngine.html">BlackCallableFixedRateBondEngine</a></dt>
+      <dd><p>The Black-formula engine for callable fixed-rate bonds with a single call or put date: the embedded European
+option follows the Black &quot;European bond option&quot; treatment of Hull, fourth edition, chapter 20.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BlackCallableZeroCouponBondEngine.html">BlackCallableZeroCouponBondEngine</a></dt>
+      <dd><p>The Black-formula engine for callable zero-coupon bonds with a single call or put date: QuantLib's subclass of the
+fixed-rate bonds' engine, which only adds constructors, so each overload is
+<a class="xref" href="NanoQL.Experimental.BlackCallableFixedRateBondEngine.html">BlackCallableFixedRateBondEngine</a>'s. QuantLib notes it as yet untested.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BlackCdsOptionEngine.html">BlackCdsOptionEngine</a></dt>
+      <dd><p>The Black-formula engine for options on credit default swaps: the underlying's fair spread against its running
+spread, discounted by its risky annuity, plus the front-end protection of a payer option that doesn't knock out.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BlackIborQuantoCouponPricer.html">BlackIborQuantoCouponPricer</a></dt>
+      <dd><p>A Black Ibor coupon pricer whose fixing is quanto-adjusted for an index paid in another currency: QuantLib's
+<code>BlackIborQuantoCouponPricer</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BlackVolSurface.html">BlackVolSurface</a></dt>
+      <dd><p>The base of Black volatility (smile) surfaces: a smile section at each time, the at-the-money volatility and
+variance read off it. Volatilities are on an annual basis.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BoxMullerFactorSampler.html">BoxMullerFactorSampler</a></dt>
+      <dd><p>The members of <a class="xref" href="NanoQL.Experimental.BoxMullerFactorSampler-1.html">BoxMullerFactorSampler&lt;TUrng&gt;</a> that need more of their generator than the
+class does: its seed constructor.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.BoxMullerFactorSampler-1.html">BoxMullerFactorSampler&lt;TUrng&gt;</a></dt>
+      <dd><p>A Gaussian latent model's factor sampler by Box-Muller: a sequence of Box-Muller normal draws, bypassing the copula.
+QuantLib's <code>LatentModel::FactorSampler</code> specialized on <code>RandomSequenceGenerator&lt;BoxMullerGaussianRng&gt;</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CDO.html">CDO</a></dt>
+      <dd><p>The collateralized debt obligation: a mezzanine CDO tranche, its loss given default between the attachment D₁ and
+the detachment D₂ &gt; D₁. For purchased protection the value is the protection value V₁ less the premium value V₂.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CDOResults.html">CDOResults</a></dt>
+      <dd><p>The results of a <a class="xref" href="NanoQL.Experimental.CDO.html">CDO</a>'s calculation, signed by the protection side.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CPICapFloorTermPriceSurface.html">CPICapFloorTermPriceSurface</a></dt>
+      <dd><p>CPI cap and floor prices by maturity and strike, filled across all strikes by put-call parity: QuantLib's
+<code>CPICapFloorTermPriceSurface</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CallableBond.html">CallableBond</a></dt>
+      <dd><p>The callable bond base class: a bond with a schedule of calls and puts, European or Bermudan (no American
+optionality), for fixed-rate and zero-coupon bonds.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CallableBondConstantVolatility.html">CallableBondConstantVolatility</a></dt>
+      <dd><p>A constant callable-bond volatility, with no time, length or strike dependence.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CallableBondResults.html">CallableBondResults</a></dt>
+      <dd><p>The results a callable bond's engines return: a bond's, with nothing added, as QuantLib's
+<code>CallableBond::results</code> adds nothing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CallableBondVolatilityStructure.html">CallableBondVolatilityStructure</a></dt>
+      <dd><p>The callable-bond volatility structure base class: forward yield volatilities by option time and bond length, or by
+option date or tenor and bond tenor, and their smile sections.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CallableFixedRateBond.html">CallableFixedRateBond</a></dt>
+      <dd><p>A callable or puttable fixed-rate bond: simple annually compounded coupon rates on a schedule, and a single
+redemption.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CallableZeroCouponBond.html">CallableZeroCouponBond</a></dt>
+      <dd><p>A callable or puttable zero-coupon bond: a single redemption at maturity.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CappedFlooredCmsSpreadCoupon.html">CappedFlooredCmsSpreadCoupon</a></dt>
+      <dd><p>A CMS spread coupon with a cap, a floor or both on its rate: a <a class="xref" href="NanoQL.Coupons.CappedFlooredCoupon.html">CappedFlooredCoupon</a> over a
+<a class="xref" href="NanoQL.Experimental.CmsSpreadCoupon.html">CmsSpreadCoupon</a> it builds.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CatBond.html">CatBond</a></dt>
+      <dd><p>A catastrophe bond: a bond whose notional a catastrophe risk reduces, priced by simulating the risk's events.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CatBondResults.html">CatBondResults</a></dt>
+      <dd><p>The results of a cat bond's calculation: the bond's, with the simulated loss statistics.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CatRisk.html">CatRisk</a></dt>
+      <dd><p>A catastrophe risk: a source of simulations of its events over a period.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CatSimulation.html">CatSimulation</a></dt>
+      <dd><p>A simulation of catastrophe events over a period: each call to <a class="xref" href="NanoQL.Experimental.CatSimulation.html#NanoQL_Experimental_CatSimulation_NextPath_System_Collections_Generic_List_System_Collections_Generic_KeyValuePair_NanoQL_Time_Date_System_Double___">NextPath(List&lt;KeyValuePair&lt;Date, double&gt;&gt;)</a> writes the next path's events,
+their dates and losses.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CdsOption.html">CdsOption</a></dt>
+      <dd><p>An option on a credit default swap. The side of the option is set by choosing the side of the swap: a receiver
+option is a right to buy an underlying swap selling protection and receiving a coupon, a payer option a right to buy
+one buying protection and paying a coupon.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CdsOptionResults.html">CdsOptionResults</a></dt>
+      <dd><p>The results of a credit default swap option's calculation: its value and the underlying's risky
+annuity.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ClaytonCopulaRng-1.html">ClaytonCopulaRng&lt;TRng&gt;</a></dt>
+      <dd><p>A random-number generator of Clayton copula draws, by conditional inversion of uniform draws: QuantLib's
+<code>ClaytonCopulaRng</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ClubsTopology.html">ClubsTopology</a></dt>
+      <dd><p>The clubs topology, after H. M. Emara, &quot;Adaptive Clubs-based Particle Swarm Optimization&quot;: each particle belongs to a
+default number of clubs, and its social best is the best of its clubs' members; a club's best leaves a random club
+(down to a minimum) and its worst joins one (up to a maximum), and every reset iterations the others return to the
+default: QuantLib's <code>ClubsTopology</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CmsSpreadCoupon.html">CmsSpreadCoupon</a></dt>
+      <dd><p>A CMS spread coupon: a floating-rate coupon fixing on a swap spread index.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CmsSpreadCouponPricer.html">CmsSpreadCouponPricer</a></dt>
+      <dd><p>The base of the CMS spread coupon pricers, which read the correlation of the two swap rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CmsSpreadLeg.html">CmsSpreadLeg</a></dt>
+      <dd><p>A builder of a sequence of CMS spread coupons, capped, floored or not.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.Commodity.html">Commodity</a></dt>
+      <dd><p>The base of commodity instruments: an instrument with secondary costs.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CommodityCashFlow.html">CommodityCashFlow</a></dt>
+      <dd><p>An energy swap's payment for one pricing period, discounted and undiscounted, in the base currency and the
+payment's.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CommodityCurve.html">CommodityCurve</a></dt>
+      <dd><p>A commodity forward curve: prices at dates, forward-flat between them and flat before the first and after the last,
+optionally on a basis curve whose prices it adds.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CommodityIndex.html">CommodityIndex</a></dt>
+      <dd><p>A commodity index: its fixings, read from the context, and a forward curve priced in its own unit.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CommodityPricingHelperFunctions.html">CommodityPricingHelperFunctions</a></dt>
+      <dd><p>QuantLib's <code>CommodityPricingHelper</code>, a class of static members: the conversion factors, a unit cost in the base
+currency and unit, and an energy swap's pricing periods.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CommoditySettings.html">CommoditySettings</a></dt>
+      <dd><p>The base currency and unit of measure the energy instruments value in: QuantLib's process-wide
+<code>CommoditySettings</code>, as a value that <a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_CommoditySettings">CommoditySettings</a> holds.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CommodityType.html">CommodityType</a></dt>
+      <dd><p>A commodity type: its name and code, such as &quot;Heating Oil&quot; and &quot;HO&quot;.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CommodityUnitCost.html">CommodityUnitCost</a></dt>
+      <dd><p>A cost per unit of a commodity: an amount of money per unit of measure, such as 0.1 USD a gallon.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ConstNotionalCrossCurrencyBasisSwapRateHelper.html">ConstNotionalCrossCurrencyBasisSwapRateHelper</a></dt>
+      <dd><p>The rate helper for bootstrapping over constant-notional cross-currency basis swaps.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ConstNotionalCrossCurrencySwapRateHelper.html">ConstNotionalCrossCurrencySwapRateHelper</a></dt>
+      <dd><p>The rate helper for bootstrapping fixed-vs-floating cross-currency par swaps.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ConstantLossLatentModel-2.html">ConstantLossLatentModel&lt;TCopula, TInitTraits&gt;</a></dt>
+      <dd><p>The constant-loss default latent model: each name's loss given default a deterministic constant, its
+recovery; integrable. QuantLib's <code>ConstantLossLatentmodel</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ConstantLossModel-2.html">ConstantLossModel&lt;TCopula, TInitTraits&gt;</a></dt>
+      <dd><p>The constant-loss latent model as a default loss model: it gives no loss distribution, having no integration of
+one, but prices digital products such as n-th-to-default swaps through its event probabilities, default correlations
+and recoveries.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ConstantRecoveryModel.html">ConstantRecoveryModel</a></dt>
+      <dd><p>A recovery-rate model returning its quote's value, whatever the date and the seniority.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ContinuousArithmeticAsianVecerEngine.html">ContinuousArithmeticAsianVecerEngine</a></dt>
+      <dd><p>Vecer's engine for continuous arithmetic average-price Asian options: the option's value as a one-dimensional PDE in
+the replicating strategy's variable, solved by Crank-Nicolson (see
+&lt;http://www.stat.columbia.edu/~vecer/asian-vecer.pdf&gt;); a put by the Asian put-call parity.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CorrelationTermStructure.html">CorrelationTermStructure</a></dt>
+      <dd><p>The abstract correlation term structure, pretty much like the volatility term structure: the correlation's range is
+known in advance and there is no strike. Derived structures might hold correlations of any dimension.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CrossCurrencyBasisSwapRateHelperBase.html">CrossCurrencyBasisSwapRateHelperBase</a></dt>
+      <dd><p>The base of the cross-currency basis swap rate helpers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CrossCurrencySwapRateHelperBase.html">CrossCurrencySwapRateHelperBase</a></dt>
+      <dd><p>The base of the cross-currency swap rate helpers: their conventions, collateral curve and dates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.CumulativeBehrensFisher.html">CumulativeBehrensFisher</a></dt>
+      <dd><p>The cumulative (generalized) Behrens-Fisher distribution: the exact distribution of a linear combination of any
+number of Student t variables of odd orders, adapted from Witkovsky's algorithm (Journal of Statistical Planning
+and Inference 94, 2001, 1-13).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DateInterval.html">DateInterval</a></dt>
+      <dd><p>An interval of dates, from a start date to an end date, both held.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DecreasingGaussianWalk.html">DecreasingGaussianWalk</a></dt>
+      <dd><p>A Gaussian random walk whose step decreases: after each round of the moved fireflies' walks, δ becomes δ²:
+QuantLib's <code>DecreasingGaussianWalk</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DecreasingInertia.html">DecreasingInertia</a></dt>
+      <dd><p>A decreasing inertia: each velocity times the optimizer's inertia times a factor falling linearly with the
+iterations to the threshold at the last: QuantLib's <code>DecreasingInertia</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DefaultEvent.html">DefaultEvent</a></dt>
+      <dd><p>A credit event on the bonds of a seniority and currency, with its optional settlement: a realized event, of an
+atomic type, which the bonds of that seniority and currency suffer together.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DefaultLatentModel-2.html">DefaultLatentModel&lt;TCopula, TInitTraits&gt;</a></dt>
+      <dd><p>The default-event latent model: a latent model of a portfolio's joint default events, a name defaulting by a date
+when its latent variable falls below the inverse of its default probability. It models the events alone, no
+severity or exposure; the basket's names and the model's variables correspond by index.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DefaultLossModel.html">DefaultLossModel</a></dt>
+      <dd><p>The abstract default loss model: <a class="xref" href="NanoQL.Experimental.IDefaultLossModel.html">IDefaultLossModel</a>'s contract with the binding written once, QuantLib's
+<code>DefaultLossModel</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DefaultProbKey.html">DefaultProbKey</a></dt>
+      <dd><p>The key that indexes market-implied credit curves: a proxy for the defaultable bond, or class of bonds, that sets a
+credit contract's conditions, grouping the atomic default types the contract is sensitive to with the obligation's
+currency and seniority.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DefaultSettlement.html">DefaultSettlement</a></dt>
+      <dd><p>A default event's settlement: its date and the realized recovery rates of the seniorities it settled. QuantLib's
+<code>DefaultEvent::DefaultSettlement</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DefaultType.html">DefaultType</a></dt>
+      <dd><p>An atomic credit-event type: one of ISDA's default contractual types and, for a restructuring, its restructuring
+type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DigitalCmsSpreadCoupon.html">DigitalCmsSpreadCoupon</a></dt>
+      <dd><p>A CMS spread coupon with a digital call, a digital put or both: QuantLib's
+<code>DigitalCmsSpreadCoupon</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DigitalCmsSpreadLeg.html">DigitalCmsSpreadLeg</a></dt>
+      <dd><p>A builder of a sequence of digital CMS spread coupons: QuantLib's <code>DigitalCmsSpreadLeg</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DigitalNotionalRisk.html">DigitalNotionalRisk</a></dt>
+      <dd><p>A digital notional risk: an event whose loss reaches a threshold takes the whole notional.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DiscountingFxResetPricer.html">DiscountingFxResetPricer</a></dt>
+      <dd><p>The FX-reset pricer based on spot FX and two discount curves.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DiscountingMtMCrossCurrencyBasisSwapEngine.html">DiscountingMtMCrossCurrencyBasisSwapEngine</a></dt>
+      <dd><p>The discounting engine of mark-to-market cross-currency basis swaps.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DiscretizedCallableFixedRateBond.html">DiscretizedCallableFixedRateBond</a></dt>
+      <dd><p>A callable fixed-rate bond discretized on a lattice: its redemption rolled back with its coupons added and its
+callabilities applied at their times.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DiscretizedDermanKaniDoubleBarrierOption.html">DiscretizedDermanKaniDoubleBarrierOption</a></dt>
+      <dd><p>A double barrier option on a lattice with Derman, Kani, Ergener and Bardhan's correction (&quot;Enhanced Numerical
+Methods for Options with Barriers&quot;, 1995): at the nodes straddling a barrier, the values interpolate between the
+rolled-back value and the knocked-in vanilla or knocked-out rebate by the nodes' distances from the barrier.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DiscretizedDoubleBarrierOption.html">DiscretizedDoubleBarrierOption</a></dt>
+      <dd><p>A double barrier option on a lattice: knocked out to its rebate, or knocked in to its vanilla, at the nodes on or
+beyond either barrier, as its type says of each.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.Distribution.html">Distribution</a></dt>
+      <dd><p>A discretized probability density and cumulative probability: buckets of a range, each holding a density, an
+average and the cumulated and excess probabilities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DistributionRandomWalk-1.html">DistributionRandomWalk&lt;TDistribution&gt;</a></dt>
+      <dd><p>A random walk whose step's radius is drawn from a distribution, its direction isotropic and its sphere an
+ellipsoid over the problem's bounds, scaled by δ: QuantLib's <code>DistributionRandomWalk</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DoubleBarrierPathPricer.html">DoubleBarrierPathPricer</a></dt>
+      <dd><p>The path pricer of a double barrier option: either barrier is checked at the path's points, a knock-out paying its
+rebate at the first hit's node and a knock-in its rebate at expiry where neither is hit.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.DynProgVPPIntrinsicValueEngine.html">DynProgVPPIntrinsicValueEngine</a></dt>
+      <dd><p>The intrinsic value of a <a class="xref" href="NanoQL.Experimental.VanillaVPPOption.html">VanillaVPPOption</a> by dynamic programming over known fuel and power prices, one
+price of each per exercise step: the plant's step condition rolled back from the last step, undiscounted.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EnergyBasisSwap.html">EnergyBasisSwap</a></dt>
+      <dd><p>An energy basis swap: one index's price against another's on each pricing day, plus a basis on one leg.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EnergyCommodity.html">EnergyCommodity</a></dt>
+      <dd><p>The base of energy commodity instruments: the swaps and the future, priced without an engine.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EnergyCommodityResults.html">EnergyCommodityResults</a></dt>
+      <dd><p>The results of an energy commodity's calculation: the NPV, in the base currency, with what QuantLib keeps on the
+instrument (its pricing errors, secondary cost amounts, daily positions and payment cash flows).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EnergyDailyPosition.html">EnergyDailyPosition</a></dt>
+      <dd><p>An energy swap's position on one pricing day: QuantLib's <code>EnergyDailyPosition</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EnergyFuture.html">EnergyFuture</a></dt>
+      <dd><p>An energy future: a quantity bought or sold at a trade price, valued at its index's quote.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EnergySwap.html">EnergySwap</a></dt>
+      <dd><p>The base of energy swaps: a calendar, a pay and a receive currency, and pricing periods.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EnergyVanillaSwap.html">EnergyVanillaSwap</a></dt>
+      <dd><p>A vanilla energy swap: a fixed price against an index's price on each pricing day.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EquityFXVolSurface.html">EquityFXVolSurface</a></dt>
+      <dd><p>The base of equity and FX volatility (smile) surfaces, with the at-the-money forward volatility and variance between
+two times. Volatilities are on an annual basis; only without a smile does the at-the-money forward volatility make
+sense.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EuropeanPathMultiPathPricer.html">EuropeanPathMultiPathPricer</a></dt>
+      <dd><p>The path basket's path pricer: the path payoff's payments at the fixing times, discounted and summed, its early
+exercise ignored.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EventPaymentOffset.html">EventPaymentOffset</a></dt>
+      <dd><p>The offset from a catastrophe event to the date its notional reduction is paid.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EventSet.html">EventSet</a></dt>
+      <dd><p>A catastrophe risk given by a historical set of events, each path the events of one period of the set's
+years, shifted to the simulated period.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EventSetSimulation.html">EventSetSimulation</a></dt>
+      <dd><p>The simulation of an <a class="xref" href="NanoQL.Experimental.EventSet.html">EventSet</a>: its paths are the set's events in successive periods as long as the
+simulated one, from the first such period starting in the set's first year, shifted to the simulated period, until
+the set runs out.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EverestMultiPathPricer.html">EverestMultiPathPricer</a></dt>
+      <dd><p>The Everest option's path pricer: the notional times one plus the worst asset's return plus the
+guarantee, discounted.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EverestOption.html">EverestOption</a></dt>
+      <dd><p>An Everest option on several assets: at expiry it pays the notional times one plus the worst of the assets'
+returns since inception plus a guaranteed return.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EverestOptionResults.html">EverestOptionResults</a></dt>
+      <dd><p>The results of an <a class="xref" href="NanoQL.Experimental.EverestOption.html">EverestOption</a>'s engine: a multi-asset option's, with the yield the price implies,
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> where the engine doesn't compute it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExchangeContract.html">ExchangeContract</a></dt>
+      <dd><p>An exchange-traded contract: its code, its expiration date and its underlying's delivery dates, which a nearby
+commodity curve rolls on.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExponentialIntensity.html">ExponentialIntensity</a></dt>
+      <dd><p>An exponentially decreasing intensity, (β₀ − β_min) e^(−γd) + β_min: QuantLib's <code>ExponentialIntensity</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtOUWithJumpsProcess.html">ExtOUWithJumpsProcess</a></dt>
+      <dd><p>Kluge's spot model, an extended Ornstein-Uhlenbeck process plus exponential jumps (an extension of Lucia and
+Schwartz's): S = e^(X + Y), dX = α(μ(t) − X)dt + σdW, dY = −βY dt + J dN, the jumps exponential with rate η.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedAdditiveEQPBinomialTree.html">ExtendedAdditiveEQPBinomialTree</a></dt>
+      <dd><p>The time-dependent additive equal-probabilities binomial tree: equal probabilities, the up move matching the step's
+first two moments with the drift at the step's time: QuantLib's <code>ExtendedAdditiveEQPBinomialTree</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedBinomialTree-1.html">ExtendedBinomialTree&lt;T&gt;</a></dt>
+      <dd><p>The time-dependent binomial tree base: two branches from each node, node <code>index</code> of column <code>i</code> going to
+nodes <code>index</code> and <code>index + 1</code>, its moves read from the process at each step's time: QuantLib's
+<code>ExtendedBinomialTree</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedBlackScholesMertonProcess.html">ExtendedBlackScholesMertonProcess</a></dt>
+      <dd><p>A Black-Scholes-Merton process on its Black volatility, stepped by a built-in scheme: QuantLib's
+<code>ExtendedBlackScholesMertonProcess</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedBlackVarianceCurve.html">ExtendedBlackVarianceCurve</a></dt>
+      <dd><p>A Black variance curve on volatilities at dates: the variance interpolated in time (linearly by default) up to the
+last date, the last date's volatility flat beyond it. QuantLib's extension of <a class="xref" href="NanoQL.TermStructures.BlackVarianceCurve.html">BlackVarianceCurve</a> to
+quoted volatilities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedBlackVarianceSurface.html">ExtendedBlackVarianceSurface</a></dt>
+      <dd><p>A Black variance surface on volatilities at dates and strikes: the variance interpolated in time and strike
+(bilinearly by default) up to the last date, the last date's volatility flat beyond it. QuantLib's extension of
+<a class="xref" href="NanoQL.TermStructures.BlackVarianceSurface.html">BlackVarianceSurface</a> to quoted volatilities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedCoxRossRubinstein.html">ExtendedCoxRossRubinstein</a></dt>
+      <dd><p>The time-dependent Cox-Ross-Rubinstein binomial tree: equal jumps of one standard deviation of a step at the step's
+time, the probabilities carrying the drift: QuantLib's <code>ExtendedCoxRossRubinstein</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedEqualJumpsBinomialTree-1.html">ExtendedEqualJumpsBinomialTree&lt;T&gt;</a></dt>
+      <dd><p>A time-dependent binomial tree whose up and down moves are equal in the logarithm of the underlying, the
+probabilities carrying the drift at the step's time: QuantLib's <code>ExtendedEqualJumpsBinomialTree</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedEqualProbabilitiesBinomialTree-1.html">ExtendedEqualProbabilitiesBinomialTree&lt;T&gt;</a></dt>
+      <dd><p>A time-dependent binomial tree with both branches' probabilities 1/2, its nodes at the drift plus a multiple of the
+up move at the step's time: QuantLib's <code>ExtendedEqualProbabilitiesBinomialTree</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedJarrowRudd.html">ExtendedJarrowRudd</a></dt>
+      <dd><p>The time-dependent Jarrow-Rudd (multiplicative) equal-probabilities binomial tree: its up move one standard deviation
+of a step at the step's time: QuantLib's <code>ExtendedJarrowRudd</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedJoshi4.html">ExtendedJoshi4</a></dt>
+      <dd><p>The time-dependent Joshi binomial tree of order 4: centered on the strike, its probabilities from Joshi's expansion
+at the step's time, on an odd number of steps: QuantLib's <code>ExtendedJoshi4</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedLeisenReimer.html">ExtendedLeisenReimer</a></dt>
+      <dd><p>The time-dependent Leisen-Reimer binomial tree: centered on the strike, its probabilities from the Peizer-Pratt
+inversion at the step's time, on an odd number of steps: QuantLib's <code>ExtendedLeisenReimer</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedOrnsteinUhlenbeckProcess.html">ExtendedOrnsteinUhlenbeckProcess</a></dt>
+      <dd><p>The extended Ornstein-Uhlenbeck process dx = a(b(t) − x)dt + σdW, its level b a function of time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedTian.html">ExtendedTian</a></dt>
+      <dd><p>The time-dependent Tian binomial tree: its moves and probabilities matching the step's first three moments at the
+step's time: QuantLib's <code>ExtendedTian</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedTrigeorgis.html">ExtendedTrigeorgis</a></dt>
+      <dd><p>The time-dependent Trigeorgis (additive equal jumps) binomial tree: its move the root of the step's variance and
+squared drift at the step's time: QuantLib's <code>ExtendedTrigeorgis</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FFTEngine.html">FFTEngine</a></dt>
+      <dd><p>The fast-Fourier-transform engine for European options (Carr and Madan, 1998, &quot;Option valuation using the fast
+Fourier transform&quot;, Journal of Computational Finance 2, 61-73): one transform prices every option of an expiry.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FFTEngine.ExpiryState.html">FFTEngine.ExpiryState</a></dt>
+      <dd><p>The model's state at one expiry: its characteristic function, its discount factors and the strip of exponents u
+with E[S^u] finite.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FFTVanillaEngine.html">FFTVanillaEngine</a></dt>
+      <dd><p>The fast-Fourier-transform engine for European options under Black-Scholes, on a constant volatility: one transform
+prices every option of an expiry (<a class="xref" href="NanoQL.Experimental.FFTEngine.html">FFTEngine</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FFTVarianceGammaEngine.html">FFTVarianceGammaEngine</a></dt>
+      <dd><p>The fast-Fourier-transform engine for European options under the variance gamma process: one transform prices every
+option of an expiry (<a class="xref" href="NanoQL.Experimental.FFTEngine.html">FFTEngine</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FactorSpreadedHazardRateCurve.html">FactorSpreadedHazardRateCurve</a></dt>
+      <dd><p>A default-probability structure with a multiplicative spread on the hazard rates of an original curve,
+whose reference date, calendar, day counter and range it takes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FailureToPay.html">FailureToPay</a></dt>
+      <dd><p>The failure-to-pay atomic event type, with its grace period and the amount required to trigger it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FailureToPayEvent.html">FailureToPayEvent</a></dt>
+      <dd><p>A failure to pay: a default event with the amount defaulted, which matches a contract's
+<a class="xref" href="NanoQL.Experimental.FailureToPay.html">FailureToPay</a> type once its grace period has passed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FarlieGumbelMorgensternCopulaRng-1.html">FarlieGumbelMorgensternCopulaRng&lt;TRng&gt;</a></dt>
+      <dd><p>A random-number generator of Farlie-Gumbel-Morgenstern copula draws, by conditional inversion of uniform draws:
+QuantLib's <code>FarlieGumbelMorgensternCopulaRng</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdExtOUJumpVanillaEngine.html">FdExtOUJumpVanillaEngine</a></dt>
+      <dd><p>The two-dimensional finite-difference engine of a vanilla option on Kluge's spot e^(f(t) + X + Y): X's mesher from
+its extended Ornstein-Uhlenbeck process, Y's an exponential jump mesher, and early exercise by the vanilla step
+conditions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdKlugeExtOUSpreadEngine.html">FdKlugeExtOUSpreadEngine</a></dt>
+      <dd><p>The three-dimensional finite-difference engine of a spread option between Kluge's power e^(f_p(t) + X + Y) and the
+gas price e^(f_g(t) + U) of a <a class="xref" href="NanoQL.Experimental.KlugeExtOUProcess.html">KlugeExtOUProcess</a>: X's and U's meshers from their extended
+Ornstein-Uhlenbeck processes, Y's an exponential jump mesher, the basket payoff on power and gas, and early exercise
+by the vanilla step conditions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdOrnsteinUhlenbeckVanillaEngine.html">FdOrnsteinUhlenbeckVanillaEngine</a></dt>
+      <dd><p>The one-dimensional finite-difference engine of a vanilla option on an Ornstein-Uhlenbeck process: the payoff on the
+process's own value, discounted on a curve, with dividends and early exercise by the vanilla step conditions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdSimpleExtOUJumpSwingEngine.html">FdSimpleExtOUJumpSwingEngine</a></dt>
+      <dd><p>The three-dimensional finite-difference engine of a swing option on Kluge's spot e^(f(t) + X + Y): X's mesher from
+its extended Ornstein-Uhlenbeck process, Y's an exponential jump mesher, and the exercises taken in the third
+direction by the simple swing condition.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdSimpleExtOUStorageEngine.html">FdSimpleExtOUStorageEngine</a></dt>
+      <dd><p>The two-dimensional finite-difference engine of a storage option on the spot e^(f(t) + X), X an extended
+Ornstein-Uhlenbeck process: the storage level in the second direction, on QuantLib's elevator mesher (the levels
+reached from empty and from full at the change rate) or a uniform one, and the injections and withdrawals by the
+simple storage condition at the exercise dates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdSimpleKlugeExtOUVPPEngine.html">FdSimpleKlugeExtOUVPPEngine</a></dt>
+      <dd><p>The four-dimensional finite-difference engine of a <a class="xref" href="NanoQL.Experimental.VanillaVPPOption.html">VanillaVPPOption</a> on a <a class="xref" href="NanoQL.Experimental.KlugeExtOUProcess.html">KlugeExtOUProcess</a>:
+Kluge's power e^(f_p(t) + X + Y) and the fuel price e^(f_g(t) + G), X's and G's meshers from their extended
+Ornstein-Uhlenbeck processes, Y's an exponential jump mesher, and the plant's states in the fourth direction, run by
+its step condition at the exercise dates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmDupire1dOp.html">FdmDupire1dOp</a></dt>
+      <dd><p>The Dupire local volatility pricing operator in the strike, ½σ²(K)·∂²/∂K², time reversed so that backward solvers
+work.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmExpExtOUInnerValueCalculator.html">FdmExpExtOUInnerValueCalculator</a></dt>
+      <dd><p>The inner value of a payoff on e^(f(t) + u), u a mesher's location in one direction and f a seasonal shape read at
+the first of its times at or after t − √ε (0 without a shape).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmExtOUJumpModelInnerValue.html">FdmExtOUJumpModelInnerValue</a></dt>
+      <dd><p>The inner value of a payoff on Kluge's spot e^(f(t) + x + y), x and y a mesher's locations in directions 0 and 1 and
+f a seasonal shape read at the first of its times at or after t − √ε (0 without a shape).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmExtOUJumpOp.html">FdmExtOUJumpOp</a></dt>
+      <dd><p>The finite-difference operator of Kluge's <a class="xref" href="NanoQL.Experimental.ExtOUWithJumpsProcess.html">ExtOUWithJumpsProcess</a> on a two-dimensional mesher, X in
+direction 0 and the jump component Y in direction 1: the extended Ornstein-Uhlenbeck operator in X, Y's decay, and
+the jumps' integral by Gauss-Laguerre quadrature over the exponential jump sizes, linearly interpolated in Y.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmExtOUJumpSolver.html">FdmExtOUJumpSolver</a></dt>
+      <dd><p>The two-dimensional finite-difference solver of Kluge's <a class="xref" href="NanoQL.Experimental.ExtOUWithJumpsProcess.html">ExtOUWithJumpsProcess</a>, its jump integral at a
+Gauss-Laguerre order of 32, as QuantLib's.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmExtendedOrnsteinUhlenbeckOp.html">FdmExtendedOrnsteinUhlenbeckOp</a></dt>
+      <dd><p>The finite-difference operator of an <a class="xref" href="NanoQL.Experimental.ExtendedOrnsteinUhlenbeckProcess.html">ExtendedOrnsteinUhlenbeckProcess</a> in one direction of a mesher:
+its drift at the step's mid-time, its diffusion, and the discount at the forward rate over the step.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmKlugeExtOUOp.html">FdmKlugeExtOUOp</a></dt>
+      <dd><p>The finite-difference operator of a <a class="xref" href="NanoQL.Experimental.KlugeExtOUProcess.html">KlugeExtOUProcess</a> on a three-dimensional mesher: the power
+process's operator (<a class="xref" href="NanoQL.Experimental.FdmExtOUJumpOp.html">FdmExtOUJumpOp</a>) in directions 0 and 1, the gas process's Ornstein-Uhlenbeck
+operator in direction 2 at a zero rate (the power operator discounts), and the correlation of X and the gas price as
+a mixed derivative.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmKlugeExtOUSolver.html">FdmKlugeExtOUSolver</a></dt>
+      <dd><p>The finite-difference solver of a <a class="xref" href="NanoQL.Experimental.KlugeExtOUProcess.html">KlugeExtOUProcess</a> on a mesher of three or more dimensions, its jump
+integral at a Gauss-Laguerre order of 16, as QuantLib's; directions past the third carried by the step conditions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmSimple2dExtOUSolver.html">FdmSimple2dExtOUSolver</a></dt>
+      <dd><p>A two-dimensional finite-difference solver on an <a class="xref" href="NanoQL.Experimental.ExtendedOrnsteinUhlenbeckProcess.html">ExtendedOrnsteinUhlenbeckProcess</a>'s operator in
+direction 0, the second direction carried by the step conditions (a storage level, say).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmSimple3dExtOUJumpSolver.html">FdmSimple3dExtOUJumpSolver</a></dt>
+      <dd><p>A three-dimensional finite-difference solver on Kluge's <a class="xref" href="NanoQL.Experimental.ExtOUWithJumpsProcess.html">ExtOUWithJumpsProcess</a> operator in directions 0
+and 1, its jump integral at a Gauss-Laguerre order of 32, the third direction carried by the step conditions (a
+swing option's exercises, say).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmSpreadPayoffInnerValue.html">FdmSpreadPayoffInnerValue</a></dt>
+      <dd><p>The inner value of a basket payoff on two inner values, a spread's two legs.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmVPPStartLimitStepCondition.html">FdmVPPStartLimitStepCondition</a></dt>
+      <dd><p>A virtual power plant's step condition with its minimum up and down times and, optionally, a limit on its starts: a
+block of states per start left.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmVPPStepCondition.html">FdmVPPStepCondition</a></dt>
+      <dd><p>The step condition of a virtual power plant valued by dynamic programming: each step adds the running states'
+spark-spread earnings, at the minimum or the maximum output, then lets each point's states change as the plant's
+rules allow, at the gas price there.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmVPPStepConditionFactory.html">FdmVPPStepConditionFactory</a></dt>
+      <dd><p>Builds a <a class="xref" href="NanoQL.Experimental.VanillaVPPOption.html">VanillaVPPOption</a>'s state mesher and step condition: the plain plant and the plant with a start
+limit, as QuantLib's; a running-hour limit, which QuantLib's factory classifies and refuses to build, is refused.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmVPPStepConditionMesher.html">FdmVPPStepConditionMesher</a></dt>
+      <dd><p>The mesher a virtual power plant's step condition runs on, and the direction of the plant's states.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmZabrOp.html">FdmZabrOp</a></dt>
+      <dd><p>The ZABR pricing operator on a mesher whose first direction is the forward F and second the volatility v:
+½v²F<sup>2β</sup>·∂²/∂F² + ½ν²v<sup>2γ</sup>·∂²/∂v² + νρ|v|<sup>γ+1</sup>F<sup>β</sup>·∂²/∂F∂v; γ = 1 is SABR.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmZabrUnderlyingPart.html">FdmZabrUnderlyingPart</a></dt>
+      <dd><p>The ZABR operator's forward part, ½v²F<sup>2β</sup>·∂²/∂F² on a mesher whose first direction is the
+forward F and second the volatility v.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmZabrVolatilityPart.html">FdmZabrVolatilityPart</a></dt>
+      <dd><p>The ZABR operator's volatility part, ½ν²v<sup>2γ</sup>·∂²/∂v² on a mesher whose first direction is the
+forward and second the volatility v.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FireflyAlgorithm.html">FireflyAlgorithm</a></dt>
+      <dd><p>The firefly algorithm, with a differential evolution subpopulation: QuantLib's <code>FireflyAlgorithm</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FireflyAlgorithmIntensity.html">FireflyAlgorithmIntensity</a></dt>
+      <dd><p>The intensity with which fireflies attract each other, which moves each toward the brighter ones: QuantLib's
+<code>FireflyAlgorithm::Intensity</code>. A derived class implements <a class="xref" href="NanoQL.Experimental.FireflyAlgorithmIntensity.html#NanoQL_Experimental_FireflyAlgorithmIntensity_IntensityImpl_System_Double_System_Double_System_Double_">IntensityImpl(double, double, double)</a> only.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FireflyAlgorithmRandomWalk.html">FireflyAlgorithmRandomWalk</a></dt>
+      <dd><p>The random walk that moves each firefly besides its attraction: QuantLib's <code>FireflyAlgorithm::RandomWalk</code>. A
+derived class implements <a class="xref" href="NanoQL.Experimental.FireflyAlgorithmRandomWalk.html#NanoQL_Experimental_FireflyAlgorithmRandomWalk_WalkImpl_NanoQL_Numerics_Vector_">WalkImpl(Vector)</a> only.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FloatingCatBond.html">FloatingCatBond</a></dt>
+      <dd><p>A floating-rate cat bond, possibly capped and/or floored: a floating-rate bond's leg under a notional
+risk.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FrankCopulaRng-1.html">FrankCopulaRng&lt;TRng&gt;</a></dt>
+      <dd><p>A random-number generator of Frank copula draws, by conditional inversion of uniform draws: QuantLib's
+<code>FrankCopulaRng</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FxResetCashFlowsFunctions.html">FxResetCashFlowsFunctions</a></dt>
+      <dd><p>QuantLib's free function <code>setFxResetPricer</code>, with a swap form.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FxResetConvention.html">FxResetConvention</a></dt>
+      <dd><p>The convention for creating FX-reset observations from accrual dates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FxResetCoupon.html">FxResetCoupon</a></dt>
+      <dd><p>A floating-rate coupon of an FX-resetting leg.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FxResetNotionalExchange.html">FxResetNotionalExchange</a></dt>
+      <dd><p>A netted notional exchange of an FX-resetting leg.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FxResetPricer.html">FxResetPricer</a></dt>
+      <dd><p>The interface for obtaining the rate of an FX-reset observation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GallonUnitOfMeasure.html">GallonUnitOfMeasure</a></dt>
+      <dd><p>US gallons: code GAL, a volume, converted through barrels.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussNonCentralChiSquaredPolynomial.html">GaussNonCentralChiSquaredPolynomial</a></dt>
+      <dd><p>The orthogonal polynomial of the non-central χ² distribution with ν degrees of freedom and non-centrality λ, for
+Gauss quadrature on that distribution: QuantLib's <code>GaussNonCentralChiSquaredPolynomial</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianBinomialLossModel.html">GaussianBinomialLossModel</a></dt>
+      <dd><p>The binomial loss model on the Gaussian copula: QuantLib's typedef <code>GaussianBinomialLossModel</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianConstantLossLM.html">GaussianConstantLossLM</a></dt>
+      <dd><p>The constant-loss latent model on the Gaussian copula: QuantLib's typedef <code>GaussianConstantLossLM</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianDefProbLM.html">GaussianDefProbLM</a></dt>
+      <dd><p>The default-event latent model on the Gaussian copula: QuantLib's typedef <code>GaussianDefProbLM</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianLHPFlatBCLM.html">GaussianLHPFlatBCLM</a></dt>
+      <dd><p>The vanilla base correlation model: the Gaussian LHP base model on a bilinear surface, QuantLib's typedef
+<code>GaussianLHPFlatBCLM</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianLHPLossModel.html">GaussianLHPLossModel</a></dt>
+      <dd><p>The portfolio loss model of a large homogeneous pool on a Gaussian one-factor copula, its expected tranche loss
+analytic: Anna Kalemanova, Bernd Schmid, Ralf Werner, &quot;The Normal Inverse Gaussian Distribution for Synthetic CDO
+pricing.&quot;, Journal of Derivatives, Vol. 14, No. 3, (Spring 2007), pp. 80-93.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianQuadLMIntegration.html">GaussianQuadLMIntegration</a></dt>
+      <dd><p>A latent model's integration by a Gauss-Hermite rule per dimension: QuantLib's
+<code>IntegrationBase&lt;GaussianQuadMultidimIntegrator&gt;</code>, scalar and vector.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianQuadMultidimIntegrator.html">GaussianQuadMultidimIntegrator</a></dt>
+      <dd><p>Integrates a scalar or a vector function of a vector over ℝ^d with a Gauss-Hermite rule per dimension, the last
+dimension outermost.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianRandomDefaultLM.html">GaussianRandomDefaultLM</a></dt>
+      <dd><p>The random default latent model simulation on the Gaussian copula, inverting a Sobol sequence: QuantLib's
+typedef <code>GaussianRandomDefaultLM</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianRandomDefaultModel.html">GaussianRandomDefaultModel</a></dt>
+      <dd><p>Random default times on a one-factor Gaussian copula.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianRandomLossLM.html">GaussianRandomLossLM</a></dt>
+      <dd><p>The random spot recovery loss model simulation on the Gaussian copula, inverting a Sobol sequence:
+QuantLib's typedef <code>GaussianRandomLossLM</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianSimulatedAnnealing.html">GaussianSimulatedAnnealing</a></dt>
+      <dd><p>The hybrid simulated annealing on the Gaussian sampler, the Boltzmann downhill probability, the exponential temperature and no
+reannealing: QuantLib's <code>GaussianSimulatedAnnealing</code> typedef.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianSpotLossLM.html">GaussianSpotLossLM</a></dt>
+      <dd><p>The spot-recovery latent model on the Gaussian copula: QuantLib's typedef <code>GaussianSpotLossLM</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianWalk.html">GaussianWalk</a></dt>
+      <dd><p>A Gaussian random walk: the step's radius normal with standard deviation σ, its direction isotropic and its sphere
+an ellipsoid over the problem's bounds, scaled by δ: QuantLib's <code>GaussianWalk</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GemanRoncoroniProcess.html">GemanRoncoroniProcess</a></dt>
+      <dd><p>Geman and Roncoroni's electricity price process: a seasonal mean-reverting diffusion with upward jumps below a
+threshold over the mean and downward jumps above it: QuantLib's <code>GemanRoncoroniProcess</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GeneralizedHullWhite.html">GeneralizedHullWhite</a></dt>
+      <dd><p>The generalized Hull-White model: d f(rₜ) = (θ(t) − α(t) f(rₜ))dt + σ(t) dWₜ, with α and σ interpolated over dates
+and f a function of the short rate, fitted to a yield curve: QuantLib's <code>GeneralizedHullWhite</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GeneralizedOrnsteinUhlenbeckProcess.html">GeneralizedOrnsteinUhlenbeckProcess</a></dt>
+      <dd><p>The Ornstein-Uhlenbeck process dx = a(t)(level − x)dt + σ(t)dW with time-dependent speed and volatility: QuantLib's
+<code>GeneralizedOrnsteinUhlenbeckProcess</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GenericCPI.html">GenericCPI</a></dt>
+      <dd><p>A generic consumer price index: family &quot;CPI&quot;, region <a class="xref" href="NanoQL.Experimental.GenericRegion.html">GenericRegion</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GenericRegion.html">GenericRegion</a></dt>
+      <dd><p>A generic geographical or economic region: name &quot;Generic&quot;, code &quot;GENERIC&quot;.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GlobalTopology.html">GlobalTopology</a></dt>
+      <dd><p>The global topology: each particle's social best is the best of all the particles' personal bests: QuantLib's
+<code>GlobalTopology</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.Glued1dMesher.html">Glued1dMesher</a></dt>
+      <dd><p>A one-dimensional mesher joining two: the left mesher's points, then the right one's, a point the two share kept
+once.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.HaganIrregularSwaptionEngine.html">HaganIrregularSwaptionEngine</a></dt>
+      <dd><p>The engine for European irregular swaptions by super-replication with a basket of vanilla swaptions: QuantLib's
+<code>HaganIrregularSwaptionEngine</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.HimalayaMultiPathPricer.html">HimalayaMultiPathPricer</a></dt>
+      <dd><p>The Himalaya option's path pricer: at each fixing after the first node the best performer left joins the
+average and leaves; the payoff at the average, discounted.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.HimalayaOption.html">HimalayaOption</a></dt>
+      <dd><p>A Himalaya option on a basket: at each fixing date the best performer since inception among the assets left joins
+the average and leaves the basket; at the last fixing the option pays the average's excess over the strike.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.HomogGaussPoolLossModel.html">HomogGaussPoolLossModel</a></dt>
+      <dd><p>The homogeneous pool loss model on the Gaussian copula: QuantLib's typedef <code>HomogGaussPoolLossModel</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.HomogTPoolLossModel.html">HomogTPoolLossModel</a></dt>
+      <dd><p>The homogeneous pool loss model on the Student t copula: QuantLib's typedef <code>HomogTPoolLossModel</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.HomogeneousPoolLossModel-2.html">HomogeneousPoolLossModel&lt;TCopula, TInitTraits&gt;</a></dt>
+      <dd><p>The default loss distribution of a finite homogeneous pool by convolution: the conditional distributions of a
+one-factor constant-loss latent model integrated over the factor on a midpoint grid.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.HybridSimulatedAnnealing-4.html">HybridSimulatedAnnealing&lt;TSampler, TProbability, TTemperature, TReannealing&gt;</a></dt>
+      <dd><p>The hybrid simulated annealing: a sampler draws each new point, a probability accepts it, a temperature schedule
+cools the dimensions and a reannealing rescales their steps, with a local optimizer at each new or best point:
+QuantLib's <code>HybridSimulatedAnnealing</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IHGaussPoolLossModel.html">IHGaussPoolLossModel</a></dt>
+      <dd><p>The inhomogeneous pool loss model on the Gaussian copula: QuantLib's typedef <code>IHGaussPoolLossModel</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IHStudentPoolLossModel.html">IHStudentPoolLossModel</a></dt>
+      <dd><p>The inhomogeneous pool loss model on the Student t copula: QuantLib's typedef <code>IHStudentPoolLossModel</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IborIborBasisSwapRateHelper.html">IborIborBasisSwapRateHelper</a></dt>
+      <dd><p>A rate helper for bootstrapping over IBOR-IBOR basis swaps.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IborLegCashFlows.html">IborLegCashFlows</a></dt>
+      <dd><p>A floating leg mapped to deterministic cash flows under a tenor basis: the notional at the first remaining coupon's
+start, a spread coupon per remaining coupon, and the notional back at the end: QuantLib's
+<code>IborLegCashFlows</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.InhomogeneousPoolLossModel-2.html">InhomogeneousPoolLossModel&lt;TCopula, TInitTraits&gt;</a></dt>
+      <dd><p>The default loss distribution of a finite inhomogeneous pool by Hull-White bucketing: the conditional
+distributions of a one-factor constant-loss latent model integrated over the factor on a midpoint grid.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IntegralCDOEngine.html">IntegralCDOEngine</a></dt>
+      <dd><p>The integral engine for synthetic CDOs: each premium period integrated in steps of a given size from the later of
+its start and the evaluation date, the premium paid on the tranche's notional less the expected loss at each step.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IntegralHestonVarianceOptionEngine.html">IntegralHestonVarianceOptionEngine</a></dt>
+      <dd><p>The integral engine for variance options under Heston: the realized variance's law inverted by Bailey and
+Swarztrauber's fractional transform (see &lt;http://www.econ.univpm.it/recchioni/finance/w4/&gt;).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IntegralNtdEngine.html">IntegralNtdEngine</a></dt>
+      <dd><p>The integral engine for n-th-to-default swaps: each premium period's default leg integrated in steps of a given
+size, the contract triggered by the basket's n-th default.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.InterestRateVolSurface.html">InterestRateVolSurface</a></dt>
+      <dd><p>The base of interest-rate volatility (smile) surfaces on an index: an option tenor's date is the index's fixing date
+for a start that tenor after the index's value date. Volatilities are on an annual basis.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.InterpolatedAffineHazardRateCurve-1.html">InterpolatedAffineHazardRateCurve&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A one-factor affine survival structure whose deterministic hazard rate is interpolated on nodes: the survival is
+that rate's, flat past the last node, times the model's bond price at its initial intensity.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.InterpolatedCPICapFloorTermPriceSurface-1.html">InterpolatedCPICapFloorTermPriceSurface&lt;TInterpolator2D&gt;</a></dt>
+      <dd><p>A CPI cap and floor price surface interpolated over maturity times and quoted strikes: QuantLib's
+<code>InterpolatedCPICapFloorTermPriceSurface</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.InterpolatedYoYCapFloorTermPriceSurface-2.html">InterpolatedYoYCapFloorTermPriceSurface&lt;TInterpolator2D, TInterpolator1D&gt;</a></dt>
+      <dd><p>A year-on-year inflation cap and floor price surface interpolated over maturity times and strikes, its at-the-money
+swap rates where the cap and floor prices meet, and its year-on-year curve bootstrapped on them: QuantLib's
+<code>InterpolatedYoYCapFloorTermPriceSurface</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.InterpolatedYoYInflationOptionletStripper.html">InterpolatedYoYInflationOptionletStripper</a></dt>
+      <dd><p>The year-on-year optionlet stripper on linear interpolation: QuantLib-Python's
+<code>InterpolatedYoYInflationOptionletStripper</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.InterpolatedYoYInflationOptionletVolatilityCurve.html">InterpolatedYoYInflationOptionletVolatilityCurve</a></dt>
+      <dd><p>The year-on-year optionlet volatility curve on linear interpolation: QuantLib-Python's
+<code>InterpolatedYoYInflationOptionletVolatilityCurve</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.InterpolatedYoYOptionletStripper-1.html">InterpolatedYoYOptionletStripper&lt;TInterpolator&gt;</a></dt>
+      <dd><p>Strips year-on-year optionlet volatilities along each strike by bootstrapping an interpolated curve on the price
+surface's caps or floors: QuantLib's <code>InterpolatedYoYOptionletStripper</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.InterpolatedYoYOptionletVolatilityCurve-1.html">InterpolatedYoYOptionletVolatilityCurve&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A year-on-year optionlet volatility interpolated in time and flat in strike: QuantLib's
+<code>InterpolatedYoYOptionletVolatilityCurve</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.InterpolatingCPICapFloorEngine.html">InterpolatingCPICapFloorEngine</a></dt>
+      <dd><p>Prices a CPI cap or floor off a CPI cap and floor price surface: QuantLib's <code>InterpolatingCPICapFloorEngine</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.InterpolationParameter.html">InterpolationParameter</a></dt>
+      <dd><p>A parameter whose value is an interpolation of its parameters over fixed times, extrapolated past them: QuantLib's
+<code>InterpolationParameter</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.InverseCumulativeBehrensFisher.html">InverseCumulativeBehrensFisher</a></dt>
+      <dd><p>The inverse of <a class="xref" href="NanoQL.Experimental.CumulativeBehrensFisher.html">CumulativeBehrensFisher</a>, found by Brent's solver on the right half, the distribution
+being symmetric.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.InverseLawSquareIntensity.html">InverseLawSquareIntensity</a></dt>
+      <dd><p>An inverse-square-law intensity, (β₀ − β_min)/(d + ε) + β_min: QuantLib's <code>InverseLawSquareIntensity</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IrregularSwap.html">IrregularSwap</a></dt>
+      <dd><p>An irregular swap: a fixed leg against a floating one, each given whole, their nominals and rates free to change
+from coupon to coupon: QuantLib's <code>IrregularSwap</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IrregularSwapResults.html">IrregularSwapResults</a></dt>
+      <dd><p>The results an engine returns for an irregular swap: the swap's, with the fair fixed rate and the fair floating
+spread: QuantLib's <code>IrregularSwap::results</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IrregularSwaption.html">IrregularSwaption</a></dt>
+      <dd><p>An option to enter an irregular swap: QuantLib's <code>IrregularSwaption</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IrregularSwaptionFunctions.html">IrregularSwaptionFunctions</a></dt>
+      <dd><p>The irregular swaption's free functions: QuantLib's stream operator on <a class="xref" href="NanoQL.Experimental.IrregularSettlementType.html">IrregularSettlementType</a>, whose
+text differs from the one its <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">ToString()</a> gives.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IsotropicRandomWalk-1.html">IsotropicRandomWalk&lt;TDistribution&gt;</a></dt>
+      <dd><p>An isotropic random walk: a step whose radius is drawn from a distribution and whose direction on the
+d-dimensional sphere is uniform, every direction equally likely: QuantLib's <code>IsotropicRandomWalk</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.Issuer.html">Issuer</a></dt>
+      <dd><p>A credit name: the default-probability curves of its bond collections, each keyed by the contract conditions it
+prices, and the history of its credit events.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.KInterpolatedYoYInflationOptionletVolatilitySurface.html">KInterpolatedYoYInflationOptionletVolatilitySurface</a></dt>
+      <dd><p>The year-on-year optionlet volatility surface interpolating its stripped volatilities linearly in strike:
+QuantLib-Python's <code>KInterpolatedYoYInflationOptionletVolatilitySurface</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.KInterpolatedYoYOptionletVolatilitySurface-1.html">KInterpolatedYoYOptionletVolatilitySurface&lt;TInterpolator&gt;</a></dt>
+      <dd><p>A year-on-year optionlet volatility surface stripped along each strike of a cap and floor price surface and
+interpolated across the strikes: QuantLib's <code>KInterpolatedYoYOptionletVolatilitySurface</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.KNeighbors.html">KNeighbors</a></dt>
+      <dd><p>The K-neighbours topology: each particle's social best is the best of the K particles before and the K after it,
+the swarm a ring: QuantLib's <code>KNeighbors</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.KilolitreUnitOfMeasure.html">KilolitreUnitOfMeasure</a></dt>
+      <dd><p>Kilolitres: code kl, a volume, converted through barrels.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.KlugeExtOUProcess.html">KlugeExtOUProcess</a></dt>
+      <dd><p>Kluge's power model beside a correlated extended Ornstein-Uhlenbeck gas model: the power state (X, Y) of an
+<a class="xref" href="NanoQL.Experimental.ExtOUWithJumpsProcess.html">ExtOUWithJumpsProcess</a>, and the gas log-price U, dU = κ(μ(t) − U)dt + σdW_U, its Brownian motion
+correlated with X's by ρ.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LMIntegration.html">LMIntegration</a></dt>
+      <dd><p>A latent model's integration over its systemic factors: QuantLib's <code>LMIntegration</code>, the common base of its
+two integrator families, so that an integrable model chooses its algorithm apart.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LaplaceInterpolation.html">LaplaceInterpolation</a></dt>
+      <dd><p>The reconstruction of missing values on a grid by Laplace interpolation, in any number of dimensions n ≥ 1 and on
+non-equidistant grids: QuantLib's <code>LaplaceInterpolation</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LaplaceInterpolationFunctions.html">LaplaceInterpolationFunctions</a></dt>
+      <dd><p>The Laplace interpolation of a matrix's missing values: QuantLib's <code>laplaceInterpolation</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LatentModelFactorSampler.html">LatentModelFactorSampler</a></dt>
+      <dd><p>The members of <a class="xref" href="NanoQL.Experimental.LatentModelFactorSampler-3.html">LatentModelFactorSampler&lt;TCopula, TInitTraits, TUsng&gt;</a> that need more of their
+generator than the class does: its seed constructor.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LatentModelFactorSampler-3.html">LatentModelFactorSampler&lt;TCopula, TInitTraits, TUsng&gt;</a></dt>
+      <dd><p>A latent model's factor sampler by copula inversion: each draw of a uniform sequence generator, every factor's
+cumulative distribution inverted by the policy. QuantLib's default <code>LatentModel::FactorSampler&lt;USNG&gt;</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LatentModel-2.html">LatentModel&lt;TCopula, TInitTraits&gt;</a></dt>
+      <dd><p>The generic multifactor latent variable model: latent variables Yᵢ = Σₖ aᵢₖMₖ + √(1 − Σₖ aᵢₖ²) Zᵢ over independent
+zero-mean, unit-variance systemic factors Mₖ and idiosyncratic factors Zᵢ, the Zᵢ all of one law, their
+distributions given by a copula policy.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LevyFlightDistribution.html">LevyFlightDistribution</a></dt>
+      <dd><p>The Levy flight distribution, p(x) = α x_m^α / x^(α+1) on [x_m, ∞) with α &gt; 0: QuantLib's
+<code>LevyFlightDistribution</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LevyFlightInertia.html">LevyFlightInertia</a></dt>
+      <dd><p>A Levy flight inertia: while a particle keeps improving its personal best the inertia is a random one, and after
+more than threshold iterations without improvement its velocity is a Levy flight, u^(−1/α): QuantLib's
+<code>LevyFlightInertia</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LevyFlightWalk.html">LevyFlightWalk</a></dt>
+      <dd><p>A Levy flight random walk: the step's radius from a Levy flight distribution, its direction isotropic, scaled by δ:
+QuantLib's <code>LevyFlightWalk</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LinearFlatInterpolation.html">LinearFlatInterpolation</a></dt>
+      <dd><p>Linear interpolation between discrete points with flat extrapolation: QuantLib's <code>LinearFlatInterpolation</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LitreUnitOfMeasure.html">LitreUnitOfMeasure</a></dt>
+      <dd><p>Litres: code l, a volume, converted through barrels.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LogNormalSimulatedAnnealing.html">LogNormalSimulatedAnnealing</a></dt>
+      <dd><p>The hybrid simulated annealing on the lognormal sampler, the Boltzmann downhill probability, the exponential temperature and no
+reannealing: QuantLib's <code>LogNormalSimulatedAnnealing</code> typedef.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LognormalCmsSpreadPricer.html">LognormalCmsSpreadPricer</a></dt>
+      <dd><p>The CMS spread coupon pricer of Brigo and Mercurio, 13.6.2, with the extensions for shifted lognormal and normal
+dynamics of <a href="http://ssrn.com/abstract=2686998">http://ssrn.com/abstract=2686998</a>: QuantLib's <code>LognormalCmsSpreadPricer</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LongstaffSchwartzMultiPathPricer.html">LongstaffSchwartzMultiPathPricer</a></dt>
+      <dd><p>The Longstaff-Schwartz path pricer for path payoffs (Longstaff and Schwartz, 2001, &quot;Valuing American Options by
+Simulation: A Simple Least-Squares Approach&quot;, The Review of Financial Studies 14(1), 113-147): it stores the
+calibration paths, regresses the continuation value on each fixing's state, then prices on the fitted decisions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LossDist.html">LossDist</a></dt>
+      <dd><p>The loss distributions' base: a pool's distribution of losses from each name's volume and default probability, and
+the probabilities of n defaults.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LossDistBinomial.html">LossDistBinomial</a></dt>
+      <dd><p>The binomial loss distribution: n names of one volume and one default probability.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LossDistBucketing.html">LossDistBucketing</a></dt>
+      <dd><p>The loss distribution of varying volumes and default probabilities, independence assumed, by Hull-White bucketing:
+John Hull and Alan White, &quot;Valuation of a CDO and nth to default CDS without Monte Carlo simulation&quot;, Journal of
+Derivatives 12, 2, 2004.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LossDistHomogeneous.html">LossDistHomogeneous</a></dt>
+      <dd><p>The loss distribution of a homogeneous pool, equal volumes and varying default probabilities, built exactly by
+convolving one name at a time: Xiaofong Ma, &quot;Numerical Methods for the Valuation of Synthetic Collateralized Debt
+Obligations&quot;, PhD Thesis, University of Toronto, 2007 (formula 2.1), avoiding the numerical instability of John Hull
+and Alan White, &quot;Valuation of a CDO and nth to default CDS without Monte Carlo simulation&quot;, Journal of Derivatives
+12, 2, 2004.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LossDistMonteCarlo.html">LossDistMonteCarlo</a></dt>
+      <dd><p>The loss distribution of varying volumes and default probabilities by a Monte Carlo simulation of
+independent defaults, each a Mersenne Twister draw at or below its probability.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LossDistResult.html">LossDistResult</a></dt>
+      <dd><p>A homogeneous or binomial loss distribution with its by-products: the members QuantLib's
+<code>LossDistBinomial</code> and <code>LossDistHomogeneous</code> keep mutable and reset at each call.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LotUnitOfMeasure.html">LotUnitOfMeasure</a></dt>
+      <dd><p>A lot: QuantLib's <code>LotUnitOfMeasure</code>, code Lot, a count.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MBUnitOfMeasure.html">MBUnitOfMeasure</a></dt>
+      <dd><p>Thousands of barrels: code MB, a volume, converted through barrels.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCAmericanPathEngine-2.html">MCAmericanPathEngine&lt;TRng, TStats&gt;</a></dt>
+      <dd><p>The Longstaff-Schwartz Monte Carlo engine for path options with early exercise on correlated
+processes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCDoubleBarrierEngine.html">MCDoubleBarrierEngine</a></dt>
+      <dd><p>The Monte Carlo pricing engine for double barrier options, the barriers checked at the path's points
+(<a class="xref" href="NanoQL.Experimental.DoubleBarrierPathPricer.html">DoubleBarrierPathPricer</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCEverestEngine.html">MCEverestEngine</a></dt>
+      <dd><p>The Monte Carlo engine for Everest options on correlated processes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCHimalayaEngine.html">MCHimalayaEngine</a></dt>
+      <dd><p>The Monte Carlo engine for Himalaya options on correlated processes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCLDDoubleBarrierEngine.html">MCLDDoubleBarrierEngine</a></dt>
+      <dd><p><a class="xref" href="NanoQL.Experimental.MCDoubleBarrierEngine.html">MCDoubleBarrierEngine</a> on low-discrepancy draws with QuantLib's default statistics:
+<code>MCLDDoubleBarrierEngine</code>, named as QuantLib-Python names its siblings, QuantLib's
+<code>MCDoubleBarrierEngine&lt;LowDiscrepancy&gt;</code>, its calculations closed at <a class="xref" href="NanoQL.Numerics.LowDiscrepancy.html">LowDiscrepancy</a> and
+<a class="xref" href="NanoQL.Numerics.GeneralStatistics.html">GeneralStatistics</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCLDEverestEngine.html">MCLDEverestEngine</a></dt>
+      <dd><p><a class="xref" href="NanoQL.Experimental.MCEverestEngine.html">MCEverestEngine</a> on low-discrepancy draws with QuantLib's default statistics: QuantLib-Python's
+<code>MCLDEverestEngine</code>, QuantLib's <code>MCEverestEngine&lt;LowDiscrepancy&gt;</code>, its calculations closed at
+<a class="xref" href="NanoQL.Numerics.LowDiscrepancy.html">LowDiscrepancy</a> and <a class="xref" href="NanoQL.Numerics.GeneralStatistics.html">GeneralStatistics</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCLDHimalayaEngine.html">MCLDHimalayaEngine</a></dt>
+      <dd><p><a class="xref" href="NanoQL.Experimental.MCHimalayaEngine.html">MCHimalayaEngine</a> on low-discrepancy draws with QuantLib's default statistics: QuantLib-Python's
+<code>MCLDHimalayaEngine</code>, QuantLib's <code>MCHimalayaEngine&lt;LowDiscrepancy&gt;</code>, its calculations closed at
+<a class="xref" href="NanoQL.Numerics.LowDiscrepancy.html">LowDiscrepancy</a> and <a class="xref" href="NanoQL.Numerics.GeneralStatistics.html">GeneralStatistics</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCLDPagodaEngine.html">MCLDPagodaEngine</a></dt>
+      <dd><p><a class="xref" href="NanoQL.Experimental.MCPagodaEngine.html">MCPagodaEngine</a> on low-discrepancy draws with QuantLib's default statistics: <code>MCLDPagodaEngine</code>,
+named as QuantLib-Python names its siblings, QuantLib's <code>MCPagodaEngine&lt;LowDiscrepancy&gt;</code>, its
+calculations closed at <a class="xref" href="NanoQL.Numerics.LowDiscrepancy.html">LowDiscrepancy</a> and <a class="xref" href="NanoQL.Numerics.GeneralStatistics.html">GeneralStatistics</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCLDPathBasketEngine.html">MCLDPathBasketEngine</a></dt>
+      <dd><p><a class="xref" href="NanoQL.Experimental.MCPathBasketEngine.html">MCPathBasketEngine</a> on low-discrepancy draws with QuantLib's default statistics:
+<code>MCLDPathBasketEngine</code>, named as QuantLib-Python names its siblings, QuantLib's
+<code>MCPathBasketEngine&lt;LowDiscrepancy&gt;</code>, its calculations closed at <a class="xref" href="NanoQL.Numerics.LowDiscrepancy.html">LowDiscrepancy</a> and
+<a class="xref" href="NanoQL.Numerics.GeneralStatistics.html">GeneralStatistics</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCLongstaffSchwartzPathEngine-2.html">MCLongstaffSchwartzPathEngine&lt;TRng, TStats&gt;</a></dt>
+      <dd><p>The Longstaff-Schwartz Monte Carlo engine for path options (Longstaff and Schwartz, 2001): calibration paths fit
+the exercise decisions, then the pricing paths are valued on them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCPRDoubleBarrierEngine.html">MCPRDoubleBarrierEngine</a></dt>
+      <dd><p><a class="xref" href="NanoQL.Experimental.MCDoubleBarrierEngine.html">MCDoubleBarrierEngine</a> on pseudo-random draws with QuantLib's default statistics:
+<code>MCPRDoubleBarrierEngine</code>, named as QuantLib-Python names its siblings, QuantLib's
+<code>MCDoubleBarrierEngine&lt;PseudoRandom&gt;</code>, its calculations closed at <a class="xref" href="NanoQL.Numerics.PseudoRandom.html">PseudoRandom</a> and
+<a class="xref" href="NanoQL.Numerics.GeneralStatistics.html">GeneralStatistics</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCPREverestEngine.html">MCPREverestEngine</a></dt>
+      <dd><p><a class="xref" href="NanoQL.Experimental.MCEverestEngine.html">MCEverestEngine</a> on pseudo-random draws with QuantLib's default statistics: QuantLib-Python's
+<code>MCPREverestEngine</code>, QuantLib's <code>MCEverestEngine&lt;PseudoRandom&gt;</code>, its calculations closed at
+<a class="xref" href="NanoQL.Numerics.PseudoRandom.html">PseudoRandom</a> and <a class="xref" href="NanoQL.Numerics.GeneralStatistics.html">GeneralStatistics</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCPRHimalayaEngine.html">MCPRHimalayaEngine</a></dt>
+      <dd><p><a class="xref" href="NanoQL.Experimental.MCHimalayaEngine.html">MCHimalayaEngine</a> on pseudo-random draws with QuantLib's default statistics: QuantLib-Python's
+<code>MCPRHimalayaEngine</code>, QuantLib's <code>MCHimalayaEngine&lt;PseudoRandom&gt;</code>, its calculations closed at
+<a class="xref" href="NanoQL.Numerics.PseudoRandom.html">PseudoRandom</a> and <a class="xref" href="NanoQL.Numerics.GeneralStatistics.html">GeneralStatistics</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCPRPagodaEngine.html">MCPRPagodaEngine</a></dt>
+      <dd><p><a class="xref" href="NanoQL.Experimental.MCPagodaEngine.html">MCPagodaEngine</a> on pseudo-random draws with QuantLib's default statistics: <code>MCPRPagodaEngine</code>,
+named as QuantLib-Python names its siblings, QuantLib's <code>MCPagodaEngine&lt;PseudoRandom&gt;</code>, its calculations
+closed at <a class="xref" href="NanoQL.Numerics.PseudoRandom.html">PseudoRandom</a> and <a class="xref" href="NanoQL.Numerics.GeneralStatistics.html">GeneralStatistics</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCPRPathBasketEngine.html">MCPRPathBasketEngine</a></dt>
+      <dd><p><a class="xref" href="NanoQL.Experimental.MCPathBasketEngine.html">MCPathBasketEngine</a> on pseudo-random draws with QuantLib's default statistics:
+<code>MCPRPathBasketEngine</code>, named as QuantLib-Python names its siblings, QuantLib's
+<code>MCPathBasketEngine&lt;PseudoRandom&gt;</code>, its calculations closed at <a class="xref" href="NanoQL.Numerics.PseudoRandom.html">PseudoRandom</a> and
+<a class="xref" href="NanoQL.Numerics.GeneralStatistics.html">GeneralStatistics</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCPagodaEngine.html">MCPagodaEngine</a></dt>
+      <dd><p>The Monte Carlo engine for Pagoda options on correlated processes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MCPathBasketEngine.html">MCPathBasketEngine</a></dt>
+      <dd><p>The Monte Carlo engine for path options on correlated processes, their early exercise ignored.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MTUnitOfMeasure.html">MTUnitOfMeasure</a></dt>
+      <dd><p>Metric tonnes: code MT, a mass.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MakeMCAmericanPathEngine-2.html">MakeMCAmericanPathEngine&lt;TRng, TStats&gt;</a></dt>
+      <dd><p>A builder of the Monte Carlo American path engine, with QuantLib's defaults but the seed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MakeMCDoubleBarrierEngine-2.html">MakeMCDoubleBarrierEngine&lt;TRng, TStats&gt;</a></dt>
+      <dd><p>A builder of the Monte Carlo double-barrier engine, with QuantLib's defaults but the seed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MakeMCEverestEngine-2.html">MakeMCEverestEngine&lt;TRng, TStats&gt;</a></dt>
+      <dd><p>A builder of the Monte Carlo Everest engine, with QuantLib's defaults but the seed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MakeMCHimalayaEngine-2.html">MakeMCHimalayaEngine&lt;TRng, TStats&gt;</a></dt>
+      <dd><p>A builder of the Monte Carlo Himalaya engine, with QuantLib's defaults but the seed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MakeMCPagodaEngine-2.html">MakeMCPagodaEngine&lt;TRng, TStats&gt;</a></dt>
+      <dd><p>A builder of the Monte Carlo Pagoda engine, with QuantLib's defaults but the seed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MakeMCPathBasketEngine-2.html">MakeMCPathBasketEngine&lt;TRng, TStats&gt;</a></dt>
+      <dd><p>A builder of the Monte Carlo path basket engine, with QuantLib's defaults but the seed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ManipulateDistribution.html">ManipulateDistribution</a></dt>
+      <dd><p>Operations on <a class="xref" href="NanoQL.Experimental.Distribution.html">Distribution</a>s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MidPointCDOEngine.html">MidPointCDOEngine</a></dt>
+      <dd><p>The mid-point engine for synthetic CDOs: each premium period's loss taken at its midpoint, the premium paid on the
+tranche's notional less the expected loss at the period's end.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MirrorGaussianSimulatedAnnealing.html">MirrorGaussianSimulatedAnnealing</a></dt>
+      <dd><p>The hybrid simulated annealing on the mirrored Gaussian sampler, the Boltzmann downhill probability, the exponential temperature and no
+reannealing: QuantLib's <code>MirrorGaussianSimulatedAnnealing</code> typedef.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MonteCarloCatBondEngine.html">MonteCarloCatBondEngine</a></dt>
+      <dd><p>The Monte Carlo cat bond engine: each simulated path of the catastrophe risk's events writes the bond's notional
+path, whose cash flows, each scaled by the notional left on its date, are discounted and averaged.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MoorePenroseInverseFunctions.html">MoorePenroseInverseFunctions</a></dt>
+      <dd><p>The Moore-Penrose inverse of a real matrix: QuantLib's <code>moorePenroseInverse</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MtMCrossCurrencyBasisSwap.html">MtMCrossCurrencyBasisSwap</a></dt>
+      <dd><p>A mark-to-market cross-currency basis swap.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MtMCrossCurrencyBasisSwapRateHelper.html">MtMCrossCurrencyBasisSwapRateHelper</a></dt>
+      <dd><p>The rate helper for bootstrapping over mark-to-market cross-currency basis swaps.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MtMCrossCurrencyBasisSwapResults.html">MtMCrossCurrencyBasisSwapResults</a></dt>
+      <dd><p>The results an engine returns for a mark-to-market cross-currency basis swap: the cross-currency swap's, with each
+leg's fair spread and the FX rates and notionals of the resettable coupons.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MultidimIntegral.html">MultidimIntegral</a></dt>
+      <dd><p>Integrates a scalar function of a vector over a box, one one-dimensional integrator per dimension, the last
+dimension outermost: it generalizes <a class="xref" href="NanoQL.Numerics.TwoDimensionalIntegral.html">TwoDimensionalIntegral</a> to any number of dimensions up to 15.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MultidimLMIntegration.html">MultidimLMIntegration</a></dt>
+      <dd><p>A latent model's integration by one-dimensional integrators over a box [a, b] in every dimension: QuantLib's
+<code>IntegrationBase&lt;MultidimIntegral&gt;</code>, scalar only.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NoArbSabrInterpolatedSmileSection.html">NoArbSabrInterpolatedSmileSection</a></dt>
+      <dd><p>A smile section whose volatilities are a no-arbitrage SABR fit to market volatilities at given strikes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NoArbSabrInterpolation.html">NoArbSabrInterpolation</a></dt>
+      <dd><p>The no-arbitrage SABR smile fitted to discrete volatilities: α, β, ν and ρ fitted to the lognormal volatilities at
+the strikes, interpolated by the volatility of the no-arbitrage SABR section at the fitted parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NoArbSabrModel.html">NoArbSabrModel</a></dt>
+      <dd><p>Doust's no-arbitrage SABR model (Paul Doust, &quot;No-arbitrage SABR&quot;, The Journal of Computational Finance, 2012): the
+SABR density with the absorption at zero read off a simulated table, its option and digital prices the density's
+integrals, the forward adjusted so the density reprices it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NoArbSabrSmileSection.html">NoArbSabrSmileSection</a></dt>
+      <dd><p>A smile section on Doust's no-arbitrage SABR model: its prices, digitals and density are the model's, its
+volatilities those prices' implied Black volatilities, the SABR expansion's where none is found.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NoArbSabrSwaptionVolatilityCube.html">NoArbSabrSwaptionVolatilityCube</a></dt>
+      <dd><p>The no-arbitrage SABR swaption volatility cube: QuantLib's <code>NoArbSabrSwaptionVolatilityCube</code>, the XABR cube on
+Doust's no-arbitrage SABR model, whose smiles are <a class="xref" href="NanoQL.Experimental.NoArbSabrInterpolation.html">NoArbSabrInterpolation</a> fits and whose sections
+are <a class="xref" href="NanoQL.Experimental.NoArbSabrSmileSection.html">NoArbSabrSmileSection</a>s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NoOffset.html">NoOffset</a></dt>
+      <dd><p>No offset: a notional reduction is paid on its event's date.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NormalCLVModel.html">NormalCLVModel</a></dt>
+      <dd><p>The collocating local volatility (CLV) model with a normally distributed kernel process, an Ornstein-Uhlenbeck
+process, collocated to a Black-Scholes process's distribution at given maturities: QuantLib's <code>NormalCLVModel</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NormalRandomWalkDistribution.html">NormalRandomWalkDistribution</a></dt>
+      <dd><p>The normal distribution as a random walk's radius, <code>std::normal_distribution&lt;Real&gt;(mean, sigma)</code> drawn as
+MSVC 14.44 draws it: the distribution of QuantLib's <code>GaussianWalk</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NorthAmericaCorpDefaultKey.html">NorthAmericaCorpDefaultKey</a></dt>
+      <dd><p>ISDA's standard default contractual key for US corporate debt: a failure to pay, a bankruptcy and, unless it is
+<a class="xref" href="NanoQL.Experimental.RestructuringType.html#NanoQL_Experimental_RestructuringType_NoRestructuring">NoRestructuring</a>, one restructuring type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NotionalPath.html">NotionalPath</a></dt>
+      <dd><p>A path of a cat bond's notional: the fraction of the original notional left, from the reductions added in
+date order.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NotionalRisk.html">NotionalRisk</a></dt>
+      <dd><p>A cat bond's notional risk: how a path's events reduce its notional.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NthToDefault.html">NthToDefault</a></dt>
+      <dd><p>An n-th-to-default swap: protection against the n-th default in a basket of credits, for premium payments on the
+protected notional. Priced as a credit default swap whose default probability is the basket's probability of n
+defaults or more (Hull and White, &quot;Valuation of a CDO and nth to default CDS without Monte Carlo simulation&quot;,
+Journal of Derivatives 12, 2, 2004).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NthToDefaultResults.html">NthToDefaultResults</a></dt>
+      <dd><p>The results an engine returns for an <a class="xref" href="NanoQL.Experimental.NthToDefault.html">NthToDefault</a>: the instrument's, with its legs' values
+and its fair premium.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NullCommodityType.html">NullCommodityType</a></dt>
+      <dd><p>The commodity type of conversions that hold for any commodity: name and code &quot;&lt;NULL&gt;&quot;, the type of QuantLib's
+known unit conversions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.OneFactorAffineSurvivalStructure.html">OneFactorAffineSurvivalStructure</a></dt>
+      <dd><p>The survival probability term structure of a one-factor stochastic model of the default intensity: the model's
+bond price at its initial intensity, conditional on survival to a prior time and the intensity realized there.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.OneFactorCopula.html">OneFactorCopula</a></dt>
+      <dd><p>The one-factor copula models' base: John Hull and Alan White, &quot;The Perfect Copula&quot;, June 2006. The variables
+Yᵢ = a·M + √(1 − a²)·Zᵢ, M and Zᵢ independent of zero mean and unit variance, their correlation a² the copula's;
+a name's default by t is Yᵢ below F_Y⁻¹(Qᵢ(t)), so that, given M = m, it defaults with probability
+F_Z((F_Y⁻¹(p) − a·m)/√(1 − a²)). The densities of M and Z are the derived models'; F_Y is tabulated by them unless
+it is analytic, and the integrals over M are Euler sums on a midpoint grid.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.OneFactorGaussianCopula.html">OneFactorGaussianCopula</a></dt>
+      <dd><p>The one-factor Gaussian copula: M, Z and Y standard normal, φ(x) = exp(−x²/2)/√(2π), its distribution of Y
+analytic.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.OneFactorGaussianStudentCopula.html">OneFactorGaussianStudentCopula</a></dt>
+      <dd><p>The one-factor Gaussian-Student t copula: Yᵢ = a·M + √(1 − a²)·Zᵢ, M Gaussian and Zᵢ Student t of N_z degrees of freedom, each Student variable scaled by √((ν − 2)/ν) to unit
+variance. Y's distribution is tabulated at construction on 201 points of [−10, 10], each a double Euler sum of the
+convolution on [−10, 10] in 400 steps, QuantLib's loop order.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.OneFactorStudentCopula.html">OneFactorStudentCopula</a></dt>
+      <dd><p>The one-factor double Student t copula: Yᵢ = a·M + √(1 − a²)·Zᵢ, M and Zᵢ Student t of N_m and N_z degrees of freedom, each Student variable scaled by √((ν − 2)/ν) to unit
+variance. Y's distribution is tabulated at construction on 201 points of [−10, 10], each a double Euler sum of the
+convolution on [−10, 10] in 400 steps, QuantLib's loop order.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.OneFactorStudentGaussianCopula.html">OneFactorStudentGaussianCopula</a></dt>
+      <dd><p>The one-factor Student t-Gaussian copula: Yᵢ = a·M + √(1 − a²)·Zᵢ, M Student t of N_m degrees of freedom and Zᵢ Gaussian, each Student variable scaled by √((ν − 2)/ν) to unit
+variance. Y's distribution is tabulated at construction on 201 points of [−10, 10], each a double Euler sum of the
+convolution on [−10, 10] in 400 steps, QuantLib's loop order.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.OvernightIborBasisSwapRateHelper.html">OvernightIborBasisSwapRateHelper</a></dt>
+      <dd><p>A rate helper for bootstrapping over overnight-IBOR basis swaps.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.OvernightIndexedFundingRateHelper.html">OvernightIndexedFundingRateHelper</a></dt>
+      <dd><p>A rate helper quoting the funding margin over a compounded overnight rate: QuantLib's
+<code>OvernightIndexedFundingRateHelper</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.OvernightOvernightBasisSwapRateHelper.html">OvernightOvernightBasisSwapRateHelper</a></dt>
+      <dd><p>A rate helper for bootstrapping over overnight-overnight basis swaps.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PagodaMultiPathPricer.html">PagodaMultiPathPricer</a></dt>
+      <dd><p>The Pagoda option's path pricer: a fraction of the portfolio's average performance over the periods,
+capped at the roof and floored at 0, discounted.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PagodaOption.html">PagodaOption</a></dt>
+      <dd><p>A Pagoda option on a portfolio: at expiry it pays a fraction of the portfolio's performance over the fixing periods,
+capped at a roof and floored at 0.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ParticleSwarmOptimization.html">ParticleSwarmOptimization</a></dt>
+      <dd><p>Particle swarm optimization: QuantLib's <code>ParticleSwarmOptimization</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ParticleSwarmOptimizationInertia.html">ParticleSwarmOptimizationInertia</a></dt>
+      <dd><p>The inertia that alters the swarm's velocities each iteration: QuantLib's <code>ParticleSwarmOptimization::Inertia</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ParticleSwarmOptimizationTopology.html">ParticleSwarmOptimizationTopology</a></dt>
+      <dd><p>The topology that sets each particle's social best from the swarm's personal bests each iteration: QuantLib's
+<code>ParticleSwarmOptimization::Topology</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PathMultiAssetOption.html">PathMultiAssetOption</a></dt>
+      <dd><p>An option on several assets' paths, its payoff a <a class="xref" href="NanoQL.Experimental.PathPayoff.html">PathPayoff</a> at fixing dates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PathPayoff.html">PathPayoff</a></dt>
+      <dd><p>A payoff on the assets' whole paths at the fixing dates: its payments and early-termination values, and the state
+on which a Longstaff-Schwartz regression decides an exercise.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PaymentTerm.html">PaymentTerm</a></dt>
+      <dd><p>A payment term, such as &quot;Pricing end + 5 days&quot;: an offset in days from an event, on a calendar.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PerturbativeBarrierOptionEngine.html">PerturbativeBarrierOptionEngine</a></dt>
+      <dd><p>The perturbative engine for up-and-out put options on time-dependent Black-Scholes markets (Fatone, Recchioni and
+Zirilli): the barrier price on the market's averages, corrected to first or second order in the drift and
+variance's departures from them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PiecewiseFunctionFunctions.html">PiecewiseFunctionFunctions</a></dt>
+      <dd><p>A piecewise constant function: QuantLib's <code>QL_PIECEWISE_FUNCTION</code> macro.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PiecewiseIntegral.html">PiecewiseIntegral</a></dt>
+      <dd><p>The integral of a piecewise well-behaved function, each piece integrated by a given integrator, optionally over
+intervals that strictly exclude the critical points: QuantLib's <code>PiecewiseIntegral</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PiecewiseYoYOptionletVolatilityCurve-3.html">PiecewiseYoYOptionletVolatilityCurve&lt;TInterpolator, TBootstrap, TTraits&gt;</a></dt>
+      <dd><p>A year-on-year optionlet volatility curve bootstrapped at one strike on optionlet helpers, flat in strike and
+interpolated in time: QuantLib's <code>PiecewiseYoYOptionletVolatilityCurve</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PolarStudentTFactorSampler.html">PolarStudentTFactorSampler</a></dt>
+      <dd><p>The members of <a class="xref" href="NanoQL.Experimental.PolarStudentTFactorSampler-1.html">PolarStudentTFactorSampler&lt;TUrng&gt;</a> that need more of their generator than the
+class does: its seed constructor.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PolarStudentTFactorSampler-1.html">PolarStudentTFactorSampler&lt;TUrng&gt;</a></dt>
+      <dd><p>A Student t latent model's factor sampler by polar Student t draws, bypassing the copula: one generator per
+systemic factor, and one for every idiosyncratic factor. QuantLib's <code>LatentModel::FactorSampler</code> specialized
+on <code>RandomSequenceGenerator&lt;PolarStudentTRng&gt;</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PolarStudentTRng.html">PolarStudentTRng</a></dt>
+      <dd><p>The members of <a class="xref" href="NanoQL.Experimental.PolarStudentTRng-1.html">PolarStudentTRng&lt;TUrng&gt;</a> that need more of their uniform generator than the
+class does: its seed constructor.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PolarStudentTRng-1.html">PolarStudentTRng&lt;TUrng&gt;</a></dt>
+      <dd><p>The polar Student t random-number generator: Bailey's polar method (&quot;Polar Generation of Random Variates With the
+t-Distribution&quot;, Mathematics of Computation 62-206, 1994), in the variant of &quot;Random Number Generation and Monte
+Carlo Methods&quot; (Springer, 2003, page 185), with uniforms remapped to [−1, 1] so that no draw sets the sign.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.Polynomial2DSpline.html">Polynomial2DSpline</a></dt>
+      <dd><p>A two-dimensional interpolation, parabolic in the y direction and a spline in the x direction: QuantLib's
+<code>Polynomial2DSpline</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.Pool.html">Pool</a></dt>
+      <dd><p>A pool of issuers by name, each with the default key it enters with and a time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PricingError.html">PricingError</a></dt>
+      <dd><p>A message a commodity's calculation records: QuantLib's <code>PricingError</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PricingPeriod.html">PricingPeriod</a></dt>
+      <dd><p>A pricing period of an energy swap: its dates, its payment date and the quantity it delivers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ProbabilityAlwaysDownhill.html">ProbabilityAlwaysDownhill</a></dt>
+      <dd><p>A probability that accepts only the points that improve on the current one: depending on the problem, the
+optimizer is then very unlikely to escape a local optimum: QuantLib's <code>ProbabilityAlwaysDownhill</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ProbabilityBoltzmann.html">ProbabilityBoltzmann</a></dt>
+      <dd><p>A probability from a Boltzmann distribution: a point is accepted where 1/(1 + e^(−(current − new)/T)) is above a
+uniform draw, T the largest temperature: QuantLib's <code>ProbabilityBoltzmann</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ProbabilityBoltzmannDownhill.html">ProbabilityBoltzmannDownhill</a></dt>
+      <dd><p>A Boltzmann probability that always accepts a point that improves on the current one: QuantLib's
+<code>ProbabilityBoltzmannDownhill</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ProbabilityOfAtLeastNEvents.html">ProbabilityOfAtLeastNEvents</a></dt>
+      <dd><p>The probability of at least n default events, as a function of the names' probabilities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ProbabilityOfNEvents.html">ProbabilityOfNEvents</a></dt>
+      <dd><p>The probability of exactly n default events, as a function of the names' probabilities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ProportionalNotionalRisk.html">ProportionalNotionalRisk</a></dt>
+      <dd><p>A proportional notional risk: the cumulated losses above an attachment reduce the notional linearly, to
+nothing at the exhaustion.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ProxyIbor.html">ProxyIbor</a></dt>
+      <dd><p>An Ibor index whose forecast is another index's fixing, geared and spread: QuantLib's <code>ProxyIbor</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.QuantityFunctions.html">QuantityFunctions</a></dt>
+      <dd><p>QuantLib's free functions of <code>quantity.hpp</code>: the closeness of two quantities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.QuantitySettings.html">QuantitySettings</a></dt>
+      <dd><p>The settings that say how <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a> amounts in different units combine: QuantLib's static
+<code>Quantity::conversionType</code> and <code>Quantity::baseUnitOfMeasure</code>, as a value that
+<a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_QuantitySettings">QuantitySettings</a> holds.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.QuantoDoubleBarrierOption.html">QuantoDoubleBarrierOption</a></dt>
+      <dd><p>A quanto double barrier option: a double barrier option on an asset in a foreign currency, paid in the domestic
+one.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.RandomDefaultLM-3.html">RandomDefaultLM&lt;TCopula, TInitTraits, TUsng&gt;</a></dt>
+      <dd><p>The default-only latent model simulation with fixed recoveries: each path's defaults, by name, on a default latent
+model's variables.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.RandomDefaultModel.html">RandomDefaultModel</a></dt>
+      <dd><p>The base class of random default models: sequences of random default times, one for each name in the
+pool.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.RandomLM-3.html">RandomLM&lt;TCopula, TInitTraits, TUsng&gt;</a></dt>
+      <dd><p>The base of the latent models' Monte Carlo simulations, independent of the copula and of the generator: it draws
+the factors and the variables and finds each default's day; the derived models say what a sample's events are.
+Its statistics read the stored paths.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.RandomLossLM-3.html">RandomLossLM&lt;TCopula, TInitTraits, TUsng&gt;</a></dt>
+      <dd><p>The random spot recovery rate loss model simulation for any copula: each path's defaults and their recoveries, on a
+spot-recovery latent model's default and recovery variables.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ReannealingFiniteDifferences.html">ReannealingFiniteDifferences</a></dt>
+      <dd><p>A reannealing by finite differences, which raises the temperature the more sensitive dimensions see so the search
+concentrates on them: QuantLib's <code>ReannealingFiniteDifferences</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ReannealingTrivial.html">ReannealingTrivial</a></dt>
+      <dd><p>No reannealing: QuantLib's <code>ReannealingTrivial</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.RecoveryRateModel.html">RecoveryRateModel</a></dt>
+      <dd><p>A model of the recovery rate: the future value of a recovery rate in the event of a default.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.RecoveryRateQuote.html">RecoveryRateQuote</a></dt>
+      <dd><p>A recovery-rate market quote and the seniority it is quoted for.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.RecursiveGaussLossModel.html">RecursiveGaussLossModel</a></dt>
+      <dd><p>The recursive loss model on the Gaussian copula: QuantLib's typedef <code>RecursiveGaussLossModel</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.RecursiveLossModel-2.html">RecursiveLossModel&lt;TCopula, TInitTraits&gt;</a></dt>
+      <dd><p>The recursive STCDO default loss model of a heterogeneous pool: names heterogeneous in their default probabilities,
+notionals and recoveries, their correlations given by the latent model. The recursive pricing algorithm is Andersen,
+Sidenius and Basu's, &quot;All your hedges in one basket&quot;, Risk, November 2003, pages 67-72.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.RiskyAssetSwap.html">RiskyAssetSwap</a></dt>
+      <dd><p>A risky asset swap: a risky fixed-rate bond bought at par and swapped into the floating rate plus a spread, the
+bond's value from the default-probability curve with its recovery integrated over the default density.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.RiskyAssetSwapOption.html">RiskyAssetSwapOption</a></dt>
+      <dd><p>An option on a risky asset swap: Bachelier's formula on the swap's spread against the market's, its annuity the
+swap's float annuity times its nominal.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.RiskyAssetSwapResults.html">RiskyAssetSwapResults</a></dt>
+      <dd><p>The results of a <a class="xref" href="NanoQL.Experimental.RiskyAssetSwap.html">RiskyAssetSwap</a>'s calculation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SABRVolTermStructure.html">SABRVolTermStructure</a></dt>
+      <dd><p>A Black volatility term structure of SABR smiles on a forward growing at a constant rate: at time t the SABR
+volatility (Hagan's 2002 expansion) at the forward s₀e^(rt).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SabrVolSurface.html">SabrVolSurface</a></dt>
+      <dd><p>An interest-rate volatility surface of SABR smiles: at each time, the SABR section fitted to the at-the-money curve's
+volatility plus volatility spreads at strike spreads around the index's fixing, the spreads interpolated linearly
+between the option tenors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;</a></dt>
+      <dd><p>The saddle-point portfolio credit default loss model: the saddle-point expansion's integrations of several default
+risk metrics, the dependence dealt with through a latent model that makes the integrals conditional on its factor,
+the latent variables integrated indirectly.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SamplerCauchy.html">SamplerCauchy</a></dt>
+      <dd><p>A sampler from the Cauchy distribution, x + T·c: for lower dimensions it can be faster than the Gaussian sampler,
+especially with the Cauchy temperature: QuantLib's <code>SamplerCauchy</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SamplerGaussian.html">SamplerGaussian</a></dt>
+      <dd><p>A sampler from the normal distribution, x + √T·z, so the parameter space must have support on the whole real line:
+QuantLib's <code>SamplerGaussian</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SamplerLogNormal.html">SamplerLogNormal</a></dt>
+      <dd><p>A sampler from the lognormal distribution, x·e^(√T·z), so the parameter space must have support on the positive
+side of the real line only: QuantLib's <code>SamplerLogNormal</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SamplerMirrorGaussian.html">SamplerMirrorGaussian</a></dt>
+      <dd><p>A sampler from the normal distribution constrained to lie within the boundaries: a value beyond one is reflected
+back: QuantLib's <code>SamplerMirrorGaussian</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SamplerRingGaussian.html">SamplerRingGaussian</a></dt>
+      <dd><p>A sampler from the normal distribution constrained to lie within the boundaries: a value beyond one comes back
+from the other side, as on a ring: QuantLib's <code>SamplerRingGaussian</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SamplerVeryFastAnnealing.html">SamplerVeryFastAnnealing</a></dt>
+      <dd><p>The very fast annealing's sampler, for the very fast annealing's temperature; the parameter space must be bounded
+above and below: QuantLib's <code>SamplerVeryFastAnnealing</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SimpleRandomInertia.html">SimpleRandomInertia</a></dt>
+      <dd><p>A random inertia: each velocity times the optimizer's inertia times a uniform draw in (threshold, 1): QuantLib's
+<code>SimpleRandomInertia</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SpotRecoveryLatentModel-2.html">SpotRecoveryLatentModel&lt;TCopula, TInitTraits&gt;</a></dt>
+      <dd><p>The random spot recovery rate latent variable portfolio model: N. Bennani and J. Maetz, &quot;A Spot Stochastic Recovery
+Extension of the Gaussian Copula&quot;, MPRA July 2009; H. Li, &quot;Extension of Spot Recovery model for Gaussian Copula&quot;,
+MPRA October 2009; adapted to many factors and any copula. Its variables are the n names' defaults, then their n
+recoveries.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SpreadedHazardRateCurve.html">SpreadedHazardRateCurve</a></dt>
+      <dd><p>A default-probability structure with an additive spread on the hazard rates of an original curve,
+whose reference date, calendar, day counter and range it takes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SquareRootCLVModel.html">SquareRootCLVModel</a></dt>
+      <dd><p>The collocating local volatility (CLV) model with a square-root kernel process, its distribution non-central χ²,
+collocated to a Black-Scholes process's distribution at given maturities: QuantLib's <code>SquareRootCLVModel</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.StrippedCappedFlooredCoupon.html">StrippedCappedFlooredCoupon</a></dt>
+      <dd><p>The option embedded in a capped or floored coupon, stripped from it: QuantLib's
+<code>StrippedCappedFlooredCoupon</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.StrippedCappedFlooredCouponLeg.html">StrippedCappedFlooredCouponLeg</a></dt>
+      <dd><p>A leg whose capped or floored coupons are replaced by their stripped options: QuantLib's
+<code>StrippedCappedFlooredCouponLeg</code>, whose conversion to a leg is <a class="xref" href="NanoQL.Experimental.StrippedCappedFlooredCouponLeg.html#NanoQL_Experimental_StrippedCappedFlooredCouponLeg_ToLeg">ToLeg()</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.StrippedYoYOptionlets.html">StrippedYoYOptionlets</a></dt>
+      <dd><p>Year-on-year optionlet volatilities stripped along each strike: a volatility curve per strike, what QuantLib's
+<code>YoYOptionletStripper</code> holds after its <code>initialize</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SuoWangDoubleBarrierEngine.html">SuoWangDoubleBarrierEngine</a></dt>
+      <dd><p>Suo and Wang's analytic engine for European double barrier options (&quot;Barrier Option Pricing&quot;): the knock-out as an
+image series, the knock-in as the European less it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SviInterpolatedSmileSection.html">SviInterpolatedSmileSection</a></dt>
+      <dd><p>A smile section whose volatilities are an SVI fit to market volatilities at given strikes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SviInterpolation.html">SviInterpolation</a></dt>
+      <dd><p>The SVI smile fitted to discrete volatilities: SVI's five parameters a, b, σ, ρ and m fitted to the lognormal
+volatilities at the strikes, interpolated by the volatility of the SVI smile section at the fitted parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SviInterpolationFunctions.html">SviInterpolationFunctions</a></dt>
+      <dd><p>QuantLib's SVI free functions: the parameters' check and the total variance.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SviSmileSection.html">SviSmileSection</a></dt>
+      <dd><p>The stochastic-volatility-inspired (SVI) smile section: the volatility whose total variance at a log-moneyness k
+is a + b(ρ(k − m) + √((k − m)² + σ²)).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SwapCashFlows.html">SwapCashFlows</a></dt>
+      <dd><p>A fixed-versus-floating swap mapped to deterministic cash flows under a tenor basis: the floating leg's
+(<a class="xref" href="NanoQL.Experimental.IborLegCashFlows.html">IborLegCashFlows</a>) and the fixed coupons that start on or after the discount curve's reference date,
+with their annuity weights: QuantLib's <code>SwapCashFlows</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SwapSpreadIndex.html">SwapSpreadIndex</a></dt>
+      <dd><p>A swap-rate spread index: gearing₁ times one swap index's rate plus gearing₂ times another's.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SwaptionCashFlows.html">SwaptionCashFlows</a></dt>
+      <dd><p>A swaption mapped to deterministic fixed and floating cash flows under a tenor basis, with its exercise times after
+the discount curve's reference date: QuantLib's <code>SwaptionCashFlows</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SyntheticCDO.html">SyntheticCDO</a></dt>
+      <dd><p>A synthetic collateralized debt obligation: protection on a basket's tranche between its attachment D₁ and
+detachment D₂, against a running premium on the tranche's notional, reduced by the expected protection payments, and
+an upfront.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SyntheticCDOResults.html">SyntheticCDOResults</a></dt>
+      <dd><p>A synthetic CDO's results: its legs, its fair rates and the expected tranche losses.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TBinomialLossModel.html">TBinomialLossModel</a></dt>
+      <dd><p>The binomial loss model on the Student t copula: QuantLib's typedef <code>TBinomialLossModel</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TConstantLossLM.html">TConstantLossLM</a></dt>
+      <dd><p>The constant-loss latent model on the Student t copula: QuantLib's typedef <code>TConstantLossLM</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TDefProbLM.html">TDefProbLM</a></dt>
+      <dd><p>The default-event latent model on the Student t copula: QuantLib's typedef <code>TDefProbLM</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TRandomDefaultLM.html">TRandomDefaultLM</a></dt>
+      <dd><p>The random default latent model simulation on the Student t copula, inverting a Sobol sequence: QuantLib's
+typedef <code>TRandomDefaultLM</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TRandomLossLM.html">TRandomLossLM</a></dt>
+      <dd><p>The random spot recovery loss model simulation on the Student t copula, inverting a Sobol sequence:
+QuantLib's typedef <code>TRandomLossLM</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TSpotLossLM.html">TSpotLossLM</a></dt>
+      <dd><p>The spot-recovery latent model on the Student t copula: QuantLib's typedef <code>TSpotLossLM</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TemperatureBoltzmann.html">TemperatureBoltzmann</a></dt>
+      <dd><p>A temperature for the Gaussian sampler, T₀/ln k: QuantLib's <code>TemperatureBoltzmann</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TemperatureCauchy.html">TemperatureCauchy</a></dt>
+      <dd><p>A temperature for the Cauchy sampler, T₀/k: QuantLib's <code>TemperatureCauchy</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TemperatureCauchy1D.html">TemperatureCauchy1D</a></dt>
+      <dd><p>A temperature for the Cauchy sampler, T₀/k^(1/n): QuantLib's <code>TemperatureCauchy1D</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TemperatureExponential.html">TemperatureExponential</a></dt>
+      <dd><p>An exponential temperature, T₀·p^k: QuantLib's <code>TemperatureExponential</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TemperatureVeryFastAnnealing.html">TemperatureVeryFastAnnealing</a></dt>
+      <dd><p>The very fast annealing's temperature, T₀·e^(−c·k^(1/n)), for the very fast annealing's sampler: QuantLib's
+<code>TemperatureVeryFastAnnealing</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TenorOptionletVTS.html">TenorOptionletVTS</a></dt>
+      <dd><p>A normal optionlet volatility on a longer target tenor transformed from one on a shorter base tenor: QuantLib's
+<code>TenorOptionletVTS</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TenorOptionletVTSCorrelationStructure.html">TenorOptionletVTSCorrelationStructure</a></dt>
+      <dd><p>The correlation between two forward rates by their start times, which <a class="xref" href="NanoQL.Experimental.TenorOptionletVTS.html">TenorOptionletVTS</a> reads:
+QuantLib's <code>TenorOptionletVTS::CorrelationStructure</code>, by its typedef's name.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TenorSwaptionVTS.html">TenorSwaptionVTS</a></dt>
+      <dd><p>A normal swaption volatility on a target floating tenor and fixed frequency transformed from one on a base
+floating tenor and fixed frequency: QuantLib's <code>TenorSwaptionVTS</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TokyoKilolitreUnitOfMeasure.html">TokyoKilolitreUnitOfMeasure</a></dt>
+      <dd><p>Tokyo kilolitres: code KL_tk, a volume, converted through barrels.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TreeCallableFixedRateBondEngine.html">TreeCallableFixedRateBondEngine</a></dt>
+      <dd><p>The numerical lattice engine for callable fixed-rate bonds: the bond rolled back on a short-rate model's tree.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TreeCallableZeroCouponBondEngine.html">TreeCallableZeroCouponBondEngine</a></dt>
+      <dd><p>The numerical lattice engine for callable zero-coupon bonds: QuantLib's subclass of the fixed-rate bonds' engine,
+which only adds constructors, so each overload is <a class="xref" href="NanoQL.Experimental.TreeCallableFixedRateBondEngine.html">TreeCallableFixedRateBondEngine</a>'s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TrivialInertia.html">TrivialInertia</a></dt>
+      <dd><p>A constant inertia: each velocity times the optimizer's inertia: QuantLib's <code>TrivialInertia</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TwoParameterCorrelation.html">TwoParameterCorrelation</a></dt>
+      <dd><p>The two-parameter correlation ρ = ρ∞ + (1 − ρ∞)·exp(−β|t₂ − t₁|), its parameters interpolated in the first start
+time: QuantLib's <code>TenorOptionletVTS::TwoParameterCorrelation</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.UnitOfMeasure.html">UnitOfMeasure</a></dt>
+      <dd><p>A unit of measure specification: its name, code and type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.UnitOfMeasureConversion.html">UnitOfMeasureConversion</a></dt>
+      <dd><p>A conversion factor between two units of measure, for a commodity type: a unit of the source is worth
+<a class="xref" href="NanoQL.Experimental.UnitOfMeasureConversion.html#NanoQL_Experimental_UnitOfMeasureConversion_ConversionFactor">ConversionFactor</a> units of the target.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.UnitOfMeasureConversions.html">UnitOfMeasureConversions</a></dt>
+      <dd><p>The registry of conversion factors between units of measure: QuantLib's process-wide
+<code>UnitOfMeasureConversionManager</code>, renamed, as an immutable value that
+<a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_UnitOfMeasureConversions">UnitOfMeasureConversions</a> holds.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.UnitOfMeasureData.html">UnitOfMeasureData</a></dt>
+      <dd><p>A unit of measure preset's data, which <a class="xref" href="NanoQL.ConventionProvider.html#NanoQL_ConventionProvider_ResolveUnitOfMeasure_System_String_System_Func_NanoQL_Experimental_UnitOfMeasureData__">ResolveUnitOfMeasure(string, Func&lt;UnitOfMeasureData&gt;)</a> returns.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.VanillaVPPOption.html">VanillaVPPOption</a></dt>
+      <dd><p>A virtual power plant: the right to run a gas-fired plant at each exercise date, earning power less gas at its heat
+rate, within its output range, minimum up and down times, start costs and, optionally, a limit on its starts or
+running hours.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.VannaVolgaBarrierEngine.html">VannaVolgaBarrierEngine</a></dt>
+      <dd><p>The Vanna-Volga engine for FX barrier options (Castagna and Mercurio, 2007): the analytic barrier price at the
+money, corrected by the vanna and volga of the 25-delta call and put, weighted by the probability of not touching
+the barrier, and bounded by the vanilla price the Vanna-Volga smile gives.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.VannaVolgaDoubleBarrierEngine.html">VannaVolgaDoubleBarrierEngine</a></dt>
+      <dd><p>The Vanna-Volga engine for FX double barrier options (Castagna and Mercurio, 2007): a double-barrier engine's price
+at the money, corrected by the vanna and volga of the at-the-money, 25-delta call and put options, weighted by the
+probability of touching neither barrier, and bounded by the vanilla price the Vanna-Volga smile gives.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.VannaVolgaInterpolation.html">VannaVolgaInterpolation</a></dt>
+      <dd><p>The Vanna-Volga interpolation of a smile between three volatilities in strike space: the at-the-money call's Black
+price corrected by the three quoted calls' market premia over their at-the-money ones, weighted by each strike's
+vega, and turned back into a volatility.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.VarianceGammaEngine.html">VarianceGammaEngine</a></dt>
+      <dd><p>The analytic engine for European options under the variance gamma process: the Black-Scholes price conditional on
+the gamma time, integrated against the gamma density.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.VarianceGammaModel.html">VarianceGammaModel</a></dt>
+      <dd><p>The variance gamma model (Madan, Carr and Chang, 1998, &quot;The variance gamma process and option pricing&quot;, European
+Finance Review 2, 79-105): its process's three parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.VarianceGammaProcess.html">VarianceGammaProcess</a></dt>
+      <dd><p>The variance gamma process: a Brownian motion with drift θ and volatility σ, db = θ dt + σ dW, evaluated at the
+times of a gamma process with mean 1 and variance rate ν.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.VarianceOption.html">VarianceOption</a></dt>
+      <dd><p>An option on realized variance: at maturity it pays the notional times the payoff of the variance realized from the
+start date.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.VegaStressedBlackScholesProcess.html">VegaStressedBlackScholesProcess</a></dt>
+      <dd><p>A Black-Scholes process whose volatility is stressed by a level inside a box of times and asset values: QuantLib's
+<code>VegaStressedBlackScholesProcess</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.VolatilityCube.html">VolatilityCube</a></dt>
+      <dd><p>A volatility cube of interest-rate volatility surfaces and abcd at-the-money curves on one reference date.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.YYGenericCPI.html">YYGenericCPI</a></dt>
+      <dd><p>A quoted year-on-year generic consumer price index, not a ratio: family &quot;YY_CPI&quot;, region
+<a class="xref" href="NanoQL.Experimental.GenericRegion.html">GenericRegion</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.YoYCapFloorTermPriceSurface.html">YoYCapFloorTermPriceSurface</a></dt>
+      <dd><p>Year-on-year inflation cap and floor prices by maturity and strike, with the at-the-money year-on-year swap rates
+and the year-on-year curve they imply: QuantLib's <code>YoYCapFloorTermPriceSurface</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.YoYInflationCapFloorTermPriceSurface.html">YoYInflationCapFloorTermPriceSurface</a></dt>
+      <dd><p>The year-on-year cap and floor price surface on bicubic interpolation of its prices and cubic interpolation of its
+swap rates: QuantLib-Python's <code>YoYInflationCapFloorTermPriceSurface</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.YoYOptionletHelper.html">YoYOptionletHelper</a></dt>
+      <dd><p>A year-on-year inflation volatility bootstrap helper: a cap or floor priced off the volatility under construction,
+quoting its price: QuantLib's <code>YoYOptionletHelper</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.YoYOptionletStripper.html">YoYOptionletStripper</a></dt>
+      <dd><p>Strips year-on-year optionlet volatilities from a cap and floor price surface along each strike: QuantLib's
+<code>YoYOptionletStripper</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ZigguratRng.html">ZigguratRng</a></dt>
+      <dd><p>A generator of standard normal variates by the Ziggurat method over a 32-bit Mersenne Twister: QuantLib's
+<code>ZigguratRng</code>.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.AffineHazardRate.html">AffineHazardRate</a></dt>
+      <dd><p>The affine hazard-rate curve traits: a deterministic hazard rate interpolated on the nodes, added to a one-factor
+affine model of the default intensity, bootstrapped so that the model's curve reprices the market.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FdmVPPStepConditionParams.html">FdmVPPStepConditionParams</a></dt>
+      <dd><p>A virtual power plant's operating parameters, as its step conditions read them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.FxReset.html">FxReset</a></dt>
+      <dd><p>The contractual observation used to reset a cross-currency notional.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianCopulaPolicy.html">GaussianCopulaPolicy</a></dt>
+      <dd><p>The Gaussian latent model's copula policy: standard normal systemic and idiosyncratic factors, so that the latent
+variables are standard normal too, by the Gaussian's stability under convolution.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.GaussianCopulaPolicyInitTraits.html">GaussianCopulaPolicyInitTraits</a></dt>
+      <dd><p>The Gaussian copula policy's initialization parameters: none, QuantLib's <code>int</code> placeholder.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LinearFlat.html">LinearFlat</a></dt>
+      <dd><p>The linear interpolation with flat extrapolation's factory and traits: QuantLib's <code>LinearFlat</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.Loss.html">Loss</a></dt>
+      <dd><p>A loss's time and amount, ordered by time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.NoArbSabr.html">NoArbSabr</a></dt>
+      <dd><p>The no-arbitrage SABR interpolation factory: builds a <a class="xref" href="NanoQL.Experimental.NoArbSabrInterpolation.html">NoArbSabrInterpolation</a> with its parameters
+over given points. Global: a change to one point changes the whole fit.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.Polynomial.html">Polynomial</a></dt>
+      <dd><p>The <a class="xref" href="NanoQL.Experimental.Polynomial2DSpline.html">Polynomial2DSpline</a> interpolation's factory: QuantLib's <code>Polynomial</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+      <dd><p>An amount of a commodity, in a unit of measure.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.Svi.html">Svi</a></dt>
+      <dd><p>The SVI interpolation's factory and traits: an <a class="xref" href="NanoQL.Experimental.SviInterpolation.html">SviInterpolation</a> fitted with its
+parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.SwaptionVolCubeNoArbSabrModel.html">SwaptionVolCubeNoArbSabrModel</a></dt>
+      <dd><p>The XABR cube's model for Doust's no-arbitrage SABR: QuantLib's <code>SwaptionVolCubeNoArbSabrModel</code> with its
+traits' specialization, the smiles <a class="xref" href="NanoQL.Experimental.NoArbSabrInterpolation.html">NoArbSabrInterpolation</a> fits, the sections
+<a class="xref" href="NanoQL.Experimental.NoArbSabrSmileSection.html">NoArbSabrSmileSection</a>s, no γ.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TCopulaPolicy.html">TCopulaPolicy</a></dt>
+      <dd><p>The Student t latent model's copula policy: independent t factors, each normalized to unit variance by
+√((ν − 2)/ν), so that a latent variable is a combination of t's (<a class="xref" href="NanoQL.Experimental.CumulativeBehrensFisher.html">CumulativeBehrensFisher</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.TCopulaPolicyInitTraits.html">TCopulaPolicyInitTraits</a></dt>
+      <dd><p>The Student t copula policy's initialization parameters: the orders of the factors' t distributions, the systemic
+factors' and then one for every idiosyncratic factor.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.VannaVolga.html">VannaVolga</a></dt>
+      <dd><p>The Vanna-Volga interpolation's factory and traits: a <a class="xref" href="NanoQL.Experimental.VannaVolgaInterpolation.html">VannaVolgaInterpolation</a> on a
+market.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.YoYInflationVolatilityTraits.html">YoYInflationVolatilityTraits</a></dt>
+      <dd><p>The bootstrap traits of a year-on-year optionlet volatility curve: QuantLib's <code>YoYInflationVolatilityTraits</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.Ziggurat.html">Ziggurat</a></dt>
+      <dd><p>Random-number traits for the Ziggurat generator: QuantLib's <code>Ziggurat</code>.</p>
+</dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IAnnealingProbability-1.html">IAnnealingProbability&lt;TSelf&gt;</a></dt>
+      <dd><p>The hybrid simulated annealing's probability, which decides whether a new point is accepted: QuantLib's
+<code>Probability</code> template parameter.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IAnnealingReannealing-1.html">IAnnealingReannealing&lt;TSelf&gt;</a></dt>
+      <dd><p>The hybrid simulated annealing's reannealing, which rescales each dimension's steps to raise the temperature the
+more sensitive dimensions see: QuantLib's <code>Reannealing</code> template parameter.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IAnnealingSampler-1.html">IAnnealingSampler&lt;TSelf&gt;</a></dt>
+      <dd><p>The hybrid simulated annealing's sampler, which draws a new point from a density on the current one: QuantLib's
+<code>Sampler</code> template parameter.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IAnnealingTemperature-1.html">IAnnealingTemperature&lt;TSelf&gt;</a></dt>
+      <dd><p>The hybrid simulated annealing's temperature, a schedule T(k) over each dimension's steps: QuantLib's
+<code>Temperature</code> template parameter.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IBaseCorrelationModel-1.html">IBaseCorrelationModel&lt;TInitTraits&gt;</a></dt>
+      <dd><p>A base model of the base-correlation loss model: a loss model of one correlation, built per correlation the surface
+gives, QuantLib's <code>setupModels</code> specialisations.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ICopulaPolicy-2.html">ICopulaPolicy&lt;TSelf, TInitTraits&gt;</a></dt>
+      <dd><p>The concept of a latent model's copula policy: the distributions of the systemic factors, the idiosyncratic
+factors and the latent variables they combine into, which <a class="xref" href="NanoQL.Experimental.LatentModel-2.html">LatentModel&lt;TCopula, TInitTraits&gt;</a> takes as
+its template parameter.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IDefaultLossModel.html">IDefaultLossModel</a></dt>
+      <dd><p>A default loss model: the basket's contract with the algorithms that give its joint loss statistics (latent models,
+top-down models). QuantLib's <code>DefaultLossModel</code>, whose abstract class form is <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html">DefaultLossModel</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IDiscretizedDoubleBarrierAsset-1.html">IDiscretizedDoubleBarrierAsset&lt;TSelf&gt;</a></dt>
+      <dd><p>A discretized double-barrier asset a binomial double-barrier engine builds: the constructor QuantLib's engine
+template calls, <code>D(arguments, process, grid)</code> (<code>binomialdoublebarrierengine.hpp:119</code>), as a static factory
+(<code>IDiscretizedBarrierAsset</code>'s form).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IRandomWalkDistribution.html">IRandomWalkDistribution</a></dt>
+      <dd><p>A distribution an isotropic random walk draws its step's radius from, over a 32-bit Mersenne Twister: QuantLib's
+<code>Distribution</code> template parameter, &quot;compatible with <code>std::mt19937</code>&quot;.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.AtomicDefaultType.html">AtomicDefaultType</a></dt>
+      <dd><p>An atomic default event, a single contractual event: QuantLib's <code>AtomicDefault::Type</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EnergyCommodityDeliverySchedule.html">EnergyCommodityDeliverySchedule</a></dt>
+      <dd><p>When an energy commodity is delivered: QuantLib's <code>EnergyCommodity::DeliverySchedule</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EnergyCommodityPaymentSchedule.html">EnergyCommodityPaymentSchedule</a></dt>
+      <dd><p>When an energy commodity is paid for: QuantLib's <code>EnergyCommodity::PaymentSchedule</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.EnergyCommodityQuantityPeriodicity.html">EnergyCommodityQuantityPeriodicity</a></dt>
+      <dd><p>The period a quantity is given per: QuantLib's <code>EnergyCommodity::QuantityPeriodicity</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedBlackScholesMertonProcessDiscretization.html">ExtendedBlackScholesMertonProcessDiscretization</a></dt>
+      <dd><p>The extended Black-Scholes-Merton process's built-in schemes: QuantLib's
+<code>ExtendedBlackScholesMertonProcess::Discretization</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedBlackVarianceSurfaceExtrapolation.html">ExtendedBlackVarianceSurfaceExtrapolation</a></dt>
+      <dd><p>How an <a class="xref" href="NanoQL.Experimental.ExtendedBlackVarianceSurface.html">ExtendedBlackVarianceSurface</a> extrapolates beyond its strikes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.ExtendedOrnsteinUhlenbeckProcessDiscretization.html">ExtendedOrnsteinUhlenbeckProcessDiscretization</a></dt>
+      <dd><p>How an <a class="xref" href="NanoQL.Experimental.ExtendedOrnsteinUhlenbeckProcess.html">ExtendedOrnsteinUhlenbeckProcess</a> integrates its time-dependent level over a step.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.HybridSimulatedAnnealingLocalOptimizeScheme.html">HybridSimulatedAnnealingLocalOptimizeScheme</a></dt>
+      <dd><p>When the hybrid simulated annealing runs its local optimizer: QuantLib's
+<code>HybridSimulatedAnnealing::LocalOptimizeScheme</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.HybridSimulatedAnnealingResetScheme.html">HybridSimulatedAnnealingResetScheme</a></dt>
+      <dd><p>Where the hybrid simulated annealing resets its current point: QuantLib's <code>HybridSimulatedAnnealing::ResetScheme</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.IrregularSettlementType.html">IrregularSettlementType</a></dt>
+      <dd><p>How an irregular swaption settles on exercise: QuantLib's <code>IrregularSettlement::Type</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.LatentModelIntegrationType.html">LatentModelIntegrationType</a></dt>
+      <dd><p>A latent model's integration algorithm over its systemic factors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MtMCrossCurrencyBasisSwapType.html">MtMCrossCurrencyBasisSwapType</a></dt>
+      <dd><p>Whether a mark-to-market cross-currency basis swap pays or receives its FX base-currency leg: QuantLib's
+<code>MtMCrossCurrencyBasisSwap::Type</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PaymentTermEventType.html">PaymentTermEventType</a></dt>
+      <dd><p>The event a payment term counts from: QuantLib's <code>PaymentTerm::EventType</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.PricingErrorLevel.html">PricingErrorLevel</a></dt>
+      <dd><p>How serious a pricing error is: QuantLib's <code>PricingError::Level</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.QuantityConversionType.html">QuantityConversionType</a></dt>
+      <dd><p>How quantities in different units are combined: QuantLib's <code>Quantity::ConversionType</code>, read from
+<a class="xref" href="NanoQL.Experimental.QuantitySettings.html#NanoQL_Experimental_QuantitySettings_ConversionType">ConversionType</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.RestructuringType.html">RestructuringType</a></dt>
+      <dd><p>A restructuring type: QuantLib's <code>Restructuring::Type</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.Seniority.html">Seniority</a></dt>
+      <dd><p>The seniority of a bond; also the ISDA tiers and seniorities of CDS conventional spreads.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.UnitOfMeasureConversionType.html">UnitOfMeasureConversionType</a></dt>
+      <dd><p>Where a unit conversion comes from: QuantLib's <code>UnitOfMeasureConversion::Type</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.UnitOfMeasureType.html">UnitOfMeasureType</a></dt>
+      <dd><p>What a unit of measure measures: QuantLib's <code>UnitOfMeasure::Type</code>.</p>
+</dd>
+    </dl>
+    <h3 id="delegates">
+Delegates
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MultidimIntegrand.html">MultidimIntegrand</a></dt>
+      <dd><p>A scalar function of a vector, QuantLib's <code>std::function&lt;Real (const std::vector&lt;Real&gt;&amp;)&gt;</code>:
+the integrand of a multidimensional integration.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Experimental.MultidimVectorIntegrand.html">MultidimVectorIntegrand</a></dt>
+      <dd><p>A vector function of a vector, QuantLib's
+<code>std::function&lt;std::vector&lt;Real&gt; (const std::vector&lt;Real&gt;&amp;)&gt;</code>: the integrand of a
+multidimensional vector integration.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

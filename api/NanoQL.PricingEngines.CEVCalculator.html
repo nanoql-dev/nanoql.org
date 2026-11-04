@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CEVCalculator | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CEVCalculator | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The undiscounted value of a European option on the constant elasticity of variance (CEV) process df = α&#183;f^β&#183;dW with an absorbing boundary at f = 0, by the non-central chi-squared distribution (D. R. Brecher and A. E. Lindsay, &amp;quot;Results on the CEV Process, Past and Present&amp;quot;).">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.CEVCalculator">
+
+
+
+  <h1 id="NanoQL_PricingEngines_CEVCalculator" data-uid="NanoQL.PricingEngines.CEVCalculator" class="text-break">
+Class CEVCalculator  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The undiscounted value of a European option on the constant elasticity of variance (CEV) process
+df = α·f^β·dW with an absorbing boundary at f = 0, by the non-central chi-squared distribution (D. R. Brecher and
+A. E. Lindsay, &quot;Results on the CEV Process, Past and Present&quot;).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class CEVCalculator</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CEVCalculator</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_CEVCalculator_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Near β = 1 the formula fails: δ = (1 − 2β)/(1 − β) divides by zero at β = 1, and around it Boost's non-central
+chi-squared refuses or runs for seconds. For |β − 1| &lt; 1e-3 the value is Black's formula at Hagan's
+CEV-equivalent volatility, the SABR volatility at ν = 0 (<a class="xref" href="NanoQL.TermStructures.SabrFunctions.html#NanoQL_TermStructures_SabrFunctions_UnsafeSabrLogNormalVolatility_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_">UnsafeSabrLogNormalVolatility(double, double, double, double, double, double, double)</a>),
+which is α at β = 1 and within 4.6e-7 of the CEV formula at the band's edge, where QuantLib throws or hangs. A
+documented divergence (<code>Divergences/CevNearOneTests.cs</code>).
+</p>
+<p>
+Where a tail QuantLib takes as 1 − cdf (or Γ-ratio − cdf, <code>analyticcevengine.cpp:50-80</code>) is below 1e-3, the
+difference loses most of its digits: a 36-day call at a strike of 150 comes out about 20% low. There the tail is
+Boost's complement <code>cdf</code> (and <code>gamma_q</code>); QuantLib's arithmetic and bits elsewhere. A documented divergence
+(<code>Divergences/CevTailTests.cs</code>).
+</p>
+<p>
+At a time of 0 the formula's non-centrality x₀/t is infinite, which Boost refuses; the value there is the payoff at
+f0, the limit QuantLib's own values approach as the time shrinks. A documented divergence (a run find,
+<code>Divergences/CevAtExpiryTests.cs</code>).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_CEVCalculator__ctor_" data-uid="NanoQL.PricingEngines.CEVCalculator.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_CEVCalculator__ctor_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.CEVCalculator.#ctor(System.Double,System.Double,System.Double)">
+  CEVCalculator(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.CEVCalculator.html">CEVCalculator</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CEVCalculator(double f0, double alpha, double beta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward's value today.</p>
+</dd>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility parameter α.</p>
+</dd>
+    <dt><code>beta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The elasticity β.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_CEVCalculator_Alpha_" data-uid="NanoQL.PricingEngines.CEVCalculator.Alpha*"></a>
+
+  <h3 id="NanoQL_PricingEngines_CEVCalculator_Alpha" data-uid="NanoQL.PricingEngines.CEVCalculator.Alpha">
+  Alpha
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the volatility parameter α.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Alpha { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_CEVCalculator_Beta_" data-uid="NanoQL.PricingEngines.CEVCalculator.Beta*"></a>
+
+  <h3 id="NanoQL_PricingEngines_CEVCalculator_Beta" data-uid="NanoQL.PricingEngines.CEVCalculator.Beta">
+  Beta
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the elasticity β.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Beta { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_CEVCalculator_F0_" data-uid="NanoQL.PricingEngines.CEVCalculator.F0*"></a>
+
+  <h3 id="NanoQL_PricingEngines_CEVCalculator_F0" data-uid="NanoQL.PricingEngines.CEVCalculator.F0">
+  F0
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the forward's value today.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double F0 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_CEVCalculator_Value_" data-uid="NanoQL.PricingEngines.CEVCalculator.Value*"></a>
+
+  <h3 id="NanoQL_PricingEngines_CEVCalculator_Value_NanoQL_OptionType_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.CEVCalculator.Value(NanoQL.OptionType,System.Double,System.Double)">
+  Value(OptionType, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The option's undiscounted value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Value(OptionType optionType, double strike, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>The option's type.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to expiry; at 0, the payoff at f0.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">optionType</code> isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>Boost's non-central chi-squared refuses its arguments (a time that isn't
+positive, a negative forward), or a series runs out of terms.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

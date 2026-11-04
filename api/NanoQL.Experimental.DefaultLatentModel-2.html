@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class DefaultLatentModel&lt;TCopula, TInitTraits&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DefaultLatentModel&lt;TCopula, TInitTraits&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The default-event latent model: a latent model of a portfolio&#39;s joint default events, a name defaulting by a date when its latent variable falls below the inverse of its default probability. It models the events alone, no severity or exposure; the basket&#39;s names and the model&#39;s variables correspond by index.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.DefaultLatentModel`2">
+
+
+
+  <h1 id="NanoQL_Experimental_DefaultLatentModel_2" data-uid="NanoQL.Experimental.DefaultLatentModel`2" class="text-break">
+Class DefaultLatentModel&lt;TCopula, TInitTraits&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The default-event latent model: a latent model of a portfolio's joint default events, a name defaulting by a date
+when its latent variable falls below the inverse of its default probability. It models the events alone, no
+severity or exposure; the basket's names and the model's variables correspond by index.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public class DefaultLatentModel&lt;TCopula, TInitTraits&gt; : LatentModel&lt;TCopula, TInitTraits&gt; where TCopula : struct, ICopulaPolicy&lt;TCopula, TInitTraits&gt; where TInitTraits : struct</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TCopula</code></dt>
+    <dd><p>The copula policy.</p>
+</dd>
+    <dt><code>TInitTraits</code></dt>
+    <dd><p>The policy's initialization parameters.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.LatentModel-2.html">LatentModel</a>&lt;TCopula, TInitTraits&gt;</div>
+      <div><span class="xref">DefaultLatentModel&lt;TCopula, TInitTraits&gt;</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.ConstantLossLatentModel-2.html">ConstantLossLatentModel&lt;TCopula, TInitTraits&gt;</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.GaussianDefProbLM.html">GaussianDefProbLM</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.TDefProbLM.html">TDefProbLM</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_FromCorrelation_System_Double_System_Int32__1_">LatentModel&lt;TCopula, TInitTraits&gt;.FromCorrelation(double, int, TInitTraits)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_CumulativeY_System_Double_System_Int32_">LatentModel&lt;TCopula, TInitTraits&gt;.CumulativeY(double, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_CumulativeZ_System_Double_">LatentModel&lt;TCopula, TInitTraits&gt;.CumulativeZ(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_Density_System_ReadOnlySpan_System_Double__">LatentModel&lt;TCopula, TInitTraits&gt;.Density(ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_InverseCumulativeDensity_System_Double_System_Int32_">LatentModel&lt;TCopula, TInitTraits&gt;.InverseCumulativeDensity(double, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_InverseCumulativeY_System_Double_System_Int32_">LatentModel&lt;TCopula, TInitTraits&gt;.InverseCumulativeY(double, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_InverseCumulativeZ_System_Double_">LatentModel&lt;TCopula, TInitTraits&gt;.InverseCumulativeZ(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_AllFactorCumulInverter_System_ReadOnlySpan_System_Double__">LatentModel&lt;TCopula, TInitTraits&gt;.AllFactorCumulInverter(ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_LatentVarValue_System_ReadOnlySpan_System_Double__System_Int32_">LatentModel&lt;TCopula, TInitTraits&gt;.LatentVarValue(ReadOnlySpan&lt;double&gt;, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_LatentVariableCorrel_System_Int32_System_Int32_">LatentModel&lt;TCopula, TInitTraits&gt;.LatentVariableCorrel(int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_IntegratedExpectedValue_NanoQL_Experimental_MultidimIntegrand_">LatentModel&lt;TCopula, TInitTraits&gt;.IntegratedExpectedValue(MultidimIntegrand)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_IntegratedExpectedValueV_NanoQL_Experimental_MultidimVectorIntegrand_">LatentModel&lt;TCopula, TInitTraits&gt;.IntegratedExpectedValueV(MultidimVectorIntegrand)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_Size">LatentModel&lt;TCopula, TInitTraits&gt;.Size</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_NumFactors">LatentModel&lt;TCopula, TInitTraits&gt;.NumFactors</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_NumTotalFactors">LatentModel&lt;TCopula, TInitTraits&gt;.NumTotalFactors</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_FactorWeights">LatentModel&lt;TCopula, TInitTraits&gt;.FactorWeights</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_IdiosyncFctrs">LatentModel&lt;TCopula, TInitTraits&gt;.IdiosyncFctrs</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_Copula">LatentModel&lt;TCopula, TInitTraits&gt;.Copula</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_Integration">LatentModel&lt;TCopula, TInitTraits&gt;.Integration</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_DefaultLatentModel_2_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Unsealed and immutable. <a class="xref" href="NanoQL.Experimental.DefaultLatentModel-2.html#NanoQL_Experimental_DefaultLatentModel_2_ResetBasket_NanoQL_Experimental_Basket_">ResetBasket(Basket)</a> returns a copy bound to a basket, where QuantLib's model holds a
+mutable pointer to one; bound to a basket with realized defaults, the copy keeps the live names' rows. A curve read
+before its reference date is a default probability of 0, where QuantLib's refuses it ("negative time").
+</p>
+<p>
+<a class="xref" href="NanoQL.Experimental.DefaultLatentModel-2.html#NanoQL_Experimental_DefaultLatentModel_2_ProbAtLeastNEvents_System_Int32_NanoQL_Time_Date_">ProbAtLeastNEvents(int, Date)</a> sums over every default configuration, 2ⁿ per integration node, counting them in
+QuantLib's <code>BigNatural</code>, 32 bits under MSVC: from 32 names its count is 0 and its probability of one or more
+defaults 0, and an order above 30 shifts a 32-bit 1 past its sign (<code>defaultprobabilitylatentmodel.hpp:295-309</code>),
+both refused. <a class="xref" href="NanoQL.Experimental.DefaultLatentModel-2.html#NanoQL_Experimental_DefaultLatentModel_2_DefaultCorrelation_NanoQL_Time_Date_System_Int32_System_Int32_">DefaultCorrelation(Date, int, int)</a> divides by the product of the probabilities and their complements,
+0/0 at a probability of 0 or 1, refused.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_DefaultLatentModel_2__ctor_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultLatentModel_2__ctor_System_Collections_Generic_IReadOnlyList_System_Collections_Generic_IReadOnlyList_System_Double___NanoQL_Experimental_LatentModelIntegrationType__1_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.#ctor(System.Collections.Generic.IReadOnlyList{System.Collections.Generic.IReadOnlyList{System.Double}},NanoQL.Experimental.LatentModelIntegrationType,`1)">
+  DefaultLatentModel(IReadOnlyList&lt;IReadOnlyList&lt;double&gt;&gt;, LatentModelIntegrationType, TInitTraits)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.DefaultLatentModel-2.html">DefaultLatentModel&lt;TCopula, TInitTraits&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DefaultLatentModel(IReadOnlyList&lt;IReadOnlyList&lt;double&gt;&gt; factorWeights, LatentModelIntegrationType integralType, TInitTraits initTraits = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>factorWeights</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd><p>The weights of each variable on the independent factors.</p>
+</dd>
+    <dt><code>integralType</code> <a class="xref" href="NanoQL.Experimental.LatentModelIntegrationType.html">LatentModelIntegrationType</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+    <dt><code>initTraits</code> <span class="xref">TInitTraits</span></dt>
+    <dd><p>The copula's initialization parameters.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Experimental.LatentModel-2.html">LatentModel&lt;TCopula, TInitTraits&gt;</a>'s constructor.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">integralType</code> isn't a member of its type, or
+there are more than 15 factors.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_DefaultLatentModel_2__ctor_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultLatentModel_2__ctor_System_Double_System_Int32_NanoQL_Experimental_LatentModelIntegrationType__1_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.#ctor(System.Double,System.Int32,NanoQL.Experimental.LatentModelIntegrationType,`1)">
+  DefaultLatentModel(double, int, LatentModelIntegrationType, TInitTraits)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.DefaultLatentModel-2.html">DefaultLatentModel&lt;TCopula, TInitTraits&gt;</a> class on one
+factor of a market correlation: QuantLib's quote constructor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DefaultLatentModel(double correlation, int nVariables, LatentModelIntegrationType integralType, TInitTraits initTraits = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>correlation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation, whose square root is every variable's weight.</p>
+</dd>
+    <dt><code>nVariables</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of variables.</p>
+</dd>
+    <dt><code>integralType</code> <a class="xref" href="NanoQL.Experimental.LatentModelIntegrationType.html">LatentModelIntegrationType</a></dt>
+    <dd><p>The integration.</p>
+</dd>
+    <dt><code>initTraits</code> <span class="xref">TInitTraits</span></dt>
+    <dd><p>The copula's initialization parameters.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Experimental.LatentModel-2.html#NanoQL_Experimental_LatentModel_2_FromCorrelation_System_Double_System_Int32__1_">FromCorrelation(double, int, TInitTraits)</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">integralType</code> isn't a member of its
+type.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_DefaultLatentModel_2_Basket_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.Basket*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultLatentModel_2_Basket" data-uid="NanoQL.Experimental.DefaultLatentModel`2.Basket">
+  Basket
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the basket the model is bound to, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> before it is bound.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Basket? Basket { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Basket.html">Basket</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_DefaultLatentModel_2_Integration_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.Integration*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultLatentModel_2_Integration" data-uid="NanoQL.Experimental.DefaultLatentModel`2.Integration">
+  Integration
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the model's integration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override LMIntegration Integration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.LMIntegration.html">LMIntegration</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_DefaultLatentModel_2_CondProbProduct_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.CondProbProduct*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultLatentModel_2_CondProbProduct_System_Double_System_Double_System_Int32_System_Int32_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Experimental.DefaultLatentModel`2.CondProbProduct(System.Double,System.Double,System.Int32,System.Int32,System.ReadOnlySpan{System.Double})">
+  CondProbProduct(double, double, int, int, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The product of two names' conditional default probabilities, a step of the correlation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double CondProbProduct(double invCumYProb1, double invCumYProb2, int iName1, int iName2, ReadOnlySpan&lt;double&gt; mktFactors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>invCumYProb1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first name's inverse cumulative unconditional probability.</p>
+</dd>
+    <dt><code>invCumYProb2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second name's.</p>
+</dd>
+    <dt><code>iName1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The first name.</p>
+</dd>
+    <dt><code>iName2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The second name.</p>
+</dd>
+    <dt><code>mktFactors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The factors' values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The product.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_DefaultLatentModel_2_ConditionalDefaultProbability_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.ConditionalDefaultProbability*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultLatentModel_2_ConditionalDefaultProbability_NanoQL_Time_Date_System_Int32_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Experimental.DefaultLatentModel`2.ConditionalDefaultProbability(NanoQL.Time.Date,System.Int32,System.ReadOnlySpan{System.Double})">
+  ConditionalDefaultProbability(Date, int, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A name's default probability by a date conditional on the factors' values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double ConditionalDefaultProbability(Date date, int iName, ReadOnlySpan&lt;double&gt; mktFactors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>date</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>iName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The name.</p>
+</dd>
+    <dt><code>mktFactors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The factors' values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The conditional probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model isn't bound.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_DefaultLatentModel_2_ConditionalDefaultProbability_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.ConditionalDefaultProbability*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultLatentModel_2_ConditionalDefaultProbability_System_Double_System_Int32_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Experimental.DefaultLatentModel`2.ConditionalDefaultProbability(System.Double,System.Int32,System.ReadOnlySpan{System.Double})">
+  ConditionalDefaultProbability(double, int, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A name's default probability conditional on the factors' values, from its unconditional probability; the date
+is implicit in the probability. Below 1e-10, 0, sparing the inversion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ConditionalDefaultProbability(double prob, int iName, ReadOnlySpan&lt;double&gt; mktFactors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prob</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The unconditional probability.</p>
+</dd>
+    <dt><code>iName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The name.</p>
+</dd>
+    <dt><code>mktFactors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The factors' values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The conditional probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">prob</code> isn't below 1e-10 and <code class="paramref">iName</code> isn't one of the names, where QuantLib
+reads past its end.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">prob</code> isn't below 1e-10 and <code class="paramref">mktFactors</code> holds fewer values than the name's
+factors, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_DefaultLatentModel_2_ConditionalDefaultProbabilityInvP_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.ConditionalDefaultProbabilityInvP*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultLatentModel_2_ConditionalDefaultProbabilityInvP_System_Double_System_Int32_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Experimental.DefaultLatentModel`2.ConditionalDefaultProbabilityInvP(System.Double,System.Int32,System.ReadOnlySpan{System.Double})">
+  ConditionalDefaultProbabilityInvP(double, int, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A name's default probability conditional on the factors' values, from the inverse cumulative of its
+unconditional probability, which an integration over the factors computes once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ConditionalDefaultProbabilityInvP(double invCumYProb, int iName, ReadOnlySpan&lt;double&gt; m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>invCumYProb</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The inverse cumulative of the unconditional probability, of the copula's law.</p>
+</dd>
+    <dt><code>iName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The name.</p>
+</dd>
+    <dt><code>m</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The factors' values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The conditional probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">iName</code> isn't one of the names, where QuantLib reads past its end.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">m</code> holds fewer values than the name's factors, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_DefaultLatentModel_2_DefaultCorrelation_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.DefaultCorrelation*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultLatentModel_2_DefaultCorrelation_NanoQL_Time_Date_System_Int32_System_Int32_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.DefaultCorrelation(NanoQL.Time.Date,System.Int32,System.Int32)">
+  DefaultCorrelation(Date, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pearson's correlation of two names' default indicators by a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DefaultCorrelation(Date d, int iNamei, int iNamej)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>iNamei</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The first name.</p>
+</dd>
+    <dt><code>iNamej</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The second name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model isn't bound, or a name's default probability is 0 or 1, where the
+correlation is 0/0.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">iNamei</code> or <code class="paramref">iNamej</code> isn't one of the bound basket's names, where QuantLib
+reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_DefaultLatentModel_2_ProbAtLeastNEvents_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.ProbAtLeastNEvents*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultLatentModel_2_ProbAtLeastNEvents_System_Int32_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.ProbAtLeastNEvents(System.Int32,NanoQL.Time.Date)">
+  ProbAtLeastNEvents(int, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The probability of n or more defaults in the basket by a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ProbAtLeastNEvents(int n, Date date)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number, at most 30.</p>
+</dd>
+    <dt><code>date</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">n</code> is negative or above 30.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model isn't bound, or its basket has 32 names or more.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">date</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_DefaultLatentModel_2_ProbOfDefault_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.ProbOfDefault*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultLatentModel_2_ProbOfDefault_System_Int32_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.ProbOfDefault(System.Int32,NanoQL.Time.Date)">
+  ProbOfDefault(int, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A name's unconditional default probability by a date, integrated over the factors: a trivial method
+for testing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ProbOfDefault(int iName, Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>iName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The name.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model isn't bound (&quot;No portfolio basket set.&quot;).</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, not a date.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">iName</code> isn't one of the bound basket's names, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_DefaultLatentModel_2_ResetBasket_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.ResetBasket*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultLatentModel_2_ResetBasket_NanoQL_Experimental_Basket_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.ResetBasket(NanoQL.Experimental.Basket)">
+  ResetBasket(Basket)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the model bound to a basket of its names: to the basket's live names, over its restated tranche where
+names have defaulted (<a class="xref" href="NanoQL.Experimental.Basket.html#NanoQL_Experimental_Basket_PricingBasket">PricingBasket</a>), the copy keeping their rows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DefaultLatentModel&lt;TCopula, TInitTraits&gt; ResetBasket(Basket basket)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>basket</code> <a class="xref" href="NanoQL.Experimental.Basket.html">Basket</a></dt>
+    <dd><p>The basket, of the model's number of names.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.DefaultLatentModel-2.html">DefaultLatentModel</a>&lt;TCopula, TInitTraits&gt;</dt>
+    <dd><p>The bound copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">basket</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The basket's size isn't the model's (&quot;Incompatible new basket and model
+sizes.&quot;), or every name in it has defaulted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_DefaultLatentModel_2_UnconditionalProbability_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.UnconditionalProbability*"></a>
+
+  <h3 id="NanoQL_Experimental_DefaultLatentModel_2_UnconditionalProbability_System_Int32_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.DefaultLatentModel`2.UnconditionalProbability(System.Int32,NanoQL.Time.Date)">
+  UnconditionalProbability(int, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A name's unconditional default probability by a date, read on its curve: 0 before the curve's
+reference date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double UnconditionalProbability(int iName, Date date)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>iName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The name.</p>
+</dd>
+    <dt><code>date</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model isn't bound (&quot;No portfolio basket set.&quot;).</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class QuantoEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class QuantoEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The quanto engine: an option&#39;s own engine run on the underlying&#39;s process with its dividend curve carrying the quanto adjustment, with the quanto sensitivities added.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.QuantoEngine">
+
+
+
+  <h1 id="NanoQL_PricingEngines_QuantoEngine" data-uid="NanoQL.PricingEngines.QuantoEngine" class="text-break">
+Class QuantoEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The quanto engine: an option's own engine run on the underlying's process with its dividend curve carrying the
+quanto adjustment, with the quanto sensitivities added.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class QuantoEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">QuantoEngine</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_QuantoEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+QuantLib's <code>QuantoEngine&lt;Instr, Engine&gt;</code> as a static class over a delegate in the engines' form: each
+overload runs the instrument's steps, builds QuantLib's quanto process (<a class="xref" href="NanoQL.TermStructures.QuantoTermStructure.html">QuantoTermStructure</a> as its
+dividend curve, at the drift's strike and the exchange rate's at-the-money level 1) and calls the engine on the
+instrument's terms as the inner engine's own instrument, QuantLib's arguments copy; the generic core takes any
+one-asset instrument and its terms, so later engines and a user's own quanto instruments plug in.
+</p>
+<p>
+<a class="xref" href="NanoQL.Instruments.QuantoOptionResults.html#NanoQL_Instruments_QuantoOptionResults_Qvega">Qvega</a> and <a class="xref" href="NanoQL.Instruments.QuantoOptionResults.html#NanoQL_Instruments_QuantoOptionResults_Qlambda">Qlambda</a> read the underlying's
+volatility at the drift's strike, where QuantLib reads it at the spot, so on a smile they are the derivatives of the
+price the drift gives (<code>Divergences/QuantoSmileTests.cs</code>); on a flat volatility, QuantLib's. A quanto
+forward-start option's drift is read at the moneyness times the spot, the strike its forward engine prices at, where
+QuantLib reads it at the payoff's strike, which the forward engine ignores.
+</p>
+<p>
+The rho, vega, <a class="xref" href="NanoQL.Instruments.QuantoOptionResults.html#NanoQL_Instruments_QuantoOptionResults_Qrho">Qrho</a>, <a class="xref" href="NanoQL.Instruments.QuantoOptionResults.html#NanoQL_Instruments_QuantoOptionResults_Qvega">Qvega</a> and
+<a class="xref" href="NanoQL.Instruments.QuantoOptionResults.html#NanoQL_Instruments_QuantoOptionResults_Qlambda">Qlambda</a> come from the inner dividend rho through each input's change to the quanto
+curve's log discount, by date, at the dates the inner engine reads: at expiry, and for a forward-start option at the
+reset too. QuantLib's assume the input moves the quanto zero rate by one factor at expiry, which misses where a
+structure counts or dates its time apart from the dividend curve, whose clock the quanto curve keeps, and for a
+forward-start option where an input's contribution varies between the reset and expiry, as on a volatility term
+structure (<code>Divergences/QuantoGreeksTermStructureTests.cs</code>). Where every structure shares the dividend curve's
+times and the factor is one, QuantLib's formula.
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_QuantoEngine_Calculate_" data-uid="NanoQL.PricingEngines.QuantoEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_QuantoEngine_Calculate_NanoQL_Experimental_QuantoDoubleBarrierOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_BlackVolTermStructure_System_Double_System_Func_NanoQL_Instruments_DoubleBarrierOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_Instruments_OneAssetOptionResults__" data-uid="NanoQL.PricingEngines.QuantoEngine.Calculate(NanoQL.Experimental.QuantoDoubleBarrierOption,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.BlackVolTermStructure,System.Double,System.Func{NanoQL.Instruments.DoubleBarrierOption,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,NanoQL.Instruments.OneAssetOptionResults})">
+  Calculate(QuantoDoubleBarrierOption, EvaluationContext, GeneralizedBlackScholesProcess, YieldTermStructure, BlackVolTermStructure, double, Func&lt;DoubleBarrierOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a quanto double barrier option: QuantLib's <code>QuantoEngine&lt;DoubleBarrierOption, Engine&gt;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public static QuantoOptionResults Calculate(QuantoDoubleBarrierOption option, EvaluationContext context, GeneralizedBlackScholesProcess process, YieldTermStructure foreignRiskFreeRate, BlackVolTermStructure exchangeRateVolatility, double correlation, Func&lt;DoubleBarrierOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt; engine)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Experimental.QuantoDoubleBarrierOption.html">QuantoDoubleBarrierOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The underlying's process, in its own currency.</p>
+</dd>
+    <dt><code>foreignRiskFreeRate</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The underlying currency's risk-free curve.</p>
+</dd>
+    <dt><code>exchangeRateVolatility</code> <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a></dt>
+    <dd><p>The exchange rate's volatility.</p>
+</dd>
+    <dt><code>correlation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation of the underlying and the exchange rate.</p>
+</dd>
+    <dt><code>engine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.DoubleBarrierOption.html">DoubleBarrierOption</a>, <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a>, <a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a>&gt;</dt>
+    <dd><p>The double-barrier engine run on the quanto process, such as
+<code>AnalyticDoubleBarrierEngine.Calculate</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.QuantoOptionResults.html">QuantoOptionResults</a></dt>
+    <dd><p>The option's results, with the quanto sensitivities where the double-barrier engine gives a dividend
+rho.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_PricingEngines_QuantoEngine_Calculate_NanoQL_Experimental_QuantoDoubleBarrierOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_BlackVolTermStructure_System_Double_System_Func_NanoQL_Instruments_DoubleBarrierOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_Instruments_OneAssetOptionResults___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The double-barrier engine prices the option's terms as a <a class="xref" href="NanoQL.Instruments.DoubleBarrierOption.html">DoubleBarrierOption</a> of its own;
+QuantLib's analytic double-barrier engine gives no Greeks, so with it the derived sensitivities are absent, as
+QuantLib's are.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The spot isn't positive, or the inner engine refuses.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_QuantoEngine_Calculate_" data-uid="NanoQL.PricingEngines.QuantoEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_QuantoEngine_Calculate_NanoQL_Instruments_QuantoBarrierOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_BlackVolTermStructure_System_Double_System_Func_NanoQL_Instruments_BarrierOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_Instruments_OneAssetOptionResults__" data-uid="NanoQL.PricingEngines.QuantoEngine.Calculate(NanoQL.Instruments.QuantoBarrierOption,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.BlackVolTermStructure,System.Double,System.Func{NanoQL.Instruments.BarrierOption,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,NanoQL.Instruments.OneAssetOptionResults})">
+  Calculate(QuantoBarrierOption, EvaluationContext, GeneralizedBlackScholesProcess, YieldTermStructure, BlackVolTermStructure, double, Func&lt;BarrierOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a quanto barrier option: QuantLib's <code>QuantoEngine&lt;BarrierOption, Engine&gt;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static QuantoOptionResults Calculate(QuantoBarrierOption option, EvaluationContext context, GeneralizedBlackScholesProcess process, YieldTermStructure foreignRiskFreeRate, BlackVolTermStructure exchangeRateVolatility, double correlation, Func&lt;BarrierOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt; engine)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.QuantoBarrierOption.html">QuantoBarrierOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The underlying's process, in its own currency.</p>
+</dd>
+    <dt><code>foreignRiskFreeRate</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The underlying currency's risk-free curve.</p>
+</dd>
+    <dt><code>exchangeRateVolatility</code> <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a></dt>
+    <dd><p>The exchange rate's volatility.</p>
+</dd>
+    <dt><code>correlation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation of the underlying and the exchange rate.</p>
+</dd>
+    <dt><code>engine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.BarrierOption.html">BarrierOption</a>, <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a>, <a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a>&gt;</dt>
+    <dd><p>The barrier engine run on the quanto process, such as
+<code>AnalyticBarrierEngine.Calculate</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.QuantoOptionResults.html">QuantoOptionResults</a></dt>
+    <dd><p>The option's results, with the quanto sensitivities where the barrier engine gives a dividend
+rho.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_PricingEngines_QuantoEngine_Calculate_NanoQL_Instruments_QuantoBarrierOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_BlackVolTermStructure_System_Double_System_Func_NanoQL_Instruments_BarrierOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_Instruments_OneAssetOptionResults___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The barrier engine prices the option's terms as a <a class="xref" href="NanoQL.Instruments.BarrierOption.html">BarrierOption</a> of its own; it reads the quanto
+curve at the option's expiry alone, as the analytic barrier engine does, so the derived Greeks' terms at expiry
+are its own.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The spot isn't positive, or the inner engine refuses.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_QuantoEngine_Calculate_" data-uid="NanoQL.PricingEngines.QuantoEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_QuantoEngine_Calculate_NanoQL_Instruments_QuantoForwardVanillaOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_BlackVolTermStructure_System_Double_System_Func_NanoQL_Instruments_ForwardVanillaOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_Instruments_OneAssetOptionResults__" data-uid="NanoQL.PricingEngines.QuantoEngine.Calculate(NanoQL.Instruments.QuantoForwardVanillaOption,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.BlackVolTermStructure,System.Double,System.Func{NanoQL.Instruments.ForwardVanillaOption,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,NanoQL.Instruments.OneAssetOptionResults})">
+  Calculate(QuantoForwardVanillaOption, EvaluationContext, GeneralizedBlackScholesProcess, YieldTermStructure, BlackVolTermStructure, double, Func&lt;ForwardVanillaOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a quanto forward-start option: QuantLib's <code>QuantoEngine&lt;ForwardVanillaOption, Engine&gt;</code>, the
+drift read at the forward engine's strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static QuantoOptionResults Calculate(QuantoForwardVanillaOption option, EvaluationContext context, GeneralizedBlackScholesProcess process, YieldTermStructure foreignRiskFreeRate, BlackVolTermStructure exchangeRateVolatility, double correlation, Func&lt;ForwardVanillaOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt; engine)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.QuantoForwardVanillaOption.html">QuantoForwardVanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The underlying's process, in its own currency.</p>
+</dd>
+    <dt><code>foreignRiskFreeRate</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The underlying currency's risk-free curve.</p>
+</dd>
+    <dt><code>exchangeRateVolatility</code> <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a></dt>
+    <dd><p>The exchange rate's volatility.</p>
+</dd>
+    <dt><code>correlation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation of the underlying and the exchange rate.</p>
+</dd>
+    <dt><code>engine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.ForwardVanillaOption.html">ForwardVanillaOption</a>, <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a>, <a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a>&gt;</dt>
+    <dd><p>The forward-start engine run on the quanto process.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.QuantoOptionResults.html">QuantoOptionResults</a></dt>
+    <dd><p>The option's results, with the quanto sensitivities.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The option's terms are invalid, its payoff isn't plain vanilla, the spot isn't positive, or the inner engine
+refuses.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_QuantoEngine_Calculate_" data-uid="NanoQL.PricingEngines.QuantoEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_QuantoEngine_Calculate_NanoQL_Instruments_QuantoVanillaOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_BlackVolTermStructure_System_Double_System_Func_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_Instruments_OneAssetOptionResults__" data-uid="NanoQL.PricingEngines.QuantoEngine.Calculate(NanoQL.Instruments.QuantoVanillaOption,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.BlackVolTermStructure,System.Double,System.Func{NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,NanoQL.Instruments.OneAssetOptionResults})">
+  Calculate(QuantoVanillaOption, EvaluationContext, GeneralizedBlackScholesProcess, YieldTermStructure, BlackVolTermStructure, double, Func&lt;VanillaOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a quanto vanilla option: QuantLib's <code>QuantoEngine&lt;VanillaOption, Engine&gt;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static QuantoOptionResults Calculate(QuantoVanillaOption option, EvaluationContext context, GeneralizedBlackScholesProcess process, YieldTermStructure foreignRiskFreeRate, BlackVolTermStructure exchangeRateVolatility, double correlation, Func&lt;VanillaOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt; engine)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.QuantoVanillaOption.html">QuantoVanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The underlying's process, in its own currency.</p>
+</dd>
+    <dt><code>foreignRiskFreeRate</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The underlying currency's risk-free curve.</p>
+</dd>
+    <dt><code>exchangeRateVolatility</code> <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a></dt>
+    <dd><p>The exchange rate's volatility.</p>
+</dd>
+    <dt><code>correlation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation of the underlying and the exchange rate.</p>
+</dd>
+    <dt><code>engine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a>, <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a>, <a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a>&gt;</dt>
+    <dd><p>The vanilla engine run on the quanto process.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.QuantoOptionResults.html">QuantoOptionResults</a></dt>
+    <dd><p>The option's results, with the quanto sensitivities.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The spot isn't positive, or the inner engine refuses.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_QuantoEngine_Calculate_" data-uid="NanoQL.PricingEngines.QuantoEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_QuantoEngine_Calculate__1_NanoQL_Instruments_OneAssetOption___0_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_BlackVolTermStructure_System_Double_System_Func___0_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_Instruments_OneAssetOptionResults__" data-uid="NanoQL.PricingEngines.QuantoEngine.Calculate``1(NanoQL.Instruments.OneAssetOption,``0,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.BlackVolTermStructure,System.Double,System.Func{``0,NanoQL.EvaluationContext,NanoQL.Processes.GeneralizedBlackScholesProcess,NanoQL.Instruments.OneAssetOptionResults})">
+  Calculate&lt;TOption&gt;(OneAssetOption, TOption, EvaluationContext, GeneralizedBlackScholesProcess, YieldTermStructure, BlackVolTermStructure, double, Func&lt;TOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a quanto option through an engine on its terms: QuantLib's <code>QuantoEngine&lt;Instr, Engine&gt;</code>, the
+generic core the overloads call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate&lt;TOption&gt;(OneAssetOption option, TOption underlying, EvaluationContext context, GeneralizedBlackScholesProcess process, YieldTermStructure foreignRiskFreeRate, BlackVolTermStructure exchangeRateVolatility, double correlation, Func&lt;TOption, EvaluationContext, GeneralizedBlackScholesProcess, OneAssetOptionResults&gt; engine) where TOption : OneAssetOption</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.OneAssetOption.html">OneAssetOption</a></dt>
+    <dd><p>The quanto instrument, whose steps run and whose results are returned.</p>
+</dd>
+    <dt><code>underlying</code> <span class="xref">TOption</span></dt>
+    <dd><p>The instrument's terms as the inner engine's own instrument, its payoff striked.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The underlying's process, in its own currency.</p>
+</dd>
+    <dt><code>foreignRiskFreeRate</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The underlying currency's risk-free curve.</p>
+</dd>
+    <dt><code>exchangeRateVolatility</code> <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a></dt>
+    <dd><p>The exchange rate's volatility.</p>
+</dd>
+    <dt><code>correlation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation of the underlying and the exchange rate.</p>
+</dd>
+    <dt><code>engine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;TOption, <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a>, <a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a>&gt;</dt>
+    <dd><p>The inner engine run on the quanto process.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The instrument's results: a <a class="xref" href="NanoQL.Instruments.QuantoOptionResults.html">QuantoOptionResults</a> as the instrument fetches it.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TOption</code></dt>
+    <dd><p>The type of the inner engine's instrument.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_PricingEngines_QuantoEngine_Calculate__1_NanoQL_Instruments_OneAssetOption___0_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_BlackVolTermStructure_System_Double_System_Func___0_NanoQL_EvaluationContext_NanoQL_Processes_GeneralizedBlackScholesProcess_NanoQL_Instruments_OneAssetOptionResults___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The derived Greeks (rho, vega, qrho, qvega, qlambda) take each input's change to the quanto curve at the
+underlying's expiry alone: they assume the inner engine reads the quanto curve's dividend discount there and
+nowhere earlier, as a European, barrier or double-barrier engine does. An inner engine reading it at an earlier
+date too, as the forward-start engine does at its reset, needs that date's terms, which the forward-start
+overload adds.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The underlying's payoff isn't striked, the spot isn't positive, or the inner engine refuses.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

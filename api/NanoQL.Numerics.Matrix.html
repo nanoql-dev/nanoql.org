@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Matrix | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Matrix | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A matrix used in linear algebra, stored by rows. It implements the concept of a matrix as used in linear algebra, and is not meant to be used as a container.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.Matrix">
+
+
+
+  <h1 id="NanoQL_Numerics_Matrix" data-uid="NanoQL.Numerics.Matrix" class="text-break">
+Class Matrix  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A matrix used in linear algebra, stored by rows. It implements the concept of a matrix as used in linear algebra,
+and is not meant to be used as a container.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public sealed class Matrix : IEquatable&lt;Matrix&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Matrix</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Numerics_Matrix_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A working type: mutable, owned by one computation and not thread-safe, as an array is. The indexer sets elements,
+and the compound assignments (<code>m += n</code>, <code>m *= x</code>, ...) change the matrix in place, so every reference to
+it sees the change; the binary and unary operators return new matrices. <a class="xref" href="NanoQL.Numerics.Matrix.html#NanoQL_Numerics_Matrix_Clone">Clone()</a> is the deep copy, where
+QuantLib copies a <code>Matrix</code> by value. The matrices of a sum or a difference need the same size.
+</p>
+<p>
+QuantLib's iterators over the whole storage are <a class="xref" href="NanoQL.Numerics.Matrix.html#NanoQL_Numerics_Matrix_AsSpan">AsSpan()</a> and <a class="xref" href="NanoQL.Numerics.Matrix.html#NanoQL_Numerics_Matrix_GetEnumerator">GetEnumerator()</a>; its row
+iterators are <a class="xref" href="NanoQL.Numerics.Matrix.html#NanoQL_Numerics_Matrix_Row_System_Int32_">Row(int)</a>, a span over a row's elements; its column iterators are <a class="xref" href="NanoQL.Numerics.Matrix.html#NanoQL_Numerics_Matrix_Column_System_Int32_">Column(int)</a>, a copy
+of a column, and indexed loops; its reverse iterators (<code>rbegin()</code>, <code>rend()</code>, over the storage, a row or a
+column) are indexed loops run backwards. <code>m[i][j]</code> and <code>m(i, j)</code> are both <code>m[i, j]</code>.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Numerics_Matrix__ctor_" data-uid="NanoQL.Numerics.Matrix.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix__ctor" data-uid="NanoQL.Numerics.Matrix.#ctor">
+  Matrix()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a> class: a null matrix, with no rows or columns.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix__ctor_" data-uid="NanoQL.Numerics.Matrix.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix__ctor_System_Double_0__0___" data-uid="NanoQL.Numerics.Matrix.#ctor(System.Double[0:,0:])">
+  Matrix(double[,])
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a> class from its rows, which it copies: QuantLib's
+initializer list, <code>new Matrix(new double[,] { { 1, 2, 3 }, { 4, 5, 6 } })</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix(double[,] data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[,]</dt>
+    <dd><p>The elements; a matrix with no rows has no columns.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix__ctor_" data-uid="NanoQL.Numerics.Matrix.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix__ctor_System_Int32_System_Int32_" data-uid="NanoQL.Numerics.Matrix.#ctor(System.Int32,System.Int32)">
+  Matrix(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a> class with the given dimensions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix(int rows, int columns)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of rows.</p>
+</dd>
+    <dt><code>columns</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of columns.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Numerics_Matrix__ctor_System_Int32_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The elements are zero, where QuantLib leaves them uninitialized.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A dimension is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Matrix__ctor_" data-uid="NanoQL.Numerics.Matrix.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix__ctor_System_Int32_System_Int32_System_Double_" data-uid="NanoQL.Numerics.Matrix.#ctor(System.Int32,System.Int32,System.Double)">
+  Matrix(int, int, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a> class, every element set to a value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix(int rows, int columns, double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of rows.</p>
+</dd>
+    <dt><code>columns</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of columns.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A dimension is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Matrix__ctor_" data-uid="NanoQL.Numerics.Matrix.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix__ctor_System_Int32_System_Int32_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Numerics.Matrix.#ctor(System.Int32,System.Int32,System.ReadOnlySpan{System.Double})">
+  Matrix(int, int, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a> class from a range of elements, row by row, which it
+copies: QuantLib's iterator-range constructor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix(int rows, int columns, ReadOnlySpan&lt;double&gt; data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of rows.</p>
+</dd>
+    <dt><code>columns</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of columns.</p>
+</dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The elements, row by row; elements past its end are zero.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A dimension is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The range is larger than the matrix.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Numerics_Matrix_Columns_" data-uid="NanoQL.Numerics.Matrix.Columns*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_Columns" data-uid="NanoQL.Numerics.Matrix.Columns">
+  Columns
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of columns.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Columns { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_Empty_" data-uid="NanoQL.Numerics.Matrix.Empty*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_Empty" data-uid="NanoQL.Numerics.Matrix.Empty">
+  Empty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the matrix has no rows or no columns.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Empty { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_Item_" data-uid="NanoQL.Numerics.Matrix.Item*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_Item_System_Int32_System_Int32_" data-uid="NanoQL.Numerics.Matrix.Item(System.Int32,System.Int32)">
+  this[int, int]
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the element in row <code class="paramref">i</code> and column <code class="paramref">j</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double this[int i, int j] { get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The row.</p>
+</dd>
+    <dt><code>j</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The column.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The element.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="NanoQL_Numerics_Matrix_Item_System_Int32_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>As in QuantLib, the element is the one at <code>i * Columns + j</code> in the row-by-row storage.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_Rows_" data-uid="NanoQL.Numerics.Matrix.Rows*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_Rows" data-uid="NanoQL.Numerics.Matrix.Rows">
+  Rows
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of rows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Rows { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_Size1_" data-uid="NanoQL.Numerics.Matrix.Size1*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_Size1" data-uid="NanoQL.Numerics.Matrix.Size1">
+  Size1
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of rows, as QuantLib's <code>size1()</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Size1 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_Size2_" data-uid="NanoQL.Numerics.Matrix.Size2*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_Size2" data-uid="NanoQL.Numerics.Matrix.Size2">
+  Size2
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of columns, as QuantLib's <code>size2()</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Size2 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_Matrix_AsSpan_" data-uid="NanoQL.Numerics.Matrix.AsSpan*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_AsSpan" data-uid="NanoQL.Numerics.Matrix.AsSpan">
+  AsSpan()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a span over the elements, row by row: QuantLib's <code>begin()</code> and <code>end()</code>, for algorithms that walk a
+matrix's storage whole. Writing through it changes the matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Span&lt;double&gt; AsSpan()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The span.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_At_" data-uid="NanoQL.Numerics.Matrix.At*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_At_System_Int32_" data-uid="NanoQL.Numerics.Matrix.At(System.Int32)">
+  At(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Row <code class="paramref">i</code>, checked: QuantLib's <code>at</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Span&lt;double&gt; At(int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The row.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>A span over the row's elements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The row is out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Matrix_Clone_" data-uid="NanoQL.Numerics.Matrix.Clone*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_Clone" data-uid="NanoQL.Numerics.Matrix.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A deep copy: QuantLib's copy constructor and assignment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix with the same dimensions and elements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_Column_" data-uid="NanoQL.Numerics.Matrix.Column*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_Column_System_Int32_" data-uid="NanoQL.Numerics.Matrix.Column(System.Int32)">
+  Column(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of column <code class="paramref">j</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector Column(int j)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>j</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The column.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector of the matrix's row count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The column is out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Matrix_Diagonal_" data-uid="NanoQL.Numerics.Matrix.Diagonal*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_Diagonal" data-uid="NanoQL.Numerics.Matrix.Diagonal">
+  Diagonal()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the diagonal, of the smaller of the two dimensions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector Diagonal()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_Equals_" data-uid="NanoQL.Numerics.Matrix.Equals*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_Equals_NanoQL_Numerics_Matrix_" data-uid="NanoQL.Numerics.Matrix.Equals(NanoQL.Numerics.Matrix)">
+  Equals(Matrix?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether another matrix has the same dimensions and equal elements, each compared as
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double.equals#system-double-equals(system-double)">Equals(double)</a> does: a NaN equals a NaN, so a matrix equals itself. <code>==</code> compares as
+QuantLib does, as <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>'s own <code>==</code> and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double.equals#system-double-equals(system-double)">Equals(double)</a> differ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Matrix? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The other matrix.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_Equals_" data-uid="NanoQL.Numerics.Matrix.Equals*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_Equals_System_Object_" data-uid="NanoQL.Numerics.Matrix.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_GetEnumerator_" data-uid="NanoQL.Numerics.Matrix.GetEnumerator*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_GetEnumerator" data-uid="NanoQL.Numerics.Matrix.GetEnumerator">
+  GetEnumerator()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enumerates the elements, row by row, so that <code>foreach</code> works (QuantLib's <code>begin()</code> to <code>end()</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Span&lt;double&gt;.Enumerator GetEnumerator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1.enumerator">Enumerator</a></dt>
+    <dd><p>The enumerator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_GetHashCode_" data-uid="NanoQL.Numerics.Matrix.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_GetHashCode" data-uid="NanoQL.Numerics.Matrix.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A hash of the dimensions and the elements, which changes when they do.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The hash code.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_Row_" data-uid="NanoQL.Numerics.Matrix.Row*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_Row_System_Int32_" data-uid="NanoQL.Numerics.Matrix.Row(System.Int32)">
+  Row(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A span over row <code class="paramref">i</code>'s elements, through which they can be read and set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Span&lt;double&gt; Row(int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The row.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The span, which reads this matrix until the next <a class="xref" href="NanoQL.Numerics.Matrix.html#NanoQL_Numerics_Matrix_Swap_NanoQL_Numerics_Matrix_">Swap(Matrix)</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The row is outside the storage.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Matrix_Swap_" data-uid="NanoQL.Numerics.Matrix.Swap*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_Swap_NanoQL_Numerics_Matrix_" data-uid="NanoQL.Numerics.Matrix.Swap(NanoQL.Numerics.Matrix)">
+  Swap(Matrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exchanges the contents of this matrix with another's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Swap(Matrix from)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The other matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_ToString_" data-uid="NanoQL.Numerics.Matrix.ToString*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_ToString" data-uid="NanoQL.Numerics.Matrix.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The matrix as QuantLib writes it, one line per row, e.g. &quot;| 1 2 |\n| 3 4 |\n&quot;, each element as a C++ stream
+writes it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Numerics_Matrix_op_Addition_" data-uid="NanoQL.Numerics.Matrix.op_Addition*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_Addition_NanoQL_Numerics_Matrix_NanoQL_Numerics_Matrix_" data-uid="NanoQL.Numerics.Matrix.op_Addition(NanoQL.Numerics.Matrix,NanoQL.Numerics.Matrix)">
+  operator +(Matrix, Matrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The element-by-element sum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix operator +(Matrix m1, Matrix m2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m1</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The first matrix.</p>
+</dd>
+    <dt><code>m2</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The second matrix.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_AdditionAssignment_" data-uid="NanoQL.Numerics.Matrix.op_AdditionAssignment*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_AdditionAssignment_NanoQL_Numerics_Matrix_" data-uid="NanoQL.Numerics.Matrix.op_AdditionAssignment(NanoQL.Numerics.Matrix)">
+  operator +=(Matrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds another matrix to this one, element by element, in place.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void operator +=(Matrix m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The matrix to add.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_Division_" data-uid="NanoQL.Numerics.Matrix.op_Division*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_Division_NanoQL_Numerics_Matrix_System_Double_" data-uid="NanoQL.Numerics.Matrix.op_Division(NanoQL.Numerics.Matrix,System.Double)">
+  operator /(Matrix, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The matrix with every element divided by a scalar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix operator /(Matrix m, double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The matrix.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The scalar.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_DivisionAssignment_" data-uid="NanoQL.Numerics.Matrix.op_DivisionAssignment*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_DivisionAssignment_System_Double_" data-uid="NanoQL.Numerics.Matrix.op_DivisionAssignment(System.Double)">
+  operator /=(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Divides every element by a scalar, in place.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void operator /=(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The scalar.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_Equality_" data-uid="NanoQL.Numerics.Matrix.op_Equality*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_Equality_NanoQL_Numerics_Matrix_NanoQL_Numerics_Matrix_" data-uid="NanoQL.Numerics.Matrix.op_Equality(NanoQL.Numerics.Matrix,NanoQL.Numerics.Matrix)">
+  operator ==(Matrix?, Matrix?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether two matrices have the same dimensions and equal elements, compared with <code>==</code> as QuantLib does: a
+NaN element makes them unequal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Matrix? left, Matrix? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The first matrix.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The second matrix.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when equal; two null references are equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_Inequality_" data-uid="NanoQL.Numerics.Matrix.op_Inequality*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_Inequality_NanoQL_Numerics_Matrix_NanoQL_Numerics_Matrix_" data-uid="NanoQL.Numerics.Matrix.op_Inequality(NanoQL.Numerics.Matrix,NanoQL.Numerics.Matrix)">
+  operator !=(Matrix?, Matrix?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether two matrices differ: the negation of <code>==</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Matrix? left, Matrix? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The first matrix.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The second matrix.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when they differ.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_MultiplicationAssignment_" data-uid="NanoQL.Numerics.Matrix.op_MultiplicationAssignment*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_MultiplicationAssignment_System_Double_" data-uid="NanoQL.Numerics.Matrix.op_MultiplicationAssignment(System.Double)">
+  operator *=(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Multiplies every element by a scalar, in place.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void operator *=(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The scalar.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_Multiply_" data-uid="NanoQL.Numerics.Matrix.op_Multiply*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_Multiply_NanoQL_Numerics_Matrix_NanoQL_Numerics_Matrix_" data-uid="NanoQL.Numerics.Matrix.op_Multiply(NanoQL.Numerics.Matrix,NanoQL.Numerics.Matrix)">
+  operator *(Matrix, Matrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The matrix product.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix operator *(Matrix m1, Matrix m2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m1</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The first matrix.</p>
+</dd>
+    <dt><code>m2</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The second matrix, with as many rows as the first has columns.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes don't match.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_Multiply_" data-uid="NanoQL.Numerics.Matrix.op_Multiply*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_Multiply_NanoQL_Numerics_Matrix_NanoQL_Numerics_Vector_" data-uid="NanoQL.Numerics.Matrix.op_Multiply(NanoQL.Numerics.Matrix,NanoQL.Numerics.Vector)">
+  operator *(Matrix, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The matrix times the column vector <code class="paramref">v</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector operator *(Matrix m, Vector v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The matrix.</p>
+</dd>
+    <dt><code>v</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The vector, of the matrix's column count.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector of the matrix's row count, each element the dot product of the vector and a row.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes don't match.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_Multiply_" data-uid="NanoQL.Numerics.Matrix.op_Multiply*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_Multiply_NanoQL_Numerics_Matrix_System_Double_" data-uid="NanoQL.Numerics.Matrix.op_Multiply(NanoQL.Numerics.Matrix,System.Double)">
+  operator *(Matrix, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The matrix with every element multiplied by a scalar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix operator *(Matrix m, double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The matrix.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The scalar.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_Multiply_" data-uid="NanoQL.Numerics.Matrix.op_Multiply*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_Multiply_NanoQL_Numerics_Vector_NanoQL_Numerics_Matrix_" data-uid="NanoQL.Numerics.Matrix.op_Multiply(NanoQL.Numerics.Vector,NanoQL.Numerics.Matrix)">
+  operator *(Vector, Matrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The row vector <code class="paramref">v</code> times the matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector operator *(Vector v, Matrix m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The vector, of the matrix's row count.</p>
+</dd>
+    <dt><code>m</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The matrix.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector of the matrix's column count, each element the dot product of the vector and a column.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes don't match.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_Multiply_" data-uid="NanoQL.Numerics.Matrix.op_Multiply*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_Multiply_System_Double_NanoQL_Numerics_Matrix_" data-uid="NanoQL.Numerics.Matrix.op_Multiply(System.Double,NanoQL.Numerics.Matrix)">
+  operator *(double, Matrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A scalar multiplied by every element of the matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix operator *(double x, Matrix m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The scalar.</p>
+</dd>
+    <dt><code>m</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The matrix.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_Subtraction_" data-uid="NanoQL.Numerics.Matrix.op_Subtraction*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_Subtraction_NanoQL_Numerics_Matrix_NanoQL_Numerics_Matrix_" data-uid="NanoQL.Numerics.Matrix.op_Subtraction(NanoQL.Numerics.Matrix,NanoQL.Numerics.Matrix)">
+  operator -(Matrix, Matrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The element-by-element difference.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix operator -(Matrix m1, Matrix m2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m1</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The first matrix.</p>
+</dd>
+    <dt><code>m2</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The second matrix.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_SubtractionAssignment_" data-uid="NanoQL.Numerics.Matrix.op_SubtractionAssignment*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_SubtractionAssignment_NanoQL_Numerics_Matrix_" data-uid="NanoQL.Numerics.Matrix.op_SubtractionAssignment(NanoQL.Numerics.Matrix)">
+  operator -=(Matrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts another matrix from this one, element by element, in place.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void operator -=(Matrix m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The matrix to subtract.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Matrix_op_UnaryNegation_" data-uid="NanoQL.Numerics.Matrix.op_UnaryNegation*"></a>
+
+  <h3 id="NanoQL_Numerics_Matrix_op_UnaryNegation_NanoQL_Numerics_Matrix_" data-uid="NanoQL.Numerics.Matrix.op_UnaryNegation(NanoQL.Numerics.Matrix)">
+  operator -(Matrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The matrix negated, element by element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix operator -(Matrix m1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m1</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The matrix.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

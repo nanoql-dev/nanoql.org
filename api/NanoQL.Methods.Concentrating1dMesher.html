@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Concentrating1dMesher | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Concentrating1dMesher | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A one-dimensional mesher whose points concentrate around critical points: around one point by a sinh transform, or around several by the solution of an ordinary differential equation.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Methods.Concentrating1dMesher">
+
+
+
+  <h1 id="NanoQL_Methods_Concentrating1dMesher" data-uid="NanoQL.Methods.Concentrating1dMesher" class="text-break">
+Class Concentrating1dMesher  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Methods.html">Methods</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A one-dimensional mesher whose points concentrate around critical points: around one point by a sinh transform,
+or around several by the solution of an ordinary differential equation.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Concentrating1dMesher : Fdm1dMesher</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Methods.Fdm1dMesher.html">Fdm1dMesher</a></div>
+      <div><span class="xref">Concentrating1dMesher</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Dplus_System_Int32_">Fdm1dMesher.Dplus(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Dminus_System_Int32_">Fdm1dMesher.Dminus(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Location_System_Int32_">Fdm1dMesher.Location(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Locations">Fdm1dMesher.Locations()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Size">Fdm1dMesher.Size</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Methods_Concentrating1dMesher_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Methods_Concentrating1dMesher__ctor_" data-uid="NanoQL.Methods.Concentrating1dMesher.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_Concentrating1dMesher__ctor_System_Double_System_Double_System_Int32_System_Collections_Generic_IEnumerable_System_ValueTuple_System_Double_System_Double_System_Boolean___System_Double_" data-uid="NanoQL.Methods.Concentrating1dMesher.#ctor(System.Double,System.Double,System.Int32,System.Collections.Generic.IEnumerable{System.ValueTuple{System.Double,System.Double,System.Boolean}},System.Double)">
+  Concentrating1dMesher(double, double, int, IEnumerable&lt;(double Point, double Density, bool Required)&gt;, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.Concentrating1dMesher.html">Concentrating1dMesher</a> class: its points concentrating around
+several critical points, each with its density, the mesher's points the solution of an ordinary differential
+equation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Concentrating1dMesher(double start, double end, int size, IEnumerable&lt;(double Point, double Density, bool Required)&gt; cPoints, double tol = 1E-08)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first point.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The last point.</p>
+</dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of points, at least 2.</p>
+</dd>
+    <dt><code>cPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.double,system.double,system.boolean-.point">Point</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.double,system.double,system.boolean-.density">Density</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.double,system.double,system.boolean-.required">Required</a>)&gt;</dt>
+    <dd><p>The critical points: each its location, its density relative to the mesher's length, and whether it must be one
+of the mesher's points.</p>
+</dd>
+    <dt><code>tol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The tolerance of the differential equation's solver and of the scaling's root.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">cPoints</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">size</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">end</code> isn't above <code class="paramref">start</code>, or <code class="paramref">size</code> is 0 or 1, where
+QuantLib writes past an empty array and leaves a one-point mesher's distances at its null value.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The solver or a root search fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_Concentrating1dMesher__ctor_" data-uid="NanoQL.Methods.Concentrating1dMesher.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_Concentrating1dMesher__ctor_System_Double_System_Double_System_Int32_System_ValueTuple_System_Nullable_System_Double__System_Nullable_System_Double___System_Boolean_" data-uid="NanoQL.Methods.Concentrating1dMesher.#ctor(System.Double,System.Double,System.Int32,System.ValueTuple{System.Nullable{System.Double},System.Nullable{System.Double}},System.Boolean)">
+  Concentrating1dMesher(double, double, int, (double? Point, double? Density), bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.Concentrating1dMesher.html">Concentrating1dMesher</a> class: its points concentrating around
+one point, or equally spaced without one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Concentrating1dMesher(double start, double end, int size, (double? Point, double? Density) cPoints = default, bool requireCPoint = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first point.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The last point.</p>
+</dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of points, at least 2.</p>
+</dd>
+    <dt><code>cPoints</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>? <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.nullable-system.double-,system.nullable-system.double--.point">Point</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>? <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.nullable-system.double-,system.nullable-system.double--.density">Density</a>)</dt>
+    <dd><p>The critical point and its density, relative to the mesher's length; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none, QuantLib's
+<code>Null&lt;Real&gt;()</code>.</p>
+</dd>
+    <dt><code>requireCPoint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the critical point must be one of the mesher's points.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">size</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">end</code> isn't above <code class="paramref">start</code>; the critical point is outside them, or given
+without a density; the density isn't positive; the point is required but not given; or
+<code class="paramref">size</code> is 0 or 1, where QuantLib writes past an empty mesher's arrays and leaves a one-point
+mesher's distances at its null value.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

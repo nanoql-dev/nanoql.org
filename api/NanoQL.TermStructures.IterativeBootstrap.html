@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Struct IterativeBootstrap | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct IterativeBootstrap | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The universal piecewise-term-structure bootstrapper: each node is solved in turn so that the helper whose pillar it is reprices its quote, and the passes repeat until the nodes stop moving when the interpolation is global or a pillar comes before its helper&#39;s latest relevant date.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.IterativeBootstrap">
+
+
+
+  <h1 id="NanoQL_TermStructures_IterativeBootstrap" data-uid="NanoQL.TermStructures.IterativeBootstrap" class="text-break">
+Struct IterativeBootstrap  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The universal piecewise-term-structure bootstrapper: each node is solved in turn so that the helper whose pillar it
+is reprices its quote, and the passes repeat until the nodes stop moving when the interpolation is global or a
+pillar comes before its helper's latest relevant date.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly struct IterativeBootstrap : IBootstrap</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.TermStructures.IBootstrap.html">IBootstrap</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_TermStructures_IterativeBootstrap_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A configuration struct (<a class="xref" href="NanoQL.TermStructures.IBootstrap.html">IBootstrap</a>): its zero value is QuantLib's default construction, every field
+stored so that zero reads as QuantLib's default. It reproduces QuantLib's sequence: the helpers sorted by pillar,
+the expired ones skipped, Brent's solver on the first pass and <a class="xref" href="NanoQL.Numerics.FiniteDifferenceNewtonSafe.html">FiniteDifferenceNewtonSafe</a> once the
+data are valid, the retries with widened brackets, the fallback without throwing, the convergence loop, and the
+node keeping the last value the solver evaluated, since QuantLib ignores the solver's return value.
+</p>
+<p>
+On its first pass QuantLib builds the interpolation over the nodes solved so far before each node's values are
+known, and takes linear interpolation instead where a global interpolation refuses to be built over that many
+points. The interpolation here is built with its values in one call, so the fallback is decided by the
+interpolator's own construction checks, <a class="xref" href="NanoQL.Numerics.IInterpolator.html#NanoQL_Numerics_IInterpolator_CheckPoints_System_Int32_">CheckPoints(int)</a>; every other refusal of the
+interpolation is met when the solver builds it, as QuantLib meets it when the interpolation is updated. The
+interpolator chosen on the first pass's last node serves the later passes and the built curve.
+</p>
+<p>
+A curve is always built afresh, so its bootstrap starts from the traits' first guess: QuantLib re-bootstraps a curve
+whose quotes changed from its previous state, which the two reach within the bootstrap's accuracy (a documented
+divergence).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_IterativeBootstrap__ctor_" data-uid="NanoQL.TermStructures.IterativeBootstrap.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_IterativeBootstrap__ctor_System_Nullable_System_Double__System_Nullable_System_Double__System_Nullable_System_Double__System_Int32_System_Double_System_Double_System_Boolean_System_Int32_System_Int32_" data-uid="NanoQL.TermStructures.IterativeBootstrap.#ctor(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Int32,System.Double,System.Double,System.Boolean,System.Int32,System.Int32)">
+  IterativeBootstrap(double?, double?, double?, int, double, double, bool, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.IterativeBootstrap.html">IterativeBootstrap</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IterativeBootstrap(double? accuracy = null, double? minValue = null, double? maxValue = null, int maxAttempts = 1, double maxFactor = 2, double minFactor = 2, bool dontThrow = false, int dontThrowSteps = 10, int maxEvaluations = 100)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The accuracy of the bootstrap's stopping criterion; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> takes the curve's.</p>
+</dd>
+    <dt><code>minValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The initial lower bound of each node's search; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> takes the traits'.</p>
+</dd>
+    <dt><code>maxValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The initial upper bound of each node's search; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> takes the traits'.</p>
+</dd>
+    <dt><code>maxAttempts</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The attempts on each node in each pass: more than 1 implies retries.</p>
+</dd>
+    <dt><code>maxFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factor widening the upper bound on each retry, at least 1.</p>
+</dd>
+    <dt><code>minFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factor widening the lower bound on each retry, at least 1.</p>
+</dd>
+    <dt><code>dontThrow</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether a node the solver fails on takes the value of least error on a grid between its bounds instead of
+throwing, and a pass limit reached keeps the curve as it is.</p>
+</dd>
+    <dt><code>dontThrowSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The grid's steps when <code class="paramref">dontThrow</code> is set.</p>
+</dd>
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The solvers' maximum number of function evaluations.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">maxFactor</code> or <code class="paramref">minFactor</code> is below 1.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxAttempts</code>, <code class="paramref">dontThrowSteps</code> or <code class="paramref">maxEvaluations</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_IterativeBootstrap_Calculate_" data-uid="NanoQL.TermStructures.IterativeBootstrap.Calculate*"></a>
+
+  <h3 id="NanoQL_TermStructures_IterativeBootstrap_Calculate__3_NanoQL_TermStructures_BootstrapState___0____2_NanoQL_EvaluationContext_" data-uid="NanoQL.TermStructures.IterativeBootstrap.Calculate``3(NanoQL.TermStructures.BootstrapState{``0},``2,NanoQL.EvaluationContext)">
+  Calculate&lt;TTermStructure, TTraits, TInterpolator&gt;(BootstrapState&lt;TTermStructure&gt;, TInterpolator, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fills the working state: the dates, times and data of the curve's nodes, its interpolation and maximum date, so
+that each helper reprices its quote.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Calculate&lt;TTermStructure, TTraits, TInterpolator&gt;(BootstrapState&lt;TTermStructure&gt; state, TInterpolator interpolator, EvaluationContext context) where TTermStructure : TermStructure where TTraits : struct, IBootstrapTraits&lt;TTermStructure&gt; where TInterpolator : struct, IInterpolator</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="NanoQL.TermStructures.BootstrapState-1.html">BootstrapState</a>&lt;TTermStructure&gt;</dt>
+    <dd><p>The working state of the curve under construction.</p>
+</dd>
+    <dt><code>interpolator</code> <span class="xref">TInterpolator</span></dt>
+    <dd><p>The curve's interpolator.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the helpers are priced in.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TTermStructure</code></dt>
+    <dd><p>The kind of term structure bootstrapped.</p>
+</dd>
+    <dt><code>TTraits</code></dt>
+    <dd><p>The curve's traits.</p>
+</dd>
+    <dt><code>TInterpolator</code></dt>
+    <dd><p>The curve's interpolator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The curve has no helpers, all of them have expired, too few are alive for the interpolation, two have the same
+pillar or a helper's latest relevant date doesn't extend the curve, the solver fails on a node, or the passes
+don't converge.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A local interpolation can't be built over the curve's first nodes.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class ExponentialJump1dMesher | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ExponentialJump1dMesher | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A mesher for an exponential jump process with high mean reversion and low jump intensity, dY = −βY dt + J dN, the jumps exponential of mean 1/η (Hambly, Howison and Kluge, &amp;quot;Modelling spikes and pricing swing options in electricity markets&amp;quot;): its points at the stationary jump-size distribution&#39;s quantiles, to 1 − ε.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Methods.ExponentialJump1dMesher">
+
+
+
+  <h1 id="NanoQL_Methods_ExponentialJump1dMesher" data-uid="NanoQL.Methods.ExponentialJump1dMesher" class="text-break">
+Class ExponentialJump1dMesher  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Methods.html">Methods</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A mesher for an exponential jump process with high mean reversion and low jump intensity, dY = −βY dt + J dN, the
+jumps exponential of mean 1/η (Hambly, Howison and Kluge, &quot;Modelling spikes and pricing swing options in
+electricity markets&quot;): its points at the stationary jump-size distribution's quantiles, to 1 − ε.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ExponentialJump1dMesher : Fdm1dMesher</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Methods.Fdm1dMesher.html">Fdm1dMesher</a></div>
+      <div><span class="xref">ExponentialJump1dMesher</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Dplus_System_Int32_">Fdm1dMesher.Dplus(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Dminus_System_Int32_">Fdm1dMesher.Dminus(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Location_System_Int32_">Fdm1dMesher.Location(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Locations">Fdm1dMesher.Locations()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Size">Fdm1dMesher.Size</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Methods_ExponentialJump1dMesher_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable. The distribution at a finite time, <a class="xref" href="NanoQL.Methods.ExponentialJump1dMesher.html#NanoQL_Methods_ExponentialJump1dMesher_JumpSizeDistribution_System_Double_System_Double_">JumpSizeDistribution(double, double)</a>, is the
+distribution of the last jump's decayed size, ∫₀ᵗ λe^(−λu)/(1 − e^(−λt))·(1 − e^(−ηx·e^(βu))) du, integrated over u
+and split where ηx·e^(βu) crosses 1, or as 1 less its complement's integral where ηx is at least 1. QuantLib
+integrates its density over x from 1e-100 instead, which holds no mass while βt is below about 230; beyond, it
+misses mass (1.06e-4 at βt 500) and from βt 800 its integrator refuses (a documented divergence). Where its cut
+holds no mass the two meet within 4.4e-13, each within 4.5e-13 absolute of a 40-digit evaluation, the tolerance of
+both integrals being absolute; at an intensity at or above β, where QuantLib's density at t refuses, the route
+computes. Both routes take 1 − e^(−λt) by <code>expm1</code>, which QuantLib's subtraction loses at small λt.</p>
+<p>
+The density at a finite time, <a class="xref" href="NanoQL.Methods.ExponentialJump1dMesher.html#NanoQL_Methods_ExponentialJump1dMesher_JumpSizeDensity_System_Double_System_Double_">JumpSizeDensity(double, double)</a>, is the route's derivative, integrated
+by tanh-sinh to a relative tolerance and split at the same point. QuantLib's closed form, Γ(1 − λ/β)·(P(1 − λ/β,
+ηx·e^(βt)) − P(1 − λ/β, ηx)) over its other factors, cancels as βt falls (9.9e-5 relative at β 10, λ 2, η 1, t
+1e-12) and where ηx is large, both gammas near 1 (1.1e-7 relative at x 20, βt 0.01; 0 for 4e-20 to 7e-18 where they
+underflow), and refuses at an intensity at or above β (its Γ's argument) and from βt about 750; it is replaced (a
+fix, a documented divergence), within 5e-12 relative of a 40-digit evaluation (tanh-sinh's √ε), where the value is
+in the double range: it is refused where it leaves it at x 0 (e^((β − λ)t) beyond it), 0 below it, and at subnormal
+sizes, where an integrand value leaves the double range, it is refused or not reliable. Both integrands take
+ηx·e^(βu) as one exponential, so neither leaves the double range before their peak. A time at or below 0, where
+QuantLib's density divides by 0, is refused; at x at or below 0 the distribution is QuantLib's 0, and below 0 the
+density is 0. The stationary forms are 0 below 0 too, where QuantLib's powers of a negative size give NaN, or at λ =
+β a negative probability.
+</p>
+<p>
+The stationary distribution, <a class="xref" href="NanoQL.Methods.ExponentialJump1dMesher.html#NanoQL_Methods_ExponentialJump1dMesher_JumpSizeDistribution_System_Double_">JumpSizeDistribution(double)</a>, is QuantLib's: a series below a cut and the
+stationary density's integral above it. QuantLib's series at min(x, ε) holds the mass to min(x, ε)/η, so with η
+below 1 and x below ε/η its integral is empty and it returns the mass to ε/η or x/η, not x (4.9% to 151% off); there
+the series is taken at ηx (a fix, a documented divergence), QuantLib's bits elsewhere.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Methods_ExponentialJump1dMesher__ctor_" data-uid="NanoQL.Methods.ExponentialJump1dMesher.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_ExponentialJump1dMesher__ctor_System_Int32_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.Methods.ExponentialJump1dMesher.#ctor(System.Int32,System.Double,System.Double,System.Double,System.Double)">
+  ExponentialJump1dMesher(int, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.ExponentialJump1dMesher.html">ExponentialJump1dMesher</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExponentialJump1dMesher(int steps, double beta, double jumpIntensity, double eta, double eps = 0.001)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>steps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of points, at least two.</p>
+</dd>
+    <dt><code>beta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The mean reversion β.</p>
+</dd>
+    <dt><code>jumpIntensity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The jump intensity λ.</p>
+</dd>
+    <dt><code>eta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The jumps' rate η, their mean 1/η.</p>
+</dd>
+    <dt><code>eps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability above the last point, in (0, 1).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">eps</code> is outside (0, 1), or fewer than two steps.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">steps</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Methods_ExponentialJump1dMesher_JumpSizeDensity_" data-uid="NanoQL.Methods.ExponentialJump1dMesher.JumpSizeDensity*"></a>
+
+  <h3 id="NanoQL_Methods_ExponentialJump1dMesher_JumpSizeDensity_System_Double_" data-uid="NanoQL.Methods.ExponentialJump1dMesher.JumpSizeDensity(System.Double)">
+  JumpSizeDensity(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The stationary density of the jump size, as t → ∞.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double JumpSizeDensity(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The size.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The density, 0 below 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_ExponentialJump1dMesher_JumpSizeDensity_" data-uid="NanoQL.Methods.ExponentialJump1dMesher.JumpSizeDensity*"></a>
+
+  <h3 id="NanoQL_Methods_ExponentialJump1dMesher_JumpSizeDensity_System_Double_System_Double_" data-uid="NanoQL.Methods.ExponentialJump1dMesher.JumpSizeDensity(System.Double,System.Double)">
+  JumpSizeDensity(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The density of the jump size at time t, the derivative in x of
+<a class="xref" href="NanoQL.Methods.ExponentialJump1dMesher.html#NanoQL_Methods_ExponentialJump1dMesher_JumpSizeDistribution_System_Double_System_Double_">JumpSizeDistribution(double, double)</a>: ∫₀ᵗ λe^(−λu)/(1 − e^(−λt))·ηe^(βu)·e^(−ηx·e^(βu)) du.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double JumpSizeDensity(double x, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The size.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time, positive.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The density, 0 below 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">t</code> isn't positive.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_ExponentialJump1dMesher_JumpSizeDistribution_" data-uid="NanoQL.Methods.ExponentialJump1dMesher.JumpSizeDistribution*"></a>
+
+  <h3 id="NanoQL_Methods_ExponentialJump1dMesher_JumpSizeDistribution_System_Double_" data-uid="NanoQL.Methods.ExponentialJump1dMesher.JumpSizeDistribution(System.Double)">
+  JumpSizeDistribution(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The stationary distribution of the jump size, as t → ∞.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double JumpSizeDistribution(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The size.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability of a size at most <code class="paramref">x</code>, 0 below 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The integration doesn't reach its accuracy.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_ExponentialJump1dMesher_JumpSizeDistribution_" data-uid="NanoQL.Methods.ExponentialJump1dMesher.JumpSizeDistribution*"></a>
+
+  <h3 id="NanoQL_Methods_ExponentialJump1dMesher_JumpSizeDistribution_System_Double_System_Double_" data-uid="NanoQL.Methods.ExponentialJump1dMesher.JumpSizeDistribution(System.Double,System.Double)">
+  JumpSizeDistribution(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The distribution of the jump size at time t: the last jump's decayed size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double JumpSizeDistribution(double x, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The size.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time, positive.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability of a size at most <code class="paramref">x</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">t</code> isn't positive.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The integration doesn't reach its accuracy.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

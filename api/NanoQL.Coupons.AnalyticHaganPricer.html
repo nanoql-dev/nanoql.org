@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class AnalyticHaganPricer | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AnalyticHaganPricer | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The pricing of a CMS coupon by static replication with Hagan&#39;s analytic forms (his 3.4c, 3.5b and 3.5c): a vanilla swaption&#39;s price plus a convexity term in the g-function&#39;s slope at the forward.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Coupons.AnalyticHaganPricer">
+
+
+
+  <h1 id="NanoQL_Coupons_AnalyticHaganPricer" data-uid="NanoQL.Coupons.AnalyticHaganPricer" class="text-break">
+Class AnalyticHaganPricer  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Coupons.html">Coupons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The pricing of a CMS coupon by static replication with Hagan's analytic forms (his 3.4c, 3.5b and 3.5c): a vanilla
+swaption's price plus a convexity term in the g-function's slope at the forward.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AnalyticHaganPricer : HaganPricer, IMeanRevertingPricer</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.CmsCouponPricer.html">CmsCouponPricer</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.HaganPricer.html">HaganPricer</a></div>
+      <div><span class="xref">AnalyticHaganPricer</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Coupons.IMeanRevertingPricer.html">IMeanRevertingPricer</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.HaganPricer.html#NanoQL_Coupons_HaganPricer_SwapletPrice_NanoQL_Coupons_FloatingRateCoupon_NanoQL_EvaluationContext_">HaganPricer.SwapletPrice(FloatingRateCoupon, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.HaganPricer.html#NanoQL_Coupons_HaganPricer_SwapletRate_NanoQL_Coupons_FloatingRateCoupon_NanoQL_EvaluationContext_">HaganPricer.SwapletRate(FloatingRateCoupon, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.HaganPricer.html#NanoQL_Coupons_HaganPricer_CapletPrice_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_">HaganPricer.CapletPrice(FloatingRateCoupon, double, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.HaganPricer.html#NanoQL_Coupons_HaganPricer_CapletRate_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_">HaganPricer.CapletRate(FloatingRateCoupon, double, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.HaganPricer.html#NanoQL_Coupons_HaganPricer_FloorletPrice_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_">HaganPricer.FloorletPrice(FloatingRateCoupon, double, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.HaganPricer.html#NanoQL_Coupons_HaganPricer_FloorletRate_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_">HaganPricer.FloorletRate(FloatingRateCoupon, double, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.HaganPricer.html#NanoQL_Coupons_HaganPricer_MeanReversion">HaganPricer.MeanReversion</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.CmsCouponPricer.html#NanoQL_Coupons_CmsCouponPricer_SwaptionVolatility">CmsCouponPricer.SwaptionVolatility</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Coupons_AnalyticHaganPricer_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Hagan's forms presume G = P(Tp)/A0, the payment's discount over the annuity, which the numeric pricer doesn't need,
+since it divides by G. QuantLib's shift models' G is P/A0, so their analytic convexity term is high by P/P(Tp)
+against the numeric twin; here it is QuantLib's term times P(Tp)/P, both on the forwarding curve. On an index with
+an exogenous discounting curve, where the annuity and discount come from that curve and the g-function from the
+forwarding one, every model's convexity term is normalised as the numeric pricer normalises its integrand,
+discount·G′/G for annuity·G′. The standard and exact-yield models on one curve keep QuantLib's bits.
+</p>
+<p>
+So an index given a discounting curve equal to its forwarding one prices its analytic term up to the model's own
+approximation, 3e-4 of it, away from the same index without one.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Coupons_AnalyticHaganPricer__ctor_" data-uid="NanoQL.Coupons.AnalyticHaganPricer.#ctor*"></a>
+
+  <h3 id="NanoQL_Coupons_AnalyticHaganPricer__ctor_NanoQL_TermStructures_SwaptionVolatilityStructure_NanoQL_Coupons_GFunctionFactoryYieldCurveModel_System_Double_" data-uid="NanoQL.Coupons.AnalyticHaganPricer.#ctor(NanoQL.TermStructures.SwaptionVolatilityStructure,NanoQL.Coupons.GFunctionFactoryYieldCurveModel,System.Double)">
+  AnalyticHaganPricer(SwaptionVolatilityStructure?, GFunctionFactoryYieldCurveModel, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Coupons.AnalyticHaganPricer.html">AnalyticHaganPricer</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnalyticHaganPricer(SwaptionVolatilityStructure? swaptionVol, GFunctionFactoryYieldCurveModel modelOfYieldCurve, double meanReversion)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>swaptionVol</code> <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html">SwaptionVolatilityStructure</a></dt>
+    <dd><p>The swaption volatility, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty handle, refused
+when a coupon with a future fixing is priced.</p>
+</dd>
+    <dt><code>modelOfYieldCurve</code> <a class="xref" href="NanoQL.Coupons.GFunctionFactoryYieldCurveModel.html">GFunctionFactoryYieldCurveModel</a></dt>
+    <dd><p>The yield-curve model of the g-function.</p>
+</dd>
+    <dt><code>meanReversion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The mean reversion, which the non-parallel shifts' model reads.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">modelOfYieldCurve</code> isn't a member of its
+type.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Coupons_AnalyticHaganPricer_WithMeanReversion_" data-uid="NanoQL.Coupons.AnalyticHaganPricer.WithMeanReversion*"></a>
+
+  <h3 id="NanoQL_Coupons_AnalyticHaganPricer_WithMeanReversion_System_Double_" data-uid="NanoQL.Coupons.AnalyticHaganPricer.WithMeanReversion(System.Double)">
+  WithMeanReversion(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the pricer, of its own type, with another mean reversion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override AnalyticHaganPricer WithMeanReversion(double meanReversion)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>meanReversion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The mean reversion.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.AnalyticHaganPricer.html">AnalyticHaganPricer</a></dt>
+    <dd><p>The copy; the receiver is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_AnalyticHaganPricer_WithSwaptionVolatility_" data-uid="NanoQL.Coupons.AnalyticHaganPricer.WithSwaptionVolatility*"></a>
+
+  <h3 id="NanoQL_Coupons_AnalyticHaganPricer_WithSwaptionVolatility_NanoQL_TermStructures_SwaptionVolatilityStructure_" data-uid="NanoQL.Coupons.AnalyticHaganPricer.WithSwaptionVolatility(NanoQL.TermStructures.SwaptionVolatilityStructure)">
+  WithSwaptionVolatility(SwaptionVolatilityStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the pricer, of its own type, on another swaption volatility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override AnalyticHaganPricer WithSwaptionVolatility(SwaptionVolatilityStructure? swaptionVolatility)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>swaptionVolatility</code> <a class="xref" href="NanoQL.TermStructures.SwaptionVolatilityStructure.html">SwaptionVolatilityStructure</a></dt>
+    <dd><p>The swaption volatility, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.AnalyticHaganPricer.html">AnalyticHaganPricer</a></dt>
+    <dd><p>The copy; the receiver is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

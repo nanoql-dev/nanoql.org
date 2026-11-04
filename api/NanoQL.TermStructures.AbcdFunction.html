@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class AbcdFunction | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AbcdFunction | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The abcd functional form for instantaneous volatility, f(T − t) = (a + b&#183;(T − t))&#183;e−c&#183;(T − t) + d, in Rebonato&#39;s notation.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.AbcdFunction">
+
+
+
+  <h1 id="NanoQL_TermStructures_AbcdFunction" data-uid="NanoQL.TermStructures.AbcdFunction" class="text-break">
+Class AbcdFunction  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The abcd functional form for instantaneous volatility, f(T − t) = (a + b·(T − t))·e<sup>−c·(T − t)</sup> + d, in
+Rebonato's notation.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AbcdFunction : AbcdMathFunction</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html">AbcdMathFunction</a></div>
+      <div><span class="xref">AbcdFunction</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_Validate_System_Double_System_Double_System_Double_System_Double_">AbcdMathFunction.Validate(double, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_Evaluate_System_Double_">AbcdMathFunction.Evaluate(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_MaximumLocation">AbcdMathFunction.MaximumLocation()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_MaximumValue">AbcdMathFunction.MaximumValue()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_LongTermValue">AbcdMathFunction.LongTermValue()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_Derivative_System_Double_">AbcdMathFunction.Derivative(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_Primitive_System_Double_">AbcdMathFunction.Primitive(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_DefiniteIntegral_System_Double_System_Double_">AbcdMathFunction.DefiniteIntegral(double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_DefiniteIntegralCoefficients_System_Double_System_Double_">AbcdMathFunction.DefiniteIntegralCoefficients(double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_DefiniteDerivativeCoefficients_System_Double_System_Double_">AbcdMathFunction.DefiniteDerivativeCoefficients(double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_A">AbcdMathFunction.A</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_B">AbcdMathFunction.B</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_C">AbcdMathFunction.C</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_D">AbcdMathFunction.D</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_Coefficients">AbcdMathFunction.Coefficients</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_DerivativeCoefficients">AbcdMathFunction.DerivativeCoefficients</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_TermStructures_AbcdFunction_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+One of QuantLib's defects is fixed: QuantLib's <code>primitive</code> divides a sum by 4c³ whose terms cancel to O(c³)
+when c·T and c·S are small, so the covariance between 0 and 1 of the 1-year rate is out by 2.4e-6 at c = 1e-4 and by
+14% at c = 1e-6. Where QuantLib's form rounds by more than 1e-12 of the integral at the last time it reaches, min(T,
+S), the primitive is the integral from 0 written without the cancellation, each term a polynomial times a decaying
+exponential; elsewhere it is QuantLib's, bit for bit.
+</p>
+<p>QuantLib's polynomial branch for c = 0 is left out: the base's validation requires c &gt; 0.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_AbcdFunction__ctor_" data-uid="NanoQL.TermStructures.AbcdFunction.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdFunction__ctor_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.TermStructures.AbcdFunction.#ctor(System.Double,System.Double,System.Double,System.Double)">
+  AbcdFunction(double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.AbcdFunction.html">AbcdFunction</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AbcdFunction(double a = -0.06, double b = 0.17, double c = 0.54, double d = 0.17)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>a.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>b.</p>
+</dd>
+    <dt><code>c</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>c, positive.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>d, non-negative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The coefficients fail <a class="xref" href="NanoQL.Numerics.AbcdMathFunction.html#NanoQL_Numerics_AbcdMathFunction_Validate_System_Double_System_Double_System_Double_System_Double_">Validate(double, double, double, double)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_AbcdFunction_Covariance_" data-uid="NanoQL.TermStructures.AbcdFunction.Covariance*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdFunction_Covariance_System_Double_System_Double_System_Double_" data-uid="NanoQL.TermStructures.AbcdFunction.Covariance(System.Double,System.Double,System.Double)">
+  Covariance(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The instantaneous covariance at time t between the T-fixing and S-fixing rates,
+f(T − t)·f(S − t).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Covariance(double t, double T, double S)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first rate's fixing time.</p>
+</dd>
+    <dt><code>S</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second rate's fixing time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The covariance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdFunction_Covariance_" data-uid="NanoQL.TermStructures.AbcdFunction.Covariance*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdFunction_Covariance_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.TermStructures.AbcdFunction.Covariance(System.Double,System.Double,System.Double,System.Double)">
+  Covariance(double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The integral of the instantaneous covariance between t1 and t2 for the T-fixing and S-fixing rates,
+the part before the earlier fixing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Covariance(double t1, double t2, double T, double S)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The lower bound.</p>
+</dd>
+    <dt><code>t2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The upper bound.</p>
+</dd>
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first rate's fixing time.</p>
+</dd>
+    <dt><code>S</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second rate's fixing time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The integrated covariance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">t1</code> is after <code class="paramref">t2</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_AbcdFunction_InstantaneousCovariance_" data-uid="NanoQL.TermStructures.AbcdFunction.InstantaneousCovariance*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdFunction_InstantaneousCovariance_System_Double_System_Double_System_Double_" data-uid="NanoQL.TermStructures.AbcdFunction.InstantaneousCovariance(System.Double,System.Double,System.Double)">
+  InstantaneousCovariance(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The instantaneous covariance at time u between the T and S fixing rates, f(T − u)·f(S − u).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double InstantaneousCovariance(double u, double T, double S)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>u</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first rate's fixing time.</p>
+</dd>
+    <dt><code>S</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second rate's fixing time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The covariance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdFunction_InstantaneousVariance_" data-uid="NanoQL.TermStructures.AbcdFunction.InstantaneousVariance*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdFunction_InstantaneousVariance_System_Double_System_Double_" data-uid="NanoQL.TermStructures.AbcdFunction.InstantaneousVariance(System.Double,System.Double)">
+  InstantaneousVariance(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The instantaneous variance at time u of the T-fixing rate, f(T − u)².</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double InstantaneousVariance(double u, double T)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>u</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate's fixing time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdFunction_InstantaneousVolatility_" data-uid="NanoQL.TermStructures.AbcdFunction.InstantaneousVolatility*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdFunction_InstantaneousVolatility_System_Double_System_Double_" data-uid="NanoQL.TermStructures.AbcdFunction.InstantaneousVolatility(System.Double,System.Double)">
+  InstantaneousVolatility(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The instantaneous volatility at time u of the T-fixing rate, f(T − u).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double InstantaneousVolatility(double u, double T)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>u</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate's fixing time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdFunction_LongTermVolatility_" data-uid="NanoQL.TermStructures.AbcdFunction.LongTermVolatility*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdFunction_LongTermVolatility" data-uid="NanoQL.TermStructures.AbcdFunction.LongTermVolatility">
+  LongTermVolatility()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility function's value at +∞, d.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double LongTermVolatility()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>d.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdFunction_MaximumVolatility_" data-uid="NanoQL.TermStructures.AbcdFunction.MaximumVolatility*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdFunction_MaximumVolatility" data-uid="NanoQL.TermStructures.AbcdFunction.MaximumVolatility">
+  MaximumVolatility()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility function's maximum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MaximumVolatility()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maximum.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdFunction_Primitive_" data-uid="NanoQL.TermStructures.AbcdFunction.Primitive*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdFunction_Primitive_System_Double_System_Double_System_Double_" data-uid="NanoQL.TermStructures.AbcdFunction.Primitive(System.Double,System.Double,System.Double)">
+  Primitive(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The indefinite integral at time t of the instantaneous covariance between the T-fixing and S-fixing
+rates, the integral from 0; 0 past either fixing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Primitive(double t, double T, double S)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The first rate's fixing time.</p>
+</dd>
+    <dt><code>S</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second rate's fixing time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The primitive.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdFunction_ShortTermVolatility_" data-uid="NanoQL.TermStructures.AbcdFunction.ShortTermVolatility*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdFunction_ShortTermVolatility" data-uid="NanoQL.TermStructures.AbcdFunction.ShortTermVolatility">
+  ShortTermVolatility()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility function's value at time 0, f(0).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ShortTermVolatility()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>f(0).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_AbcdFunction_Variance_" data-uid="NanoQL.TermStructures.AbcdFunction.Variance*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdFunction_Variance_System_Double_System_Double_System_Double_" data-uid="NanoQL.TermStructures.AbcdFunction.Variance(System.Double,System.Double,System.Double)">
+  Variance(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The variance between tMin and tMax of the T-fixing rate, ∫f²(T − u)du over the interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Variance(double tMin, double tMax, double T)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tMin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's start.</p>
+</dd>
+    <dt><code>tMax</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's end.</p>
+</dd>
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate's fixing time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">tMin</code> is after <code class="paramref">tMax</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_AbcdFunction_Volatility_" data-uid="NanoQL.TermStructures.AbcdFunction.Volatility*"></a>
+
+  <h3 id="NanoQL_TermStructures_AbcdFunction_Volatility_System_Double_System_Double_System_Double_" data-uid="NanoQL.TermStructures.AbcdFunction.Volatility(System.Double,System.Double,System.Double)">
+  Volatility(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The average volatility in [tMin, tMax] of the T-fixing rate, √(∫f²(T − u)du / (tMax − tMin)); the
+instantaneous volatility when the two are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Volatility(double tMin, double tMax, double T)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tMin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's start.</p>
+</dd>
+    <dt><code>tMax</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's end.</p>
+</dd>
+    <dt><code>T</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate's fixing time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">tMax</code> is before <code class="paramref">tMin</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CapHelper | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CapHelper | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A calibration helper for at-the-money caps: a cap on the index, struck at the fair rate of a swap on it.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models.CapHelper">
+
+
+
+  <h1 id="NanoQL_Models_CapHelper" data-uid="NanoQL.Models.CapHelper" class="text-break">
+Class CapHelper  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A calibration helper for at-the-money caps: a cap on the index, struck at the fair rate of a swap on it.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class CapHelper : BlackCalibrationHelper</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Models.CalibrationHelper.html">CalibrationHelper</a></div>
+      <div><a class="xref" href="NanoQL.Models.BlackCalibrationHelper.html">BlackCalibrationHelper</a></div>
+      <div><span class="xref">CapHelper</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Models.BlackCalibrationHelper.html#NanoQL_Models_BlackCalibrationHelper_CalibrationError_NanoQL_Models_ICalibratedModel_NanoQL_EvaluationContext_">BlackCalibrationHelper.CalibrationError(ICalibratedModel, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.BlackCalibrationHelper.html#NanoQL_Models_BlackCalibrationHelper_ImpliedVolatility_System_Double_System_Double_System_Int32_System_Double_System_Double_NanoQL_EvaluationContext_">BlackCalibrationHelper.ImpliedVolatility(double, double, int, double, double, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.BlackCalibrationHelper.html#NanoQL_Models_BlackCalibrationHelper_Volatility">BlackCalibrationHelper.Volatility</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.BlackCalibrationHelper.html#NanoQL_Models_BlackCalibrationHelper_VolatilityType">BlackCalibrationHelper.VolatilityType</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Models.BlackCalibrationHelper.html#NanoQL_Models_BlackCalibrationHelper_MarketValue">BlackCalibrationHelper.MarketValue</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Models_CapHelper_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable. The constructor builds what QuantLib's helper builds at its first calculation, under the context it is
+given: the floating leg on the index from the curve's reference date (or a period of the index's tenor after it,
+without the first caplet) to the length after it, with no fixing days; a fixed leg on the fixed-leg frequency,
+unadjusted, at a dummy 4%; their swap's fair rate on the term structure, without the settlement date's flows; the
+cap on the floating leg at that rate; and the market value. QuantLib's helper also builds a dummy index it never
+reads, which this one leaves out.
+</p>
+<p>
+The model value is the pricing engine's, set by <a class="xref" href="NanoQL.Models.CapHelper.html#NanoQL_Models_CapHelper_SetPricingEngine__1_System_Func_NanoQL_Instruments_CapFloor_NanoQL_EvaluationContext___0_NanoQL_InstrumentResults__">SetPricingEngine&lt;TModel&gt;(Func&lt;CapFloor, EvaluationContext, TModel, InstrumentResults&gt;?)</a>, which takes the model being
+calibrated as its last argument; with no engine, pricing a cap that hasn't expired refuses with QuantLib's "null
+pricing engine".
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Models_CapHelper__ctor_" data-uid="NanoQL.Models.CapHelper.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_CapHelper__ctor_NanoQL_Time_Period_System_Double_NanoQL_Indexes_IborIndex_NanoQL_Time_Frequency_NanoQL_Time_DayCounter_System_Boolean_NanoQL_TermStructures_YieldTermStructure_NanoQL_EvaluationContext_NanoQL_Models_BlackCalibrationHelperCalibrationErrorType_NanoQL_TermStructures_VolatilityType_System_Double_" data-uid="NanoQL.Models.CapHelper.#ctor(NanoQL.Time.Period,System.Double,NanoQL.Indexes.IborIndex,NanoQL.Time.Frequency,NanoQL.Time.DayCounter,System.Boolean,NanoQL.TermStructures.YieldTermStructure,NanoQL.EvaluationContext,NanoQL.Models.BlackCalibrationHelperCalibrationErrorType,NanoQL.TermStructures.VolatilityType,System.Double)">
+  CapHelper(Period, double, IborIndex, Frequency, DayCounter, bool, YieldTermStructure, EvaluationContext, BlackCalibrationHelperCalibrationErrorType, VolatilityType, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.CapHelper.html">CapHelper</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CapHelper(Period length, double volatility, IborIndex index, Frequency fixedLegFrequency, DayCounter fixedLegDayCounter, bool includeFirstSwaplet, YieldTermStructure termStructure, EvaluationContext context, BlackCalibrationHelperCalibrationErrorType errorType = BlackCalibrationHelperCalibrationErrorType.RelativePriceError, VolatilityType type = VolatilityType.ShiftedLognormal, double shift = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>length</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The cap's length from the curve's reference date.</p>
+</dd>
+    <dt><code>volatility</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The quoted volatility.</p>
+</dd>
+    <dt><code>index</code> <a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd><p>The floating leg's index.</p>
+</dd>
+    <dt><code>fixedLegFrequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The frequency of the fixed leg whose swap gives the at-the-money rate.</p>
+</dd>
+    <dt><code>fixedLegDayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>That fixed leg's day counter.</p>
+</dd>
+    <dt><code>includeFirstSwaplet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the cap starts on the curve's reference date, its first caplet fixed then.</p>
+</dd>
+    <dt><code>termStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve the swap and the Black price discount on.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, under which the legs and the market value are computed.</p>
+</dd>
+    <dt><code>errorType</code> <a class="xref" href="NanoQL.Models.BlackCalibrationHelperCalibrationErrorType.html">BlackCalibrationHelperCalibrationErrorType</a></dt>
+    <dd><p>How the helper measures its error.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="NanoQL.TermStructures.VolatilityType.html">VolatilityType</a></dt>
+    <dd><p>The volatility's type.</p>
+</dd>
+    <dt><code>shift</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The shift of a shifted lognormal volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The index, the day counter, the term structure or the context is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>An enum argument isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The legs or the swap can't be built or priced.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Models_CapHelper_Cap_" data-uid="NanoQL.Models.CapHelper.Cap*"></a>
+
+  <h3 id="NanoQL_Models_CapHelper_Cap" data-uid="NanoQL.Models.CapHelper.Cap">
+  Cap
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the at-the-money cap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Cap Cap { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.Cap.html">Cap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Models_CapHelper_BlackPrice_" data-uid="NanoQL.Models.CapHelper.BlackPrice*"></a>
+
+  <h3 id="NanoQL_Models_CapHelper_BlackPrice_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Models.CapHelper.BlackPrice(System.Double,NanoQL.EvaluationContext)">
+  BlackPrice(double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cap's Black price at a volatility: a <a class="xref" href="NanoQL.PricingEngines.BlackCapFloorEngine.html">BlackCapFloorEngine</a> on the volatility with the helper's
+shift for a shifted lognormal type, a <a class="xref" href="NanoQL.PricingEngines.BachelierCapFloorEngine.html">BachelierCapFloorEngine</a> for a normal one, each on the term
+structure with an Actual/365 (Fixed) volatility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double BlackPrice(double volatility, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>volatility</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The engine fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_CapHelper_ModelValue_" data-uid="NanoQL.Models.CapHelper.ModelValue*"></a>
+
+  <h3 id="NanoQL_Models_CapHelper_ModelValue_NanoQL_Models_ICalibratedModel_NanoQL_EvaluationContext_" data-uid="NanoQL.Models.CapHelper.ModelValue(NanoQL.Models.ICalibratedModel,NanoQL.EvaluationContext)">
+  ModelValue(ICalibratedModel, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cap's price according to a model, through the pricing engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double ModelValue(ICalibratedModel model, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.ICalibratedModel.html">ICalibratedModel</a></dt>
+    <dd><p>The model.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The model value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">model</code> or <code class="paramref">context</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidcastexception">InvalidCastException</a></dt>
+    <dd><p>The engine prices with another model type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No engine is set and the cap hasn't expired, or the engine fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_CapHelper_SetPricingEngine_" data-uid="NanoQL.Models.CapHelper.SetPricingEngine*"></a>
+
+  <h3 id="NanoQL_Models_CapHelper_SetPricingEngine__1_System_Func_NanoQL_Instruments_CapFloor_NanoQL_EvaluationContext___0_NanoQL_InstrumentResults__" data-uid="NanoQL.Models.CapHelper.SetPricingEngine``1(System.Func{NanoQL.Instruments.CapFloor,NanoQL.EvaluationContext,``0,NanoQL.InstrumentResults})">
+  SetPricingEngine&lt;TModel&gt;(Func&lt;CapFloor, EvaluationContext, TModel, InstrumentResults&gt;?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the helper whose model value is the given engine's price: QuantLib's <code>setPricingEngine</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CapHelper SetPricingEngine&lt;TModel&gt;(Func&lt;CapFloor, EvaluationContext, TModel, InstrumentResults&gt;? engine) where TModel : ICalibratedModel</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>engine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.CapFloor.html">CapFloor</a>, <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, TModel, <a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a>&gt;</dt>
+    <dd><p>The engine: the cap, the context and the model being calibrated; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.CapHelper.html">CapHelper</a></dt>
+    <dd><p>The copy; the receiver doesn't change.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TModel</code></dt>
+    <dd><p>The model type the engine prices with.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Models_CapHelper_SetPricingEngine__1_System_Func_NanoQL_Instruments_CapFloor_NanoQL_EvaluationContext___0_NanoQL_InstrumentResults___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The engine is kept for any model: pricing the copy against a model that isn't a <code class="typeparamref">TModel</code>
+throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidcastexception">InvalidCastException</a>.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Models_CapHelper_Times_" data-uid="NanoQL.Models.CapHelper.Times*"></a>
+
+  <h3 id="NanoQL_Models_CapHelper_Times_NanoQL_EvaluationContext_" data-uid="NanoQL.Models.CapHelper.Times(NanoQL.EvaluationContext)">
+  Times(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The times a lattice for the cap must stop at: the mandatory times of its <a class="xref" href="NanoQL.PricingEngines.DiscretizedCapFloor.html">DiscretizedCapFloor</a>, on
+the term structure's reference date and day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ImmutableArray&lt;double&gt; Times(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose coupons' fixings and forecasts the cap's arguments read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The times, not guaranteed to be sorted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is null.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

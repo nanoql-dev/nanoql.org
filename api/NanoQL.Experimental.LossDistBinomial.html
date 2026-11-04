@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class LossDistBinomial | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LossDistBinomial | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The binomial loss distribution: n names of one volume and one default probability.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.LossDistBinomial">
+
+
+
+  <h1 id="NanoQL_Experimental_LossDistBinomial" data-uid="NanoQL.Experimental.LossDistBinomial" class="text-break">
+Class LossDistBinomial  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The binomial loss distribution: n names of one volume and one default probability.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public sealed class LossDistBinomial : LossDist</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.LossDist.html">LossDist</a></div>
+      <div><span class="xref">LossDistBinomial</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LossDist.html#NanoQL_Experimental_LossDist_BinomialProbabilityOfNEvents_System_Int32_System_Collections_Generic_IReadOnlyList_System_Double__">LossDist.BinomialProbabilityOfNEvents(int, IReadOnlyList&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LossDist.html#NanoQL_Experimental_LossDist_BinomialProbabilityOfAtLeastNEvents_System_Int32_System_Collections_Generic_IReadOnlyList_System_Double__">LossDist.BinomialProbabilityOfAtLeastNEvents(int, IReadOnlyList&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LossDist.html#NanoQL_Experimental_LossDist_ProbabilityOfNEvents_System_Collections_Generic_IReadOnlyList_System_Double__">LossDist.ProbabilityOfNEvents(IReadOnlyList&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LossDist.html#NanoQL_Experimental_LossDist_ProbabilityOfNEvents_System_Int32_System_Collections_Generic_IReadOnlyList_System_Double__">LossDist.ProbabilityOfNEvents(int, IReadOnlyList&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.LossDist.html#NanoQL_Experimental_LossDist_ProbabilityOfAtLeastNEvents_System_Int32_System_Collections_Generic_IReadOnlyList_System_Double__">LossDist.ProbabilityOfAtLeastNEvents(int, IReadOnlyList&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_LossDistBinomial_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable: <a class="xref" href="NanoQL.Experimental.LossDistBinomial.html#NanoQL_Experimental_LossDistBinomial_EvaluateWithDetails_System_Int32_System_Double_System_Double_">EvaluateWithDetails(int, double, double)</a> returns QuantLib's mutable by-products with the distribution. A loss is
+kept where the given volume times its count is at most the maximum; QuantLib's tests its never-set <code>volume_</code>
+member instead (<code>lossdistribution.cpp:155</code>; an unused class; <code>Divergences/DistributionMembersTests.cs</code>).</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_LossDistBinomial__ctor_" data-uid="NanoQL.Experimental.LossDistBinomial.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_LossDistBinomial__ctor_System_Int32_System_Double_" data-uid="NanoQL.Experimental.LossDistBinomial.#ctor(System.Int32,System.Double)">
+  LossDistBinomial(int, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The binomial loss distribution: n names of one volume and one default probability.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LossDistBinomial(int nBuckets, double maximum)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nBuckets</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of buckets.</p>
+</dd>
+    <dt><code>maximum</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The largest loss.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Experimental_LossDistBinomial__ctor_System_Int32_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Immutable: <a class="xref" href="NanoQL.Experimental.LossDistBinomial.html#NanoQL_Experimental_LossDistBinomial_EvaluateWithDetails_System_Int32_System_Double_System_Double_">EvaluateWithDetails(int, double, double)</a> returns QuantLib's mutable by-products with the distribution. A loss is
+kept where the given volume times its count is at most the maximum; QuantLib's tests its never-set <code>volume_</code>
+member instead (<code>lossdistribution.cpp:155</code>; an unused class; <code>Divergences/DistributionMembersTests.cs</code>).</p>
+</div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_LossDistBinomial_Buckets_" data-uid="NanoQL.Experimental.LossDistBinomial.Buckets*"></a>
+
+  <h3 id="NanoQL_Experimental_LossDistBinomial_Buckets" data-uid="NanoQL.Experimental.LossDistBinomial.Buckets">
+  Buckets
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of buckets of the distributions built.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Buckets { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LossDistBinomial_Maximum_" data-uid="NanoQL.Experimental.LossDistBinomial.Maximum*"></a>
+
+  <h3 id="NanoQL_Experimental_LossDistBinomial_Maximum" data-uid="NanoQL.Experimental.LossDistBinomial.Maximum">
+  Maximum
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the distributions' largest loss.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Maximum { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_LossDistBinomial_Evaluate_" data-uid="NanoQL.Experimental.LossDistBinomial.Evaluate*"></a>
+
+  <h3 id="NanoQL_Experimental_LossDistBinomial_Evaluate_System_Collections_Generic_IReadOnlyList_System_Double__System_Collections_Generic_IReadOnlyList_System_Double__" data-uid="NanoQL.Experimental.LossDistBinomial.Evaluate(System.Collections.Generic.IReadOnlyList{System.Double},System.Collections.Generic.IReadOnlyList{System.Double})">
+  Evaluate(IReadOnlyList&lt;double&gt;, IReadOnlyList&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The distribution of the names' loss, on the first name's volume and probability.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Distribution Evaluate(IReadOnlyList&lt;double&gt; volumes, IReadOnlyList&lt;double&gt; probabilities)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>volumes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The names' volumes, the first read.</p>
+</dd>
+    <dt><code>probabilities</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The names' default probabilities, the first read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Distribution.html">Distribution</a></dt>
+    <dd><p>The distribution.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A list is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_LossDistBinomial_Evaluate_" data-uid="NanoQL.Experimental.LossDistBinomial.Evaluate*"></a>
+
+  <h3 id="NanoQL_Experimental_LossDistBinomial_Evaluate_System_Int32_System_Double_System_Double_" data-uid="NanoQL.Experimental.LossDistBinomial.Evaluate(System.Int32,System.Double,System.Double)">
+  Evaluate(int, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The distribution of n names' loss.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Distribution Evaluate(int n, double volume, double probability)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of names.</p>
+</dd>
+    <dt><code>volume</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Each name's volume.</p>
+</dd>
+    <dt><code>probability</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Each name's default probability.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Distribution.html">Distribution</a></dt>
+    <dd><p>The distribution.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_LossDistBinomial_EvaluateWithDetails_" data-uid="NanoQL.Experimental.LossDistBinomial.EvaluateWithDetails*"></a>
+
+  <h3 id="NanoQL_Experimental_LossDistBinomial_EvaluateWithDetails_System_Int32_System_Double_System_Double_" data-uid="NanoQL.Experimental.LossDistBinomial.EvaluateWithDetails(System.Int32,System.Double,System.Double)">
+  EvaluateWithDetails(int, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The distribution of n names' loss, with the probability of each number of defaults.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LossDistResult EvaluateWithDetails(int n, double volume, double probability)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of names.</p>
+</dd>
+    <dt><code>volume</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Each name's volume.</p>
+</dd>
+    <dt><code>probability</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Each name's default probability.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.LossDistResult.html">LossDistResult</a></dt>
+    <dd><p>The distribution and its by-products.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

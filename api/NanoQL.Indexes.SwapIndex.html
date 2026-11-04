@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class SwapIndex | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SwapIndex | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The base class of swap-rate indexes: the fair fixed rate of a vanilla swap starting at the value date.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Indexes.SwapIndex">
+
+
+
+  <h1 id="NanoQL_Indexes_SwapIndex" data-uid="NanoQL.Indexes.SwapIndex" class="text-break">
+Class SwapIndex  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Indexes.html">Indexes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base class of swap-rate indexes: the fair fixed rate of a vanilla swap starting at the value date.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SwapIndex : InterestRateIndex</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.FinancialIndex.html">FinancialIndex</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.InterestRateIndex.html">InterestRateIndex</a></div>
+      <div><span class="xref">SwapIndex</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Indexes.ChfLiborSwapIsdaFix.html">ChfLiborSwapIsdaFix</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.EurLiborSwapIfrFix.html">EurLiborSwapIfrFix</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.EurLiborSwapIsdaFixA.html">EurLiborSwapIsdaFixA</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.EurLiborSwapIsdaFixB.html">EurLiborSwapIsdaFixB</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.EuriborSwapIfrFix.html">EuriborSwapIfrFix</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.EuriborSwapIsdaFixA.html">EuriborSwapIsdaFixA</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.EuriborSwapIsdaFixB.html">EuriborSwapIsdaFixB</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.GbpLiborSwapIsdaFix.html">GbpLiborSwapIsdaFix</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.JpyLiborSwapIsdaFixAm.html">JpyLiborSwapIsdaFixAm</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.JpyLiborSwapIsdaFixPm.html">JpyLiborSwapIsdaFixPm</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.OvernightIndexedSwapIndex.html">OvernightIndexedSwapIndex</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.UsdLiborSwapIsdaFixAm.html">UsdLiborSwapIsdaFixAm</a></div>
+      <div><a class="xref" href="NanoQL.Indexes.UsdLiborSwapIsdaFixPm.html">UsdLiborSwapIsdaFixPm</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Indexes.InterestRateIndex.html#NanoQL_Indexes_InterestRateIndex_IsValidFixingDate_NanoQL_Time_Date_">InterestRateIndex.IsValidFixingDate(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Indexes.InterestRateIndex.html#NanoQL_Indexes_InterestRateIndex_Fixing_NanoQL_Time_Date_NanoQL_EvaluationContext_System_Boolean_">InterestRateIndex.Fixing(Date, EvaluationContext, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Indexes.InterestRateIndex.html#NanoQL_Indexes_InterestRateIndex_FixingDate_NanoQL_Time_Date_">InterestRateIndex.FixingDate(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Indexes.InterestRateIndex.html#NanoQL_Indexes_InterestRateIndex_ValueDate_NanoQL_Time_Date_">InterestRateIndex.ValueDate(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Indexes.InterestRateIndex.html#NanoQL_Indexes_InterestRateIndex_Name">InterestRateIndex.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Indexes.InterestRateIndex.html#NanoQL_Indexes_InterestRateIndex_FixingCalendar">InterestRateIndex.FixingCalendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Indexes.InterestRateIndex.html#NanoQL_Indexes_InterestRateIndex_FamilyName">InterestRateIndex.FamilyName</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Indexes.InterestRateIndex.html#NanoQL_Indexes_InterestRateIndex_Tenor">InterestRateIndex.Tenor</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Indexes.InterestRateIndex.html#NanoQL_Indexes_InterestRateIndex_FixingDays">InterestRateIndex.FixingDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Indexes.InterestRateIndex.html#NanoQL_Indexes_InterestRateIndex_Currency">InterestRateIndex.Currency</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Indexes.InterestRateIndex.html#NanoQL_Indexes_InterestRateIndex_DayCounter">InterestRateIndex.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.FinancialIndex.html#NanoQL_FinancialIndex_HasHistoricalFixing_NanoQL_Time_Date_NanoQL_EvaluationContext_">FinancialIndex.HasHistoricalFixing(Date, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.FinancialIndex.html#NanoQL_FinancialIndex_PastFixing_NanoQL_Time_Date_NanoQL_EvaluationContext_">FinancialIndex.PastFixing(Date, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.FinancialIndex.html#NanoQL_FinancialIndex_TimeSeries_NanoQL_EvaluationContext_">FinancialIndex.TimeSeries(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.FinancialIndex.html#NanoQL_FinancialIndex_FixingDates_NanoQL_Time_Date_">FinancialIndex.FixingDates(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.FinancialIndex.html#NanoQL_FinancialIndex_AllowsNativeFixings">FinancialIndex.AllowsNativeFixings</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Indexes_SwapIndex_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Unsealed, as in QuantLib, where the presets (<a class="xref" href="NanoQL.Indexes.EuriborSwapIsdaFixA.html">EuriborSwapIsdaFixA</a>, ...) and
+<a class="xref" href="NanoQL.Indexes.OvernightIndexedSwapIndex.html">OvernightIndexedSwapIndex</a> derive from it. Its fixing is forecast from the swap
+<a class="xref" href="NanoQL.Indexes.SwapIndex.html#NanoQL_Indexes_SwapIndex_UnderlyingSwap_NanoQL_Time_Date_NanoQL_EvaluationContext_">UnderlyingSwap(Date, EvaluationContext)</a> builds, priced by a <a class="xref" href="NanoQL.PricingEngines.DiscountingSwapEngine.html">DiscountingSwapEngine</a> without the settlement date's
+flows: on the exogenous discounting curve when the index has one, and on the Ibor index's forwarding curve
+otherwise.
+</p>
+<p>
+The constructor taking a discounting curve makes the index's discounting exogenous even when the curve is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty handle: a forecast then refuses "discounting term structure handle is
+empty", as QuantLib's does.
+</p>
+<p>
+QuantLib caches the last swap built, keyed by its fixing date only, so a swap built under one at-par switch keeps
+serving forecasts after the switch changes. nanoql keeps no cache: each forecast builds its swap from the context
+it is given, and so reads the context's switch as a QuantLib index built afresh would.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Indexes_SwapIndex__ctor_" data-uid="NanoQL.Indexes.SwapIndex.#ctor*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex__ctor_System_String_NanoQL_Time_Period_System_Int32_NanoQL_Currency_NanoQL_Time_Calendar_NanoQL_Time_Period_NanoQL_Time_BusinessDayConvention_NanoQL_Time_DayCounter_NanoQL_Indexes_IborIndex_" data-uid="NanoQL.Indexes.SwapIndex.#ctor(System.String,NanoQL.Time.Period,System.Int32,NanoQL.Currency,NanoQL.Time.Calendar,NanoQL.Time.Period,NanoQL.Time.BusinessDayConvention,NanoQL.Time.DayCounter,NanoQL.Indexes.IborIndex)">
+  SwapIndex(string, Period, int, Currency?, Calendar, Period, BusinessDayConvention, DayCounter, IborIndex)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Indexes.SwapIndex.html">SwapIndex</a> class, discounting on the forwarding curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SwapIndex(string familyName, Period tenor, int settlementDays, Currency? currency, Calendar fixingCalendar, Period fixedLegTenor, BusinessDayConvention fixedLegConvention, DayCounter fixedLegDayCounter, IborIndex iborIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>familyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The family name.</p>
+</dd>
+    <dt><code>tenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The swap's tenor.</p>
+</dd>
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The fixing days: the business days from a fixing to the swap's start.</p>
+</dd>
+    <dt><code>currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The currency, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty currency.</p>
+</dd>
+    <dt><code>fixingCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The fixing calendar, which is the fixed leg's calendar too.</p>
+</dd>
+    <dt><code>fixedLegTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The fixed leg's tenor.</p>
+</dd>
+    <dt><code>fixedLegConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The fixed leg's business-day convention.</p>
+</dd>
+    <dt><code>fixedLegDayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The fixed leg's day counter, which is the index's.</p>
+</dd>
+    <dt><code>iborIndex</code> <a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd><p>The floating leg's index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument but the currency is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">settlementDays</code> is negative, or <code class="paramref">fixedLegConvention</code> isn't a member of its
+type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Indexes_SwapIndex__ctor_" data-uid="NanoQL.Indexes.SwapIndex.#ctor*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex__ctor_System_String_NanoQL_Time_Period_System_Int32_NanoQL_Currency_NanoQL_Time_Calendar_NanoQL_Time_Period_NanoQL_Time_BusinessDayConvention_NanoQL_Time_DayCounter_NanoQL_Indexes_IborIndex_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Indexes.SwapIndex.#ctor(System.String,NanoQL.Time.Period,System.Int32,NanoQL.Currency,NanoQL.Time.Calendar,NanoQL.Time.Period,NanoQL.Time.BusinessDayConvention,NanoQL.Time.DayCounter,NanoQL.Indexes.IborIndex,NanoQL.TermStructures.YieldTermStructure)">
+  SwapIndex(string, Period, int, Currency?, Calendar, Period, BusinessDayConvention, DayCounter, IborIndex, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Indexes.SwapIndex.html">SwapIndex</a> class with exogenous discounting, on the curve given
+even when it is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SwapIndex(string familyName, Period tenor, int settlementDays, Currency? currency, Calendar fixingCalendar, Period fixedLegTenor, BusinessDayConvention fixedLegConvention, DayCounter fixedLegDayCounter, IborIndex iborIndex, YieldTermStructure? discountingTermStructure)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>familyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The family name.</p>
+</dd>
+    <dt><code>tenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The swap's tenor.</p>
+</dd>
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The fixing days: the business days from a fixing to the swap's start.</p>
+</dd>
+    <dt><code>currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The currency, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty currency.</p>
+</dd>
+    <dt><code>fixingCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The fixing calendar, which is the fixed leg's calendar too.</p>
+</dd>
+    <dt><code>fixedLegTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The fixed leg's tenor.</p>
+</dd>
+    <dt><code>fixedLegConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The fixed leg's business-day convention.</p>
+</dd>
+    <dt><code>fixedLegDayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The fixed leg's day counter, which is the index's.</p>
+</dd>
+    <dt><code>iborIndex</code> <a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd><p>The floating leg's index.</p>
+</dd>
+    <dt><code>discountingTermStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The discounting curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty handle, on which a forecast is refused.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument but the currency and the discounting curve is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">settlementDays</code> is negative, or <code class="paramref">fixedLegConvention</code> isn't a member of its
+type.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Indexes_SwapIndex_DiscountingTermStructure_" data-uid="NanoQL.Indexes.SwapIndex.DiscountingTermStructure*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex_DiscountingTermStructure" data-uid="NanoQL.Indexes.SwapIndex.DiscountingTermStructure">
+  DiscountingTermStructure
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the exogenous discounting curve: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when the discounting isn't exogenous, or when it is
+on QuantLib's empty handle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YieldTermStructure? DiscountingTermStructure { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_SwapIndex_ExogenousDiscount_" data-uid="NanoQL.Indexes.SwapIndex.ExogenousDiscount*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex_ExogenousDiscount" data-uid="NanoQL.Indexes.SwapIndex.ExogenousDiscount">
+  ExogenousDiscount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the index discounts on a curve of its own, given at construction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ExogenousDiscount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_SwapIndex_FixedLegConvention_" data-uid="NanoQL.Indexes.SwapIndex.FixedLegConvention*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex_FixedLegConvention" data-uid="NanoQL.Indexes.SwapIndex.FixedLegConvention">
+  FixedLegConvention
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed leg's business-day convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BusinessDayConvention FixedLegConvention { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_SwapIndex_FixedLegTenor_" data-uid="NanoQL.Indexes.SwapIndex.FixedLegTenor*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex_FixedLegTenor" data-uid="NanoQL.Indexes.SwapIndex.FixedLegTenor">
+  FixedLegTenor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed leg's tenor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Period FixedLegTenor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_SwapIndex_ForwardingTermStructure_" data-uid="NanoQL.Indexes.SwapIndex.ForwardingTermStructure*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex_ForwardingTermStructure" data-uid="NanoQL.Indexes.SwapIndex.ForwardingTermStructure">
+  ForwardingTermStructure
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the Ibor index's forwarding curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YieldTermStructure? ForwardingTermStructure { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_SwapIndex_IborIndex_" data-uid="NanoQL.Indexes.SwapIndex.IborIndex*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex_IborIndex" data-uid="NanoQL.Indexes.SwapIndex.IborIndex">
+  IborIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the floating leg's index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborIndex IborIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Indexes_SwapIndex_Clone_" data-uid="NanoQL.Indexes.SwapIndex.Clone*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex_Clone_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Indexes.SwapIndex.Clone(NanoQL.TermStructures.YieldTermStructure)">
+  Clone(YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the index on another forwarding curve: a plain <a class="xref" href="NanoQL.Indexes.SwapIndex.html">SwapIndex</a>, its Ibor index cloned on the
+curve, keeping the exogenous discounting curve if it has one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SwapIndex Clone(YieldTermStructure? forwarding)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>forwarding</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The forwarding curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.SwapIndex.html">SwapIndex</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_SwapIndex_Clone_" data-uid="NanoQL.Indexes.SwapIndex.Clone*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex_Clone_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Indexes.SwapIndex.Clone(NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.YieldTermStructure)">
+  Clone(YieldTermStructure?, YieldTermStructure?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the index on other curves: a plain <a class="xref" href="NanoQL.Indexes.SwapIndex.html">SwapIndex</a>, its Ibor index cloned on the forwarding
+curve, whose discounting is exogenous, on the discounting curve, even when that is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SwapIndex Clone(YieldTermStructure? forwarding, YieldTermStructure? discounting)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>forwarding</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The forwarding curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>discounting</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The discounting curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty handle.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.SwapIndex.html">SwapIndex</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_SwapIndex_Clone_" data-uid="NanoQL.Indexes.SwapIndex.Clone*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex_Clone_NanoQL_Time_Period_" data-uid="NanoQL.Indexes.SwapIndex.Clone(NanoQL.Time.Period)">
+  Clone(Period)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the index with another tenor: a plain <a class="xref" href="NanoQL.Indexes.SwapIndex.html">SwapIndex</a> on the same Ibor index, keeping the
+exogenous discounting curve if it has one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SwapIndex Clone(Period tenor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The tenor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.SwapIndex.html">SwapIndex</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Indexes_SwapIndex_ForecastFixing_" data-uid="NanoQL.Indexes.SwapIndex.ForecastFixing*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex_ForecastFixing_NanoQL_Time_Date_NanoQL_EvaluationContext_" data-uid="NanoQL.Indexes.SwapIndex.ForecastFixing(NanoQL.Time.Date,NanoQL.EvaluationContext)">
+  ForecastFixing(Date, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The forecast fixing: the fair rate of the swap fixing on the date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double ForecastFixing(Date fixingDate, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fixingDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The fixing date.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forecast.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">fixingDate</code> is <code>default(Date)</code> or isn't a valid fixing date.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The swap can't be built or priced: its discounting curve is missing, or its fair rate isn't available, as for
+an expired swap.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Indexes_SwapIndex_MaturityDate_" data-uid="NanoQL.Indexes.SwapIndex.MaturityDate*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex_MaturityDate_NanoQL_Time_Date_" data-uid="NanoQL.Indexes.SwapIndex.MaturityDate(NanoQL.Time.Date)">
+  MaturityDate(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maturity date of a value date: the maturity of the swap fixing on the value date's fixing date, computed
+from the swap's schedules.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date MaturityDate(Date valueDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>valueDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The value date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The maturity date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Indexes_SwapIndex_MaturityDate_NanoQL_Time_Date__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>QuantLib builds the underlying swap, which reads the at-par switch, though the swap's dates don't depend on it:
+they come from its schedules. The swap is built here with an explicit coupon choice and its effective date, so
+its builder reads neither the switch nor the evaluation date, and the method takes no context.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">valueDate</code> is <code>default(Date)</code>, or its fixing date isn't a valid fixing date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Indexes_SwapIndex_UnderlyingSwap_" data-uid="NanoQL.Indexes.SwapIndex.UnderlyingSwap*"></a>
+
+  <h3 id="NanoQL_Indexes_SwapIndex_UnderlyingSwap_NanoQL_Time_Date_NanoQL_EvaluationContext_" data-uid="NanoQL.Indexes.SwapIndex.UnderlyingSwap(NanoQL.Time.Date,NanoQL.EvaluationContext)">
+  UnderlyingSwap(Date, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The swap whose fair rate is the fixing: from the fixing date's value date, at a zero fixed rate, with the fixed
+leg's conventions and the Ibor index's floating leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VanillaSwap UnderlyingSwap(Date fixingDate, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fixingDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The fixing date.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose at-par switch the floating leg reads.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.VanillaSwap.html">VanillaSwap</a></dt>
+    <dd><p>The swap, which holds no engine.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">fixingDate</code> is <code>default(Date)</code> or isn't a valid fixing date.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The swap can't be built.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Concepts | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Concepts | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="concepts">Concepts</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>nanoql's types and their names follow QuantLib's, which a QuantLib user will recognise: <code>Date</code>, <code>Calendar</code>,
+<code>YieldTermStructure</code>, <code>Euribor6M</code>, <code>VanillaSwap</code>, <code>MakeOIS</code>, <code>BlackSwaptionEngine</code>. What differs is how they fit
+together. This page covers that design; <a href="stateless.html">the stateless design</a> shows the patterns an application builds
+on it.</p>
+<h2 id="values-and-functions">Values and functions</h2>
+<p>Instruments, curves, indexes, volatility structures and models are immutable values, built once from their inputs.
+Engines are static functions: <code>Calculate</code> takes the instrument, the evaluation context and the engine's market inputs,
+and returns a results record.</p>
+<pre><code class="lang-csharp">var euribor = new Euribor6M(curve);
+VanillaSwap spot = new MakeVanillaSwap(new Period(5, TimeUnit.Years), euribor)
+    .WithFixedRate(0.025)
+    .WithNominal(10e6)
+    .ToVanillaSwap(context);
+VanillaSwap forward = new MakeVanillaSwap(new Period(5, TimeUnit.Years), euribor)
+    .WithForwardStart(new Period(5, TimeUnit.Years))
+    .WithFixedRate(0.025)
+    .WithNominal(10e6)
+    .ToVanillaSwap(context);
+
+FixedVsFloatingSwapResults spotResult = DiscountingSwapEngine.Calculate(spot, context, curve);
+FixedVsFloatingSwapResults forwardResult = DiscountingSwapEngine.Calculate(forward, context, curve);
+</code></pre>
+<ul>
+<li><strong>Inputs are values.</strong> A rate helper takes its quote as a number, an index takes its forecasting curve, and an engine
+takes its discounting curve and its volatility. There are no quote or curve handles to relink: a new quote means a
+new curve, built from the new quotes.</li>
+<li><strong>Results are records.</strong> The swap engine's record holds the NPV, the fair rate and spread, and each leg's NPV and
+basis-point value. A result QuantLib doesn't compute for an instrument is <code>null</code>.</li>
+<li><strong>No hidden state.</strong> No object watches another. Apart from the working types, which their caller owns (arrays and
+matrices, random-number and path generators, a Monte Carlo simulation's state), no object changes once built,
+and the few that keep a cache key it by everything the answer reads. So the same inputs always give the same
+results, and calls run side by side on any number of threads.</li>
+</ul>
+<h2 id="the-evaluation-context">The evaluation context</h2>
+<p>QuantLib reads its evaluation date and settings from a global. nanoql passes them in an <code>EvaluationContext</code>, to every
+function that reads them, directly or through a callee:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it holds</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EvaluationDate</code></td>
+<td>the date prices are as of</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>Fixings</code></td>
+<td>the indexes' stored past fixings</td>
+<td>none</td>
+</tr>
+<tr>
+<td><code>IncludeReferenceDateEvents</code>, <code>IncludeTodaysCashFlows</code>, <code>EnforcesTodaysHistoricFixings</code></td>
+<td>when an event on the reference date counts, as QuantLib's settings</td>
+<td>QuantLib's</td>
+</tr>
+<tr>
+<td><code>UseAtParCoupons</code></td>
+<td>whether Ibor coupons are priced as par coupons</td>
+<td><code>true</code>, as QuantLib-Python</td>
+</tr>
+<tr>
+<td><code>ExchangeRates</code>, <code>MoneySettings</code></td>
+<td>the exchange rates, and how amounts in different currencies combine</td>
+<td>QuantLib's known rates; no conversion</td>
+</tr>
+<tr>
+<td><code>CommoditySettings</code>, <code>UnitOfMeasureConversions</code>, <code>QuantitySettings</code></td>
+<td>the energy instruments' base currency and units</td>
+<td>QuantLib's</td>
+</tr>
+</tbody>
+</table>
+<p>A context is a record: a variation is made with <code>with</code>, and two contexts holding the same values are equal. A past
+fixing is stored in the context, never in the index:</p>
+<pre><code class="lang-csharp">var euribor = new Euribor6M(curve);
+Date yesterday = euribor.FixingCalendar.Advance(Curves.Today, -1, TimeUnit.Days);
+EvaluationContext context = Curves.Context with
+{
+    Fixings = Curves.Context.Fixings.AddFixing(euribor, yesterday, 0.0212),
+};
+
+Date[] fixingDates =
+[
+    yesterday,
+    Curves.Today,
+    euribor.FixingCalendar.Advance(Curves.Today, new Period(6, TimeUnit.Months)),
+];
+</code></pre><h2 id="conventions-as-data">Conventions as data</h2>
+<p>QuantLib keeps its market conventions in code: a calendar's holidays, an index's fixing days, a builder's defaults.
+nanoql keeps QuantLib's values and reads each preset's and each builder's conventions through a <code>ConventionProvider</code>
+when the object is built. With nothing configured, every object is QuantLib's. The <code>NanoQL.Extensions</code> package reads
+and writes conventions as XML records, so a desk overrides a value, or adds a convention of its own, as data
+(<a href="conventions.html">conventions.md</a>; every shipped value in <a href="conventions-catalogue.html">the catalogue</a>).</p>
+<p><code>ConventionProvider.Default</code> is the library's one global. It is read only when an object is built, never while it
+prices, so a price doesn't depend on when or where it runs.</p>
+<h2 id="where-nanoql-differs-from-quantlib">Where nanoql differs from QuantLib</h2>
+<p>nanoql fixes QuantLib's defects where it finds them, and a few of its design choices give different results. Each
+departure is a documented divergence, with the test that asserts it: <a href="divergences.html">divergences.md</a> lists them.</p>
+<h2 id="experimental-code">Experimental code</h2>
+<p>The types ported from QuantLib's experimental folder carry <code>[Experimental(&quot;NQL0001&quot;)]</code>: the compiler reports NQL0001
+where code uses them, until a project opts in with <code>&lt;NoWarn&gt;$(NoWarn);NQL0001&lt;/NoWarn&gt;</code>.</p>
+<h2 id="deriving-your-own-types">Deriving your own types</h2>
+<p>The public bases QuantLib's hierarchy derives from, abstract or unsealed, are the extension points: term structures,
+stochastic processes, volatility structures, calendars, day counters, cash flows, coupons, instruments and more. A
+type of your own derives from one, or implements one of the interfaces the library's types implement; the extension
+points page lists them all. Every other public class is sealed, so that no subclass can add mutable state or change
+equality behind its base's back. Compose instead, or add members through C# 14's extension members.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

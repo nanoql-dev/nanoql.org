@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>The bindings | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="The bindings | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="the-bindings">The bindings</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>nanoql crosses to other languages through one C ABI: its assemblies compiled with Native AOT into one shared library
+(<code>nanoql.dll</code>, <code>libnanoql.so</code>, <code>libnanoql.dylib</code>) that exports a C function per member, described by a generated header,
+<code>nanoql.h</code>. Every other language's layer is generated over it: Python (ctypes), C++ (a header with RAII) and Java (the
+FFM API). A release ships the C archive and the Python wheel, and the C archive serves any language that calls C; the
+C++ and Java layers are built and tested in the repository and not released. This page gives the C ABI's rules, the
+tool that generates and builds it, and how it is checked; the language pages follow.</p>
+<h2 id="the-tool-nanoql-bind">The tool: nanoql-bind</h2>
+<p><code>nanoql-bind</code> (the .NET tool <code>NanoQL.Bind</code>, <code>src/NanoQL.Bind/</code>) reads built assemblies' metadata without running them,
+selects what crosses, and writes the outputs. In the repository, <code>dotnet run --project src/NanoQL.Bind -c Release --</code>
+runs it; outside it, the tool installed from NuGet runs as <code>nanoql-bind</code> (Outside the repository, below):</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>update</code></td>
+<td>regenerates <code>bindings/c/include/nanoql.h</code>, <code>bindings/surface.json</code> and <code>bindings/coverage.md</code></td>
+</tr>
+<tr>
+<td><code>check</code></td>
+<td>regenerates them into memory and compares their bytes with <code>bindings/</code>'s; a difference fails</td>
+</tr>
+<tr>
+<td><code>freeze</code></td>
+<td>writes a release's shipped files, <code>bindings/surface.shipped.json</code> and <code>bindings/excel/functions.shipped.json</code>, from the checked-in surface; it refuses, writing nothing, unless <code>check</code> and <code>excel check</code> are green</td>
+</tr>
+<tr>
+<td><code>build --rid &lt;rid&gt; --out &lt;folder&gt; [--test-exports]</code></td>
+<td>generates the export shims, publishes the native host (<code>src/NanoQL.Native/</code>) with Native AOT, and writes <code>include/</code> and <code>lib/</code></td>
+</tr>
+<tr>
+<td><code>shims --out &lt;folder&gt;</code></td>
+<td>writes the C# export shims the native host compiles (its build runs this)</td>
+</tr>
+<tr>
+<td><code>python --out &lt;folder&gt; [--test-exports]</code></td>
+<td>writes the Python package's generated modules into its folder (Python, below)</td>
+</tr>
+<tr>
+<td><code>cpp --out &lt;folder&gt; [--test-exports]</code></td>
+<td>writes the C++ headers: <code>nanoql.hpp</code>, and a user assembly's own (C and C++, below)</td>
+</tr>
+<tr>
+<td><code>java --out &lt;folder&gt; [--prefix &lt;prefix&gt;]... [--test-exports]</code></td>
+<td>writes the Java layer's sources over jextract's, a directory per package: every prefix's, or the named ones alone (Java, below)</td>
+</tr>
+<tr>
+<td><code>headers --out &lt;folder&gt; [--test-exports]</code></td>
+<td>writes the C headers alone, without a native build: <code>nanoql.h</code>, and a user assembly's own</td>
+</tr>
+<tr>
+<td><code>twins --out &lt;folder&gt;</code>, <code>replay-c --out &lt;folder&gt;</code>, <code>replay-cpp --out &lt;folder&gt;</code>, <code>replay-java --out &lt;folder&gt;</code></td>
+<td>write the vector suite's recording twins and the C, C++ and Java replayers' dispatches</td>
+</tr>
+<tr>
+<td><code>report</code></td>
+<td>prints the surface's counts</td>
+</tr>
+</tbody>
+</table>
+<p>Each takes <code>--assembly &lt;prefix&gt;=&lt;path&gt;</code> for every assembly to cross (nanoql's two by default), <code>--roles &lt;path&gt;</code> for a
+roles table (the repository's <code>bindings/roles.json</code> by default) and <code>--shipped &lt;path&gt;</code> for the last release's surface
+(<code>bindings/surface.shipped.json</code> when it exists). The Native AOT build needs the platform's C toolchain: on Windows,
+Visual Studio's C++ tools with the Visual Studio Installer's folder on <code>PATH</code>.</p>
+<ul>
+<li><strong>Checked in:</strong> <code>nanoql.h</code>, <code>surface.json</code> and <code>coverage.md</code>, so any change to the C surface shows in a commit's diff.
+After a change to nanoql's public API, <code>nanoql-bind update</code> regenerates them and the commit carries the difference.
+The shims, the language layers and the native library are generated at build.</li>
+<li><strong>Assemblies built on nanoql:</strong> one native library per process holds every assembly it prices with, nanoql's and a
+user's, since two Native AOT libraries can't share an object. <code>nanoql-bind build --assembly nql=NanoQL.dll --assembly nql=NanoQL.Extensions.dll --assembly acme=Acme.dll</code> builds one: the user's functions take its own prefix
+(<code>acme_...</code>) and its own header (<code>acme.h</code>, which includes <code>nanoql.h</code>), and a user's roles table sits beside nanoql's.</li>
+<li><strong>Outside the repository:</strong> the tool installed from NuGet (<code>dotnet tool install --global NanoQL.Bind</code>) carries beside
+it nanoql's two assemblies and, under <code>defaults/</code>, the roles table, the released names and the native host's project
+and sources, so a user builds a library of their own in any folder. <code>nanoql-bind build</code> writes the host into its
+output and publishes it there, against the nanoql assemblies the generation reads: the two given with
+<code>--assembly nql=</code>, from one folder (a build output holding both), or the tool's own copies when none is given, so
+the library's nanoql is the one the user's assembly was built on; <code>include/</code> holds the C headers alone (<code>nanoql.h</code>
+and <code>acme.h</code>); <code>nanoql-bind python</code> writes the user's Python package, and <code>nanoql-bind excel build</code> their add-in
+(<a href="excel.html">excel.md</a>). The commands that work on the repository's own files refuse there (<code>update</code>, <code>check</code>,
+<code>freeze</code>, <code>--test-exports</code>, <code>excel update</code>, <code>excel check</code> and <code>excel package</code>), and so do those writing the C++ and
+Java layers, which the repository builds and tests but doesn't release (<code>cpp</code>, <code>java</code>, <code>replay-cpp</code> and
+<code>replay-java</code>).</li>
+</ul>
+<h2 id="the-c-abi">The C ABI</h2>
+<h3 id="names">Names</h3>
+<ul>
+<li><strong><code>nql_&lt;Type&gt;_&lt;member&gt;</code>:</strong> the type's nanoql name and the member's: <code>new</code> for a constructor, <code>get_&lt;P&gt;</code> for a getter,
+<code>set_&lt;P&gt;</code> for a static setter, <code>with_&lt;P&gt;</code> for a record's init-only property, <code>op_&lt;Name&gt;</code> for an operator (.NET's
+metadata name, <code>op_Addition</code>). A type whose simple name another type of the same prefix shares takes its namespace's
+last segment in front.</li>
+<li><strong>Statics</strong> cross under their declaring type alone: a type carries the static and extension members it declares, and
+a named class (a sealed class naming a closed generic, QuantLib-Python's <code>%template</code> name for it) also those of the
+closing it names. A base's factory stays with its base, which crosses for it: <code>nql_LatentModel_GaussianCopulaPolicy_ GaussianCopulaPolicyInitTraits_FromCorrelation</code> builds the latent model, and no named latent model carries a copy.
+Each language reaches a base's static through its own inheritance.</li>
+<li><strong>A type's own members:</strong> a type surfaces the members it declares and, for a closing's name, those of its closed
+generic bases. A member a type declares with <code>new</code> hides its base's of the same C signature, as C#'s lookup binds it
+(a named class's own <code>Create</code> returns the named class); an override doesn't, since C# call sites name the virtual's
+declaration.</li>
+<li><strong>Overloads:</strong> two underscores and the shortest run of the parameters' type names that tells the overload from the
+others: <code>nql_Calendar_Advance__Date_int</code> beside <code>__Date_Period</code>. Type names: <code>double</code>, <code>int</code>, <code>long</code>, <code>bool</code>,
+<code>string</code>, <code>Date</code>, <code>OptDate</code> for <code>Date?</code>, <code>doubleArray</code> for a collection of doubles, <code>ValueTuple</code> and its elements'
+names for a tuple (<code>ValueTupleOptdoubleOptdouble</code>), a nanoql type's name. Overloads whose C signatures are the same
+cross once: the one a type declares with <code>new</code>, else the one taking a <code>ReadOnlySpan</code>, else an <code>ImmutableArray</code>, else
+the first.</li>
+<li><strong>Generics:</strong> a generic method crosses closed: per named factory where its type argument is a trait's, and at its
+constraint where each type parameter has one class or interface constraint, no constructor or value-type one
+(<code>nql_CalibratedModelExtensions_Calibrate</code> takes any calibrated model); any other generic method doesn't cross. A
+closed generic type a crossing function takes or returns crosses as a type of its own, its members too, named by its
+definition and its arguments: <code>nql_CalibrationResults_Gsr_get_Model</code>. An engine's calculations generic in their
+traits and statistics cross through its named classes, each a static class of them closed: <code>MCPR&lt;X&gt;Engine</code>
+and <code>MCLD&lt;X&gt;Engine</code> at <code>PseudoRandom</code> or <code>LowDiscrepancy</code> and <code>GeneralStatistics</code>, QuantLib's default statistics,
+for the 19 engines QuantLib-Python names and the six it doesn't, named as their siblings are; and
+<code>Binomial&lt;Tree&gt;BarrierEngine</code> and <code>Binomial&lt;Tree&gt;DoubleBarrierEngine</code> for the seven trees on Derman and Kani's
+assets, the wheel's closings (<code>nql_MCPREuropeanEngine_Calculate</code>, <code>nql_BinomialCRRBarrierEngine_Bind</code>). A curve,
+surface or generator QuantLib-Python names with a <code>%template</code> crosses as its named class, a sealed subclass of the
+closed generic (<code>ForwardFlatForwardCurve</code>, <code>PiecewiseLogCubicSpreadDiscount</code>, <code>YoYInflationCapFloorTermPriceSurface</code>,
+<code>InvCumulativeBurley2020SobolGaussianRsg</code>); the four the wheel deprecates (<code>LogLinearZeroCurve</code>, <code>LogCubicZeroCurve</code>,
+<code>NaturalCubicDiscountCurve</code>, <code>PiecewiseSplineCubicDiscount</code>) are deprecated in every layer, their messages the
+wheel's reasons with nanoql's replacements.</li>
+<li><strong>Released names never move:</strong> each release writes its surface to <code>bindings/surface.shipped.json</code> (<code>nanoql-bind freeze</code>), and the generator keeps every released function's name, by the type it crosses under and its member, and
+every released type's. A type is read by its name without its assemblies' version, culture and public key token,
+which a closed generic's arguments carry and a release or a runtime moves. A released name the surface no longer
+holds, a removed function's, one whose parameters changed or a removed type's, stays in the file under <code>&quot;retired&quot;</code>,
+and no later function or type takes it. Only a new member is named against the names in use: a member that gains its
+first overload keeps its short name and the newcomer takes the suffix.</li>
+<li><strong>Parameters</strong> keep their C# names; one a C or C++ keyword takes, or <code>self</code>, <code>result</code> or <code>has_value</code>, gets a trailing
+underscore. A tuple's elements take the parameter's name and their own in snake case, C#'s tuple element names
+(<code>calibrationSet_option</code>), or <code>item1</code>... where C# names none; a returned tuple's elements their own (<code>first</code>). In a
+collection's tuple an element named <code>count</code> or <code>has_value</code> gets a trailing underscore, those being the collection's
+own.</li>
+<li><strong>An optional parameter of a type that doesn't cross,</strong> null by default (a <code>TimeProvider</code>, a line search, the caller's
+functions), is left out of the C function and takes its default: <code>nql_BFGS_new(&amp;optimizer)</code> builds QuantLib's
+default line search, and <code>nql_Date_TodaysDate(&amp;today)</code> reads the computer's clock. Any other parameter that doesn't
+cross withholds its member, listed in <code>coverage.md</code> with why.</li>
+</ul>
+<h3 id="handles">Handles</h3>
+<ul>
+<li><strong>One handle type,</strong> <code>nql_handle</code>, for every object. The header names each parameter's expected type in its name and
+in the comment above the function.</li>
+<li><strong>Ownership:</strong> every handle a function returns is the caller's, released once with <code>nql_release</code>; <code>nql_retain</code> gives
+a second owner, a new handle to the same object. NULL is the null reference.</li>
+<li><strong>Refusals:</strong> a handle is a slot, a generation and the library's tag drawn when it loads, so a released, stale,
+never-issued or another library's handle is refused with <code>NQL_ERROR_HANDLE</code>, never followed. A handle of the wrong
+type is refused with <code>NQL_ERROR_TYPE</code>. A slot whose generation would wrap is retired.</li>
+<li><strong>Threads:</strong> every object behind a handle is immutable, so any thread may use any handle at the same time, with no
+lock. Releasing a handle while another thread uses it is the caller's error.</li>
+<li><strong>Working types never cross as handles.</strong> nanoql's working types (playbook §2.5: mutable, owned by one computation,
+each marked <code>[WorkingType]</code>) take other forms: <code>Matrix</code> and <code>Vector</code> as arrays, by rows; a generator as an immutable
+snapshot drawn in batches; a loss model's <code>Distribution</code> as its values. The stepping parts (finite-difference
+operators and schemes, lattices' discretized assets, market-model curve states and evolvers, optimizer states) stay
+inside nanoql, with the members that take or return them; an engine built from them is written in C# on nanoql and
+bound into the same library. A user's type that derives from a marked class, or implements a marked interface, is a
+working type too.</li>
+<li><strong>Results records</strong> cross as objects: a getter per field. <strong><code>nql_type_name</code></strong> gives an object's .NET type, so a layer
+wraps a base-typed result as its own class.</li>
+<li><strong>A nanoql struct's</strong> implicit parameterless constructor, <code>default(T)</code>, crosses as its <code>new</code>
+(<code>nql_BackwardFlat_new</code>, or <code>nql_IterativeBootstrap_new__void</code> beside its other constructors).</li>
+</ul>
+<h3 id="errors">Errors</h3>
+<p>Every function returns an <code>nql_status</code>: 0 for success, a positive code per refusal kind. Results come back through the
+last parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Name</th>
+<th>Refusal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>NQL_OK</code></td>
+<td>none</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>NQL_ERROR</code></td>
+<td><code>NanoQLException</code>: QuantLib's own checks</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>NQL_ERROR_ARGUMENT</code></td>
+<td><code>ArgumentException</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>NQL_ERROR_ARGUMENT_NULL</code></td>
+<td><code>ArgumentNullException</code>; a NULL <code>self</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>NQL_ERROR_ARGUMENT_RANGE</code></td>
+<td><code>ArgumentOutOfRangeException</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>NQL_ERROR_INVALID_OPERATION</code></td>
+<td><code>InvalidOperationException</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>NQL_ERROR_INVALID_CAST</code></td>
+<td><code>InvalidCastException</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>NQL_ERROR_NOT_SUPPORTED</code></td>
+<td><code>NotSupportedException</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>NQL_ERROR_KEY_NOT_FOUND</code></td>
+<td><code>KeyNotFoundException</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>NQL_ERROR_HANDLE</code></td>
+<td>a released, stale, foreign or never-issued handle</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>NQL_ERROR_TYPE</code></td>
+<td>a handle of the wrong type; a bound engine that can't serve the member</td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>NQL_ERROR_OUT_OF_MEMORY</code></td>
+<td><code>OutOfMemoryException</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>NQL_ERROR_IO</code></td>
+<td><code>IOException</code> and its kinds, <code>UnauthorizedAccessException</code>: a file not read or written</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>NQL_ERROR_FORMAT</code></td>
+<td>malformed input: <code>XmlException</code>, <code>XmlSchemaValidationException</code>, <code>FormatException</code></td>
+</tr>
+<tr>
+<td>99</td>
+<td><code>NQL_ERROR_INTERNAL</code></td>
+<td>anything else: a defect, to report</td>
+</tr>
+</tbody>
+</table>
+<p>A kind outside the table maps by the member's own documentation: a documented <code>IndexOutOfRangeException</code> is
+<code>NQL_ERROR_ARGUMENT_RANGE</code>, an undocumented one <code>NQL_ERROR_INTERNAL</code>. The calling thread's last refusal is
+<code>nql_last_error_code</code>, <code>_message</code>, <code>_param</code> (the parameter as .NET names it) and <code>_type</code> (the .NET exception), valid
+until the thread's next nanoql call.</p>
+<h3 id="values">Values</h3>
+<table>
+<thead>
+<tr>
+<th>C#</th>
+<th>C, in</th>
+<th>C, out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>double</code>, <code>int</code>, <code>long</code>, <code>bool</code></td>
+<td><code>double</code>, <code>int32_t</code>, <code>int64_t</code>, <code>bool</code></td>
+<td>a pointer to it</td>
+</tr>
+<tr>
+<td><code>string</code></td>
+<td><code>const char*</code>, UTF-8, NUL-terminated, NULL for null</td>
+<td><code>char**</code>, freed with <code>nql_free</code></td>
+</tr>
+<tr>
+<td><code>Date</code>, <code>Date?</code></td>
+<td><code>nql_date</code>: QuantLib's serial (Excel's), 0 for no date</td>
+<td><code>nql_date*</code></td>
+</tr>
+<tr>
+<td><code>Period</code></td>
+<td><code>nql_period {length, units}</code> by value</td>
+<td><code>nql_period*</code></td>
+</tr>
+<tr>
+<td>an enum</td>
+<td><code>int32_t</code>, with <code>NQL_&lt;Enum&gt;_&lt;Member&gt;</code></td>
+<td><code>int32_t*</code></td>
+</tr>
+<tr>
+<td><code>T?</code> for a value <code>T</code></td>
+<td><code>const T*</code>, NULL for none</td>
+<td><code>T*</code> and <code>bool* has_value</code></td>
+</tr>
+<tr>
+<td><code>Complex</code></td>
+<td><code>nql_complex {re, im}</code></td>
+<td><code>nql_complex*</code></td>
+</tr>
+<tr>
+<td>an object, a nanoql struct</td>
+<td><code>nql_handle</code>; NULL for an optional struct is its default, <code>default(T)</code>, what C# passes for the omitted argument</td>
+<td><code>nql_handle*</code>, the caller's</td>
+</tr>
+<tr>
+<td>a collection</td>
+<td>a pointer and an <code>int32_t</code> count; a <code>ReadOnlySpan</code> of numbers is read in place</td>
+<td>a pointer and a count, freed with <code>nql_free</code> (an array of handles: each released first)</td>
+</tr>
+<tr>
+<td><code>Span&lt;double&gt;</code>, <code>Span&lt;int&gt;</code></td>
+<td>a pointer and a count, written in place</td>
+<td></td>
+</tr>
+<tr>
+<td>a collection of nullables</td>
+<td>values and <code>has_value</code> flags</td>
+<td>the same</td>
+</tr>
+<tr>
+<td>a jagged array</td>
+<td>its values flat by rows, their count, the rows' lengths and the rows' count</td>
+<td>the same</td>
+</tr>
+<tr>
+<td>a dictionary, key–value pairs</td>
+<td>keys, values, count</td>
+<td>the same</td>
+</tr>
+<tr>
+<td>a tuple</td>
+<td>one parameter per element, <code>&lt;param&gt;_&lt;element&gt;</code>, each in its element's form; C#'s default is each element's zero value, NULL for a nullable one</td>
+<td>one out-parameter per element, by its name</td>
+</tr>
+<tr>
+<td>a collection of tuples</td>
+<td>one array per element, <code>&lt;param&gt;_&lt;element&gt;</code>, a nullable element with its <code>_has_value</code> flags, and <code>&lt;param&gt;_count</code>; NULL first array for null, arrays of no rows for empty</td>
+<td>one array per element, by its name, then <code>has_value</code> flags for a collection of nullable tuples, then <code>count</code>, each freed with <code>nql_free</code> (each handle released first)</td>
+</tr>
+<tr>
+<td><code>Matrix</code>, <code>Vector</code></td>
+<td>values by rows with the rows and columns; values and their count; one the member writes into (<code>coverage.md</code>'s list) by <code>double*</code>, written back after the call</td>
+<td>the same, freed with <code>nql_free</code></td>
+</tr>
+<tr>
+<td>a generator</td>
+<td>its snapshot's handle; for a closed generator construction (<code>RandomSequenceGenerator&lt;MersenneTwisterUniformRng&gt;</code>), the snapshot of a class deriving it, checked at the call</td>
+<td><code>nql_&lt;Generator&gt;_Draws</code>: draws and weights, the next snapshot</td>
+</tr>
+<tr>
+<td>a loss <code>Distribution</code></td>
+<td></td>
+<td>its normalized buckets' edges, widths, densities, cumulative and excess probabilities and averages</td>
+</tr>
+</tbody>
+</table>
+<p>A tuple's or a collection's elements are scalars, dates, enums, strings, nullable doubles, integers and dates, and
+objects. A returned collection of tuples with a nullable element, a collection of nullable tuples in, and a tuple
+holding a collection or a tuple don't cross, each listed in <code>coverage.md</code>. An optional parameter's default is in the
+header's comment and in <code>surface.json</code>; C passes every parameter, and each language layer applies the defaults.</p>
+<h3 id="generators">Generators</h3>
+<p>A generator's constructor returns an immutable snapshot holding a private copy of the generator as built.
+<code>nql_&lt;Generator&gt;_Draws(snapshot, count, &amp;values, &amp;weights, &amp;next)</code> copies it, draws <code>count</code> values (for a sequence
+generator, <code>count</code> points of its dimension, by rows, the dimension out too) with their weights, and returns the copy as
+the next snapshot. The same snapshot always gives the same draws, a stream continues from <code>next</code> with nothing
+recomputed, and threads may draw from one snapshot at once. A member that takes a generator copies the snapshot's. A
+parameter of a closed generator construction takes the snapshot of a class deriving it (the Gaussian sequence
+generators over <code>MersenneTwisterUniformRsg</code>, <code>KnuthUniformRsg</code> and the rest), refused with <code>NQL_ERROR_TYPE</code> for another
+generator's; a member taking a construction no generator class derives doesn't cross.</p>
+<h3 id="the-context-and-the-conventions">The context and the conventions</h3>
+<ul>
+<li><strong>The context</strong> is a handle: <code>nql_EvaluationContext_new(evaluationDate)</code>, then <code>nql_EvaluationContext_with_&lt;Field&gt;</code>
+for each other field, each returning a new context.</li>
+<li><strong>Conventions by name:</strong> the coded presets' constructors (<code>TARGET</code>, <code>Actual365Fixed</code>, <code>Euribor6M</code>, ...) don't cross;
+a convention set gives each by its name: <code>nql_ConventionSet_Calendar(set, &quot;TARGET&quot;, &amp;calendar)</code>,
+<code>nql_ConventionSet_IborIndex__string_Period(set, &quot;Euribor&quot;, tenor, curve, &amp;index)</code>. A preset that takes arguments
+has a lookup taking them after its name, as QuantLib-Python's constructor takes them: the daily-tenor LIBORs'
+settlement days (<code>nql_ConventionSet_IborIndex__string_int(set, &quot;DailyTenorUSDLibor&quot;, 2, curve, &amp;index)</code>), AUCPI's
+frequency and revised flag and GenericCPI's with its lag and currency, and their year-on-year twins; the BMA index, no
+Ibor index, by <code>nql_ConventionSet_InterestRateIndex</code>, which gives the BMA index, or any Ibor or overnight index, by
+name or alias; the index lookups follow the set's aliases. A set comes from
+<code>nql_ConventionSet_get_QuantLib</code>, or from XML: <code>nql_ConventionsXml_Read__string(path, &amp;snapshot)</code> then
+<code>nql_ConventionSet_With</code>. A NULL set is the current provider read as a set: QuantLib's set where the default provider
+is the core's, refused where it is a user's provider. <code>nql_ConventionProvider_set_Default</code> sets the default; scopes
+(<code>ConventionProvider.Use</code>) don't cross.</li>
+</ul>
+<h3 id="bound-engines">Bound engines</h3>
+<p>A member that takes one of nanoql's engines as a delegate (an instrument builder's pricer, a calibration helper's
+engine) takes a bound engine: an immutable handle naming an engine with its inputs filled in.</p>
+<ul>
+<li><strong><code>nql_&lt;Engine&gt;_Bind</code></strong> takes the inputs the engine's calculations take after the instrument and the context, one
+function per set of them, each input optional: NULL leaves it open (a value goes by pointer, a collection of tuples
+by its first element's array). <strong><code>nql_&lt;Engine&gt;_BindOn</code></strong> takes the instrument too, for a member that takes the
+context alone (a composite instrument).</li>
+<li><strong>The member supplies its own arguments,</strong> always the instrument and the context, and for some members more (a
+calibration helper's trial model, the quanto engine's process, YoY optionlet stripping's trial surface, the callable
+bond's OAS spread). Each goes into the engine's parameter of its role: an object into the one parameter of its type; a
+value, or an object two parameters can take, into the parameter <code>bindings/roles.json</code> names; a calibration helper's
+trial model always by its entry's names, cast to that parameter's type at each call (a model the engine can't take
+fails with <code>NQL_ERROR_INVALID_CAST</code>). The bound inputs fill the rest, and a parameter open on both sides keeps its
+default; a nullable value with no default is null, C#'s value for it (a Monte Carlo engine's <code>timeStepsPerYear</code> beside
+its bound <code>timeSteps</code>).</li>
+<li><strong>The calculation:</strong> the member takes its engine's calculation for the input set <code>Bind</code> named, for the most derived
+instrument type its own is.</li>
+<li><strong>Refused with <code>NQL_ERROR_TYPE</code></strong> when the member takes the engine: an input both bound and supplied, a required one
+neither bound nor supplied (a non-nullable one with no default), an engine with no calculation for the member, an
+engine with no parameter for a role (the Black callable engines on the OAS members, where QuantLib's engine reads no
+spread).</li>
+<li><strong>The generator stops</strong> on a value a member supplies with no entry in the roles table, an object two parameters take
+that the table names neither of, and two calculations tied for one member. <code>coverage.md</code> lists every pair, where its
+arguments go, and each calculation that forms none, with why.</li>
+</ul>
+<h3 id="experimental-functions">Experimental functions</h3>
+<p>nanoql's experimental API (NQL0001) crosses, each declaration compiled only under <code>#ifdef NANOQL_EXPERIMENTAL</code>, C's
+form of C#'s opt-in. A member of a stable type whose signature names an experimental type is experimental too.</p>
+<h3 id="versions">Versions</h3>
+<ul>
+<li>The first release is 2.0. A version is major and minor, with a third part only for a fix (2.1.1). <code>nanoql.h</code> defines
+<code>NQL_VERSION_MAJOR</code>, <code>NQL_VERSION_MINOR</code>, <code>NQL_VERSION_PATCH</code>, <code>NQL_VERSION</code> (&quot;2.0&quot;) and <code>NQL_ABI_VERSION</code>, the major
+times 1,000 plus the minor (2000), which a fix keeps; the library answers <code>nql_version()</code> and <code>nql_abi_version()</code>. A
+2.y header works with the 2.y library alone; a program linking a separately installed library checks
+<code>assert(nql_abi_version() == NQL_ABI_VERSION)</code>.</li>
+<li>A 2.y release may remove or change the stable API only where it was deprecated at least two releases and at least a
+year before. A member nanoql marks <code>[Obsolete]</code> is declared <code>NQL_DEPRECATED(&quot;...&quot;)</code> in the header and deprecated in
+every layer.</li>
+<li>The experimental API (NQL0001, <code>NANOQL_EXPERIMENTAL</code>, the Excel add-in's experimental build) may change or go in any
+release, outside that window. Its released names still never move and are never reused: a removed function's name is
+retired.</li>
+<li>nanoql's assemblies carry the major version alone, <code>2.0.0.0</code>, for every 2.y release, since <code>surface.json</code> names
+closed generic types by assembly-qualified names that carry it.</li>
+</ul>
+<h3 id="fixed-functions">Fixed functions</h3>
+<p><code>nql_release</code>, <code>nql_retain</code>, <code>nql_type_name</code>, <code>nql_equals</code>, <code>nql_hash</code>, <code>nql_to_string</code>, <code>nql_free</code>,
+<code>nql_last_error_code</code>, <code>nql_last_error_message</code>, <code>nql_last_error_param</code>, <code>nql_last_error_type</code>, <code>nql_version</code>,
+<code>nql_abi_version</code>, and <code>nql_live_handles</code>, the handles issued and not released, for diagnostics.</p>
+<h2 id="surfacejson">surface.json</h2>
+<p>The surface's language-neutral description, which every language back end reads and which another generator may read
+too. Schema 1, its <code>&quot;schema&quot;</code> field raised on any change of meaning; one row a line.</p>
+<ul>
+<li><strong><code>assemblies</code>:</strong> each input's <code>prefix</code> and <code>name</code>.</li>
+<li><strong><code>types</code>:</strong> <code>name</code>, <code>prefix</code>, <code>cname</code>, <code>base</code> (the nearest base that crosses: a public class of the inputs that isn't
+generic, or a closed construction), <code>interfaces</code>, <code>shape</code> (<code>class</code>, <code>sealed</code>, <code>abstract</code>, <code>static</code>, <code>struct</code>,
+<code>interface</code>), <code>form</code> (how it crosses: <code>handle</code>, <code>value</code> for <code>Date</code> and <code>Period</code>, <code>boxed</code> for another struct, <code>static</code>,
+and for the working types <code>matrix</code>, <code>vector</code>, <code>snapshot</code>, <code>distribution</code> or <code>withheld</code>), <code>experimental</code>.</li>
+<li><strong><code>enums</code>:</strong> <code>name</code>, <code>prefix</code>, <code>cname</code>, <code>experimental</code>, <code>flags</code>, <code>members</code> as <code>[name, value]</code>.</li>
+<li><strong><code>functions</code>:</strong> <code>name</code> (the C name), <code>kind</code> (<code>new</code>, <code>method</code>, <code>static</code>, <code>get</code>, <code>set</code>, <code>with</code>, <code>field</code>, <code>indexer</code>,
+<code>operator</code>, <code>draws</code>, <code>bind</code>, <code>bindon</code>), <code>type</code>, <code>member</code>, <code>key</code> (the member's metadata key: declaring type, name and
+parameter types), <code>static</code>, <code>experimental</code>, <code>deprecated</code> (its message, when there is one), <code>overloaded</code>, <code>set</code> (a
+bind's engine input set), <code>params</code> (each <code>name</code>, <code>kind</code>, <code>type</code>, and <code>optional</code> with its <code>default</code>), <code>returns</code> (its
+<code>kind</code> and <code>type</code>), and <code>c</code>, the C parameters as <code>[type, name]</code>. A kind is a scalar (<code>double</code>, <code>int32</code>, <code>int64</code>,
+<code>bool</code>, <code>string</code>, <code>date</code>, <code>period</code>, <code>enum</code>, <code>complex</code>), a nullable value (<code>double?</code> and the like), an object
+(<code>handle</code>, <code>boxed</code>, <code>snapshot</code>, <code>engine</code>), a working type's form (<code>matrix</code>, <code>vector</code>, <code>distribution</code>), or a
+collection: <code>array:&lt;element&gt;</code>, <code>span:&lt;element&gt;</code>, <code>jagged:double</code>, <code>map:&lt;key&gt;:&lt;value&gt;</code>, <code>tuple:&lt;element&gt;,...</code>,
+<code>array:tuple:&lt;element&gt;,...</code> for a collection of tuples, and as a result <code>array:tuple?:&lt;element&gt;,...</code> for one of
+nullable tuples; <code>vector&amp;</code> and <code>matrix&amp;</code> for one the member writes into. A tuple's or a collection of tuples' C#
+element names are its <code>items</code>. A reader meeting a kind it doesn't know refuses it.</li>
+<li><strong><code>presets</code>:</strong> each withheld preset constructor: its <code>dictionary</code>, <code>name</code>, <code>member</code>, the convention set's <code>lookup</code>
+function, and its <code>args</code>, each a constant, the lookup's parameter or computed.</li>
+<li><strong><code>engines</code>:</strong> each engine input set: its <code>id</code>, <code>engine</code>, <code>inputs</code> and <code>calculations</code>.</li>
+</ul>
+<h2 id="checking-the-bindings">Checking the bindings</h2>
+<ul>
+<li><strong>The surface:</strong> <code>nanoql-bind check</code> keeps the checked-in outputs in step with the code. The tool's own tests,
+<code>bindings/NanoQL.Bind.Tests</code>, check its rules on nanoql's assemblies and on fixtures it binds as a user's assembly.</li>
+<li><strong>The test build:</strong> <code>nanoql-bind build --test-exports</code> adds the assembly <code>bindings/NanoQL.Bind.TestTypes</code> under the
+prefix <code>nqlt</code> (an echo per kind, each refusal kind, a deprecated member, a user's generator, a member that sleeps,
+members that read past an array or an index under one widened value each, with their checked twins, and the
+bound-engine cases' markets with their C# routes) and narrows handles' generations to 8 bits; the packages ship
+without it. Each language's conformance suite runs on it: <code>bindings/c/tests/</code> for C, <code>bindings/cpp/tests/</code> for C++,
+<code>bindings/python/tests/</code> for Python, <code>bindings/java/src/test/</code> (JUnit 5) for Java, the test types' Java layer compiled
+with its tests, as a user's package beside nanoql's.</li>
+<li><strong>The vector suite through each binding:</strong> the recorder (<code>tools/replay/</code>) compiles <code>nanoql-bind twins</code> with its
+runtime, rewrites the test assembly's call sites into nanoql to call them, and runs the vector classes with their own
+checks against QuantLib's vectors; a red stops it unless <code>--keep-reds</code> keeps the trace, which CI passes except on
+Windows x64, the reference platform: elsewhere a vector red is reported, and the replays compare each layer with C#'s
+results on the same machine. Each twin writes its call as its C function's: arguments and result in the C forms
+above, objects by ids (a struct by its value), doubles by their bits, a preset's constructor, called or reached by
+reflection, as its set's lookup, a record built by an object initializer as <code>new</code> and its <code>with_</code> calls, a struct made
+by <code>default</code> or <code>new T()</code> as its implicit constructor's call, a generator's draws as <code>Draws</code> calls along its
+snapshots. A call made from inside nanoql (a callback into the test code) isn't written. Each language's replayer then
+calls its own layer for every line and compares every result with C#'s, bit for bit (off Windows x64, a double within
+<code>NANOQL_REPLAY_TOLERANCE</code> relatively, or else within <code>NANOQL_REPLAY_ABS_TOLERANCE</code>
+absolutely, is a match, tallied; CI sets 1e-12 and 1e-13), NaN as NaN, a new object by its
+class's name (a file-local class's without its compiler prefix, <code>&lt;File&gt;F&lt;hash&gt;__</code>, whose hash is of its source file's
+path, so a trace replays against a library built from another checkout); hash and equality calls aren't recorded (the
+conformance suites check them); a fact replays up to its first call that needs something the trace couldn't write (a
+delegate, an object a call that doesn't cross made, a generator a call that doesn't cross moved, or one a crossing
+call took, which C# shares where the C ABI copies; a call that writes into a <code>Matrix</code> or <code>Vector</code> argument crossing in
+only, which the C call doesn't give back). The C replayer is <code>bindings/c/replay/</code>, its dispatch generated by
+<code>nanoql-bind replay-c</code>; C++'s is <code>bindings/cpp/replay/</code>, its dispatch generated by <code>nanoql-bind replay-cpp</code>, which
+calls each C function through its C++ member with arguments of the member's own parameter types; Python's is
+<code>bindings/python/tests/replay.py</code>, which calls each C function through the Python member the generated map names, an
+overload through its group's dispatch; where the dispatch, reading the arguments' own classes, takes another form than
+C#'s static choice, it counts the call and calls the recorded form; Java's is
+<code>bindings/java/src/test/java/org/nanoql/replay/</code>, its dispatch generated by <code>nanoql-bind replay-java</code>, which calls
+each C function through its Java member, a fact stopping where Java's types can't hold an input (an enum value no
+constant has, which only a refusal's test passes, or a matrix of no rows and some columns), each such stop counted by
+its reason. A record's generated equality pair, which no class declares, goes through the language's own <code>==</code> or
+<code>equals</code> (<code>nql_equals</code>) in the C++, Python and Java replayers, its C function called by the C replayer alone. Given
+<code>bindings/replay-floor.json</code>, the C and Java replayers also fail below the floor: at least as many facts replayed
+whole, each with calls, as the floor lists (the facts that reach only crossing members), at least its calls replayed,
+refusals matched, and the facts it names whole.</li>
+<li><strong>Every function called, its arrays and indexes widened:</strong> the Python replayer's <code>--sweep &lt;outcomes.tsv&gt;</code>, after its
+replay of the whole suite and before its objects are released, calls each function of the layer's table, those the
+trace doesn't call first, then those it calls: through its Python member, or, for a record's equality pair the layer
+leaves to <code>==</code>, through its C function, its answer checked against <code>==</code> and <code>!=</code>. Its standing arguments are the
+replay's objects by class, at most 40 of each, each taken at its first sight in the facts' name order, so that the
+recording's order of facts doesn't move them (but for a fact whose replay stops before it reaches an object another
+fact made), and values by kind and parameter name, the names from <code>bindings/surface.json</code> (<code>--surface</code> names another;
+a run with neither stops), up to three choices; the objects an uncalled function returns join them, in passes until
+one reaches nothing new. Then, on the choice that returned (each one tried, when none did), its widened attempts
+change one thing each, their objects joining nothing: an array-like argument empty, of one element or of twelve, and
+every one at once where there are two or more (<code>zero:</code>, <code>one:</code> and <code>many:</code>, with the parameter's name or <code>*</code>); and an
+index-like integer, by its name (<code>i</code>, <code>index</code>, <code>iName</code> and the like) at 1,000 and at -1 (<code>past:</code> and <code>neg:</code>). An
+orthogonal polynomial's order takes no index probe, and a map no array probe, each exemption with its reason. The
+calls run in a fresh temporary folder, removed after a clean sweep and kept after a red, each under a limit
+(<code>--limit</code>, 30 s), past which <code>faulthandler</code> ends the process, the call and its probe named on standard error. It
+fails on a Python-layer error, code 99 or code 9 in any attempt, standing or widened, and on an exclusion that names
+no function of the layer; the outcomes file gives each function's line: returned, refused with its code, unreached
+with the class it lacked, or excluded, a red's probe beside its kind, the trace's functions marked <code>trace</code>, and the
+widened attempts' outcomes last. <code>EXCLUDED</code> in <code>replay.py</code> lists the functions it skips, in both stages, each with its
+reason and its time. <code>--prefix</code> sweeps a user's package, <code>nqlt</code> for the test build, through its own members, importing
+it and its experimental module first, so a trace of its calls replays too. CI's Python step runs it on Windows x64; a
+replay of a subset doesn't sweep, as its objects aren't the whole suite's.</li>
+<li><strong>Parity with QuantLib-Python:</strong> <code>tools/bindings/wheelparity.py</code> reads the wheel's <code>QuantLib.py</code> (the release
+<code>tools/vectors/requirements.txt</code> pins), <code>surface.json</code> and <code>bindings/wheel-routes.json</code>, and puts every class the
+wheel constructs, and every module function that constructs one, in one group: it crosses with a maker (a constructor,
+a factory, a preset lookup, an engine's calculation or <code>Bind</code>); a route the table names, with its reason, to a type
+the surface makes, an enum it carries, a C function it has or a language form; an exclusion with its reason (handles,
+observers and settings, SWIG's containers, the stepping parts, the caller's own functions); or a gap. <code>--fail-on-gap</code>
+exits 1 on a gap, and CI's bindings job runs it on Windows x64; <code>--report</code> writes the parity table. The table's notes
+keep the differences a crossing class still has (<code>GlobalBootstrap</code>'s initial guess).</li>
+</ul>
+<h2 id="debugging-into-nanoql">Debugging into nanoql</h2>
+<ul>
+<li><strong>Windows:</strong> the native library's PDB holds line records for nanoql's C# code, so a debugger attached to a C, C++,
+Python or Java program steps from its call into nanoql's source, the generated export the frame above.
+<code>tools/replay/stepin.py</code> shows it from a C program: <code>python -I tools/replay/stepin.py &lt;exe&gt; nanoql.dll &quot;*FlatForward___ctor*&quot;</code> stops in <code>FlatForward</code>'s constructor and prints the stack's source lines. Visual Studio's
+mixed-mode debugging does the same from Python. A release's library, built in release mode, maps nanoql's sources
+to its commit on GitHub (Source Link), so the debugger fetches them; a library built from a checkout reads the
+checkout.</li>
+<li><strong>Linux and macOS:</strong> the build strips the DWARF line records into <code>libnanoql.so.dbg</code> and <code>libnanoql.dylib.dSYM</code>;
+point gdb at a checkout with <code>set substitute-path &lt;the build's source root&gt; &lt;checkout&gt;</code>, or lldb with
+<code>settings set target.source-map &lt;the build's source root&gt; &lt;checkout&gt;</code>.</li>
+<li><strong>Symbols ship apart</strong> from the packages, as an archive per platform on the release, <code>nanoql-&lt;version&gt;-&lt;rid&gt;-symbols</code>
+beside the C archive: <code>nanoql.pdb</code>, <code>libnanoql.so.dbg</code> or <code>libnanoql.dylib.dSYM</code> (<code>tools/release/symbols.py</code>).</li>
+</ul>
+<h2 id="platforms">Platforms</h2>
+<p>The library is built natively on each of five platforms: <code>win-x64</code>, <code>win-arm64</code>, <code>linux-x64</code>, <code>linux-arm64</code> and
+<code>osx-arm64</code>; Linux in a <code>manylinux_2_28</code> container, so it runs on glibc 2.28 and later; Intel Macs aren't among them
+(nanoql's C# library runs there; nanoql builds and tests no bindings for them). It loads no ICU (invariant
+globalization), so its messages read the same in every locale and it runs where libicu is absent. Windows x64 is the
+validated platform; on the others, a result's last bits may differ where the C runtime's maths functions do.</p>
+<h2 id="c-and-c">C and C++</h2>
+<ul>
+<li><strong>Install:</strong> an archive per platform on the release, <code>nanoql-&lt;version&gt;-&lt;rid&gt;-c-api.zip</code> on Windows and <code>.tar.xz</code>
+elsewhere: <code>include/</code> (<code>nanoql.h</code>), <code>lib/</code> (<code>nanoql.dll</code> with its import library <code>nanoql.lib</code>,
+<code>libnanoql.so</code> or <code>libnanoql.dylib</code>) and the notices: <code>LICENSE</code>, <code>NOTICE</code>, <code>THIRD_PARTY_NOTICES.md</code>, and the .NET
+runtime's <code>LICENSE.TXT</code> and <code>THIRD-PARTY-NOTICES.TXT</code>, which Native AOT compiles into the library. The symbols ship
+apart. <code>python bindings/c/archive.py --library &lt;native build folder&gt; --out &lt;folder&gt;</code> writes one.</li>
+<li><strong>C:</strong> include <code>nanoql.h</code> and link the library; the C ABI above is the whole of it.</li>
+<li><strong>C++, from the release:</strong> include <code>nanoql.h</code> as it is; its declarations sit in <code>extern &quot;C&quot;</code>.</li>
+<li><strong>C++, the repository's layer:</strong> <code>nanoql.hpp</code>, C++17, over <code>nanoql.h</code>, built and tested in the repository and not
+released. <code>NANOQL_EXPERIMENTAL</code>, defined first, opts in to the experimental API. Its hand-written part is
+<code>bindings/cpp/runtime.hpp</code>; the tool writes the rest, never checked in, as <code>nanoql-bind build</code> does into the build's
+<code>include/</code> in the repository. The bullets below describe it.</li>
+<li><strong>Names:</strong> namespace <code>nanoql</code>; nanoql's type names; members in QuantLib's camelCase (<code>curve.discount(5.0)</code>,
+<code>swap.fixedRate()</code>, <code>NPV()</code>, <code>yoyInflationIndex()</code>), a getter a member function; a static member or an extension
+method a static member of its declaring class (<code>ConventionSet::quantLib()</code>), a record's init-only property
+<code>with&lt;Name&gt;(value)</code>, an operator a static <code>op_&lt;Name&gt;</code> and, for arithmetic and ordering, C++'s operator (and <code>==</code> for
+<code>Date</code> and <code>Period</code>). A name a keyword or a type takes gets a trailing underscore: <code>Echo::double_</code>.</li>
+<li><strong>Objects:</strong> each class owns a handle: a copy takes a new handle to the same object, a move takes the handle, the
+destructor releases it. A class's bases and interfaces are virtual bases, so an object converts to each
+(<code>const ICalibratedModel&amp; m = gsr;</code>). Nanoql's null reference is a null object, <code>T(nullptr)</code>, which <code>if (obj)</code> tests;
+a constructor taking no arguments, where nanoql has one, makes the object (a struct's is <code>default(T)</code>); a constructor
+one argument can call is <code>explicit</code>, so no argument converts to an object implicitly, as in C#.
+<code>object_cast&lt;T&gt;(o)</code> gives an object as another class, unchecked until a member of a class it isn't refuses.
+Equality, <code>hashCode()</code>, <code>toString()</code> and <code>typeName()</code> are nanoql's, and a record's <code>==</code> and <code>!=</code> are that equality,
+with no <code>op_Equality</code> or <code>op_Inequality</code> of their own.</li>
+<li><strong>Values:</strong> <code>Date</code> holds QuantLib's serial (<code>Date()</code> is no date; <code>serial()</code> the C form) with nanoql's members
+(<code>year()</code>, <code>month()</code>, <code>dayOfMonth()</code>, <code>Date::todaysDate()</code>); <code>Period</code> has <code>length()</code> and <code>units()</code>; enums are enum
+classes over <code>int32_t</code>; <code>std::string</code> (a null string comes back empty; a parameter whose default is null takes
+<code>std::optional&lt;std::string&gt;</code>, null as <code>std::nullopt</code>), <code>std::optional</code> for nullable values, <code>std::complex&lt;double&gt;</code>;
+<code>std::vector</code> out, and in <code>array_view&lt;T&gt;</code>, a read-only view of a vector or a braced list, or <code>nullptr</code> for null, which
+differs from empty; a key-value collection as pairs; <code>Matrix</code> by rows; a <code>std::vector&lt;double&gt;&amp;</code> or <code>Matrix&amp;</code> nanoql
+writes into in place; a tuple as <code>std::tuple</code> both ways (<code>{}</code> for C#'s default), a collection of tuples in as an
+<code>array_view&lt;std::tuple&lt;...&gt;&gt;</code> and out as a <code>std::vector</code> of them, of <code>std::optional</code> ones for nullable tuples; a loss
+distribution as <code>Distribution</code>; a generator's <code>draws(count)</code> its values, weights and next snapshot. A parameter of a
+closed generator construction is an <code>Object</code>, the snapshot of a class deriving it, checked at the call.</li>
+<li><strong>Defaults and overloads:</strong> C++ default arguments with nanoql's defaults, at each argument count the forms whose
+leading parameters agree offering it once, through the shortest (§2.2's rule). A form whose C++ parameters another
+form's are takes its C overload suffix (<code>outerProduct_doubleArray</code> beside <code>outerProduct</code>), a constructor a
+static <code>create_...</code>. A braced list fits
+several collections' views, as in any C++ overload set: a vector names one.</li>
+<li><strong>Errors:</strong> <code>nanoql::error</code>, a <code>std::runtime_error</code> with <code>code()</code>, <code>param()</code> and <code>type_name()</code>; under it
+<code>argument_error</code>, with <code>argument_null_error</code> and <code>argument_out_of_range_error</code> under that, and <code>handle_error</code> for a
+refused handle (codes 9 and 10).</li>
+<li><strong>Deprecation:</strong> a member nanoql marks <code>[Obsolete]</code> is <code>[[deprecated]]</code> with its message.</li>
+<li><strong>A user's assembly:</strong> a header of its own, <code>&lt;prefix&gt;.hpp</code>, its classes in namespace <code>&lt;prefix&gt;</code> extending nanoql's
+(<code>acme::ExponentialCurve</code> a <code>nanoql::YieldTermStructure</code>), linked against the library holding nanoql's assemblies and
+the user's.</li>
+</ul>
+<h2 id="python">Python</h2>
+<ul>
+<li><strong>Install:</strong> <code>pip install nanoql</code>, a <code>py3-none-&lt;platform&gt;</code> wheel holding the library for Windows x64 and Arm64,
+Linux x64 and Arm64 (<code>manylinux_2_28</code>) and macOS on Apple silicon (14 or later): one wheel for every Python from 3.11,
+with NumPy 1.26 or later, and nothing compiled on install.</li>
+<li><strong>Names:</strong> nanoql's type names; members in PEP 8's snake case (<code>curve.discount(5.0)</code>, <code>swap.fixed_rate</code>); enum
+members as nanoql's (<code>Compounding.Continuous</code>). A constructor is the class's call, a getter a property, a static
+member or an extension method a static method of its declaring class (<code>ConventionSet.quant_lib()</code>), a record's
+init-only property <code>with_&lt;name&gt;(value)</code>, an operator a static <code>op_&lt;name&gt;</code> and, for arithmetic and ordering, Python's
+operator. A member that would take another's name, or one of <code>Object</code>'s, takes a suffix: <code>close_</code>.</li>
+<li><strong>Constructors:</strong> every class has its own: its constructors' dispatch, or a <code>TypeError</code> where none crosses, never a
+base's, which would build the base under the class's name. A preset's names its lookup by name: <code>USDCurrency()</code> raises
+&quot;USDCurrency is made by ConventionSet.currency&quot;. An experimental constructor added on the opt-in replaces the
+refusal.</li>
+<li><strong>Values:</strong> <code>datetime.date</code> in and out, <code>None</code> for no date; <code>nanoql.Period(length, units)</code> or a plain tuple in, a
+<code>Period</code> out, its operators and equality nanoql's (<code>Period(1, Years) == Period(12, Months)</code>); enums as <code>IntEnum</code>;
+NumPy arrays out (<code>float64</code> for doubles), any sequence in; a matrix a 2-D array by rows; a span nanoql writes into a
+writable, contiguous NumPy array; lists of objects; a dictionary for key–value results; a tuple in as a tuple (<code>None</code>
+for C#'s default) and out as a named tuple (<code>Result(first, second)</code>), a collection of tuples in as any sequence of
+them and out as a list of named tuples, <code>None</code> for a null tuple, its stubs typed (<code>Sequence[tuple[VanillaOption, float]]</code>), a tuple of the wrong length refused with a <code>TypeError</code>; <code>nanoql.Distribution</code> for a loss distribution; a
+generator's <code>draws(count)</code> returns its values, weights and next snapshot.</li>
+<li><strong>Defaults and overloads:</strong> keyword arguments with nanoql's defaults. An overload group is one method that picks its
+form by the arguments' types, exact matches first, then conversions (an <code>int</code> for a <code>float</code>, a tuple for a period, an
+<code>int</code> for an enum), an object nearer the form's class first; each form is declared with <code>typing.overload</code>, and at
+each argument count the forms whose leading parameters agree offer it once, through the shortest. The package carries
+<code>py.typed</code>.</li>
+<li><strong>Objects:</strong> each holds a handle, released when Python collects it or at once by <code>close()</code> or a <code>with</code> block; a closed
+object raises <code>HandleError</code> before the call crosses. A result is of the most derived class the package knows;
+equality, hashing and <code>str()</code> are nanoql's, and a record's <code>==</code> and <code>!=</code> are that equality, with no <code>op_equality</code> or
+<code>op_inequality</code> of their own. A member C# declares <code>new</code> with the inherited member's parameters and result overrides
+it here, as in Java: <code>optionDateFromTenor</code> on an <code>InterestRateVolSurface</code> is the surface's, where C# and C++, through
+a <code>VolatilityTermStructure</code>, call the base's.</li>
+<li><strong>Errors:</strong> <code>NanoQLError</code>, with <code>code</code>, <code>param</code> and <code>type_name</code>; <code>ArgumentError</code>, also a <code>ValueError</code>, and under it
+<code>ArgumentNullError</code> and <code>ArgumentOutOfRangeError</code>; <code>HandleError</code> for a refused handle (codes 9 and 10).</li>
+<li><strong>Bound engines:</strong> an engine's <code>bind(...)</code> and <code>bind_on(instrument, ...)</code> return a <code>BoundEngine</code> for the members that
+take one.</li>
+<li><strong>The experimental API:</strong> <code>import nanoql.experimental</code> opts in: its classes, and the experimental members of stable
+classes, added on import. A member nanoql marks <code>[Obsolete]</code> warns with a <code>DeprecationWarning</code> carrying its message.</li>
+<li><strong>The library:</strong> the package's own (<code>nanoql/lib/</code>); <code>NANOQL_LIBRARY</code>, or <code>nanoql.use_library(path)</code> before any object
+is made, loads another, such as a build holding a user's assembly; once an object exists, <code>use_library</code> raises
+<code>RuntimeError</code>, since objects of one library are foreign to another.</li>
+<li><strong>A user's assembly:</strong> a package of its own, named by its prefix (<code>nanoql-bind python</code> writes it beside <code>nanoql/</code>
+for each <code>--assembly</code> prefix other than <code>nql</code>): its classes extend nanoql's (<code>acme.ExponentialCurve</code> a
+<code>nanoql.YieldTermStructure</code>), and importing it loads the library in its <code>lib/</code>, which holds nanoql's assemblies and
+the user's, in place of nanoql's own, so it is imported before any nanoql object is made. Its classes are kept apart
+from nanoql's by its prefix, a class named like one of nanoql's included. Two users' packages share a process only
+when built together, into one library.</li>
+<li><strong>Building:</strong> <code>python bindings/python/build.py --library &lt;native build folder&gt; --out &lt;folder&gt;</code> writes the wheel: the
+tool's generated modules (<code>nanoql-bind python</code>, never checked in) over the hand-written runtime
+(<code>bindings/python/nanoql/_runtime.py</code>), the library, and the notices: <code>LICENSE</code>, <code>NOTICE</code>, <code>THIRD_PARTY_NOTICES.md</code>,
+and the .NET runtime's <code>LICENSE.TXT</code> and <code>THIRD-PARTY-NOTICES.TXT</code>, which Native AOT compiles into the library, each a
+PEP 639 <code>License-File</code> under the <code>License-Expression</code> <code>pyproject.toml</code> gives. <code>--stage &lt;folder&gt; --test-exports</code>
+stages the test build's package instead, for the conformance suite.</li>
+<li><strong>Publishing:</strong> a release's <code>release.yml</code> uploads the five bindings jobs' wheels through PyPI's trusted publishing,
+with no stored token, after the <code>pypi</code> environment's approval; its dry run uploads them to TestPyPI
+(<a href="releasing.html">releasing.md</a>).</li>
+</ul>
+<h2 id="java">Java</h2>
+<ul>
+<li><strong>Not released:</strong> the repository builds and tests the Java layer, and no release publishes it, so no Maven artifact
+holds it; a checkout builds its jars (Building, below): the main jar and the platform's natives jar, the same
+artifact with its classifier, <code>natives-windows-x64</code>, <code>natives-windows-arm64</code>, <code>natives-linux-x64</code>,
+<code>natives-linux-arm64</code> or <code>natives-macos-arm64</code>. It needs Java 22 or later (the FFM API), run with
+<code>--enable-native-access=ALL-UNNAMED</code>, and on Linux and macOS with the JDK's libjsig preloaded
+(<code>LD_PRELOAD=$JAVA_HOME/lib/libjsig.so</code>, <code>DYLD_INSERT_LIBRARIES=$JAVA_HOME/lib/libjsig.dylib</code>): the
+library's runtime installs SIGSEGV and SIGFPE handlers, which libjsig chains behind the JVM's. The variable has to
+reach the <code>java</code> process itself: on macOS a launcher that goes through <code>/bin/sh</code>, such as Surefire's fork or a
+shell-script launcher, drops <code>DYLD_INSERT_LIBRARIES</code>, so a wrapper named <code>java</code> sets it and runs the JDK's (CI's Java
+step writes one).</li>
+<li><strong>The layers:</strong> jextract's, <code>org.nanoql.ffi.nanoql_h</code>, over <code>nanoql.h</code>, and the idiomatic layer <code>nanoql-bind java</code>
+writes over it; neither is checked in. The hand-written runtime is <code>bindings/java/src/main/java/org/nanoql/</code>.</li>
+<li><strong>Names:</strong> a package per namespace (<code>org.nanoql.termstructures.FlatForward</code>), the experimental API's in
+<code>org.nanoql.experimental</code>; members in QuantLib's camelCase (<code>curve.discount(5.0)</code>, <code>swap.fixedRate()</code>,
+<code>yoyInflationIndex()</code>), a getter a method; a static member or an extension method a static method of its declaring
+class (<code>ConventionSet.quantLib()</code>), a record's init-only property <code>with&lt;Name&gt;(value)</code>, an operator a static <code>op&lt;Name&gt;</code>
+(<code>Period.opAddition</code>). Date's members are statics of <code>org.nanoql.time.Date</code> taking a <code>LocalDate</code> (<code>Date.year(d)</code>). A
+name a keyword or one of <code>Object</code>'s takes a trailing underscore (<code>Echo.double_</code>), and so does a member Java's
+overriding rules refuse: a static beside an inherited instance member of its signature, or a member C# declares <code>new</code>
+with a result the inherited one's isn't (<code>OvernightIndexedSwapIndex.underlyingSwap_</code>); a form whose erased parameters
+another form's are takes its C overload suffix (<code>Echo.total_doubleArrayArray</code>), a constructor a static <code>create_...</code>.</li>
+<li><strong>Values:</strong> <code>java.time.LocalDate</code>, <code>null</code> for no date; <code>Period</code>, a record with nanoql's equality
+(<code>new Period(1, TimeUnit.Years)</code> equals twelve months); enums as Java enums with <code>value()</code> and <code>of(int)</code>, a flags enum
+as a record holding any combination of its constants (<code>KahaleSmile.or(SabrSmile)</code>, <code>has</code>); a nullable as its boxed
+type (<code>Double</code>, <code>null</code> for none); <code>Complex</code>; numbers in primitive arrays (<code>double[]</code>, <code>int[]</code>), the rest in lists; a
+matrix a <code>double[][]</code> by rows, so a matrix of no rows keeps no column count; a jagged array a <code>List&lt;double[]&gt;</code>; a
+key–value collection a <code>Map</code> in nanoql's order; a tuple a <code>Tuple2</code> or <code>Tuple3</code> both ways (<code>null</code> for C#'s default), a
+collection of tuples a <code>List</code> of them, with a <code>null</code> entry for a null tuple out, a <code>null</code> in an element that takes
+none refused with a <code>NullPointerException</code> naming the parameter and the element (&quot;rows: an element's count is
+null&quot;); a parameter of a closed generator construction a <code>NanoObject</code>, the snapshot of a class deriving it, checked at
+the call; a loss distribution <code>Distribution</code>; a
+generator's <code>draws(count)</code> a <code>Draws</code> (values, weights, the next snapshot) or <code>SequenceDraws</code>; an array nanoql writes
+into, written in place.</li>
+<li><strong>Defaults and overloads:</strong> Java has no default arguments, so a form with nanoql's defaults gets telescoping
+overloads, at each argument count the forms whose leading parameters agree offering it once, through the shortest.</li>
+<li><strong>Objects:</strong> each <code>NanoObject</code> owns a handle, released by <code>close()</code> (a try-with-resources block) or by a cleaner once
+unreachable; a closed object throws <code>NanoQLException</code> with code 9 before the call crosses. Every member keeps the
+objects it reads handles from reachable until its call returns (<code>Reference.reachabilityFence</code>), so a temporary's
+handle isn't released mid-call. A result is of the most derived class the layer knows; <code>obj.as(Cls.class)</code> gives the
+object as another class, always a new object holding a new handle, for the caller to close, unchecked until a member
+of a class it isn't refuses with code 10. <code>equals</code>, <code>hashCode</code>, <code>toString</code> and <code>typeName()</code> are nanoql's, and a
+record's equality is that <code>equals</code>, with no <code>opEquality</code> or <code>opInequality</code>. A member C# declares <code>new</code> with the
+inherited member's parameters and result overrides it in Java, as in Python: through a <code>VolatilityTermStructure</code>,
+<code>optionDateFromTenor</code> on an <code>InterestRateVolSurface</code> is the surface's, where C# and C++ call the base's (the tool's
+tests list such members; that is the one).</li>
+<li><strong>Errors:</strong> <code>NanoQLException</code>, a <code>RuntimeException</code>, and <code>NanoQLArgumentException</code>, an <code>IllegalArgumentException</code>,
+for codes 2 to 4; both are <code>NanoQLError</code>, with <code>code()</code>, <code>param()</code> and <code>typeName()</code>.</li>
+<li><strong>Bound engines:</strong> an engine's <code>bind(...)</code> and <code>bindOn(instrument, ...)</code> return a <code>BoundEngine</code> for the members that
+take one.</li>
+<li><strong>The experimental API:</strong> its classes in <code>org.nanoql.experimental</code>; a stable class's experimental members are
+statics of <code>org.nanoql.experimental.&lt;Class&gt;Experimental</code>, the object first, a constructor <code>create</code>. A member nanoql
+marks <code>[Obsolete]</code> is <code>@Deprecated</code>, its message in the javadoc.</li>
+<li><strong>The library:</strong> the natives jar's. On Linux and macOS it is copied into a private temporary folder and deleted with
+it once loaded, which those systems allow; on Windows, which can't delete a library a process has loaded, it is
+copied once to the user's temporary folder under a name its bytes' SHA-256 keys (<code>nanoql-&lt;hash&gt;/</code>), and each later
+run loads that copy only when its whole SHA-256 is the jar's library's, writing a fresh one otherwise. The system
+property <code>nanoql.library</code>, or <code>NanoQL.useLibrary(path)</code> before any object is made, loads another, such as a build
+holding a user's assembly; once a library is loaded, <code>useLibrary</code> of another path throws <code>IllegalStateException</code>.
+<code>NanoQL.libraryPath()</code> gives the path it was loaded from.</li>
+<li><strong>A user's assembly:</strong> a jar of its own beside nanoql's. <code>nanoql-bind java --assembly ... --prefix acme</code> writes its
+classes alone, in packages by its own namespaces (<code>acme.curves.ExponentialCurve</code>, a
+<code>org.nanoql.termstructures.YieldTermStructure</code>; its experimental ones in <code>acme.curves.experimental</code>), each calling its
+own jextract class, <code>acme.ffi.acme_h</code> over <code>acme.h</code> with its own functions alone (<code>stage.py</code>'s <code>jextract_user</code> gives
+the flags), and registering its classes through its own <code>acme.internal.AcmeTypes</code>, which its classes' static
+initializers run, so its objects come back as its classes. It compiles against nanoql's jar, and <code>nanoql.library</code>
+names the library <code>nanoql-bind build</code> made of nanoql's assemblies and the user's. The test build's test types are
+built this way, compiled with the conformance suite against nanoql's main classes.</li>
+<li><strong>Building:</strong> <code>python bindings/java/stage.py --library &lt;native build folder&gt; --jextract &lt;jextract&gt;</code> (or
+<code>--ffi &lt;folder&gt;</code>, the layers jextract made, a folder per header) fills <code>bindings/java/target/</code>: jextract 22's layer
+over <code>nanoql.h</code>, the generated layer (<code>nanoql-bind java --prefix nql</code>), the notices (<code>LICENSE</code>, <code>NOTICE</code>,
+<code>THIRD_PARTY_NOTICES.md</code>, the .NET runtime's <code>LICENSE.TXT</code> and <code>THIRD-PARTY-NOTICES.TXT</code>) and the library, and prints
+the natives jar's classifier; <code>--test-exports</code> adds the test types' two layers as test sources. Then
+<code>mvn package -Dnanoql.classifier=&lt;classifier&gt;</code> in <code>bindings/java</code> writes the main, natives, sources and javadoc jars,
+each but the javadoc with the notices under <code>META-INF</code>.
+<code>python bindings/java/jar_check.py bindings/java/target &lt;classifier&gt;</code> checks them. CI runs jextract once, checked
+against its SHA-256, over <code>nanoql.h</code> and the test build's <code>nqlt.h</code>, which <code>nanoql-bind headers</code> writes without a
+native build; the headers hold fixed-width types only, so the one layer serves every platform.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

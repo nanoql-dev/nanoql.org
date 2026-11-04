@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class BlackDeltaCalculator | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BlackDeltaCalculator | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Black-Scholes deltas and strikes under FX markets&#39; delta conventions: the delta of a strike, the strike of a delta, and the at-the-money strike of each convention.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.BlackDeltaCalculator">
+
+
+
+  <h1 id="NanoQL_PricingEngines_BlackDeltaCalculator" data-uid="NanoQL.PricingEngines.BlackDeltaCalculator" class="text-break">
+Class BlackDeltaCalculator  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Black-Scholes deltas and strikes under FX markets' delta conventions: the delta of a strike, the strike of a delta,
+and the at-the-money strike of each convention.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class BlackDeltaCalculator</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">BlackDeltaCalculator</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_BlackDeltaCalculator_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable: QuantLib's <code>setDeltaType</code> and <code>setOptionType</code> return copies. QuantLib's <code>cumD1</code>,
+<code>cumD2</code>, <code>nD1</code> and <code>nD2</code>, deprecated as internal, are private; the header's two solver classes,
+<code>BlackDeltaPremiumAdjustedSolverClass</code> and <code>BlackDeltaPremiumAdjustedMaxStrikeClass</code>, deprecated as
+&quot;Obsolete: do not use&quot;, aren't ported. Where a premium-adjusted put's delta
+lies beyond the range of the non-adjusted delta QuantLib starts its solve from (the foreign discount factor for spot
+deltas, 1 for forward ones), QuantLib refuses it; nanoql starts the solve from the forward on QuantLib's own
+bracket, a documented divergence.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_BlackDeltaCalculator__ctor_" data-uid="NanoQL.PricingEngines.BlackDeltaCalculator.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackDeltaCalculator__ctor_NanoQL_OptionType_NanoQL_Quotes_DeltaVolQuoteDeltaType_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackDeltaCalculator.#ctor(NanoQL.OptionType,NanoQL.Quotes.DeltaVolQuoteDeltaType,System.Double,System.Double,System.Double,System.Double)">
+  BlackDeltaCalculator(OptionType, DeltaVolQuoteDeltaType, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.BlackDeltaCalculator.html">BlackDeltaCalculator</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlackDeltaCalculator(OptionType ot, DeltaVolQuoteDeltaType dt, double spot, double dDiscount, double fDiscount, double stdDev)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ot</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>The option type.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="NanoQL.Quotes.DeltaVolQuoteDeltaType.html">DeltaVolQuoteDeltaType</a></dt>
+    <dd><p>The delta convention.</p>
+</dd>
+    <dt><code>spot</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot FX rate.</p>
+</dd>
+    <dt><code>dDiscount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The domestic discount factor.</p>
+</dd>
+    <dt><code>fDiscount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The foreign discount factor.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation of the underlying, its volatility times the square root of the time
+to maturity.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">ot</code> or <code class="paramref">dt</code> isn't a member of
+its type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The spot or a discount factor isn't positive, or the standard deviation is
+negative.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_BlackDeltaCalculator_AtmStrike_" data-uid="NanoQL.PricingEngines.BlackDeltaCalculator.AtmStrike*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackDeltaCalculator_AtmStrike_NanoQL_Quotes_DeltaVolQuoteAtmType_" data-uid="NanoQL.PricingEngines.BlackDeltaCalculator.AtmStrike(NanoQL.Quotes.DeltaVolQuoteAtmType)">
+  AtmStrike(DeltaVolQuoteAtmType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The at-the-money strike of a convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AtmStrike(DeltaVolQuoteAtmType atmT)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atmT</code> <a class="xref" href="NanoQL.Quotes.DeltaVolQuoteAtmType.html">DeltaVolQuoteAtmType</a></dt>
+    <dd><p>The at-the-money convention.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">atmT</code> is
+<a class="xref" href="NanoQL.Quotes.DeltaVolQuoteAtmType.html#NanoQL_Quotes_DeltaVolQuoteAtmType_AtmNull">AtmNull</a> or isn't a member of its type, with QuantLib's &quot;invalid atm
+type&quot;.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">atmT</code> is
+<a class="xref" href="NanoQL.Quotes.DeltaVolQuoteAtmType.html#NanoQL_Quotes_DeltaVolQuoteAtmType_AtmPutCall50">AtmPutCall50</a> and the calculator's deltas aren't forward deltas.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackDeltaCalculator_DeltaFromStrike_" data-uid="NanoQL.PricingEngines.BlackDeltaCalculator.DeltaFromStrike*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackDeltaCalculator_DeltaFromStrike_System_Double_" data-uid="NanoQL.PricingEngines.BlackDeltaCalculator.DeltaFromStrike(System.Double)">
+  DeltaFromStrike(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The delta of a strike, under the calculator's delta convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DeltaFromStrike(double strike)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The delta.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The strike is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackDeltaCalculator_SetDeltaType_" data-uid="NanoQL.PricingEngines.BlackDeltaCalculator.SetDeltaType*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackDeltaCalculator_SetDeltaType_NanoQL_Quotes_DeltaVolQuoteDeltaType_" data-uid="NanoQL.PricingEngines.BlackDeltaCalculator.SetDeltaType(NanoQL.Quotes.DeltaVolQuoteDeltaType)">
+  SetDeltaType(DeltaVolQuoteDeltaType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the calculator with another delta convention: QuantLib's <code>setDeltaType</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlackDeltaCalculator SetDeltaType(DeltaVolQuoteDeltaType deltaType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>deltaType</code> <a class="xref" href="NanoQL.Quotes.DeltaVolQuoteDeltaType.html">DeltaVolQuoteDeltaType</a></dt>
+    <dd><p>The delta convention.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.BlackDeltaCalculator.html">BlackDeltaCalculator</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">deltaType</code> isn't a member of its
+type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackDeltaCalculator_SetOptionType_" data-uid="NanoQL.PricingEngines.BlackDeltaCalculator.SetOptionType*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackDeltaCalculator_SetOptionType_NanoQL_OptionType_" data-uid="NanoQL.PricingEngines.BlackDeltaCalculator.SetOptionType(NanoQL.OptionType)">
+  SetOptionType(OptionType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the calculator with another option type: QuantLib's <code>setOptionType</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlackDeltaCalculator SetOptionType(OptionType optionType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>The option type.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.BlackDeltaCalculator.html">BlackDeltaCalculator</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">optionType</code> isn't a member of its
+type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackDeltaCalculator_StrikeFromDelta_" data-uid="NanoQL.PricingEngines.BlackDeltaCalculator.StrikeFromDelta*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackDeltaCalculator_StrikeFromDelta_System_Double_" data-uid="NanoQL.PricingEngines.BlackDeltaCalculator.StrikeFromDelta(System.Double)">
+  StrikeFromDelta(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The strike of a delta, under the calculator's delta convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double StrikeFromDelta(double delta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The delta.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike; for a premium-adjusted call, the strike to the right of the delta's maximum.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The delta's sign isn't the option type's, or a spot or forward delta lies
+beyond its range (the foreign discount factor, or 1).</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The solve for a premium-adjusted strike fails.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

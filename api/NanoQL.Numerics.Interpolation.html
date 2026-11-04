@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Interpolation | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Interpolation | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The base class for 1-D interpolations: interpolated values from two sequences of equal length, the discretized values of a variable and of a function of it.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.Interpolation">
+
+
+
+  <h1 id="NanoQL_Numerics_Interpolation" data-uid="NanoQL.Numerics.Interpolation" class="text-break">
+Class Interpolation  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base class for 1-D interpolations: interpolated values from two sequences of equal length, the discretized
+values of a variable and of a function of it.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Interpolation : Extrapolator</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><span class="xref">Interpolation</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.LinearFlatInterpolation.html">LinearFlatInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.NoArbSabrInterpolation.html">NoArbSabrInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.SviInterpolation.html">SviInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.VannaVolgaInterpolation.html">VannaVolgaInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.AbcdInterpolation.html">AbcdInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.BackwardFlatInterpolation.html">BackwardFlatInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.ChebyshevInterpolation.html">ChebyshevInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.ConvexMonotoneInterpolation.html">ConvexMonotoneInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.CubicInterpolation.html">CubicInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.FlatExtrapolator.html">FlatExtrapolator</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.ForwardFlatInterpolation.html">ForwardFlatInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.KernelInterpolation.html">KernelInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.LagrangeInterpolation.html">LagrangeInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.LinearInterpolation.html">LinearInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.LogCubicInterpolation.html">LogCubicInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.LogLinearInterpolation.html">LogLinearInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.LogMixedLinearCubicInterpolation.html">LogMixedLinearCubicInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.MixedLinearCubicInterpolation.html">MixedLinearCubicInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.SABRInterpolation.html">SABRInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.ZabrInterpolation-1.html">ZabrInterpolation&lt;TEvaluation&gt;</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_Numerics_Interpolation_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable: an interpolation copies its inputs and computes its coefficients when it is built. QuantLib's
+interpolations keep iterators into their caller's data and recompute on <code>update()</code>; here a change of data is a
+new interpolation, so neither <code>update()</code> nor <code>empty()</code> is ported. Extrapolation follows
+<a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a>: <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">EnableExtrapolation&lt;T&gt;(T, bool)</a> returns a copy.
+</p>
+<p>
+An extension point, as in QuantLib: a derived interpolation passes its inputs and the points it requires to the
+base constructor, computes what it needs from <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_X">X</a> and <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_Y">Y</a>, and implements the four
+<code>…Core</code> members, which the public members call after the range check.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Numerics_Interpolation__ctor_" data-uid="NanoQL.Numerics.Interpolation.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation__ctor_System_ReadOnlySpan_System_Double__System_ReadOnlySpan_System_Double__System_Int32_" data-uid="NanoQL.Numerics.Interpolation.#ctor(System.ReadOnlySpan{System.Double},System.ReadOnlySpan{System.Double},System.Int32)">
+  Interpolation(ReadOnlySpan&lt;double&gt;, ReadOnlySpan&lt;double&gt;, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.Interpolation.html">Interpolation</a> class from copies of its inputs: QuantLib's
+<code>templateImpl</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Interpolation(ReadOnlySpan&lt;double&gt; x, ReadOnlySpan&lt;double&gt; y, int requiredPoints)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The x values, which must be sorted.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The y values, one per x value.</p>
+</dd>
+    <dt><code>requiredPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The fewest points the interpolation takes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">y</code> and <code class="paramref">x</code> have different sizes, or there are fewer points than required.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Numerics_Interpolation_X_" data-uid="NanoQL.Numerics.Interpolation.X*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_X" data-uid="NanoQL.Numerics.Interpolation.X">
+  X
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the x values, as stored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ReadOnlySpan&lt;double&gt; X { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_XMax_" data-uid="NanoQL.Numerics.Interpolation.XMax*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_XMax" data-uid="NanoQL.Numerics.Interpolation.XMax">
+  XMax
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the last x value, the largest of the sorted values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double XMax { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_XMin_" data-uid="NanoQL.Numerics.Interpolation.XMin*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_XMin" data-uid="NanoQL.Numerics.Interpolation.XMin">
+  XMin
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the first x value, the smallest of the sorted values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double XMin { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_Y_" data-uid="NanoQL.Numerics.Interpolation.Y*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_Y" data-uid="NanoQL.Numerics.Interpolation.Y">
+  Y
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the y values, as stored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ReadOnlySpan&lt;double&gt; Y { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_Interpolation_Derivative_" data-uid="NanoQL.Numerics.Interpolation.Derivative*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_Derivative_System_Double_System_Boolean_" data-uid="NanoQL.Numerics.Interpolation.Derivative(System.Double,System.Boolean)">
+  Derivative(double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The first derivative at <code class="paramref">x</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Derivative(double x, bool allowExtrapolation = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+    <dt><code>allowExtrapolation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this call may extrapolate outside the range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The point is out of range and extrapolation isn't allowed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_DerivativeCore_" data-uid="NanoQL.Numerics.Interpolation.DerivativeCore*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_DerivativeCore_System_Double_" data-uid="NanoQL.Numerics.Interpolation.DerivativeCore(System.Double)">
+  DerivativeCore(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The first derivative at a point, after the range check.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract double DerivativeCore(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_Evaluate_" data-uid="NanoQL.Numerics.Interpolation.Evaluate*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_Evaluate_System_Double_System_Boolean_" data-uid="NanoQL.Numerics.Interpolation.Evaluate(System.Double,System.Boolean)">
+  Evaluate(double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The interpolated value at <code class="paramref">x</code>: QuantLib's <code>operator()</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Evaluate(double x, bool allowExtrapolation = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+    <dt><code>allowExtrapolation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this call may extrapolate outside the range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The point is out of range and extrapolation isn't allowed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_IsInRange_" data-uid="NanoQL.Numerics.Interpolation.IsInRange*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_IsInRange_System_Double_" data-uid="NanoQL.Numerics.Interpolation.IsInRange(System.Double)">
+  IsInRange(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether <code class="paramref">x</code> is in the range [<a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_XMin">XMin</a>, <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_XMax">XMax</a>], or close to an end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsInRange(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when in range.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_Locate_" data-uid="NanoQL.Numerics.Interpolation.Locate*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_Locate_System_Double_" data-uid="NanoQL.Numerics.Interpolation.Locate(System.Double)">
+  Locate(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The index i of the interval [x<sub>i</sub>, x<sub>i+1</sub>] holding <code class="paramref">x</code>: 0 below the range,
+the last interval above it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int Locate(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The interval's index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_Primitive_" data-uid="NanoQL.Numerics.Interpolation.Primitive*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_Primitive_System_Double_System_Boolean_" data-uid="NanoQL.Numerics.Interpolation.Primitive(System.Double,System.Boolean)">
+  Primitive(double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The primitive: the integral of the interpolation from <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_XMin">XMin</a> to <code class="paramref">x</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Primitive(double x, bool allowExtrapolation = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+    <dt><code>allowExtrapolation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this call may extrapolate outside the range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The primitive.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The point is out of range and extrapolation isn't allowed, or the interpolation has no primitive.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_PrimitiveCore_" data-uid="NanoQL.Numerics.Interpolation.PrimitiveCore*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_PrimitiveCore_System_Double_" data-uid="NanoQL.Numerics.Interpolation.PrimitiveCore(System.Double)">
+  PrimitiveCore(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The primitive at a point, after the range check.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract double PrimitiveCore(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The primitive.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_SecondDerivative_" data-uid="NanoQL.Numerics.Interpolation.SecondDerivative*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_SecondDerivative_System_Double_System_Boolean_" data-uid="NanoQL.Numerics.Interpolation.SecondDerivative(System.Double,System.Boolean)">
+  SecondDerivative(double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The second derivative at <code class="paramref">x</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SecondDerivative(double x, bool allowExtrapolation = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+    <dt><code>allowExtrapolation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this call may extrapolate outside the range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The point is out of range and extrapolation isn't allowed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_SecondDerivativeCore_" data-uid="NanoQL.Numerics.Interpolation.SecondDerivativeCore*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_SecondDerivativeCore_System_Double_" data-uid="NanoQL.Numerics.Interpolation.SecondDerivativeCore(System.Double)">
+  SecondDerivativeCore(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The second derivative at a point, after the range check.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract double SecondDerivativeCore(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_ValueCore_" data-uid="NanoQL.Numerics.Interpolation.ValueCore*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_ValueCore_System_Double_" data-uid="NanoQL.Numerics.Interpolation.ValueCore(System.Double)">
+  ValueCore(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The interpolated value at a point, after the range check.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract double ValueCore(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_XValues_" data-uid="NanoQL.Numerics.Interpolation.XValues*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_XValues" data-uid="NanoQL.Numerics.Interpolation.XValues">
+  XValues()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The x values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; XValues()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The values the interpolation was built from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_Interpolation_YValues_" data-uid="NanoQL.Numerics.Interpolation.YValues*"></a>
+
+  <h3 id="NanoQL_Numerics_Interpolation_YValues" data-uid="NanoQL.Numerics.Interpolation.YValues">
+  YValues()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The y values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; YValues()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The values the interpolation was built from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

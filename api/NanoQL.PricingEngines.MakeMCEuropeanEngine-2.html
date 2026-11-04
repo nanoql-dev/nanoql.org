@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class MakeMCEuropeanEngine&lt;TRng, TStats&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MakeMCEuropeanEngine&lt;TRng, TStats&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A builder of the Monte Carlo European engine, with QuantLib&#39;s defaults but the seed.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2">
+
+
+
+  <h1 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2" class="text-break">
+Class MakeMCEuropeanEngine&lt;TRng, TStats&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A builder of the Monte Carlo European engine, with QuantLib's defaults but the seed.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record MakeMCEuropeanEngine&lt;TRng, TStats&gt; : IEquatable&lt;MakeMCEuropeanEngine&lt;TRng, TStats&gt;&gt; where TRng : IRngTraits where TStats : IStatistics, new()</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TRng</code></dt>
+    <dd><p>The random-number traits.</p>
+</dd>
+    <dt><code>TStats</code></dt>
+    <dd><p>The statistics accumulator.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MakeMCEuropeanEngine&lt;TRng, TStats&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An immutable builder: each method returns a modified copy. <a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html#NanoQL_PricingEngines_MakeMCEuropeanEngine_2_ToEngine">ToEngine()</a> returns the engine as a function
+of the option and the context, its settings bound, in place of QuantLib's conversion to a pricing engine, with
+QuantLib's checks on the steps. A builder has no value equality.
+</p>
+<p>
+The seed is a constructor argument (as in <a class="xref" href="NanoQL.PricingEngines.MakeMCHullWhiteCapFloorEngine-2.html">MakeMCHullWhiteCapFloorEngine&lt;TRng, TStats&gt;</a>): QuantLib's
+default, 0, a seed from the clock, is refused.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2__ctor_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2__ctor_NanoQL_Processes_GeneralizedBlackScholesProcess_System_Int64_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.#ctor(NanoQL.Processes.GeneralizedBlackScholesProcess,System.Int64)">
+  MakeMCEuropeanEngine(GeneralizedBlackScholesProcess, long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine&lt;TRng, TStats&gt;</a> record.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCEuropeanEngine(GeneralizedBlackScholesProcess process, long seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The Black-Scholes process.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The seed, in [1, 4294967295].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">process</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">seed</code> is outside its range.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_Equals_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.Equals*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_Equals_NanoQL_PricingEngines_MakeMCEuropeanEngine__0__1__" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.Equals(NanoQL.PricingEngines.MakeMCEuropeanEngine{`0,`1})">
+  Equals(MakeMCEuropeanEngine&lt;TRng, TStats&gt;?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(MakeMCEuropeanEngine&lt;TRng, TStats&gt;? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_Equals_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.Equals*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_Equals_System_Object_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_GetHashCode_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.GetHashCode*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_GetHashCode" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_ToEngine_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.ToEngine*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_ToEngine" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.ToEngine">
+  ToEngine()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The engine with the builder's settings: QuantLib's conversion to a pricing engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;VanillaOption, EvaluationContext, OneAssetOptionResults&gt; ToEngine()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a>, <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, <a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a>&gt;</dt>
+    <dd><p>The engine, a function of the option and the context.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The number of steps is given neither or both ways.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_ToString_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.ToString*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_ToString" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithAbsoluteTolerance_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithAbsoluteTolerance*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithAbsoluteTolerance_System_Double_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithAbsoluteTolerance(System.Double)">
+  WithAbsoluteTolerance(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the absolute tolerance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCEuropeanEngine&lt;TRng, TStats&gt; WithAbsoluteTolerance(double tolerance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The tolerance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;</dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A number of samples is already set, or the random-number traits allow no error estimate.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithAntitheticVariate_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithAntitheticVariate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithAntitheticVariate_System_Boolean_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithAntitheticVariate(System.Boolean)">
+  WithAntitheticVariate(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether antithetic variates are used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCEuropeanEngine&lt;TRng, TStats&gt; WithAntitheticVariate(bool b = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to use antithetic variates.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;</dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithBrownianBridge_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithBrownianBridge*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithBrownianBridge_System_Boolean_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithBrownianBridge(System.Boolean)">
+  WithBrownianBridge(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the draws are ordered by a Brownian bridge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCEuropeanEngine&lt;TRng, TStats&gt; WithBrownianBridge(bool b = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to use a Brownian bridge.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;</dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithMaxSamples_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithMaxSamples*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithMaxSamples_System_Int32_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithMaxSamples(System.Int32)">
+  WithMaxSamples(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the most samples for a tolerance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCEuropeanEngine&lt;TRng, TStats&gt; WithMaxSamples(int samples)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>samples</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The most samples.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;</dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">samples</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithSamples_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithSamples*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithSamples_System_Int32_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithSamples(System.Int32)">
+  WithSamples(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the number of samples.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCEuropeanEngine&lt;TRng, TStats&gt; WithSamples(int samples)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>samples</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of samples.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;</dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">samples</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A tolerance is already set.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithSeed_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithSeed*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithSeed_System_Int64_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithSeed(System.Int64)">
+  WithSeed(long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the seed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCEuropeanEngine&lt;TRng, TStats&gt; WithSeed(long seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The seed, in [1, 4294967295].</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;</dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">seed</code> is outside its range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithSteps_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithSteps*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithSteps_System_Int32_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithSteps(System.Int32)">
+  WithSteps(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the number of time steps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCEuropeanEngine&lt;TRng, TStats&gt; WithSteps(int steps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>steps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of steps.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;</dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithStepsPerYear_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithStepsPerYear*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_WithStepsPerYear_System_Int32_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.WithStepsPerYear(System.Int32)">
+  WithStepsPerYear(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the number of time steps per year.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MakeMCEuropeanEngine&lt;TRng, TStats&gt; WithStepsPerYear(int steps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>steps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of steps per year.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;</dt>
+    <dd><p>The modified builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_op_Equality_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.op_Equality*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_op_Equality_NanoQL_PricingEngines_MakeMCEuropeanEngine__0__1__NanoQL_PricingEngines_MakeMCEuropeanEngine__0__1__" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.op_Equality(NanoQL.PricingEngines.MakeMCEuropeanEngine{`0,`1},NanoQL.PricingEngines.MakeMCEuropeanEngine{`0,`1})">
+  operator ==(MakeMCEuropeanEngine&lt;TRng, TStats&gt;?, MakeMCEuropeanEngine&lt;TRng, TStats&gt;?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(MakeMCEuropeanEngine&lt;TRng, TStats&gt;? left, MakeMCEuropeanEngine&lt;TRng, TStats&gt;? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;</dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_op_Inequality_" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.op_Inequality*"></a>
+
+  <h3 id="NanoQL_PricingEngines_MakeMCEuropeanEngine_2_op_Inequality_NanoQL_PricingEngines_MakeMCEuropeanEngine__0__1__NanoQL_PricingEngines_MakeMCEuropeanEngine__0__1__" data-uid="NanoQL.PricingEngines.MakeMCEuropeanEngine`2.op_Inequality(NanoQL.PricingEngines.MakeMCEuropeanEngine{`0,`1},NanoQL.PricingEngines.MakeMCEuropeanEngine{`0,`1})">
+  operator !=(MakeMCEuropeanEngine&lt;TRng, TStats&gt;?, MakeMCEuropeanEngine&lt;TRng, TStats&gt;?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(MakeMCEuropeanEngine&lt;TRng, TStats&gt;? left, MakeMCEuropeanEngine&lt;TRng, TStats&gt;? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;</dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.PricingEngines.MakeMCEuropeanEngine-2.html">MakeMCEuropeanEngine</a>&lt;TRng, TStats&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

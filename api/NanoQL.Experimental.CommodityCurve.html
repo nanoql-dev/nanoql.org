@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CommodityCurve | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CommodityCurve | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A commodity forward curve: prices at dates, forward-flat between them and flat before the first and after the last, optionally on a basis curve whose prices it adds.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.CommodityCurve">
+
+
+
+  <h1 id="NanoQL_Experimental_CommodityCurve" data-uid="NanoQL.Experimental.CommodityCurve" class="text-break">
+Class CommodityCurve  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A commodity forward curve: prices at dates, forward-flat between them and flat before the first and after the last,
+optionally on a basis curve whose prices it adds.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public sealed class CommodityCurve : TermStructure</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></div>
+      <div><span class="xref">CommodityCurve</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_TimeFromReference_NanoQL_Time_Date_">TermStructure.TimeFromReference(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_ReferenceDate">TermStructure.ReferenceDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_DayCounter">TermStructure.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_Calendar">TermStructure.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_SettlementDays">TermStructure.SettlementDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_MaxTime">TermStructure.MaxTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_Experimental_CommodityCurve_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable: QuantLib's <code>setPrices</code> and <code>setBasisOfCurve</code> change the curve, and here return a copy. Its
+constructor from dates has a fixed reference date, the first date; its constructor without dates follows the
+evaluation date (<code>TermStructure(0, …)</code>) and is the factory <a class="xref" href="NanoQL.Experimental.CommodityCurve.html#NanoQL_Experimental_CommodityCurve_Create_System_String_NanoQL_Experimental_CommodityType_NanoQL_Currency_NanoQL_Experimental_UnitOfMeasure_NanoQL_Time_Calendar_NanoQL_EvaluationContext_NanoQL_Time_DayCounter_">Create(string, CommodityType, Currency, UnitOfMeasure, Calendar, EvaluationContext, DayCounter?)</a>, whose curve gets its prices from
+<a class="xref" href="NanoQL.Experimental.CommodityCurve.html#NanoQL_Experimental_CommodityCurve_SetPrices_System_Collections_Generic_IReadOnlyDictionary_NanoQL_Time_Date_System_Double__">SetPrices(IReadOnlyDictionary&lt;Date, double&gt;)</a>.
+</p>
+<p>
+The node times are measured from the reference date. QuantLib's <code>setPrices</code> measures them from the first price's
+date, so on the moving-date curve with the first price ten days after today every price in the ten days before
+each node is the next node's (<code>Divergences/CommodityCurveTests.cs</code>); on the curve from dates the two are one.
+</p>
+<p>
+A basis curve is read at the date, on its own reference date and day counter, and its price converted by the factor
+from this curve's unit to its unit, a price's conversion. QuantLib reads it at this curve's time, on this curve's
+clock, and converts by the factor from the basis curve's unit to this one's, which inverts it; where the two curves
+share their reference date, day counter and unit both give QuantLib's prices.
+</p>
+<p>
+QuantLib's <code>operator==</code> compares the curves' names; compare <a class="xref" href="NanoQL.Experimental.CommodityCurve.html#NanoQL_Experimental_CommodityCurve_Name">Name</a>, as for an index
+(<a class="xref" href="NanoQL.FinancialIndex.html">FinancialIndex</a>).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_CommodityCurve__ctor_" data-uid="NanoQL.Experimental.CommodityCurve.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve__ctor_System_String_NanoQL_Experimental_CommodityType_NanoQL_Currency_NanoQL_Experimental_UnitOfMeasure_NanoQL_Time_Calendar_System_Collections_Generic_IReadOnlyList_NanoQL_Time_Date__System_Collections_Generic_IReadOnlyList_System_Double__NanoQL_Time_DayCounter_" data-uid="NanoQL.Experimental.CommodityCurve.#ctor(System.String,NanoQL.Experimental.CommodityType,NanoQL.Currency,NanoQL.Experimental.UnitOfMeasure,NanoQL.Time.Calendar,System.Collections.Generic.IReadOnlyList{NanoQL.Time.Date},System.Collections.Generic.IReadOnlyList{System.Double},NanoQL.Time.DayCounter)">
+  CommodityCurve(string, CommodityType, Currency, UnitOfMeasure, Calendar, IReadOnlyList&lt;Date&gt;, IReadOnlyList&lt;double&gt;, DayCounter?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.CommodityCurve.html">CommodityCurve</a> class, its reference date its first
+date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommodityCurve(string name, CommodityType commodityType, Currency currency, UnitOfMeasure unitOfMeasure, Calendar calendar, IReadOnlyList&lt;Date&gt; dates, IReadOnlyList&lt;double&gt; prices, DayCounter? dayCounter = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The curve's name.</p>
+</dd>
+    <dt><code>commodityType</code> <a class="xref" href="NanoQL.Experimental.CommodityType.html">CommodityType</a></dt>
+    <dd><p>The commodity type.</p>
+</dd>
+    <dt><code>currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The currency its prices are in.</p>
+</dd>
+    <dt><code>unitOfMeasure</code> <a class="xref" href="NanoQL.Experimental.UnitOfMeasure.html">UnitOfMeasure</a></dt>
+    <dd><p>The unit its prices are per.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar.</p>
+</dd>
+    <dt><code>dates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd><p>The price dates, increasing; at least two.</p>
+</dd>
+    <dt><code>prices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The prices, one per date.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter; QuantLib's default, Actual/365 (Fixed), when
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A string, the type, the currency, the unit, the calendar or a list is
+null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>Fewer than two dates (&quot;too few dates&quot;), the counts differ, or a date isn't after
+the one before.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_BasisOfCurve_" data-uid="NanoQL.Experimental.CommodityCurve.BasisOfCurve*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_BasisOfCurve" data-uid="NanoQL.Experimental.CommodityCurve.BasisOfCurve">
+  BasisOfCurve
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the basis curve whose prices this curve adds; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommodityCurve? BasisOfCurve { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommodityCurve.html">CommodityCurve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_CommodityType_" data-uid="NanoQL.Experimental.CommodityCurve.CommodityType*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_CommodityType" data-uid="NanoQL.Experimental.CommodityCurve.CommodityType">
+  CommodityType
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the commodity type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommodityType CommodityType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommodityType.html">CommodityType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_Currency_" data-uid="NanoQL.Experimental.CommodityCurve.Currency*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_Currency" data-uid="NanoQL.Experimental.CommodityCurve.Currency">
+  Currency
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the currency its prices are in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Currency Currency { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_Dates_" data-uid="NanoQL.Experimental.CommodityCurve.Dates*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_Dates" data-uid="NanoQL.Experimental.CommodityCurve.Dates">
+  Dates
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the price dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;Date&gt; Dates { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_Empty_" data-uid="NanoQL.Experimental.CommodityCurve.Empty*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_Empty" data-uid="NanoQL.Experimental.CommodityCurve.Empty">
+  Empty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the curve has no prices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Empty { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_MaxDate_" data-uid="NanoQL.Experimental.CommodityCurve.MaxDate*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_MaxDate" data-uid="NanoQL.Experimental.CommodityCurve.MaxDate">
+  MaxDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the latest date for which the curve can return values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date MaxDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The curve has no prices.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_Name_" data-uid="NanoQL.Experimental.CommodityCurve.Name*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_Name" data-uid="NanoQL.Experimental.CommodityCurve.Name">
+  Name
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the curve's name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_Nodes_" data-uid="NanoQL.Experimental.CommodityCurve.Nodes*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_Nodes" data-uid="NanoQL.Experimental.CommodityCurve.Nodes">
+  Nodes
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the dates with their prices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;(Date Date, double Price)&gt; Nodes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;(<a class="xref" href="NanoQL.Time.Date.html">Date</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-nanoql.time.date,system.double-.date">Date</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-nanoql.time.date,system.double-.price">Price</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_Prices_" data-uid="NanoQL.Experimental.CommodityCurve.Prices*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_Prices" data-uid="NanoQL.Experimental.CommodityCurve.Prices">
+  Prices
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the prices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Prices { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_Times_" data-uid="NanoQL.Experimental.CommodityCurve.Times*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_Times" data-uid="NanoQL.Experimental.CommodityCurve.Times">
+  Times
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the node times, from the reference date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Times { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_UnitOfMeasure_" data-uid="NanoQL.Experimental.CommodityCurve.UnitOfMeasure*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_UnitOfMeasure" data-uid="NanoQL.Experimental.CommodityCurve.UnitOfMeasure">
+  UnitOfMeasure
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the unit its prices are per.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnitOfMeasure UnitOfMeasure { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.UnitOfMeasure.html">UnitOfMeasure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_BasisOfPrice_" data-uid="NanoQL.Experimental.CommodityCurve.BasisOfPrice*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_BasisOfPrice_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.CommodityCurve.BasisOfPrice(NanoQL.Time.Date)">
+  BasisOfPrice(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The basis curves' price at a date, converted into this curve's unit; 0 without a basis curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BasisOfPrice(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The basis price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A basis curve has no prices.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_Create_" data-uid="NanoQL.Experimental.CommodityCurve.Create*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_Create_System_String_NanoQL_Experimental_CommodityType_NanoQL_Currency_NanoQL_Experimental_UnitOfMeasure_NanoQL_Time_Calendar_NanoQL_EvaluationContext_NanoQL_Time_DayCounter_" data-uid="NanoQL.Experimental.CommodityCurve.Create(System.String,NanoQL.Experimental.CommodityType,NanoQL.Currency,NanoQL.Experimental.UnitOfMeasure,NanoQL.Time.Calendar,NanoQL.EvaluationContext,NanoQL.Time.DayCounter)">
+  Create(string, CommodityType, Currency, UnitOfMeasure, Calendar, EvaluationContext, DayCounter?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A curve with no prices whose reference date follows the evaluation date: QuantLib's constructor without dates,
+its reference date the evaluation date adjusted on the calendar. <a class="xref" href="NanoQL.Experimental.CommodityCurve.html#NanoQL_Experimental_CommodityCurve_SetPrices_System_Collections_Generic_IReadOnlyDictionary_NanoQL_Time_Date_System_Double__">SetPrices(IReadOnlyDictionary&lt;Date, double&gt;)</a> gives it its prices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CommodityCurve Create(string name, CommodityType commodityType, Currency currency, UnitOfMeasure unitOfMeasure, Calendar calendar, EvaluationContext context, DayCounter? dayCounter = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The curve's name.</p>
+</dd>
+    <dt><code>commodityType</code> <a class="xref" href="NanoQL.Experimental.CommodityType.html">CommodityType</a></dt>
+    <dd><p>The commodity type.</p>
+</dd>
+    <dt><code>currency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The currency its prices are in.</p>
+</dd>
+    <dt><code>unitOfMeasure</code> <a class="xref" href="NanoQL.Experimental.UnitOfMeasure.html">UnitOfMeasure</a></dt>
+    <dd><p>The unit its prices are per.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose evaluation date is read.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter; Actual/365 (Fixed) when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommodityCurve.html">CommodityCurve</a></dt>
+    <dd><p>The curve, with a fixed reference date and no prices.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument but the day counter is null.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_Price_" data-uid="NanoQL.Experimental.CommodityCurve.Price*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_Price_NanoQL_Time_Date_System_Collections_Immutable_ImmutableSortedDictionary_NanoQL_Time_Date_NanoQL_Experimental_ExchangeContract__System_Int32_" data-uid="NanoQL.Experimental.CommodityCurve.Price(NanoQL.Time.Date,System.Collections.Immutable.ImmutableSortedDictionary{NanoQL.Time.Date,NanoQL.Experimental.ExchangeContract},System.Int32)">
+  Price(Date, ImmutableSortedDictionary&lt;Date, ExchangeContract&gt;?, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The price at a date, with every basis curve's: at the nearby contract's underlying start date when the offset is
+positive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Price(Date d, ImmutableSortedDictionary&lt;Date, ExchangeContract&gt;? exchangeContracts, int nearbyOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>exchangeContracts</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablesorteddictionary-2">ImmutableSortedDictionary</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>, <a class="xref" href="NanoQL.Experimental.ExchangeContract.html">ExchangeContract</a>&gt;</dt>
+    <dd><p>The exchange contracts by date; read only when the offset is positive.</p>
+</dd>
+    <dt><code>nearbyOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The nearby contract, from 1; 0 or less for the date's own price.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The curve has no prices (&quot;error retrieving price for curve …&quot;), or not enough
+nearby contracts follow the date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_SetBasisOfCurve_" data-uid="NanoQL.Experimental.CommodityCurve.SetBasisOfCurve*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_SetBasisOfCurve_NanoQL_Experimental_CommodityCurve_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.CommodityCurve.SetBasisOfCurve(NanoQL.Experimental.CommodityCurve,NanoQL.EvaluationContext)">
+  SetBasisOfCurve(CommodityCurve, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The curve on a basis curve: QuantLib's <code>setBasisOfCurve</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommodityCurve SetBasisOfCurve(CommodityCurve basisOfCurve, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>basisOfCurve</code> <a class="xref" href="NanoQL.Experimental.CommodityCurve.html">CommodityCurve</a></dt>
+    <dd><p>The basis curve.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose unit conversions give the basis price's factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommodityCurve.html">CommodityCurve</a></dt>
+    <dd><p>A copy adding the basis curve's prices; this curve is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No conversion between the curves' units is held.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_SetPrices_" data-uid="NanoQL.Experimental.CommodityCurve.SetPrices*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_SetPrices_System_Collections_Generic_IReadOnlyDictionary_NanoQL_Time_Date_System_Double__" data-uid="NanoQL.Experimental.CommodityCurve.SetPrices(System.Collections.Generic.IReadOnlyDictionary{NanoQL.Time.Date,System.Double})">
+  SetPrices(IReadOnlyDictionary&lt;Date, double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The curve with new prices: QuantLib's <code>setPrices</code>, the dates in order, timed from the reference
+date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommodityCurve SetPrices(IReadOnlyDictionary&lt;Date, double&gt; prices)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The prices by date; at least two.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommodityCurve.html">CommodityCurve</a></dt>
+    <dd><p>A copy with the prices, keeping the basis curve; this curve is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">prices</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>Fewer than two prices (&quot;too few prices&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_ToString_" data-uid="NanoQL.Experimental.CommodityCurve.ToString*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_ToString" data-uid="NanoQL.Experimental.CommodityCurve.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The curve as QuantLib's <code>operator&lt;&lt;</code> writes it: &quot;[name] (USD/BBL)&quot;, and &quot;; basis to (&quot; with the basis
+curve's text and &quot;)&quot; where there is one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CommodityCurve_UnderlyingPriceDate_" data-uid="NanoQL.Experimental.CommodityCurve.UnderlyingPriceDate*"></a>
+
+  <h3 id="NanoQL_Experimental_CommodityCurve_UnderlyingPriceDate_NanoQL_Time_Date_System_Collections_Immutable_ImmutableSortedDictionary_NanoQL_Time_Date_NanoQL_Experimental_ExchangeContract__System_Int32_" data-uid="NanoQL.Experimental.CommodityCurve.UnderlyingPriceDate(NanoQL.Time.Date,System.Collections.Immutable.ImmutableSortedDictionary{NanoQL.Time.Date,NanoQL.Experimental.ExchangeContract},System.Int32)">
+  UnderlyingPriceDate(Date, ImmutableSortedDictionary&lt;Date, ExchangeContract&gt;?, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The date a nearby curve prices a date at: the underlying start date of the contract the offset counts to among
+those on or after the date; the date itself when none is on or after it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date UnderlyingPriceDate(Date date, ImmutableSortedDictionary&lt;Date, ExchangeContract&gt;? exchangeContracts, int nearbyOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>date</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>exchangeContracts</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablesorteddictionary-2">ImmutableSortedDictionary</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>, <a class="xref" href="NanoQL.Experimental.ExchangeContract.html">ExchangeContract</a>&gt;</dt>
+    <dd><p>The exchange contracts by date.</p>
+</dd>
+    <dt><code>nearbyOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The nearby contract, from 1.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date to price at.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">exchangeContracts</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The offset isn't positive, or not enough contracts follow the date.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

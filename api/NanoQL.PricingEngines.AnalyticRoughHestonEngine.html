@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class AnalyticRoughHestonEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AnalyticRoughHestonEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The analytic engine for European plain-vanilla options under : the characteristic function&#39;s fractional Riccati equation solved by the Adams scheme, the Pad&#233; approximation or the lifted approximation, and the price by Andersen and Piterbarg&#39;s Fourier integral with a Black-Scholes control variate.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine">
+
+
+
+  <h1 id="NanoQL_PricingEngines_AnalyticRoughHestonEngine" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine" class="text-break">
+Class AnalyticRoughHestonEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The analytic engine for European plain-vanilla options under <a class="xref" href="NanoQL.Models.RoughHestonModel.html">RoughHestonModel</a>: the characteristic
+function's fractional Riccati equation solved by the Adams scheme, the Padé approximation or the lifted
+approximation, and the price by Andersen and Piterbarg's Fourier integral with a Black-Scholes control variate.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AnalyticRoughHestonEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AnalyticRoughHestonEngine</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An immutable object over its model and settings; the static <code>Calculate</code> builds one. It keeps QuantLib's caches
+inside itself: the characteristic function by (z, t) and the lifted grid by t, keyed by their arguments' bits, and
+the two Riemann-Liouville weight sets, built once; each entry is computed from the engine's immutable model and
+settings, by QuantLib's arithmetic, and filled thread-safely, so every answer is what a fresh engine returns,
+whatever the engine priced before and on whichever thread. A model with other parameters is a new model and so a new
+engine, where QuantLib's <code>update()</code> drops the caches. Each price returns its integration's evaluations as the
+additional result "numberOfEvaluations", where QuantLib's engine keeps the count in a mutable member.
+</p>
+<p>
+The model's time runs from the earliest curve date (<a class="xref" href="NanoQL.Processes.HestonProcess.html">HestonProcess</a>'s model time), the date form reading
+the curves by date and the time form at the instants its time denotes on that clock, where QuantLib's time form
+reads both curves at the risk-free curve's times; a market whose curves share the risk-free curve's dates and day
+counter keeps QuantLib's times. At the model's time 0 the engine refuses, as QuantLib's does ("maturity must be
+positive").
+</p>
+<p>
+The Adams scheme is the reference route, O(N²) in the time steps; the Padé approximation is a closed form matching
+the Riccati solution's short- and long-time asymptotics, most precise at the strongly negative correlation of equity
+indices; the lifted approximation replaces the power-law kernel by a sum of n exponentials, an n-dimensional
+classical Riccati equation solved in O(nN).
+</p>
+<p>
+References: O. El Euch and M. Rosenbaum, The characteristic function of rough Heston models, Mathematical Finance
+29(1), 3-38 (2019); K. Diethelm, N. J. Ford, A. D. Freed, A Predictor-Corrector Approach for the Numerical Solution
+of Fractional Differential Equations, Nonlinear Dynamics 29, 3-22 (2002); J. Gatheral and R. Radoičić, Rational
+approximation of the rough Heston solution, International Journal of Theoretical and Applied Finance 22(3), 1950010
+(2019); E. Abi Jaber, Lifting the Heston model, Quantitative Finance 19(12), 1995-2013 (2019).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_AnalyticRoughHestonEngine__ctor_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticRoughHestonEngine__ctor_NanoQL_Models_RoughHestonModel_NanoQL_Numerics_FourierIntegration_System_Int32_System_Double_System_Double_NanoQL_PricingEngines_AnalyticRoughHestonEngineApproximation_System_Int32_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.#ctor(NanoQL.Models.RoughHestonModel,NanoQL.Numerics.FourierIntegration,System.Int32,System.Double,System.Double,NanoQL.PricingEngines.AnalyticRoughHestonEngineApproximation,System.Int32)">
+  AnalyticRoughHestonEngine(RoughHestonModel, FourierIntegration, int, double, double, AnalyticRoughHestonEngineApproximation, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.AnalyticRoughHestonEngine.html">AnalyticRoughHestonEngine</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnalyticRoughHestonEngine(RoughHestonModel model, FourierIntegration integration, int timeSteps = 256, double andersenPiterbargEpsilon = 1E-25, double alpha = -0.5, AnalyticRoughHestonEngineApproximation approximation = AnalyticRoughHestonEngineApproximation.AdamsPredictorCorrector, int nFactors = 20)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.RoughHestonModel.html">RoughHestonModel</a></dt>
+    <dd><p>The model.</p>
+</dd>
+    <dt><code>integration</code> <a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The Fourier integration.</p>
+</dd>
+    <dt><code>timeSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The fractional Riccati equation's time steps.</p>
+</dd>
+    <dt><code>andersenPiterbargEpsilon</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Andersen and Piterbarg's accuracy, which bounds an adaptive integration's
+range.</p>
+</dd>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The payoff's damping exponent, in (−1, 0) to keep the moments it needs finite.</p>
+</dd>
+    <dt><code>approximation</code> <a class="xref" href="NanoQL.PricingEngines.AnalyticRoughHestonEngineApproximation.html">AnalyticRoughHestonEngineApproximation</a></dt>
+    <dd><p>The route.</p>
+</dd>
+    <dt><code>nFactors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The lifted kernel's exponentials, which the other routes ignore.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">model</code> or <code class="paramref">integration</code> is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">approximation</code> isn't a member of its
+enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">timeSteps</code> or <code class="paramref">nFactors</code> isn't positive,
+or <code class="paramref">alpha</code> isn't in (−1, 0).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_AnalyticRoughHestonEngine__ctor_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticRoughHestonEngine__ctor_NanoQL_Models_RoughHestonModel_System_Int32_System_Int32_NanoQL_PricingEngines_AnalyticRoughHestonEngineApproximation_System_Int32_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.#ctor(NanoQL.Models.RoughHestonModel,System.Int32,System.Int32,NanoQL.PricingEngines.AnalyticRoughHestonEngineApproximation,System.Int32)">
+  AnalyticRoughHestonEngine(RoughHestonModel, int, int, AnalyticRoughHestonEngineApproximation, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.AnalyticRoughHestonEngine.html">AnalyticRoughHestonEngine</a> class on Gauss-Laguerre
+integration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnalyticRoughHestonEngine(RoughHestonModel model, int integrationOrder = 128, int timeSteps = 256, AnalyticRoughHestonEngineApproximation approximation = AnalyticRoughHestonEngineApproximation.AdamsPredictorCorrector, int nFactors = 20)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.RoughHestonModel.html">RoughHestonModel</a></dt>
+    <dd><p>The model.</p>
+</dd>
+    <dt><code>integrationOrder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The Gauss-Laguerre order.</p>
+</dd>
+    <dt><code>timeSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The fractional Riccati equation's time steps.</p>
+</dd>
+    <dt><code>approximation</code> <a class="xref" href="NanoQL.PricingEngines.AnalyticRoughHestonEngineApproximation.html">AnalyticRoughHestonEngineApproximation</a></dt>
+    <dd><p>The route.</p>
+</dd>
+    <dt><code>nFactors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The lifted kernel's exponentials, which the other routes ignore.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">model</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">approximation</code> isn't a member of its
+enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">timeSteps</code> or <code class="paramref">nFactors</code> isn't
+positive.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_Calculate_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext)">
+  Calculate(VanillaOption, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a European plain-vanilla option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results, with the additional result &quot;numberOfEvaluations&quot;.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The exercise isn't European, the payoff isn't plain vanilla, the maturity is at the model's time 0, the underlying
+isn't positive, the characteristic function's moment isn't positive, the Padé approximation is singular, or an
+integration fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_Calculate_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_RoughHestonModel_NanoQL_Numerics_FourierIntegration_System_Int32_System_Double_System_Double_NanoQL_PricingEngines_AnalyticRoughHestonEngineApproximation_System_Int32_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Models.RoughHestonModel,NanoQL.Numerics.FourierIntegration,System.Int32,System.Double,System.Double,NanoQL.PricingEngines.AnalyticRoughHestonEngineApproximation,System.Int32)">
+  Calculate(VanillaOption, EvaluationContext, RoughHestonModel, FourierIntegration, int, double, double, AnalyticRoughHestonEngineApproximation, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a European plain-vanilla option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context, RoughHestonModel model, FourierIntegration integration, int timeSteps = 256, double andersenPiterbargEpsilon = 1E-25, double alpha = -0.5, AnalyticRoughHestonEngineApproximation approximation = AnalyticRoughHestonEngineApproximation.AdamsPredictorCorrector, int nFactors = 20)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.RoughHestonModel.html">RoughHestonModel</a></dt>
+    <dd><p>The model.</p>
+</dd>
+    <dt><code>integration</code> <a class="xref" href="NanoQL.Numerics.FourierIntegration.html">FourierIntegration</a></dt>
+    <dd><p>The Fourier integration.</p>
+</dd>
+    <dt><code>timeSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The fractional Riccati equation's time steps.</p>
+</dd>
+    <dt><code>andersenPiterbargEpsilon</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Andersen and Piterbarg's accuracy, which bounds an adaptive integration's
+range.</p>
+</dd>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The payoff's damping exponent, in (−1, 0).</p>
+</dd>
+    <dt><code>approximation</code> <a class="xref" href="NanoQL.PricingEngines.AnalyticRoughHestonEngineApproximation.html">AnalyticRoughHestonEngineApproximation</a></dt>
+    <dd><p>The route.</p>
+</dd>
+    <dt><code>nFactors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The lifted kernel's exponentials, which the other routes ignore.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results, with the additional result &quot;numberOfEvaluations&quot;.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">approximation</code> isn't a member of its
+enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">timeSteps</code> or <code class="paramref">nFactors</code> isn't positive,
+or <code class="paramref">alpha</code> isn't in (−1, 0).</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The exercise isn't European, the payoff isn't plain vanilla, the maturity is at the model's time 0, the underlying
+isn't positive, the characteristic function's moment isn't positive, the Padé approximation is singular, or an
+integration fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_Calculate_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_RoughHestonModel_System_Int32_System_Int32_NanoQL_PricingEngines_AnalyticRoughHestonEngineApproximation_System_Int32_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Models.RoughHestonModel,System.Int32,System.Int32,NanoQL.PricingEngines.AnalyticRoughHestonEngineApproximation,System.Int32)">
+  Calculate(VanillaOption, EvaluationContext, RoughHestonModel, int, int, AnalyticRoughHestonEngineApproximation, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a European plain-vanilla option on Gauss-Laguerre integration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context, RoughHestonModel model, int integrationOrder = 128, int timeSteps = 256, AnalyticRoughHestonEngineApproximation approximation = AnalyticRoughHestonEngineApproximation.AdamsPredictorCorrector, int nFactors = 20)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.RoughHestonModel.html">RoughHestonModel</a></dt>
+    <dd><p>The model.</p>
+</dd>
+    <dt><code>integrationOrder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The Gauss-Laguerre order.</p>
+</dd>
+    <dt><code>timeSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The fractional Riccati equation's time steps.</p>
+</dd>
+    <dt><code>approximation</code> <a class="xref" href="NanoQL.PricingEngines.AnalyticRoughHestonEngineApproximation.html">AnalyticRoughHestonEngineApproximation</a></dt>
+    <dd><p>The route.</p>
+</dd>
+    <dt><code>nFactors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The lifted kernel's exponentials, which the other routes ignore.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results, with the additional result &quot;numberOfEvaluations&quot;.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">approximation</code> isn't a member of its
+enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">timeSteps</code> or <code class="paramref">nFactors</code> isn't
+positive.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The exercise isn't European, the payoff isn't plain vanilla, the maturity is at the model's time 0, the underlying
+isn't positive, the characteristic function's moment isn't positive, or the Padé approximation is singular.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_ChF_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.ChF*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_ChF_System_Numerics_Complex_System_Double_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.ChF(System.Numerics.Complex,System.Double)">
+  ChF(Complex, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The normalized characteristic function of the log forward moneyness, E[exp(iz ln(S_t/F_t))].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Complex ChF(Complex z, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.complex">Complex</a></dt>
+    <dd><p>The argument.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time, on the model's clock.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.complex">Complex</a></dt>
+    <dd><p>The characteristic function's value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The Padé approximation is singular at <code class="paramref">z</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_LnChF_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.LnChF*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_LnChF_System_Numerics_Complex_System_Double_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.LnChF(System.Numerics.Complex,System.Double)">
+  LnChF(Complex, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The logarithm of the normalized characteristic function of the log forward moneyness.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Complex LnChF(Complex z, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.complex">Complex</a></dt>
+    <dd><p>The argument.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time, on the model's clock.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.complex">Complex</a></dt>
+    <dd><p>The logarithm's value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The Padé approximation is singular at <code class="paramref">z</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_PriceVanillaPayoff_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.PriceVanillaPayoff*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_PriceVanillaPayoff_NanoQL_Instruments_PlainVanillaPayoff_NanoQL_Time_Date_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.PriceVanillaPayoff(NanoQL.Instruments.PlainVanillaPayoff,NanoQL.Time.Date)">
+  PriceVanillaPayoff(PlainVanillaPayoff, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The price of a plain-vanilla payoff at a date, its curves read by date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double PriceVanillaPayoff(PlainVanillaPayoff payoff, Date maturity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff.</p>
+</dd>
+    <dt><code>maturity</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">maturity</code> is at the model's time 0.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The underlying isn't positive, the characteristic function's moment isn't positive, the Padé approximation is
+singular, or an integration fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_PriceVanillaPayoff_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.PriceVanillaPayoff*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_PriceVanillaPayoff_NanoQL_Instruments_PlainVanillaPayoff_System_Double_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.PriceVanillaPayoff(NanoQL.Instruments.PlainVanillaPayoff,System.Double)">
+  PriceVanillaPayoff(PlainVanillaPayoff, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The price of a plain-vanilla payoff at a time, on the model's clock, its curves read at the instant the
+time denotes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double PriceVanillaPayoff(PlainVanillaPayoff payoff, double maturity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.PlainVanillaPayoff.html">PlainVanillaPayoff</a></dt>
+    <dd><p>The payoff.</p>
+</dd>
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time, on the model's clock.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">maturity</code> isn't positive.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The underlying isn't positive, the characteristic function's moment isn't positive, the Padé approximation is
+singular, or an integration fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_RiccatiSolution_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.RiccatiSolution*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticRoughHestonEngine_RiccatiSolution_System_Numerics_Complex_System_Double_" data-uid="NanoQL.PricingEngines.AnalyticRoughHestonEngine.RiccatiSolution(System.Numerics.Complex,System.Double)">
+  RiccatiSolution(Complex, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fractional Riccati equation's solution h(z, t), by the engine's route.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Complex RiccatiSolution(Complex z, double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.complex">Complex</a></dt>
+    <dd><p>The argument.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time, on the model's clock.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.complex">Complex</a></dt>
+    <dd><p>The solution.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">t</code> isn't positive.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The Padé approximation is singular at <code class="paramref">z</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

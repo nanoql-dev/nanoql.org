@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace NanoQL.Models | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace NanoQL.Models | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models">
+
+  <h1 id="NanoQL_Models" data-uid="NanoQL.Models" class="text-break">Namespace NanoQL.Models</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.AbcdVol.html">AbcdVol</a></dt>
+      <dd><p>The abcd-interpolated volatility market model: each rate's instantaneous volatility its own multiple k of a common
+abcd function of the time to its fixing, correlated by a piecewise-constant correlation, each step's pseudo-root the
+rank-reduced square root of its covariance.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.AccountingEngine.html">AccountingEngine</a></dt>
+      <dd><p>The engine that values a market-model product along an evolver's paths: on each path it steps the evolver and the
+product together, converts each cash flow into numeraire bonds at its step, rolls the holding into the next step's
+numeraire, and adds the products' values, in units of the initial numeraire, to the caller's statistics.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.AlphaFinder.html">AlphaFinder</a></dt>
+      <dd><p>The α of an alpha form, and the multipliers a and b, at which a swap rate's volatilities give a caplet its target
+variance: by the form's α at the initial guess where it works, by a bisection on the quadratic's turning point
+otherwise, or, with <a class="xref" href="NanoQL.Models.AlphaFinder.html#NanoQL_Models_AlphaFinder_SolveWithMaxHomogeneity_System_Double_System_Int32_System_ReadOnlySpan_System_Double__System_ReadOnlySpan_System_Double__System_ReadOnlySpan_System_Double__System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Int32_System_Double__System_Double__System_Double__System_Span_System_Double__">SolveWithMaxHomogeneity(double, int, ReadOnlySpan&lt;double&gt;, ReadOnlySpan&lt;double&gt;, ReadOnlySpan&lt;double&gt;, double, double, double, double, double, double, int, out double, out double, out double, Span&lt;double&gt;)</a>, at the α of the most homogeneous volatilities among those
+that work.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.AlphaForm.html">AlphaForm</a></dt>
+      <dd><p>A one-parameter family of each rate's volatility multiplier, the alpha calibration's form: <a class="xref" href="NanoQL.Models.AlphaForm.html#NanoQL_Models_AlphaForm_SetAlpha_System_Double_">SetAlpha(double)</a>
+chooses the member, <a class="xref" href="NanoQL.Models.AlphaForm.html#NanoQL_Models_AlphaForm_Evaluate_System_Int32_">Evaluate(int)</a> reads its value at a rate.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.AlphaFormInverseLinear.html">AlphaFormInverseLinear</a></dt>
+      <dd><p>The alpha form 1/(1 + α t_i).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.AlphaFormLinearHyperbolic.html">AlphaFormLinearHyperbolic</a></dt>
+      <dd><p>The alpha form √(1 + α t_i (atan(α t_i) − π/2)).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.BatesDetJumpModel.html">BatesDetJumpModel</a></dt>
+      <dd><p>The Bates model with a deterministic jump intensity, mean-reverting at κ_λ to θ_λ: dλ(t) = κ_λ(θ_λ − λ) dt.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.BatesDoubleExpDetJumpModel.html">BatesDoubleExpDetJumpModel</a></dt>
+      <dd><p>The Heston model with double-exponential jumps at a deterministic intensity, mean-reverting at κ_λ to θ_λ.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.BatesDoubleExpModel.html">BatesDoubleExpModel</a></dt>
+      <dd><p>The Heston model with double-exponential jumps: an up-jump with probability p, its size exponential with mean
+η_u (<a class="xref" href="NanoQL.Models.BatesDoubleExpModel.html#NanoQL_Models_BatesDoubleExpModel_NuUp">NuUp</a>), and a down-jump otherwise, with mean η_d (<a class="xref" href="NanoQL.Models.BatesDoubleExpModel.html#NanoQL_Models_BatesDoubleExpModel_NuDown">NuDown</a>), at intensity λ.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.BatesModel.html">BatesModel</a></dt>
+      <dd><p>The Bates stochastic-volatility model: the Heston model with log-normal jumps, calibrated.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.BermudanSwaptionExerciseValue.html">BermudanSwaptionExerciseValue</a></dt>
+      <dd><p>The exercise value of a Bermudan swaption into the coterminal swaps: at rate time i, the coterminal swap's annuity
+times its payoff on the coterminal swap rate, floored at 0, paid at rate time i.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.BlackCalibrationHelper.html">BlackCalibrationHelper</a></dt>
+      <dd><p>A liquid market instrument used during calibration, quoted by a Black (or Bachelier) volatility: its market value is
+the Black price at the quoted volatility.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.BlackKarasinski.html">BlackKarasinski</a></dt>
+      <dd><p>The standard Black-Karasinski model: d ln rₜ = (θ(t) − α ln rₜ)dt + σ dWₜ, with constant α and σ, fitted to a
+yield curve.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.BrownianGenerator.html">BrownianGenerator</a></dt>
+      <dd><p>An incremental generator of Brownian increments: each path's draws, step by step, for a number of factors.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.BrownianGeneratorFactory.html">BrownianGeneratorFactory</a></dt>
+      <dd><p>A factory of <a class="xref" href="NanoQL.Models.BrownianGenerator.html">BrownianGenerator</a>s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.Burley2020SobolBrownianGenerator.html">Burley2020SobolBrownianGenerator</a></dt>
+      <dd><p>The Brownian generator on Burley's scrambled Sobol sequence for market-model simulations: each path a scrambled
+Sobol sequence of the factors times the steps, turned into Gaussian variates by the inverse cumulative normal and
+Brownian-bridged by the base's ordering.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.Burley2020SobolBrownianGeneratorFactory.html">Burley2020SobolBrownianGeneratorFactory</a></dt>
+      <dd><p>The factory of <a class="xref" href="NanoQL.Models.Burley2020SobolBrownianGenerator.html">Burley2020SobolBrownianGenerator</a>s, each on the factory's ordering, seeds and direction
+integers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CMSMMDriftCalculator.html">CMSMMDriftCalculator</a></dt>
+      <dd><p>The drifts μΔt of a displaced log-normal constant-maturity swap market model's swap rates over a step, under the
+step's numeraire: Mark Joshi, &quot;Rapid Computation of Drifts in a Reduced Factor Libor Market Model&quot;, Wilmott Magazine,
+May 2003.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CMSwapCurveState.html">CMSwapCurveState</a></dt>
+      <dd><p>The curve state of constant-maturity swap market models: set on the swap rates spanning a fixed number of forwards,
+from a first valid index on.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CTSMMCapletAlphaFormCalibration.html">CTSMMCapletAlphaFormCalibration</a></dt>
+      <dd><p>The alpha-form coterminal swap market model caplet calibration: each caplet fitted by scaling the next swap rate's
+volatilities before the caplet's reset by a times the alpha form at an α the solver finds, and after it by b, its
+swaption variance kept.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CTSMMCapletCalibration.html">CTSMMCapletCalibration</a></dt>
+      <dd><p>A coterminal swap market model's calibration to caplet volatilities, the swaption volatilities given: each pass
+fits the swap rates' pseudo-roots to the caplet volatilities in use, then rescales those by the market's over the
+model's, until the caplets' root-mean-square error is within the tolerance or the passes run out.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CTSMMCapletCalibrationResults.html">CTSMMCapletCalibrationResults</a></dt>
+      <dd><p>A coterminal swap market model caplet calibration's results: QuantLib's inspectors of a calibrated
+<code>CTSMMCapletCalibration</code>, the fit's errors, the swap rates' pseudo-roots and the model's caplet and swaption
+volatilities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CTSMMCapletCalibrationStep.html">CTSMMCapletCalibrationStep</a></dt>
+      <dd><p>One pass of a coterminal swap market model's caplet calibration: the swap rates' pseudo-roots and the failures, and
+what the calibration computes besides (the alpha form's α, a and b; the max-homogeneity calibration's deformation
+size and swaption error). <a class="xref" href="NanoQL.Models.CTSMMCapletCalibration.html">CTSMMCapletCalibration</a>'s hook returns it, and the calibrations' static
+functions return it in place of QuantLib's out-parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CTSMMCapletMaxHomogeneityCalibration.html">CTSMMCapletMaxHomogeneityCalibration</a></dt>
+      <dd><p>The maximally homogeneous coterminal swap market model caplet calibration: each caplet fitted by moving the next
+swap rate's volatilities to the point closest to its given ones on the sphere of its swaption variance and the
+cylinder of the caplet's, the caplet or the swaption favoured where they don't meet.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CTSMMCapletOriginalCalibration.html">CTSMMCapletOriginalCalibration</a></dt>
+      <dd><p>The original coterminal swap market model caplet calibration: the swap variances made time-inhomogeneous by
+1/(1 + α s)² and rescaled to their totals, then each swap rate's variance before the previous rate's reset scaled by
+a² and after it by b², a and b solving the caplet approximation's quadratic.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CalibratedModel.html">CalibratedModel</a></dt>
+      <dd><p>The calibrated model class: <a class="xref" href="NanoQL.Models.ICalibratedModel.html">ICalibratedModel</a> over QuantLib's arguments and constraint.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CalibratedModelExtensions.html">CalibratedModelExtensions</a></dt>
+      <dd><p>QuantLib's members of <code>CalibratedModel</code> that return a new model, for any <a class="xref" href="NanoQL.Models.ICalibratedModel.html">ICalibratedModel</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CalibrationHelper.html">CalibrationHelper</a></dt>
+      <dd><p>The abstract base class for calibration helpers: an instrument whose error a calibration minimizes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CalibrationResults-1.html">CalibrationResults&lt;TModel&gt;</a></dt>
+      <dd><p>A calibration's result: the calibrated model, and QuantLib's record of the calibration that produced it, which
+QuantLib's <code>CalibratedModel</code> keeps in the model it calibrates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CallSpecifiedMultiProduct.html">CallSpecifiedMultiProduct</a></dt>
+      <dd><p>A callable product: the underlying's cash flows until the strategy calls it at an exercise time, the rebate's from
+then on; without a rebate, a cash rebate of 0 at the exercise times.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CallSpecifiedPathwiseMultiProduct.html">CallSpecifiedPathwiseMultiProduct</a></dt>
+      <dd><p>A callable pathwise product: the underlying's cash flows and derivatives until the strategy calls it at an exercise
+time, the rebate's from then on; without a rebate, a pathwise cash rebate of 0 at the exercise times.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CapHelper.html">CapHelper</a></dt>
+      <dd><p>A calibration helper for at-the-money caps: a cap on the index, struck at the fair rate of a swap on it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CapPseudoDerivative.html">CapPseudoDerivative</a></dt>
+      <dd><p>A cap's implied volatility in a market model, the flat undisplaced Black volatility that reprices the model's
+displaced caplets, and the derivatives of its price and its implied volatility with respect to the pseudo-roots'
+elements, step by step, for market vegas.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CapletCoterminalPeriodicFunctions.html">CapletCoterminalPeriodicFunctions</a></dt>
+      <dd><p>The periodic caplet and swaption calibration: a coterminal swap market model on short rates fitted to the short
+caplets and to the swaptions on long rates, each spanning a period of the short ones.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CapletSwaptionPeriodicCalibrationResults.html">CapletSwaptionPeriodicCalibrationResults</a></dt>
+      <dd><p>The periodic caplet and swaption calibration's results, QuantLib's return value and out-parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CollectNodeDataFunctions.html">CollectNodeDataFunctions</a></dt>
+      <dd><p>The node-data collection for a market-model callable product's exercise: QuantLib's free function.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ConstantEstimator.html">ConstantEstimator</a></dt>
+      <dd><p>The constant-estimator volatility model: at each date past the first <code>size</code>, the dispersion of the
+<code>size</code> values before it. Volatilities are assumed to be expressed on an annual basis.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ConstantParameter.html">ConstantParameter</a></dt>
+      <dd><p>The standard constant parameter: a(t) = a.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ConstrainedEvolver.html">ConstrainedEvolver</a></dt>
+      <dd><p>A constrained market-model evolver: an evolver whose rates can be fixed by importance sampling, for the Fries-Joshi
+proxy simulation approach to Greeks.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CotSwapFromFwdCorrelation.html">CotSwapFromFwdCorrelation</a></dt>
+      <dd><p>The coterminal swap rates' correlation implied by a forward-rate correlation on a curve: each period's the
+correlation of the coterminal Z matrix times the forwards' correlation times its transpose, the expired rates'
+coefficients zero.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CotSwapToFwdAdapter.html">CotSwapToFwdAdapter</a></dt>
+      <dd><p>A coterminal swap-rate market model as a forward-rate one, in the frozen-coefficient approximation: its initial
+rates the forwards of the coterminal model's curve, each step's pseudo-root the inverse of the coterminal Z matrix
+times the coterminal model's, the expired rates' rows zero.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CotSwapToFwdAdapterFactory.html">CotSwapToFwdAdapterFactory</a></dt>
+      <dd><p>The factory of <a class="xref" href="NanoQL.Models.CotSwapToFwdAdapter.html">CotSwapToFwdAdapter</a>s, each on a coterminal swap-rate model its coterminal factory
+creates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CoterminalSwapCurveState.html">CoterminalSwapCurveState</a></dt>
+      <dd><p>The curve state of coterminal swap market models: set on coterminal swap rates, from a first valid index on.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CoxIngersollRoss.html">CoxIngersollRoss</a></dt>
+      <dd><p>The Cox-Ingersoll-Ross model: dr(t) = k(θ − r(t))dt + σ√r(t) dW(t).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CurveState.html">CurveState</a></dt>
+      <dd><p>The curve state of a market-model simulation: the yield curve at the simulation's fixed rate times, the workhorse
+discounting object a product reads, so that a product runs on any kind of model (LIBOR, coterminal swap or
+constant-maturity swap).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.CurveStateFunctions.html">CurveStateFunctions</a></dt>
+      <dd><p>The curve-state conversions of <code>curvestate.hpp</code>: forward, coterminal swap and constant-maturity swap rates
+from discount ratios, each written into the caller's buffers from the first valid index on.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.EvolutionDescription.html">EvolutionDescription</a></dt>
+      <dd><p>A market-model evolution's description: the rate times defining the rates evolved, the evolution times at which
+the rates need to be known, and which rates are relevant at each step.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.EvolutionDescriptionFunctions.html">EvolutionDescriptionFunctions</a></dt>
+      <dd><p>The numeraire functions of an evolution: the measures and the numeraires' checks.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ExerciseAdapter.html">ExerciseAdapter</a></dt>
+      <dd><p>An exercise value as a product: stepped at the exercise value's times, it pays the exercise value at its first
+exercise time and is done there.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ExpCorrelationsFunctions.html">ExpCorrelationsFunctions</a></dt>
+      <dd><p>The exponential correlation matrix of forward rates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ExponentialForwardCorrelation.html">ExponentialForwardCorrelation</a></dt>
+      <dd><p>The exponential forward correlation, piecewise constant: at γ = 1 time-homogeneous on the rate times, otherwise each
+period's matrix the exponential correlation at the period's midpoint.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ExtendedCoxIngersollRoss.html">ExtendedCoxIngersollRoss</a></dt>
+      <dd><p>The extended Cox-Ingersoll-Ross model: r(t) = φ(t) + y(t), y a standard Cox-Ingersoll-Ross process,
+dy(t) = k(θ − y(t))dt + σ√y(t) dW(t), and φ the deterministic parameter fitting the curve.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.FlatVol.html">FlatVol</a></dt>
+      <dd><p>The flat-volatility market model: each rate with a constant volatility until its fixing, correlated by a
+piecewise-constant correlation, each step's pseudo-root the rank-reduced square root of its covariance.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.FlatVolFactory.html">FlatVolFactory</a></dt>
+      <dd><p>The factory of <a class="xref" href="NanoQL.Models.FlatVol.html">FlatVol</a> models on a yield curve: the initial rates the curve's simple forwards, the
+volatilities interpolated linearly in the rates' fixing times and displaced, and the exponential correlation made
+time-homogeneous.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.FlatVolFunctions.html">FlatVolFunctions</a></dt>
+      <dd><p>The flat-volatility model's covariance function.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ForwardForwardMappings.html">ForwardForwardMappings</a></dt>
+      <dd><p>The mappings between forward rates of a multiple tenor and the forward rates of the curve state's: the Jacobian of
+the long forwards in the short ones, the Y matrix that switches a model's base from short to long forwards, and the
+curve state restricted to the long forwards' times.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.FwdPeriodAdapter.html">FwdPeriodAdapter</a></dt>
+      <dd><p>A forward-rate market model on short forwards as one on long forwards, each spanning a period of the short ones
+from an offset: its curve the short model's restricted to the long rate times, its evolution the short model's to
+the last long reset, each step's pseudo-root the Y matrix times the short model's, the expired rates' rows zero.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.FwdToCotSwapAdapter.html">FwdToCotSwapAdapter</a></dt>
+      <dd><p>A forward-rate market model as a coterminal swap-rate one, in the frozen-coefficient approximation: its initial
+rates the coterminal swap rates of the forward model's curve, each step's pseudo-root the coterminal Z matrix times
+the forward model's, the expired rates' rows zero.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.FwdToCotSwapAdapterFactory.html">FwdToCotSwapAdapterFactory</a></dt>
+      <dd><p>The factory of <a class="xref" href="NanoQL.Models.FwdToCotSwapAdapter.html">FwdToCotSwapAdapter</a>s, each on a forward-rate model its forward factory creates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.G2.html">G2</a></dt>
+      <dd><p>The two-additive-factor Gaussian model: rₜ = φ(t) + xₜ + yₜ, with dxₜ = −a xₜ dt + σ dW¹ₜ, x₀ = 0,
+dyₜ = −b yₜ dt + η dW²ₜ, y₀ = 0, and dW¹ₜdW²ₜ = ρ dt, fitted to a yield curve.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.GJRGARCHModel.html">GJRGARCHModel</a></dt>
+      <dd><p>The GJR-GARCH model for the stochastic volatility of an asset: its six arguments ω, α, β, γ, λ and v₀ over a
+<a class="xref" href="NanoQL.Processes.GJRGARCHProcess.html">GJRGARCHProcess</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.GJRGARCHModelVolatilityConstraint.html">GJRGARCHModelVolatilityConstraint</a></dt>
+      <dd><p>The constraint β + γ ≥ 0 on a GJR-GARCH model's parameters, read from β and γ, the third and fourth of
+<a class="xref" href="NanoQL.Models.GJRGARCHModel.html">GJRGARCHModel</a>'s: QuantLib's <code>GJRGARCHModel::VolatilityConstraint</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.Garch11.html">Garch11</a></dt>
+      <dd><p>The GARCH(1,1) volatility model: σ²ₜ = ω + α u²ₜ₋₁ + β σ²ₜ₋₁, ω = γ V_L with γ = 1 − α − β and V_L the long-term
+variance. Volatilities are assumed to be expressed on an annual basis.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.Garch11Calibration.html">Garch11Calibration</a></dt>
+      <dd><p>A GARCH(1,1) calibration to squared returns, QuantLib's <code>calibrate_r2</code>: the parameters it writes through its
+references and the minimization it returns.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.GarmanKlassAbstract.html">GarmanKlassAbstract</a></dt>
+      <dd><p>The Garman-Klass volatility models, based on high-low formulas using the method of Garman and Klass in their paper
+&quot;On the Estimation of the Security Price from Historical Data&quot;: at each date, √(|f(p)|/y) for a point estimator f
+of the interval's prices p and a year fraction y. Volatilities are assumed to be expressed on an annual basis.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.GarmanKlassSigma1.html">GarmanKlassSigma1</a></dt>
+      <dd><p>Garman and Klass's first estimator: the overnight jump beside the simple estimator.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.GarmanKlassSigma3.html">GarmanKlassSigma3</a></dt>
+      <dd><p>Garman and Klass's third estimator: the overnight jump beside Parkinson's.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.GarmanKlassSigma4.html">GarmanKlassSigma4</a></dt>
+      <dd><p>Garman and Klass's fourth estimator, on the interval's open, close, high and low.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.GarmanKlassSigma5.html">GarmanKlassSigma5</a></dt>
+      <dd><p>Garman and Klass's fifth estimator, on the interval's open, close, high and low.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.GarmanKlassSigma6.html">GarmanKlassSigma6</a></dt>
+      <dd><p>Garman and Klass's sixth estimator: the overnight jump beside the fourth.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.GarmanKlassSimpleSigma.html">GarmanKlassSimpleSigma</a></dt>
+      <dd><p>The simple Garman-Klass estimator: the squared log of the interval's close over its open.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.Gaussian1dModel.html">Gaussian1dModel</a></dt>
+      <dd><p>The interface of one-factor interest-rate models whose state is Gaussian: a derived model implements the numeraire
+and the zero bond for a value of the state variable y, the standardized (zero mean, unit variance) form of the
+model's state x.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.Gsr.html">Gsr</a></dt>
+      <dd><p>The one-factor GSR model, formulated in the forward measure of its numeraire time: piecewise constant volatilities
+on the step dates, and a constant reversion or piecewise constant reversions on the same dates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+      <dd><p>The Heston model for the stochastic volatility of an asset: its process's five parameters,
+calibrated.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HestonModelFellerConstraint.html">HestonModelFellerConstraint</a></dt>
+      <dd><p>The Feller constraint on a Heston model's parameters, σ ≥ 0 and σ² &lt; 2κθ, read from θ, κ and σ, the first three
+of <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a>'s: QuantLib's <code>HestonModel::FellerConstraint</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HestonModelHelper.html">HestonModelHelper</a></dt>
+      <dd><p>A calibration helper for the Heston model: a European plain-vanilla option, a period after the risk-free curve's
+reference date, quoted by a Black volatility.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HestonSLVFDMModel.html">HestonSLVFDMModel</a></dt>
+      <dd><p>The Heston stochastic-local volatility model calibrated by the Fokker-Planck forward equation: the leverage function
+L(t, S) that makes the model's spot follow the local volatility's marginals, σ_LV(t, S)²/E[v | S], solved step by step
+on the joint density of the log spot and the variance.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HestonSLVFDMModelLogEntry.html">HestonSLVFDMModelLogEntry</a></dt>
+      <dd><p>A step of a <a class="xref" href="NanoQL.Models.HestonSLVFDMModel.html">HestonSLVFDMModel</a>'s calibration: the joint density of the log spot and the
+variance at a time, on its mesher.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HestonSLVFokkerPlanckFdmParams.html">HestonSLVFokkerPlanckFdmParams</a></dt>
+      <dd><p>The Fokker-Planck finite-difference calibration's settings for a <a class="xref" href="NanoQL.Models.HestonSLVFDMModel.html">HestonSLVFDMModel</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HestonSLVMCModel.html">HestonSLVMCModel</a></dt>
+      <dd><p>The Heston stochastic-local volatility model calibrated by Monte Carlo: at each time step the calibration paths'
+spots are sorted into bins, and the leverage at each bin's midpoint is the local volatility over the root of the
+bin's mean variance.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HistoricalForwardRatesAnalysis.html">HistoricalForwardRatesAnalysis</a></dt>
+      <dd><p>The outcome of a statistical analysis of historical forward rates: the dates skipped and failed, their messages,
+and the forwards' fixing periods.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HistoricalForwardRatesAnalysisFunctions.html">HistoricalForwardRatesAnalysisFunctions</a></dt>
+      <dd><p>The statistical analysis of historical forward rates: QuantLib's free function template
+<code>historicalForwardRatesAnalysis&lt;Traits, Interpolator&gt;</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HistoricalForwardRatesAnalysisImpl-2.html">HistoricalForwardRatesAnalysisImpl&lt;TTraits, TInterpolator&gt;</a></dt>
+      <dd><p>The statistical analysis of historical forward rates on a curve of the given traits and interpolator, run at
+construction into the statistics it is given
+(<a class="xref" href="NanoQL.Models.HistoricalForwardRatesAnalysisFunctions.html#NanoQL_Models_HistoricalForwardRatesAnalysisFunctions_HistoricalForwardRatesAnalysis__2_NanoQL_Numerics_SequenceStatistics_NanoQL_Time_Date_NanoQL_Time_Date_NanoQL_Time_Period_NanoQL_Indexes_InterestRateIndex_NanoQL_Time_Period_NanoQL_Time_Period_System_ReadOnlySpan_NanoQL_Indexes_IborIndex__System_ReadOnlySpan_NanoQL_Indexes_SwapIndex__NanoQL_Time_DayCounter_NanoQL_EvaluationContext_System_Double___1_">HistoricalForwardRatesAnalysis&lt;TTraits, TInterpolator&gt;(SequenceStatistics, Date, Date, Period, InterestRateIndex, Period, Period, ReadOnlySpan&lt;IborIndex&gt;, ReadOnlySpan&lt;SwapIndex&gt;, DayCounter, EvaluationContext, double, TInterpolator)</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HistoricalForwardRatesAnalysisResults.html">HistoricalForwardRatesAnalysisResults</a></dt>
+      <dd><p>What <a class="xref" href="NanoQL.Models.HistoricalForwardRatesAnalysisFunctions.html#NanoQL_Models_HistoricalForwardRatesAnalysisFunctions_HistoricalForwardRatesAnalysis__2_NanoQL_Numerics_SequenceStatistics_NanoQL_Time_Date_NanoQL_Time_Date_NanoQL_Time_Period_NanoQL_Indexes_InterestRateIndex_NanoQL_Time_Period_NanoQL_Time_Period_System_ReadOnlySpan_NanoQL_Indexes_IborIndex__System_ReadOnlySpan_NanoQL_Indexes_SwapIndex__NanoQL_Time_DayCounter_NanoQL_EvaluationContext_System_Double___1_">HistoricalForwardRatesAnalysis&lt;TTraits, TInterpolator&gt;(SequenceStatistics, Date, Date, Period, InterestRateIndex, Period, Period, ReadOnlySpan&lt;IborIndex&gt;, ReadOnlySpan&lt;SwapIndex&gt;, DayCounter, EvaluationContext, double, TInterpolator)</a> leaves in QuantLib's
+reference outputs: the dates skipped, where a fixing was missing or refused, the dates failed, where the curve
+or a forward rate failed, each with its error's message, and the forwards' fixing periods.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HistoricalRatesAnalysis.html">HistoricalRatesAnalysis</a></dt>
+      <dd><p>The statistical analysis of historical rates, run at construction: the relative changes of the indexes' fixings
+between successive dates, added to the statistics it is given
+(<a class="xref" href="NanoQL.Models.HistoricalRatesAnalysisFunctions.html#NanoQL_Models_HistoricalRatesAnalysisFunctions_HistoricalRatesAnalysis_NanoQL_Numerics_SequenceStatistics_NanoQL_Time_Date_NanoQL_Time_Date_NanoQL_Time_Period_System_ReadOnlySpan_NanoQL_Indexes_InterestRateIndex__NanoQL_EvaluationContext_">HistoricalRatesAnalysis(SequenceStatistics, Date, Date, Period, ReadOnlySpan&lt;InterestRateIndex&gt;, EvaluationContext)</a>).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HistoricalRatesAnalysisFunctions.html">HistoricalRatesAnalysisFunctions</a></dt>
+      <dd><p>The statistical analysis of historical rates: QuantLib's free function
+<code>historicalRatesAnalysis</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HistoricalRatesAnalysisResults.html">HistoricalRatesAnalysisResults</a></dt>
+      <dd><p>What <a class="xref" href="NanoQL.Models.HistoricalRatesAnalysisFunctions.html#NanoQL_Models_HistoricalRatesAnalysisFunctions_HistoricalRatesAnalysis_NanoQL_Numerics_SequenceStatistics_NanoQL_Time_Date_NanoQL_Time_Date_NanoQL_Time_Period_System_ReadOnlySpan_NanoQL_Indexes_InterestRateIndex__NanoQL_EvaluationContext_">HistoricalRatesAnalysis(SequenceStatistics, Date, Date, Period, ReadOnlySpan&lt;InterestRateIndex&gt;, EvaluationContext)</a> leaves in QuantLib's reference
+outputs: the dates skipped, where a fixing was missing or refused, each with its error's message.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.HullWhite.html">HullWhite</a></dt>
+      <dd><p>The single-factor Hull-White (extended Vasicek) model: drₜ = (θ(t) − αrₜ)dt + σ dWₜ, with constant α and σ, fitted
+to a yield curve.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.LMMCurveState.html">LMMCurveState</a></dt>
+      <dd><p>The curve state of LIBOR market models: set on forward rates or discount ratios, from a first valid index on.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.LMMDriftCalculator.html">LMMDriftCalculator</a></dt>
+      <dd><p>The drifts μΔt of a displaced log-normal LIBOR market model's forwards over a step, under the step's numeraire:
+Mark Joshi, &quot;Rapid Computation of Drifts in a Reduced Factor Libor Market Model&quot;, Wilmott Magazine, May 2003.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.LMMNormalDriftCalculator.html">LMMNormalDriftCalculator</a></dt>
+      <dd><p>The drifts μΔt of a normal LIBOR market model's forwards over a step, under the step's numeraire: Mark Joshi,
+&quot;Rapid Computation of Drifts in a Reduced Factor Libor Market Model&quot;, Wilmott Magazine, May 2003, modified for normal
+forward-rate dynamics.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.LogNormalCmSwapRatePc.html">LogNormalCmSwapRatePc</a></dt>
+      <dd><p>The predictor-corrector evolver of a displaced log-normal constant-maturity swap market model: the model's rates
+are the swap rates spanning a fixed number of forwards, each step predicted with the drifts at its start and
+corrected with the average of those and the drifts on the predicted curve.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.LogNormalCotSwapRatePc.html">LogNormalCotSwapRatePc</a></dt>
+      <dd><p>The predictor-corrector evolver of a displaced log-normal coterminal swap market model: the model's rates are the
+coterminal swap rates, each step predicted with the drifts at its start and corrected with the average of those
+and the drifts on the predicted curve.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.LogNormalFwdRateBalland.html">LogNormalFwdRateBalland</a></dt>
+      <dd><p>Balland's predictor-corrector evolver of a displaced log-normal LIBOR market model: each step's drifts corrected
+with the drifts at the geometric mean of the step's predicted end forwards and its start forwards.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.LogNormalFwdRateEuler.html">LogNormalFwdRateEuler</a></dt>
+      <dd><p>The Euler evolver of a displaced log-normal LIBOR market model: each step's drifts at its start, the log forwards
+stepped by them and the step's correlated Brownian increments.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.LogNormalFwdRateEulerConstrained.html">LogNormalFwdRateEulerConstrained</a></dt>
+      <dd><p>The constrained Euler evolver of a displaced log-normal LIBOR market model, for the Fries-Joshi proxy simulation of
+Greeks: at each step whose constraint is active, the log forwards are shifted along the constrained rate's
+covariances so that it lands on its constraint, and the step's weight takes the likelihood ratio of the shift.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.LogNormalFwdRateIpc.html">LogNormalFwdRateIpc</a></dt>
+      <dd><p>The iterative predictor-corrector evolver of a displaced log-normal LIBOR market model under the terminal measure:
+the forwards stepped from the last to the first, each corrected with the drift its later forwards' new values give.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.LogNormalFwdRatePc.html">LogNormalFwdRatePc</a></dt>
+      <dd><p>The predictor-corrector evolver of a displaced log-normal LIBOR market model: each step's log forwards predicted
+with the drifts at its start, then corrected with the average of those and the drifts at the predicted forwards.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.LogNormalFwdRateiBalland.html">LogNormalFwdRateiBalland</a></dt>
+      <dd><p>Balland's iterative predictor-corrector evolver of a displaced log-normal LIBOR market model under the terminal
+measure: the forwards stepped from the last to the first, each drift from the later forwards' geometric means.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.LongstaffSchwartzExerciseStrategy.html">LongstaffSchwartzExerciseStrategy</a></dt>
+      <dd><p>The Longstaff-Schwartz exercise strategy: at each exercise, exercises where the exercise value, in units of the
+numeraire portfolio, reaches the continuation value the regression's coefficients estimate on the basis functions,
+plus the control's value.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MTBrownianGenerator.html">MTBrownianGenerator</a></dt>
+      <dd><p>The Mersenne-twister Brownian generator for market-model simulations: each path a uniform sequence of the factors
+times the steps, drawn eagerly, each step's slice turned into Gaussian variates by the inverse cumulative normal.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MTBrownianGeneratorFactory.html">MTBrownianGeneratorFactory</a></dt>
+      <dd><p>The factory of <a class="xref" href="NanoQL.Models.MTBrownianGenerator.html">MTBrownianGenerator</a>s, each on the factory's seed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModel.html">MarketModel</a></dt>
+      <dd><p>A market model: for each evolution step, the pseudo-square root of the rates' covariance over the step.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelBasisSystem.html">MarketModelBasisSystem</a></dt>
+      <dd><p>The basis functions a Longstaff-Schwartz regression reads at each exercise: a node-data provider whose data are the
+functions' values.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelCashRebate.html">MarketModelCashRebate</a></dt>
+      <dd><p>The receipt of a fixed cash amount, once: each step pays each product its amount for that step, at the step's
+payment time, and finishes the path. Mainly the rebate received when another product is cancelled.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelComposite.html">MarketModelComposite</a></dt>
+      <dd><p>A market-model product composed of one or more products on the same rate times, each with a multiplier: its
+evolution steps at every part's evolution times, and each part steps at its own.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelDifferencesFunctions.html">MarketModelDifferencesFunctions</a></dt>
+      <dd><p>The differences between two market models on the same initial rates and evolution: their rates' volatilities and
+instantaneous volatilities. QuantLib's free functions in <code>marketmodeldifferences.hpp</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelDiscounter.html">MarketModelDiscounter</a></dt>
+      <dd><p>The number of numeraire bonds a unit paid at a time is worth on a curve state: the discount ratio of the rate
+times bracketing the payment, log-linearly interpolated between them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelEvolver.html">MarketModelEvolver</a></dt>
+      <dd><p>A market-model evolver: the gritty work of evolving the rates from one evolution time to the next, path by path.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelExerciseValue.html">MarketModelExerciseValue</a></dt>
+      <dd><p>The value of exercising a market-model callable product: stepped along a path at its evolution's times, it gives at
+each exercise time the cash flow exercising pays.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelFactory.html">MarketModelFactory</a></dt>
+      <dd><p>A factory of <a class="xref" href="NanoQL.Models.MarketModel.html">MarketModel</a>s on given evolutions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelMultiProduct.html">MarketModelMultiProduct</a></dt>
+      <dd><p>A market-model product, or several on the same rate times: the information of its term sheet, and, for a callable
+product, its exercise strategy. At each step of an evolution it generates the cash flows of that step for the
+state of the curve.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelNodeDataProvider.html">MarketModelNodeDataProvider</a></dt>
+      <dd><p>The data a market-model callable product's exercise decision reads at each exercise: stepped along a path at its
+evolution's times, it fills the current exercise's values.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelParametricExercise.html">MarketModelParametricExercise</a></dt>
+      <dd><p>A parametric exercise rule on a market model: a node-data provider whose data are the rule's variables, and the rule.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelPathwiseCashRebate.html">MarketModelPathwiseCashRebate</a></dt>
+      <dd><p>The receipt of a fixed cash amount, once, for the pathwise engines: each step pays each product its amount for that
+step, its derivatives 0, and finishes the path.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelPathwiseCoterminalSwaptionsDeflated.html">MarketModelPathwiseCoterminalSwaptionsDeflated</a></dt>
+      <dd><p>The coterminal payer swaptions for the pathwise engines, one product a rate: swaption i pays, at rate i's reset,
+(Sᵢ − Kᵢ) Aᵢ in its first bond where positive, Sᵢ the coterminal swap rate and Aᵢ its annuity, with its analytic
+derivatives with respect to the forwards from fᵢ.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelPathwiseCoterminalSwaptionsNumericalDeflated.html">MarketModelPathwiseCoterminalSwaptionsNumericalDeflated</a></dt>
+      <dd><p>The coterminal payer swaptions for the pathwise engines with numerical derivatives: as
+<a class="xref" href="NanoQL.Models.MarketModelPathwiseCoterminalSwaptionsDeflated.html">MarketModelPathwiseCoterminalSwaptionsDeflated</a>, each derivative a central difference of the swaption's
+value on the state's forwards bumped up and down by the bump size.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelPathwiseDiscounter.html">MarketModelPathwiseDiscounter</a></dt>
+      <dd><p>The number of units of the discretely compounding money-market account a unit paid at a time buys on a step's
+rates, and its derivative with respect to each forward rate, for the pathwise Greeks: the discount factors of the
+rate times bracketing the payment, log-linearly interpolated between them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelPathwiseInverseFloater.html">MarketModelPathwiseInverseFloater</a></dt>
+      <dd><p>An inverse floater for the pathwise engines: <a class="xref" href="NanoQL.Models.MultiStepInverseFloater.html">MultiStepInverseFloater</a>'s cash flows, with each coupon's
+derivative with respect to its rate's forward.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelPathwiseMultiCaplet.html">MarketModelPathwiseMultiCaplet</a></dt>
+      <dd><p>Caplets for the pathwise engines, one product a rate: caplet i pays (fᵢ − Kᵢ) aᵢ at its payment time where positive,
+with its derivative aᵢ with respect to fᵢ; mainly a test product.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelPathwiseMultiDeflatedCap.html">MarketModelPathwiseMultiDeflatedCap</a></dt>
+      <dd><p>Caps for the pathwise engines, already deflated: cap k is the deflated caplets on one strike from its start rate to
+before its end rate, each caplet's cash flow and derivatives its cap's.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelPathwiseMultiDeflatedCaplet.html">MarketModelPathwiseMultiDeflatedCaplet</a></dt>
+      <dd><p>Caplets for the pathwise engines, already deflated: caplet i pays (fᵢ − Kᵢ) aᵢ P(Tᵢ₊₁)/P(T₀), in units of the
+money-market numeraire, where positive, with its derivatives with respect to each forward up to fᵢ.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelPathwiseMultiProduct.html">MarketModelPathwiseMultiProduct</a></dt>
+      <dd><p>A market-model product, or several on the same rate times, that also gives each cash flow's derivatives with
+respect to each forward rate, for the pathwise Greeks: <a class="xref" href="NanoQL.Models.MarketModelMultiProduct.html">MarketModelMultiProduct</a>'s contract with
+<a class="xref" href="NanoQL.Models.MarketModelPathwiseMultiProductCashFlow.html">MarketModelPathwiseMultiProductCashFlow</a> cash flows.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelPathwiseMultiProductCashFlow.html">MarketModelPathwiseMultiProductCashFlow</a></dt>
+      <dd><p>A cash flow a <a class="xref" href="NanoQL.Models.MarketModelPathwiseMultiProduct.html">MarketModelPathwiseMultiProduct</a> generates at a step: the index of its payment time and
+its amount followed by the amount's derivatives with respect to each forward rate. QuantLib's nested
+<code>MarketModelPathwiseMultiProduct::CashFlow</code>, made top-level.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelPathwiseSwap.html">MarketModelPathwiseSwap</a></dt>
+      <dd><p>A swap for the pathwise engines: at each rate's reset, (fᵢ − Kᵢ) τᵢ times the multiplier, paid at the period's end,
+with its derivative τᵢ times the multiplier with respect to fᵢ.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelVolProcess.html">MarketModelVolProcess</a></dt>
+      <dd><p>A volatility process for a displaced-diffusion LIBOR market model with an uncorrelated stochastic volatility, the
+&quot;shifted BGM&quot; with Heston volatility of Brace's &quot;Engineering BGM&quot;: it scales each evolution step's variance.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarkovFunctional.html">MarkovFunctional</a></dt>
+      <dd><p>The one-factor Markov-functional model, its numeraire calibrated to a swaption or a caplet smile: see
+<a href="http://ssrn.com/abstract_id=2183721">http://ssrn.com/abstract_id=2183721</a> and <a href="http://quantlib.org/slides/qlws13/caspers.pdf">http://quantlib.org/slides/qlws13/caspers.pdf</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalCustomSmileFactory.html">MarkovFunctionalCustomSmileFactory</a></dt>
+      <dd><p>The factory of the custom smile sections the Markov-functional model calibrates to.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalCustomSmileSection.html">MarkovFunctionalCustomSmileSection</a></dt>
+      <dd><p>A smile section of one's own for the Markov-functional model's calibration, which inverts digital prices to market
+rates itself.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelOutputs.html">MarkovFunctionalModelOutputs</a></dt>
+      <dd><p>The Markov-functional model's diagnostics: per calibration point in date order, its expiry, tenor, at-the-money level
+and annuity, the numeraire's adjustment factors, the yield curve's fit and the smile's fit on the moneyness grid, and
+the calibration's messages.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+      <dd><p>The Markov-functional model's numerical settings: the state grid, the Gauss-Hermite integration, the digitals' gap,
+the market rates' accuracy and bounds, and the adjustments and smile pretreatments.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MergedTimes.html">MergedTimes</a></dt>
+      <dd><p>The result of <a class="xref" href="NanoQL.Models.UtilitiesFunctions.html#NanoQL_Models_UtilitiesFunctions_MergeTimes_System_ReadOnlySpan_System_Collections_Immutable_ImmutableArray_System_Double___">MergeTimes(ReadOnlySpan&lt;ImmutableArray&lt;double&gt;&gt;)</a>: QuantLib's <code>mergeTimes</code> outputs, the merged times
+and each set's presence among them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiProductComposite.html">MultiProductComposite</a></dt>
+      <dd><p>A composite of market-model products whose products stay apart: its products are each part's products in turn,
+each part's cash flows scaled by its multiplier.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiProductMultiStep.html">MultiProductMultiStep</a></dt>
+      <dd><p>A market-model product evaluated in more than one step (Rebonato's long jump): its evolution steps at every rate
+time but the last, each step's relevant rates the one resetting there.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiProductOneStep.html">MultiProductOneStep</a></dt>
+      <dd><p>A market-model product evaluated in one step (Rebonato's very long jump): its evolution steps once, at the last
+rate's reset, every rate relevant.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiProductPathwiseWrapper.html">MultiProductPathwiseWrapper</a></dt>
+      <dd><p>A pathwise product as an ordinary one: its cash flows' amounts without their derivatives, so the product is written
+once for both kinds of engine.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiStepCoinitialSwaps.html">MultiStepCoinitialSwaps</a></dt>
+      <dd><p>The coinitial payer swaps, one product a rate: swap i, from the first rate to rate i, pays at each of its rates'
+resets the fixed coupon −K τᶠⁱˣ and the floating coupon f τᶠˡᵒᵃᵗ, at the period's payment time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiStepCoterminalSwaps.html">MultiStepCoterminalSwaps</a></dt>
+      <dd><p>The coterminal payer swaps, one product a rate: swap i, from rate i to the last, pays at each of its rates' resets
+the fixed coupon −K τᶠⁱˣ and the floating coupon f τᶠˡᵒᵃᵗ, at the period's payment time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiStepCoterminalSwaptions.html">MultiStepCoterminalSwaptions</a></dt>
+      <dd><p>The coterminal swaptions, one product a rate: swaption i pays, at rate i's reset, its payoff of the coterminal swap
+rate from rate i times the swap's annuity in its first bond, at its payment time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiStepForwards.html">MultiStepForwards</a></dt>
+      <dd><p>Forward-rate agreements, one product a rate: product i pays (fᵢ − Kᵢ) τᵢ at its payment time, fixed at the rate's
+reset.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiStepInverseFloater.html">MultiStepInverseFloater</a></dt>
+      <dd><p>An inverse floater: at each rate's reset, the inverse floating coupon max(Kᵢ − mᵢ fᵢ, 0) τᶠⁱˣᵢ less the floating
+coupon (fᵢ + sᵢ) τᶠˡᵒᵃᵗᵢ, received, or paid by a payer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiStepNothing.html">MultiStepNothing</a></dt>
+      <dd><p>Products that pay nothing, its path finished once it has stepped past a given index: the underlying of a Bermudan
+option on <a class="xref" href="NanoQL.Models.MarketModelMultiProduct.html">MarketModelMultiProduct</a>'s callable framework, and a placeholder.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiStepOptionlets.html">MultiStepOptionlets</a></dt>
+      <dd><p>Optionlets, one product a rate: product i pays its payoff of the forward fᵢ times τᵢ at its payment time, fixed at
+the rate's reset.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiStepPeriodCapletSwaptions.html">MultiStepPeriodCapletSwaptions</a></dt>
+      <dd><p>The caplets and coterminal swaptions on the long forwards made of a period of rates each, from an offset: at each
+long forward's reset, a caplet on the long forward and a swaption on the long coterminal swap from it, the first
+half of the products the caplets and the second the swaptions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiStepRatchet.html">MultiStepRatchet</a></dt>
+      <dd><p>A full ratchet: at each rate's reset, the coupon max(g_floor · floor + s_floor, g_fixing · f + s_fixing) times the
+accrual, the floor then the coupon, from the initial floor.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiStepSwap.html">MultiStepSwap</a></dt>
+      <dd><p>A swap on the forward rates: at each rate's reset, the fixed coupon −K τᶠⁱˣᵢ and the floating coupon fᵢ τᶠˡᵒᵃᵗᵢ,
+each paid at the period's payment time, signed for a payer (−1 on the floating leg for a receiver).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiStepSwaption.html">MultiStepSwaption</a></dt>
+      <dd><p>A swaption on a contiguous run of the rates: at the swap's start its payoff of the swap rate times the annuity, paid
+at the start, the path finished. It steps through every rate time up to the swap's start; mainly a test product.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MultiStepTarn.html">MultiStepTarn</a></dt>
+      <dd><p>A targeted redemption note: at each rate's reset it receives the floating coupon (f + s) τᶠˡᵒᵃᵗ and pays the
+inverse floating coupon max(K − m f, 0) τ, until the coupons paid reach the total coupon or the last rate, when it
+pays what is left of the total and ends.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.NormalFwdRatePc.html">NormalFwdRatePc</a></dt>
+      <dd><p>The predictor-corrector evolver of a normal LIBOR market model: each step's forwards predicted with the drifts at
+its start, then corrected with the average of those and the drifts at the predicted forwards.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.NothingExerciseValue.html">NothingExerciseValue</a></dt>
+      <dd><p>An exercise value of nothing: at each exercise time a cash flow of 0, paid at the current rate time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.NullParameter.html">NullParameter</a></dt>
+      <dd><p>A parameter which is always zero: a(t) = 0, with no parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.OneFactorAffineModel.html">OneFactorAffineModel</a></dt>
+      <dd><p>The single-factor affine base class: a model whose discount bond is P(t, T, r) = A(t, T)·exp(−B(t, T)·r), for
+derived classes implementing <a class="xref" href="NanoQL.Models.OneFactorAffineModel.html#NanoQL_Models_OneFactorAffineModel_A_System_Double_System_Double_">A(double, double)</a> and <a class="xref" href="NanoQL.Models.OneFactorAffineModel.html#NanoQL_Models_OneFactorAffineModel_B_System_Double_System_Double_">B(double, double)</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.OneFactorModel.html">OneFactorModel</a></dt>
+      <dd><p>The single-factor short-rate model abstract class: its short rate a function of one state variable.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.OneFactorModelShortRateDynamics.html">OneFactorModelShortRateDynamics</a></dt>
+      <dd><p>The base class describing a one-factor model's short-rate dynamics: the short rate and its state variable.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.OneFactorModelShortRateTree.html">OneFactorModelShortRateTree</a></dt>
+      <dd><p>A recombining trinomial tree discretizing a one-factor model's state variable.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.OneStepCoinitialSwaps.html">OneStepCoinitialSwaps</a></dt>
+      <dd><p>The coinitial payer swaps valued in one step: at the last rate's reset, swap i, from the first rate to rate i, pays
+each of its periods' fixed coupon −K τᶠⁱˣ and floating coupon f τᶠˡᵒᵃᵗ at the period's payment time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.OneStepCoterminalSwaps.html">OneStepCoterminalSwaps</a></dt>
+      <dd><p>The coterminal payer swaps valued in one step: at the last rate's reset, swap i, from rate i to the last, pays each
+of its periods' fixed coupon −K τᶠⁱˣ and floating coupon f τᶠˡᵒᵃᵗ at the period's payment time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.OneStepForwards.html">OneStepForwards</a></dt>
+      <dd><p>Forward-rate agreements valued in one step: at the last rate's reset, product i pays (fᵢ − Kᵢ) τᵢ at its payment time.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.OneStepOptionlets.html">OneStepOptionlets</a></dt>
+      <dd><p>Optionlets valued in one step: at the last rate's reset, product i pays its payoff of fᵢ times τᵢ at its payment time
+where the payoff is positive.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.OrthogonalizedBumpFinder.html">OrthogonalizedBumpFinder</a></dt>
+      <dd><p>Pseudo-root bumps that each move one instrument's implied volatility by one percent and leave the others fixed:
+the instruments' one-percent bumps projected orthogonally to each other, an instrument too correlated with the
+others discarded.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.Parameter.html">Parameter</a></dt>
+      <dd><p>The base class for model arguments: a function of time defined by an array of parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.Parameter.Impl.html">Parameter.Impl</a></dt>
+      <dd><p>The base class for a parameter's implementation: its value at a time from the parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ParametricExerciseAdapter.html">ParametricExerciseAdapter</a></dt>
+      <dd><p>An exercise strategy from a parametric exercise rule and its parameters: at each exercise, the rule on the
+exercise's parameters and the variables the rule reads in the state.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ParkinsonSigma.html">ParkinsonSigma</a></dt>
+      <dd><p>Parkinson's estimator: the squared log range of the interval over 4 ln 2.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.PathwiseAccountingEngine.html">PathwiseAccountingEngine</a></dt>
+      <dd><p>The engine that values pathwise market-model products and their deltas along a log-normal Euler evolver's paths,
+by Giles and Glasserman's smoking adjoints: on each path it gathers the products' cash flows and their derivatives,
+then carries the derivatives back to the initial forward rates through the Euler step's Jacobian.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.PathwiseVegasAccountingEngine.html">PathwiseVegasAccountingEngine</a></dt>
+      <dd><p>The engine that values pathwise market-model products, their deltas and their vegas along given bumps of the
+pseudo-roots, along a log-normal Euler evolver's paths, by Giles and Glasserman's smoking adjoints: the delta engine's
+recursion, with each step's rates differentiated along the bumps as the path goes and combined with the
+derivatives as early as possible.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.PathwiseVegasOuterAccountingEngine.html">PathwiseVegasOuterAccountingEngine</a></dt>
+      <dd><p>The engine that values pathwise market-model products, their deltas and their vegas along a log-normal Euler
+evolver's paths, by Giles and Glasserman's smoking adjoints: <a class="xref" href="NanoQL.Models.PathwiseVegasAccountingEngine.html">PathwiseVegasAccountingEngine</a>'s values, with
+the derivatives taken with respect to every pseudo-root element and combined into the bumps' vegas as late as
+possible, after the paths' means.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.PiecewiseConstantAbcdVariance.html">PiecewiseConstantAbcdVariance</a></dt>
+      <dd><p>The piecewise-constant variance of the rate resetting at a given rate time under an abcd volatility: each step to
+the reset the abcd function's variance over the step, 0 after it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.PiecewiseConstantCorrelation.html">PiecewiseConstantCorrelation</a></dt>
+      <dd><p>A piecewise-constant correlation of the rates: one correlation matrix per period between its times, which must
+include every rate time but the last.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.PiecewiseConstantParameter.html">PiecewiseConstantParameter</a></dt>
+      <dd><p>A piecewise-constant parameter: a(t) = aᵢ for tᵢ₋₁ ≤ t &lt; tᵢ, one parameter per piece, so a time equal to a
+breakpoint takes the next piece. This kind of parameter is usually used to enhance the fitting of a model.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.PiecewiseConstantVariance.html">PiecewiseConstantVariance</a></dt>
+      <dd><p>A rate's variance, piecewise constant over the steps between its rate times: each step's variance and volatility,
+and their totals from time zero.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.PiecewiseTimeDependentHestonModel.html">PiecewiseTimeDependentHestonModel</a></dt>
+      <dd><p>The Heston model with piecewise time-dependent parameters on a time grid, calibrated.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ProxyGreekEngine.html">ProxyGreekEngine</a></dt>
+      <dd><p>The engine that values market-model products and their Greeks by Fries and Joshi's partial proxy simulation: each
+path is valued on the original evolver, which records each step's constrained rate, then on each bumped constrained
+evolver pinned to those rates, its weights the likelihood ratio; finite-difference weights combine the original and
+the bumped values into each Greek's path value.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.PseudoRootFacade.html">PseudoRootFacade</a></dt>
+      <dd><p>A market model given by its pseudo-roots, one per rate time but the last: its evolution the rate times', its
+initial rates and displacements given; the coterminal swap market model a caplet calibration builds.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.RatePseudoRootJacobian.html">RatePseudoRootJacobian</a></dt>
+      <dd><p>The derivative of a log-normal Euler step's end rates along given bumps of its pseudo-root, analytically, for the
+pathwise vegas (Giles and Glasserman's B, a row per bump): the step in the discretely compounding money-market
+account.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.RatePseudoRootJacobianAllElements.html">RatePseudoRootJacobianAllElements</a></dt>
+      <dd><p>The derivative of each end rate of a log-normal Euler step with respect to each element of its pseudo-root,
+analytically, for the pathwise vegas: the step in the discretely compounding money-market account.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.RatePseudoRootJacobianNumerical.html">RatePseudoRootJacobianNumerical</a></dt>
+      <dd><p>The change in a log-normal Euler step's rates when its pseudo-root is bumped, by revaluing the step on each bumped
+pseudo-root: the numerical form <a class="xref" href="NanoQL.Models.RatePseudoRootJacobian.html">RatePseudoRootJacobian</a> is tested against.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.RoughHestonModel.html">RoughHestonModel</a></dt>
+      <dd><p>The rough Heston model for the stochastic volatility of an asset: the Heston parameters and the variance's
+Hurst exponent, calibrated.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SMMDriftCalculator.html">SMMDriftCalculator</a></dt>
+      <dd><p>The drifts μΔt of a displaced log-normal coterminal swap market model's swap rates over a step, under the step's
+numeraire: Mark Joshi and Lorenzo Liesch, &quot;Effective Implementation Of Generic Market Models&quot;.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SVDDFwdRatePc.html">SVDDFwdRatePc</a></dt>
+      <dd><p>The predictor-corrector evolver of a displaced-diffusion LIBOR market model with an uncorrelated stochastic
+volatility: each step's variance scaled by its volatility process's step multiplier, the process drawn from some of
+each step's variates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ShortRateModel.html">ShortRateModel</a></dt>
+      <dd><p>The abstract short-rate model class: a calibrated model that builds a lattice on a time grid.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SimpleLocalEstimator.html">SimpleLocalEstimator</a></dt>
+      <dd><p>The local-estimator volatility model: at each date after the first, |ln(Sᵢ/Sᵢ₋₁)|/√y for a year fraction y between
+quotes. Volatilities are assumed to be expressed on an annual basis.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SingleProductComposite.html">SingleProductComposite</a></dt>
+      <dd><p>A composite of market-model products as one product: every part's products' cash flows, scaled by the part's
+multiplier, are the one product's.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SobolBrownianGenerator.html">SobolBrownianGenerator</a></dt>
+      <dd><p>The Sobol Brownian generator for market-model simulations: each path a Sobol sequence of the factors times the
+steps, turned into Gaussian variates by the inverse cumulative normal and Brownian-bridged by the base's ordering.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SobolBrownianGeneratorBase.html">SobolBrownianGeneratorBase</a></dt>
+      <dd><p>The incremental Brownian generator on a low-discrepancy sequence: each path's Gaussian variates, of the factors
+times the steps, assigned to the factors and steps by an ordering and Brownian-bridged along each factor's path.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SobolBrownianGeneratorFactory.html">SobolBrownianGeneratorFactory</a></dt>
+      <dd><p>The factory of <a class="xref" href="NanoQL.Models.SobolBrownianGenerator.html">SobolBrownianGenerator</a>s, each on the factory's ordering, seed and direction
+integers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SquareRootAndersen.html">SquareRootAndersen</a></dt>
+      <dd><p>A square-root (CIR) variance process stepped by Andersen's quadratic-exponential scheme, sub-stepping each evolution
+step, its step's standard deviation multiplier the weighted average of the variance at the sub-steps' ends.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SwapBasisSystem.html">SwapBasisSystem</a></dt>
+      <dd><p>The basis functions 1, the next forward rate and the coterminal swap rate after it, at each exercise; at an exercise
+on the last rate, 1 and the forward rate.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SwapForwardBasisSystem.html">SwapForwardBasisSystem</a></dt>
+      <dd><p>The quadratic basis functions in the next forward rate x, the coterminal swap rate after it y and the discount
+ratio to the last rate time z at each exercise: 1, x, y, z, xy, yz, zx, x², y², z²; at an exercise on the
+second-to-last rate, 1, x, the last forward y, x², xy, y²; on the last, 1, x, x².</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SwapForwardMappings.html">SwapForwardMappings</a></dt>
+      <dd><p>The mappings between swap rates and forward rates: annuities, the swap rates' derivatives and Jacobians in the
+forwards, the Z matrices that switch a model's base from forwards to swap rates, and a swaption's implied volatility
+by frozen coefficients.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SwapRateTrigger.html">SwapRateTrigger</a></dt>
+      <dd><p>An exercise strategy on swap-rate triggers: at each exercise, exercises where the coterminal swap rate from the next
+rate is above the exercise's trigger.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SwaptionHelper.html">SwaptionHelper</a></dt>
+      <dd><p>A calibration helper for interest-rate swaptions: a European swaption on a swap of the index, quoted by a volatility.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SwaptionPseudoDerivative.html">SwaptionPseudoDerivative</a></dt>
+      <dd><p>A swaption's implied volatility in a market model, by frozen coefficients, and its derivatives with respect to the
+pseudo-roots' elements, step by step, for market vegas.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.TermStructureFittingParameter.html">TermStructureFittingParameter</a></dt>
+      <dd><p>A deterministic time-dependent parameter used for yield-curve fitting, with no parameters of its own.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.TermStructureFittingParameter.NumericalImpl.html">TermStructureFittingParameter.NumericalImpl</a></dt>
+      <dd><p>The numerical implementation: the fitted values at the times a tree sets them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.TimeHomogeneousForwardCorrelation.html">TimeHomogeneousForwardCorrelation</a></dt>
+      <dd><p>A time-homogeneous forward correlation: in the k-th period, between rate times k and k + 1, the alive rates i and j
+correlate as rates i − k and j − k do at time zero.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.TriggeredSwapExercise.html">TriggeredSwapExercise</a></dt>
+      <dd><p>A parametric exercise on a swap-rate trigger: one variable, the coterminal swap rate from the next rate at each
+exercise, and one parameter, the trigger, exercised when the rate reaches it; the strikes are the triggers' guesses.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.TwoFactorModel.html">TwoFactorModel</a></dt>
+      <dd><p>The abstract two-factor short-rate model class: its short rate a function of two state variables.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.TwoFactorModelShortRateDynamics.html">TwoFactorModelShortRateDynamics</a></dt>
+      <dd><p>The class describing the dynamics of a two-factor model's state variables: the short rate rₜ = f(t, xₜ, yₜ), with
+dxₜ = μₓ(t, xₜ)dt + σₓ(t, xₜ)dWˣₜ, dyₜ = μᵧ(t, yₜ)dt + σᵧ(t, yₜ)dWʸₜ and dWˣₜdWʸₜ = ρ dt.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.TwoFactorModelShortRateTree.html">TwoFactorModelShortRateTree</a></dt>
+      <dd><p>A recombining two-dimensional tree discretizing a two-factor model's state variables.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.UpperBoundEngine.html">UpperBoundEngine</a></dt>
+      <dd><p>The Andersen-Broadie upper bound of a callable product: on each outer path the hedged portfolio's maximum over the
+exercise dates, the hedge's unexercised value at each date from an inner simulation of the hedge's call-specified
+product.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.UtilitiesFunctions.html">UtilitiesFunctions</a></dt>
+      <dd><p>The market models' time utilities: merging sets of times, subset tests and the times' checks.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.Vasicek.html">Vasicek</a></dt>
+      <dd><p>The Vasicek model: drₜ = a(b − rₜ)dt + σ dWₜ, with constant a, b and σ, and a risk premium λ.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.VegaBumpCluster.html">VegaBumpCluster</a></dt>
+      <dd><p>A block of pseudo-root elements bumped together for a vega: the factors, rates and steps in three half-open
+ranges.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.VegaBumpCollection.html">VegaBumpCollection</a></dt>
+      <dd><p>The clusters a model's alive pseudo-root elements are bumped in, too many to bump one by one: by default each alive
+element alone, or each alive rate's factors together.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.VolatilityBumpInstrumentJacobian.html">VolatilityBumpInstrumentJacobian</a></dt>
+      <dd><p>The derivatives of swaptions' and caps' implied volatilities along a collection's vega bumps, and for each
+instrument the smallest combination of the bumps that moves its implied volatility by one percent.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.VolatilityInterpolationSpecifier.html">VolatilityInterpolationSpecifier</a></dt>
+      <dd><p>How the volatility structure of synthetic short rates interleaved between long rates is decided: the short rates'
+variances interpolated from the long rates', each long rate's scaled, the last short rate's matching a caplet
+volatility.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.VolatilityInterpolationSpecifierabcd.html">VolatilityInterpolationSpecifierabcd</a></dt>
+      <dd><p>The volatility interpolation of synthetic short rates on abcd curves: each long rate's a, b and d scaled, each
+short rate between two long ones on the mean of their a, b, c and d, those before the first and after the last on
+the nearest long rate's, the last rescaled to match the last caplet's volatility.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.AbcdCoefficients.html">AbcdCoefficients</a></dt>
+      <dd><p>An abcd function's four parameters, <a class="xref" href="NanoQL.Models.PiecewiseConstantAbcdVariance.html#NanoQL_Models_PiecewiseConstantAbcdVariance_GetABCD">GetABCD()</a>'s result: QuantLib's
+<code>getABCD</code> out-parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarketModelMultiProductCashFlow.html">MarketModelMultiProductCashFlow</a></dt>
+      <dd><p>A cash flow a <a class="xref" href="NanoQL.Models.MarketModelMultiProduct.html">MarketModelMultiProduct</a> generates at a step: its amount and the index of its payment
+time in the product's <a class="xref" href="NanoQL.Models.MarketModelMultiProduct.html#NanoQL_Models_MarketModelMultiProduct_PossibleCashFlowTimes">PossibleCashFlowTimes()</a>. QuantLib's nested
+<code>MarketModelMultiProduct::CashFlow</code>, made top-level.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.VolatilityBumpInstrumentJacobianCap.html">VolatilityBumpInstrumentJacobianCap</a></dt>
+      <dd><p>A cap whose implied volatility <a class="xref" href="NanoQL.Models.VolatilityBumpInstrumentJacobian.html">VolatilityBumpInstrumentJacobian</a> bumps: the caplets from the start
+index to the end index at a strike. QuantLib's nested <code>VolatilityBumpInstrumentJacobian::Cap</code>, made top-level.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.VolatilityBumpInstrumentJacobianSwaption.html">VolatilityBumpInstrumentJacobianSwaption</a></dt>
+      <dd><p>A swaption whose implied volatility <a class="xref" href="NanoQL.Models.VolatilityBumpInstrumentJacobian.html">VolatilityBumpInstrumentJacobian</a> bumps: on the swap from the start
+index to the end index. QuantLib's nested <code>VolatilityBumpInstrumentJacobian::Swaption</code>, made top-level.</p>
+</dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.IAffineModel.html">IAffineModel</a></dt>
+      <dd><p>An affine model: the base for analytically tractable models, which engines test for with <code>is</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ICalibratedModel.html">ICalibratedModel</a></dt>
+      <dd><p>A model that can be calibrated: what a calibration and the calibration helpers read of it, which QuantLib's
+<code>CalibratedModel</code> declares.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.ITermStructureConsistentModel.html">ITermStructureConsistentModel</a></dt>
+      <dd><p>A term-structure consistent model: one that can reprice exactly any discount bond of its curve.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.BlackCalibrationHelperCalibrationErrorType.html">BlackCalibrationHelperCalibrationErrorType</a></dt>
+      <dd><p>How a Black calibration helper measures its error: QuantLib's <code>BlackCalibrationHelper::CalibrationErrorType</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.Garch11Mode.html">Garch11Mode</a></dt>
+      <dd><p>The initial guess of a GARCH(1,1) calibration, QuantLib's <code>Garch11::Mode</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettingsAdjustments.html">MarkovFunctionalModelSettingsAdjustments</a></dt>
+      <dd><p>The Markov-functional model's adjustments and smile pretreatments, flags combined with <code>|</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Models.SobolBrownianGeneratorBaseOrdering.html">SobolBrownianGeneratorBaseOrdering</a></dt>
+      <dd><p>How a <a class="xref" href="NanoQL.Models.SobolBrownianGeneratorBase.html">SobolBrownianGeneratorBase</a> assigns the Sobol sequence's variates to the factors and
+steps.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CmsMarketCalibration | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CmsMarketCalibration | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The calibration of a SABR swaption cube&#39;s βs, and of the CMS pricers&#39; mean reversion, to a CMS market: QuantLib&#39;s CmsMarketCalibration.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.TermStructures.CmsMarketCalibration">
+
+
+
+  <h1 id="NanoQL_TermStructures_CmsMarketCalibration" data-uid="NanoQL.TermStructures.CmsMarketCalibration" class="text-break">
+Class CmsMarketCalibration  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.TermStructures.html">TermStructures</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The calibration of a SABR swaption cube's βs, and of the CMS pricers' mean reversion, to a CMS market: QuantLib's
+<code>CmsMarketCalibration</code>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class CmsMarketCalibration</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CmsMarketCalibration</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_TermStructures_CmsMarketCalibration_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Each cost evaluation recalibrates the cube's sections at the candidate βs, one swap tenor after another, reprices
+the market on it at the candidate reversion, and reads the market's weighted errors on the calibration's type. The
+βs enter the optimizer as y with β = exp(−y²), clamped to [1e-6, 0.999999], and the reversion as y with reversion =
+√|y|. The βs reach the cube as its sections' β guesses: they are the cube's βs on a cube that fixes β, and the
+refit's starting point on one that doesn't, whose results' cube holds the βs fitted.
+</p>
+<p>
+QuantLib's calibration recalibrates its cube and reprices its market in place; here each
+<a class="xref" href="NanoQL.TermStructures.CmsMarketCalibration.html#NanoQL_TermStructures_CmsMarketCalibration_Compute_NanoQL_Numerics_EndCriteria_NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_Vector_System_Boolean_NanoQL_EvaluationContext_">Compute(EndCriteria, OptimizationMethod, Vector, bool, EvaluationContext)</a> starts from the cube and
+market it was given, each cost evaluation building a new cube from the last one and a new market, as QuantLib's
+evaluations change the one cube in turn, and it returns the recalibrated cube and repriced market in its results,
+the calibration's own left unchanged. Three of QuantLib's defects are fixed: the fixed-reversion path's β guess
+enters the optimizer transformed, as its other paths' do; the reversion is √|y|, where QuantLib's √y returns NaN for
+an optimizer step to y below 0; and a fixed reversion is passed to the pricers as given, where QuantLib passes it
+through the transform's round trip, √(m²) = |m|.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_TermStructures_CmsMarketCalibration__ctor_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.#ctor*"></a>
+
+  <h3 id="NanoQL_TermStructures_CmsMarketCalibration__ctor_NanoQL_TermStructures_XabrSwaptionVolatilityCube_NanoQL_TermStructures_SwaptionVolCubeSabrModel__NanoQL_TermStructures_CmsMarket_NanoQL_Numerics_Matrix_NanoQL_TermStructures_CmsMarketCalibrationCalibrationType_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.#ctor(NanoQL.TermStructures.XabrSwaptionVolatilityCube{NanoQL.TermStructures.SwaptionVolCubeSabrModel},NanoQL.TermStructures.CmsMarket,NanoQL.Numerics.Matrix,NanoQL.TermStructures.CmsMarketCalibrationCalibrationType)">
+  CmsMarketCalibration(XabrSwaptionVolatilityCube&lt;SwaptionVolCubeSabrModel&gt;, CmsMarket, Matrix, CmsMarketCalibrationCalibrationType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.TermStructures.CmsMarketCalibration.html">CmsMarketCalibration</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CmsMarketCalibration(XabrSwaptionVolatilityCube&lt;SwaptionVolCubeSabrModel&gt; volCube, CmsMarket cmsMarket, Matrix weights, CmsMarketCalibrationCalibrationType calibrationType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>volCube</code> <a class="xref" href="NanoQL.TermStructures.XabrSwaptionVolatilityCube-1.html">XabrSwaptionVolatilityCube</a>&lt;<a class="xref" href="NanoQL.TermStructures.SwaptionVolCubeSabrModel.html">SwaptionVolCubeSabrModel</a>&gt;</dt>
+    <dd><p>The SABR swaption cube whose βs are calibrated.</p>
+</dd>
+    <dt><code>cmsMarket</code> <a class="xref" href="NanoQL.TermStructures.CmsMarket.html">CmsMarket</a></dt>
+    <dd><p>The CMS market.</p>
+</dd>
+    <dt><code>weights</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The errors' weights: a row per swap length and a column per swap index.</p>
+</dd>
+    <dt><code>calibrationType</code> <a class="xref" href="NanoQL.TermStructures.CmsMarketCalibrationCalibrationType.html">CmsMarketCalibrationCalibrationType</a></dt>
+    <dd><p>What the calibration fits.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The weights aren't a row per swap length and a column per swap
+index.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">calibrationType</code> isn't a member of its
+type.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_TermStructures_CmsMarketCalibration_BetaTransformDirect_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.BetaTransformDirect*"></a>
+
+  <h3 id="NanoQL_TermStructures_CmsMarketCalibration_BetaTransformDirect_System_Double_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.BetaTransformDirect(System.Double)">
+  BetaTransformDirect(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The β of a y: exp(−y²) for |y| below 10, else 0, clamped to [1e-6, 0.999999].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BetaTransformDirect(double y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The y.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The β.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_CmsMarketCalibration_BetaTransformInverse_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.BetaTransformInverse*"></a>
+
+  <h3 id="NanoQL_TermStructures_CmsMarketCalibration_BetaTransformInverse_System_Double_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.BetaTransformInverse(System.Double)">
+  BetaTransformInverse(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The y of a β: √(−ln β).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BetaTransformInverse(double beta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>beta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The β.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The y.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_CmsMarketCalibration_Compute_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.Compute*"></a>
+
+  <h3 id="NanoQL_TermStructures_CmsMarketCalibration_Compute_NanoQL_Numerics_EndCriteria_NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_Matrix_System_Boolean_NanoQL_EvaluationContext_System_Nullable_System_Double__" data-uid="NanoQL.TermStructures.CmsMarketCalibration.Compute(NanoQL.Numerics.EndCriteria,NanoQL.Numerics.OptimizationMethod,NanoQL.Numerics.Matrix,System.Boolean,NanoQL.EvaluationContext,System.Nullable{System.Double})">
+  Compute(EndCriteria, OptimizationMethod, Matrix, bool, EvaluationContext, double?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calibrates a β term structure per swap index, a β per swap length, and, unless it is fixed, the mean reversion:
+QuantLib's <code>compute</code> with a matrix guess.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CmsMarketCalibrationResults&lt;Matrix&gt; Compute(EndCriteria endCriteria, OptimizationMethod method, Matrix guess, bool isMeanReversionFixed, EvaluationContext context, double? meanReversionGuess = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>The optimizer's end criteria.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The optimizer.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The βs' guesses: a row per swap length and a column per swap index.</p>
+</dd>
+    <dt><code>isMeanReversionFixed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the reversion is fixed.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the cube and the market are calibrated under.</p>
+</dd>
+    <dt><code>meanReversionGuess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The reversion's guess, or with the reversion fixed the reversion itself;
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null&lt;Real&gt;()</code>, to keep the pricers' with the reversion
+fixed.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.CmsMarketCalibrationResults-1.html">CmsMarketCalibrationResults</a>&lt;<a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a>&gt;</dt>
+    <dd><p>The results, whose result holds a row per swap length, the βs per swap index and, when given or
+calibrated, the reversion in a last column.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The reversion is free and no guess is given for it, or the guess isn't a
+row per swap length and a column per swap index.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A section's fit or the market's pricing fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_CmsMarketCalibration_Compute_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.Compute*"></a>
+
+  <h3 id="NanoQL_TermStructures_CmsMarketCalibration_Compute_NanoQL_Numerics_EndCriteria_NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_Vector_System_Boolean_NanoQL_EvaluationContext_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.Compute(NanoQL.Numerics.EndCriteria,NanoQL.Numerics.OptimizationMethod,NanoQL.Numerics.Vector,System.Boolean,NanoQL.EvaluationContext)">
+  Compute(EndCriteria, OptimizationMethod, Vector, bool, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calibrates a β per swap index and, unless it is fixed, the mean reversion: QuantLib's <code>compute</code> with a
+vector guess.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CmsMarketCalibrationResults&lt;Vector&gt; Compute(EndCriteria endCriteria, OptimizationMethod method, Vector guess, bool isMeanReversionFixed, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>The optimizer's end criteria.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The optimizer.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The βs' guesses, one per swap index, then the reversion's guess, or with the reversion fixed
+the reversion itself, which may be left out to keep the pricers'.</p>
+</dd>
+    <dt><code>isMeanReversionFixed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the reversion is fixed.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the cube and the market are calibrated under.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.CmsMarketCalibrationResults-1.html">CmsMarketCalibrationResults</a>&lt;<a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a>&gt;</dt>
+    <dd><p>The results, whose result holds the βs and, when given or calibrated, the reversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The reversion is free and no guess is given for it, or the guess's size is
+neither the number of swap indexes nor one more.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A section's fit or the market's pricing fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_CmsMarketCalibration_ComputeParametric_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.ComputeParametric*"></a>
+
+  <h3 id="NanoQL_TermStructures_CmsMarketCalibration_ComputeParametric_NanoQL_Numerics_EndCriteria_NanoQL_Numerics_OptimizationMethod_NanoQL_Numerics_Matrix_System_Boolean_NanoQL_EvaluationContext_System_Nullable_System_Double__" data-uid="NanoQL.TermStructures.CmsMarketCalibration.ComputeParametric(NanoQL.Numerics.EndCriteria,NanoQL.Numerics.OptimizationMethod,NanoQL.Numerics.Matrix,System.Boolean,NanoQL.EvaluationContext,System.Nullable{System.Double})">
+  ComputeParametric(EndCriteria, OptimizationMethod, Matrix, bool, EvaluationContext, double?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calibrates a parametric β term structure per swap index, β(t) = β∞ + (β₀ − β∞)·exp(−decay·t) at each swap
+length's option time, and, unless it is fixed, the mean reversion: QuantLib's <code>computeParametric</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CmsMarketCalibrationResults&lt;Matrix&gt; ComputeParametric(EndCriteria endCriteria, OptimizationMethod method, Matrix guess, bool isMeanReversionFixed, EvaluationContext context, double? meanReversionGuess = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endCriteria</code> <a class="xref" href="NanoQL.Numerics.EndCriteria.html">EndCriteria</a></dt>
+    <dd><p>The optimizer's end criteria.</p>
+</dd>
+    <dt><code>method</code> <a class="xref" href="NanoQL.Numerics.OptimizationMethod.html">OptimizationMethod</a></dt>
+    <dd><p>The optimizer.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>The parameters' guesses: the rows β∞, β₀ and the decay, a column per swap index.</p>
+</dd>
+    <dt><code>isMeanReversionFixed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the reversion is fixed.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the cube and the market are calibrated under.</p>
+</dd>
+    <dt><code>meanReversionGuess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The reversion's guess, or with the reversion fixed the reversion itself;
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to keep the pricers' with the reversion fixed.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.CmsMarketCalibrationResults-1.html">CmsMarketCalibrationResults</a>&lt;<a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a>&gt;</dt>
+    <dd><p>The results, whose result holds the three parameters' rows, a column per swap index and, when given or
+calibrated, the reversion in a last column.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The reversion is free and no guess is given for it, or the guess isn't three
+rows and a column per swap index.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A section's fit or the market's pricing fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_TermStructures_CmsMarketCalibration_ReversionTransformDirect_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.ReversionTransformDirect*"></a>
+
+  <h3 id="NanoQL_TermStructures_CmsMarketCalibration_ReversionTransformDirect_System_Double_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.ReversionTransformDirect(System.Double)">
+  ReversionTransformDirect(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The reversion of a y: √|y|, which QuantLib's √y is for every y at or above 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double ReversionTransformDirect(double y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The y.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The reversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_TermStructures_CmsMarketCalibration_ReversionTransformInverse_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.ReversionTransformInverse*"></a>
+
+  <h3 id="NanoQL_TermStructures_CmsMarketCalibration_ReversionTransformInverse_System_Double_" data-uid="NanoQL.TermStructures.CmsMarketCalibration.ReversionTransformInverse(System.Double)">
+  ReversionTransformInverse(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The y of a reversion: its square.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double ReversionTransformInverse(double reversion)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reversion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The reversion.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The y.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

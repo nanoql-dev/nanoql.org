@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class IncrementalStatistics | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class IncrementalStatistics | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A statistics tool based on incremental accumulation: it accumulates a set of data and returns their statistics (mean, variance, skewness, kurtosis, error estimation, …) from running sums, keeping no sample.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.IncrementalStatistics">
+
+
+
+  <h1 id="NanoQL_Numerics_IncrementalStatistics" data-uid="NanoQL.Numerics.IncrementalStatistics" class="text-break">
+Class IncrementalStatistics  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A statistics tool based on incremental accumulation: it accumulates a set of data and returns their statistics
+(mean, variance, skewness, kurtosis, error estimation, …) from running sums, keeping no sample.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public sealed class IncrementalStatistics : IStatistics, ISummaryStatistics</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">IncrementalStatistics</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Numerics.IStatistics.html">IStatistics</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.ISummaryStatistics.html">ISummaryStatistics</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.GaussianStatisticsExtensions.html#NanoQL_Numerics_GaussianStatisticsExtensions_GaussianAverageShortfall__1___0_System_Double_">GaussianStatisticsExtensions.GaussianAverageShortfall&lt;TStat&gt;(TStat, double)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.GaussianStatisticsExtensions.html#NanoQL_Numerics_GaussianStatisticsExtensions_GaussianDownsideDeviation__1___0_">GaussianStatisticsExtensions.GaussianDownsideDeviation&lt;TStat&gt;(TStat)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.GaussianStatisticsExtensions.html#NanoQL_Numerics_GaussianStatisticsExtensions_GaussianDownsideVariance__1___0_">GaussianStatisticsExtensions.GaussianDownsideVariance&lt;TStat&gt;(TStat)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.GaussianStatisticsExtensions.html#NanoQL_Numerics_GaussianStatisticsExtensions_GaussianExpectedShortfall__1___0_System_Double_">GaussianStatisticsExtensions.GaussianExpectedShortfall&lt;TStat&gt;(TStat, double)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.GaussianStatisticsExtensions.html#NanoQL_Numerics_GaussianStatisticsExtensions_GaussianPercentile__1___0_System_Double_">GaussianStatisticsExtensions.GaussianPercentile&lt;TStat&gt;(TStat, double)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.GaussianStatisticsExtensions.html#NanoQL_Numerics_GaussianStatisticsExtensions_GaussianPotentialUpside__1___0_System_Double_">GaussianStatisticsExtensions.GaussianPotentialUpside&lt;TStat&gt;(TStat, double)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.GaussianStatisticsExtensions.html#NanoQL_Numerics_GaussianStatisticsExtensions_GaussianRegret__1___0_System_Double_">GaussianStatisticsExtensions.GaussianRegret&lt;TStat&gt;(TStat, double)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.GaussianStatisticsExtensions.html#NanoQL_Numerics_GaussianStatisticsExtensions_GaussianShortfall__1___0_System_Double_">GaussianStatisticsExtensions.GaussianShortfall&lt;TStat&gt;(TStat, double)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.GaussianStatisticsExtensions.html#NanoQL_Numerics_GaussianStatisticsExtensions_GaussianTopPercentile__1___0_System_Double_">GaussianStatisticsExtensions.GaussianTopPercentile&lt;TStat&gt;(TStat, double)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.GaussianStatisticsExtensions.html#NanoQL_Numerics_GaussianStatisticsExtensions_GaussianValueAtRisk__1___0_System_Double_">GaussianStatisticsExtensions.GaussianValueAtRisk&lt;TStat&gt;(TStat, double)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_Numerics_IncrementalStatistics_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+QuantLib's class wraps Boost.Accumulators' weighted accumulator set (count, minimum, maximum, weighted mean,
+variance, skewness and kurtosis, and the sum of weights) and a second set over the negative samples (count,
+weighted second moment, sum of weights). This port keeps each feature's running value and updates them in Boost's
+order, through the ported Boost arithmetic: the weighted variance's iterative recurrence on the lazy weighted mean,
+the moments' powers by squaring, the minimum and maximum starting from ±<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double.maxvalue">MaxValue</a>. That order
+gives QuantLib's results bit for bit.
+</p>
+<p>
+A working type: <a class="xref" href="NanoQL.Numerics.IncrementalStatistics.html#NanoQL_Numerics_IncrementalStatistics_Add_System_Double_System_Double_">Add(double, double)</a> and <a class="xref" href="NanoQL.Numerics.IncrementalStatistics.html#NanoQL_Numerics_IncrementalStatistics_Reset">Reset()</a> change it; it isn't thread-safe. <a class="xref" href="NanoQL.Numerics.IncrementalStatistics.html#NanoQL_Numerics_IncrementalStatistics_Skewness">Skewness()</a>
+and <a class="xref" href="NanoQL.Numerics.IncrementalStatistics.html#NanoQL_Numerics_IncrementalStatistics_Kurtosis">Kurtosis()</a> refuse a set whose samples weigh 0 in all, with the text <a class="xref" href="NanoQL.Numerics.IncrementalStatistics.html#NanoQL_Numerics_IncrementalStatistics_Mean">Mean()</a> refuses it
+with, where QuantLib's divide 0 by 0 and return NaN: a documented divergence. The weighted variance's recurrence
+resets the variance to 0 at a sample whose predecessors' weights vanish in the sum (they weigh 0, or less than its
+rounding), where Boost's divides 0 by 0, or x by 0, and leaves <a class="xref" href="NanoQL.Numerics.IncrementalStatistics.html#NanoQL_Numerics_IncrementalStatistics_Variance">Variance()</a> NaN or infinite for good: a
+documented divergence, the variance then that of the samples that carry the weight, as
+<a class="xref" href="NanoQL.Numerics.GeneralStatistics.html">GeneralStatistics</a>' is.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics__ctor_" data-uid="NanoQL.Numerics.IncrementalStatistics.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics__ctor" data-uid="NanoQL.Numerics.IncrementalStatistics.#ctor">
+  IncrementalStatistics()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.IncrementalStatistics.html">IncrementalStatistics</a> class, with no samples.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IncrementalStatistics()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_DownsideSamples_" data-uid="NanoQL.Numerics.IncrementalStatistics.DownsideSamples*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_DownsideSamples" data-uid="NanoQL.Numerics.IncrementalStatistics.DownsideSamples">
+  DownsideSamples
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of negative samples collected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DownsideSamples { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_Samples_" data-uid="NanoQL.Numerics.IncrementalStatistics.Samples*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_Samples" data-uid="NanoQL.Numerics.IncrementalStatistics.Samples">
+  Samples
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of samples collected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Samples { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_Add_" data-uid="NanoQL.Numerics.IncrementalStatistics.Add*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_Add_System_Double_System_Double_" data-uid="NanoQL.Numerics.IncrementalStatistics.Add(System.Double,System.Double)">
+  Add(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sample, with a weight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(double value, double weight = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The sample.</p>
+</dd>
+    <dt><code>weight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Its weight, positive or 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">weight</code> is negative or NaN.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_AddSequence_" data-uid="NanoQL.Numerics.IncrementalStatistics.AddSequence*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_AddSequence_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Numerics.IncrementalStatistics.AddSequence(System.ReadOnlySpan{System.Double})">
+  AddSequence(ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sequence of samples, each with weight 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddSequence(ReadOnlySpan&lt;double&gt; data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The samples.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_AddSequence_" data-uid="NanoQL.Numerics.IncrementalStatistics.AddSequence*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_AddSequence_System_ReadOnlySpan_System_Double__System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Numerics.IncrementalStatistics.AddSequence(System.ReadOnlySpan{System.Double},System.ReadOnlySpan{System.Double})">
+  AddSequence(ReadOnlySpan&lt;double&gt;, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sequence of samples, each with its weight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddSequence(ReadOnlySpan&lt;double&gt; data, ReadOnlySpan&lt;double&gt; weights)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The samples.</p>
+</dd>
+    <dt><code>weights</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>Their weights, positive or 0, at least as many as the samples.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There are fewer weights than samples, where QuantLib reads past the weights' end (a divergence: nanoql refuses it).</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A weight is negative or NaN.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_DownsideDeviation_" data-uid="NanoQL.Numerics.IncrementalStatistics.DownsideDeviation*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_DownsideDeviation" data-uid="NanoQL.Numerics.IncrementalStatistics.DownsideDeviation">
+  DownsideDeviation()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The downside deviation, the square root of the downside variance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DownsideDeviation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The downside deviation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The negative samples weigh 0 in all, or there are fewer than two.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_DownsideVariance_" data-uid="NanoQL.Numerics.IncrementalStatistics.DownsideVariance*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_DownsideVariance" data-uid="NanoQL.Numerics.IncrementalStatistics.DownsideVariance">
+  DownsideVariance()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The downside variance, N/(N − 1) × Σ θᵢxᵢ² / Σ wᵢ, where θ = 0 if x &gt; 0 and θ = 1 if x &lt; 0, over the
+negative samples.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DownsideVariance()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The downside variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The negative samples weigh 0 in all, or there are fewer than two.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_DownsideWeightSum_" data-uid="NanoQL.Numerics.IncrementalStatistics.DownsideWeightSum*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_DownsideWeightSum" data-uid="NanoQL.Numerics.IncrementalStatistics.DownsideWeightSum">
+  DownsideWeightSum()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sum of the negative samples' weights.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DownsideWeightSum()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The sum of the weights.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_ErrorEstimate_" data-uid="NanoQL.Numerics.IncrementalStatistics.ErrorEstimate*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_ErrorEstimate" data-uid="NanoQL.Numerics.IncrementalStatistics.ErrorEstimate">
+  ErrorEstimate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The error estimate ε, the square root of the ratio of the variance to the number of samples.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ErrorEstimate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The error estimate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The samples weigh 0 in all, or there are fewer than two.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_Kurtosis_" data-uid="NanoQL.Numerics.IncrementalStatistics.Kurtosis*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_Kurtosis" data-uid="NanoQL.Numerics.IncrementalStatistics.Kurtosis">
+  Kurtosis()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The excess kurtosis, N²(N + 1)/((N − 1)(N − 2)(N − 3)) ⟨(x − ⟨x⟩)⁴⟩/σ⁴ − 3(N − 1)²/((N − 2)(N − 3)), which
+evaluates to 0 for a Gaussian distribution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Kurtosis()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The excess kurtosis.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There are fewer than four samples, or they weigh 0 in all (a divergence: QuantLib returns NaN).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_Max_" data-uid="NanoQL.Numerics.IncrementalStatistics.Max*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_Max" data-uid="NanoQL.Numerics.IncrementalStatistics.Max">
+  Max()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The largest sample.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Max()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maximum.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There's no sample.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_Mean_" data-uid="NanoQL.Numerics.IncrementalStatistics.Mean*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_Mean" data-uid="NanoQL.Numerics.IncrementalStatistics.Mean">
+  Mean()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The mean, ⟨x⟩ = Σ wᵢxᵢ / Σ wᵢ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Mean()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The mean.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The samples weigh 0 in all, or there's none.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_Min_" data-uid="NanoQL.Numerics.IncrementalStatistics.Min*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_Min" data-uid="NanoQL.Numerics.IncrementalStatistics.Min">
+  Min()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The smallest sample.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Min()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The minimum.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There's no sample.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_Reserve_" data-uid="NanoQL.Numerics.IncrementalStatistics.Reserve*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_Reserve_System_Int32_" data-uid="NanoQL.Numerics.IncrementalStatistics.Reserve(System.Int32)">
+  Reserve(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reserves nothing: the accumulator keeps no sample, so adding one never allocates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reserve(int n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of samples planned.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">n</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_Reset_" data-uid="NanoQL.Numerics.IncrementalStatistics.Reset*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_Reset" data-uid="NanoQL.Numerics.IncrementalStatistics.Reset">
+  Reset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the accumulator to an empty set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_Skewness_" data-uid="NanoQL.Numerics.IncrementalStatistics.Skewness*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_Skewness" data-uid="NanoQL.Numerics.IncrementalStatistics.Skewness">
+  Skewness()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The skewness, N²/((N − 1)(N − 2)) ⟨(x − ⟨x⟩)³⟩/σ³, which evaluates to 0 for a Gaussian distribution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Skewness()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The skewness.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There are fewer than three samples, or they weigh 0 in all (a divergence: QuantLib returns NaN).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_StandardDeviation_" data-uid="NanoQL.Numerics.IncrementalStatistics.StandardDeviation*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_StandardDeviation" data-uid="NanoQL.Numerics.IncrementalStatistics.StandardDeviation">
+  StandardDeviation()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The standard deviation σ, the square root of the variance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double StandardDeviation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The samples weigh 0 in all, or there are fewer than two.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_Variance_" data-uid="NanoQL.Numerics.IncrementalStatistics.Variance*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_Variance" data-uid="NanoQL.Numerics.IncrementalStatistics.Variance">
+  Variance()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The variance, N/(N − 1) ⟨(x − ⟨x⟩)²⟩.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Variance()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The samples weigh 0 in all, or there are fewer than two.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_IncrementalStatistics_WeightSum_" data-uid="NanoQL.Numerics.IncrementalStatistics.WeightSum*"></a>
+
+  <h3 id="NanoQL_Numerics_IncrementalStatistics_WeightSum" data-uid="NanoQL.Numerics.IncrementalStatistics.WeightSum">
+  WeightSum()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sum of the samples' weights.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double WeightSum()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The sum of the weights.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

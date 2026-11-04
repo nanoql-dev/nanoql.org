@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class StochasticProcessArray | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class StochasticProcessArray | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An array of correlated one-dimensional stochastic processes.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Processes.StochasticProcessArray">
+
+
+
+  <h1 id="NanoQL_Processes_StochasticProcessArray" data-uid="NanoQL.Processes.StochasticProcessArray" class="text-break">
+Class StochasticProcessArray  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Processes.html">Processes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An array of correlated one-dimensional stochastic processes.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class StochasticProcessArray : StochasticProcess</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.StochasticProcess.html">StochasticProcess</a></div>
+      <div><span class="xref">StochasticProcessArray</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Factors">StochasticProcess.Factors</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Processes_StochasticProcessArray_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The correlation's pseudo square root is taken at construction by the spectral salvaging algorithm, as QuantLib's;
+each process evolves on its row of the correlated increments. The array's time is its first process's.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray__ctor_" data-uid="NanoQL.Processes.StochasticProcessArray.#ctor*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray__ctor_System_Collections_Immutable_ImmutableArray_NanoQL_StochasticProcess1D__NanoQL_Numerics_Matrix_" data-uid="NanoQL.Processes.StochasticProcessArray.#ctor(System.Collections.Immutable.ImmutableArray{NanoQL.StochasticProcess1D},NanoQL.Numerics.Matrix)">
+  StochasticProcessArray(ImmutableArray&lt;StochasticProcess1D&gt;, Matrix)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Processes.StochasticProcessArray.html">StochasticProcessArray</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StochasticProcessArray(ImmutableArray&lt;StochasticProcess1D&gt; processes, Matrix correlation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>processes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.StochasticProcess1D.html">StochasticProcess1D</a>&gt;</dt>
+    <dd><p>The one-dimensional processes.</p>
+</dd>
+    <dt><code>correlation</code> <a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>Their correlation matrix, symmetric, of the processes' number.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The correlation matrix isn't square or is empty (<a class="xref" href="NanoQL.Numerics.PseudoSqrtFunctions.html#NanoQL_Numerics_PseudoSqrtFunctions_PseudoSqrt_NanoQL_Numerics_Matrix_NanoQL_Numerics_SalvagingAlgorithmType_">PseudoSqrt(Matrix, SalvagingAlgorithmType)</a>), there's no
+process, the matrix's size differs from the processes' number, or a process is null.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_Size_" data-uid="NanoQL.Processes.StochasticProcessArray.Size*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_Size" data-uid="NanoQL.Processes.StochasticProcessArray.Size">
+  Size
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of dimensions of the process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_Apply_" data-uid="NanoQL.Processes.StochasticProcessArray.Apply*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_Apply_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.StochasticProcessArray.Apply(NanoQL.Numerics.Vector,NanoQL.Numerics.Vector)">
+  Apply(Vector, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The changed state, each process applying its own element's change.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Apply(Vector x0, Vector dx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state, one element per process.</p>
+</dd>
+    <dt><code>dx</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The change, one element per process.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x0</code> or <code class="paramref">dx</code> holds fewer values than the processes, where QuantLib reads past
+its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_Correlation_" data-uid="NanoQL.Processes.StochasticProcessArray.Correlation*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_Correlation" data-uid="NanoQL.Processes.StochasticProcessArray.Correlation">
+  Correlation()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The correlation the array's square root gives back, S·Sᵀ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix Correlation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_Covariance_" data-uid="NanoQL.Processes.StochasticProcessArray.Covariance*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_Covariance_System_Double_NanoQL_Numerics_Vector_System_Double_" data-uid="NanoQL.Processes.StochasticProcessArray.Covariance(System.Double,NanoQL.Numerics.Vector,System.Double)">
+  Covariance(double, Vector, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The covariance: the standard deviation times its transpose.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Matrix Covariance(double t0, Vector x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state at its start, one element per process.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x0</code> holds fewer values than the processes, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_Diffusion_" data-uid="NanoQL.Processes.StochasticProcessArray.Diffusion*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_Diffusion_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.StochasticProcessArray.Diffusion(System.Double,NanoQL.Numerics.Vector)">
+  Diffusion(double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The diffusion: the correlation's square root, each row times its process's diffusion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Matrix Diffusion(double t, Vector x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state, one element per process.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x</code> holds fewer values than the processes, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_Drift_" data-uid="NanoQL.Processes.StochasticProcessArray.Drift*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_Drift_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.StochasticProcessArray.Drift(System.Double,NanoQL.Numerics.Vector)">
+  Drift(double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The drift part of the equation, μ(t, x_t).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Drift(double t, Vector x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x</code> holds fewer values than the processes, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_Evolve_" data-uid="NanoQL.Processes.StochasticProcessArray.Evolve*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_Evolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.StochasticProcessArray.Evolve(System.Double,NanoQL.Numerics.Vector,System.Double,NanoQL.Numerics.Vector)">
+  Evolve(double, Vector, double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The state after a time interval: the increments correlated by the correlation's square root, each process
+evolved by its own.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Evolve(double t0, Vector x0, double dt, Vector dw)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state at its start, one element per process.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+    <dt><code>dw</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The independent Brownian increments, one per process.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x0</code> holds fewer values than the processes, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_Evolve_" data-uid="NanoQL.Processes.StochasticProcessArray.Evolve*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_Evolve_System_Double_System_ReadOnlySpan_System_Double__System_Double_System_ReadOnlySpan_System_Double__System_Span_System_Double__" data-uid="NanoQL.Processes.StochasticProcessArray.Evolve(System.Double,System.ReadOnlySpan{System.Double},System.Double,System.ReadOnlySpan{System.Double},System.Span{System.Double})">
+  Evolve(double, ReadOnlySpan&lt;double&gt;, double, ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The state after a time interval, written into the caller's span with nothing allocated: the allocating form's
+arithmetic, the correlated increments written row by row into <code class="paramref">result</code> in the order of the
+matrix product, then each process evolved on its own entry in place.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Evolve(double t0, ReadOnlySpan&lt;double&gt; x0, double dt, ReadOnlySpan&lt;double&gt; dw, Span&lt;double&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The state at its start, one element per process.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+    <dt><code>dw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The independent Brownian increments, one per process.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The state at the interval's end, of the array's size at least; it mustn't overlap
+<code class="paramref">x0</code> or <code class="paramref">dw</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">dw</code>'s length isn't the correlation's.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_Expectation_" data-uid="NanoQL.Processes.StochasticProcessArray.Expectation*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_Expectation_System_Double_NanoQL_Numerics_Vector_System_Double_" data-uid="NanoQL.Processes.StochasticProcessArray.Expectation(System.Double,NanoQL.Numerics.Vector,System.Double)">
+  Expectation(double, Vector, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expectation E(x_{t0 + Δt} | x_{t0} = x0) of the process after a time interval Δt; by default, the
+discretization's drift applied to x0 by <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Apply_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">Apply(Vector, Vector)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Expectation(double t0, Vector x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The process has no discretization.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x0</code> holds fewer values than the processes, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_InitialValues_" data-uid="NanoQL.Processes.StochasticProcessArray.InitialValues*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_InitialValues" data-uid="NanoQL.Processes.StochasticProcessArray.InitialValues">
+  InitialValues()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The initial values of the state variables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector InitialValues()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_InitialValues_" data-uid="NanoQL.Processes.StochasticProcessArray.InitialValues*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_InitialValues_System_Span_System_Double__" data-uid="NanoQL.Processes.StochasticProcessArray.InitialValues(System.Span{System.Double})">
+  InitialValues(Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The initial values, each process's, written into the caller's span; nothing is allocated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void InitialValues(Span&lt;double&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The values, of the array's <a class="xref" href="NanoQL.Processes.StochasticProcessArray.html#NanoQL_Processes_StochasticProcessArray_Size">Size</a> at least.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">result</code> is shorter than the array.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_Process_" data-uid="NanoQL.Processes.StochasticProcessArray.Process*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_Process_System_Int32_" data-uid="NanoQL.Processes.StochasticProcessArray.Process(System.Int32)">
+  Process(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The i-th process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StochasticProcess1D Process(int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.StochasticProcess1D.html">StochasticProcess1D</a></dt>
+    <dd><p>The process.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">i</code> isn't one of the processes, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_StdDeviation_" data-uid="NanoQL.Processes.StochasticProcessArray.StdDeviation*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_StdDeviation_System_Double_NanoQL_Numerics_Vector_System_Double_" data-uid="NanoQL.Processes.StochasticProcessArray.StdDeviation(System.Double,NanoQL.Numerics.Vector,System.Double)">
+  StdDeviation(double, Vector, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The standard deviation: the correlation's square root, each row times its process's standard deviation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Matrix StdDeviation(double t0, Vector x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state at its start, one element per process.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x0</code> holds fewer values than the processes, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_StochasticProcessArray_Time_" data-uid="NanoQL.Processes.StochasticProcessArray.Time*"></a>
+
+  <h3 id="NanoQL_Processes_StochasticProcessArray_Time_NanoQL_Time_Date_" data-uid="NanoQL.Processes.StochasticProcessArray.Time(NanoQL.Time.Date)">
+  Time(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The time a date denotes: the first process's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Time(Date date)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>date</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">date</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The first process doesn't convert dates to times.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

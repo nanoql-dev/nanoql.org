@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Swap | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Swap | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An interest rate swap: the cash flows of a paid leg and of a received one, or of several legs.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Instruments.Swap">
+
+
+
+  <h1 id="NanoQL_Instruments_Swap" data-uid="NanoQL.Instruments.Swap" class="text-break">
+Class Swap  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An interest rate swap: the cash flows of a paid leg and of a received one, or of several legs.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Swap : Instrument</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><span class="xref">Swap</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.IrregularSwap.html">IrregularSwap</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.AssetSwap.html">AssetSwap</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.BMASwap.html">BMASwap</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.CPISwap.html">CPISwap</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.CrossCurrencySwap.html">CrossCurrencySwap</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.EquityTotalReturnSwap.html">EquityTotalReturnSwap</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.FixedVsFloatingSwap.html">FixedVsFloatingSwap</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.FloatFloatSwap.html">FloatFloatSwap</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.NonstandardSwap.html">NonstandardSwap</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.YearOnYearInflationSwap.html">YearOnYearInflationSwap</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.ZeroCouponInflationSwap.html">ZeroCouponInflationSwap</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.ZeroCouponSwap.html">ZeroCouponSwap</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Instruments_Swap_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Unsealed, as in QuantLib, where many swaps derive from it; a derived swap passes its legs to the multi-leg
+constructor. The per-leg results that QuantLib's swap holds (<code>legNPV</code>, <code>legBPS</code>, the start and end
+discounts, <code>npvDateDiscount</code>) are members of the <a class="xref" href="NanoQL.Instruments.SwapResults.html">SwapResults</a> an engine returns.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Instruments_Swap__ctor_" data-uid="NanoQL.Instruments.Swap.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_Swap__ctor_System_Collections_Generic_IEnumerable_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow___System_Collections_Generic_IEnumerable_System_Boolean__" data-uid="NanoQL.Instruments.Swap.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow}},System.Collections.Generic.IEnumerable{System.Boolean})">
+  Swap(IEnumerable&lt;ImmutableArray&lt;CashFlow&gt;&gt;, IEnumerable&lt;bool&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.Swap.html">Swap</a> class with any number of legs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Swap(IEnumerable&lt;ImmutableArray&lt;CashFlow&gt;&gt; legs, IEnumerable&lt;bool&gt; payer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>legs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;&gt;</dt>
+    <dd><p>The legs.</p>
+</dd>
+    <dt><code>payer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>For each leg, whether it is paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The two sequences differ in size.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Swap__ctor_" data-uid="NanoQL.Instruments.Swap.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_Swap__ctor_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__" data-uid="NanoQL.Instruments.Swap.#ctor(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow})">
+  Swap(ImmutableArray&lt;CashFlow&gt;, ImmutableArray&lt;CashFlow&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.Swap.html">Swap</a> class with a paid and a received leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Swap(ImmutableArray&lt;CashFlow&gt; firstLeg, ImmutableArray&lt;CashFlow&gt; secondLeg)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>firstLeg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg that is paid.</p>
+</dd>
+    <dt><code>secondLeg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg that is received.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Instruments_Swap_Legs_" data-uid="NanoQL.Instruments.Swap.Legs*"></a>
+
+  <h3 id="NanoQL_Instruments_Swap_Legs" data-uid="NanoQL.Instruments.Swap.Legs">
+  Legs
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the legs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ImmutableArray&lt;CashFlow&gt;&gt; Legs { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_Swap_NumberOfLegs_" data-uid="NanoQL.Instruments.Swap.NumberOfLegs*"></a>
+
+  <h3 id="NanoQL_Instruments_Swap_NumberOfLegs" data-uid="NanoQL.Instruments.Swap.NumberOfLegs">
+  NumberOfLegs
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of legs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NumberOfLegs { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Instruments_Swap_FetchResults_" data-uid="NanoQL.Instruments.Swap.FetchResults*"></a>
+
+  <h3 id="NanoQL_Instruments_Swap_FetchResults_NanoQL_InstrumentResults_" data-uid="NanoQL.Instruments.Swap.FetchResults(NanoQL.InstrumentResults)">
+  FetchResults(InstrumentResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads an engine's results into the instrument's, applying any derivations the instrument makes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override SwapResults FetchResults(InstrumentResults results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a></dt>
+    <dd><p>The engine's results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.SwapResults.html">SwapResults</a></dt>
+    <dd><p>The instrument's results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The results aren't a swap's, or a per-leg result has the wrong number of legs.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Swap_IsExpired_" data-uid="NanoQL.Instruments.Swap.IsExpired*"></a>
+
+  <h3 id="NanoQL_Instruments_Swap_IsExpired_NanoQL_EvaluationContext_" data-uid="NanoQL.Instruments.Swap.IsExpired(NanoQL.EvaluationContext)">
+  IsExpired(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the instrument might still have a value greater than zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsExpired(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the instrument has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_Swap_Leg_" data-uid="NanoQL.Instruments.Swap.Leg*"></a>
+
+  <h3 id="NanoQL_Instruments_Swap_Leg_System_Int32_" data-uid="NanoQL.Instruments.Swap.Leg(System.Int32)">
+  Leg(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The leg at an index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; Leg(int j)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>j</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There's no leg at the index.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Swap_MaturityDate_" data-uid="NanoQL.Instruments.Swap.MaturityDate*"></a>
+
+  <h3 id="NanoQL_Instruments_Swap_MaturityDate" data-uid="NanoQL.Instruments.Swap.MaturityDate">
+  MaturityDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The latest maturity date of the legs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Date MaturityDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The maturity date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The swap has no legs.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Swap_Payer_" data-uid="NanoQL.Instruments.Swap.Payer*"></a>
+
+  <h3 id="NanoQL_Instruments_Swap_Payer_System_Int32_" data-uid="NanoQL.Instruments.Swap.Payer(System.Int32)">
+  Payer(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the leg at an index is paid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Payer(int j)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>j</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the leg is paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There's no leg at the index.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Swap_SetupExpired_" data-uid="NanoQL.Instruments.Swap.SetupExpired*"></a>
+
+  <h3 id="NanoQL_Instruments_Swap_SetupExpired" data-uid="NanoQL.Instruments.Swap.SetupExpired">
+  SetupExpired()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The results of an expired instrument: a zero value and error estimate, and no valuation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override SwapResults SetupExpired()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.SwapResults.html">SwapResults</a></dt>
+    <dd><p>The expired results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_Swap_StartDate_" data-uid="NanoQL.Instruments.Swap.StartDate*"></a>
+
+  <h3 id="NanoQL_Instruments_Swap_StartDate" data-uid="NanoQL.Instruments.Swap.StartDate">
+  StartDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The earliest start date of the legs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Date StartDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The start date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The swap has no legs.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Swap_Validate_" data-uid="NanoQL.Instruments.Swap.Validate*"></a>
+
+  <h3 id="NanoQL_Instruments_Swap_Validate" data-uid="NanoQL.Instruments.Swap.Validate">
+  Validate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks the instrument's terms before an engine prices it, as QuantLib's arguments do.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Validate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The number of legs and of multipliers differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Swap_WithLeg_" data-uid="NanoQL.Instruments.Swap.WithLeg*"></a>
+
+  <h3 id="NanoQL_Instruments_Swap_WithLeg_System_Int32_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__" data-uid="NanoQL.Instruments.Swap.WithLeg(System.Int32,System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow})">
+  WithLeg(int, ImmutableArray&lt;CashFlow&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the swap holding another leg at an index:
+<a class="xref" href="NanoQL.Coupons.CouponPricerFunctions.html#NanoQL_Coupons_CouponPricerFunctions_SetCouponPricer__1___0_System_Int32_NanoQL_Coupons_FloatingRateCouponPricer_">SetCouponPricer&lt;T&gt;(T, int, FloatingRateCouponPricer?)</a>'s step, which QuantLib
+does in place on the leg a built swap holds. The base's copy is memberwise, so a derived swap's terms come
+along; a derived swap that caches what it derives from its legs overrides it, and an override returns a copy of
+the same runtime type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Swap WithLeg(int j, ImmutableArray&lt;CashFlow&gt; leg)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>j</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The leg's index.</p>
+</dd>
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The new leg.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.Swap.html">Swap</a></dt>
+    <dd><p>The copy; the receiver is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There's no leg at the index, or the leg holds a null cash flow.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

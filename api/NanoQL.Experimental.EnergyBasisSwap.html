@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class EnergyBasisSwap | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class EnergyBasisSwap | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An energy basis swap: one index&#39;s price against another&#39;s on each pricing day, plus a basis on one leg.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.EnergyBasisSwap">
+
+
+
+  <h1 id="NanoQL_Experimental_EnergyBasisSwap" data-uid="NanoQL.Experimental.EnergyBasisSwap" class="text-break">
+Class EnergyBasisSwap  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An energy basis swap: one index's price against another's on each pricing day, plus a basis on one leg.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public sealed class EnergyBasisSwap : EnergySwap</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.Commodity.html">Commodity</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.EnergyCommodity.html">EnergyCommodity</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.EnergySwap.html">EnergySwap</a></div>
+      <div><span class="xref">EnergyBasisSwap</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_IsExpired_NanoQL_EvaluationContext_">EnergySwap.IsExpired(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_Calculate_NanoQL_EvaluationContext_">EnergySwap.Calculate(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_Calendar">EnergySwap.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_PayCurrency">EnergySwap.PayCurrency</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_ReceiveCurrency">EnergySwap.ReceiveCurrency</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_PricingPeriods">EnergySwap.PricingPeriods</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_CommodityType">EnergySwap.CommodityType</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_Quantity">EnergySwap.Quantity</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.Commodity.html#NanoQL_Experimental_Commodity_SecondaryCosts">Commodity.SecondaryCosts</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_SetupExpired">Instrument.SetupExpired()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_Validate">Instrument.Validate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_FetchResults_NanoQL_InstrumentResults_">Instrument.FetchResults(InstrumentResults)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_EnergyBasisSwap_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The holder pays the pay index's price and receives the receive index's, the basis added to the pay leg or the
+receive leg. The basis, a price per its unit in its currency, converts into the base currency from its own currency,
+as every other price here; QuantLib converts it from the base currency into the basis currency, the reverse
+(<code>energybasisswap.cpp:126-129</code>; <code>Divergences/EnergyBasisSwapTests.cs</code>); a basis in the base currency is
+QuantLib's.
+</p>
+<p>
+The last quote date is the earlier of the two indexes'; an index with no fixings has none, and every day is priced
+from the forward curves, the other index's fixings unread. The spread index is held and read by nothing, as QuantLib's.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_EnergyBasisSwap__ctor_" data-uid="NanoQL.Experimental.EnergyBasisSwap.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyBasisSwap__ctor_NanoQL_Time_Calendar_NanoQL_Experimental_CommodityIndex_NanoQL_Experimental_CommodityIndex_NanoQL_Experimental_CommodityIndex_System_Boolean_NanoQL_Currency_NanoQL_Currency_System_Collections_Generic_IReadOnlyList_NanoQL_Experimental_PricingPeriod__NanoQL_Experimental_CommodityUnitCost_NanoQL_Experimental_CommodityType_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Object__NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Experimental.EnergyBasisSwap.#ctor(NanoQL.Time.Calendar,NanoQL.Experimental.CommodityIndex,NanoQL.Experimental.CommodityIndex,NanoQL.Experimental.CommodityIndex,System.Boolean,NanoQL.Currency,NanoQL.Currency,System.Collections.Generic.IReadOnlyList{NanoQL.Experimental.PricingPeriod},NanoQL.Experimental.CommodityUnitCost,NanoQL.Experimental.CommodityType,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.YieldTermStructure)">
+  EnergyBasisSwap(Calendar, CommodityIndex?, CommodityIndex, CommodityIndex, bool, Currency, Currency, IReadOnlyList&lt;PricingPeriod&gt;, CommodityUnitCost, CommodityType, IReadOnlyDictionary&lt;string, object&gt;?, YieldTermStructure, YieldTermStructure, YieldTermStructure)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.EnergyBasisSwap.html">EnergyBasisSwap</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EnergyBasisSwap(Calendar calendar, CommodityIndex? spreadIndex, CommodityIndex payIndex, CommodityIndex receiveIndex, bool spreadToPayLeg, Currency payCurrency, Currency receiveCurrency, IReadOnlyList&lt;PricingPeriod&gt; pricingPeriods, CommodityUnitCost basis, CommodityType commodityType, IReadOnlyDictionary&lt;string, object&gt;? secondaryCosts, YieldTermStructure payLegTermStructure, YieldTermStructure receiveLegTermStructure, YieldTermStructure discountTermStructure)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The pricing calendar.</p>
+</dd>
+    <dt><code>spreadIndex</code> <a class="xref" href="NanoQL.Experimental.CommodityIndex.html">CommodityIndex</a></dt>
+    <dd><p>The spread index, which nothing reads; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>payIndex</code> <a class="xref" href="NanoQL.Experimental.CommodityIndex.html">CommodityIndex</a></dt>
+    <dd><p>The pay leg's index.</p>
+</dd>
+    <dt><code>receiveIndex</code> <a class="xref" href="NanoQL.Experimental.CommodityIndex.html">CommodityIndex</a></dt>
+    <dd><p>The receive leg's index.</p>
+</dd>
+    <dt><code>spreadToPayLeg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the basis is added to the pay leg; otherwise to the receive leg.</p>
+</dd>
+    <dt><code>payCurrency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The pay leg's currency.</p>
+</dd>
+    <dt><code>receiveCurrency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The receive leg's currency.</p>
+</dd>
+    <dt><code>pricingPeriods</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="NanoQL.Experimental.PricingPeriod.html">PricingPeriod</a>&gt;</dt>
+    <dd><p>The pricing periods; at least one.</p>
+</dd>
+    <dt><code>basis</code> <a class="xref" href="NanoQL.Experimental.CommodityUnitCost.html">CommodityUnitCost</a></dt>
+    <dd><p>The basis, a price per its unit.</p>
+</dd>
+    <dt><code>commodityType</code> <a class="xref" href="NanoQL.Experimental.CommodityType.html">CommodityType</a></dt>
+    <dd><p>The commodity type.</p>
+</dd>
+    <dt><code>secondaryCosts</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>The secondary costs by name; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>payLegTermStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve discounting the pay leg.</p>
+</dd>
+    <dt><code>receiveLegTermStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve discounting the receive leg.</p>
+</dd>
+    <dt><code>discountTermStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve discounting the base amounts.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument but the spread index and the costs is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There are no pricing periods (&quot;no payment dates&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_EnergyBasisSwap_Basis_" data-uid="NanoQL.Experimental.EnergyBasisSwap.Basis*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyBasisSwap_Basis" data-uid="NanoQL.Experimental.EnergyBasisSwap.Basis">
+  Basis
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the basis, a price per its unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommodityUnitCost Basis { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommodityUnitCost.html">CommodityUnitCost</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_EnergyBasisSwap_PayIndex_" data-uid="NanoQL.Experimental.EnergyBasisSwap.PayIndex*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyBasisSwap_PayIndex" data-uid="NanoQL.Experimental.EnergyBasisSwap.PayIndex">
+  PayIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the pay leg's index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommodityIndex PayIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommodityIndex.html">CommodityIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_EnergyBasisSwap_ReceiveIndex_" data-uid="NanoQL.Experimental.EnergyBasisSwap.ReceiveIndex*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyBasisSwap_ReceiveIndex" data-uid="NanoQL.Experimental.EnergyBasisSwap.ReceiveIndex">
+  ReceiveIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the receive leg's index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommodityIndex ReceiveIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommodityIndex.html">CommodityIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_EnergyBasisSwap_SpreadIndex_" data-uid="NanoQL.Experimental.EnergyBasisSwap.SpreadIndex*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyBasisSwap_SpreadIndex" data-uid="NanoQL.Experimental.EnergyBasisSwap.SpreadIndex">
+  SpreadIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the spread index, which nothing reads; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommodityIndex? SpreadIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommodityIndex.html">CommodityIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_EnergyBasisSwap_SpreadToPayLeg_" data-uid="NanoQL.Experimental.EnergyBasisSwap.SpreadToPayLeg*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyBasisSwap_SpreadToPayLeg" data-uid="NanoQL.Experimental.EnergyBasisSwap.SpreadToPayLeg">
+  SpreadToPayLeg
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the basis is added to the pay leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SpreadToPayLeg { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_EnergyBasisSwap_PerformCalculations_" data-uid="NanoQL.Experimental.EnergyBasisSwap.PerformCalculations*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyBasisSwap_PerformCalculations_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.EnergyBasisSwap.PerformCalculations(NanoQL.EvaluationContext)">
+  PerformCalculations(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The swap's own calculation, QuantLib's <code>performCalculations</code>, for a swap that isn't expired.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override EnergyCommodityResults PerformCalculations(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.EnergyCommodityResults.html">EnergyCommodityResults</a></dt>
+    <dd><p>The results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

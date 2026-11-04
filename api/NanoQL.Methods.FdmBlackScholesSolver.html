@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class FdmBlackScholesSolver | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FdmBlackScholesSolver | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Black-Scholes finite-difference solver: the Black-Scholes operator on the problem&#39;s grid in the logarithm of the underlying, rolled back by the one-dimensional solver, read at a spot.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Methods.FdmBlackScholesSolver">
+
+
+
+  <h1 id="NanoQL_Methods_FdmBlackScholesSolver" data-uid="NanoQL.Methods.FdmBlackScholesSolver" class="text-break">
+Class FdmBlackScholesSolver  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Methods.html">Methods</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Black-Scholes finite-difference solver: the Black-Scholes operator on the problem's grid in the logarithm of
+the underlying, rolled back by the one-dimensional solver, read at a spot.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class FdmBlackScholesSolver</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">FdmBlackScholesSolver</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Methods_FdmBlackScholesSolver_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Computed at construction, where QuantLib's lazy object computes at the first read, and immutable after. QuantLib's
+<code>thetaAt</code> reads its solver without computing it first, so it fails before another read; here the solver is
+always there.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Methods_FdmBlackScholesSolver__ctor_" data-uid="NanoQL.Methods.FdmBlackScholesSolver.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_FdmBlackScholesSolver__ctor_NanoQL_Processes_GeneralizedBlackScholesProcess_System_Double_NanoQL_Methods_FdmSolverDesc_System_Nullable_NanoQL_Methods_FdmSchemeDesc__System_Boolean_System_Nullable_System_Double__NanoQL_Methods_FdmQuantoHelper_" data-uid="NanoQL.Methods.FdmBlackScholesSolver.#ctor(NanoQL.Processes.GeneralizedBlackScholesProcess,System.Double,NanoQL.Methods.FdmSolverDesc,System.Nullable{NanoQL.Methods.FdmSchemeDesc},System.Boolean,System.Nullable{System.Double},NanoQL.Methods.FdmQuantoHelper)">
+  FdmBlackScholesSolver(GeneralizedBlackScholesProcess, double, FdmSolverDesc, FdmSchemeDesc?, bool, double?, FdmQuantoHelper?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.FdmBlackScholesSolver.html">FdmBlackScholesSolver</a> class, and solves the
+problem.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FdmBlackScholesSolver(GeneralizedBlackScholesProcess process, double strike, FdmSolverDesc solverDesc, FdmSchemeDesc? schemeDesc = null, bool localVol = false, double? illegalLocalVolOverwrite = null, FdmQuantoHelper? quantoHelper = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+    <dd><p>The Black-Scholes process.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike the Black forward variance is read at.</p>
+</dd>
+    <dt><code>solverDesc</code> <a class="xref" href="NanoQL.Methods.FdmSolverDesc.html">FdmSolverDesc</a></dt>
+    <dd><p>The problem.</p>
+</dd>
+    <dt><code>schemeDesc</code> <a class="xref" href="NanoQL.Methods.FdmSchemeDesc.html">FdmSchemeDesc</a>?</dt>
+    <dd><p>The scheme; Douglas's by default.</p>
+</dd>
+    <dt><code>localVol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to use the process's local volatility.</p>
+</dd>
+    <dt><code>illegalLocalVolOverwrite</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The volatility to use where the local volatility can't be computed; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or a negative value
+to let the failure through.</p>
+</dd>
+    <dt><code>quantoHelper</code> <a class="xref" href="NanoQL.Methods.FdmQuantoHelper.html">FdmQuantoHelper</a></dt>
+    <dd><p>The quanto helper, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The process or the problem is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The rollback's arguments are refused.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A step or the spline fails.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Methods_FdmBlackScholesSolver_DeltaAt_" data-uid="NanoQL.Methods.FdmBlackScholesSolver.DeltaAt*"></a>
+
+  <h3 id="NanoQL_Methods_FdmBlackScholesSolver_DeltaAt_System_Double_" data-uid="NanoQL.Methods.FdmBlackScholesSolver.DeltaAt(System.Double)">
+  DeltaAt(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The delta at a spot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DeltaAt(double s)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The delta.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The spot is outside the grid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_FdmBlackScholesSolver_GammaAt_" data-uid="NanoQL.Methods.FdmBlackScholesSolver.GammaAt*"></a>
+
+  <h3 id="NanoQL_Methods_FdmBlackScholesSolver_GammaAt_System_Double_" data-uid="NanoQL.Methods.FdmBlackScholesSolver.GammaAt(System.Double)">
+  GammaAt(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The gamma at a spot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double GammaAt(double s)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The gamma.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The spot is outside the grid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_FdmBlackScholesSolver_ThetaAt_" data-uid="NanoQL.Methods.FdmBlackScholesSolver.ThetaAt*"></a>
+
+  <h3 id="NanoQL_Methods_FdmBlackScholesSolver_ThetaAt_System_Double_" data-uid="NanoQL.Methods.FdmBlackScholesSolver.ThetaAt(System.Double)">
+  ThetaAt(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The theta at a spot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? ThetaAt(double s)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The theta, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when the problem's first stopping time is 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The spot is outside the grid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_FdmBlackScholesSolver_ValueAt_" data-uid="NanoQL.Methods.FdmBlackScholesSolver.ValueAt*"></a>
+
+  <h3 id="NanoQL_Methods_FdmBlackScholesSolver_ValueAt_System_Double_" data-uid="NanoQL.Methods.FdmBlackScholesSolver.ValueAt(System.Double)">
+  ValueAt(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The value at a spot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ValueAt(double s)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The spot is outside the grid.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

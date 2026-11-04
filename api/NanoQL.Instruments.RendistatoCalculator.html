@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class RendistatoCalculator | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RendistatoCalculator | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Rendistato calculator: the yield and modified duration of a basket of BTPs, weighted by their outstanding amounts, and the Euribor swap of one to fifteen years whose fixed leg, as a bond at par, has the duration closest below the basket&#39;s.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Instruments.RendistatoCalculator">
+
+
+
+  <h1 id="NanoQL_Instruments_RendistatoCalculator" data-uid="NanoQL.Instruments.RendistatoCalculator" class="text-break">
+Class RendistatoCalculator  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Rendistato calculator: the yield and modified duration of a basket of BTPs, weighted by their outstanding
+amounts, and the Euribor swap of one to fifteen years whose fixed leg, as a bond at par, has the duration closest
+below the basket's.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class RendistatoCalculator</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RendistatoCalculator</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Instruments_RendistatoCalculator_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>It computes in its constructor, under the context it is built with, what QuantLib's first calculation computes;
+QuantLib starts a recalculation's yield solves from the last calculation's yields, so its warm start is a documented
+divergence. The swaps start one day after spot, at a fixed rate of 5%, and are priced on the discount curve without
+the settlement date's flows. The search for the equivalent swap stops at the first swap whose duration exceeds the
+basket's; the later swaps' rates, yields and durations aren't computed and are <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, where
+QuantLib's rates and durations are its null value and its yields its starting guess, 5% (a defect found while
+porting it).</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator__ctor_" data-uid="NanoQL.Instruments.RendistatoCalculator.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator__ctor_NanoQL_Instruments_RendistatoBasket_NanoQL_Indexes_Euribor_NanoQL_TermStructures_YieldTermStructure_NanoQL_EvaluationContext_" data-uid="NanoQL.Instruments.RendistatoCalculator.#ctor(NanoQL.Instruments.RendistatoBasket,NanoQL.Indexes.Euribor,NanoQL.TermStructures.YieldTermStructure,NanoQL.EvaluationContext)">
+  RendistatoCalculator(RendistatoBasket, Euribor, YieldTermStructure?, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.RendistatoCalculator.html">RendistatoCalculator</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RendistatoCalculator(RendistatoBasket basket, Euribor euriborIndex, YieldTermStructure? discountCurve, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>basket</code> <a class="xref" href="NanoQL.Instruments.RendistatoBasket.html">RendistatoBasket</a></dt>
+    <dd><p>The basket of BTPs.</p>
+</dd>
+    <dt><code>euriborIndex</code> <a class="xref" href="NanoQL.Indexes.Euribor.html">Euribor</a></dt>
+    <dd><p>The swaps' Euribor index, with its forwarding curve.</p>
+</dd>
+    <dt><code>discountCurve</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The swaps' discount curve, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty handle, which the swaps' engine refuses.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the swaps are built and everything is computed under.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">basket</code>, <code class="paramref">euriborIndex</code> or <code class="paramref">context</code> is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A bond isn't tradable at the first bond's settlement date, a yield solve fails, or a swap can't be priced.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_Basket_" data-uid="NanoQL.Instruments.RendistatoCalculator.Basket*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_Basket" data-uid="NanoQL.Instruments.RendistatoCalculator.Basket">
+  Basket
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the basket of BTPs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RendistatoBasket Basket { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.RendistatoBasket.html">RendistatoBasket</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_DiscountCurve_" data-uid="NanoQL.Instruments.RendistatoCalculator.DiscountCurve*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_DiscountCurve" data-uid="NanoQL.Instruments.RendistatoCalculator.DiscountCurve">
+  DiscountCurve
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the swaps' discount curve; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty handle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YieldTermStructure? DiscountCurve { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_Duration_" data-uid="NanoQL.Instruments.RendistatoCalculator.Duration*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_Duration" data-uid="NanoQL.Instruments.RendistatoCalculator.Duration">
+  Duration
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the basket's modified duration, the bonds' weighted by their outstanding amounts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Duration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_Durations_" data-uid="NanoQL.Instruments.RendistatoCalculator.Durations*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_Durations" data-uid="NanoQL.Instruments.RendistatoCalculator.Durations">
+  Durations
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each bond's modified duration at its yield.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Durations { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_EquivalentSwap_" data-uid="NanoQL.Instruments.RendistatoCalculator.EquivalentSwap*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_EquivalentSwap" data-uid="NanoQL.Instruments.RendistatoCalculator.EquivalentSwap">
+  EquivalentSwap
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the equivalent swap, at QuantLib's fixed rate of 5%.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VanillaSwap EquivalentSwap { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.VanillaSwap.html">VanillaSwap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_EquivalentSwapDuration_" data-uid="NanoQL.Instruments.RendistatoCalculator.EquivalentSwapDuration*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_EquivalentSwapDuration" data-uid="NanoQL.Instruments.RendistatoCalculator.EquivalentSwapDuration">
+  EquivalentSwapDuration
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the modified duration of the equivalent swap's fixed leg as a bond at par.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double EquivalentSwapDuration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_EquivalentSwapLength_" data-uid="NanoQL.Instruments.RendistatoCalculator.EquivalentSwapLength*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_EquivalentSwapLength" data-uid="NanoQL.Instruments.RendistatoCalculator.EquivalentSwapLength">
+  EquivalentSwapLength
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the equivalent swap's length in years.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double EquivalentSwapLength { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_EquivalentSwapRate_" data-uid="NanoQL.Instruments.RendistatoCalculator.EquivalentSwapRate*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_EquivalentSwapRate" data-uid="NanoQL.Instruments.RendistatoCalculator.EquivalentSwapRate">
+  EquivalentSwapRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the equivalent swap's fair rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double EquivalentSwapRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_EquivalentSwapSpread_" data-uid="NanoQL.Instruments.RendistatoCalculator.EquivalentSwapSpread*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_EquivalentSwapSpread" data-uid="NanoQL.Instruments.RendistatoCalculator.EquivalentSwapSpread">
+  EquivalentSwapSpread
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the basket's yield less the equivalent swap's fair rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double EquivalentSwapSpread { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_EquivalentSwapYield_" data-uid="NanoQL.Instruments.RendistatoCalculator.EquivalentSwapYield*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_EquivalentSwapYield" data-uid="NanoQL.Instruments.RendistatoCalculator.EquivalentSwapYield">
+  EquivalentSwapYield
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the yield of the equivalent swap's fixed leg as a bond at par.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double EquivalentSwapYield { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_EuriborIndex_" data-uid="NanoQL.Instruments.RendistatoCalculator.EuriborIndex*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_EuriborIndex" data-uid="NanoQL.Instruments.RendistatoCalculator.EuriborIndex">
+  EuriborIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the swaps' Euribor index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Euribor EuriborIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.Euribor.html">Euribor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_SwapDurations_" data-uid="NanoQL.Instruments.RendistatoCalculator.SwapDurations*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_SwapDurations" data-uid="NanoQL.Instruments.RendistatoCalculator.SwapDurations">
+  SwapDurations
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the modified duration of each swap's fixed leg as a bond at par; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for a swap past the
+one whose duration exceeds the basket's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double?&gt; SwapDurations { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_SwapLengths_" data-uid="NanoQL.Instruments.RendistatoCalculator.SwapLengths*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_SwapLengths" data-uid="NanoQL.Instruments.RendistatoCalculator.SwapLengths">
+  SwapLengths
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the swaps' lengths in years, 1 to 15.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; SwapLengths { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_SwapRates_" data-uid="NanoQL.Instruments.RendistatoCalculator.SwapRates*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_SwapRates" data-uid="NanoQL.Instruments.RendistatoCalculator.SwapRates">
+  SwapRates
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each swap's fair rate; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for a swap past the one whose duration exceeds the basket's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double?&gt; SwapRates { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_SwapYields_" data-uid="NanoQL.Instruments.RendistatoCalculator.SwapYields*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_SwapYields" data-uid="NanoQL.Instruments.RendistatoCalculator.SwapYields">
+  SwapYields
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the yield of each swap's fixed leg as a bond at par; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for a swap past the one whose
+duration exceeds the basket's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double?&gt; SwapYields { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_Yield_" data-uid="NanoQL.Instruments.RendistatoCalculator.Yield*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_Yield" data-uid="NanoQL.Instruments.RendistatoCalculator.Yield">
+  Yield
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the basket's yield, the bonds' yields weighted by their outstanding amounts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Yield { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_RendistatoCalculator_Yields_" data-uid="NanoQL.Instruments.RendistatoCalculator.Yields*"></a>
+
+  <h3 id="NanoQL_Instruments_RendistatoCalculator_Yields" data-uid="NanoQL.Instruments.RendistatoCalculator.Yields">
+  Yields
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each bond's yield, on Actual/Actual (ISMA) compounded annually, from its clean price.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Yields { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

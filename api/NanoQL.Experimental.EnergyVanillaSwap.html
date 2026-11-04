@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class EnergyVanillaSwap | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class EnergyVanillaSwap | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A vanilla energy swap: a fixed price against an index&#39;s price on each pricing day.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.EnergyVanillaSwap">
+
+
+
+  <h1 id="NanoQL_Experimental_EnergyVanillaSwap" data-uid="NanoQL.Experimental.EnergyVanillaSwap" class="text-break">
+Class EnergyVanillaSwap  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A vanilla energy swap: a fixed price against an index's price on each pricing day.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public sealed class EnergyVanillaSwap : EnergySwap</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.Commodity.html">Commodity</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.EnergyCommodity.html">EnergyCommodity</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.EnergySwap.html">EnergySwap</a></div>
+      <div><span class="xref">EnergyVanillaSwap</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_Calculate_NanoQL_EvaluationContext_">EnergySwap.Calculate(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_Calendar">EnergySwap.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_PayCurrency">EnergySwap.PayCurrency</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_ReceiveCurrency">EnergySwap.ReceiveCurrency</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_PricingPeriods">EnergySwap.PricingPeriods</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_CommodityType">EnergySwap.CommodityType</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.EnergySwap.html#NanoQL_Experimental_EnergySwap_Quantity">EnergySwap.Quantity</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.Commodity.html#NanoQL_Experimental_Commodity_SecondaryCosts">Commodity.SecondaryCosts</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_SetupExpired">Instrument.SetupExpired()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_Validate">Instrument.Validate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_FetchResults_NanoQL_InstrumentResults_">Instrument.FetchResults(InstrumentResults)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_EnergyVanillaSwap_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A payer pays the fixed price and receives the index's; a receiver the reverse. Each period's quantity is spread
+evenly over its pricing days and valued in the base currency and unit, discounted on each leg's curve from two days
+after the evaluation date, a payment on or before then at 1; the secondary costs are charged on the total quantity
+in the base unit. The unit conversions are <a class="xref" href="NanoQL.Experimental.EnergyCommodity.html">EnergyCommodity</a>'s, direction-aware, the payments
+<a class="xref" href="NanoQL.Experimental.EnergySwap.html">EnergySwap</a>'s. As QuantLib files the legs, the fixed leg is in the pay currency and the floating leg in
+the receive currency whichever way the swap faces, so a receiver receives the fixed price in the pay currency.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_EnergyVanillaSwap__ctor_" data-uid="NanoQL.Experimental.EnergyVanillaSwap.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyVanillaSwap__ctor_System_Boolean_NanoQL_Time_Calendar_NanoQL_Money_NanoQL_Experimental_UnitOfMeasure_NanoQL_Experimental_CommodityIndex_NanoQL_Currency_NanoQL_Currency_System_Collections_Generic_IReadOnlyList_NanoQL_Experimental_PricingPeriod__NanoQL_Experimental_CommodityType_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Object__NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_YieldTermStructure_" data-uid="NanoQL.Experimental.EnergyVanillaSwap.#ctor(System.Boolean,NanoQL.Time.Calendar,NanoQL.Money,NanoQL.Experimental.UnitOfMeasure,NanoQL.Experimental.CommodityIndex,NanoQL.Currency,NanoQL.Currency,System.Collections.Generic.IReadOnlyList{NanoQL.Experimental.PricingPeriod},NanoQL.Experimental.CommodityType,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.YieldTermStructure)">
+  EnergyVanillaSwap(bool, Calendar, Money, UnitOfMeasure, CommodityIndex, Currency, Currency, IReadOnlyList&lt;PricingPeriod&gt;, CommodityType, IReadOnlyDictionary&lt;string, object&gt;?, YieldTermStructure, YieldTermStructure, YieldTermStructure)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.EnergyVanillaSwap.html">EnergyVanillaSwap</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EnergyVanillaSwap(bool payer, Calendar calendar, Money fixedPrice, UnitOfMeasure fixedPriceUnitOfMeasure, CommodityIndex index, Currency payCurrency, Currency receiveCurrency, IReadOnlyList&lt;PricingPeriod&gt; pricingPeriods, CommodityType commodityType, IReadOnlyDictionary&lt;string, object&gt;? secondaryCosts, YieldTermStructure payLegTermStructure, YieldTermStructure receiveLegTermStructure, YieldTermStructure discountTermStructure)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the holder pays the fixed price.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The pricing calendar.</p>
+</dd>
+    <dt><code>fixedPrice</code> <a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd><p>The fixed price, per <code class="paramref">fixedPriceUnitOfMeasure</code>.</p>
+</dd>
+    <dt><code>fixedPriceUnitOfMeasure</code> <a class="xref" href="NanoQL.Experimental.UnitOfMeasure.html">UnitOfMeasure</a></dt>
+    <dd><p>The unit the fixed price is per.</p>
+</dd>
+    <dt><code>index</code> <a class="xref" href="NanoQL.Experimental.CommodityIndex.html">CommodityIndex</a></dt>
+    <dd><p>The floating leg's index.</p>
+</dd>
+    <dt><code>payCurrency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The fixed leg's currency, which a payer pays in and a receiver receives in.</p>
+</dd>
+    <dt><code>receiveCurrency</code> <a class="xref" href="NanoQL.Currency.html">Currency</a></dt>
+    <dd><p>The floating leg's currency, which a payer receives in and a receiver pays
+in.</p>
+</dd>
+    <dt><code>pricingPeriods</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="NanoQL.Experimental.PricingPeriod.html">PricingPeriod</a>&gt;</dt>
+    <dd><p>The pricing periods; at least one.</p>
+</dd>
+    <dt><code>commodityType</code> <a class="xref" href="NanoQL.Experimental.CommodityType.html">CommodityType</a></dt>
+    <dd><p>The commodity type.</p>
+</dd>
+    <dt><code>secondaryCosts</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>The secondary costs by name; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>payLegTermStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve discounting the pay leg.</p>
+</dd>
+    <dt><code>receiveLegTermStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve discounting the receive leg.</p>
+</dd>
+    <dt><code>discountTermStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve discounting the base amounts.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument but the costs is null.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>There are no pricing periods.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_EnergyVanillaSwap_FixedPrice_" data-uid="NanoQL.Experimental.EnergyVanillaSwap.FixedPrice*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyVanillaSwap_FixedPrice" data-uid="NanoQL.Experimental.EnergyVanillaSwap.FixedPrice">
+  FixedPrice
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed price.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Money FixedPrice { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Money.html">Money</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_EnergyVanillaSwap_FixedPriceUnitOfMeasure_" data-uid="NanoQL.Experimental.EnergyVanillaSwap.FixedPriceUnitOfMeasure*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyVanillaSwap_FixedPriceUnitOfMeasure" data-uid="NanoQL.Experimental.EnergyVanillaSwap.FixedPriceUnitOfMeasure">
+  FixedPriceUnitOfMeasure
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the unit the fixed price is per.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnitOfMeasure FixedPriceUnitOfMeasure { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.UnitOfMeasure.html">UnitOfMeasure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_EnergyVanillaSwap_Index_" data-uid="NanoQL.Experimental.EnergyVanillaSwap.Index*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyVanillaSwap_Index" data-uid="NanoQL.Experimental.EnergyVanillaSwap.Index">
+  Index
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the floating leg's index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommodityIndex Index { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommodityIndex.html">CommodityIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_EnergyVanillaSwap_PayReceive_" data-uid="NanoQL.Experimental.EnergyVanillaSwap.PayReceive*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyVanillaSwap_PayReceive" data-uid="NanoQL.Experimental.EnergyVanillaSwap.PayReceive">
+  PayReceive
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets QuantLib's pay-receive flag: 1 for a payer, 0 for a receiver.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PayReceive { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_EnergyVanillaSwap_Payer_" data-uid="NanoQL.Experimental.EnergyVanillaSwap.Payer*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyVanillaSwap_Payer" data-uid="NanoQL.Experimental.EnergyVanillaSwap.Payer">
+  Payer
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the holder pays the fixed price.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Payer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_EnergyVanillaSwap_IsExpired_" data-uid="NanoQL.Experimental.EnergyVanillaSwap.IsExpired*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyVanillaSwap_IsExpired_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.EnergyVanillaSwap.IsExpired(NanoQL.EvaluationContext)">
+  IsExpired(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the instrument might still have a value greater than zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsExpired(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the instrument has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Experimental_EnergyVanillaSwap_IsExpired_NanoQL_EvaluationContext__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A swap expires with its last payment date, or has none without periods.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Experimental_EnergyVanillaSwap_PerformCalculations_" data-uid="NanoQL.Experimental.EnergyVanillaSwap.PerformCalculations*"></a>
+
+  <h3 id="NanoQL_Experimental_EnergyVanillaSwap_PerformCalculations_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.EnergyVanillaSwap.PerformCalculations(NanoQL.EvaluationContext)">
+  PerformCalculations(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The swap's own calculation, QuantLib's <code>performCalculations</code>, for a swap that isn't expired.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override EnergyCommodityResults PerformCalculations(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.EnergyCommodityResults.html">EnergyCommodityResults</a></dt>
+    <dd><p>The results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

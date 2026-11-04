@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class AbcdAtmVolCurve | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AbcdAtmVolCurve | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The at-the-money volatility curve of the abcd function fitted to quoted volatilities at option tenors, each fitted value scaled by the adjustment factor that matches the quotes, interpolated linearly in time.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.AbcdAtmVolCurve">
+
+
+
+  <h1 id="NanoQL_Experimental_AbcdAtmVolCurve" data-uid="NanoQL.Experimental.AbcdAtmVolCurve" class="text-break">
+Class AbcdAtmVolCurve  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The at-the-money volatility curve of the abcd function fitted to quoted volatilities at option tenors, each fitted
+value scaled by the adjustment factor that matches the quotes, interpolated linearly in time.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public sealed class AbcdAtmVolCurve : BlackAtmVolCurve</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></div>
+      <div><a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html">VolatilityTermStructure</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.BlackAtmVolCurve.html">BlackAtmVolCurve</a></div>
+      <div><span class="xref">AbcdAtmVolCurve</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.BlackAtmVolCurve.html#NanoQL_Experimental_BlackAtmVolCurve_AtmVol_NanoQL_Time_Period_System_Boolean_">BlackAtmVolCurve.AtmVol(Period, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.BlackAtmVolCurve.html#NanoQL_Experimental_BlackAtmVolCurve_AtmVol_NanoQL_Time_Date_System_Boolean_">BlackAtmVolCurve.AtmVol(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.BlackAtmVolCurve.html#NanoQL_Experimental_BlackAtmVolCurve_AtmVol_System_Double_System_Boolean_">BlackAtmVolCurve.AtmVol(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.BlackAtmVolCurve.html#NanoQL_Experimental_BlackAtmVolCurve_AtmVariance_NanoQL_Time_Period_System_Boolean_">BlackAtmVolCurve.AtmVariance(Period, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.BlackAtmVolCurve.html#NanoQL_Experimental_BlackAtmVolCurve_AtmVariance_NanoQL_Time_Date_System_Boolean_">BlackAtmVolCurve.AtmVariance(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.BlackAtmVolCurve.html#NanoQL_Experimental_BlackAtmVolCurve_AtmVariance_System_Double_System_Boolean_">BlackAtmVolCurve.AtmVariance(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_OptionDateFromTenor_NanoQL_Time_Period_">VolatilityTermStructure.OptionDateFromTenor(Period)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructures.VolatilityTermStructure.html#NanoQL_TermStructures_VolatilityTermStructure_BusinessDayConvention">VolatilityTermStructure.BusinessDayConvention</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_TimeFromReference_NanoQL_Time_Date_">TermStructure.TimeFromReference(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_ReferenceDate">TermStructure.ReferenceDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_DayCounter">TermStructure.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_Calendar">TermStructure.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_SettlementDays">TermStructure.SettlementDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_MaxTime">TermStructure.MaxTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_Experimental_AbcdAtmVolCurve_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+QuantLib's <code>LazyObject</code> computes at construction: QuantLib fits the abcd function when its constructor builds
+the interpolation and again at the first calculation, from the first fit's coefficients (<code>update()</code>, which
+checks no guess), so the curve fits twice, the second through <a class="xref" href="NanoQL.Numerics.AbcdInterpolation.html">AbcdInterpolation</a>'s internal refit.
+Quotes are values. QuantLib's moving reference date is the factory's, dated by the context. QuantLib's acyclic
+visitor isn't ported.
+</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_A_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.A*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_A" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.A">
+  A
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fitted a.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double A { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_B_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.B*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_B" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.B">
+  B
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fitted b.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double B { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_C_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.C*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_C" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.C">
+  C
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fitted c.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double C { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_D_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.D*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_D" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.D">
+  D
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fitted d.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double D { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_EndCriteria_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.EndCriteria*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_EndCriteria" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.EndCriteria">
+  EndCriteria
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the end criterion the fit met.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EndCriteriaType EndCriteria { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.EndCriteriaType.html">EndCriteriaType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_MaxDate_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.MaxDate*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_MaxDate" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.MaxDate">
+  MaxDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the latest date for which the curve can return values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Date MaxDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_MaxError_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.MaxError*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_MaxError" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.MaxError">
+  MaxError
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fit's largest absolute error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MaxError { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_OptionDates_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.OptionDates*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_OptionDates" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.OptionDates">
+  OptionDates
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the option dates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;Date&gt; OptionDates { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_OptionTenors_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.OptionTenors*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_OptionTenors" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.OptionTenors">
+  OptionTenors
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the option tenors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;Period&gt; OptionTenors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Time.Period.html">Period</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_OptionTenorsInInterpolation_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.OptionTenorsInInterpolation*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_OptionTenorsInInterpolation" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.OptionTenorsInInterpolation">
+  OptionTenorsInInterpolation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the option tenors whose volatilities the fit includes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;Period&gt; OptionTenorsInInterpolation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Time.Period.html">Period</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_OptionTimes_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.OptionTimes*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_OptionTimes" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.OptionTimes">
+  OptionTimes
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the option times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; OptionTimes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_RmsError_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.RmsError*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_RmsError" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.RmsError">
+  RmsError
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fit's weighted root-mean-square error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RmsError { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_Volatilities_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.Volatilities*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_Volatilities" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.Volatilities">
+  Volatilities
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the quoted volatilities, one per option tenor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Volatilities { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_AtmVarianceImpl_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.AtmVarianceImpl*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_AtmVarianceImpl_System_Double_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.AtmVarianceImpl(System.Double)">
+  AtmVarianceImpl(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The at-the-money variance at a time already range-checked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double AtmVarianceImpl(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_AtmVolImpl_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.AtmVolImpl*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_AtmVolImpl_System_Double_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.AtmVolImpl(System.Double)">
+  AtmVolImpl(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The at-the-money volatility at a time already range-checked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double AtmVolImpl(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_Create_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.Create*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_Create_System_Int32_NanoQL_Time_Calendar_System_Collections_Generic_IReadOnlyList_NanoQL_Time_Period__System_Collections_Generic_IReadOnlyList_System_Double__NanoQL_EvaluationContext_System_Collections_Generic_IReadOnlyList_System_Boolean__NanoQL_Time_BusinessDayConvention_NanoQL_Time_DayCounter_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.Create(System.Int32,NanoQL.Time.Calendar,System.Collections.Generic.IReadOnlyList{NanoQL.Time.Period},System.Collections.Generic.IReadOnlyList{System.Double},NanoQL.EvaluationContext,System.Collections.Generic.IReadOnlyList{System.Boolean},NanoQL.Time.BusinessDayConvention,NanoQL.Time.DayCounter)">
+  Create(int, Calendar, IReadOnlyList&lt;Period&gt;, IReadOnlyList&lt;double&gt;, EvaluationContext, IReadOnlyList&lt;bool&gt;?, BusinessDayConvention, DayCounter?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the curve on the reference date the settlement days give from the context's evaluation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AbcdAtmVolCurve Create(int settlementDays, Calendar calendar, IReadOnlyList&lt;Period&gt; optionTenors, IReadOnlyList&lt;double&gt; vols, EvaluationContext context, IReadOnlyList&lt;bool&gt;? inclusionInInterpolationFlag = null, BusinessDayConvention bdc = BusinessDayConvention.Following, DayCounter? dayCounter = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The settlement days.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar.</p>
+</dd>
+    <dt><code>optionTenors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="NanoQL.Time.Period.html">Period</a>&gt;</dt>
+    <dd><p>The option tenors, increasing from a positive first.</p>
+</dd>
+    <dt><code>vols</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The volatilities, one per option tenor.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>inclusionInInterpolationFlag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>Whether each volatility is fitted, one flag for every tenor or one per
+tenor; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's default, every one.</p>
+</dd>
+    <dt><code>bdc</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The business-day convention of the option dates.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's default, Actual/365
+(Fixed).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.AbcdAtmVolCurve.html">AbcdAtmVolCurve</a></dt>
+    <dd><p>The curve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">settlementDays</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The tenors are empty or not increasing from a positive first, the sizes
+differ, or the fit fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_K_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.K*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_K" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.K">
+  K()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The adjustment factors that match the fitted volatilities to the quotes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; K()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The factors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_K_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.K*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_K_System_Double_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.K(System.Double)">
+  K(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The adjustment factor at a time, interpolated linearly between the fitted option times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double K(double t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The time is outside the fitted option times.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_MaxStrike_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.MaxStrike*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_MaxStrike" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.MaxStrike">
+  MaxStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum strike for which the structure returns values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MaxStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_AbcdAtmVolCurve_MinStrike_" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.MinStrike*"></a>
+
+  <h3 id="NanoQL_Experimental_AbcdAtmVolCurve_MinStrike" data-uid="NanoQL.Experimental.AbcdAtmVolCurve.MinStrike">
+  MinStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The minimum strike for which the structure returns values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double MinStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

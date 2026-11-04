@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class LongstaffSchwartzPathPricer&lt;TPath, TState&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LongstaffSchwartzPathPricer&lt;TPath, TState&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Longstaff-Schwartz path pricer for early-exercise options (Francis Longstaff, Eduardo Schwartz, 2001, &amp;quot;Valuing American Options by Simulation: A Simple Least-Squares Approach&amp;quot;, The Review of Financial Studies, Volume 14, No. 1, 113-147): in its calibration phase it stores the paths it is given and pricing nothing;  regresses the continuation values backwards over them; in its pricing phase it prices each path, exercising where the exercise value beats the regressed continuation.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2">
+
+
+
+  <h1 id="NanoQL_Methods_LongstaffSchwartzPathPricer_2" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2" class="text-break">
+Class LongstaffSchwartzPathPricer&lt;TPath, TState&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Methods.html">Methods</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Longstaff-Schwartz path pricer for early-exercise options (Francis Longstaff, Eduardo Schwartz, 2001, &quot;Valuing
+American Options by Simulation: A Simple Least-Squares Approach&quot;, The Review of Financial Studies, Volume 14, No. 1,
+113-147): in its calibration phase it stores the paths it is given and pricing nothing; <a class="xref" href="NanoQL.Methods.LongstaffSchwartzPathPricer-2.html#NanoQL_Methods_LongstaffSchwartzPathPricer_2_Calibrate">Calibrate()</a>
+regresses the continuation values backwards over them; in its pricing phase it prices each path, exercising where
+the exercise value beats the regressed continuation.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public class LongstaffSchwartzPathPricer&lt;TPath, TState&gt; : PathPricer&lt;TPath&gt;</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TPath</code></dt>
+    <dd><p>The path type.</p>
+</dd>
+    <dt><code>TState</code></dt>
+    <dd><p>The early-exercise pricer's state type.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Methods.PathPricer-1.html">PathPricer</a>&lt;TPath&gt;</div>
+      <div><span class="xref">LongstaffSchwartzPathPricer&lt;TPath, TState&gt;</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A working type and an extension point, as in QuantLib: a Longstaff-Schwartz engine builds one per calculation, its
+stored paths, regression coefficients and exercise statistics the calculation's own, and
+<a class="xref" href="NanoQL.Methods.LongstaffSchwartzPathPricer-2.html#NanoQL_Methods_LongstaffSchwartzPathPricer_2_PostProcessing_System_Int32_System_Collections_Generic_IReadOnlyList__1__System_Collections_Generic_IReadOnlyList_System_Double__System_Collections_Generic_IReadOnlyList_System_Double__">PostProcessing(int, IReadOnlyList&lt;TState&gt;, IReadOnlyList&lt;double&gt;, IReadOnlyList&lt;double&gt;)</a> is QuantLib's protected hook. Each calibration path is copied, since a path generator's
+path is a view of its buffer.
+</p>
+<p>
+The pricer exercises only at the grid's exercise times, given beside the grid, and at its last time; QuantLib's
+exercises at every time of the grid, so a Bermudan option on a grid with steps between its dates, or an American
+option whose exercise window opens later, prices as an American option exercisable throughout: a documented
+divergence (<code>Divergences/LongstaffSchwartzExerciseTimesTests.cs</code>). Where every time of the grid is an exercise
+time, the bits are QuantLib's.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Methods_LongstaffSchwartzPathPricer_2__ctor_" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_LongstaffSchwartzPathPricer_2__ctor_NanoQL_TimeGrid_NanoQL_Methods_IEarlyExercisePathPricer__0__1__NanoQL_TermStructures_YieldTermStructure_System_Collections_Generic_IReadOnlyList_System_Double__" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.#ctor(NanoQL.TimeGrid,NanoQL.Methods.IEarlyExercisePathPricer{`0,`1},NanoQL.TermStructures.YieldTermStructure,System.Collections.Generic.IReadOnlyList{System.Double})">
+  LongstaffSchwartzPathPricer(TimeGrid, IEarlyExercisePathPricer&lt;TPath, TState&gt;, YieldTermStructure, IReadOnlyList&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.LongstaffSchwartzPathPricer-2.html">LongstaffSchwartzPathPricer&lt;TPath, TState&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LongstaffSchwartzPathPricer(TimeGrid times, IEarlyExercisePathPricer&lt;TPath, TState&gt; pathPricer, YieldTermStructure termStructure, IReadOnlyList&lt;double&gt; exerciseTimes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>times</code> <a class="xref" href="NanoQL.TimeGrid.html">TimeGrid</a></dt>
+    <dd><p>The paths' time grid, whose times are the term structure's.</p>
+</dd>
+    <dt><code>pathPricer</code> <a class="xref" href="NanoQL.Methods.IEarlyExercisePathPricer-2.html">IEarlyExercisePathPricer</a>&lt;TPath, TState&gt;</dt>
+    <dd><p>The early-exercise pricer.</p>
+</dd>
+    <dt><code>termStructure</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The discount curve.</p>
+</dd>
+    <dt><code>exerciseTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The times of the grid, beside its last, at which the option can be exercised; each a time of the grid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The grid has fewer than two times.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>An exercise time isn't a time of the grid.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_CalibrationPhase_" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.CalibrationPhase*"></a>
+
+  <h3 id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_CalibrationPhase" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.CalibrationPhase">
+  CalibrationPhase
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the pricer is in its calibration phase, storing the paths it is given.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool CalibrationPhase { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_Coefficients_" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.Coefficients*"></a>
+
+  <h3 id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_Coefficients" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.Coefficients">
+  Coefficients
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the regression's coefficients, one vector per time step from the grid's first after its start (none at
+expiry), set by <a class="xref" href="NanoQL.Methods.LongstaffSchwartzPathPricer-2.html#NanoQL_Methods_LongstaffSchwartzPathPricer_2_Calibrate">Calibrate()</a>: QuantLib's protected <code>coeff_</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IReadOnlyList&lt;Vector&gt; Coefficients { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_EarlyExercisePathPricer_" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.EarlyExercisePathPricer*"></a>
+
+  <h3 id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_EarlyExercisePathPricer" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.EarlyExercisePathPricer">
+  EarlyExercisePathPricer
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the early-exercise pricer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IEarlyExercisePathPricer&lt;TPath, TState&gt; EarlyExercisePathPricer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.IEarlyExercisePathPricer-2.html">IEarlyExercisePathPricer</a>&lt;TPath, TState&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_Calibrate_" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.Calibrate*"></a>
+
+  <h3 id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_Calibrate" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.Calibrate">
+  Calibrate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Regresses the continuation values over the stored paths, backwards from expiry, and enters the pricing phase,
+releasing the paths.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Calibrate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A regression's decomposition fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_Evaluate_" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.Evaluate*"></a>
+
+  <h3 id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_Evaluate__0_" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.Evaluate(`0)">
+  Evaluate(TPath)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>In the calibration phase, stores a copy of the path and returns 0; in the pricing phase, the path's value: its
+exercise value at expiry rolled back, replaced at each earlier exercise time by the exercise value where that is
+positive and beats the regressed continuation, discounted to the grid's start.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Evaluate(TPath path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <span class="xref">TPath</span></dt>
+    <dd><p>The path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value; 0 in the calibration phase.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_ExerciseProbability_" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.ExerciseProbability*"></a>
+
+  <h3 id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_ExerciseProbability" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.ExerciseProbability">
+  ExerciseProbability()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fraction of the priced paths on which the option was exercised.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ExerciseProbability()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The exercise probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No path has been priced.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_PostProcessing_" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.PostProcessing*"></a>
+
+  <h3 id="NanoQL_Methods_LongstaffSchwartzPathPricer_2_PostProcessing_System_Int32_System_Collections_Generic_IReadOnlyList__1__System_Collections_Generic_IReadOnlyList_System_Double__System_Collections_Generic_IReadOnlyList_System_Double__" data-uid="NanoQL.Methods.LongstaffSchwartzPathPricer`2.PostProcessing(System.Int32,System.Collections.Generic.IReadOnlyList{`1},System.Collections.Generic.IReadOnlyList{System.Double},System.Collections.Generic.IReadOnlyList{System.Double})">
+  PostProcessing(int, IReadOnlyList&lt;TState&gt;, IReadOnlyList&lt;double&gt;, IReadOnlyList&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A hook called at each time step of the calibration, expiry first, with every path's state, value and exercise
+value there; by default it does nothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void PostProcessing(int i, IReadOnlyList&lt;TState&gt; state, IReadOnlyList&lt;double&gt; price, IReadOnlyList&lt;double&gt; exercise)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The time step's index.</p>
+</dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;TState&gt;</dt>
+    <dd><p>The paths' states.</p>
+</dd>
+    <dt><code>price</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The paths' values at the step.</p>
+</dd>
+    <dt><code>exercise</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The paths' exercise values at the step, 0 off the exercise times.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

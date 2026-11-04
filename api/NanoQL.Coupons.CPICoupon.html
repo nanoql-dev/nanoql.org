@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CPICoupon | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CPICoupon | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A coupon paying the performance of a zero-inflation (CPI) index: a fixed rate times the ratio of the index observed at the accrual end, with the lag, to its base value.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Coupons.CPICoupon">
+
+
+
+  <h1 id="NanoQL_Coupons_CPICoupon" data-uid="NanoQL.Coupons.CPICoupon" class="text-break">
+Class CPICoupon  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Coupons.html">Coupons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A coupon paying the performance of a zero-inflation (CPI) index: a fixed rate times the ratio of the index observed
+at the accrual end, with the lag, to its base value.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class CPICoupon : InflationCoupon</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Event.html">Event</a></div>
+      <div><a class="xref" href="NanoQL.CashFlow.html">CashFlow</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.Coupon.html">Coupon</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.InflationCoupon.html">InflationCoupon</a></div>
+      <div><span class="xref">CPICoupon</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.InflationCoupon.html#NanoQL_Coupons_InflationCoupon_Rate_NanoQL_EvaluationContext_">InflationCoupon.Rate(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.InflationCoupon.html#NanoQL_Coupons_InflationCoupon_Amount_NanoQL_EvaluationContext_">InflationCoupon.Amount(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.InflationCoupon.html#NanoQL_Coupons_InflationCoupon_Price_NanoQL_TermStructures_YieldTermStructure_NanoQL_EvaluationContext_">InflationCoupon.Price(YieldTermStructure, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.InflationCoupon.html#NanoQL_Coupons_InflationCoupon_FixingDate">InflationCoupon.FixingDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.InflationCoupon.html#NanoQL_Coupons_InflationCoupon_Index">InflationCoupon.Index</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.InflationCoupon.html#NanoQL_Coupons_InflationCoupon_ObservationLag">InflationCoupon.ObservationLag</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.InflationCoupon.html#NanoQL_Coupons_InflationCoupon_FixingDays">InflationCoupon.FixingDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.InflationCoupon.html#NanoQL_Coupons_InflationCoupon_Pricer">InflationCoupon.Pricer</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.InflationCoupon.html#NanoQL_Coupons_InflationCoupon_DayCounter">InflationCoupon.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_Nominal_NanoQL_EvaluationContext_">Coupon.Nominal(EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccrualPeriod">Coupon.AccrualPeriod()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccrualDays">Coupon.AccrualDays()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccruedPeriod_NanoQL_Time_Date_">Coupon.AccruedPeriod(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccruedDays_NanoQL_Time_Date_">Coupon.AccruedDays(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_Date">Coupon.Date</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ExCouponDate">Coupon.ExCouponDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccrualStartDate">Coupon.AccrualStartDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_AccrualEndDate">Coupon.AccrualEndDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ReferencePeriodStart">Coupon.ReferencePeriodStart</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ReferencePeriodEnd">Coupon.ReferencePeriodEnd</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.Coupon.html#NanoQL_Coupons_Coupon_ContractNominal">Coupon.ContractNominal</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.CashFlow.html#NanoQL_CashFlow_HasOccurred_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__System_Nullable_System_Boolean__">CashFlow.HasOccurred(EvaluationContext, Date?, bool?)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.CashFlow.html#NanoQL_CashFlow_TradingExCoupon_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">CashFlow.TradingExCoupon(EvaluationContext, Date?)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Coupons.InflationCouponExtensions.html#NanoQL_Coupons_InflationCouponExtensions_SetPricer__1___0_NanoQL_Coupons_InflationCouponPricer_">InflationCouponExtensions.SetPricer&lt;T&gt;(T, InflationCouponPricer?)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_Coupons_CPICoupon_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The base is the given base CPI or, without one, the index observed on the base date plus the lag. It accepts a
+<a class="xref" href="NanoQL.Coupons.CPICouponPricer.html">CPICouponPricer</a>. No convexity adjustment is made for lags other than the one the curve was built with.
+</p>
+<p>
+QuantLib's <a class="xref" href="NanoQL.Coupons.CPILeg.html">CPILeg</a> gives every coupon <code>start − lag</code> as its base date, which loses the start's day
+from a month-end start, and its notional flow a base on another convention, so a leg's coupons and notional could
+price on two base CPIs. Here the leg sets one internal base observation for every flow (with neither a base CPI nor
+a base date, the schedule's start; with a base date, the base date plus the lag; each at the lag), while
+<a class="xref" href="NanoQL.Coupons.CPICoupon.html#NanoQL_Coupons_CPICoupon_BaseDate">BaseDate</a> stays QuantLib's; the public constructors keep QuantLib's convention. A documented
+divergence.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Coupons_CPICoupon__ctor_" data-uid="NanoQL.Coupons.CPICoupon.#ctor*"></a>
+
+  <h3 id="NanoQL_Coupons_CPICoupon__ctor_NanoQL_Time_Date_NanoQL_Time_Date_System_Double_NanoQL_Time_Date_NanoQL_Time_Date_NanoQL_Indexes_ZeroInflationIndex_NanoQL_Time_Period_NanoQL_Indexes_CPIInterpolationType_NanoQL_Time_DayCounter_System_Double_System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CPICoupon.#ctor(NanoQL.Time.Date,NanoQL.Time.Date,System.Double,NanoQL.Time.Date,NanoQL.Time.Date,NanoQL.Indexes.ZeroInflationIndex,NanoQL.Time.Period,NanoQL.Indexes.CPIInterpolationType,NanoQL.Time.DayCounter,System.Double,System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  CPICoupon(Date, Date, double, Date, Date, ZeroInflationIndex, Period, CPIInterpolationType, DayCounter, double, Date?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Coupons.CPICoupon.html">CPICoupon</a> class with a base date, on which the base CPI is
+observed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CPICoupon(Date baseDate, Date paymentDate, double nominal, Date startDate, Date endDate, ZeroInflationIndex index, Period observationLag, CPIInterpolationType observationInterpolation, DayCounter dayCounter, double fixedRate, Date? refPeriodStart = null, Date? refPeriodEnd = null, Date? exCouponDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>baseDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The base date.</p>
+</dd>
+    <dt><code>paymentDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The payment date.</p>
+</dd>
+    <dt><code>nominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The nominal.</p>
+</dd>
+    <dt><code>startDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The accrual start date.</p>
+</dd>
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The accrual end date.</p>
+</dd>
+    <dt><code>index</code> <a class="xref" href="NanoQL.Indexes.ZeroInflationIndex.html">ZeroInflationIndex</a></dt>
+    <dd><p>The zero-inflation index.</p>
+</dd>
+    <dt><code>observationLag</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The observation lag.</p>
+</dd>
+    <dt><code>observationInterpolation</code> <a class="xref" href="NanoQL.Indexes.CPIInterpolationType.html">CPIInterpolationType</a></dt>
+    <dd><p>How the index is observed.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>fixedRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fixed rate the index ratio inflates.</p>
+</dd>
+    <dt><code>refPeriodStart</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The reference period's start.</p>
+</dd>
+    <dt><code>refPeriodEnd</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The reference period's end.</p>
+</dd>
+    <dt><code>exCouponDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The ex-coupon date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">index</code> or <code class="paramref">dayCounter</code> is
+null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A date is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">observationInterpolation</code> isn't a member of its
+type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CPICoupon__ctor_" data-uid="NanoQL.Coupons.CPICoupon.#ctor*"></a>
+
+  <h3 id="NanoQL_Coupons_CPICoupon__ctor_System_Double_NanoQL_Time_Date_System_Double_NanoQL_Time_Date_NanoQL_Time_Date_NanoQL_Indexes_ZeroInflationIndex_NanoQL_Time_Period_NanoQL_Indexes_CPIInterpolationType_NanoQL_Time_DayCounter_System_Double_System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CPICoupon.#ctor(System.Double,NanoQL.Time.Date,System.Double,NanoQL.Time.Date,NanoQL.Time.Date,NanoQL.Indexes.ZeroInflationIndex,NanoQL.Time.Period,NanoQL.Indexes.CPIInterpolationType,NanoQL.Time.DayCounter,System.Double,System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  CPICoupon(double, Date, double, Date, Date, ZeroInflationIndex, Period, CPIInterpolationType, DayCounter, double, Date?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Coupons.CPICoupon.html">CPICoupon</a> class with a base CPI.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CPICoupon(double baseCPI, Date paymentDate, double nominal, Date startDate, Date endDate, ZeroInflationIndex index, Period observationLag, CPIInterpolationType observationInterpolation, DayCounter dayCounter, double fixedRate, Date? refPeriodStart = null, Date? refPeriodEnd = null, Date? exCouponDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>baseCPI</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The base CPI.</p>
+</dd>
+    <dt><code>paymentDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The payment date.</p>
+</dd>
+    <dt><code>nominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The nominal.</p>
+</dd>
+    <dt><code>startDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The accrual start date.</p>
+</dd>
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The accrual end date.</p>
+</dd>
+    <dt><code>index</code> <a class="xref" href="NanoQL.Indexes.ZeroInflationIndex.html">ZeroInflationIndex</a></dt>
+    <dd><p>The zero-inflation index.</p>
+</dd>
+    <dt><code>observationLag</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The observation lag.</p>
+</dd>
+    <dt><code>observationInterpolation</code> <a class="xref" href="NanoQL.Indexes.CPIInterpolationType.html">CPIInterpolationType</a></dt>
+    <dd><p>How the index is observed.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>fixedRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fixed rate the index ratio inflates.</p>
+</dd>
+    <dt><code>refPeriodStart</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The reference period's start.</p>
+</dd>
+    <dt><code>refPeriodEnd</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The reference period's end.</p>
+</dd>
+    <dt><code>exCouponDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The ex-coupon date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">index</code> or <code class="paramref">dayCounter</code> is
+null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The base CPI is below 1e-16 in absolute value, or a date is
+<code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">observationInterpolation</code> isn't a member of its
+type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CPICoupon__ctor_" data-uid="NanoQL.Coupons.CPICoupon.#ctor*"></a>
+
+  <h3 id="NanoQL_Coupons_CPICoupon__ctor_System_Nullable_System_Double__System_Nullable_NanoQL_Time_Date__NanoQL_Time_Date_System_Double_NanoQL_Time_Date_NanoQL_Time_Date_NanoQL_Indexes_ZeroInflationIndex_NanoQL_Time_Period_NanoQL_Indexes_CPIInterpolationType_NanoQL_Time_DayCounter_System_Double_System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CPICoupon.#ctor(System.Nullable{System.Double},System.Nullable{NanoQL.Time.Date},NanoQL.Time.Date,System.Double,NanoQL.Time.Date,NanoQL.Time.Date,NanoQL.Indexes.ZeroInflationIndex,NanoQL.Time.Period,NanoQL.Indexes.CPIInterpolationType,NanoQL.Time.DayCounter,System.Double,System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  CPICoupon(double?, Date?, Date, double, Date, Date, ZeroInflationIndex, Period, CPIInterpolationType, DayCounter, double, Date?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Coupons.CPICoupon.html">CPICoupon</a> class with a base CPI, a base date, or both, the base
+CPI used when given.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CPICoupon(double? baseCPI, Date? baseDate, Date paymentDate, double nominal, Date startDate, Date endDate, ZeroInflationIndex index, Period observationLag, CPIInterpolationType observationInterpolation, DayCounter dayCounter, double fixedRate, Date? refPeriodStart = null, Date? refPeriodEnd = null, Date? exCouponDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>baseCPI</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The base CPI, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Null&lt;Real&gt;()</code>.</p>
+</dd>
+    <dt><code>baseDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The base date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's <code>Date()</code>.</p>
+</dd>
+    <dt><code>paymentDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The payment date.</p>
+</dd>
+    <dt><code>nominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The nominal.</p>
+</dd>
+    <dt><code>startDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The accrual start date.</p>
+</dd>
+    <dt><code>endDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The accrual end date.</p>
+</dd>
+    <dt><code>index</code> <a class="xref" href="NanoQL.Indexes.ZeroInflationIndex.html">ZeroInflationIndex</a></dt>
+    <dd><p>The zero-inflation index.</p>
+</dd>
+    <dt><code>observationLag</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The observation lag.</p>
+</dd>
+    <dt><code>observationInterpolation</code> <a class="xref" href="NanoQL.Indexes.CPIInterpolationType.html">CPIInterpolationType</a></dt>
+    <dd><p>How the index is observed.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>fixedRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fixed rate the index ratio inflates.</p>
+</dd>
+    <dt><code>refPeriodStart</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The reference period's start.</p>
+</dd>
+    <dt><code>refPeriodEnd</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The reference period's end.</p>
+</dd>
+    <dt><code>exCouponDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The ex-coupon date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">index</code> or <code class="paramref">dayCounter</code> is
+null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Neither a base CPI nor a base date is given, the base CPI is below 1e-16 in
+absolute value, or a date is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">observationInterpolation</code> isn't a member of its
+type.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Coupons_CPICoupon_BaseCPI_" data-uid="NanoQL.Coupons.CPICoupon.BaseCPI*"></a>
+
+  <h3 id="NanoQL_Coupons_CPICoupon_BaseCPI" data-uid="NanoQL.Coupons.CPICoupon.BaseCPI">
+  BaseCPI
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the base value of the index, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when the base date gives it; make sure it was
+observed with the coupon's interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? BaseCPI { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CPICoupon_BaseDate_" data-uid="NanoQL.Coupons.CPICoupon.BaseDate*"></a>
+
+  <h3 id="NanoQL_Coupons_CPICoupon_BaseDate" data-uid="NanoQL.Coupons.CPICoupon.BaseDate">
+  BaseDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the base date of the base fixing, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when a base CPI is given
+alone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date? BaseDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CPICoupon_CpiIndex_" data-uid="NanoQL.Coupons.CPICoupon.CpiIndex*"></a>
+
+  <h3 id="NanoQL_Coupons_CPICoupon_CpiIndex" data-uid="NanoQL.Coupons.CPICoupon.CpiIndex">
+  CpiIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the zero-inflation index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ZeroInflationIndex CpiIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.ZeroInflationIndex.html">ZeroInflationIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CPICoupon_FixedRate_" data-uid="NanoQL.Coupons.CPICoupon.FixedRate*"></a>
+
+  <h3 id="NanoQL_Coupons_CPICoupon_FixedRate" data-uid="NanoQL.Coupons.CPICoupon.FixedRate">
+  FixedRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixed rate the index ratio inflates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double FixedRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CPICoupon_ObservationInterpolation_" data-uid="NanoQL.Coupons.CPICoupon.ObservationInterpolation*"></a>
+
+  <h3 id="NanoQL_Coupons_CPICoupon_ObservationInterpolation" data-uid="NanoQL.Coupons.CPICoupon.ObservationInterpolation">
+  ObservationInterpolation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets how the index is observed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CPIInterpolationType ObservationInterpolation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.CPIInterpolationType.html">CPIInterpolationType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Coupons_CPICoupon_AccruedAmount_" data-uid="NanoQL.Coupons.CPICoupon.AccruedAmount*"></a>
+
+  <h3 id="NanoQL_Coupons_CPICoupon_AccruedAmount_NanoQL_Time_Date_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.CPICoupon.AccruedAmount(NanoQL.Time.Date,NanoQL.EvaluationContext)">
+  AccruedAmount(Date, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The amount accrued to a date, at the pricer's accrued rate for the date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double AccruedAmount(Date d, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accrued amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no pricer, or not a CPI-coupon pricer.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CPICoupon_AdjustedIndexGrowth_" data-uid="NanoQL.Coupons.CPICoupon.AdjustedIndexGrowth*"></a>
+
+  <h3 id="NanoQL_Coupons_CPICoupon_AdjustedIndexGrowth_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.CPICoupon.AdjustedIndexGrowth(NanoQL.EvaluationContext)">
+  AdjustedIndexGrowth(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ratio of the end fixing to the base, as the pricer adjusts it: the rate over the fixed
+rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AdjustedIndexGrowth(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The adjusted growth.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CPICoupon_CheckPricerImpl_" data-uid="NanoQL.Coupons.CPICoupon.CheckPricerImpl*"></a>
+
+  <h3 id="NanoQL_Coupons_CPICoupon_CheckPricerImpl_NanoQL_Coupons_InflationCouponPricer_" data-uid="NanoQL.Coupons.CPICoupon.CheckPricerImpl(NanoQL.Coupons.InflationCouponPricer)">
+  CheckPricerImpl(InflationCouponPricer?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the coupon accepts a pricer: a CPI-coupon pricer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool CheckPricerImpl(InflationCouponPricer? pricer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pricer</code> <a class="xref" href="NanoQL.Coupons.InflationCouponPricer.html">InflationCouponPricer</a></dt>
+    <dd><p>The pricer, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when it is one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CPICoupon_IndexFixing_" data-uid="NanoQL.Coupons.CPICoupon.IndexFixing*"></a>
+
+  <h3 id="NanoQL_Coupons_CPICoupon_IndexFixing_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.CPICoupon.IndexFixing(NanoQL.EvaluationContext)">
+  IndexFixing(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fixing: the index observed on the accrual end with the lag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double IndexFixing(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fixing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CPICoupon_IndexRatio_" data-uid="NanoQL.Coupons.CPICoupon.IndexRatio*"></a>
+
+  <h3 id="NanoQL_Coupons_CPICoupon_IndexRatio_NanoQL_Time_Date_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.CPICoupon.IndexRatio(NanoQL.Time.Date,NanoQL.EvaluationContext)">
+  IndexRatio(Date, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ratio of the index observed on a date, with the lag, to the base, with no adjustment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double IndexRatio(Date d, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The ratio.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

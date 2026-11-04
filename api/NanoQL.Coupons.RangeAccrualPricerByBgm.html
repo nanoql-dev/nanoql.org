@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class RangeAccrualPricerByBgm | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RangeAccrualPricerByBgm | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The range-accrual pricer in the BGM model: each observation&#39;s range is a pair of digitals on the index&#39;s forward rate, the forwards from the coupon&#39;s start S and its end T lognormal with the expiry and payment smiles&#39; volatilities and a correlation, priced without the smile, with the smile through a call spread, or with a smile correction.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Coupons.RangeAccrualPricerByBgm">
+
+
+
+  <h1 id="NanoQL_Coupons_RangeAccrualPricerByBgm" data-uid="NanoQL.Coupons.RangeAccrualPricerByBgm" class="text-break">
+Class RangeAccrualPricerByBgm  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Coupons.html">Coupons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The range-accrual pricer in the BGM model: each observation's range is a pair of digitals on the index's forward
+rate, the forwards from the coupon's start S and its end T lognormal with the expiry and payment smiles'
+volatilities and a correlation, priced without the smile, with the smile through a call spread, or with a smile
+correction.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class RangeAccrualPricerByBgm : RangeAccrualPricer</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.FloatingRateCouponPricer.html">FloatingRateCouponPricer</a></div>
+      <div><a class="xref" href="NanoQL.Coupons.RangeAccrualPricer.html">RangeAccrualPricer</a></div>
+      <div><span class="xref">RangeAccrualPricerByBgm</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.RangeAccrualPricer.html#NanoQL_Coupons_RangeAccrualPricer_SwapletPrice_NanoQL_Coupons_FloatingRateCoupon_NanoQL_EvaluationContext_">RangeAccrualPricer.SwapletPrice(FloatingRateCoupon, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.RangeAccrualPricer.html#NanoQL_Coupons_RangeAccrualPricer_SwapletRate_NanoQL_Coupons_FloatingRateCoupon_NanoQL_EvaluationContext_">RangeAccrualPricer.SwapletRate(FloatingRateCoupon, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.RangeAccrualPricer.html#NanoQL_Coupons_RangeAccrualPricer_CapletPrice_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_">RangeAccrualPricer.CapletPrice(FloatingRateCoupon, double, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.RangeAccrualPricer.html#NanoQL_Coupons_RangeAccrualPricer_CapletRate_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_">RangeAccrualPricer.CapletRate(FloatingRateCoupon, double, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.RangeAccrualPricer.html#NanoQL_Coupons_RangeAccrualPricer_FloorletPrice_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_">RangeAccrualPricer.FloorletPrice(FloatingRateCoupon, double, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Coupons.RangeAccrualPricer.html#NanoQL_Coupons_RangeAccrualPricer_FloorletRate_NanoQL_Coupons_FloatingRateCoupon_System_Double_NanoQL_EvaluationContext_">RangeAccrualPricer.FloorletRate(FloatingRateCoupon, double, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Coupons_RangeAccrualPricerByBgm_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Each observation's digitals are deflated by the discount at the payment date times the fixing at the coupon's start.
+A trigger at or below ε/2, ε = 1e-8, prices as the deflator, as QuantLib's.
+</p>
+<p>
+A coupon in progress: QuantLib's call-spread route and its smile correction take the variance and the drift over the
+before-fixing phase clamped, max(S, 0)·λS² + min(U − S, U)·λT², and its drift and volatility functions carry the
+after-fixing branches for S ≤ 0; its no-smile route alone takes S·λS² + (U − S)·λT² unclamped, high on a started
+coupon when λS &lt; λT and a NaN refusal when λS &gt; λT, so here it is clamped as the other two. And an observation
+whose fixing is known is counted by its fixing f, deflator × (1{f &gt; l} − 1{f &gt; u}), the two digitals
+QuantLib's range reads, where no QuantLib route prices a past one: known as QuantLib's index decides it, its fixing
+date (the observation date less the fixing days) before the evaluation date, or on it once its fixing is published
+or the context enforces it. Before the coupon's start every route is QuantLib's.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Coupons_RangeAccrualPricerByBgm__ctor_" data-uid="NanoQL.Coupons.RangeAccrualPricerByBgm.#ctor*"></a>
+
+  <h3 id="NanoQL_Coupons_RangeAccrualPricerByBgm__ctor_System_Double_NanoQL_TermStructures_SmileSection_NanoQL_TermStructures_SmileSection_System_Boolean_System_Boolean_" data-uid="NanoQL.Coupons.RangeAccrualPricerByBgm.#ctor(System.Double,NanoQL.TermStructures.SmileSection,NanoQL.TermStructures.SmileSection,System.Boolean,System.Boolean)">
+  RangeAccrualPricerByBgm(double, SmileSection, SmileSection, bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Coupons.RangeAccrualPricerByBgm.html">RangeAccrualPricerByBgm</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RangeAccrualPricerByBgm(double correlation, SmileSection smilesOnExpiry, SmileSection smilesOnPayment, bool withSmile, bool byCallSpread)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>correlation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The correlation of the forwards from S and from T.</p>
+</dd>
+    <dt><code>smilesOnExpiry</code> <a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></dt>
+    <dd><p>The smile on the forward from S.</p>
+</dd>
+    <dt><code>smilesOnPayment</code> <a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></dt>
+    <dd><p>The smile on the forward from T.</p>
+</dd>
+    <dt><code>withSmile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the digitals take the smile.</p>
+</dd>
+    <dt><code>byCallSpread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether, with the smile, a digital is priced as a call spread, else with a smile
+correction.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A smile is null.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Coupons_RangeAccrualPricerByBgm_SwapletPrice_" data-uid="NanoQL.Coupons.RangeAccrualPricerByBgm.SwapletPrice*"></a>
+
+  <h3 id="NanoQL_Coupons_RangeAccrualPricerByBgm_SwapletPrice_NanoQL_Coupons_RangeAccrualPricer_State_NanoQL_EvaluationContext_" data-uid="NanoQL.Coupons.RangeAccrualPricerByBgm.SwapletPrice(NanoQL.Coupons.RangeAccrualPricer.State,NanoQL.EvaluationContext)">
+  SwapletPrice(State, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The coupon's price from its state: QuantLib's <code>swapletPrice</code> after <code>initialize</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override double SwapletPrice(RangeAccrualPricer.State state, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="NanoQL.Coupons.RangeAccrualPricer.html">RangeAccrualPricer</a>.<a class="xref" href="NanoQL.Coupons.RangeAccrualPricer.State.html">State</a></dt>
+    <dd><p>The coupon's state.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupon has no observation dates, where QuantLib's price is 0/0; or a
+digital's price is out of its bounds, with QuantLib's texts.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

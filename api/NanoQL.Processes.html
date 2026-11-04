@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace NanoQL.Processes | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace NanoQL.Processes | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Processes">
+
+  <h1 id="NanoQL_Processes" data-uid="NanoQL.Processes" class="text-break">Namespace NanoQL.Processes</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.BatesProcess.html">BatesProcess</a></dt>
+      <dd><p>The Bates process: the Heston square-root stochastic-volatility process with log-normal jumps,
+dS = (r − q − λm)S dt + √v S dW₁ + (e^J − 1)S dN, dv = κ(θ − v) dt + σ√v dW₂, dW₁dW₂ = ρ dt, N a Poisson process of
+intensity λ and J normal with mean ν and standard deviation δ, m = e^{ν + δ²/2} − 1.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.BlackProcess.html">BlackProcess</a></dt>
+      <dd><p>Black's (1976) process for a forward or futures contract, d ln S(t) = −σ(t, S)²/2 dt + σ dW_t: the generalized
+process with its risk-free curve as the dividend curve too.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.BlackScholesMertonProcess.html">BlackScholesMertonProcess</a></dt>
+      <dd><p>Merton's (1973) extension of the Black-Scholes process to a stock or stock index paying a continuous dividend
+yield, d ln S(t) = (r(t) − q(t) − σ(t, S)²/2) dt + σ dW_t.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.BlackScholesProcess.html">BlackScholesProcess</a></dt>
+      <dd><p>The Black-Scholes (1973) stochastic process, d ln S(t) = (r(t) − σ(t, S)²/2) dt + σ dW_t: the generalized process
+with no dividend yield. The interface is expressed in S; the internal calculations work on ln S.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.CoxIngersollRossProcess.html">CoxIngersollRossProcess</a></dt>
+      <dd><p>The Cox-Ingersoll-Ross process, governed by dx(t) = k(θ − x(t))dt + σ√x(t) dW(t), discretized by Leif Andersen's
+quadratic-exponential scheme (&quot;Efficient Simulation of the Heston Stochastic Volatility Model&quot;).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.EndEulerDiscretization.html">EndEulerDiscretization</a></dt>
+      <dd><p>Euler end-point discretization for stochastic processes: over a time interval Δt, the drift μ(t0 + Δt, x0) Δt, the
+diffusion σ(t0 + Δt, x0) √Δt and the covariance σ(t0 + Δt, x0) σ(t0 + Δt, x0)ᵀ Δt.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.EulerDiscretization.html">EulerDiscretization</a></dt>
+      <dd><p>Euler discretization for stochastic processes: over a time interval Δt, the drift μ(t0, x0) Δt, the diffusion
+σ(t0, x0) √Δt and the covariance σ(t0, x0) σ(t0, x0)ᵀ Δt.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.ForwardMeasureProcess.html">ForwardMeasureProcess</a></dt>
+      <dd><p>A stochastic process whose dynamics are expressed in the forward measure of a time T.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.ForwardMeasureProcess1D.html">ForwardMeasureProcess1D</a></dt>
+      <dd><p>A one-dimensional stochastic process whose dynamics are expressed in the forward measure of a time T.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.G2ForwardProcess.html">G2ForwardProcess</a></dt>
+      <dd><p>The forward G2 stochastic process: <a class="xref" href="NanoQL.Processes.G2Process.html">G2Process</a>'s in the forward measure of a time T, its state again
+shifted so that z₁ + z₂ = r(t), with the T-forward corrections to the drift and the conditional expectation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.G2Process.html">G2Process</a></dt>
+      <dd><p>The G2 stochastic process: the two-factor G2++ process with its state shifted so that the two components sum to
+the short rate, (z₁, z₂) = (x + φ(t), y), x and y the zero-mean Ornstein-Uhlenbeck factors and φ the deterministic
+offset that fits the initial curve; without a curve, the two zero-mean processes (φ ≡ 0).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.GJRGARCHProcess.html">GJRGARCHProcess</a></dt>
+      <dd><p>The GJR-GARCH(1,1) process in its continuous-time limit: dS = μS dt + √v S dW₁ and
+dv = (ω + (β + αq₂ + γq₃ − 1)v) dt + (ασ₁₂ + γσ₁₃)v dW₁ + √(α²(σ₂² − σ₁₂²) + γ²(σ₃² − σ₁₃²) + 2αγ(σ₂₃ − σ₁₂σ₁₃)) v dW₂,
+with the moments of the news shocks at the market price of risk λ, the daily parameters scaled by the days per year.
+Its state is the underlying and the annualized variance.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.GarmanKohlagenProcess.html">GarmanKohlagenProcess</a></dt>
+      <dd><p>The Garman-Kohlhagen (1983) process for an exchange rate, d ln S(t) = (r(t) − r_f(t) − σ(t, S)²/2) dt + σ dW_t:
+the generalized process with the foreign risk-free curve as the dividend curve. QuantLib's spelling of the class
+name is kept.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a></dt>
+      <dd><p>The generalized Black-Scholes stochastic process, d ln S(t) = (r(t) − q(t) − σ(t, S)²/2) dt + σ dW_t, on a
+risk-free curve, a dividend curve and a Black volatility, with its local volatility σ(t, S) derived from the Black
+one. The interface is expressed in S; the internal calculations work on ln S.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.GeometricBrownianMotionProcess.html">GeometricBrownianMotionProcess</a></dt>
+      <dd><p>The geometric Brownian-motion process, governed by dS(t, S) = μS dt + σS dW_t.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.GsrProcess.html">GsrProcess</a></dt>
+      <dd><p>The GSR model's state process, with piecewise constant volatilities and reversions, its dynamics expressed in the
+forward measure of a time T. For a derivation of the formulas, see <a href="http://ssrn.com/abstract=2246013">http://ssrn.com/abstract=2246013</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.HestonProcess.html">HestonProcess</a></dt>
+      <dd><p>The Heston square-root stochastic-volatility process: dS = μS dt + √v S dW₁, dv = κ(θ − v) dt + σ√v dW₂, with
+dW₁dW₂ = ρ dt. Its state is the underlying and the variance.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.HestonSLVProcess.html">HestonSLVProcess</a></dt>
+      <dd><p>The Heston stochastic-local volatility process: the Heston process's spot with its volatility √v scaled by a
+leverage function L(t, S), and its variance's volatility scaled by a mixing factor.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.HullWhiteForwardProcess.html">HullWhiteForwardProcess</a></dt>
+      <dd><p>The forward Hull-White stochastic process: <a class="xref" href="NanoQL.Processes.HullWhiteProcess.html">HullWhiteProcess</a>'s dynamics in the forward measure of
+a time T, the drift less B(t, T)σ² and the expectation less M_T(t₀, t₀ + Δt, T).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.HullWhiteProcess.html">HullWhiteProcess</a></dt>
+      <dd><p>The Hull-White stochastic process: the short rate r = x + α(t), x an Ornstein-Uhlenbeck process of speed a and
+volatility σ from the curve's instantaneous forward at 0, and α(t) = f(t) + ½(σ(1 − e^(−at))/a)², f the curve's
+instantaneous forward.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.HybridHestonHullWhiteProcess.html">HybridHestonHullWhiteProcess</a></dt>
+      <dd><p>The three-factor hybrid of a Heston equity and a Hull-White short rate in its forward measure: its state is the
+underlying, its variance and the short rate, the equity correlated with the short rate.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.JointStochasticProcess.html">JointStochasticProcess</a></dt>
+      <dd><p>A multi-model process for hybrid products: its constituents' states stacked, their factors correlated across models
+by a derived class's cross-model correlation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.Merton76Process.html">Merton76Process</a></dt>
+      <dd><p>The Merton-76 jump-diffusion process: a Black-Scholes-Merton diffusion with lognormal jumps at a Poisson
+intensity.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.MfStateProcess.html">MfStateProcess</a></dt>
+      <dd><p>The Markov-functional model's state process, dx = σ(t) e^{at} dW(t), with a piecewise constant volatility σ and a
+constant reversion a.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.OrnsteinUhlenbeckProcess.html">OrnsteinUhlenbeckProcess</a></dt>
+      <dd><p>The Ornstein-Uhlenbeck process, governed by dx = a (r − x_t) dt + σ dW_t.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.SquareRootProcess.html">SquareRootProcess</a></dt>
+      <dd><p>The square-root process, governed by dx = a(b − x_t) dt + σ√x_t dW_t.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.StochasticProcessArray.html">StochasticProcessArray</a></dt>
+      <dd><p>An array of correlated one-dimensional stochastic processes.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.GJRGARCHProcessDiscretization.html">GJRGARCHProcessDiscretization</a></dt>
+      <dd><p>The schemes <a class="xref" href="NanoQL.Processes.GJRGARCHProcess.html">GJRGARCHProcess</a> steps by: QuantLib's <code>GJRGARCHProcess::Discretization</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.HestonProcessDiscretization.html">HestonProcessDiscretization</a></dt>
+      <dd><p>The schemes <a class="xref" href="NanoQL.Processes.HestonProcess.html#NanoQL_Processes_HestonProcess_Evolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_">Evolve(double, Vector, double, Vector)</a> steps by: QuantLib's
+<code>HestonProcess::Discretization</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NanoQL.Processes.HybridHestonHullWhiteProcessDiscretization.html">HybridHestonHullWhiteProcessDiscretization</a></dt>
+      <dd><p>The schemes <a class="xref" href="NanoQL.Processes.HybridHestonHullWhiteProcess.html">HybridHestonHullWhiteProcess</a> steps by: QuantLib's
+<code>HybridHestonHullWhiteProcess::Discretization</code>.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

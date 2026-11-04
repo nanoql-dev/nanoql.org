@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CapFloor | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CapFloor | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The base class of cap-like instruments: caps, floors and collars on a floating leg.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Instruments.CapFloor">
+
+
+
+  <h1 id="NanoQL_Instruments_CapFloor" data-uid="NanoQL.Instruments.CapFloor" class="text-break">
+Class CapFloor  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base class of cap-like instruments: caps, floors and collars on a floating leg.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CapFloor : Instrument</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><span class="xref">CapFloor</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Instruments.Cap.html">Cap</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.Collar.html">Collar</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.Floor.html">Floor</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_SetupExpired">Instrument.SetupExpired()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_Validate">Instrument.Validate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_FetchResults_NanoQL_InstrumentResults_">Instrument.FetchResults(InstrumentResults)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Instruments_CapFloor_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The correctness of the returned value is tested by checking that the price of a cap (resp. floor) decreases (resp.
+increases) with the strike rate; the relationship between the values of caps, floors and the resulting collars is
+checked, and so is the put-call parity between the values of caps, floors and swaps; the returned implied
+volatility is tested by reproducing the target value with it, and the returned value against a known good value.
+</p>
+<p>
+Unsealed, as in QuantLib, where <a class="xref" href="NanoQL.Instruments.Cap.html">Cap</a>, <a class="xref" href="NanoQL.Instruments.Floor.html">Floor</a> and <a class="xref" href="NanoQL.Instruments.Collar.html">Collar</a> derive from it and
+engines take it. It holds its leg and its rates; an engine computes QuantLib's arguments from them with the
+context (<span class="xref">NanoQL.Instruments.CapFloor.SetupArguments(NanoQL.EvaluationContext)</span>) and returns the instrument's results, QuantLib's plain
+<code>Instrument::results</code> with the engine's additional results. A cash flow of the leg that isn't a floating-rate
+coupon is refused when the instrument is priced, as QuantLib refuses it, not when it is built. Equality is by
+reference.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Instruments_CapFloor__ctor_" data-uid="NanoQL.Instruments.CapFloor.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_CapFloor__ctor_NanoQL_Instruments_CapFloorType_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Collections_Generic_IEnumerable_System_Double__" data-uid="NanoQL.Instruments.CapFloor.#ctor(NanoQL.Instruments.CapFloorType,System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Collections.Generic.IEnumerable{System.Double})">
+  CapFloor(CapFloorType, ImmutableArray&lt;CashFlow&gt;, IEnumerable&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.CapFloor.html">CapFloor</a> class with strikes: a cap or a floor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CapFloor(CapFloorType type, ImmutableArray&lt;CashFlow&gt; floatingLeg, IEnumerable&lt;double&gt; strikes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="NanoQL.Instruments.CapFloorType.html">CapFloorType</a></dt>
+    <dd><p>The type: <a class="xref" href="NanoQL.Instruments.CapFloorType.html#NanoQL_Instruments_CapFloorType_Cap">Cap</a> or <a class="xref" href="NanoQL.Instruments.CapFloorType.html#NanoQL_Instruments_CapFloorType_Floor">Floor</a>.</p>
+</dd>
+    <dt><code>floatingLeg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The floating leg.</p>
+</dd>
+    <dt><code>strikes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The strikes, extended to the leg's length with the last one: the cap rates of a cap, the
+floor rates of a floor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The leg is <code>default</code> or holds a null cash flow, or there are no strikes.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">strikes</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">type</code> is <a class="xref" href="NanoQL.Instruments.CapFloorType.html#NanoQL_Instruments_CapFloorType_Collar">Collar</a> or
+isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_CapFloor__ctor_" data-uid="NanoQL.Instruments.CapFloor.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_CapFloor__ctor_NanoQL_Instruments_CapFloorType_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Collections_Generic_IEnumerable_System_Double__System_Collections_Generic_IEnumerable_System_Double__" data-uid="NanoQL.Instruments.CapFloor.#ctor(NanoQL.Instruments.CapFloorType,System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.Double})">
+  CapFloor(CapFloorType, ImmutableArray&lt;CashFlow&gt;, IEnumerable&lt;double&gt;, IEnumerable&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.CapFloor.html">CapFloor</a> class with cap and floor rates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CapFloor(CapFloorType type, ImmutableArray&lt;CashFlow&gt; floatingLeg, IEnumerable&lt;double&gt; capRates, IEnumerable&lt;double&gt; floorRates)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="NanoQL.Instruments.CapFloorType.html">CapFloorType</a></dt>
+    <dd><p>The type.</p>
+</dd>
+    <dt><code>floatingLeg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The floating leg.</p>
+</dd>
+    <dt><code>capRates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The cap rates, extended to the leg's length with the last one; read for a cap or a
+collar, and kept as given for a floor.</p>
+</dd>
+    <dt><code>floorRates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The floor rates, extended to the leg's length with the last one; read for a floor or a
+collar, and kept as given for a cap.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">type</code> isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The leg is <code>default</code> or holds a null cash flow, or the rates the type reads are empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A rate sequence is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Instruments_CapFloor_CapRates_" data-uid="NanoQL.Instruments.CapFloor.CapRates*"></a>
+
+  <h3 id="NanoQL_Instruments_CapFloor_CapRates" data-uid="NanoQL.Instruments.CapFloor.CapRates">
+  CapRates
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the cap rates, extended to the leg's length for a cap or a collar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; CapRates { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CapFloor_FloatingLeg_" data-uid="NanoQL.Instruments.CapFloor.FloatingLeg*"></a>
+
+  <h3 id="NanoQL_Instruments_CapFloor_FloatingLeg" data-uid="NanoQL.Instruments.CapFloor.FloatingLeg">
+  FloatingLeg
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the floating leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; FloatingLeg { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CapFloor_FloorRates_" data-uid="NanoQL.Instruments.CapFloor.FloorRates*"></a>
+
+  <h3 id="NanoQL_Instruments_CapFloor_FloorRates" data-uid="NanoQL.Instruments.CapFloor.FloorRates">
+  FloorRates
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the floor rates, extended to the leg's length for a floor or a collar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; FloorRates { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CapFloor_Type_" data-uid="NanoQL.Instruments.CapFloor.Type*"></a>
+
+  <h3 id="NanoQL_Instruments_CapFloor_Type" data-uid="NanoQL.Instruments.CapFloor.Type">
+  Type
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CapFloorType Type { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.CapFloorType.html">CapFloorType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Instruments_CapFloor_AtmRate_" data-uid="NanoQL.Instruments.CapFloor.AtmRate*"></a>
+
+  <h3 id="NanoQL_Instruments_CapFloor_AtmRate_NanoQL_TermStructures_YieldTermStructure_NanoQL_EvaluationContext_" data-uid="NanoQL.Instruments.CapFloor.AtmRate(NanoQL.TermStructures.YieldTermStructure,NanoQL.EvaluationContext)">
+  AtmRate(YieldTermStructure, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The at-the-money rate on a discount curve: the leg's at-the-money rate (<a class="xref" href="NanoQL.Coupons.CashFlows.html#NanoQL_Coupons_CashFlows_AtmRate_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_TermStructures_YieldTermStructure_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__System_Nullable_System_Double__">AtmRate(ImmutableArray&lt;CashFlow&gt;, YieldTermStructure, EvaluationContext, bool?, Date?, Date?, double?)</a>) at the
+curve's reference date, without the cash flows paid on it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AtmRate(YieldTermStructure discountCurve, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>discountCurve</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The discount curve.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context: the coupons' amounts read its fixings and forecasts.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate; 0 for an empty leg.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The leg's BPS is 0, or a coupon can't be priced.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_CapFloor_ImpliedVolatility_" data-uid="NanoQL.Instruments.CapFloor.ImpliedVolatility*"></a>
+
+  <h3 id="NanoQL_Instruments_CapFloor_ImpliedVolatility_System_Double_NanoQL_TermStructures_YieldTermStructure_System_Double_NanoQL_EvaluationContext_System_Double_System_Int32_System_Double_System_Double_NanoQL_TermStructures_VolatilityType_System_Double_" data-uid="NanoQL.Instruments.CapFloor.ImpliedVolatility(System.Double,NanoQL.TermStructures.YieldTermStructure,System.Double,NanoQL.EvaluationContext,System.Double,System.Int32,System.Double,System.Double,NanoQL.TermStructures.VolatilityType,System.Double)">
+  ImpliedVolatility(double, YieldTermStructure, double, EvaluationContext, double, int, double, double, VolatilityType, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The implied term volatility: the volatility at which an engine on a constant volatility prices the instrument
+at the given price, a Black engine for a shifted lognormal volatility and a Bachelier engine for a normal one,
+each with an Actual/365 (Fixed) volatility, solved by <a class="xref" href="NanoQL.Numerics.NewtonSafe.html">NewtonSafe</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ImpliedVolatility(double price, YieldTermStructure discountCurve, double guess, EvaluationContext context, double accuracy = 0.0001, int maxEvaluations = 100, double minVol = 1E-07, double maxVol = 4, VolatilityType type = VolatilityType.ShiftedLognormal, double displacement = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>price</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The price.</p>
+</dd>
+    <dt><code>discountCurve</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The discount curve.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's initial guess.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's accuracy.</p>
+</dd>
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The solver's maximum number of evaluations.</p>
+</dd>
+    <dt><code>minVol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The lower end of the bracket.</p>
+</dd>
+    <dt><code>maxVol</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The upper end of the bracket.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="NanoQL.TermStructures.VolatilityType.html">VolatilityType</a></dt>
+    <dd><p>The volatility type.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The shift of a shifted lognormal volatility; a normal one has none.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The implied volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_CapFloor_ImpliedVolatility_System_Double_NanoQL_TermStructures_YieldTermStructure_System_Double_NanoQL_EvaluationContext_System_Double_System_Int32_System_Double_System_Double_NanoQL_TermStructures_VolatilityType_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>As QuantLib's helper does, the arguments are computed once and the engine's body runs alone at each evaluation,
+without the instrument's checks. Each evaluation prices afresh, where QuantLib's helper reuses its last result
+while the volatility is unchanged; the volatility's reference date is the context's evaluation date.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> or <code class="paramref">discountCurve</code> is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxEvaluations</code> is negative, or
+<code class="paramref">type</code> isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The accuracy isn't positive, the bracket is empty, or the guess is outside it.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The instrument has expired, a cash flow isn't a floating-rate coupon, the price can't be bracketed, the solver
+exceeds its evaluations, or the engine fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_CapFloor_IsExpired_" data-uid="NanoQL.Instruments.CapFloor.IsExpired*"></a>
+
+  <h3 id="NanoQL_Instruments_CapFloor_IsExpired_NanoQL_EvaluationContext_" data-uid="NanoQL.Instruments.CapFloor.IsExpired(NanoQL.EvaluationContext)">
+  IsExpired(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether every cash flow of the leg has occurred, an empty leg among them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsExpired(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the instrument has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_CapFloor_LastFloatingRateCoupon_" data-uid="NanoQL.Instruments.CapFloor.LastFloatingRateCoupon*"></a>
+
+  <h3 id="NanoQL_Instruments_CapFloor_LastFloatingRateCoupon" data-uid="NanoQL.Instruments.CapFloor.LastFloatingRateCoupon">
+  LastFloatingRateCoupon()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The leg's last cash flow as a floating-rate coupon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FloatingRateCoupon? LastFloatingRateCoupon()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Coupons.FloatingRateCoupon.html">FloatingRateCoupon</a></dt>
+    <dd><p>The coupon, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when the last cash flow isn't a floating-rate coupon.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The leg is empty, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_CapFloor_MaturityDate_" data-uid="NanoQL.Instruments.CapFloor.MaturityDate*"></a>
+
+  <h3 id="NanoQL_Instruments_CapFloor_MaturityDate" data-uid="NanoQL.Instruments.CapFloor.MaturityDate">
+  MaturityDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The latest accrual end date of the leg's coupons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date MaturityDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The maturity date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The leg is empty.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_CapFloor_Optionlet_" data-uid="NanoQL.Instruments.CapFloor.Optionlet*"></a>
+
+  <h3 id="NanoQL_Instruments_CapFloor_Optionlet_System_Int32_" data-uid="NanoQL.Instruments.CapFloor.Optionlet(System.Int32)">
+  Optionlet(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <code class="paramref">i</code>-th optionlet, a new <a class="xref" href="NanoQL.Instruments.CapFloor.html">CapFloor</a> of the same type on that cash flow alone, with
+its cap and floor rates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CapFloor Optionlet(int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The optionlet's index, from 0.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.CapFloor.html">CapFloor</a></dt>
+    <dd><p>The optionlet.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">i</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The leg has no cash flow at <code class="paramref">i</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_CapFloor_StartDate_" data-uid="NanoQL.Instruments.CapFloor.StartDate*"></a>
+
+  <h3 id="NanoQL_Instruments_CapFloor_StartDate" data-uid="NanoQL.Instruments.CapFloor.StartDate">
+  StartDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The earliest accrual start date of the leg's coupons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date StartDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The start date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The leg is empty.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

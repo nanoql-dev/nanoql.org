@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class IborIndexRecord | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class IborIndexRecord | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An Ibor index (IborIndex): one of QuantLib&#39;s presets by its class (Euribor6M, DailyTenorUSDLibor, BMAIndex), usually its family at a tenor, or a user&#39;s own: an , a  or a  by its .">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Extensions.Conventions.IborIndexRecord">
+
+
+
+  <h1 id="NanoQL_Extensions_Conventions_IborIndexRecord" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord" class="text-break">
+Class IborIndexRecord  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<span class="xref">Extensions</span>.<a class="xref" href="NanoQL.Extensions.Conventions.html">Conventions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.Extensions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An Ibor index (<code>IborIndex</code>): one of QuantLib's presets by its class (<code>Euribor6M</code>,
+<code>DailyTenorUSDLibor</code>, <code>BMAIndex</code>), usually its family at a tenor, or a user's own: an
+<a class="xref" href="NanoQL.Indexes.IborIndex.html">IborIndex</a>, a <a class="xref" href="NanoQL.Indexes.Libor.html">Libor</a> or a <a class="xref" href="NanoQL.Indexes.CustomIborIndex.html">CustomIborIndex</a>
+by its <a class="xref" href="NanoQL.Extensions.Conventions.IborIndexRecord.html#NanoQL_Extensions_Conventions_IborIndexRecord_Style">Style</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record IborIndexRecord : ConventionRecord, IEquatable&lt;ConventionRecord&gt;, IEquatable&lt;IborIndexRecord&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Extensions.Conventions.ConventionRecord.html">ConventionRecord</a></div>
+      <div><span class="xref">IborIndexRecord</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Extensions.Conventions.ConventionRecord.html">ConventionRecord</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Extensions.Conventions.IborIndexRecord.html">IborIndexRecord</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Extensions.Conventions.ConventionRecord.html#NanoQL_Extensions_Conventions_ConventionRecord_Name">ConventionRecord.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Extensions.Conventions.ConventionRecord.html#NanoQL_Extensions_Conventions_ConventionRecord_Base">ConventionRecord.Base</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Extensions.Conventions.ConventionRecord.html#NanoQL_Extensions_Conventions_ConventionRecord_Foreign">ConventionRecord.Foreign</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord__ctor_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.#ctor*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord__ctor_System_String_System_String_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.#ctor(System.String,System.String)">
+  IborIndexRecord(string, string?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Extensions.Conventions.IborIndexRecord.html">IborIndexRecord</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborIndexRecord(string name, string? @base = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record's name: a preset's class name, or a user's own.</p>
+</dd>
+    <dt><code>base</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The record it is based on, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_Convention_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Convention*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_Convention" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Convention">
+  Convention
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the business-day convention, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to take the base's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BusinessDayConvention? Convention { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_Currency_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Currency*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_Currency" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Currency">
+  Currency
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the currency's code, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to take the base's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Currency { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_DayCounter_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.DayCounter*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_DayCounter" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.DayCounter">
+  DayCounter
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the day counter's name, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to take the base's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? DayCounter { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_EndOfMonth_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.EndOfMonth*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_EndOfMonth" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.EndOfMonth">
+  EndOfMonth
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the end-of-month rule applies, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to take the base's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? EndOfMonth { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_EqualityContract_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.EqualityContract*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_EqualityContract" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.EqualityContract">
+  EqualityContract
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Type EqualityContract { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_Family_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Family*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_Family" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Family">
+  Family
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the family name the index reports (QuantLib's <code>familyName</code>), or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to take the base's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Family { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_FinancialCenterCalendar_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.FinancialCenterCalendar*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_FinancialCenterCalendar" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.FinancialCenterCalendar">
+  FinancialCenterCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a Libor's financial-centre calendar's name, which London's joins, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to take the base's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? FinancialCenterCalendar { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_FixingCalendar_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.FixingCalendar*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_FixingCalendar" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.FixingCalendar">
+  FixingCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixing calendar's name, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to take the base's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? FixingCalendar { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_FixingDays_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.FixingDays*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_FixingDays" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.FixingDays">
+  FixingDays
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixing days, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to take the base's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? FixingDays { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_MaturityCalendar_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.MaturityCalendar*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_MaturityCalendar" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.MaturityCalendar">
+  MaturityCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a custom index's maturity calendar's name, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to take the base's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? MaturityCalendar { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_Style_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Style*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_Style" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Style">
+  Style
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a user's own index's class, or the base's, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to take the base's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IborIndexStyle? Style { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.IborIndexStyle.html">IborIndexStyle</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_Tenor_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Tenor*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_Tenor" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Tenor">
+  Tenor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the tenor, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to take the base's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Period? Tenor { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Period.html">Period</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_ValueCalendar_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.ValueCalendar*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_ValueCalendar" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.ValueCalendar">
+  ValueCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a custom index's value calendar's name, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to take the base's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ValueCalendar { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_Equals_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Equals*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_Equals_NanoQL_Extensions_Conventions_ConventionRecord_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Equals(NanoQL.Extensions.Conventions.ConventionRecord)">
+  Equals(ConventionRecord?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override sealed bool Equals(ConventionRecord? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Extensions.Conventions.ConventionRecord.html">ConventionRecord</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_Equals_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Equals*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_Equals_NanoQL_Extensions_Conventions_IborIndexRecord_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Equals(NanoQL.Extensions.Conventions.IborIndexRecord)">
+  Equals(IborIndexRecord?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(IborIndexRecord? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Extensions.Conventions.IborIndexRecord.html">IborIndexRecord</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_Equals_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Equals*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_Equals_System_Object_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_GetHashCode_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_GetHashCode" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_PrintMembers_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.PrintMembers*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_PrintMembers_System_Text_StringBuilder_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.PrintMembers(System.Text.StringBuilder)">
+  PrintMembers(StringBuilder)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool PrintMembers(StringBuilder builder)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_ToString_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.ToString*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_ToString" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_op_Equality_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.op_Equality*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_op_Equality_NanoQL_Extensions_Conventions_IborIndexRecord_NanoQL_Extensions_Conventions_IborIndexRecord_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.op_Equality(NanoQL.Extensions.Conventions.IborIndexRecord,NanoQL.Extensions.Conventions.IborIndexRecord)">
+  operator ==(IborIndexRecord?, IborIndexRecord?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(IborIndexRecord? left, IborIndexRecord? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Extensions.Conventions.IborIndexRecord.html">IborIndexRecord</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Extensions.Conventions.IborIndexRecord.html">IborIndexRecord</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_IborIndexRecord_op_Inequality_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.op_Inequality*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_IborIndexRecord_op_Inequality_NanoQL_Extensions_Conventions_IborIndexRecord_NanoQL_Extensions_Conventions_IborIndexRecord_" data-uid="NanoQL.Extensions.Conventions.IborIndexRecord.op_Inequality(NanoQL.Extensions.Conventions.IborIndexRecord,NanoQL.Extensions.Conventions.IborIndexRecord)">
+  operator !=(IborIndexRecord?, IborIndexRecord?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(IborIndexRecord? left, IborIndexRecord? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Extensions.Conventions.IborIndexRecord.html">IborIndexRecord</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Extensions.Conventions.IborIndexRecord.html">IborIndexRecord</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

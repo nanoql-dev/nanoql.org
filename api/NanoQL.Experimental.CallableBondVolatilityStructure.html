@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CallableBondVolatilityStructure | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CallableBondVolatilityStructure | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The callable-bond volatility structure base class: forward yield volatilities by option time and bond length, or by option date or tenor and bond tenor, and their smile sections.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.CallableBondVolatilityStructure">
+
+
+
+  <h1 id="NanoQL_Experimental_CallableBondVolatilityStructure" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure" class="text-break">
+Class CallableBondVolatilityStructure  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The callable-bond volatility structure base class: forward yield volatilities by option time and bond length, or by
+option date or tenor and bond tenor, and their smile sections.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public abstract class CallableBondVolatilityStructure : TermStructure</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><a class="xref" href="NanoQL.TermStructure.html">TermStructure</a></div>
+      <div><span class="xref">CallableBondVolatilityStructure</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.CallableBondConstantVolatility.html">CallableBondConstantVolatility</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_TimeFromReference_NanoQL_Time_Date_">TermStructure.TimeFromReference(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_CheckRange_NanoQL_Time_Date_System_Boolean_">TermStructure.CheckRange(Date, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_CheckRange_System_Double_System_Boolean_">TermStructure.CheckRange(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_ReferenceDate">TermStructure.ReferenceDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_DayCounter">TermStructure.DayCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_Calendar">TermStructure.Calendar</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_SettlementDays">TermStructure.SettlementDays</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_MaxDate">TermStructure.MaxDate</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.TermStructure.html#NanoQL_TermStructure_MaxTime">TermStructure.MaxTime</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_Experimental_CallableBondVolatilityStructure_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An option is given by its time, its date or its tenor from the reference date, the bond by its length in years or
+its tenor. A tenor's option date is the reference date advanced on the structure's calendar by its business-day
+convention; QuantLib's empty calendar, the default, can't advance by days and refuses that with "no calendar
+implementation provided".
+</p>
+<p>
+A structure whose reference date moves with the evaluation date is built by a derived class's factory taking the
+context, which gives this base the reference date and the settlement days. An extension point, as QuantLib's
+abstract class is: the constant volatility derives from it.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure__ctor_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure__ctor_NanoQL_Time_Date_NanoQL_Time_Calendar_NanoQL_Time_DayCounter_NanoQL_Time_BusinessDayConvention_System_Nullable_System_Int32__" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.#ctor(NanoQL.Time.Date,NanoQL.Time.Calendar,NanoQL.Time.DayCounter,NanoQL.Time.BusinessDayConvention,System.Nullable{System.Int32})">
+  CallableBondVolatilityStructure(Date, Calendar?, DayCounter, BusinessDayConvention, int?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.CallableBondVolatilityStructure.html">CallableBondVolatilityStructure</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected CallableBondVolatilityStructure(Date referenceDate, Calendar? calendar, DayCounter dc, BusinessDayConvention bdc = BusinessDayConvention.Following, int? settlementDays = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>referenceDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The reference date.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The calendar of the option dates, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty calendar.</p>
+</dd>
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter.</p>
+</dd>
+    <dt><code>bdc</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The convention adjusting option dates computed from tenors.</p>
+</dd>
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The settlement days the reference date was calculated with, if any.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">dc</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">bdc</code> isn't a member of its enum, or <code class="paramref">settlementDays</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">referenceDate</code> is <code>default(Date)</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_BusinessDayConvention_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.BusinessDayConvention*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_BusinessDayConvention" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.BusinessDayConvention">
+  BusinessDayConvention
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the business-day convention used for the option dates computed from tenors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual BusinessDayConvention BusinessDayConvention { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_MaxBondTenor_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.MaxBondTenor*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_MaxBondTenor" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.MaxBondTenor">
+  MaxBondTenor
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the largest bond tenor for which the structure returns volatilities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Period MaxBondTenor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_BlackVariance_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.BlackVariance*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_BlackVariance_NanoQL_Time_Date_NanoQL_Time_Period_System_Double_System_Boolean_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.BlackVariance(NanoQL.Time.Date,NanoQL.Time.Period,System.Double,System.Boolean)">
+  BlackVariance(Date, Period, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Black variance for an option date, a bond tenor and a strike: the volatility squared times the option time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BlackVariance(Date optionDate, Period bondTenor, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The option date.</p>
+</dd>
+    <dt><code>bondTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The bond tenor.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate outside the structure's range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">optionDate</code> is <code>default(Date)</code>, or the bond tenor ends on or before the option date.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date, the tenor or the strike is outside the structure's domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_BlackVariance_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.BlackVariance*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_BlackVariance_NanoQL_Time_Period_NanoQL_Time_Period_System_Double_System_Boolean_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.BlackVariance(NanoQL.Time.Period,NanoQL.Time.Period,System.Double,System.Boolean)">
+  BlackVariance(Period, Period, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Black variance for an option tenor, a bond tenor and a strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BlackVariance(Period optionTenor, Period bondTenor, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The option tenor, from the reference date.</p>
+</dd>
+    <dt><code>bondTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The bond tenor.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate outside the structure's range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The bond tenor ends on or before the option date.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The option date can't be computed on the calendar, or the date, the tenor or the strike is outside the
+structure's domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_BlackVariance_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.BlackVariance*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_BlackVariance_System_Double_System_Double_System_Double_System_Boolean_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.BlackVariance(System.Double,System.Double,System.Double,System.Boolean)">
+  BlackVariance(double, double, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Black variance for an option time, a bond length and a strike: the volatility squared times the time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BlackVariance(double optionTime, double bondLength, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option time, from the reference date.</p>
+</dd>
+    <dt><code>bondLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bond length, in years.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate outside the structure's range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The time, the length or the strike is outside the structure's domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_CheckRange_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.CheckRange*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_CheckRange_NanoQL_Time_Date_NanoQL_Time_Period_System_Double_System_Boolean_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.CheckRange(NanoQL.Time.Date,NanoQL.Time.Period,System.Double,System.Boolean)">
+  CheckRange(Date, Period, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks an option date, a bond tenor and a strike against the structure's domain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void CheckRange(Date optionDate, Period bondTenor, double k, bool extrapolate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The option date.</p>
+</dd>
+    <dt><code>bondTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The bond tenor.</p>
+</dd>
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this call extrapolates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A value is outside the domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_CheckRange_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.CheckRange*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_CheckRange_System_Double_System_Double_System_Double_System_Boolean_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.CheckRange(System.Double,System.Double,System.Double,System.Boolean)">
+  CheckRange(double, double, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks an option time, a bond length and a strike against the structure's domain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void CheckRange(double optionTime, double bondLength, double k, bool extrapolate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option time.</p>
+</dd>
+    <dt><code>bondLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bond length, in years.</p>
+</dd>
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this call extrapolates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A value is outside the domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_ConvertDates_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.ConvertDates*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_ConvertDates_NanoQL_Time_Date_NanoQL_Time_Period_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.ConvertDates(NanoQL.Time.Date,NanoQL.Time.Period)">
+  ConvertDates(Date, Period)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The conversion of an option date and a bond tenor into the option time and the bond length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual (double OptionTime, double BondLength) ConvertDates(Date optionDate, Period bondTenor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The option date.</p>
+</dd>
+    <dt><code>bondTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The bond tenor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.double,system.double-.npv">Npv</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.double,system.double-.bps">Bps</a>)</dt>
+    <dd><p>The option time, from the reference date, and the bond length, in years, on the day counter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">optionDate</code> is <code>default(Date)</code>, or the bond tenor ends on or before the option date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_MaxBondLength_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.MaxBondLength*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_MaxBondLength" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.MaxBondLength">
+  MaxBondLength()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The largest bond length for which the structure returns volatilities: by default, the maximum bond tenor's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual double MaxBondLength()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The length, in years.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_MaxStrike_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.MaxStrike*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_MaxStrike" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.MaxStrike">
+  MaxStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum strike for which the structure returns volatilities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double MaxStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_MinStrike_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.MinStrike*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_MinStrike" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.MinStrike">
+  MinStrike()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The minimum strike for which the structure returns volatilities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract double MinStrike()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_OptionDateFromTenor_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.OptionDateFromTenor*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_OptionDateFromTenor_NanoQL_Time_Period_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.OptionDateFromTenor(NanoQL.Time.Period)">
+  OptionDateFromTenor(Period)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The option date of a tenor: the reference date advanced by it on the calendar, by the business-day convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date OptionDateFromTenor(Period optionTenor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The option tenor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The option date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date can't be computed on QuantLib's empty calendar.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_SmileSection_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.SmileSection*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_SmileSection_NanoQL_Time_Date_NanoQL_Time_Period_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.SmileSection(NanoQL.Time.Date,NanoQL.Time.Period)">
+  SmileSection(Date, Period)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The smile section for an option date and a bond tenor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SmileSection SmileSection(Date optionDate, Period bondTenor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The option date.</p>
+</dd>
+    <dt><code>bondTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The bond tenor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></dt>
+    <dd><p>The smile section.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">optionDate</code> is <code>default(Date)</code>, or the bond tenor ends on or before the option date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_SmileSection_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.SmileSection*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_SmileSection_NanoQL_Time_Period_NanoQL_Time_Period_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.SmileSection(NanoQL.Time.Period,NanoQL.Time.Period)">
+  SmileSection(Period, Period)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The smile section for an option tenor and a bond tenor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SmileSection SmileSection(Period optionTenor, Period bondTenor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The option tenor, from the reference date.</p>
+</dd>
+    <dt><code>bondTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The bond tenor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></dt>
+    <dd><p>The smile section.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The bond tenor ends on or before the option date.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The option date can't be computed on the calendar.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_SmileSectionImpl_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.SmileSectionImpl*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_SmileSectionImpl_System_Double_System_Double_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.SmileSectionImpl(System.Double,System.Double)">
+  SmileSectionImpl(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The smile section for an option time and a bond length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract SmileSection SmileSectionImpl(double optionTime, double bondLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option time.</p>
+</dd>
+    <dt><code>bondLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bond length, in years.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.SmileSection.html">SmileSection</a></dt>
+    <dd><p>The smile section.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_Volatility_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.Volatility*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_Volatility_NanoQL_Time_Date_NanoQL_Time_Period_System_Double_System_Boolean_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.Volatility(NanoQL.Time.Date,NanoQL.Time.Period,System.Double,System.Boolean)">
+  Volatility(Date, Period, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility for an option date, a bond tenor and a strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Volatility(Date optionDate, Period bondTenor, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The option date.</p>
+</dd>
+    <dt><code>bondTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The bond tenor.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate outside the structure's range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">optionDate</code> is <code>default(Date)</code>, or the bond tenor ends on or before the option date.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The date, the tenor or the strike is outside the structure's domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_Volatility_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.Volatility*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_Volatility_NanoQL_Time_Period_NanoQL_Time_Period_System_Double_System_Boolean_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.Volatility(NanoQL.Time.Period,NanoQL.Time.Period,System.Double,System.Boolean)">
+  Volatility(Period, Period, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility for an option tenor, a bond tenor and a strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Volatility(Period optionTenor, Period bondTenor, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The option tenor, from the reference date.</p>
+</dd>
+    <dt><code>bondTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The bond tenor.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate outside the structure's range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The bond tenor ends on or before the option date.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The option date can't be computed on the calendar, or the date, the tenor or the strike is outside the
+structure's domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_Volatility_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.Volatility*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_Volatility_System_Double_System_Double_System_Double_System_Boolean_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.Volatility(System.Double,System.Double,System.Double,System.Boolean)">
+  Volatility(double, double, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility for an option time, a bond length and a strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Volatility(double optionTime, double bondLength, double strike, bool extrapolate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option time, from the reference date.</p>
+</dd>
+    <dt><code>bondLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bond length, in years.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>extrapolate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to extrapolate outside the structure's range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The time, the length or the strike is outside the structure's domain.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_VolatilityImpl_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.VolatilityImpl*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_VolatilityImpl_NanoQL_Time_Date_NanoQL_Time_Period_System_Double_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.VolatilityImpl(NanoQL.Time.Date,NanoQL.Time.Period,System.Double)">
+  VolatilityImpl(Date, Period, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility for an option date, a bond tenor and a strike, past the range checks: by default, by time and
+length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual double VolatilityImpl(Date optionDate, Period bondTenor, double strike)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The option date.</p>
+</dd>
+    <dt><code>bondTenor</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The bond tenor.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_CallableBondVolatilityStructure_VolatilityImpl_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.VolatilityImpl*"></a>
+
+  <h3 id="NanoQL_Experimental_CallableBondVolatilityStructure_VolatilityImpl_System_Double_System_Double_System_Double_" data-uid="NanoQL.Experimental.CallableBondVolatilityStructure.VolatilityImpl(System.Double,System.Double,System.Double)">
+  VolatilityImpl(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The volatility for an option time, a bond length and a strike, past the range checks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract double VolatilityImpl(double optionTime, double bondLength, double strike)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The option time.</p>
+</dd>
+    <dt><code>bondLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bond length, in years.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

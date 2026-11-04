@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class BaseCorrelationLossModel&lt;TBaseModel, TInterpolator, TInitTraits&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BaseCorrelationLossModel&lt;TBaseModel, TInterpolator, TInitTraits&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The base correlation loss model, its interpolation by the portfolio&#39;s (live) amount percentage: the tranche&#39;s expected loss is the difference of two equity tranches&#39; to its attachment and detachment, each priced by a base model at the correlation the surface gives at its level.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.BaseCorrelationLossModel`3">
+
+
+
+  <h1 id="NanoQL_Experimental_BaseCorrelationLossModel_3" data-uid="NanoQL.Experimental.BaseCorrelationLossModel`3" class="text-break">
+Class BaseCorrelationLossModel&lt;TBaseModel, TInterpolator, TInitTraits&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base correlation loss model, its interpolation by the portfolio's (live) amount percentage: the tranche's
+expected loss is the difference of two equity tranches' to its attachment and detachment, each priced by a base
+model at the correlation the surface gives at its level.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public class BaseCorrelationLossModel&lt;TBaseModel, TInterpolator, TInitTraits&gt; : DefaultLossModel, IDefaultLossModel where TBaseModel : IBaseCorrelationModel&lt;TInitTraits&gt; where TInterpolator : struct, IInterpolator2D where TInitTraits : struct</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TBaseModel</code></dt>
+    <dd><p>The base model, built per correlation.</p>
+</dd>
+    <dt><code>TInterpolator</code></dt>
+    <dd><p>The surface's 2-D interpolator.</p>
+</dd>
+    <dt><code>TInitTraits</code></dt>
+    <dd><p>The base model's copula initialization parameters.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.DefaultLossModel.html">DefaultLossModel</a></div>
+      <div><span class="xref">BaseCorrelationLossModel&lt;TBaseModel, TInterpolator, TInitTraits&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.IDefaultLossModel.html">IDefaultLossModel</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.GaussianLHPFlatBCLM.html">GaussianLHPFlatBCLM</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_SetBasket_NanoQL_Experimental_Basket_">DefaultLossModel.SetBasket(Basket)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ProbOverLoss_NanoQL_Time_Date_System_Double_">DefaultLossModel.ProbOverLoss(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_Percentile_NanoQL_Time_Date_System_Double_">DefaultLossModel.Percentile(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ExpectedShortfall_NanoQL_Time_Date_System_Double_">DefaultLossModel.ExpectedShortfall(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_SplitVaRLevel_NanoQL_Time_Date_System_Double_">DefaultLossModel.SplitVaRLevel(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_SplitESFLevel_NanoQL_Time_Date_System_Double_">DefaultLossModel.SplitESFLevel(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_LossDistribution_NanoQL_Time_Date_">DefaultLossModel.LossDistribution(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_DensityTrancheLoss_NanoQL_Time_Date_System_Double_">DefaultLossModel.DensityTrancheLoss(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ProbsBeingNthEvent_System_Int32_NanoQL_Time_Date_">DefaultLossModel.ProbsBeingNthEvent(int, Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_DefaultCorrelation_NanoQL_Time_Date_System_Int32_System_Int32_">DefaultLossModel.DefaultCorrelation(Date, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ProbAtLeastNEvents_System_Int32_NanoQL_Time_Date_">DefaultLossModel.ProbAtLeastNEvents(int, Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ExpectedRecovery_NanoQL_Time_Date_System_Int32_NanoQL_Experimental_DefaultProbKey_">DefaultLossModel.ExpectedRecovery(Date, int, DefaultProbKey)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_Basket">DefaultLossModel.Basket</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_BoundBasket">DefaultLossModel.BoundBasket</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_BaseCorrelationLossModel_3_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The literature is immense; beyond the introductory level (precrisis) see chapters 19, 20 and 21 of Dominic O'Kane,
+"Modelling single name and multi-name credit derivatives", Wiley Finance, 2008. Freely available: "Credit
+Correlation: A Guide", JP Morgan Credit Derivatives Strategy, 12 March 2004; "Introducing Base Correlations", JP
+Morgan, 22 March 2004; "A Relative Value Framework for Credit Correlation", JP Morgan, 27 April 2004; "Valuing and
+Hedging Synthetic CDO Tranches Using Base Correlations", Bear Stearns, 17 May 2004; "Correlation Primer", Nomura Fixed
+Income Research, 6 August 2004; "Base Correlation Explained", Lehman Brothers Fixed Income Quantitative Credit
+Research, 15 November 2004; "Pricing CDOs with a smile", Societe Generale Credit Research, February 2005; and for
+bespoke base correlation "Base Correlation Mapping", Lehman Brothers' Quantitative Credit Research Quarterly, Volume
+2007-Q1. Typical postcrisis data is in JP Morgan's Global Correlation Daily Analytics.
+</p>
+<p>
+The crisis problems, pricing stressed portfolios or tranches over the maximum loss, are the base models'
+responsibility: users select a base model accordingly, a copula or a random loss given default one. This is not a
+bespoke base correlation model (bespoke as to the basket's composition, not just its attachment levels), whose loss
+interpolation is on the expected loss to match the two baskets: the surface should refer to the basket priced. To
+be done, as in QuantLib: bespoke portfolio models. Most statistics are not implemented, not impossible, but the
+model is intended for pricing rather than portfolio risk management.
+</p>
+<p>
+The base models are QuantLib's four <code>setupModels</code> specialisations, each a type implementing
+<a class="xref" href="NanoQL.Experimental.IBaseCorrelationModel-1.html">IBaseCorrelationModel&lt;TInitTraits&gt;</a>, and immutable: each statistic builds the two at its correlations,
+where QuantLib's sets the correlation quotes they observe. Bound to a basket with realized defaults, the equity
+baskets hold the live names, their notionals and recoveries, over the restated tranche: QuantLib's take the live
+notionals on the whole pool, which its basket refuses ("unmatched data entry sizes in basket";
+<code>Divergences/BaseCorrelationLossModelTests.cs</code>). A correlation the surface gives outside [0, 1) is refused,
+naming the date and level, where QuantLib's base model returns NaN below 0 and refuses above 1. An equity tranche's
+attachment leg is 0, its basket [0, 0] not priced: QuantLib's prices it, so its LHP base refuses where the surface
+extrapolates below 0 at level 0 and its inhomogeneous pool base throws on every equity tranche ("a out of range",
+its own <code>\todo</code>: "is failing for equity tranches at least").
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_BaseCorrelationLossModel_3__ctor_" data-uid="NanoQL.Experimental.BaseCorrelationLossModel`3.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_BaseCorrelationLossModel_3__ctor_NanoQL_Experimental_BaseCorrelationTermStructure__1__System_Collections_Generic_IReadOnlyList_System_Double___2_" data-uid="NanoQL.Experimental.BaseCorrelationLossModel`3.#ctor(NanoQL.Experimental.BaseCorrelationTermStructure{`1},System.Collections.Generic.IReadOnlyList{System.Double},`2)">
+  BaseCorrelationLossModel(BaseCorrelationTermStructure&lt;TInterpolator&gt;, IReadOnlyList&lt;double&gt;, TInitTraits)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the
+<a class="xref" href="NanoQL.Experimental.BaseCorrelationLossModel-3.html">BaseCorrelationLossModel&lt;TBaseModel, TInterpolator, TInitTraits&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BaseCorrelationLossModel(BaseCorrelationTermStructure&lt;TInterpolator&gt; correlTS, IReadOnlyList&lt;double&gt; recoveries, TInitTraits traits = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>correlTS</code> <a class="xref" href="NanoQL.Experimental.BaseCorrelationTermStructure-1.html">BaseCorrelationTermStructure</a>&lt;TInterpolator&gt;</dt>
+    <dd><p>The base correlation surface.</p>
+</dd>
+    <dt><code>recoveries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The names' recoveries.</p>
+</dd>
+    <dt><code>traits</code> <span class="xref">TInitTraits</span></dt>
+    <dd><p>The base models' copula initialization parameters.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">correlTS</code> or <code class="paramref">recoveries</code> is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_BaseCorrelationLossModel_3_ExpectedTrancheLoss_" data-uid="NanoQL.Experimental.BaseCorrelationLossModel`3.ExpectedTrancheLoss*"></a>
+
+  <h3 id="NanoQL_Experimental_BaseCorrelationLossModel_3_ExpectedTrancheLoss_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.BaseCorrelationLossModel`3.ExpectedTrancheLoss(NanoQL.Time.Date)">
+  ExpectedTrancheLoss(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expected tranche loss by a date: the detachment's equity tranche's less the attachment's, on the
+live part of the basket.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double ExpectedTrancheLoss(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The loss, an amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model isn't bound to a basket; the surface gives a correlation outside
+[0, 1) at the date and either level; or a base model refuses.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_BaseCorrelationLossModel_3_ResetModel_" data-uid="NanoQL.Experimental.BaseCorrelationLossModel`3.ResetModel*"></a>
+
+  <h3 id="NanoQL_Experimental_BaseCorrelationLossModel_3_ResetModel" data-uid="NanoQL.Experimental.BaseCorrelationLossModel`3.ResetModel">
+  ResetModel()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The model's per-basket precomputation, run once on the bound copy: QuantLib's <code>resetModel</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void ResetModel()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_BaseCorrelationLossModel_3_RestrictTo_" data-uid="NanoQL.Experimental.BaseCorrelationLossModel`3.RestrictTo*"></a>
+
+  <h3 id="NanoQL_Experimental_BaseCorrelationLossModel_3_RestrictTo_System_Collections_Immutable_ImmutableArray_System_Int32__System_Int32_" data-uid="NanoQL.Experimental.BaseCorrelationLossModel`3.RestrictTo(System.Collections.Immutable.ImmutableArray{System.Int32},System.Int32)">
+  RestrictTo(ImmutableArray&lt;int&gt;, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restricts the copy being bound to a basket's live names, in pool order, before <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ResetModel">ResetModel()</a>: a
+model holding a latent model or per-name data restricts it to their rows. By default, nothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void RestrictTo(ImmutableArray&lt;int&gt; rows, int poolSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The live names' positions in the basket's pool.</p>
+</dd>
+    <dt><code>poolSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The basket's number of names; <code class="paramref">rows</code> holds all of them where no name
+has defaulted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The recoveries are fewer than the basket's names.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Pricing a USD SOFR swap to match the market | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Pricing a USD SOFR swap to match the market | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="pricing-a-usd-sofr-swap-to-match-the-market">Pricing a USD SOFR swap to match the market</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>QuantLib's <code>MakeOIS</code> builds an overnight swap from an index and a tenor, taking a default for every option it isn't
+given. For USD SOFR most of its defaults are already the market's. This example sets the market's conventions in XML,
+adds them one at a time, and shows what each changes in the price.</p>
+<p>The quotes are illustrative, made up for the example. The conventions are the market's, as the CFTC describes USD SOFR
+OIS for its trade execution requirement (Release 8745-23, 2023).</p>
+<h2 id="the-markets-convention">The market's convention</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>The market</th>
+<th>QuantLib's <code>MakeOIS</code> defaults</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start</td>
+<td>spot, two New York business days after the trade</td>
+<td>two days on SOFR's fixing calendar</td>
+</tr>
+<tr>
+<td>Both legs</td>
+<td>annual, Actual/360</td>
+<td>annual, Actual/360</td>
+</tr>
+<tr>
+<td>Business days</td>
+<td>New York's</td>
+<td>SOFR's fixing calendar, the US government securities market's</td>
+</tr>
+<tr>
+<td>Payment</td>
+<td>two business days after each period ends</td>
+<td>at the period's end</td>
+</tr>
+<tr>
+<td>SOFR fixings</td>
+<td>on the US government securities calendar</td>
+<td>the same</td>
+</tr>
+</tbody>
+</table>
+<p>So the defaults already match the market's frequency, day count and spot lag. Two things differ: the payment lag, and
+the calendar. New York's business days are the Federal Reserve's, and the government securities calendar closes on
+days the Federal Reserve doesn't, Good Friday among them.</p>
+<p>The conventions file holds the market's convention, <code>USD-SOFR</code>, and the two steps toward it from the defaults:</p>
+<pre><code class="lang-xml">&lt;!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+--&gt;
+&lt;!--
+  USD SOFR OIS as the CFTC's 2023 trade execution table specifies it: spot (T+2), both legs annual on ACT/360, New York
+  business days (USNY), paid two days after each period ends; SOFR fixed on the US government securities calendar.
+  USNY maps New York's banking days to the Federal Reserve's calendar. &quot;Lag&quot; and &quot;LagAndCalendars&quot; are the steps from
+  QuantLib's MakeOIS defaults toward the market's convention; &quot;USD-SOFR-Dated&quot; is the market's convention without its
+  settlement days, for a swap given its own start date.
+--&gt;
+&lt;Conventions xmlns=&quot;https://nanoql.org/schemas/conventions&quot;&gt;
+  &lt;Alias name=&quot;USNY&quot; base=&quot;UnitedStates.FederalReserve&quot; /&gt;
+  &lt;OisConvention name=&quot;USD-SOFR&quot;&gt;
+    &lt;Index&gt;Sofr&lt;/Index&gt;
+    &lt;SettlementDays&gt;2&lt;/SettlementDays&gt;
+    &lt;SettlementCalendar&gt;USNY&lt;/SettlementCalendar&gt;
+    &lt;PaymentLag&gt;2&lt;/PaymentLag&gt;
+    &lt;PaymentFrequency&gt;Annual&lt;/PaymentFrequency&gt;
+    &lt;PaymentCalendar&gt;USNY&lt;/PaymentCalendar&gt;
+    &lt;FixedLegCalendar&gt;USNY&lt;/FixedLegCalendar&gt;
+    &lt;FixedLegDayCounter&gt;ACT/360&lt;/FixedLegDayCounter&gt;
+    &lt;OvernightLegCalendar&gt;USNY&lt;/OvernightLegCalendar&gt;
+  &lt;/OisConvention&gt;
+  &lt;OisConvention name=&quot;Lag&quot;&gt;
+    &lt;Index&gt;Sofr&lt;/Index&gt;
+    &lt;PaymentLag&gt;2&lt;/PaymentLag&gt;
+  &lt;/OisConvention&gt;
+  &lt;OisConvention name=&quot;LagAndCalendars&quot;&gt;
+    &lt;Index&gt;Sofr&lt;/Index&gt;
+    &lt;SettlementCalendar&gt;USNY&lt;/SettlementCalendar&gt;
+    &lt;PaymentLag&gt;2&lt;/PaymentLag&gt;
+    &lt;PaymentCalendar&gt;USNY&lt;/PaymentCalendar&gt;
+    &lt;FixedLegCalendar&gt;USNY&lt;/FixedLegCalendar&gt;
+    &lt;OvernightLegCalendar&gt;USNY&lt;/OvernightLegCalendar&gt;
+  &lt;/OisConvention&gt;
+  &lt;OisConvention name=&quot;USD-SOFR-Dated&quot;&gt;
+    &lt;Index&gt;Sofr&lt;/Index&gt;
+    &lt;SettlementCalendar&gt;USNY&lt;/SettlementCalendar&gt;
+    &lt;PaymentLag&gt;2&lt;/PaymentLag&gt;
+    &lt;PaymentFrequency&gt;Annual&lt;/PaymentFrequency&gt;
+    &lt;PaymentCalendar&gt;USNY&lt;/PaymentCalendar&gt;
+    &lt;FixedLegCalendar&gt;USNY&lt;/FixedLegCalendar&gt;
+    &lt;FixedLegDayCounter&gt;ACT/360&lt;/FixedLegDayCounter&gt;
+    &lt;OvernightLegCalendar&gt;USNY&lt;/OvernightLegCalendar&gt;
+  &lt;/OisConvention&gt;
+&lt;/Conventions&gt;
+</code></pre><h2 id="the-curve">The curve</h2>
+<p>The curve is bootstrapped from nine quotes, 15 October 2026, each a SOFR swap built by the market's convention:</p>
+<pre><code class="lang-csharp">var today = new Date(15, Month.October, 2026);
+var context = new EvaluationContext { EvaluationDate = today };
+(Period Tenor, double Rate)[] quotes =
+[
+    (new(1, TimeUnit.Months), 0.0430), (new(3, TimeUnit.Months), 0.0428), (new(6, TimeUnit.Months), 0.0421),
+    (new(1, TimeUnit.Years), 0.0405), (new(2, TimeUnit.Years), 0.0380), (new(3, TimeUnit.Years), 0.0368),
+    (new(5, TimeUnit.Years), 0.0360), (new(7, TimeUnit.Years), 0.0362), (new(10, TimeUnit.Years), 0.0370),
+];
+ConventionSet set = ConventionSet.QuantLib.With(ConventionsXml.Read(conventionsFile));
+OisConvention market = set.Ois(&quot;USD-SOFR&quot;);
+OISRateHelper[] helpers = [.. quotes.Select(q =&gt; market.RateHelper(q.Rate, q.Tenor, context))];
+var curve = new PiecewiseLogLinearDiscount(today, helpers, new Actual365Fixed(), context);
+</code></pre><h2 id="each-conventions-price">Each convention's price</h2>
+<p>Three five-year swaps on $10 million: one at the curve's par rate, one off-market at 4.25%, and one at par starting on
+Good Friday, 26 March 2027. Each is priced four times, from <code>MakeOIS</code>'s defaults to the market's convention:</p>
+<pre><code class="lang-csharp">(string Step, MakeOIS Builder)[] steps =
+[
+    (&quot;QuantLib's MakeOIS defaults&quot;, new MakeOIS(tenor, set.OvernightIndex(&quot;Sofr&quot;, curve))),
+    (&quot;+ the 2-day payment lag&quot;, set.Ois(&quot;Lag&quot;).Builder(tenor, curve)),
+    (&quot;+ New York business days&quot;, set.Ois(&quot;LagAndCalendars&quot;).Builder(tenor, curve)),
+    (&quot;the market's convention&quot;, (start is null ? market : set.Ois(&quot;USD-SOFR-Dated&quot;)).Builder(tenor, curve)),
+];
+foreach (var (step, builder) in steps)
+{
+    OvernightIndexedSwap swap = builder.WithEffectiveDate(start).WithFixedRate(rate).WithNominal(10e6)
+        .ToOvernightIndexedSwap(context);
+    OvernightIndexedSwapResults result = DiscountingSwapEngine.Calculate(swap, context, curve);
+    rows.Add((trade, step, result.NPV!.Value, result.FairRate!.Value));
+}
+
+</code></pre><table>
+<thead>
+<tr>
+<th>Trade</th>
+<th>Step</th>
+<th style="text-align: right;">NPV</th>
+<th style="text-align: right;">Fair rate</th>
+<th style="text-align: right;">Step's difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>par, spot</td>
+<td>QuantLib's MakeOIS defaults</td>
+<td style="text-align: right;">-3.11</td>
+<td style="text-align: right;">3.6000%</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>par, spot</td>
+<td>+ the 2-day payment lag</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">3.6000%</td>
+<td style="text-align: right;">3.11</td>
+</tr>
+<tr>
+<td>par, spot</td>
+<td>+ New York business days</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">3.6000%</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr>
+<td>par, spot</td>
+<td>the market's convention</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">3.6000%</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr>
+<td>off-market 4.25%, spot</td>
+<td>QuantLib's MakeOIS defaults</td>
+<td style="text-align: right;">-295,785.18</td>
+<td style="text-align: right;">3.6000%</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>off-market 4.25%, spot</td>
+<td>+ the 2-day payment lag</td>
+<td style="text-align: right;">-295,701.82</td>
+<td style="text-align: right;">3.6000%</td>
+<td style="text-align: right;">83.36</td>
+</tr>
+<tr>
+<td>off-market 4.25%, spot</td>
+<td>+ New York business days</td>
+<td style="text-align: right;">-295,701.82</td>
+<td style="text-align: right;">3.6000%</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr>
+<td>off-market 4.25%, spot</td>
+<td>the market's convention</td>
+<td style="text-align: right;">-295,701.82</td>
+<td style="text-align: right;">3.6000%</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr>
+<td>par, from Good Friday 2027</td>
+<td>QuantLib's MakeOIS defaults</td>
+<td style="text-align: right;">-26,181.32</td>
+<td style="text-align: right;">3.5416%</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>par, from Good Friday 2027</td>
+<td>+ the 2-day payment lag</td>
+<td style="text-align: right;">-26,176.39</td>
+<td style="text-align: right;">3.5416%</td>
+<td style="text-align: right;">4.93</td>
+</tr>
+<tr>
+<td>par, from Good Friday 2027</td>
+<td>+ New York business days</td>
+<td style="text-align: right;">-25,782.41</td>
+<td style="text-align: right;">3.5425%</td>
+<td style="text-align: right;">393.98</td>
+</tr>
+<tr>
+<td>par, from Good Friday 2027</td>
+<td>the market's convention</td>
+<td style="text-align: right;">-25,782.41</td>
+<td style="text-align: right;">3.5425%</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li><strong>The payment lag</strong> moves every trade. Paying two days late discounts each period's net payment over two more days,
+so its effect grows with the gap between the fixed rate and the floating leg: small at par, larger off-market.</li>
+<li><strong>The calendars</strong> move only the Good Friday trade. Its start, 26 March 2027, and its end, 26 March 2032, are both
+Good Fridays: on SOFR's fixing calendar both are holidays, and the schedule rolls them to the Monday; on New York's
+days both stand.</li>
+<li><strong>The market's convention</strong> adds nothing beyond the two: its frequency, day count and spot lag are the defaults'.
+The Good Friday trade takes <code>USD-SOFR-Dated</code>, the same convention without the spot lag, since a swap given its own
+start date can't take settlement days too.</li>
+</ul>
+<p>On the Good Friday trade, the first period accrues from a day SOFR isn't published. The fixing before it, Thursday's,
+is projected over its own value period, to the next fixing day, and accrues from the period's start, as QuantLib's
+overnight coupon does.</p>
+<p>Conventions checked against market prices across many more trades are Masseef's verified catalogue.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

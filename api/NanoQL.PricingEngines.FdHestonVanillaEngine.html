@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class FdHestonVanillaEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FdHestonVanillaEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The finite-difference Heston pricing engine for vanilla options, European, American or Bermudan, with cash dividends, a quanto adjustment and a leverage function optional:  on &#39;s grid of the log spot, sized by the variance mesher&#39;s volatility estimate, by &#39;s grid of the variance.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine">
+
+
+
+  <h1 id="NanoQL_PricingEngines_FdHestonVanillaEngine" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine" class="text-break">
+Class FdHestonVanillaEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The finite-difference Heston pricing engine for vanilla options, European, American or Bermudan, with cash
+dividends, a quanto adjustment and a leverage function optional: <a class="xref" href="NanoQL.Methods.FdmHestonSolver.html">FdmHestonSolver</a> on
+<a class="xref" href="NanoQL.Methods.FdmBlackScholesMesher.html">FdmBlackScholesMesher</a>'s grid of the log spot, sized by the variance mesher's volatility estimate, by
+<a class="xref" href="NanoQL.Methods.FdmHestonLocalVolatilityVarianceMesher.html">FdmHestonLocalVolatilityVarianceMesher</a>'s grid of the variance.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class FdHestonVanillaEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">FdHestonVanillaEngine</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_FdHestonVanillaEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The engine reports the value, delta, gamma and theta, the theta <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when the problem's first
+stopping time is time 0. Its finite-difference working types are built inside each calculation and dropped after it.
+Its times run on <a class="xref" href="NanoQL.Methods.FdmHestonOp.html#NanoQL_Methods_FdmHestonOp_Clock_NanoQL_Processes_HestonProcess_NanoQL_Methods_FdmQuantoHelper_NanoQL_TermStructures_LocalVolTermStructure_">Clock(HestonProcess, FdmQuantoHelper?, LocalVolTermStructure?)</a>, from the earliest reference date of the structures it reads, each
+accruing nothing before its own date, where QuantLib's run from the risk-free curve's; where none is dated before
+the risk-free curve, they are QuantLib's (<code>Divergences/FdHestonMismatchedTimesTests.cs</code>). The variance mesher's
+skew factor is bounded and its fallbacks are master's.
+</p>
+<p>
+QuantLib sizes the equity mesher on a helper process whose curves its call binds in each other's places, so the
+mesher walks the forward's mirror about the spot; where the carry is large against the volatility the grid's far
+edge falls inside the distribution and the price stops converging (a five-year call at 1.25 times the forward, carry
+0.30 and volatility 0.1, priced 0 where the analytic engine gives 1.5732), and where cash dividends take the
+mirrored walk below zero its bound isn't a number and the engine refuses. Here the mesher is QuantLib's wherever its
+range holds the true forwards' band, the walk's ends on the helper's curves in place widened by the volatility's
+quantile, half the mesher's own margin, and the strike widened by the same half margin, and QuantLib's mesher
+widened to the band through its own constraints where it doesn't, a bound that isn't a number falling short. The
+multi-strike solve, whose mesher takes no constraints, solves each strike alone where its grid doesn't hold the band
+at the points the solve is read at, S·K/Kᵢ, their forwards quanto-adjusted where a quanto helper is given; the two
+paths run on different grids, so a strike's value steps where the switch moves, by up to about 0.4% at carry 0.06
+(<code>Divergences/FdHestonHighCarryTests.cs</code>).
+</p>
+<p>
+QuantLib's <code>enableMultipleStrikesCaching</code> solves once on a mesher spanning several strikes and serves later
+options at those strikes from the solve, each V(S·d)/d with d = K/Kᵢ; the strike a later call is served depends on
+which option solved first, which a cache may not do here: a value doesn't depend on what was computed before it.
+Here
+<a class="xref" href="NanoQL.PricingEngines.FdHestonVanillaEngine.html#NanoQL_PricingEngines_FdHestonVanillaEngine_CalculateStrikes_NanoQL_Instruments_VanillaOption_System_Collections_Generic_IEnumerable_System_Double__NanoQL_EvaluationContext_NanoQL_Models_HestonModel_System_Int32_System_Int32_System_Int32_System_Int32_System_Nullable_NanoQL_Methods_FdmSchemeDesc__NanoQL_TermStructures_LocalVolTermStructure_System_Double_">CalculateStrikes(VanillaOption, IEnumerable&lt;double&gt;, EvaluationContext, HestonModel, int, int, int, int, FdmSchemeDesc?, LocalVolTermStructure?, double)</a>
+returns every strike's results from one solve on the given option, each QuantLib's cached value bit for bit. Where
+the scaling doesn't hold, QuantLib's cache serves values far from the strike's own price: with a leverage function,
+which a spot-dependent leverage breaks (at 125, 0.830 cached where the direct price is 0.433), and after a reference
+whose payoff isn't a plain vanilla (6.819 served for a plain call at 80 after a cash-or-nothing reference, its
+direct price 22.945); there each strike's plain vanilla is solved alone, QuantLib's engine priced for that strike
+(<code>Divergences/FdHestonMultipleStrikesLeverageTests.cs</code>, <code>Divergences/FdHestonStrikesReferenceTests.cs</code>).
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_FdHestonVanillaEngine_Calculate_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_FdHestonVanillaEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_HestonModel_NanoQL_Methods_FdmQuantoHelper_System_Int32_System_Int32_System_Int32_System_Int32_System_Nullable_NanoQL_Methods_FdmSchemeDesc__NanoQL_TermStructures_LocalVolTermStructure_System_Double_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Models.HestonModel,NanoQL.Methods.FdmQuantoHelper,System.Int32,System.Int32,System.Int32,System.Int32,System.Nullable{NanoQL.Methods.FdmSchemeDesc},NanoQL.TermStructures.LocalVolTermStructure,System.Double)">
+  Calculate(VanillaOption, EvaluationContext, HestonModel, FdmQuantoHelper?, int, int, int, int, FdmSchemeDesc?, LocalVolTermStructure?, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a quanto vanilla option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context, HestonModel model, FdmQuantoHelper? quantoHelper, int tGrid = 100, int xGrid = 100, int vGrid = 50, int dampingSteps = 0, FdmSchemeDesc? schemeDesc = null, LocalVolTermStructure? leverageFct = null, double mixingFactor = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>quantoHelper</code> <a class="xref" href="NanoQL.Methods.FdmQuantoHelper.html">FdmQuantoHelper</a></dt>
+    <dd><p>The quanto helper, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>tGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of time steps.</p>
+</dd>
+    <dt><code>xGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the log spot's points.</p>
+</dd>
+    <dt><code>vGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the variance's points.</p>
+</dd>
+    <dt><code>dampingSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of implicit damping steps.</p>
+</dd>
+    <dt><code>schemeDesc</code> <a class="xref" href="NanoQL.Methods.FdmSchemeDesc.html">FdmSchemeDesc</a>?</dt>
+    <dd><p>The scheme; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for Hundsdorfer's, QuantLib's default.</p>
+</dd>
+    <dt><code>leverageFct</code> <a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></dt>
+    <dd><p>The leverage function, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>mixingFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factor scaling the variance's volatility σ.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results; the expired results when it has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The option, the context or the model is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A grid size or the damping steps is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A grid is too small, or the rollback's arguments are refused.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The payoff isn't striked, or a step or the spline fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_FdHestonVanillaEngine_Calculate_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_FdHestonVanillaEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_HestonModel_System_Collections_Immutable_ImmutableArray_NanoQL_Coupons_Dividend__NanoQL_Methods_FdmQuantoHelper_System_Int32_System_Int32_System_Int32_System_Int32_System_Nullable_NanoQL_Methods_FdmSchemeDesc__NanoQL_TermStructures_LocalVolTermStructure_System_Double_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Models.HestonModel,System.Collections.Immutable.ImmutableArray{NanoQL.Coupons.Dividend},NanoQL.Methods.FdmQuantoHelper,System.Int32,System.Int32,System.Int32,System.Int32,System.Nullable{NanoQL.Methods.FdmSchemeDesc},NanoQL.TermStructures.LocalVolTermStructure,System.Double)">
+  Calculate(VanillaOption, EvaluationContext, HestonModel, ImmutableArray&lt;Dividend&gt;, FdmQuantoHelper?, int, int, int, int, FdmSchemeDesc?, LocalVolTermStructure?, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a quanto vanilla option with cash dividends.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context, HestonModel model, ImmutableArray&lt;Dividend&gt; dividends, FdmQuantoHelper? quantoHelper, int tGrid = 100, int xGrid = 100, int vGrid = 50, int dampingSteps = 0, FdmSchemeDesc? schemeDesc = null, LocalVolTermStructure? leverageFct = null, double mixingFactor = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>dividends</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Coupons.Dividend.html">Dividend</a>&gt;</dt>
+    <dd><p>The cash dividends, by the spot model.</p>
+</dd>
+    <dt><code>quantoHelper</code> <a class="xref" href="NanoQL.Methods.FdmQuantoHelper.html">FdmQuantoHelper</a></dt>
+    <dd><p>The quanto helper, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>tGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of time steps.</p>
+</dd>
+    <dt><code>xGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the log spot's points.</p>
+</dd>
+    <dt><code>vGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the variance's points.</p>
+</dd>
+    <dt><code>dampingSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of implicit damping steps.</p>
+</dd>
+    <dt><code>schemeDesc</code> <a class="xref" href="NanoQL.Methods.FdmSchemeDesc.html">FdmSchemeDesc</a>?</dt>
+    <dd><p>The scheme; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for Hundsdorfer's, QuantLib's default.</p>
+</dd>
+    <dt><code>leverageFct</code> <a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></dt>
+    <dd><p>The leverage function, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>mixingFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factor scaling the variance's volatility σ.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results; the expired results when it has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The option, the context or the model is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A grid size or the damping steps is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The schedule is the default array or holds <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, a grid is too small, or the rollback's
+arguments are refused.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The payoff isn't striked, or a step or the spline fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_FdHestonVanillaEngine_Calculate_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_FdHestonVanillaEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_HestonModel_System_Collections_Immutable_ImmutableArray_NanoQL_Coupons_Dividend__System_Int32_System_Int32_System_Int32_System_Int32_System_Nullable_NanoQL_Methods_FdmSchemeDesc__NanoQL_TermStructures_LocalVolTermStructure_System_Double_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Models.HestonModel,System.Collections.Immutable.ImmutableArray{NanoQL.Coupons.Dividend},System.Int32,System.Int32,System.Int32,System.Int32,System.Nullable{NanoQL.Methods.FdmSchemeDesc},NanoQL.TermStructures.LocalVolTermStructure,System.Double)">
+  Calculate(VanillaOption, EvaluationContext, HestonModel, ImmutableArray&lt;Dividend&gt;, int, int, int, int, FdmSchemeDesc?, LocalVolTermStructure?, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a vanilla option with cash dividends.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context, HestonModel model, ImmutableArray&lt;Dividend&gt; dividends, int tGrid = 100, int xGrid = 100, int vGrid = 50, int dampingSteps = 0, FdmSchemeDesc? schemeDesc = null, LocalVolTermStructure? leverageFct = null, double mixingFactor = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>dividends</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Coupons.Dividend.html">Dividend</a>&gt;</dt>
+    <dd><p>The cash dividends, by the spot model.</p>
+</dd>
+    <dt><code>tGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of time steps.</p>
+</dd>
+    <dt><code>xGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the log spot's points.</p>
+</dd>
+    <dt><code>vGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the variance's points.</p>
+</dd>
+    <dt><code>dampingSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of implicit damping steps.</p>
+</dd>
+    <dt><code>schemeDesc</code> <a class="xref" href="NanoQL.Methods.FdmSchemeDesc.html">FdmSchemeDesc</a>?</dt>
+    <dd><p>The scheme; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for Hundsdorfer's, QuantLib's default.</p>
+</dd>
+    <dt><code>leverageFct</code> <a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></dt>
+    <dd><p>The leverage function, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>mixingFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factor scaling the variance's volatility σ.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results; the expired results when it has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The option, the context or the model is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A grid size or the damping steps is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The schedule is the default array or holds <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, a grid is too small, or the rollback's
+arguments are refused.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The payoff isn't striked, or a step or the spline fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_FdHestonVanillaEngine_Calculate_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_FdHestonVanillaEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_HestonModel_System_Int32_System_Int32_System_Int32_System_Int32_System_Nullable_NanoQL_Methods_FdmSchemeDesc__NanoQL_TermStructures_LocalVolTermStructure_System_Double_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Models.HestonModel,System.Int32,System.Int32,System.Int32,System.Int32,System.Nullable{NanoQL.Methods.FdmSchemeDesc},NanoQL.TermStructures.LocalVolTermStructure,System.Double)">
+  Calculate(VanillaOption, EvaluationContext, HestonModel, int, int, int, int, FdmSchemeDesc?, LocalVolTermStructure?, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a vanilla option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context, HestonModel model, int tGrid = 100, int xGrid = 100, int vGrid = 50, int dampingSteps = 0, FdmSchemeDesc? schemeDesc = null, LocalVolTermStructure? leverageFct = null, double mixingFactor = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>tGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of time steps.</p>
+</dd>
+    <dt><code>xGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the log spot's points.</p>
+</dd>
+    <dt><code>vGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the variance's points.</p>
+</dd>
+    <dt><code>dampingSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of implicit damping steps.</p>
+</dd>
+    <dt><code>schemeDesc</code> <a class="xref" href="NanoQL.Methods.FdmSchemeDesc.html">FdmSchemeDesc</a>?</dt>
+    <dd><p>The scheme; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for Hundsdorfer's, QuantLib's default.</p>
+</dd>
+    <dt><code>leverageFct</code> <a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></dt>
+    <dd><p>The leverage function, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>mixingFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factor scaling the variance's volatility σ.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results; the expired results when it has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The option, the context or the model is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A grid size or the damping steps is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A grid is too small, or the rollback's arguments are refused.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The payoff isn't striked, or a step or the spline fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_FdHestonVanillaEngine_CalculateStrikes_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.CalculateStrikes*"></a>
+
+  <h3 id="NanoQL_PricingEngines_FdHestonVanillaEngine_CalculateStrikes_NanoQL_Instruments_VanillaOption_System_Collections_Generic_IEnumerable_System_Double__NanoQL_EvaluationContext_NanoQL_Models_HestonModel_System_Collections_Immutable_ImmutableArray_NanoQL_Coupons_Dividend__NanoQL_Methods_FdmQuantoHelper_System_Int32_System_Int32_System_Int32_System_Int32_System_Nullable_NanoQL_Methods_FdmSchemeDesc__NanoQL_TermStructures_LocalVolTermStructure_System_Double_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.CalculateStrikes(NanoQL.Instruments.VanillaOption,System.Collections.Generic.IEnumerable{System.Double},NanoQL.EvaluationContext,NanoQL.Models.HestonModel,System.Collections.Immutable.ImmutableArray{NanoQL.Coupons.Dividend},NanoQL.Methods.FdmQuantoHelper,System.Int32,System.Int32,System.Int32,System.Int32,System.Nullable{NanoQL.Methods.FdmSchemeDesc},NanoQL.TermStructures.LocalVolTermStructure,System.Double)">
+  CalculateStrikes(VanillaOption, IEnumerable&lt;double&gt;, EvaluationContext, HestonModel, ImmutableArray&lt;Dividend&gt;, FdmQuantoHelper?, int, int, int, int, FdmSchemeDesc?, LocalVolTermStructure?, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The results of the option at each of several strikes from one solve on a mesher spanning them, with QuantLib's
+refusal of cash dividends and a quanto helper optional.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ImmutableArray&lt;OneAssetOptionResults&gt; CalculateStrikes(VanillaOption option, IEnumerable&lt;double&gt; strikes, EvaluationContext context, HestonModel model, ImmutableArray&lt;Dividend&gt; dividends, FdmQuantoHelper? quantoHelper, int tGrid = 100, int xGrid = 100, int vGrid = 50, int dampingSteps = 0, FdmSchemeDesc? schemeDesc = null, LocalVolTermStructure? leverageFct = null, double mixingFactor = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The reference option, whose exercise the strikes share and whose option type their plain
+vanillas take.</p>
+</dd>
+    <dt><code>strikes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The strikes, at least one.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>dividends</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Coupons.Dividend.html">Dividend</a>&gt;</dt>
+    <dd><p>The cash dividends: QuantLib's multiple-strikes engine refuses any.</p>
+</dd>
+    <dt><code>quantoHelper</code> <a class="xref" href="NanoQL.Methods.FdmQuantoHelper.html">FdmQuantoHelper</a></dt>
+    <dd><p>The quanto helper, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>tGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of time steps.</p>
+</dd>
+    <dt><code>xGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the log spot's points.</p>
+</dd>
+    <dt><code>vGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the variance's points.</p>
+</dd>
+    <dt><code>dampingSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of implicit damping steps.</p>
+</dd>
+    <dt><code>schemeDesc</code> <a class="xref" href="NanoQL.Methods.FdmSchemeDesc.html">FdmSchemeDesc</a>?</dt>
+    <dd><p>The scheme; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for Hundsdorfer's, QuantLib's default.</p>
+</dd>
+    <dt><code>leverageFct</code> <a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></dt>
+    <dd><p>The leverage function, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none; with one, each strike is
+solved alone.</p>
+</dd>
+    <dt><code>mixingFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factor scaling the variance's volatility σ.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a>&gt;</dt>
+    <dd><p>The plain vanilla's results at each strike, in the strikes' order; the expired results for each when
+the option has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A grid size or the damping steps is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No strike is given, dividends are given (&quot;multiple strikes engine does not work with discrete dividends&quot;), a grid
+is too small, or the rollback's arguments are refused.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The payoff isn't striked, or a step or the spline fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_FdHestonVanillaEngine_CalculateStrikes_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.CalculateStrikes*"></a>
+
+  <h3 id="NanoQL_PricingEngines_FdHestonVanillaEngine_CalculateStrikes_NanoQL_Instruments_VanillaOption_System_Collections_Generic_IEnumerable_System_Double__NanoQL_EvaluationContext_NanoQL_Models_HestonModel_System_Int32_System_Int32_System_Int32_System_Int32_System_Nullable_NanoQL_Methods_FdmSchemeDesc__NanoQL_TermStructures_LocalVolTermStructure_System_Double_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.CalculateStrikes(NanoQL.Instruments.VanillaOption,System.Collections.Generic.IEnumerable{System.Double},NanoQL.EvaluationContext,NanoQL.Models.HestonModel,System.Int32,System.Int32,System.Int32,System.Int32,System.Nullable{NanoQL.Methods.FdmSchemeDesc},NanoQL.TermStructures.LocalVolTermStructure,System.Double)">
+  CalculateStrikes(VanillaOption, IEnumerable&lt;double&gt;, EvaluationContext, HestonModel, int, int, int, int, FdmSchemeDesc?, LocalVolTermStructure?, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The results of the option at each of several strikes from one solve on a mesher spanning them: QuantLib's
+multiple-strikes caching, as a call, each strike's value V(S·d)/d, delta, gamma·d and theta/d at d = K/Kᵢ, K the
+option's strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ImmutableArray&lt;OneAssetOptionResults&gt; CalculateStrikes(VanillaOption option, IEnumerable&lt;double&gt; strikes, EvaluationContext context, HestonModel model, int tGrid = 100, int xGrid = 100, int vGrid = 50, int dampingSteps = 0, FdmSchemeDesc? schemeDesc = null, LocalVolTermStructure? leverageFct = null, double mixingFactor = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The reference option, whose exercise the strikes share and whose option type their plain
+vanillas take.</p>
+</dd>
+    <dt><code>strikes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The strikes, at least one.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>tGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of time steps.</p>
+</dd>
+    <dt><code>xGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the log spot's points.</p>
+</dd>
+    <dt><code>vGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the variance's points.</p>
+</dd>
+    <dt><code>dampingSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of implicit damping steps.</p>
+</dd>
+    <dt><code>schemeDesc</code> <a class="xref" href="NanoQL.Methods.FdmSchemeDesc.html">FdmSchemeDesc</a>?</dt>
+    <dd><p>The scheme; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for Hundsdorfer's, QuantLib's default.</p>
+</dd>
+    <dt><code>leverageFct</code> <a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></dt>
+    <dd><p>The leverage function, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none; with one, each strike is
+solved alone.</p>
+</dd>
+    <dt><code>mixingFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factor scaling the variance's volatility σ.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a>&gt;</dt>
+    <dd><p>The plain vanilla's results at each strike, in the strikes' order; the expired results for each when
+the option has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A grid size or the damping steps is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No strike is given, a grid is too small, or the rollback's arguments are
+refused.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The payoff isn't striked, or a step or the spline fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_FdHestonVanillaEngine_GetSolverDesc_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.GetSolverDesc*"></a>
+
+  <h3 id="NanoQL_PricingEngines_FdHestonVanillaEngine_GetSolverDesc_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_HestonModel_System_Collections_Immutable_ImmutableArray_NanoQL_Coupons_Dividend__NanoQL_Methods_FdmQuantoHelper_System_Int32_System_Int32_System_Int32_System_Int32_NanoQL_TermStructures_LocalVolTermStructure_System_Double_" data-uid="NanoQL.PricingEngines.FdHestonVanillaEngine.GetSolverDesc(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Models.HestonModel,System.Collections.Immutable.ImmutableArray{NanoQL.Coupons.Dividend},NanoQL.Methods.FdmQuantoHelper,System.Int32,System.Int32,System.Int32,System.Int32,NanoQL.TermStructures.LocalVolTermStructure,System.Double)">
+  GetSolverDesc(VanillaOption, EvaluationContext, HestonModel, ImmutableArray&lt;Dividend&gt;, FdmQuantoHelper?, int, int, int, int, LocalVolTermStructure?, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The engine's problem for an option: its grid, inner value, step conditions and time steps, on
+<a class="xref" href="NanoQL.Methods.FdmHestonOp.html#NanoQL_Methods_FdmHestonOp_Clock_NanoQL_Processes_HestonProcess_NanoQL_Methods_FdmQuantoHelper_NanoQL_TermStructures_LocalVolTermStructure_">Clock(HestonProcess, FdmQuantoHelper?, LocalVolTermStructure?)</a>'s times; QuantLib's <code>getSolverDesc</code>, the helper of the Heston-like engines.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FdmSolverDesc GetSolverDesc(VanillaOption option, EvaluationContext context, HestonModel model, ImmutableArray&lt;Dividend&gt; dividends, FdmQuantoHelper? quantoHelper, int tGrid = 100, int xGrid = 100, int vGrid = 50, int dampingSteps = 0, LocalVolTermStructure? leverageFct = null, double mixingFactor = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>model</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>dividends</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Coupons.Dividend.html">Dividend</a>&gt;</dt>
+    <dd><p>The cash dividends, by the spot model.</p>
+</dd>
+    <dt><code>quantoHelper</code> <a class="xref" href="NanoQL.Methods.FdmQuantoHelper.html">FdmQuantoHelper</a></dt>
+    <dd><p>The quanto helper, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>tGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of time steps.</p>
+</dd>
+    <dt><code>xGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the log spot's points.</p>
+</dd>
+    <dt><code>vGrid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of the variance's points.</p>
+</dd>
+    <dt><code>dampingSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of implicit damping steps.</p>
+</dd>
+    <dt><code>leverageFct</code> <a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></dt>
+    <dd><p>The leverage function, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>mixingFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factor scaling the variance's volatility σ.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Methods.FdmSolverDesc.html">FdmSolverDesc</a></dt>
+    <dd><p>The problem, for <a class="xref" href="NanoQL.Methods.FdmHestonSolver.html">FdmHestonSolver</a> and its kin.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_PricingEngines_FdHestonVanillaEngine_GetSolverDesc_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_HestonModel_System_Collections_Immutable_ImmutableArray_NanoQL_Coupons_Dividend__NanoQL_Methods_FdmQuantoHelper_System_Int32_System_Int32_System_Int32_System_Int32_NanoQL_TermStructures_LocalVolTermStructure_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>QuantLib's scale-factor argument, which it doesn't read, is left out.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The option, the context or the model is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A grid size or the damping steps is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The schedule is the default array or holds <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, or a grid is too small.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The payoff isn't striked.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

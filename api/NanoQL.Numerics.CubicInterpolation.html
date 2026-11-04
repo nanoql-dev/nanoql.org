@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CubicInterpolation | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CubicInterpolation | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Cubic interpolation between discrete points: on each interval, the cubic matching the values at its ends and the first derivatives there, which the derivative approximation gives.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.CubicInterpolation">
+
+
+
+  <h1 id="NanoQL_Numerics_CubicInterpolation" data-uid="NanoQL.Numerics.CubicInterpolation" class="text-break">
+Class CubicInterpolation  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Cubic interpolation between discrete points: on each interval, the cubic matching the values at its ends and the
+first derivatives there, which the derivative approximation gives.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CubicInterpolation : Interpolation</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Extrapolator.html">Extrapolator</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Interpolation.html">Interpolation</a></div>
+      <div><span class="xref">CubicInterpolation</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Numerics.AkimaCubicInterpolation.html">AkimaCubicInterpolation</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.CubicNaturalSpline.html">CubicNaturalSpline</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.CubicSplineOvershootingMinimization1.html">CubicSplineOvershootingMinimization1</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.CubicSplineOvershootingMinimization2.html">CubicSplineOvershootingMinimization2</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.FritschButlandCubic.html">FritschButlandCubic</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.HarmonicCubic.html">HarmonicCubic</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.KrugerCubic.html">KrugerCubic</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.MonotonicCubicNaturalSpline.html">MonotonicCubicNaturalSpline</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.MonotonicParabolic.html">MonotonicParabolic</a></div>
+      <div><a class="xref" href="NanoQL.Numerics.Parabolic.html">Parabolic</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_XValues">Interpolation.XValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_YValues">Interpolation.YValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_IsInRange_System_Double_">Interpolation.IsInRange(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_Evaluate_System_Double_System_Boolean_">Interpolation.Evaluate(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_Primitive_System_Double_System_Boolean_">Interpolation.Primitive(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_Derivative_System_Double_System_Boolean_">Interpolation.Derivative(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_SecondDerivative_System_Double_System_Boolean_">Interpolation.SecondDerivative(double, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_Locate_System_Double_">Interpolation.Locate(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_XMin">Interpolation.XMin</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_XMax">Interpolation.XMax</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_X">Interpolation.X</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Interpolation.html#NanoQL_Numerics_Interpolation_Y">Interpolation.Y</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Numerics.Extrapolator.html#NanoQL_Numerics_Extrapolator_AllowsExtrapolation">Extrapolator.AllowsExtrapolation</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_DisableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.DisableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="NanoQL.Numerics.ExtrapolatorExtensions.html#NanoQL_Numerics_ExtrapolatorExtensions_EnableExtrapolation__1___0_System_Boolean_">ExtrapolatorExtensions.EnableExtrapolation&lt;T&gt;(T, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="NanoQL_Numerics_CubicInterpolation_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Different first-derivative approximations are implemented, both local and non-local
+(<a class="xref" href="NanoQL.Numerics.CubicInterpolationDerivativeApprox.html">CubicInterpolationDerivativeApprox</a>). Local schemes (fourth-order, parabolic, modified parabolic,
+Fritsch–Butland, Akima, Kruger) use only the values near x<sub>i</sub> to calculate each derivative there; the
+non-local spline schemes, with different boundary conditions, use all the values and solve a linear system. Local
+schemes produce C¹ interpolants, the spline schemes C² ones.
+</p>
+<p>
+Hyman's monotonicity-constrained filter is also implemented: it can be applied to every scheme to ensure that, in the
+regions of local monotonicity of the input (three successive increasing or decreasing values), the interpolating
+cubic remains monotonic. A cubic already monotonic is left unchanged. For the C² interpolants the filter ensures
+local monotonicity at the expense of the second derivative, which is no longer continuous where it applies. Some
+non-linear schemes (modified parabolic, Fritsch–Butland, Kruger) are locally monotonic as they stand; the others must
+be filtered, at the expense of their linearity. See R. L. Dougherty, A. Edelman and J. M. Hyman,
+"Nonnegativity-, Monotonicity-, or Convexity-Preserving Cubic Spline and Quintic Hermite Interpolation", Mathematics
+of Computation, v. 52, n. 186, April 1989, pp. 471-494.
+</p>
+<p>
+Not yet implemented in QuantLib: the fourth-order and modified parabolic schemes, and the periodic boundary
+condition. Immutable: the coefficients are computed at construction, and
+<a class="xref" href="NanoQL.Numerics.CubicInterpolation.html#NanoQL_Numerics_CubicInterpolation_UpdateLeftConditionValue_System_Double_">UpdateLeftConditionValue(double)</a> and <a class="xref" href="NanoQL.Numerics.CubicInterpolation.html#NanoQL_Numerics_CubicInterpolation_UpdateRightConditionValue_System_Double_">UpdateRightConditionValue(double)</a> return a new interpolation, where
+QuantLib's change the boundary value for a later <code>update()</code>. An extension point, as in QuantLib: the named
+interpolations derive from it.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Numerics_CubicInterpolation__ctor_" data-uid="NanoQL.Numerics.CubicInterpolation.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_CubicInterpolation__ctor_System_ReadOnlySpan_System_Double__System_ReadOnlySpan_System_Double__NanoQL_Numerics_CubicInterpolationDerivativeApprox_System_Boolean_NanoQL_Numerics_CubicInterpolationBoundaryCondition_System_Double_NanoQL_Numerics_CubicInterpolationBoundaryCondition_System_Double_" data-uid="NanoQL.Numerics.CubicInterpolation.#ctor(System.ReadOnlySpan{System.Double},System.ReadOnlySpan{System.Double},NanoQL.Numerics.CubicInterpolationDerivativeApprox,System.Boolean,NanoQL.Numerics.CubicInterpolationBoundaryCondition,System.Double,NanoQL.Numerics.CubicInterpolationBoundaryCondition,System.Double)">
+  CubicInterpolation(ReadOnlySpan&lt;double&gt;, ReadOnlySpan&lt;double&gt;, CubicInterpolationDerivativeApprox, bool, CubicInterpolationBoundaryCondition, double, CubicInterpolationBoundaryCondition, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.CubicInterpolation.html">CubicInterpolation</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CubicInterpolation(ReadOnlySpan&lt;double&gt; x, ReadOnlySpan&lt;double&gt; y, CubicInterpolationDerivativeApprox da, bool monotonic, CubicInterpolationBoundaryCondition leftCond, double leftConditionValue, CubicInterpolationBoundaryCondition rightCond, double rightConditionValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The x values, which must be sorted; at least 2, and at least 4 for Akima's approximation or a Lagrange condition.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The y values, one per x value.</p>
+</dd>
+    <dt><code>da</code> <a class="xref" href="NanoQL.Numerics.CubicInterpolationDerivativeApprox.html">CubicInterpolationDerivativeApprox</a></dt>
+    <dd><p>The first-derivative approximation.</p>
+</dd>
+    <dt><code>monotonic</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to apply Hyman's monotonicity filter.</p>
+</dd>
+    <dt><code>leftCond</code> <a class="xref" href="NanoQL.Numerics.CubicInterpolationBoundaryCondition.html">CubicInterpolationBoundaryCondition</a></dt>
+    <dd><p>The left boundary condition, for the spline approximation.</p>
+</dd>
+    <dt><code>leftConditionValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The left condition's value, where it takes one.</p>
+</dd>
+    <dt><code>rightCond</code> <a class="xref" href="NanoQL.Numerics.CubicInterpolationBoundaryCondition.html">CubicInterpolationBoundaryCondition</a></dt>
+    <dd><p>The right boundary condition, for the spline approximation.</p>
+</dd>
+    <dt><code>rightConditionValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The right condition's value, where it takes one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes differ, or there are too few points: 4 for Akima's approximation
+or a Lagrange condition, and under the spline 3 for a <a class="xref" href="NanoQL.Numerics.CubicInterpolationBoundaryCondition.html#NanoQL_Numerics_CubicInterpolationBoundaryCondition_NotAKnot">NotAKnot</a>
+end and 4 for two (QuantLib's master's count, #2888, where 1.44 reads past its arrays on 2 points and finds 3
+singular).</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>An enum argument isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The scheme or a condition isn't implemented (<a class="xref" href="NanoQL.Numerics.CubicInterpolationDerivativeApprox.html#NanoQL_Numerics_CubicInterpolationDerivativeApprox_FourthOrder">FourthOrder</a> with
+more than 2 points, <a class="xref" href="NanoQL.Numerics.CubicInterpolationBoundaryCondition.html#NanoQL_Numerics_CubicInterpolationBoundaryCondition_Periodic">Periodic</a> under the spline), or the spline's
+system has a zero pivot.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_CubicInterpolation_ACoefficients_" data-uid="NanoQL.Numerics.CubicInterpolation.ACoefficients*"></a>
+
+  <h3 id="NanoQL_Numerics_CubicInterpolation_ACoefficients" data-uid="NanoQL.Numerics.CubicInterpolation.ACoefficients">
+  ACoefficients()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The first-order coefficients a<sub>i</sub> of the cubic on each interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; ACoefficients()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>One per interval.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_CubicInterpolation_BCoefficients_" data-uid="NanoQL.Numerics.CubicInterpolation.BCoefficients*"></a>
+
+  <h3 id="NanoQL_Numerics_CubicInterpolation_BCoefficients" data-uid="NanoQL.Numerics.CubicInterpolation.BCoefficients">
+  BCoefficients()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The second-order coefficients b<sub>i</sub> of the cubic on each interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; BCoefficients()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>One per interval.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_CubicInterpolation_CCoefficients_" data-uid="NanoQL.Numerics.CubicInterpolation.CCoefficients*"></a>
+
+  <h3 id="NanoQL_Numerics_CubicInterpolation_CCoefficients" data-uid="NanoQL.Numerics.CubicInterpolation.CCoefficients">
+  CCoefficients()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The third-order coefficients c<sub>i</sub> of the cubic on each interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; CCoefficients()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>One per interval.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_CubicInterpolation_DerivativeCore_" data-uid="NanoQL.Numerics.CubicInterpolation.DerivativeCore*"></a>
+
+  <h3 id="NanoQL_Numerics_CubicInterpolation_DerivativeCore_System_Double_" data-uid="NanoQL.Numerics.CubicInterpolation.DerivativeCore(System.Double)">
+  DerivativeCore(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The first derivative at a point, after the range check.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override sealed double DerivativeCore(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_CubicInterpolation_MonotonicityAdjustments_" data-uid="NanoQL.Numerics.CubicInterpolation.MonotonicityAdjustments*"></a>
+
+  <h3 id="NanoQL_Numerics_CubicInterpolation_MonotonicityAdjustments" data-uid="NanoQL.Numerics.CubicInterpolation.MonotonicityAdjustments">
+  MonotonicityAdjustments()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether Hyman's filter changed the first derivative at each node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;bool&gt; MonotonicityAdjustments()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>One per node; all <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> for an interpolation that isn't monotonic.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_CubicInterpolation_PrimitiveConstants_" data-uid="NanoQL.Numerics.CubicInterpolation.PrimitiveConstants*"></a>
+
+  <h3 id="NanoQL_Numerics_CubicInterpolation_PrimitiveConstants" data-uid="NanoQL.Numerics.CubicInterpolation.PrimitiveConstants">
+  PrimitiveConstants()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The constants of the primitive on each interval: the primitive at its left node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; PrimitiveConstants()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>One per interval.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_CubicInterpolation_PrimitiveCore_" data-uid="NanoQL.Numerics.CubicInterpolation.PrimitiveCore*"></a>
+
+  <h3 id="NanoQL_Numerics_CubicInterpolation_PrimitiveCore_System_Double_" data-uid="NanoQL.Numerics.CubicInterpolation.PrimitiveCore(System.Double)">
+  PrimitiveCore(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The primitive at a point, after the range check.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override sealed double PrimitiveCore(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The primitive.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_CubicInterpolation_SecondDerivativeCore_" data-uid="NanoQL.Numerics.CubicInterpolation.SecondDerivativeCore*"></a>
+
+  <h3 id="NanoQL_Numerics_CubicInterpolation_SecondDerivativeCore_System_Double_" data-uid="NanoQL.Numerics.CubicInterpolation.SecondDerivativeCore(System.Double)">
+  SecondDerivativeCore(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The second derivative at a point, after the range check.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override sealed double SecondDerivativeCore(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The second derivative.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_CubicInterpolation_UpdateLeftConditionValue_" data-uid="NanoQL.Numerics.CubicInterpolation.UpdateLeftConditionValue*"></a>
+
+  <h3 id="NanoQL_Numerics_CubicInterpolation_UpdateLeftConditionValue_System_Double_" data-uid="NanoQL.Numerics.CubicInterpolation.UpdateLeftConditionValue(System.Double)">
+  UpdateLeftConditionValue(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A cubic interpolation over the same points and settings with another left condition value: QuantLib's
+<code>updateLeftConditionValue</code> followed by <code>update()</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CubicInterpolation UpdateLeftConditionValue(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The left condition's value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.CubicInterpolation.html">CubicInterpolation</a></dt>
+    <dd><p>The new interpolation, which keeps this one's extrapolation setting; this one is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The spline's system has a zero pivot.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_CubicInterpolation_UpdateRightConditionValue_" data-uid="NanoQL.Numerics.CubicInterpolation.UpdateRightConditionValue*"></a>
+
+  <h3 id="NanoQL_Numerics_CubicInterpolation_UpdateRightConditionValue_System_Double_" data-uid="NanoQL.Numerics.CubicInterpolation.UpdateRightConditionValue(System.Double)">
+  UpdateRightConditionValue(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A cubic interpolation over the same points and settings with another right condition value: QuantLib's
+<code>updateRightConditionValue</code> followed by <code>update()</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CubicInterpolation UpdateRightConditionValue(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The right condition's value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.CubicInterpolation.html">CubicInterpolation</a></dt>
+    <dd><p>The new interpolation, which keeps this one's extrapolation setting; this one is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The spline's system has a zero pivot.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Numerics_CubicInterpolation_ValueCore_" data-uid="NanoQL.Numerics.CubicInterpolation.ValueCore*"></a>
+
+  <h3 id="NanoQL_Numerics_CubicInterpolation_ValueCore_System_Double_" data-uid="NanoQL.Numerics.CubicInterpolation.ValueCore(System.Double)">
+  ValueCore(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The interpolated value at a point, after the range check.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override sealed double ValueCore(double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CTSMMCapletCalibration | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CTSMMCapletCalibration | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A coterminal swap market model&#39;s calibration to caplet volatilities, the swaption volatilities given: each pass fits the swap rates&#39; pseudo-roots to the caplet volatilities in use, then rescales those by the market&#39;s over the model&#39;s, until the caplets&#39; root-mean-square error is within the tolerance or the passes run out.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models.CTSMMCapletCalibration">
+
+
+
+  <h1 id="NanoQL_Models_CTSMMCapletCalibration" data-uid="NanoQL.Models.CTSMMCapletCalibration" class="text-break">
+Class CTSMMCapletCalibration  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A coterminal swap market model's calibration to caplet volatilities, the swaption volatilities given: each pass
+fits the swap rates' pseudo-roots to the caplet volatilities in use, then rescales those by the market's over the
+model's, until the caplets' root-mean-square error is within the tolerance or the passes run out.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class CTSMMCapletCalibration</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CTSMMCapletCalibration</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Models.CTSMMCapletAlphaFormCalibration.html">CTSMMCapletAlphaFormCalibration</a></div>
+      <div><a class="xref" href="NanoQL.Models.CTSMMCapletMaxHomogeneityCalibration.html">CTSMMCapletMaxHomogeneityCalibration</a></div>
+      <div><a class="xref" href="NanoQL.Models.CTSMMCapletOriginalCalibration.html">CTSMMCapletOriginalCalibration</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Models_CTSMMCapletCalibration_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable: it holds the inputs, a copy of the curve state given, and <a class="xref" href="NanoQL.Models.CTSMMCapletCalibration.html#NanoQL_Models_CTSMMCapletCalibration_Calibrate_System_Int32_System_Int32_System_Double_System_Int32_System_Double_">Calibrate(int, int, double, int, double)</a> returns the results,
+where QuantLib's calibration changes itself; QuantLib's "not successfully calibrated yet" has no state to guard.
+Each pass's fit is the derived calibration's <a class="xref" href="NanoQL.Models.CTSMMCapletCalibration.html#NanoQL_Models_CTSMMCapletCalibration_CalibrationImpl_System_Int32_System_Int32_System_Double_System_ReadOnlySpan_System_Double__">CalibrationImpl(int, int, double, ReadOnlySpan&lt;double&gt;)</a>, QuantLib's <code>calibrationImpl_</code>. An
+extension point, as in QuantLib.
+</p>
+<p>
+A count below zero, which QuantLib's unsigned <code>Natural</code> wraps, is refused.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Models_CTSMMCapletCalibration__ctor_" data-uid="NanoQL.Models.CTSMMCapletCalibration.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_CTSMMCapletCalibration__ctor_NanoQL_Models_EvolutionDescription_NanoQL_Models_PiecewiseConstantCorrelation_System_ReadOnlySpan_NanoQL_Models_PiecewiseConstantVariance__System_ReadOnlySpan_System_Double__NanoQL_Models_CurveState_System_Double_" data-uid="NanoQL.Models.CTSMMCapletCalibration.#ctor(NanoQL.Models.EvolutionDescription,NanoQL.Models.PiecewiseConstantCorrelation,System.ReadOnlySpan{NanoQL.Models.PiecewiseConstantVariance},System.ReadOnlySpan{System.Double},NanoQL.Models.CurveState,System.Double)">
+  CTSMMCapletCalibration(EvolutionDescription, PiecewiseConstantCorrelation, ReadOnlySpan&lt;PiecewiseConstantVariance&gt;, ReadOnlySpan&lt;double&gt;, CurveState, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.CTSMMCapletCalibration.html">CTSMMCapletCalibration</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected CTSMMCapletCalibration(EvolutionDescription evolution, PiecewiseConstantCorrelation corr, ReadOnlySpan&lt;PiecewiseConstantVariance&gt; displacedSwapVariances, ReadOnlySpan&lt;double&gt; mktCapletVols, CurveState cs, double displacement)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>evolution</code> <a class="xref" href="NanoQL.Models.EvolutionDescription.html">EvolutionDescription</a></dt>
+    <dd><p>The evolution: its times the correlation's and the rate times but the last.</p>
+</dd>
+    <dt><code>corr</code> <a class="xref" href="NanoQL.Models.PiecewiseConstantCorrelation.html">PiecewiseConstantCorrelation</a></dt>
+    <dd><p>The swap rates' correlation.</p>
+</dd>
+    <dt><code>displacedSwapVariances</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="NanoQL.Models.PiecewiseConstantVariance.html">PiecewiseConstantVariance</a>&gt;</dt>
+    <dd><p>Each swap rate's displaced variance, one per rate.</p>
+</dd>
+    <dt><code>mktCapletVols</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The market's caplet volatilities, the last the last swaption's.</p>
+</dd>
+    <dt><code>cs</code> <a class="xref" href="NanoQL.Models.CurveState.html">CurveState</a></dt>
+    <dd><p>The curve state; copied.</p>
+</dd>
+    <dt><code>displacement</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rates' displacement.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The inputs don't fit (<a class="xref" href="NanoQL.Models.CTSMMCapletCalibration.html#NanoQL_Models_CTSMMCapletCalibration_PerformChecks_NanoQL_Models_EvolutionDescription_NanoQL_Models_PiecewiseConstantCorrelation_System_ReadOnlySpan_NanoQL_Models_PiecewiseConstantVariance__System_ReadOnlySpan_System_Double__NanoQL_Models_CurveState_">PerformChecks(EvolutionDescription, PiecewiseConstantCorrelation, ReadOnlySpan&lt;PiecewiseConstantVariance&gt;, ReadOnlySpan&lt;double&gt;, CurveState)</a>).</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Models_CTSMMCapletCalibration_Correlation_" data-uid="NanoQL.Models.CTSMMCapletCalibration.Correlation*"></a>
+
+  <h3 id="NanoQL_Models_CTSMMCapletCalibration_Correlation" data-uid="NanoQL.Models.CTSMMCapletCalibration.Correlation">
+  Correlation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the swap rates' correlation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected PiecewiseConstantCorrelation Correlation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.PiecewiseConstantCorrelation.html">PiecewiseConstantCorrelation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CTSMMCapletCalibration_DisplacedSwapVariances_" data-uid="NanoQL.Models.CTSMMCapletCalibration.DisplacedSwapVariances*"></a>
+
+  <h3 id="NanoQL_Models_CTSMMCapletCalibration_DisplacedSwapVariances" data-uid="NanoQL.Models.CTSMMCapletCalibration.DisplacedSwapVariances">
+  DisplacedSwapVariances
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each swap rate's displaced variance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ImmutableArray&lt;PiecewiseConstantVariance&gt; DisplacedSwapVariances { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Models.PiecewiseConstantVariance.html">PiecewiseConstantVariance</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CTSMMCapletCalibration_Displacement_" data-uid="NanoQL.Models.CTSMMCapletCalibration.Displacement*"></a>
+
+  <h3 id="NanoQL_Models_CTSMMCapletCalibration_Displacement" data-uid="NanoQL.Models.CTSMMCapletCalibration.Displacement">
+  Displacement
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the rates' displacement.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double Displacement { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CTSMMCapletCalibration_Displacements_" data-uid="NanoQL.Models.CTSMMCapletCalibration.Displacements*"></a>
+
+  <h3 id="NanoQL_Models_CTSMMCapletCalibration_Displacements" data-uid="NanoQL.Models.CTSMMCapletCalibration.Displacements">
+  Displacements
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each rate's displacement, the displacement given.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Displacements { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CTSMMCapletCalibration_Evolution_" data-uid="NanoQL.Models.CTSMMCapletCalibration.Evolution*"></a>
+
+  <h3 id="NanoQL_Models_CTSMMCapletCalibration_Evolution" data-uid="NanoQL.Models.CTSMMCapletCalibration.Evolution">
+  Evolution
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the evolution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected EvolutionDescription Evolution { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.EvolutionDescription.html">EvolutionDescription</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CTSMMCapletCalibration_MktCapletVols_" data-uid="NanoQL.Models.CTSMMCapletCalibration.MktCapletVols*"></a>
+
+  <h3 id="NanoQL_Models_CTSMMCapletCalibration_MktCapletVols" data-uid="NanoQL.Models.CTSMMCapletCalibration.MktCapletVols">
+  MktCapletVols
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the market's caplet volatilities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; MktCapletVols { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CTSMMCapletCalibration_NumberOfRates_" data-uid="NanoQL.Models.CTSMMCapletCalibration.NumberOfRates*"></a>
+
+  <h3 id="NanoQL_Models_CTSMMCapletCalibration_NumberOfRates" data-uid="NanoQL.Models.CTSMMCapletCalibration.NumberOfRates">
+  NumberOfRates
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of rates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int NumberOfRates { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Models_CTSMMCapletCalibration_Calibrate_" data-uid="NanoQL.Models.CTSMMCapletCalibration.Calibrate*"></a>
+
+  <h3 id="NanoQL_Models_CTSMMCapletCalibration_Calibrate_System_Int32_System_Int32_System_Double_System_Int32_System_Double_" data-uid="NanoQL.Models.CTSMMCapletCalibration.Calibrate(System.Int32,System.Int32,System.Double,System.Int32,System.Double)">
+  Calibrate(int, int, double, int, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calibrates: each pass fits the swap rates' pseudo-roots to the caplet volatilities in use, the market's at the
+first, then rescales each but the last by the market's over the model's, until the caplets' root-mean-square
+error is within the tolerance or the passes run out.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CTSMMCapletCalibrationResults Calibrate(int numberOfFactors, int maxIterations, double tolerance, int innerMaxIterations = 100, double innerTolerance = 1E-08)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numberOfFactors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The factors.</p>
+</dd>
+    <dt><code>maxIterations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The passes; one runs at 0, as in QuantLib's <code>do</code>-<code>while</code>.</p>
+</dd>
+    <dt><code>tolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The caplets' root-mean-square error at which the passes stop.</p>
+</dd>
+    <dt><code>innerMaxIterations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Each fit's iterations.</p>
+</dd>
+    <dt><code>innerTolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Each fit's tolerance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.CTSMMCapletCalibrationResults.html">CTSMMCapletCalibrationResults</a></dt>
+    <dd><p>The results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The factors aren't from 1 to the rates.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>An iteration count is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_CTSMMCapletCalibration_CalibrationImpl_" data-uid="NanoQL.Models.CTSMMCapletCalibration.CalibrationImpl*"></a>
+
+  <h3 id="NanoQL_Models_CTSMMCapletCalibration_CalibrationImpl_System_Int32_System_Int32_System_Double_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Models.CTSMMCapletCalibration.CalibrationImpl(System.Int32,System.Int32,System.Double,System.ReadOnlySpan{System.Double})">
+  CalibrationImpl(int, int, double, ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>One pass's fit of the swap rates' pseudo-roots to the caplet volatilities in use.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract CTSMMCapletCalibrationStep CalibrationImpl(int numberOfFactors, int innerMaxIterations, double innerTolerance, ReadOnlySpan&lt;double&gt; usedCapletVols)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numberOfFactors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The factors.</p>
+</dd>
+    <dt><code>innerMaxIterations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The fit's iterations.</p>
+</dd>
+    <dt><code>innerTolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The fit's tolerance.</p>
+</dd>
+    <dt><code>usedCapletVols</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The caplet volatilities in use.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.CTSMMCapletCalibrationStep.html">CTSMMCapletCalibrationStep</a></dt>
+    <dd><p>The pass's pseudo-roots and failures, and what the calibration computes besides.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CTSMMCapletCalibration_CurveState_" data-uid="NanoQL.Models.CTSMMCapletCalibration.CurveState*"></a>
+
+  <h3 id="NanoQL_Models_CTSMMCapletCalibration_CurveState" data-uid="NanoQL.Models.CTSMMCapletCalibration.CurveState">
+  CurveState()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The curve state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CurveState CurveState()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.CurveState.html">CurveState</a></dt>
+    <dd><p>A copy of the calibration's.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_CTSMMCapletCalibration_PerformChecks_" data-uid="NanoQL.Models.CTSMMCapletCalibration.PerformChecks*"></a>
+
+  <h3 id="NanoQL_Models_CTSMMCapletCalibration_PerformChecks_NanoQL_Models_EvolutionDescription_NanoQL_Models_PiecewiseConstantCorrelation_System_ReadOnlySpan_NanoQL_Models_PiecewiseConstantVariance__System_ReadOnlySpan_System_Double__NanoQL_Models_CurveState_" data-uid="NanoQL.Models.CTSMMCapletCalibration.PerformChecks(NanoQL.Models.EvolutionDescription,NanoQL.Models.PiecewiseConstantCorrelation,System.ReadOnlySpan{NanoQL.Models.PiecewiseConstantVariance},System.ReadOnlySpan{System.Double},NanoQL.Models.CurveState)">
+  PerformChecks(EvolutionDescription, PiecewiseConstantCorrelation, ReadOnlySpan&lt;PiecewiseConstantVariance&gt;, ReadOnlySpan&lt;double&gt;, CurveState)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks a calibration's inputs: the evolution's times the correlation's and the rate times but the last, its
+rate times the curve state's, a variance, a correlation rate and a caplet volatility per rate, and the last
+caplet volatility the last swaption's; and each variance holding its rate's steps, which QuantLib's calibrations
+read unchecked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void PerformChecks(EvolutionDescription evolution, PiecewiseConstantCorrelation corr, ReadOnlySpan&lt;PiecewiseConstantVariance&gt; displacedSwapVariances, ReadOnlySpan&lt;double&gt; mktCapletVols, CurveState cs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>evolution</code> <a class="xref" href="NanoQL.Models.EvolutionDescription.html">EvolutionDescription</a></dt>
+    <dd><p>The evolution.</p>
+</dd>
+    <dt><code>corr</code> <a class="xref" href="NanoQL.Models.PiecewiseConstantCorrelation.html">PiecewiseConstantCorrelation</a></dt>
+    <dd><p>The swap rates' correlation.</p>
+</dd>
+    <dt><code>displacedSwapVariances</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="NanoQL.Models.PiecewiseConstantVariance.html">PiecewiseConstantVariance</a>&gt;</dt>
+    <dd><p>Each swap rate's displaced variance.</p>
+</dd>
+    <dt><code>mktCapletVols</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The market's caplet volatilities.</p>
+</dd>
+    <dt><code>cs</code> <a class="xref" href="NanoQL.Models.CurveState.html">CurveState</a></dt>
+    <dd><p>The curve state.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The inputs don't fit.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_CTSMMCapletCalibration_TimeDependentUnCalibratedSwaptionVols_" data-uid="NanoQL.Models.CTSMMCapletCalibration.TimeDependentUnCalibratedSwaptionVols*"></a>
+
+  <h3 id="NanoQL_Models_CTSMMCapletCalibration_TimeDependentUnCalibratedSwaptionVols_System_Int32_" data-uid="NanoQL.Models.CTSMMCapletCalibration.TimeDependentUnCalibratedSwaptionVols(System.Int32)">
+  TimeDependentUnCalibratedSwaptionVols(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <code class="paramref">i</code>-th swap rate's volatility over the steps, as given.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; TimeDependentUnCalibratedSwaptionVols(int i)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The volatilities.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">i</code> isn't a rate.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class PathwiseAccountingEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PathwiseAccountingEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The engine that values pathwise market-model products and their deltas along a log-normal Euler evolver&#39;s paths, by Giles and Glasserman&#39;s smoking adjoints: on each path it gathers the products&#39; cash flows and their derivatives, then carries the derivatives back to the initial forward rates through the Euler step&#39;s Jacobian.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models.PathwiseAccountingEngine">
+
+
+
+  <h1 id="NanoQL_Models_PathwiseAccountingEngine" data-uid="NanoQL.Models.PathwiseAccountingEngine" class="text-break">
+Class PathwiseAccountingEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The engine that values pathwise market-model products and their deltas along a log-normal Euler evolver's paths,
+by Giles and Glasserman's smoking adjoints: on each path it gathers the products' cash flows and their derivatives,
+then carries the derivatives back to the initial forward rates through the Euler step's Jacobian.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public sealed class PathwiseAccountingEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PathwiseAccountingEngine</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Models_PathwiseAccountingEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Each path adds the products' values, then each product's deltas, to the caller's statistics: product i's delta to
+rate j at P + i·R + j, P products and R rates, in units of the initial numeraire, the path's weight in the values.
+It reads the model's pseudo-roots and displacements, and works in the discretely compounding money-market account.
+</p>
+<p>
+A working type: it holds the caller's evolver, as QuantLib's <code>shared_ptr</code>, and steps it, so an evolver serves
+one engine at a time; it holds its own clone of the product and a copy of each step's pseudo-root. Its buffers are
+sized at construction, so a path allocates nothing after a warm-up path.
+</p>
+<p>
+Three departures from QuantLib (documented divergences; <code>Divergences/PathwiseDeltaTests.cs</code>): the Euler drift's
+derivative reads the step's start forwards, where QuantLib's reads the step's end state
+(<code>pathwiseaccountingengine.cpp:167</code>); the rates' ratios and the drift term carry the displacement, f + d, and
+the drift's derivative its factor 1 − τd, where QuantLib's read f (<code>:169-170</code>, <code>:285</code>); and product i's
+deltas sit at P + i·R + j, where QuantLib's (i + 1)·P + j overwrites another product's deltas when P ≠ R and writes
+past the values when P &gt; R (<code>:306</code>). The prices are QuantLib's.
+</p>
+<p>
+Refused: an evolver not in the money-market measure, which QuantLib requires and doesn't check (<code>:99</code>): the
+adjoint recursion is the spot measure's. Refused too, where QuantLib reads past its buffers: a product whose rates
+or evolution aren't the model's, and a product not finished at the evolver's last step.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Models_PathwiseAccountingEngine__ctor_" data-uid="NanoQL.Models.PathwiseAccountingEngine.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_PathwiseAccountingEngine__ctor_NanoQL_Models_LogNormalFwdRateEuler_NanoQL_Models_MarketModelPathwiseMultiProduct_NanoQL_Models_MarketModel_System_Double_" data-uid="NanoQL.Models.PathwiseAccountingEngine.#ctor(NanoQL.Models.LogNormalFwdRateEuler,NanoQL.Models.MarketModelPathwiseMultiProduct,NanoQL.Models.MarketModel,System.Double)">
+  PathwiseAccountingEngine(LogNormalFwdRateEuler, MarketModelPathwiseMultiProduct, MarketModel, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.PathwiseAccountingEngine.html">PathwiseAccountingEngine</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PathwiseAccountingEngine(LogNormalFwdRateEuler evolver, MarketModelPathwiseMultiProduct product, MarketModel pseudoRootStructure, double initialNumeraireValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>evolver</code> <a class="xref" href="NanoQL.Models.LogNormalFwdRateEuler.html">LogNormalFwdRateEuler</a></dt>
+    <dd><p>The log-normal Euler evolver, in the money-market measure, held and stepped by the
+engine.</p>
+</dd>
+    <dt><code>product</code> <a class="xref" href="NanoQL.Models.MarketModelPathwiseMultiProduct.html">MarketModelPathwiseMultiProduct</a></dt>
+    <dd><p>The product, on the model's rates and evolution, cloned.</p>
+</dd>
+    <dt><code>pseudoRootStructure</code> <a class="xref" href="NanoQL.Models.MarketModel.html">MarketModel</a></dt>
+    <dd><p>The model the evolver evolves: its pseudo-roots and displacements.</p>
+</dd>
+    <dt><code>initialNumeraireValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value of the initial numeraire bond today.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The evolver isn't in the money-market measure, or the product's rates or evolution aren't the model's.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Models_PathwiseAccountingEngine_MultiplePathValues_" data-uid="NanoQL.Models.PathwiseAccountingEngine.MultiplePathValues*"></a>
+
+  <h3 id="NanoQL_Models_PathwiseAccountingEngine_MultiplePathValues_NanoQL_Numerics_SequenceStatisticsInc_System_Int32_" data-uid="NanoQL.Models.PathwiseAccountingEngine.MultiplePathValues(NanoQL.Numerics.SequenceStatisticsInc,System.Int32)">
+  MultiplePathValues(SequenceStatisticsInc, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Values the products and their deltas along paths, adding each path's values, then each product's deltas, to the
+statistics.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MultiplePathValues(SequenceStatisticsInc stats, int numberOfPaths)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stats</code> <a class="xref" href="NanoQL.Numerics.SequenceStatisticsInc.html">SequenceStatisticsInc</a></dt>
+    <dd><p>The statistics, of dimension P·(1 + R) or of dimension 0.</p>
+</dd>
+    <dt><code>numberOfPaths</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of paths.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">numberOfPaths</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The product isn't finished at the evolver's last step.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

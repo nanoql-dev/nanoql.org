@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CurrencyRounding | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CurrencyRounding | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A currency&#39;s rounding convention: QuantLib&#39;s Rounding, its type, and for every type but  its precision and rounding digit.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Extensions.Conventions.CurrencyRounding">
+
+
+
+  <h1 id="NanoQL_Extensions_Conventions_CurrencyRounding" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding" class="text-break">
+Class CurrencyRounding  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<span class="xref">Extensions</span>.<a class="xref" href="NanoQL.Extensions.Conventions.html">Conventions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.Extensions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A currency's rounding convention: QuantLib's <code>Rounding</code>, its type, and for every type but
+<a class="xref" href="NanoQL.Numerics.RoundingType.html#NanoQL_Numerics_RoundingType_None">None</a> its precision and rounding digit.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed record CurrencyRounding : IEquatable&lt;CurrencyRounding&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CurrencyRounding</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Extensions.Conventions.CurrencyRounding.html">CurrencyRounding</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Extensions_Conventions_CurrencyRounding__ctor_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.#ctor*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_CurrencyRounding__ctor_NanoQL_Numerics_RoundingType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.#ctor(NanoQL.Numerics.RoundingType,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+  CurrencyRounding(RoundingType, int?, int?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A currency's rounding convention: QuantLib's <code>Rounding</code>, its type, and for every type but
+<a class="xref" href="NanoQL.Numerics.RoundingType.html#NanoQL_Numerics_RoundingType_None">None</a> its precision and rounding digit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CurrencyRounding(RoundingType Type, int? Precision = null, int? Digit = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Type</code> <a class="xref" href="NanoQL.Numerics.RoundingType.html">RoundingType</a></dt>
+    <dd><p>The rounding's type.</p>
+</dd>
+    <dt><code>Precision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The decimal places, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for <a class="xref" href="NanoQL.Numerics.RoundingType.html#NanoQL_Numerics_RoundingType_None">None</a>.</p>
+</dd>
+    <dt><code>Digit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>The rounding digit, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for <a class="xref" href="NanoQL.Numerics.RoundingType.html#NanoQL_Numerics_RoundingType_None">None</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Extensions_Conventions_CurrencyRounding_Digit_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Digit*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_CurrencyRounding_Digit" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Digit">
+  Digit
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rounding digit, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for <a class="xref" href="NanoQL.Numerics.RoundingType.html#NanoQL_Numerics_RoundingType_None">None</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? Digit { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_CurrencyRounding_Precision_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Precision*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_CurrencyRounding_Precision" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Precision">
+  Precision
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The decimal places, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for <a class="xref" href="NanoQL.Numerics.RoundingType.html#NanoQL_Numerics_RoundingType_None">None</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? Precision { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_CurrencyRounding_Type_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Type*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_CurrencyRounding_Type" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Type">
+  Type
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rounding's type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RoundingType Type { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.RoundingType.html">RoundingType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Extensions_Conventions_CurrencyRounding_Deconstruct_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Deconstruct*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_CurrencyRounding_Deconstruct_NanoQL_Numerics_RoundingType__System_Nullable_System_Int32___System_Nullable_System_Int32___" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Deconstruct(NanoQL.Numerics.RoundingType@,System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)">
+  Deconstruct(out RoundingType, out int?, out int?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Deconstruct(out RoundingType Type, out int? Precision, out int? Digit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Type</code> <a class="xref" href="NanoQL.Numerics.RoundingType.html">RoundingType</a></dt>
+    <dd></dd>
+    <dt><code>Precision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+    <dt><code>Digit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_CurrencyRounding_Equals_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Equals*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_CurrencyRounding_Equals_NanoQL_Extensions_Conventions_CurrencyRounding_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Equals(NanoQL.Extensions.Conventions.CurrencyRounding)">
+  Equals(CurrencyRounding?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(CurrencyRounding? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Extensions.Conventions.CurrencyRounding.html">CurrencyRounding</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_CurrencyRounding_Equals_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Equals*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_CurrencyRounding_Equals_System_Object_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_CurrencyRounding_GetHashCode_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_CurrencyRounding_GetHashCode" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_CurrencyRounding_Of_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Of*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_CurrencyRounding_Of_NanoQL_Numerics_Rounding_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.Of(NanoQL.Numerics.Rounding)">
+  Of(Rounding)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Describes a rounding.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CurrencyRounding Of(Rounding rounding)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rounding</code> <a class="xref" href="NanoQL.Numerics.Rounding.html">Rounding</a></dt>
+    <dd><p>The rounding.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Extensions.Conventions.CurrencyRounding.html">CurrencyRounding</a></dt>
+    <dd><p>Its type, and its precision and digit unless its type is <a class="xref" href="NanoQL.Numerics.RoundingType.html#NanoQL_Numerics_RoundingType_None">None</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">rounding</code> is null.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_CurrencyRounding_ToRounding_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.ToRounding*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_CurrencyRounding_ToRounding" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.ToRounding">
+  ToRounding()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rounding this describes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rounding ToRounding()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Rounding.html">Rounding</a></dt>
+    <dd><p>QuantLib's no-rounding for <a class="xref" href="NanoQL.Numerics.RoundingType.html#NanoQL_Numerics_RoundingType_None">None</a>, else a rounding of the precision, type and
+digit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A type other than <a class="xref" href="NanoQL.Numerics.RoundingType.html#NanoQL_Numerics_RoundingType_None">None</a> without a precision or
+digit, or <a class="xref" href="NanoQL.Numerics.RoundingType.html#NanoQL_Numerics_RoundingType_None">None</a> with one.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Extensions_Conventions_CurrencyRounding_ToString_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.ToString*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_CurrencyRounding_ToString" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Extensions_Conventions_CurrencyRounding_op_Equality_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.op_Equality*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_CurrencyRounding_op_Equality_NanoQL_Extensions_Conventions_CurrencyRounding_NanoQL_Extensions_Conventions_CurrencyRounding_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.op_Equality(NanoQL.Extensions.Conventions.CurrencyRounding,NanoQL.Extensions.Conventions.CurrencyRounding)">
+  operator ==(CurrencyRounding?, CurrencyRounding?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(CurrencyRounding? left, CurrencyRounding? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Extensions.Conventions.CurrencyRounding.html">CurrencyRounding</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Extensions.Conventions.CurrencyRounding.html">CurrencyRounding</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Extensions_Conventions_CurrencyRounding_op_Inequality_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.op_Inequality*"></a>
+
+  <h3 id="NanoQL_Extensions_Conventions_CurrencyRounding_op_Inequality_NanoQL_Extensions_Conventions_CurrencyRounding_NanoQL_Extensions_Conventions_CurrencyRounding_" data-uid="NanoQL.Extensions.Conventions.CurrencyRounding.op_Inequality(NanoQL.Extensions.Conventions.CurrencyRounding,NanoQL.Extensions.Conventions.CurrencyRounding)">
+  operator !=(CurrencyRounding?, CurrencyRounding?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(CurrencyRounding? left, CurrencyRounding? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoQL.Extensions.Conventions.CurrencyRounding.html">CurrencyRounding</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoQL.Extensions.Conventions.CurrencyRounding.html">CurrencyRounding</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class GeneralizedBlackScholesProcess | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GeneralizedBlackScholesProcess | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The generalized Black-Scholes stochastic process, d ln S(t) = (r(t) − q(t) − σ(t, S)&#178;/2) dt + σ dW_t, on a risk-free curve, a dividend curve and a Black volatility, with its local volatility σ(t, S) derived from the Black one. The interface is expressed in S; the internal calculations work on ln S.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess">
+
+
+
+  <h1 id="NanoQL_Processes_GeneralizedBlackScholesProcess" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess" class="text-break">
+Class GeneralizedBlackScholesProcess  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Processes.html">Processes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The generalized Black-Scholes stochastic process, d ln S(t) = (r(t) − q(t) − σ(t, S)²/2) dt + σ dW_t, on a
+risk-free curve, a dividend curve and a Black volatility, with its local volatility σ(t, S) derived from the Black
+one. The interface is expressed in S; the internal calculations work on ln S.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class GeneralizedBlackScholesProcess : StochasticProcess1D</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.StochasticProcess.html">StochasticProcess</a></div>
+      <div><a class="xref" href="NanoQL.StochasticProcess1D.html">StochasticProcess1D</a></div>
+      <div><span class="xref">GeneralizedBlackScholesProcess</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.ExtendedBlackScholesMertonProcess.html">ExtendedBlackScholesMertonProcess</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.VegaStressedBlackScholesProcess.html">VegaStressedBlackScholesProcess</a></div>
+      <div><a class="xref" href="NanoQL.Processes.BlackProcess.html">BlackProcess</a></div>
+      <div><a class="xref" href="NanoQL.Processes.BlackScholesMertonProcess.html">BlackScholesMertonProcess</a></div>
+      <div><a class="xref" href="NanoQL.Processes.BlackScholesProcess.html">BlackScholesProcess</a></div>
+      <div><a class="xref" href="NanoQL.Processes.GarmanKohlagenProcess.html">GarmanKohlagenProcess</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_discretization">StochasticProcess1D.discretization</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_InitialValues">StochasticProcess1D.InitialValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Drift_System_Double_NanoQL_Numerics_Vector_">StochasticProcess1D.Drift(double, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Diffusion_System_Double_NanoQL_Numerics_Vector_">StochasticProcess1D.Diffusion(double, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Expectation_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess1D.Expectation(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_StdDeviation_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess1D.StdDeviation(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Covariance_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess1D.Covariance(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Evolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_">StochasticProcess1D.Evolve(double, Vector, double, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Apply_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">StochasticProcess1D.Apply(Vector, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess1D.html#NanoQL_StochasticProcess1D_Size">StochasticProcess1D.Size</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_InitialValues_System_Span_System_Double__">StochasticProcess.InitialValues(Span&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Evolve_System_Double_System_ReadOnlySpan_System_Double__System_Double_System_ReadOnlySpan_System_Double__System_Span_System_Double__">StochasticProcess.Evolve(double, ReadOnlySpan&lt;double&gt;, double, ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Factors">StochasticProcess.Factors</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Processes_GeneralizedBlackScholesProcess_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An extension point, as in QuantLib: its four named processes derive from it. The process is immutable; the curves
+and volatilities it holds have reference dates fixed when they were built, so <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html#NanoQL_Processes_GeneralizedBlackScholesProcess_Time_NanoQL_Time_Date_">Time(Date)</a> needs no context.
+</p>
+<p>
+The local volatility is chosen in the constructor, by QuantLib's type tests in QuantLib's order: a
+<a class="xref" href="NanoQL.TermStructures.BlackConstantVol.html">BlackConstantVol</a> gives a <a class="xref" href="NanoQL.TermStructures.LocalConstantVol.html">LocalConstantVol</a> at its volatility at the spot, a
+<a class="xref" href="NanoQL.TermStructures.BlackVarianceCurve.html">BlackVarianceCurve</a> a <a class="xref" href="NanoQL.TermStructures.LocalVolCurve.html">LocalVolCurve</a>, and any other structure a
+<a class="xref" href="NanoQL.TermStructures.LocalVolSurface.html">LocalVolSurface</a> at the spot. The first two are strike-independent, so the expectation, the variance
+and the evolution are exact; on a surface they are the discretization's. QuantLib chooses and caches it at the
+first use. A process given its local volatility uses it, and is never strike-independent.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess__ctor_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.#ctor*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess__ctor_System_Double_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_BlackVolTermStructure_NanoQL_StochasticProcess1DDiscretization_System_Boolean_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.#ctor(System.Double,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.BlackVolTermStructure,NanoQL.StochasticProcess1DDiscretization,System.Boolean)">
+  GeneralizedBlackScholesProcess(double, YieldTermStructure, YieldTermStructure, BlackVolTermStructure, StochasticProcess1DDiscretization?, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a> class, its local volatility
+derived from its Black volatility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GeneralizedBlackScholesProcess(double x0, YieldTermStructure dividendTS, YieldTermStructure riskFreeTS, BlackVolTermStructure blackVolTS, StochasticProcess1DDiscretization? d = null, bool forceDiscretization = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value.</p>
+</dd>
+    <dt><code>dividendTS</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The dividend curve.</p>
+</dd>
+    <dt><code>riskFreeTS</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The risk-free curve.</p>
+</dd>
+    <dt><code>blackVolTS</code> <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a></dt>
+    <dd><p>The Black volatility.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.StochasticProcess1DDiscretization.html">StochasticProcess1DDiscretization</a></dt>
+    <dd><p>The discretization, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's default, Euler's.</p>
+</dd>
+    <dt><code>forceDiscretization</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to use the discretization even where the local volatility is strike-independent.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A curve or the volatility is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The Black volatility can't be read at time 0 and the spot.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess__ctor_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.#ctor*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess__ctor_System_Double_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_BlackVolTermStructure_NanoQL_TermStructures_LocalVolTermStructure_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.#ctor(System.Double,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.BlackVolTermStructure,NanoQL.TermStructures.LocalVolTermStructure)">
+  GeneralizedBlackScholesProcess(double, YieldTermStructure, YieldTermStructure, BlackVolTermStructure, LocalVolTermStructure)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Processes.GeneralizedBlackScholesProcess.html">GeneralizedBlackScholesProcess</a> class with a given local
+volatility, and Euler's discretization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GeneralizedBlackScholesProcess(double x0, YieldTermStructure dividendTS, YieldTermStructure riskFreeTS, BlackVolTermStructure blackVolTS, LocalVolTermStructure localVolTS)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value.</p>
+</dd>
+    <dt><code>dividendTS</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The dividend curve.</p>
+</dd>
+    <dt><code>riskFreeTS</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The risk-free curve.</p>
+</dd>
+    <dt><code>blackVolTS</code> <a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a></dt>
+    <dd><p>The Black volatility.</p>
+</dd>
+    <dt><code>localVolTS</code> <a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></dt>
+    <dd><p>The local volatility.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A curve or a volatility is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_BlackVolatility_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.BlackVolatility*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_BlackVolatility" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.BlackVolatility">
+  BlackVolatility
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the Black volatility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlackVolTermStructure BlackVolatility { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.BlackVolTermStructure.html">BlackVolTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_DividendYield_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.DividendYield*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_DividendYield" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.DividendYield">
+  DividendYield
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the dividend curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YieldTermStructure DividendYield { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_LocalVolatility_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.LocalVolatility*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_LocalVolatility" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.LocalVolatility">
+  LocalVolatility
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the local volatility: the one given, or the one derived from the Black volatility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LocalVolTermStructure LocalVolatility { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.LocalVolTermStructure.html">LocalVolTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_RiskFreeRate_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.RiskFreeRate*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_RiskFreeRate" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.RiskFreeRate">
+  RiskFreeRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the risk-free curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YieldTermStructure RiskFreeRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_StateVariable_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.StateVariable*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_StateVariable" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.StateVariable">
+  StateVariable
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the underlying's value: QuantLib's state variable, a quote there and a number here.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double StateVariable { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_X0_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.X0*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_X0" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.X0">
+  X0
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the initial value of the state variable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double X0 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_Apply_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Apply*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_Apply_System_Double_System_Double_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Apply(System.Double,System.Double)">
+  Apply(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies a change of ln S: x0 eᵈˣ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Apply(double x0, double dx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value.</p>
+</dd>
+    <dt><code>dx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The change of its logarithm.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The changed value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_Diffusion_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Diffusion*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_Diffusion_System_Double_System_Double_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Diffusion(System.Double,System.Double)">
+  Diffusion(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The diffusion: the local volatility at the time and value, extrapolated; on another clock than the risk-free
+curve's, at the instant's own time, per unit of the risk-free curve's time, and nothing before its reference
+date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Diffusion(double t, double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The diffusion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The local volatility can't be read there.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_Drift_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Drift*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_Drift_System_Double_System_Double_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Drift(System.Double,System.Double)">
+  Drift(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The drift of ln S: r − q − σ²/2, the rates instantaneous forwards over 0.0001 years.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Drift(double t, double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The drift.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A curve or the local volatility can't be read there.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_Evolve_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Evolve*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_Evolve_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Evolve(System.Double,System.Double,System.Double,System.Double)">
+  Evolve(double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The value after a time interval and a Brownian increment: exactly where the local volatility is
+strike-independent and the discretization isn't forced, by the discretization otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Evolve(double t0, double x0, double dt, double dw)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+    <dt><code>dw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The Brownian increment.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_Expectation_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Expectation*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_Expectation_System_Double_System_Double_System_Double_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Expectation(System.Double,System.Double,System.Double)">
+  Expectation(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expectation of S after a time interval, exactly, from the forward rates over it; only where the local
+volatility is strike-independent and the discretization isn't forced.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Expectation(double t0, double x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The expectation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Processes_GeneralizedBlackScholesProcess_Expectation_System_Double_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>QuantLib's warning: it should return E(S), not exp(E(log S)).</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The local volatility depends on the strike, or the discretization is forced: &quot;not implemented&quot;, as QuantLib's.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_StdDeviation_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.StdDeviation*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_StdDeviation_System_Double_System_Double_System_Double_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.StdDeviation(System.Double,System.Double,System.Double)">
+  StdDeviation(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The standard deviation after a time interval: the square root of the exact variance where the local volatility
+is strike-independent and the discretization isn't forced, the discretization's otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double StdDeviation(double t0, double x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_Time_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Time*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_Time_NanoQL_Time_Date_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Time(NanoQL.Time.Date)">
+  Time(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The time of a date, by the risk-free curve's day counter from its reference date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Time(Date date)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>date</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">date</code> is <code>default(Date)</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_GeneralizedBlackScholesProcess_Variance_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Variance*"></a>
+
+  <h3 id="NanoQL_Processes_GeneralizedBlackScholesProcess_Variance_System_Double_System_Double_System_Double_" data-uid="NanoQL.Processes.GeneralizedBlackScholesProcess.Variance(System.Double,System.Double,System.Double)">
+  Variance(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The variance after a time interval: the Black variance's increment over it, at a strike of 0.01, where the
+local volatility is strike-independent and the discretization isn't forced; the discretization's otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Variance(double t0, double x0, double dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

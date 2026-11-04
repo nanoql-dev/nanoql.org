@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Migrating from QuantLib-Python | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Migrating from QuantLib-Python | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../../brand/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../migration/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="migrating-from-quantlib-python">Migrating from QuantLib-Python</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>nanoql is a .NET library whose types follow QuantLib's, so most QuantLib-Python code maps class by class: the same
+<code>Date</code>, <code>Euribor6M</code>, <code>PiecewiseLogLinearDiscount</code> or <code>MakeVanillaSwap</code>, written in C#. What changes is how they are
+connected. This guide pairs QuantLib-Python code with nanoql's for the rates products, each pair building the same
+trade on the same quotes. <a href="../parity/quantlib-python.html">The parity table</a> lists every class and function
+QuantLib-Python constructs, with its nanoql form.</p>
+<p>nanoql's own bindings for Python (<a href="../bindings.html">bindings.md</a>) carry the same API to Python, over a native library.</p>
+<h2 id="the-concepts">The concepts</h2>
+<table>
+<thead>
+<tr>
+<th>QuantLib-Python</th>
+<th>nanoql</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ql.Settings.instance().evaluationDate = today</code></td>
+<td><code>new EvaluationContext { EvaluationDate = today }</code>, passed to each call that reads it</td>
+</tr>
+<tr>
+<td><code>ql.SimpleQuote</code>, <code>ql.QuoteHandle</code></td>
+<td>a <code>double</code>: a new quote means a new object, built from it</td>
+</tr>
+<tr>
+<td><code>ql.YieldTermStructureHandle</code>, <code>ql.RelinkableYieldTermStructureHandle</code></td>
+<td>the curve itself, passed where it is used</td>
+</tr>
+<tr>
+<td><code>instrument.setPricingEngine(engine)</code>, then <code>instrument.NPV()</code></td>
+<td><code>Engine.Calculate(instrument, context, …)</code>, returning a results record</td>
+</tr>
+<tr>
+<td>observers and lazy recalculation</td>
+<td>the application's layer above the library: rebuild on change, or memoize by inputs (<a href="../stateless.html">the stateless design</a>)</td>
+</tr>
+<tr>
+<td><code>index.addFixing(date, value)</code>, held in a global store</td>
+<td><code>context.Fixings.AddFixing(index, date, value)</code>, held by the context</td>
+</tr>
+<tr>
+<td><code>ql.Settings</code>' other flags, <code>ql.IborCoupon.createAtParCoupons()</code></td>
+<td>the context's fields: <code>IncludeReferenceDateEvents</code>, <code>UseAtParCoupons</code>, …</td>
+</tr>
+<tr>
+<td><code>ql.MakeVanillaSwap(…, nominal=…)</code>, keyword arguments</td>
+<td><code>new MakeVanillaSwap(…).WithNominal(…)</code>, ending in <code>.ToVanillaSwap(context)</code></td>
+</tr>
+<tr>
+<td><code>ql.Date(15, ql.October, 2026)</code>, <code>ql.Period(5, ql.Years)</code></td>
+<td><code>new Date(15, Month.October, 2026)</code>, <code>new Period(5, TimeUnit.Years)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="curves">Curves</h2>
+<pre><code class="lang-python">import QuantLib as ql
+
+today = ql.Date(15, ql.October, 2026)
+ql.Settings.instance().evaluationDate = today
+
+
+def quote(rate):
+    return ql.QuoteHandle(ql.SimpleQuote(rate))
+
+
+swap_quotes = [(2, 0.0225), (3, 0.0232), (5, 0.0245), (7, 0.0256), (10, 0.0270), (15, 0.0283), (20, 0.0288),
+               (30, 0.0285)]
+helpers = [
+    ql.DepositRateHelper(quote(0.0205), ql.Euribor(ql.Period(3, ql.Months))),
+    ql.DepositRateHelper(quote(0.0210), ql.Euribor6M()),
+] + [ql.SwapRateHelper(quote(rate), ql.EuriborSwapIsdaFixA(ql.Period(years, ql.Years))) for years, rate in swap_quotes]
+curve = ql.PiecewiseLogLinearDiscount(today, helpers, ql.Actual365Fixed())
+curve_handle = ql.YieldTermStructureHandle(curve)
+</code></pre>
+<pre><code class="lang-csharp">(int Years, double Rate)[] swapQuotes =
+    [(2, 0.0225), (3, 0.0232), (5, 0.0245), (7, 0.0256), (10, 0.0270), (15, 0.0283), (20, 0.0288), (30, 0.0285)];
+RateHelper[] helpers =
+[
+    new DepositRateHelper(0.0205 + shift, new Euribor(new Period(3, TimeUnit.Months)), context),
+    new DepositRateHelper(0.0210 + shift, new Euribor6M(), context),
+    .. swapQuotes.Select(q =&gt;
+        new SwapRateHelper(q.Rate + shift, new EuriborSwapIsdaFixA(new Period(q.Years, TimeUnit.Years)), context)),
+];
+var curve = new PiecewiseLogLinearDiscount(today, helpers, new Actual365Fixed(), context);
+</code></pre>
+<p>The helpers take their quotes as numbers and the context, and the curve is passed as itself: there is no handle.</p>
+<h2 id="indexes-and-fixings">Indexes and fixings</h2>
+<pre><code class="lang-python">euribor = ql.Euribor6M(curve_handle)
+yesterday = euribor.fixingCalendar().advance(today, -1, ql.Days)
+euribor.addFixing(yesterday, 0.0212)
+</code></pre>
+<pre><code class="lang-csharp">var euribor = new Euribor6M(curve);
+Date yesterday = euribor.FixingCalendar.Advance(Curves.Today, -1, TimeUnit.Days);
+EvaluationContext context = Curves.Context with
+{
+    Fixings = Curves.Context.Fixings.AddFixing(euribor, yesterday, 0.0212),
+};
+
+Date[] fixingDates =
+[
+    yesterday,
+    Curves.Today,
+    euribor.FixingCalendar.Advance(Curves.Today, new Period(6, TimeUnit.Months)),
+];
+</code></pre>
+<p>QuantLib-Python's fixing goes into a global store every Euribor 6M index reads; nanoql's goes into the context.</p>
+<h2 id="vanilla-swaps">Vanilla swaps</h2>
+<pre><code class="lang-python">engine = ql.DiscountingSwapEngine(curve_handle)
+swap = ql.MakeVanillaSwap(ql.Period(5, ql.Years), euribor, 0.025, nominal=10e6, pricingEngine=engine)
+print(swap.NPV(), swap.fairRate())
+</code></pre>
+<pre><code class="lang-csharp">var euribor = new Euribor6M(curve);
+VanillaSwap spot = new MakeVanillaSwap(new Period(5, TimeUnit.Years), euribor)
+    .WithFixedRate(0.025)
+    .WithNominal(10e6)
+    .ToVanillaSwap(context);
+VanillaSwap forward = new MakeVanillaSwap(new Period(5, TimeUnit.Years), euribor)
+    .WithForwardStart(new Period(5, TimeUnit.Years))
+    .WithFixedRate(0.025)
+    .WithNominal(10e6)
+    .ToVanillaSwap(context);
+
+FixedVsFloatingSwapResults spotResult = DiscountingSwapEngine.Calculate(spot, context, curve);
+FixedVsFloatingSwapResults forwardResult = DiscountingSwapEngine.Calculate(forward, context, curve);
+</code></pre><h2 id="overnight-swaps">Overnight swaps</h2>
+<pre><code class="lang-python">flat = ql.YieldTermStructureHandle(ql.FlatForward(today, 0.036, ql.Actual365Fixed()))
+ois = ql.MakeOIS(ql.Period(5, ql.Years), ql.Sofr(flat), 0.036, nominal=10e6,
+                 pricingEngine=ql.DiscountingSwapEngine(flat))
+print(ois.NPV(), ois.fairRate())
+</code></pre>
+<pre><code class="lang-csharp">var today = new Date(15, Month.October, 2026);
+var context = new EvaluationContext { EvaluationDate = today };
+var curve = new FlatForward(today, 0.036, new Actual365Fixed());
+
+OvernightIndexedSwap swap = new MakeOIS(new Period(5, TimeUnit.Years), new Sofr(curve))
+    .WithFixedRate(0.036)
+    .WithNominal(10e6)
+    .ToOvernightIndexedSwap(context);
+
+OvernightIndexedSwapResults result = DiscountingSwapEngine.Calculate(swap, context, curve);
+</code></pre><h2 id="caps-and-floors">Caps and floors</h2>
+<pre><code class="lang-python">cap = ql.MakeCapFloor(ql.CapFloor.Cap, ql.Period(5, ql.Years), euribor, 0.025, nominal=10e6)
+cap.setPricingEngine(ql.BlackCapFloorEngine(curve_handle, quote(0.20)))
+print(cap.NPV())
+</code></pre>
+<pre><code class="lang-csharp">CapFloor capFloor = new MakeCapFloor(type, new Period(5, TimeUnit.Years), new Euribor6M(curve))
+    .WithStrike(strike)
+    .WithNominal(10e6)
+    .ToCapFloor(context);
+
+double black = BlackCapFloorEngine.Calculate(capFloor, context, curve, 0.20).NPV!.Value;
+double bachelier = BachelierCapFloorEngine.Calculate(capFloor, context, curve, 0.0060).NPV!.Value;
+</code></pre><h2 id="swaptions">Swaptions</h2>
+<pre><code class="lang-python">swap_index = ql.EuriborSwapIsdaFixA(ql.Period(5, ql.Years), curve_handle)
+swaption = ql.MakeSwaption(swap_index, ql.Period(1, ql.Years), 0.025, nominal=10e6)
+swaption.setPricingEngine(ql.BlackSwaptionEngine(curve_handle, quote(0.20)))
+print(swaption.NPV())
+</code></pre>
+<pre><code class="lang-csharp">var index = new EuriborSwapIsdaFixA(new Period(5, TimeUnit.Years), curve);
+Swaption swaption = new MakeSwaption(index, new Period(expiry, TimeUnit.Years), strike)
+    .WithNominal(10e6)
+    .ToSwaption(context);
+
+double black = BlackSwaptionEngine.Calculate(swaption, context, curve, 0.20).NPV!.Value;
+double bachelier = BachelierSwaptionEngine.Calculate(swaption, context, curve, 0.0060).NPV!.Value;
+</code></pre>
+<p>Each pair gives the same values; the rates guides show nanoql's (<a href="../rates/swaps.html">swaps</a>,
+<a href="../rates/caps-and-floors.html">caps and floors</a>, <a href="../rates/swaptions.html">swaptions</a>).</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

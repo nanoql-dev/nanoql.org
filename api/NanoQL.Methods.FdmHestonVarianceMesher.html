@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class FdmHestonVarianceMesher | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FdmHestonVarianceMesher | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The one-dimensional mesher of the Heston model&#39;s variance: points averaged over the variance&#39;s non-central chi-squared quantiles at several times up to maturity, v₀ among them, with an estimate of the average volatility that sizes the equity&#39;s mesher.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Methods.FdmHestonVarianceMesher">
+
+
+
+  <h1 id="NanoQL_Methods_FdmHestonVarianceMesher" data-uid="NanoQL.Methods.FdmHestonVarianceMesher" class="text-break">
+Class FdmHestonVarianceMesher  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Methods.html">Methods</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The one-dimensional mesher of the Heston model's variance: points averaged over the variance's non-central
+chi-squared quantiles at several times up to maturity, v₀ among them, with an estimate of the average volatility
+that sizes the equity's mesher.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class FdmHestonVarianceMesher : Fdm1dMesher</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Methods.Fdm1dMesher.html">Fdm1dMesher</a></div>
+      <div><span class="xref">FdmHestonVarianceMesher</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Dplus_System_Int32_">Fdm1dMesher.Dplus(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Dminus_System_Int32_">Fdm1dMesher.Dminus(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Location_System_Int32_">Fdm1dMesher.Location(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Locations">Fdm1dMesher.Locations()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Methods.Fdm1dMesher.html#NanoQL_Methods_Fdm1dMesher_Size">Fdm1dMesher.Size</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Methods_FdmHestonVarianceMesher_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable. Where the quantile grid fails, its default mesh: evenly spaced over θ and v₀ ± 4σ√(θ/2κ).
+</p>
+<p>
+QuantLib's master since 1.44 (#2908's mesher part and #2940, taken as fixes) falls back to the default mesh also
+where a normal approximation of the quantiles shows the distribution too narrow for the grid's minimum steps, where
+the quantiles can't hold v₀ (checked before and after building the grid), and where the grid is degenerate, its
+probabilities repeating; and it skips the quantiles beyond 1 − ε, which give the same grid. 1.44's grid holds no v₀
+where the variance falls fast (v₀ 0.25, θ 0.0025, κ 10), so its engines throw, and at small σ it builds degenerate
+grids; elsewhere the two are the same, bit for bit (<code>Divergences/FdmHestonVarianceMesherFallbackTests.cs</code>).
+</p>
+<p>
+The volatility estimate scales by a skew factor, max(1, σ_m/κ)^1.5 in QuantLib, σ_m the mixing factor times σ, which
+at small κ widens the equity's mesher until its prices leave the analytic engine's: +30% at σ 1.0 and κ 0.1, +638%
+at κ 0.02, refining the grid not bringing them back. Here the factor is bounded at σ_m/κ = 2, min(2, max(1,
+σ_m/κ))^1.5, so QuantLib's bits stand wherever σ_m/κ ≤ 2, every QuantLib case among them
+(<code>Divergences/FdHestonSkewFactorTests.cs</code>).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Methods_FdmHestonVarianceMesher__ctor_" data-uid="NanoQL.Methods.FdmHestonVarianceMesher.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_FdmHestonVarianceMesher__ctor_System_Int32_NanoQL_Processes_HestonProcess_System_Double_System_Int32_System_Double_System_Double_" data-uid="NanoQL.Methods.FdmHestonVarianceMesher.#ctor(System.Int32,NanoQL.Processes.HestonProcess,System.Double,System.Int32,System.Double,System.Double)">
+  FdmHestonVarianceMesher(int, HestonProcess, double, int, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.FdmHestonVarianceMesher.html">FdmHestonVarianceMesher</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FdmHestonVarianceMesher(int size, HestonProcess process, double maturity, int tAvgSteps = 10, double epsilon = 0.0001, double mixingFactor = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of points, at least 2.</p>
+</dd>
+    <dt><code>process</code> <a class="xref" href="NanoQL.Processes.HestonProcess.html">HestonProcess</a></dt>
+    <dd><p>The Heston process.</p>
+</dd>
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maturity.</p>
+</dd>
+    <dt><code>tAvgSteps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of times the quantiles are averaged over.</p>
+</dd>
+    <dt><code>epsilon</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability left above the last quantile.</p>
+</dd>
+    <dt><code>mixingFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factor scaling the variance's volatility σ.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">process</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">size</code> or <code class="paramref">tAvgSteps</code> is
+negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">size</code> is 0 or 1.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The volatility estimate's integration fails.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Methods_FdmHestonVarianceMesher_VolaEstimate_" data-uid="NanoQL.Methods.FdmHestonVarianceMesher.VolaEstimate*"></a>
+
+  <h3 id="NanoQL_Methods_FdmHestonVarianceMesher_VolaEstimate" data-uid="NanoQL.Methods.FdmHestonVarianceMesher.VolaEstimate">
+  VolaEstimate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the estimate of the variance's average volatility, scaled by the bounded skew factor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double VolaEstimate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

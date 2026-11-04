@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class DiscretizedSwap | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DiscretizedSwap | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A discretized fixed-versus-floating swap: its value on a lattice, its coupons added as the rollback reaches them.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.DiscretizedSwap">
+
+
+
+  <h1 id="NanoQL_PricingEngines_DiscretizedSwap" data-uid="NanoQL.PricingEngines.DiscretizedSwap" class="text-break">
+Class DiscretizedSwap  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A discretized fixed-versus-floating swap: its value on a lattice, its coupons added as the rollback reaches them.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public sealed class DiscretizedSwap : DiscretizedAsset</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.DiscretizedAsset.html">DiscretizedAsset</a></div>
+      <div><span class="xref">DiscretizedSwap</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Initialize_NanoQL_Lattice_System_Double_">DiscretizedAsset.Initialize(Lattice, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Rollback_System_Double_">DiscretizedAsset.Rollback(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PartialRollback_System_Double_">DiscretizedAsset.PartialRollback(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PresentValue">DiscretizedAsset.PresentValue()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PreAdjustValues">DiscretizedAsset.PreAdjustValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_PostAdjustValues">DiscretizedAsset.PostAdjustValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_AdjustValues">DiscretizedAsset.AdjustValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_ReserveCapacity_System_Int32_">DiscretizedAsset.ReserveCapacity(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_StepValues_System_Int32_">DiscretizedAsset.StepValues(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_CommitStep_System_Int32_System_Double_">DiscretizedAsset.CommitStep(int, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Time">DiscretizedAsset.Time</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Values">DiscretizedAsset.Values</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.DiscretizedAsset.html#NanoQL_DiscretizedAsset_Method">DiscretizedAsset.Method</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_DiscretizedSwap_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A working type (<a class="xref" href="NanoQL.DiscretizedAsset.html">DiscretizedAsset</a>). Each coupon is added at its reset time, in the pre-adjustment or,
+as its adjustment says, the post-adjustment: a fixed coupon as its amount times a discount bond from its payment
+time, a floating one as the nominal times one less that bond, plus the nominal times its accrual time and spread
+times the bond. A coupon whose reset time is before the reference date and whose payment isn't (or is on it, when
+the context's <a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_IncludeTodaysCashFlows">IncludeTodaysCashFlows</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>) is added in the
+post-adjustment at its payment time instead, as its known amount; a floating one whose amount can't be computed is
+refused there. The coupons' times are the given day counter's year fractions from the reference date.
+</p>
+<p>
+<b>A floating coupon known by its fixing date</b>: the public constructor, a swap's own value as the tree swap
+engine prices it, knows a floating coupon whose fixing date is on or before the reference date, adding its amount at
+its payment time, where QuantLib knows it by its accrual start (its reset date, <code>vanillaswap.cpp:67</code>;
+<code>discretizedswap.cpp:84-87</code>), so between its fixing and its start the tree forecasts a coupon whose fixing the
+discounting engine reads (<code>Divergences/TreeKnownCouponTests.cs</code>). The internal constructor, which the
+discretized swaption calls, keeps QuantLib's rule, so a swaption exercised in that window takes its floating leg at
+par, QuantLib's convention.
+</p>
+<p>
+<b>A floating coupon paid after its accrual end</b>: QuantLib values a floating coupon as a par floater to its
+payment date, the nominal times one less the bond from its payment time (<code>discretizedswap.cpp:199-218</code>), which
+overprices one paid on a lag or an adjusted date after its accrual end. Here such a coupon takes its forward over
+its own accrual period and is paid on its payment date: the nominal times the bond from its payment time over the
+bond from its accrual end, less the bond from its payment time, plus its spread; its accrual end is a mandatory time
+only there. With QuantLib's check, the finite-difference engine on a lagged swap
+(<code>Divergences/TreeSwaptionSnappingTests.cs</code>); a coupon paid on its accrual end keeps QuantLib's value.
+</p>
+<p>
+<b>Its discount bonds.</b> QuantLib's swap builds a discount bond for each coupon it adds, initializes it at the
+payment time and rolls it back to the swap's time. This swap keeps one bond, re-initialized for each coupon (a
+discount bond has no adjustments, so the adjustment times its memo keeps skip nothing), and a second for the
+accrual ends, whose buffers its <a class="xref" href="NanoQL.PricingEngines.DiscretizedSwap.html#NanoQL_PricingEngines_DiscretizedSwap_Reset_System_Int32_">Reset(int)</a> reserves at the widest step of the swap's own rollback, from its
+initial step down to the grid's start: every coupon's bond starts at or before the swap's initial time and rolls
+back to the swap's time, so no coupon's bond allocates.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedSwap__ctor_" data-uid="NanoQL.PricingEngines.DiscretizedSwap.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedSwap__ctor_NanoQL_Instruments_FixedVsFloatingSwap_NanoQL_Time_Date_NanoQL_Time_DayCounter_NanoQL_EvaluationContext_" data-uid="NanoQL.PricingEngines.DiscretizedSwap.#ctor(NanoQL.Instruments.FixedVsFloatingSwap,NanoQL.Time.Date,NanoQL.Time.DayCounter,NanoQL.EvaluationContext)">
+  DiscretizedSwap(FixedVsFloatingSwap, Date, DayCounter, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.DiscretizedSwap.html">DiscretizedSwap</a> class, every coupon added in the pre-adjustment,
+a floating one fixed on or before the reference date known by its amount.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DiscretizedSwap(FixedVsFloatingSwap swap, Date referenceDate, DayCounter dayCounter, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>swap</code> <a class="xref" href="NanoQL.Instruments.FixedVsFloatingSwap.html">FixedVsFloatingSwap</a></dt>
+    <dd><p>The swap.</p>
+</dd>
+    <dt><code>referenceDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date of time 0.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The day counter of the times.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context: its <a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_IncludeTodaysCashFlows">IncludeTodaysCashFlows</a>, and the fixings and curves
+the floating coupons' amounts read.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The swap, the day counter or the context is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">referenceDate</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/default">default</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedSwap_MandatoryTimes_" data-uid="NanoQL.PricingEngines.DiscretizedSwap.MandatoryTimes*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedSwap_MandatoryTimes" data-uid="NanoQL.PricingEngines.DiscretizedSwap.MandatoryTimes">
+  MandatoryTimes()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The swap's mandatory times: the non-negative fixed reset, fixed payment, floating reset and floating payment
+times, in that order, then each floating coupon's accrual end time where it isn't its payment time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ImmutableArray&lt;double&gt; MandatoryTimes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The times, not guaranteed to be sorted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedSwap_PostAdjustValuesImpl_" data-uid="NanoQL.PricingEngines.DiscretizedSwap.PostAdjustValuesImpl*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedSwap_PostAdjustValuesImpl" data-uid="NanoQL.PricingEngines.DiscretizedSwap.PostAdjustValuesImpl">
+  PostAdjustValuesImpl()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the coupons adjusted after an option looks at the values, floating then fixed, whose reset is now; then
+the known amounts of the coupons whose reset is past and whose payment is now.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void PostAdjustValuesImpl()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A past floating coupon's amount isn't known.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedSwap_PreAdjustValuesImpl_" data-uid="NanoQL.PricingEngines.DiscretizedSwap.PreAdjustValuesImpl*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedSwap_PreAdjustValuesImpl" data-uid="NanoQL.PricingEngines.DiscretizedSwap.PreAdjustValuesImpl">
+  PreAdjustValuesImpl()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the coupons adjusted before an option looks at the values, floating then fixed, whose reset is now.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void PreAdjustValuesImpl()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_DiscretizedSwap_Reset_" data-uid="NanoQL.PricingEngines.DiscretizedSwap.Reset*"></a>
+
+  <h3 id="NanoQL_PricingEngines_DiscretizedSwap_Reset_System_Int32_" data-uid="NanoQL.PricingEngines.DiscretizedSwap.Reset(System.Int32)">
+  Reset(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the values to 0 and adjusts them; on a tree lattice, it first reserves its discount bonds' buffers at the
+widest step from the swap's time down to the grid's start.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Reset(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of values.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">size</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The swap isn't initialized, or a past floating coupon's amount isn't known.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

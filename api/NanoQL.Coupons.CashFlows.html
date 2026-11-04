@@ -1,0 +1,2657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CashFlows | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CashFlows | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Cash-flow analysis functions.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Coupons.CashFlows">
+
+
+
+  <h1 id="NanoQL_Coupons_CashFlows" data-uid="NanoQL.Coupons.CashFlows" class="text-break">
+Class CashFlows  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Coupons.html">Coupons</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Cash-flow analysis functions.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class CashFlows</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CashFlows</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Coupons_CashFlows_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+QuantLib's iterators are positions in the leg: <a class="xref" href="NanoQL.Coupons.CashFlows.html#NanoQL_Coupons_CashFlows_PreviousCashFlow_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__">PreviousCashFlow(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)</a> returns −1 where QuantLib returns
+<code>rend()</code>, and <a class="xref" href="NanoQL.Coupons.CashFlows.html#NanoQL_Coupons_CashFlows_NextCashFlow_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__">NextCashFlow(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)</a> the leg's length where it returns <code>end()</code>. A date QuantLib returns
+as its null date is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+</p>
+<p>
+The yield is solved for by <a class="xref" href="NanoQL.Numerics.NewtonSafe.html">NewtonSafe</a>, QuantLib's default, or by <a class="xref" href="NanoQL.Numerics.Brent.html">Brent</a>, the solvers its
+template is instantiated with. A Z-spread is solved for on a <a class="xref" href="NanoQL.TermStructures.ZeroSpreadedTermStructure.html">ZeroSpreadedTermStructure</a> built at each
+evaluation, where QuantLib's rewrites the value of one curve's quote; the values are the same. QuantLib's Z-spread
+functions that take a day counter, which they ignore, are deprecated and not ported.
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Coupons_CashFlows_AccrualDays_" data-uid="NanoQL.Coupons.CashFlows.AccrualDays*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_AccrualDays_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.AccrualDays(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  AccrualDays(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The accrual days of the first coupon paid on the next payment date after the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int AccrualDays(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The accrual days; 0 when no coupon is still to be paid on that date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_AccrualEndDate_" data-uid="NanoQL.Coupons.CashFlows.AccrualEndDate*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_AccrualEndDate_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.AccrualEndDate(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  AccrualEndDate(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The accrual end date of the first coupon paid on the next payment date after the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date? AccrualEndDate(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when no coupon is still to be paid on that date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_AccrualPeriod_" data-uid="NanoQL.Coupons.CashFlows.AccrualPeriod*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_AccrualPeriod_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.AccrualPeriod(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  AccrualPeriod(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The accrual period, as a fraction of a year, of the first coupon paid on the next payment date after the
+settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double AccrualPeriod(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accrual period; 0 when no coupon is still to be paid on that date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_AccrualStartDate_" data-uid="NanoQL.Coupons.CashFlows.AccrualStartDate*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_AccrualStartDate_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.AccrualStartDate(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  AccrualStartDate(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The accrual start date of the first coupon paid on the next payment date after the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date? AccrualStartDate(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when no coupon is still to be paid on that date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_AccruedAmount_" data-uid="NanoQL.Coupons.CashFlows.AccruedAmount*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_AccruedAmount_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.AccruedAmount(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  AccruedAmount(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The accrued amount of the coupons paid on the next payment date after the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double AccruedAmount(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accrued amount; 0 when no coupon is still to be paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_AccruedDays_" data-uid="NanoQL.Coupons.CashFlows.AccruedDays*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_AccruedDays_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.AccruedDays(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  AccruedDays(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The accrued days of the first coupon paid on the next payment date after the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int AccruedDays(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The accrued days; 0 when no coupon is still to be paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_AccruedPeriod_" data-uid="NanoQL.Coupons.CashFlows.AccruedPeriod*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_AccruedPeriod_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.AccruedPeriod(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  AccruedPeriod(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The accrued period, as a fraction of a year, of the first coupon paid on the next payment date after the
+settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double AccruedPeriod(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accrued period; 0 when no coupon is still to be paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_AtmRate_" data-uid="NanoQL.Coupons.CashFlows.AtmRate*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_AtmRate_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_TermStructures_YieldTermStructure_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__System_Nullable_System_Double__" data-uid="NanoQL.Coupons.CashFlows.AtmRate(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.TermStructures.YieldTermStructure,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date},System.Nullable{System.Double})">
+  AtmRate(ImmutableArray&lt;CashFlow&gt;, YieldTermStructure, EvaluationContext, bool?, Date?, Date?, double?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The at-the-money rate of the cash flows: the fixed rate for which a fixed-rate leg equivalent to the cash flows
+has the required NPV on the given curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double AtmRate(ImmutableArray&lt;CashFlow&gt; leg, YieldTermStructure discountCurve, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null, double? npv = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>discountCurve</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The discount curve.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the required NPV is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npv</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd><p>The required NPV; the cash flows' own NPV when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate; 0 when the coupons' required NPV is 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The coupons' BPS is 0.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_BasisPointValue_" data-uid="NanoQL.Coupons.CashFlows.BasisPointValue*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_BasisPointValue_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.BasisPointValue(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.InterestRate,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  BasisPointValue(ImmutableArray&lt;CashFlow&gt;, InterestRate, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The basis-point value of the cash flows at a constant interest rate: the change in NPV for a one-basis-point
+change in the rate, from the second-order Taylor expansion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BasisPointValue(ImmutableArray&lt;CashFlow&gt; leg, InterestRate yield, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>yield</code> <a class="xref" href="NanoQL.InterestRate.html">InterestRate</a></dt>
+    <dd><p>The interest rate.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the value is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The basis-point value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_BasisPointValue_" data-uid="NanoQL.Coupons.CashFlows.BasisPointValue*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_BasisPointValue_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.BasisPointValue(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Double,NanoQL.Time.DayCounter,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  BasisPointValue(ImmutableArray&lt;CashFlow&gt;, double, DayCounter, Compounding, Frequency, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The basis-point value of the cash flows at a constant interest rate, given by its rate and conventions:
+<a class="xref" href="NanoQL.Coupons.CashFlows.html#NanoQL_Coupons_CashFlows_BasisPointValue_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__">BasisPointValue(ImmutableArray&lt;CashFlow&gt;, InterestRate, EvaluationContext, bool?, Date?, Date?)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double BasisPointValue(ImmutableArray&lt;CashFlow&gt; leg, double yield, DayCounter dayCounter, Compounding compounding, Frequency frequency, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>yield</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The rate's day counter.</p>
+</dd>
+    <dt><code>compounding</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The rate's compounding.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The rate's frequency.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the value is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The basis-point value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The compounding or the frequency isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A compounded rule with no frequency or <a class="xref" href="NanoQL.Time.Frequency.html#NanoQL_Time_Frequency_Once">Once</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Bps_" data-uid="NanoQL.Coupons.CashFlows.Bps*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Bps_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.Bps(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.InterestRate,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  Bps(ImmutableArray&lt;CashFlow&gt;, InterestRate, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The basis-point sensitivity of the cash flows: the change in NPV for a one-basis-point change in the coupon
+rates, each coupon's change discounted at a constant interest rate, period by period from the NPV date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Bps(ImmutableArray&lt;CashFlow&gt; leg, InterestRate yield, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>yield</code> <a class="xref" href="NanoQL.InterestRate.html">InterestRate</a></dt>
+    <dd><p>The interest rate the changes are discounted at; its compounding, frequency and day counter
+set the discounting.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the value is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The BPS.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Coupons_CashFlows_Bps_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Only the coupons count, and QuantLib checks no ex-coupon date here: a coupon traded ex-coupon still counts, as
+in QuantLib. A rate compounded after a simple first period, or simple in its final one, discounts that period
+simply.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Bps_" data-uid="NanoQL.Coupons.CashFlows.Bps*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Bps_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_TermStructures_YieldTermStructure_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.Bps(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.TermStructures.YieldTermStructure,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  Bps(ImmutableArray&lt;CashFlow&gt;, YieldTermStructure, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The basis-point sensitivity of the cash flows: the change in NPV for a one-basis-point change in the coupon
+rates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Bps(ImmutableArray&lt;CashFlow&gt; leg, YieldTermStructure discountCurve, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>discountCurve</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The discount curve.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the value is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The BPS.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Bps_" data-uid="NanoQL.Coupons.CashFlows.Bps*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Bps_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.Bps(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Double,NanoQL.Time.DayCounter,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  Bps(ImmutableArray&lt;CashFlow&gt;, double, DayCounter, Compounding, Frequency, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The basis-point sensitivity of the cash flows at a constant interest rate, given by its rate and conventions:
+<a class="xref" href="NanoQL.Coupons.CashFlows.html#NanoQL_Coupons_CashFlows_Bps_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__">Bps(ImmutableArray&lt;CashFlow&gt;, InterestRate, EvaluationContext, bool?, Date?, Date?)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Bps(ImmutableArray&lt;CashFlow&gt; leg, double yield, DayCounter dayCounter, Compounding compounding, Frequency frequency, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>yield</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The rate's day counter.</p>
+</dd>
+    <dt><code>compounding</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The rate's compounding.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The rate's frequency.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the value is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The BPS.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The compounding or the frequency isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A compounded rule with no frequency or <a class="xref" href="NanoQL.Time.Frequency.html#NanoQL_Time_Frequency_Once">Once</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Convexity_" data-uid="NanoQL.Coupons.CashFlows.Convexity*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Convexity_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.Convexity(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.InterestRate,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  Convexity(ImmutableArray&lt;CashFlow&gt;, InterestRate, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The convexity of the cash flows at a constant interest rate: (1/P)·∂²P/∂y².</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Convexity(ImmutableArray&lt;CashFlow&gt; leg, InterestRate yield, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>yield</code> <a class="xref" href="NanoQL.InterestRate.html">InterestRate</a></dt>
+    <dd><p>The interest rate.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the times are measured from; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The convexity; 0 when the cash flows' NPV is 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Convexity_" data-uid="NanoQL.Coupons.CashFlows.Convexity*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Convexity_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.Convexity(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Double,NanoQL.Time.DayCounter,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  Convexity(ImmutableArray&lt;CashFlow&gt;, double, DayCounter, Compounding, Frequency, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The convexity of the cash flows at a constant interest rate, given by its rate and conventions:
+<a class="xref" href="NanoQL.Coupons.CashFlows.html#NanoQL_Coupons_CashFlows_Convexity_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__">Convexity(ImmutableArray&lt;CashFlow&gt;, InterestRate, EvaluationContext, bool?, Date?, Date?)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Convexity(ImmutableArray&lt;CashFlow&gt; leg, double yield, DayCounter dayCounter, Compounding compounding, Frequency frequency, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>yield</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The rate's day counter.</p>
+</dd>
+    <dt><code>compounding</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The rate's compounding.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The rate's frequency.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the times are measured from; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The convexity.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The compounding or the frequency isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A compounded rule with no frequency or <a class="xref" href="NanoQL.Time.Frequency.html#NanoQL_Time_Frequency_Once">Once</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Duration_" data-uid="NanoQL.Coupons.CashFlows.Duration*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Duration_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_Coupons_DurationType_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.Duration(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.InterestRate,NanoQL.Coupons.DurationType,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  Duration(ImmutableArray&lt;CashFlow&gt;, InterestRate, DurationType, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The duration of the cash flows at a constant interest rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Duration(ImmutableArray&lt;CashFlow&gt; leg, InterestRate yield, DurationType type, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>yield</code> <a class="xref" href="NanoQL.InterestRate.html">InterestRate</a></dt>
+    <dd><p>The interest rate.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="NanoQL.Coupons.DurationType.html">DurationType</a></dt>
+    <dd><p>The duration: simple, the cash flows' times weighted by their present values; modified,
+−(1/P)·∂P/∂y; or Macaulay's, (1 + y/N) times the modified duration, for a compounded rate with N periods a
+year.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the times are measured from; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The duration; 0 when the cash flows' NPV is 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The type isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Macaulay's duration of a rate that isn't compounded.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Duration_" data-uid="NanoQL.Coupons.CashFlows.Duration*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Duration_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_Coupons_DurationType_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.Duration(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Double,NanoQL.Time.DayCounter,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.Coupons.DurationType,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  Duration(ImmutableArray&lt;CashFlow&gt;, double, DayCounter, Compounding, Frequency, DurationType, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The duration of the cash flows at a constant interest rate, given by its rate and conventions:
+<a class="xref" href="NanoQL.Coupons.CashFlows.html#NanoQL_Coupons_CashFlows_Duration_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_Coupons_DurationType_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__">Duration(ImmutableArray&lt;CashFlow&gt;, InterestRate, DurationType, EvaluationContext, bool?, Date?, Date?)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Duration(ImmutableArray&lt;CashFlow&gt; leg, double yield, DayCounter dayCounter, Compounding compounding, Frequency frequency, DurationType type, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>yield</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The rate's day counter.</p>
+</dd>
+    <dt><code>compounding</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The rate's compounding.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The rate's frequency.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="NanoQL.Coupons.DurationType.html">DurationType</a></dt>
+    <dd><p>The duration's type.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the times are measured from; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The duration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The compounding, the frequency or the type isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A compounded rule with no frequency or <a class="xref" href="NanoQL.Time.Frequency.html#NanoQL_Time_Frequency_Once">Once</a>, or Macaulay's duration of a rate that isn't
+compounded.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_IsExpired_" data-uid="NanoQL.Coupons.CashFlows.IsExpired*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_IsExpired_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.IsExpired(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  IsExpired(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether every cash flow of the leg has occurred at the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsExpired(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when no cash flow is still to be paid, an empty leg among them.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_MaturityDate_" data-uid="NanoQL.Coupons.CashFlows.MaturityDate*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_MaturityDate_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__" data-uid="NanoQL.Coupons.CashFlows.MaturityDate(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow})">
+  MaturityDate(ImmutableArray&lt;CashFlow&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The latest accrual end date of the coupons, or the latest date of the other cash flows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date MaturityDate(ImmutableArray&lt;CashFlow&gt; leg)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The maturity date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The leg is empty.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_NextCashFlow_" data-uid="NanoQL.Coupons.CashFlows.NextCashFlow*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_NextCashFlow_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.NextCashFlow(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  NextCashFlow(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The position of the first cash flow paying after the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int NextCashFlow(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The position; the leg's length when every cash flow has been paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_NextCashFlowAmount_" data-uid="NanoQL.Coupons.CashFlows.NextCashFlowAmount*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_NextCashFlowAmount_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.NextCashFlowAmount(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  NextCashFlowAmount(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The amount paid on the date of the first cash flow paying after the settlement date: the sum of every cash
+flow on that date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double NextCashFlowAmount(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount; 0 when every cash flow has been paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_NextCashFlowDate_" data-uid="NanoQL.Coupons.CashFlows.NextCashFlowDate*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_NextCashFlowDate_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.NextCashFlowDate(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  NextCashFlowDate(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The date of the first cash flow paying after the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date? NextCashFlowDate(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when every cash flow has been paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_NextCouponRate_" data-uid="NanoQL.Coupons.CashFlows.NextCouponRate*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_NextCouponRate_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.NextCouponRate(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  NextCouponRate(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rate of the coupons paid on the date of the first cash flow paying after the settlement date: the sum of
+their rates, which must have the same nominal, accrual period and day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double NextCouponRate(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate; 0 when every cash flow has been paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Two coupons on that date differ in nominal, accrual period or day counter.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No coupon is paid on that date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Nominal_" data-uid="NanoQL.Coupons.CashFlows.Nominal*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Nominal_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.Nominal(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  Nominal(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The nominal of the first coupon paid on the next payment date after the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Nominal(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The nominal; 0 when no coupon is still to be paid on that date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Npv_" data-uid="NanoQL.Coupons.CashFlows.Npv*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Npv_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.Npv(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.InterestRate,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  Npv(ImmutableArray&lt;CashFlow&gt;, InterestRate, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The net present value of the cash flows: their sum, each discounted at a constant interest rate, period by
+period from the NPV date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Npv(ImmutableArray&lt;CashFlow&gt; leg, InterestRate yield, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>yield</code> <a class="xref" href="NanoQL.InterestRate.html">InterestRate</a></dt>
+    <dd><p>The interest rate; its compounding, frequency and day counter set the discounting.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the value is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The NPV.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Coupons_CashFlows_Npv_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A cash flow traded ex-coupon counts with no amount, though its period still discounts the later ones. A rate
+compounded after a simple first period, or simple in its final one, discounts that period simply.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Npv_" data-uid="NanoQL.Coupons.CashFlows.Npv*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Npv_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_TermStructures_YieldTermStructure_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.Npv(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.TermStructures.YieldTermStructure,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  Npv(ImmutableArray&lt;CashFlow&gt;, YieldTermStructure, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The net present value of the cash flows: their sum, each discounted on the given curve, then forwarded to the
+NPV date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Npv(ImmutableArray&lt;CashFlow&gt; leg, YieldTermStructure discountCurve, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>discountCurve</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The discount curve.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the value is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The NPV.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Npv_" data-uid="NanoQL.Coupons.CashFlows.Npv*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Npv_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_TermStructures_YieldTermStructure_System_Double_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.Npv(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.TermStructures.YieldTermStructure,System.Double,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  Npv(ImmutableArray&lt;CashFlow&gt;, YieldTermStructure, double, Compounding, Frequency, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The net present value of the cash flows on a curve with a Z-spread: each discounted on the curve whose zero
+rates are the given curve's plus the spread (see &quot;Credit Spreads Explained&quot;, Lehman Brothers European Fixed
+Income Research, March 2004, D. O'Kane).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Npv(ImmutableArray&lt;CashFlow&gt; leg, YieldTermStructure discount, double zSpread, Compounding compounding, Frequency frequency, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve the spread is added to.</p>
+</dd>
+    <dt><code>zSpread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The Z-spread, in terms of the curve's day counter.</p>
+</dd>
+    <dt><code>compounding</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The compounding the spread is added in.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The frequency the spread is added in.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the value is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The NPV.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The compounding or the frequency isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A compounded rule with no frequency or <a class="xref" href="NanoQL.Time.Frequency.html#NanoQL_Time_Frequency_Once">Once</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Npv_" data-uid="NanoQL.Coupons.CashFlows.Npv*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Npv_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.Npv(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Double,NanoQL.Time.DayCounter,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  Npv(ImmutableArray&lt;CashFlow&gt;, double, DayCounter, Compounding, Frequency, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The net present value of the cash flows at a constant interest rate, given by its rate and conventions:
+<a class="xref" href="NanoQL.Coupons.CashFlows.html#NanoQL_Coupons_CashFlows_Npv_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__">Npv(ImmutableArray&lt;CashFlow&gt;, InterestRate, EvaluationContext, bool?, Date?, Date?)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Npv(ImmutableArray&lt;CashFlow&gt; leg, double yield, DayCounter dayCounter, Compounding compounding, Frequency frequency, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>yield</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The rate's day counter.</p>
+</dd>
+    <dt><code>compounding</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The rate's compounding.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The rate's frequency.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the value is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The NPV.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The compounding or the frequency isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A compounded rule with no frequency or <a class="xref" href="NanoQL.Time.Frequency.html#NanoQL_Time_Frequency_Once">Once</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_NpvBps_" data-uid="NanoQL.Coupons.CashFlows.NpvBps*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_NpvBps_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_TermStructures_YieldTermStructure_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.NpvBps(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.TermStructures.YieldTermStructure,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  NpvBps(ImmutableArray&lt;CashFlow&gt;, YieldTermStructure, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The NPV and the BPS of the cash flows, computed together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (double Npv, double Bps) NpvBps(ImmutableArray&lt;CashFlow&gt; leg, YieldTermStructure discountCurve, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>discountCurve</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The discount curve.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the values are given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.double,system.double-.npv">Npv</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.double,system.double-.bps">Bps</a>)</dt>
+    <dd><p>The NPV and the BPS.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_PreviousCashFlow_" data-uid="NanoQL.Coupons.CashFlows.PreviousCashFlow*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_PreviousCashFlow_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.PreviousCashFlow(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  PreviousCashFlow(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The position of the last cash flow paying before or at the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int PreviousCashFlow(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The position, counted from the leg's start; −1 when no cash flow has been paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_PreviousCashFlowAmount_" data-uid="NanoQL.Coupons.CashFlows.PreviousCashFlowAmount*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_PreviousCashFlowAmount_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.PreviousCashFlowAmount(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  PreviousCashFlowAmount(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The amount paid on the date of the last cash flow paying before or at the settlement date: the sum of every
+cash flow on that date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double PreviousCashFlowAmount(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount; 0 when no cash flow has been paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_PreviousCashFlowDate_" data-uid="NanoQL.Coupons.CashFlows.PreviousCashFlowDate*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_PreviousCashFlowDate_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.PreviousCashFlowDate(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  PreviousCashFlowDate(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The date of the last cash flow paying before or at the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date? PreviousCashFlowDate(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when no cash flow has been paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_PreviousCouponRate_" data-uid="NanoQL.Coupons.CashFlows.PreviousCouponRate*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_PreviousCouponRate_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.PreviousCouponRate(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  PreviousCouponRate(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rate of the coupons paid on the date of the last cash flow paying before or at the settlement date: the sum
+of their rates, which must have the same nominal, accrual period and day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double PreviousCouponRate(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate; 0 when no cash flow has been paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Two coupons on that date differ in nominal, accrual period or day counter.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No coupon is paid on that date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_ReferencePeriodEnd_" data-uid="NanoQL.Coupons.CashFlows.ReferencePeriodEnd*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_ReferencePeriodEnd_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.ReferencePeriodEnd(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  ReferencePeriodEnd(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The reference period end of the first coupon paid on the next payment date after the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date? ReferencePeriodEnd(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when no coupon is still to be paid on that date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_ReferencePeriodStart_" data-uid="NanoQL.Coupons.CashFlows.ReferencePeriodStart*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_ReferencePeriodStart_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.ReferencePeriodStart(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date})">
+  ReferencePeriodStart(ImmutableArray&lt;CashFlow&gt;, EvaluationContext, bool?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The reference period start of the first coupon paid on the next payment date after the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date? ReferencePeriodStart(ImmutableArray&lt;CashFlow&gt; leg, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count as not yet paid.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when no coupon is still to be paid on that date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_StartDate_" data-uid="NanoQL.Coupons.CashFlows.StartDate*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_StartDate_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__" data-uid="NanoQL.Coupons.CashFlows.StartDate(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow})">
+  StartDate(ImmutableArray&lt;CashFlow&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The earliest accrual start date of the coupons, or the earliest date of the other cash flows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Date StartDate(ImmutableArray&lt;CashFlow&gt; leg)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The start date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The leg is empty.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Yield_" data-uid="NanoQL.Coupons.CashFlows.Yield*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Yield_NanoQL_Numerics_Brent_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__System_Double_System_Double_" data-uid="NanoQL.Coupons.CashFlows.Yield(NanoQL.Numerics.Brent,System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Double,NanoQL.Time.DayCounter,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date},System.Double,System.Double)">
+  Yield(Brent, ImmutableArray&lt;CashFlow&gt;, double, DayCounter, Compounding, Frequency, EvaluationContext, bool?, Date?, Date?, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The implied internal rate of return, solved for by the given <a class="xref" href="NanoQL.Numerics.Brent.html">Brent</a> solver: QuantLib's
+<code>yield&lt;Brent&gt;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Yield(Brent solver, ImmutableArray&lt;CashFlow&gt; leg, double npv, DayCounter dayCounter, Compounding compounding, Frequency frequency, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null, double accuracy = 1E-10, double guess = 0.05)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>solver</code> <a class="xref" href="NanoQL.Numerics.Brent.html">Brent</a></dt>
+    <dd><p>The solver, with its maximum number of evaluations.</p>
+</dd>
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>npv</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The NPV, the dirty price, the rate must reproduce.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The rate's day counter.</p>
+</dd>
+    <dt><code>compounding</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The rate's compounding.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The rate's frequency.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the NPV is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's accuracy.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's initial guess; its first step is a tenth of it.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The compounding or the frequency isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No cash flow still to be paid has the sign opposite the NPV's, or the accuracy isn't positive.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No bracket is found, or the solver exceeds its function evaluations.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Yield_" data-uid="NanoQL.Coupons.CashFlows.Yield*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Yield_NanoQL_Numerics_NewtonSafe_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__System_Double_System_Double_" data-uid="NanoQL.Coupons.CashFlows.Yield(NanoQL.Numerics.NewtonSafe,System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Double,NanoQL.Time.DayCounter,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date},System.Double,System.Double)">
+  Yield(NewtonSafe, ImmutableArray&lt;CashFlow&gt;, double, DayCounter, Compounding, Frequency, EvaluationContext, bool?, Date?, Date?, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The implied internal rate of return, solved for by the given <a class="xref" href="NanoQL.Numerics.NewtonSafe.html">NewtonSafe</a> solver: QuantLib's
+<code>yield&lt;NewtonSafe&gt;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Yield(NewtonSafe solver, ImmutableArray&lt;CashFlow&gt; leg, double npv, DayCounter dayCounter, Compounding compounding, Frequency frequency, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null, double accuracy = 1E-10, double guess = 0.05)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>solver</code> <a class="xref" href="NanoQL.Numerics.NewtonSafe.html">NewtonSafe</a></dt>
+    <dd><p>The solver, with its maximum number of evaluations.</p>
+</dd>
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>npv</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The NPV, the dirty price, the rate must reproduce.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The rate's day counter.</p>
+</dd>
+    <dt><code>compounding</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The rate's compounding.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The rate's frequency.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the NPV is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's accuracy.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's initial guess; its first step is a tenth of it.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The compounding or the frequency isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No cash flow still to be paid has the sign opposite the NPV's, or the accuracy isn't positive.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No bracket is found, or the solver exceeds its function evaluations.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_Yield_" data-uid="NanoQL.Coupons.CashFlows.Yield*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_Yield_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__System_Double_System_Int32_System_Double_" data-uid="NanoQL.Coupons.CashFlows.Yield(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Double,NanoQL.Time.DayCounter,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date},System.Double,System.Int32,System.Double)">
+  Yield(ImmutableArray&lt;CashFlow&gt;, double, DayCounter, Compounding, Frequency, EvaluationContext, bool?, Date?, Date?, double, int, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The implied internal rate of return: the rate at which the cash flows' NPV equals the given one, solved for by
+<a class="xref" href="NanoQL.Numerics.NewtonSafe.html">NewtonSafe</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Yield(ImmutableArray&lt;CashFlow&gt; leg, double npv, DayCounter dayCounter, Compounding compounding, Frequency frequency, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null, double accuracy = 1E-10, int maxIterations = 100, double guess = 0.05)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>npv</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The NPV, the dirty price, the rate must reproduce.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The rate's day counter.</p>
+</dd>
+    <dt><code>compounding</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The rate's compounding.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The rate's frequency.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the NPV is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's accuracy.</p>
+</dd>
+    <dt><code>maxIterations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The solver's maximum number of evaluations.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's initial guess; its first step is a tenth of it.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxIterations</code> is negative, or the compounding or the frequency isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No cash flow still to be paid has the sign opposite the NPV's, or the accuracy isn't positive.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No bracket is found, or the solver exceeds its function evaluations.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_YieldValueBasisPoint_" data-uid="NanoQL.Coupons.CashFlows.YieldValueBasisPoint*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_YieldValueBasisPoint_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.YieldValueBasisPoint(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},NanoQL.InterestRate,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  YieldValueBasisPoint(ImmutableArray&lt;CashFlow&gt;, InterestRate, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The yield value of a basis point of the cash flows at a constant interest rate: the derivative of the rate with
+respect to the price, times 0.01.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double YieldValueBasisPoint(ImmutableArray&lt;CashFlow&gt; leg, InterestRate yield, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>yield</code> <a class="xref" href="NanoQL.InterestRate.html">InterestRate</a></dt>
+    <dd><p>The interest rate.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the value is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The yield value of a basis point.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_YieldValueBasisPoint_" data-uid="NanoQL.Coupons.CashFlows.YieldValueBasisPoint*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_YieldValueBasisPoint_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Coupons.CashFlows.YieldValueBasisPoint(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Double,NanoQL.Time.DayCounter,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date})">
+  YieldValueBasisPoint(ImmutableArray&lt;CashFlow&gt;, double, DayCounter, Compounding, Frequency, EvaluationContext, bool?, Date?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The yield value of a basis point of the cash flows at a constant interest rate, given by its rate and
+conventions:
+<a class="xref" href="NanoQL.Coupons.CashFlows.html#NanoQL_Coupons_CashFlows_YieldValueBasisPoint_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__NanoQL_InterestRate_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__">YieldValueBasisPoint(ImmutableArray&lt;CashFlow&gt;, InterestRate, EvaluationContext, bool?, Date?, Date?)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double YieldValueBasisPoint(ImmutableArray&lt;CashFlow&gt; leg, double yield, DayCounter dayCounter, Compounding compounding, Frequency frequency, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>yield</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The rate's day counter.</p>
+</dd>
+    <dt><code>compounding</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The rate's compounding.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The rate's frequency.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the value is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The yield value of a basis point.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The compounding or the frequency isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A compounded rule with no frequency or <a class="xref" href="NanoQL.Time.Frequency.html#NanoQL_Time_Frequency_Once">Once</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Coupons_CashFlows_ZSpread_" data-uid="NanoQL.Coupons.CashFlows.ZSpread*"></a>
+
+  <h3 id="NanoQL_Coupons_CashFlows_ZSpread_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Double_NanoQL_TermStructures_YieldTermStructure_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__System_Double_System_Int32_System_Double_" data-uid="NanoQL.Coupons.CashFlows.ZSpread(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow},System.Double,NanoQL.TermStructures.YieldTermStructure,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Nullable{System.Boolean},System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date},System.Double,System.Int32,System.Double)">
+  ZSpread(ImmutableArray&lt;CashFlow&gt;, double, YieldTermStructure, Compounding, Frequency, EvaluationContext, bool?, Date?, Date?, double, int, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The implied Z-spread: the spread at which the cash flows' NPV on the spreaded curve equals the given one, solved
+for by <a class="xref" href="NanoQL.Numerics.Brent.html">Brent</a> from the guess with a first step of 0.01.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double ZSpread(ImmutableArray&lt;CashFlow&gt; leg, double npv, YieldTermStructure discount, Compounding compounding, Frequency frequency, EvaluationContext context, bool? includeSettlementDateFlows = null, Date? settlementDate = null, Date? npvDate = null, double accuracy = 1E-10, int maxIterations = 100, double guess = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>leg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The leg.</p>
+</dd>
+    <dt><code>npv</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The NPV the spread must reproduce.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The curve the spread is added to.</p>
+</dd>
+    <dt><code>compounding</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The compounding the spread is added in.</p>
+</dd>
+    <dt><code>frequency</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The frequency the spread is added in.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>includeSettlementDateFlows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>Whether cash flows on the settlement date count.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>npvDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date the NPV is given at; the settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's accuracy.</p>
+</dd>
+    <dt><code>maxIterations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The solver's maximum number of evaluations.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's initial guess.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The Z-spread.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Coupons_CashFlows_ZSpread_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__System_Double_NanoQL_TermStructures_YieldTermStructure_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_System_Boolean__System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__System_Double_System_Int32_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>An empty leg isn't refused, as in QuantLib: its NPV is 0 at every spread.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxIterations</code> is negative, or the compounding or the frequency isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The accuracy isn't positive, or a compounded rule has no frequency or <a class="xref" href="NanoQL.Time.Frequency.html#NanoQL_Time_Frequency_Once">Once</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No bracket is found, or the solver exceeds its function evaluations.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

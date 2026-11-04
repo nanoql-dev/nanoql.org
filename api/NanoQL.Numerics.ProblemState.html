@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class ProblemState | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ProblemState | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The working state of a minimization: QuantLib&#39;s Problem, with its cost function and constraint, its current value, and the function value, gradient norm and evaluation counts a method leaves in it.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.ProblemState">
+
+
+
+  <h1 id="NanoQL_Numerics_ProblemState" data-uid="NanoQL.Numerics.ProblemState" class="text-break">
+Class ProblemState  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The working state of a minimization: QuantLib's <code>Problem</code>, with its cost function and constraint, its
+current value, and the function value, gradient norm and evaluation counts a method leaves in it.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public sealed class ProblemState</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ProblemState</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Numerics_ProblemState_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A working type: mutable, owned by one computation and not thread-safe. An optimization method works through it,
+and a line search or a hybrid method passes it on, as QuantLib's pass their <code>Problem&amp;</code>:
+<a class="xref" href="NanoQL.Numerics.OptimizationMethod.html#NanoQL_Numerics_OptimizationMethod_Minimize_NanoQL_Numerics_ProblemState_NanoQL_Numerics_EndCriteria_">Minimize(ProblemState, EndCriteria)</a> continues from <a class="xref" href="NanoQL.Numerics.ProblemState.html#NanoQL_Numerics_ProblemState_CurrentValue">CurrentValue</a>.
+</p>
+<p>
+<a class="xref" href="NanoQL.Numerics.ProblemState.html#NanoQL_Numerics_ProblemState_Value_NanoQL_Numerics_Vector_">Value(Vector)</a>, <a class="xref" href="NanoQL.Numerics.ProblemState.html#NanoQL_Numerics_ProblemState_Values_NanoQL_Numerics_Vector_">Values(Vector)</a>, <a class="xref" href="NanoQL.Numerics.ProblemState.html#NanoQL_Numerics_ProblemState_Gradient_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">Gradient(Vector, Vector)</a> and <a class="xref" href="NanoQL.Numerics.ProblemState.html#NanoQL_Numerics_ProblemState_ValueAndGradient_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">ValueAndGradient(Vector, Vector)</a> call the cost
+function and count the evaluations, as QuantLib's do. A new state starts from the problem's initial value with no
+evaluations and no function value, as after <a class="xref" href="NanoQL.Numerics.ProblemState.html#NanoQL_Numerics_ProblemState_Reset">Reset()</a>, where QuantLib leaves the counts and values
+uninitialized until its methods reset them.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Numerics_ProblemState__ctor_" data-uid="NanoQL.Numerics.ProblemState.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_ProblemState__ctor_NanoQL_Numerics_Problem_" data-uid="NanoQL.Numerics.ProblemState.#ctor(NanoQL.Numerics.Problem)">
+  ProblemState(Problem)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.ProblemState.html">ProblemState</a> class, at the problem's initial value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProblemState(Problem problem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>problem</code> <a class="xref" href="NanoQL.Numerics.Problem.html">Problem</a></dt>
+    <dd><p>The problem.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Numerics_ProblemState_Constraint_" data-uid="NanoQL.Numerics.ProblemState.Constraint*"></a>
+
+  <h3 id="NanoQL_Numerics_ProblemState_Constraint" data-uid="NanoQL.Numerics.ProblemState.Constraint">
+  Constraint
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the constraint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Constraint Constraint { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Constraint.html">Constraint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_ProblemState_CostFunction_" data-uid="NanoQL.Numerics.ProblemState.CostFunction*"></a>
+
+  <h3 id="NanoQL_Numerics_ProblemState_CostFunction" data-uid="NanoQL.Numerics.ProblemState.CostFunction">
+  CostFunction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the cost function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CostFunction CostFunction { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.CostFunction.html">CostFunction</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_ProblemState_CurrentValue_" data-uid="NanoQL.Numerics.ProblemState.CurrentValue*"></a>
+
+  <h3 id="NanoQL_Numerics_ProblemState_CurrentValue" data-uid="NanoQL.Numerics.ProblemState.CurrentValue">
+  CurrentValue
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the current value of the local minimum. The getter returns the state's own vector; the setter
+copies its argument, as QuantLib's <code>setCurrentValue</code> takes its <code>Array</code> by value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector CurrentValue { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="NanoQL_Numerics_ProblemState_CurrentValue_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><code>state.CurrentValue += v</code> calls the binary operator and the setter, so the state gets a new vector and a
+vector read from the getter before it keeps the old value.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Numerics_ProblemState_FunctionEvaluation_" data-uid="NanoQL.Numerics.ProblemState.FunctionEvaluation*"></a>
+
+  <h3 id="NanoQL_Numerics_ProblemState_FunctionEvaluation" data-uid="NanoQL.Numerics.ProblemState.FunctionEvaluation">
+  FunctionEvaluation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of evaluations of the cost function since the last <a class="xref" href="NanoQL.Numerics.ProblemState.html#NanoQL_Numerics_ProblemState_Reset">Reset()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FunctionEvaluation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_ProblemState_FunctionValue_" data-uid="NanoQL.Numerics.ProblemState.FunctionValue*"></a>
+
+  <h3 id="NanoQL_Numerics_ProblemState_FunctionValue" data-uid="NanoQL.Numerics.ProblemState.FunctionValue">
+  FunctionValue
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the value of the cost function at the current value, the last step's; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>
+(QuantLib's <code>Null&lt;Real&gt;()</code>) after <a class="xref" href="NanoQL.Numerics.ProblemState.html#NanoQL_Numerics_ProblemState_Reset">Reset()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? FunctionValue { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_ProblemState_GradientEvaluation_" data-uid="NanoQL.Numerics.ProblemState.GradientEvaluation*"></a>
+
+  <h3 id="NanoQL_Numerics_ProblemState_GradientEvaluation" data-uid="NanoQL.Numerics.ProblemState.GradientEvaluation">
+  GradientEvaluation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of evaluations of the cost function's gradient since the last <a class="xref" href="NanoQL.Numerics.ProblemState.html#NanoQL_Numerics_ProblemState_Reset">Reset()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GradientEvaluation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_ProblemState_GradientNormValue_" data-uid="NanoQL.Numerics.ProblemState.GradientNormValue*"></a>
+
+  <h3 id="NanoQL_Numerics_ProblemState_GradientNormValue" data-uid="NanoQL.Numerics.ProblemState.GradientNormValue">
+  GradientNormValue
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the value of the cost function's gradient norm at the current value, the last step's;
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> (QuantLib's <code>Null&lt;Real&gt;()</code>) after <a class="xref" href="NanoQL.Numerics.ProblemState.html#NanoQL_Numerics_ProblemState_Reset">Reset()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? GradientNormValue { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_ProblemState_Gradient_" data-uid="NanoQL.Numerics.ProblemState.Gradient*"></a>
+
+  <h3 id="NanoQL_Numerics_ProblemState_Gradient_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_" data-uid="NanoQL.Numerics.ProblemState.Gradient(NanoQL.Numerics.Vector,NanoQL.Numerics.Vector)">
+  Gradient(Vector, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cost function's gradient written into <code class="paramref">gradient</code>, counting a gradient evaluation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Gradient(Vector gradient, Vector x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gradient</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The gradient, at least of x's size.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_ProblemState_Reset_" data-uid="NanoQL.Numerics.ProblemState.Reset*"></a>
+
+  <h3 id="NanoQL_Numerics_ProblemState_Reset" data-uid="NanoQL.Numerics.ProblemState.Reset">
+  Reset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the evaluation counts to 0 and the function value and gradient norm to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>. It doesn't
+reset the current value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_ProblemState_Value_" data-uid="NanoQL.Numerics.ProblemState.Value*"></a>
+
+  <h3 id="NanoQL_Numerics_ProblemState_Value_NanoQL_Numerics_Vector_" data-uid="NanoQL.Numerics.ProblemState.Value(NanoQL.Numerics.Vector)">
+  Value(Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cost function's value, counting a function evaluation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Value(Vector x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The cost.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_ProblemState_ValueAndGradient_" data-uid="NanoQL.Numerics.ProblemState.ValueAndGradient*"></a>
+
+  <h3 id="NanoQL_Numerics_ProblemState_ValueAndGradient_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_" data-uid="NanoQL.Numerics.ProblemState.ValueAndGradient(NanoQL.Numerics.Vector,NanoQL.Numerics.Vector)">
+  ValueAndGradient(Vector, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cost function's gradient written into <code class="paramref">gradient</code>, and its value, counting a function and a
+gradient evaluation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ValueAndGradient(Vector gradient, Vector x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gradient</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The gradient, at least of x's size.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The cost.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_ProblemState_Values_" data-uid="NanoQL.Numerics.ProblemState.Values*"></a>
+
+  <h3 id="NanoQL_Numerics_ProblemState_Values_NanoQL_Numerics_Vector_" data-uid="NanoQL.Numerics.ProblemState.Values(NanoQL.Numerics.Vector)">
+  Values(Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cost function's values, counting a function evaluation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector Values(Vector x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector of the values.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

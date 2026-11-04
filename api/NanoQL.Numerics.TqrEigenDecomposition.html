@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class TqrEigenDecomposition | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TqrEigenDecomposition | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The eigenvalues and eigenvectors of a symmetric tridiagonal matrix by QR steps with an explicit shift (Wilkinson): J.H. Wilkinson and C. Reinsch, Linear Algebra, vol. II of Handbook for Automatic Computation (Springer, 1971); &amp;quot;Numerical Recipes in C&amp;quot;, 2nd edition, Press, Teukolsky, Vetterling, Flannery.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Numerics.TqrEigenDecomposition">
+
+
+
+  <h1 id="NanoQL_Numerics_TqrEigenDecomposition" data-uid="NanoQL.Numerics.TqrEigenDecomposition" class="text-break">
+Class TqrEigenDecomposition  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Numerics.html">Numerics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The eigenvalues and eigenvectors of a symmetric tridiagonal matrix by QR steps with an explicit shift (Wilkinson):
+J.H. Wilkinson and C. Reinsch, Linear Algebra, vol. II of Handbook for Automatic Computation (Springer, 1971);
+&quot;Numerical Recipes in C&quot;, 2nd edition, Press, Teukolsky, Vetterling, Flannery.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class TqrEigenDecomposition</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">TqrEigenDecomposition</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Numerics_TqrEigenDecomposition_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The eigenvalues are sorted in decreasing order, each eigenvector with its first component non-negative. The
+decomposition is computed in the constructor; <a class="xref" href="NanoQL.Numerics.TqrEigenDecomposition.html#NanoQL_Numerics_TqrEigenDecomposition_Eigenvalues">Eigenvalues()</a> and <a class="xref" href="NanoQL.Numerics.TqrEigenDecomposition.html#NanoQL_Numerics_TqrEigenDecomposition_Eigenvectors">Eigenvectors()</a> return
+copies.</p>
+<p>
+QuantLib's iteration has no bound, and on some inputs it never returns: eigenvalues in pairs of opposite sign under
+<a class="xref" href="NanoQL.Numerics.TqrEigenDecompositionShiftStrategy.html#NanoQL_Numerics_TqrEigenDecompositionShiftStrategy_NoShift">NoShift</a>, and, under any strategy, a NaN, an infinite off-diagonal
+element or entries whose squares overflow. While one eigenvalue converges, the next step is a function of the
+diagonal and off-diagonal alone, so a state repeated bit for bit proves the iteration endless: Brent's cycle test
+on that state refuses there, and every input QuantLib answers keeps QuantLib's result
+(<code>Divergences/TqrEigenDecompositionCycleTests.cs</code>).
+</p>
+<p>
+The test catches the inputs whose state repeats, as a zero diagonal's does, but not every pair: under
+<a class="xref" href="NanoQL.Numerics.TqrEigenDecompositionShiftStrategy.html#NanoQL_Numerics_TqrEigenDecompositionShiftStrategy_NoShift">NoShift</a> a pair whose magnitudes differ slightly converges at their
+ratio without repeating a state, about 18.7/ε iterations for [[ε, 1], [1, ε]], and a pair equal only to rounding
+may never repeat one either. Such an input runs as long as QuantLib's, without end once the ratio rounds to 1: a
+QuantLib defect kept, since no bound on the iterations would separate these inputs from slow ones QuantLib answers.
+The shifted strategies, the default among them, converge on them.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Numerics_TqrEigenDecomposition__ctor_" data-uid="NanoQL.Numerics.TqrEigenDecomposition.#ctor*"></a>
+
+  <h3 id="NanoQL_Numerics_TqrEigenDecomposition__ctor_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_NanoQL_Numerics_TqrEigenDecompositionEigenVectorCalculation_NanoQL_Numerics_TqrEigenDecompositionShiftStrategy_" data-uid="NanoQL.Numerics.TqrEigenDecomposition.#ctor(NanoQL.Numerics.Vector,NanoQL.Numerics.Vector,NanoQL.Numerics.TqrEigenDecompositionEigenVectorCalculation,NanoQL.Numerics.TqrEigenDecompositionShiftStrategy)">
+  TqrEigenDecomposition(Vector, Vector, TqrEigenDecompositionEigenVectorCalculation, TqrEigenDecompositionShiftStrategy)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Numerics.TqrEigenDecomposition.html">TqrEigenDecomposition</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TqrEigenDecomposition(Vector diag, Vector sub, TqrEigenDecompositionEigenVectorCalculation calc = TqrEigenDecompositionEigenVectorCalculation.WithEigenVector, TqrEigenDecompositionShiftStrategy strategy = TqrEigenDecompositionShiftStrategy.CloseEigenValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>diag</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The diagonal.</p>
+</dd>
+    <dt><code>sub</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The sub-diagonal, one element shorter.</p>
+</dd>
+    <dt><code>calc</code> <a class="xref" href="NanoQL.Numerics.TqrEigenDecompositionEigenVectorCalculation.html">TqrEigenDecompositionEigenVectorCalculation</a></dt>
+    <dd><p>Which eigenvectors to compute.</p>
+</dd>
+    <dt><code>strategy</code> <a class="xref" href="NanoQL.Numerics.TqrEigenDecompositionShiftStrategy.html">TqrEigenDecompositionShiftStrategy</a></dt>
+    <dd><p>The shift strategy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">diag</code> or <code class="paramref">sub</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">sub</code> isn't one element shorter than the
+diagonal.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>An enum argument isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The iteration repeats a state, where QuantLib's never returns.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Numerics_TqrEigenDecomposition_Iterations_" data-uid="NanoQL.Numerics.TqrEigenDecomposition.Iterations*"></a>
+
+  <h3 id="NanoQL_Numerics_TqrEigenDecomposition_Iterations" data-uid="NanoQL.Numerics.TqrEigenDecomposition.Iterations">
+  Iterations
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of QR iterations the decomposition took.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Iterations { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Numerics_TqrEigenDecomposition_Eigenvalues_" data-uid="NanoQL.Numerics.TqrEigenDecomposition.Eigenvalues*"></a>
+
+  <h3 id="NanoQL_Numerics_TqrEigenDecomposition_Eigenvalues" data-uid="NanoQL.Numerics.TqrEigenDecomposition.Eigenvalues">
+  Eigenvalues()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The eigenvalues, in decreasing order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector Eigenvalues()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A copy of the eigenvalues.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Numerics_TqrEigenDecomposition_Eigenvectors_" data-uid="NanoQL.Numerics.TqrEigenDecomposition.Eigenvectors*"></a>
+
+  <h3 id="NanoQL_Numerics_TqrEigenDecomposition_Eigenvectors" data-uid="NanoQL.Numerics.TqrEigenDecomposition.Eigenvectors">
+  Eigenvectors()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The eigenvectors, one per column in the eigenvalues' order: every row, none or the first row, as the
+constructor's calculation asked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix Eigenvectors()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A copy of the eigenvectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

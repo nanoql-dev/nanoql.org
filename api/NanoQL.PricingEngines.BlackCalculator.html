@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class BlackCalculator | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BlackCalculator | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Black (1976) calculator: the value and sensitivities of a striked payoff on a forward with a log-normal distribution of a given standard deviation, discounted. It supports plain vanilla, cash-or-nothing, asset-or-nothing and gap payoffs.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.BlackCalculator">
+
+
+
+  <h1 id="NanoQL_PricingEngines_BlackCalculator" data-uid="NanoQL.PricingEngines.BlackCalculator" class="text-break">
+Class BlackCalculator  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Black (1976) calculator: the value and sensitivities of a striked payoff on a forward with a log-normal
+distribution of a given standard deviation, discounted. It supports plain vanilla, cash-or-nothing,
+asset-or-nothing and gap payoffs.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BlackCalculator</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">BlackCalculator</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.PricingEngines.BlackScholesCalculator.html">BlackScholesCalculator</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_BlackCalculator_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Four of QuantLib's results are fixed, documented divergences, each checked by QuantLib's own second route to the
+value:
+</p>
+<ul><li>At zero volatility, QuantLib's delta, forward delta and strike sensitivity tell a call from a put
+by <code>alpha &gt;= 0</code> (<code>blackcalculator.cpp:214-228</code>, <code>:256-270</code>, <code>:438-452</code>), but alpha is 0 for
+an out-of-the-money put and for every cash-or-nothing payoff, which then get a call's delta. Here they are the
+nonzero branch's formulas with the derivative terms zero, from alpha and beta, so the theta, the theta per day,
+the elasticity, the rho and the dividend rho that read them are fixed too.</li><li>QuantLib's volga divides by the standard deviation σ√T where the derivative in σ divides by σ
+(<code>:511-523</code>), so it is the volga over √T: here it is multiplied by √T.</li><li>QuantLib's vanna and volga use the plain vanilla's closed form for every payoff
+(<code>:494-523</code>); for other payoffs they are here the derivatives of QuantLib's vega through the payoff's alpha and
+beta. The plain vanilla's are QuantLib's formulas.</li><li>QuantLib's in-the-money probabilities are N(d2) and N(d1) for every payoff
+(<code>blackcalculator.hpp:129-135</code>), a call's; a put's are here 1 − N(d2) and 1 − N(d1), the expressions
+QuantLib's cash-or-nothing and asset-or-nothing puts value.</li></ul>
+<p>
+Unsealed: QuantLib's Black-Scholes calculator derives from it (<code>blackscholescalculator.hpp:32</code>), reading only
+its public members.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator__ctor_" data-uid="NanoQL.PricingEngines.BlackCalculator.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator__ctor_NanoQL_Instruments_StrikedTypePayoff_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackCalculator.#ctor(NanoQL.Instruments.StrikedTypePayoff,System.Double,System.Double,System.Double)">
+  BlackCalculator(StrikedTypePayoff, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.BlackCalculator.html">BlackCalculator</a> class for a striked payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlackCalculator(StrikedTypePayoff payoff, double forward, double stdDev, double discount = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>payoff</code> <a class="xref" href="NanoQL.Instruments.StrikedTypePayoff.html">StrikedTypePayoff</a></dt>
+    <dd><p>The payoff.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation of the log of the underlying at expiry, σ√T.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">payoff</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The strike is negative, the forward or the discount isn't positive, the standard deviation is negative, or the
+payoff isn't a plain vanilla, cash-or-nothing, asset-or-nothing or gap payoff.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator__ctor_" data-uid="NanoQL.PricingEngines.BlackCalculator.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator__ctor_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackCalculator.#ctor(NanoQL.OptionType,System.Double,System.Double,System.Double,System.Double)">
+  BlackCalculator(OptionType, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.BlackCalculator.html">BlackCalculator</a> class for a plain vanilla
+payoff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlackCalculator(OptionType optionType, double strike, double forward, double stdDev, double discount = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionType</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>The option's type.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike.</p>
+</dd>
+    <dt><code>forward</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The forward.</p>
+</dd>
+    <dt><code>stdDev</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The standard deviation of the log of the underlying at expiry, σ√T.</p>
+</dd>
+    <dt><code>discount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The discount factor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">optionType</code> isn't a member of its
+type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The strike is negative, the forward or the discount isn't positive, or the standard deviation is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_Alpha_" data-uid="NanoQL.PricingEngines.BlackCalculator.Alpha*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_Alpha" data-uid="NanoQL.PricingEngines.BlackCalculator.Alpha">
+  Alpha
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets alpha: the coefficient of the forward in the value, before discounting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Alpha { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_Beta_" data-uid="NanoQL.PricingEngines.BlackCalculator.Beta*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_Beta" data-uid="NanoQL.PricingEngines.BlackCalculator.Beta">
+  Beta
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets beta: the coefficient of the payoff's cash amount in the value, before discounting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Beta { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_DeltaForward_" data-uid="NanoQL.PricingEngines.BlackCalculator.DeltaForward*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_DeltaForward" data-uid="NanoQL.PricingEngines.BlackCalculator.DeltaForward">
+  DeltaForward
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the sensitivity to a change of the underlying's forward price.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DeltaForward { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_ElasticityForward_" data-uid="NanoQL.PricingEngines.BlackCalculator.ElasticityForward*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_ElasticityForward" data-uid="NanoQL.PricingEngines.BlackCalculator.ElasticityForward">
+  ElasticityForward
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the sensitivity in percent to a percent change of the underlying's forward price.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ElasticityForward { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_GammaForward_" data-uid="NanoQL.PricingEngines.BlackCalculator.GammaForward*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_GammaForward" data-uid="NanoQL.PricingEngines.BlackCalculator.GammaForward">
+  GammaForward
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the second-order derivative with respect to the underlying's forward price.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double GammaForward { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_ItmAssetProbability_" data-uid="NanoQL.PricingEngines.BlackCalculator.ItmAssetProbability*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_ItmAssetProbability" data-uid="NanoQL.PricingEngines.BlackCalculator.ItmAssetProbability">
+  ItmAssetProbability
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the probability of expiring in the money in the asset martingale measure: N(d1) for a call, 1 − N(d1) for
+a put. A risk-neutral probability, not the real-world one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ItmAssetProbability { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_ItmCashProbability_" data-uid="NanoQL.PricingEngines.BlackCalculator.ItmCashProbability*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_ItmCashProbability" data-uid="NanoQL.PricingEngines.BlackCalculator.ItmCashProbability">
+  ItmCashProbability
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the probability of expiring in the money in the bond martingale measure: N(d2) for a call, 1 − N(d2) for a
+put. A risk-neutral probability, not the real-world one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ItmCashProbability { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_StrikeGamma_" data-uid="NanoQL.PricingEngines.BlackCalculator.StrikeGamma*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_StrikeGamma" data-uid="NanoQL.PricingEngines.BlackCalculator.StrikeGamma">
+  StrikeGamma
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the second-order derivative with respect to the strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double StrikeGamma { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_StrikeSensitivity_" data-uid="NanoQL.PricingEngines.BlackCalculator.StrikeSensitivity*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_StrikeSensitivity" data-uid="NanoQL.PricingEngines.BlackCalculator.StrikeSensitivity">
+  StrikeSensitivity
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the sensitivity to the strike.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double StrikeSensitivity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_Value_" data-uid="NanoQL.PricingEngines.BlackCalculator.Value*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_Value" data-uid="NanoQL.PricingEngines.BlackCalculator.Value">
+  Value
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the option's value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Value { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_Delta_" data-uid="NanoQL.PricingEngines.BlackCalculator.Delta*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_Delta_System_Double_" data-uid="NanoQL.PricingEngines.BlackCalculator.Delta(System.Double)">
+  Delta(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sensitivity to a change of the underlying's spot price.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Delta(double spot)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spot</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The delta.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">spot</code> isn't positive.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_DividendRho_" data-uid="NanoQL.PricingEngines.BlackCalculator.DividendRho*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_DividendRho_System_Double_" data-uid="NanoQL.PricingEngines.BlackCalculator.DividendRho(System.Double)">
+  DividendRho(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sensitivity to the dividend or growth rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DividendRho(double maturity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The dividend rho.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The maturity is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_Elasticity_" data-uid="NanoQL.PricingEngines.BlackCalculator.Elasticity*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_Elasticity_System_Double_" data-uid="NanoQL.PricingEngines.BlackCalculator.Elasticity(System.Double)">
+  Elasticity(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sensitivity in percent to a percent change of the underlying's spot price.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Elasticity(double spot)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spot</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The elasticity.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">spot</code> isn't positive.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_Gamma_" data-uid="NanoQL.PricingEngines.BlackCalculator.Gamma*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_Gamma_System_Double_" data-uid="NanoQL.PricingEngines.BlackCalculator.Gamma(System.Double)">
+  Gamma(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The second-order derivative with respect to the underlying's spot price.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Gamma(double spot)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spot</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The gamma.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">spot</code> isn't positive.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_Rho_" data-uid="NanoQL.PricingEngines.BlackCalculator.Rho*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_Rho_System_Double_" data-uid="NanoQL.PricingEngines.BlackCalculator.Rho(System.Double)">
+  Rho(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sensitivity to the discounting rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Rho(double maturity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rho.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The maturity is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_Theta_" data-uid="NanoQL.PricingEngines.BlackCalculator.Theta*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_Theta_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackCalculator.Theta(System.Double,System.Double)">
+  Theta(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sensitivity to the time to maturity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Theta(double spot, double maturity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spot</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The theta; 0 at a maturity close to 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The maturity is negative, or the spot isn't positive.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_ThetaPerDay_" data-uid="NanoQL.PricingEngines.BlackCalculator.ThetaPerDay*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_ThetaPerDay_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackCalculator.ThetaPerDay(System.Double,System.Double)">
+  ThetaPerDay(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sensitivity to the time to maturity per day, assuming 365 days a year.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ThetaPerDay(double spot, double maturity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spot</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The theta per day.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The maturity is negative, or the spot isn't positive.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_Vanna_" data-uid="NanoQL.PricingEngines.BlackCalculator.Vanna*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_Vanna_System_Double_System_Double_" data-uid="NanoQL.PricingEngines.BlackCalculator.Vanna(System.Double,System.Double)">
+  Vanna(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sensitivity of the vega to the spot (vanna).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Vanna(double spot, double maturity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spot</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The spot.</p>
+</dd>
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The vanna.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The spot isn't positive, or the maturity is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_Vega_" data-uid="NanoQL.PricingEngines.BlackCalculator.Vega*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_Vega_System_Double_" data-uid="NanoQL.PricingEngines.BlackCalculator.Vega(System.Double)">
+  Vega(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sensitivity to the volatility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Vega(double maturity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The vega.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The maturity is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_BlackCalculator_Volga_" data-uid="NanoQL.PricingEngines.BlackCalculator.Volga*"></a>
+
+  <h3 id="NanoQL_PricingEngines_BlackCalculator_Volga_System_Double_" data-uid="NanoQL.PricingEngines.BlackCalculator.Volga(System.Double)">
+  Volga(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sensitivity of the vega to the volatility (volga).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Volga(double maturity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maturity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time to maturity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The volga.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The maturity is negative.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class MarkovFunctionalModelSettings | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MarkovFunctionalModelSettings | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Markov-functional model&#39;s numerical settings: the state grid, the Gauss-Hermite integration, the digitals&#39; gap, the market rates&#39; accuracy and bounds, and the adjustments and smile pretreatments.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models.MarkovFunctionalModelSettings">
+
+
+
+  <h1 id="NanoQL_Models_MarkovFunctionalModelSettings" data-uid="NanoQL.Models.MarkovFunctionalModelSettings" class="text-break">
+Class MarkovFunctionalModelSettings  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Markov-functional model's numerical settings: the state grid, the Gauss-Hermite integration, the digitals' gap,
+the market rates' accuracy and bounds, and the adjustments and smile pretreatments.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class MarkovFunctionalModelSettings</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MarkovFunctionalModelSettings</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Models_MarkovFunctionalModelSettings_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable: QuantLib's chained setters (<code>withYGridPoints</code> and the others, <code>addAdjustment</code>,
+<code>removeAdjustment</code>) return modified copies. By default 64 grid points on each side over 7 standard
+deviations, 32 Gauss-Hermite points, a digital gap of 1e-5, a market rate accuracy of 1e-7, rates between 0 and 2,
+and Kahale's smile with exponential extrapolation.
+</p>
+<p>
+<a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html#NanoQL_Models_MarkovFunctionalModelSettings_Validate">Validate()</a> refuses any two of Kahale's, SABR's and a custom smile, as its text says. QuantLib's refuses
+only all three (<code>markovfunctional.hpp:162-167</code>), so Kahale's and SABR's together are accepted and SABR's is
+ignored.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings__ctor_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings__ctor" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.#ctor">
+  MarkovFunctionalModelSettings()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a> class, with QuantLib's
+defaults.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings__ctor_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings__ctor_System_Int32_System_Double_System_Int32_System_Double_System_Double_System_Double_System_Double_NanoQL_Models_MarkovFunctionalModelSettingsAdjustments_System_ReadOnlySpan_System_Double__NanoQL_Models_MarkovFunctionalCustomSmileFactory_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.#ctor(System.Int32,System.Double,System.Int32,System.Double,System.Double,System.Double,System.Double,NanoQL.Models.MarkovFunctionalModelSettingsAdjustments,System.ReadOnlySpan{System.Double},NanoQL.Models.MarkovFunctionalCustomSmileFactory)">
+  MarkovFunctionalModelSettings(int, double, int, double, double, double, double, MarkovFunctionalModelSettingsAdjustments, ReadOnlySpan&lt;double&gt;, MarkovFunctionalCustomSmileFactory?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings(int yGridPoints, double yStdDevs, int gaussHermitePoints, double digitalGap, double marketRateAccuracy, double lowerRateBound, double upperRateBound, MarkovFunctionalModelSettingsAdjustments adjustments, ReadOnlySpan&lt;double&gt; smileMoneyCheckpoints = default, MarkovFunctionalCustomSmileFactory? customSmileFactory = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>yGridPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The state grid's points on each side.</p>
+</dd>
+    <dt><code>yStdDevs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The state grid's width, in standard deviations.</p>
+</dd>
+    <dt><code>gaussHermitePoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The Gauss-Hermite integration's points.</p>
+</dd>
+    <dt><code>digitalGap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strikes' distance of the digitals.</p>
+</dd>
+    <dt><code>marketRateAccuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accuracy of the market rates the digitals are inverted to.</p>
+</dd>
+    <dt><code>lowerRateBound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The market rates' lower bound, before the smile's shift.</p>
+</dd>
+    <dt><code>upperRateBound</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The market rates' upper bound.</p>
+</dd>
+    <dt><code>adjustments</code> <a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettingsAdjustments.html">MarkovFunctionalModelSettingsAdjustments</a></dt>
+    <dd><p>The adjustments and smile pretreatments.</p>
+</dd>
+    <dt><code>smileMoneyCheckpoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The moneyness grid of the smile pretreatments and the outputs; empty, the
+default, for the smile utilities' own.</p>
+</dd>
+    <dt><code>customSmileFactory</code> <a class="xref" href="NanoQL.Models.MarkovFunctionalCustomSmileFactory.html">MarkovFunctionalCustomSmileFactory</a></dt>
+    <dd><p>The custom smile's factory, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the default, for
+none.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_Adjustments_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.Adjustments*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_Adjustments" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.Adjustments">
+  Adjustments
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the adjustments and smile pretreatments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettingsAdjustments Adjustments { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettingsAdjustments.html">MarkovFunctionalModelSettingsAdjustments</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_CustomSmileFactory_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.CustomSmileFactory*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_CustomSmileFactory" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.CustomSmileFactory">
+  CustomSmileFactory
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the custom smile's factory, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalCustomSmileFactory? CustomSmileFactory { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalCustomSmileFactory.html">MarkovFunctionalCustomSmileFactory</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_DigitalGap_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.DigitalGap*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_DigitalGap" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.DigitalGap">
+  DigitalGap
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the strikes' distance of the digitals.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DigitalGap { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_GaussHermitePoints_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.GaussHermitePoints*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_GaussHermitePoints" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.GaussHermitePoints">
+  GaussHermitePoints
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the Gauss-Hermite integration's points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GaussHermitePoints { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_LowerRateBound_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.LowerRateBound*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_LowerRateBound" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.LowerRateBound">
+  LowerRateBound
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the market rates' lower bound, before the smile's shift.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double LowerRateBound { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_MarketRateAccuracy_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.MarketRateAccuracy*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_MarketRateAccuracy" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.MarketRateAccuracy">
+  MarketRateAccuracy
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the accuracy of the market rates the digitals are inverted to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double MarketRateAccuracy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_SmileMoneynessCheckpoints_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.SmileMoneynessCheckpoints*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_SmileMoneynessCheckpoints" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.SmileMoneynessCheckpoints">
+  SmileMoneynessCheckpoints
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the moneyness grid of the smile pretreatments and the outputs; empty for the smile utilities'
+own.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; SmileMoneynessCheckpoints { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_UpperRateBound_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.UpperRateBound*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_UpperRateBound" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.UpperRateBound">
+  UpperRateBound
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the market rates' upper bound.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double UpperRateBound { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_YGridPoints_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.YGridPoints*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_YGridPoints" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.YGridPoints">
+  YGridPoints
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the state grid's points on each side.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int YGridPoints { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_YStdDevs_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.YStdDevs*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_YStdDevs" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.YStdDevs">
+  YStdDevs
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the state grid's width, in standard deviations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double YStdDevs { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_AddAdjustment_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.AddAdjustment*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_AddAdjustment_NanoQL_Models_MarkovFunctionalModelSettingsAdjustments_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.AddAdjustment(NanoQL.Models.MarkovFunctionalModelSettingsAdjustments)">
+  AddAdjustment(MarkovFunctionalModelSettingsAdjustments)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with adjustments added.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings AddAdjustment(MarkovFunctionalModelSettingsAdjustments a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettingsAdjustments.html">MarkovFunctionalModelSettingsAdjustments</a></dt>
+    <dd><p>The adjustments to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_RemoveAdjustment_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.RemoveAdjustment*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_RemoveAdjustment_NanoQL_Models_MarkovFunctionalModelSettingsAdjustments_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.RemoveAdjustment(NanoQL.Models.MarkovFunctionalModelSettingsAdjustments)">
+  RemoveAdjustment(MarkovFunctionalModelSettingsAdjustments)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with adjustments removed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings RemoveAdjustment(MarkovFunctionalModelSettingsAdjustments a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettingsAdjustments.html">MarkovFunctionalModelSettingsAdjustments</a></dt>
+    <dd><p>The adjustments to remove.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_Validate_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.Validate*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_Validate" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.Validate">
+  Validate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The settings completed and checked: Kahale's interpolation implies Kahale's smile, and Kahale's smile with the
+deletion of arbitrage points implies Kahale's interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings Validate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd><p>The completed copy; the receiver doesn't change.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>More than one of Kahale's, SABR's and a custom smile is set; there are fewer
+than two grid points; the integration count, the grid's width, the digital gap or the accuracy isn't positive;
+Kahale's smile is set with a lower rate bound other than 0; the lower rate bound isn't below the upper; or a
+custom smile has no factory.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_WithAdjustments_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithAdjustments*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_WithAdjustments_NanoQL_Models_MarkovFunctionalModelSettingsAdjustments_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithAdjustments(NanoQL.Models.MarkovFunctionalModelSettingsAdjustments)">
+  WithAdjustments(MarkovFunctionalModelSettingsAdjustments)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with other adjustments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings WithAdjustments(MarkovFunctionalModelSettingsAdjustments a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettingsAdjustments.html">MarkovFunctionalModelSettingsAdjustments</a></dt>
+    <dd><p>The adjustments.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_WithCustomSmileFactory_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithCustomSmileFactory*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_WithCustomSmileFactory_NanoQL_Models_MarkovFunctionalCustomSmileFactory_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithCustomSmileFactory(NanoQL.Models.MarkovFunctionalCustomSmileFactory)">
+  WithCustomSmileFactory(MarkovFunctionalCustomSmileFactory?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another custom smile factory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings WithCustomSmileFactory(MarkovFunctionalCustomSmileFactory? f)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="NanoQL.Models.MarkovFunctionalCustomSmileFactory.html">MarkovFunctionalCustomSmileFactory</a></dt>
+    <dd><p>The factory, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_WithDigitalGap_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithDigitalGap*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_WithDigitalGap_System_Double_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithDigitalGap(System.Double)">
+  WithDigitalGap(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another digital gap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings WithDigitalGap(double d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The gap.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_WithGaussHermitePoints_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithGaussHermitePoints*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_WithGaussHermitePoints_System_Int32_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithGaussHermitePoints(System.Int32)">
+  WithGaussHermitePoints(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another number of Gauss-Hermite points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings WithGaussHermitePoints(int n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_WithLowerRateBound_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithLowerRateBound*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_WithLowerRateBound_System_Double_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithLowerRateBound(System.Double)">
+  WithLowerRateBound(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another lower rate bound.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings WithLowerRateBound(double l)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bound.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_WithMarketRateAccuracy_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithMarketRateAccuracy*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_WithMarketRateAccuracy_System_Double_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithMarketRateAccuracy(System.Double)">
+  WithMarketRateAccuracy(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another market rate accuracy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings WithMarketRateAccuracy(double a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accuracy.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_WithSmileMoneynessCheckpoints_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithSmileMoneynessCheckpoints*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_WithSmileMoneynessCheckpoints_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithSmileMoneynessCheckpoints(System.ReadOnlySpan{System.Double})">
+  WithSmileMoneynessCheckpoints(ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another moneyness grid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings WithSmileMoneynessCheckpoints(ReadOnlySpan&lt;double&gt; m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The grid.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_WithUpperRateBound_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithUpperRateBound*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_WithUpperRateBound_System_Double_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithUpperRateBound(System.Double)">
+  WithUpperRateBound(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another upper rate bound.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings WithUpperRateBound(double u)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>u</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The bound.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_WithYGridPoints_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithYGridPoints*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_WithYGridPoints_System_Int32_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithYGridPoints(System.Int32)">
+  WithYGridPoints(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another number of state grid points on each side.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings WithYGridPoints(int n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelSettings_WithYStdDevs_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithYStdDevs*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelSettings_WithYStdDevs_System_Double_" data-uid="NanoQL.Models.MarkovFunctionalModelSettings.WithYStdDevs(System.Double)">
+  WithYStdDevs(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy with another state grid width.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings WithYStdDevs(double s)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The width, in standard deviations.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd><p>The copy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

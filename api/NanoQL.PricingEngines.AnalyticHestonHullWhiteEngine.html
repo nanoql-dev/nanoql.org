@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class AnalyticHestonHullWhiteEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AnalyticHestonHullWhiteEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The analytic Heston engine with a Hull-White short rate independent of the equity and its variance: dS = (r − d)S dt  √v S dW₁, dv = κ(θ − v) dt + σ√v dW₂, dr = (θ(t) − ar) dt + η dW₃, dW₁dW₂ = ρ dt, dW₁dW₃ = dW₂dW₃ = 0.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine">
+
+
+
+  <h1 id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine" data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine" class="text-break">
+Class AnalyticHestonHullWhiteEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.PricingEngines.html">PricingEngines</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The analytic Heston engine with a Hull-White short rate independent of the equity and its variance: dS = (r − d)S dt</p>
+<ul>
+<li>√v S dW₁, dv = κ(θ − v) dt + σ√v dW₂, dr = (θ(t) − ar) dt + η dW₃, dW₁dW₂ = ρ dt, dW₁dW₃ = dW₂dW₃ = 0.</li>
+</ul>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AnalyticHestonHullWhiteEngine : AnalyticHestonEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html">AnalyticHestonEngine</a></div>
+      <div><span class="xref">AnalyticHestonHullWhiteEngine</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.PricingEngines.AnalyticH1HWEngine.html">AnalyticH1HWEngine</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_HestonModel_System_Int32_">AnalyticHestonEngine.Calculate(VanillaOption, EvaluationContext, HestonModel, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_HestonModel_System_Double_System_Int32_">AnalyticHestonEngine.Calculate(VanillaOption, EvaluationContext, HestonModel, double, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_HestonModel_NanoQL_PricingEngines_AnalyticHestonEngineComplexLogFormula_NanoQL_Numerics_FourierIntegration_System_Double_System_Double_">AnalyticHestonEngine.Calculate(VanillaOption, EvaluationContext, HestonModel, AnalyticHestonEngineComplexLogFormula, FourierIntegration, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_OptimalControlVariate_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_">AnalyticHestonEngine.OptimalControlVariate(double, double, double, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_">AnalyticHestonEngine.Calculate(VanillaOption, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_ChF_System_Numerics_Complex_System_Double_">AnalyticHestonEngine.ChF(Complex, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_LnChF_System_Numerics_Complex_System_Double_">AnalyticHestonEngine.LnChF(Complex, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_PriceVanillaPayoff_NanoQL_Instruments_PlainVanillaPayoff_NanoQL_Time_Date_">AnalyticHestonEngine.PriceVanillaPayoff(PlainVanillaPayoff, Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_PriceVanillaPayoff_NanoQL_Instruments_PlainVanillaPayoff_System_Double_">AnalyticHestonEngine.PriceVanillaPayoff(PlainVanillaPayoff, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_PriceVanillaPayoffWithStatistics_NanoQL_Instruments_PlainVanillaPayoff_NanoQL_Time_Date_">AnalyticHestonEngine.PriceVanillaPayoffWithStatistics(PlainVanillaPayoff, Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_PriceVanillaPayoffWithStatistics_NanoQL_Instruments_PlainVanillaPayoff_System_Double_">AnalyticHestonEngine.PriceVanillaPayoffWithStatistics(PlainVanillaPayoff, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_Model">AnalyticHestonEngine.Model</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+An object over its Heston and Hull-White models, unsealed as QuantLib's (<a class="xref" href="NanoQL.PricingEngines.AnalyticH1HWEngine.html">AnalyticH1HWEngine</a> derives).
+The short rate enters the characteristic function through <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html#NanoQL_PricingEngines_AnalyticHestonEngine_AddOnTerm_System_Double_System_Double_System_Int32_">AddOnTerm(double, double, int)</a>, its variance
+offset m at the model's time, which runs from the earliest curve date (<a class="xref" href="NanoQL.PricingEngines.AnalyticHestonEngine.html">AnalyticHestonEngine</a>'s).
+</p>
+<p>
+Below a·t = 1e-2 the offset is the Black-Scholes-Merton Hull-White engine's series to (a·t)⁴, half that engine's v,
+where QuantLib's closed form, used above a·t = ε^¼, cancels to a relative error of about 3ε/(a·t)³ and its series
+below stops at (a·t)², the price moving by 5e-8 relative across its cut; QuantLib's closed form and bits above 1e-2.
+</p>
+<p>
+References: Karel in't Hout, Joris Bierkens, Antoine von der Ploeg, Joe in't Panhuis, A Semi closed-from analytic
+pricing formula for call options in a hybrid Heston-Hull-White Model; A. Sepp, Pricing European-Style Options under
+Jump Diffusion Processes with Stochastic Volatility: Applications of Fourier Transform.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine__ctor_" data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine__ctor_NanoQL_Models_HestonModel_NanoQL_Models_HullWhite_System_Double_System_Int32_" data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.#ctor(NanoQL.Models.HestonModel,NanoQL.Models.HullWhite,System.Double,System.Int32)">
+  AnalyticHestonHullWhiteEngine(HestonModel, HullWhite, double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.html">AnalyticHestonHullWhiteEngine</a> class: Gatheral's form,
+adaptive Gauss-Lobatto integration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnalyticHestonHullWhiteEngine(HestonModel hestonModel, HullWhite hullWhiteModel, double relTolerance, int maxEvaluations)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hestonModel</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>hullWhiteModel</code> <a class="xref" href="NanoQL.Models.HullWhite.html">HullWhite</a></dt>
+    <dd><p>The Hull-White model.</p>
+</dd>
+    <dt><code>relTolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The integration's relative tolerance.</p>
+</dd>
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The integration's maximum number of evaluations.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A model is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxEvaluations</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine__ctor_" data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.#ctor*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine__ctor_NanoQL_Models_HestonModel_NanoQL_Models_HullWhite_System_Int32_" data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.#ctor(NanoQL.Models.HestonModel,NanoQL.Models.HullWhite,System.Int32)">
+  AnalyticHestonHullWhiteEngine(HestonModel, HullWhite, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.html">AnalyticHestonHullWhiteEngine</a> class: Gatheral's form,
+Gauss-Laguerre integration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnalyticHestonHullWhiteEngine(HestonModel hestonModel, HullWhite hullWhiteModel, int integrationOrder = 144)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hestonModel</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>hullWhiteModel</code> <a class="xref" href="NanoQL.Models.HullWhite.html">HullWhite</a></dt>
+    <dd><p>The Hull-White model.</p>
+</dd>
+    <dt><code>integrationOrder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The quadrature's order, positive, at most 192.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A model is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The order is zero or above 192.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The order is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine_HullWhiteModel_" data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.HullWhiteModel*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine_HullWhiteModel" data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.HullWhiteModel">
+  HullWhiteModel
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the Hull-White model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HullWhite HullWhiteModel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.HullWhite.html">HullWhite</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine_AddOnTerm_" data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.AddOnTerm*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine_AddOnTerm_System_Double_System_Double_System_Int32_" data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.AddOnTerm(System.Double,System.Double,System.Int32)">
+  AddOnTerm(double, double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The short rate's term: (−m u², u(m − 2m(j − 1))), m the variance offset at the maturity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Complex AddOnTerm(double phi, double t, int j)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>phi</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The integration variable.</p>
+</dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maturity.</p>
+</dd>
+    <dt><code>j</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The probability's index, 1 or 2.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.complex">Complex</a></dt>
+    <dd><p>The term.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine_Calculate_" data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_HestonModel_NanoQL_Models_HullWhite_System_Double_System_Int32_" data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Models.HestonModel,NanoQL.Models.HullWhite,System.Double,System.Int32)">
+  Calculate(VanillaOption, EvaluationContext, HestonModel, HullWhite, double, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a European plain-vanilla option with adaptive Gauss-Lobatto integration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context, HestonModel hestonModel, HullWhite hullWhiteModel, double relTolerance, int maxEvaluations)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>hestonModel</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>hullWhiteModel</code> <a class="xref" href="NanoQL.Models.HullWhite.html">HullWhite</a></dt>
+    <dd><p>The Hull-White model.</p>
+</dd>
+    <dt><code>relTolerance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The integration's relative tolerance.</p>
+</dd>
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The integration's maximum number of evaluations.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results: its value, and the additional result &quot;numberOfEvaluations&quot;.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxEvaluations</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The exercise isn't European, the payoff isn't plain vanilla, the underlying isn't positive, or the integration
+fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine_Calculate_" data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.Calculate*"></a>
+
+  <h3 id="NanoQL_PricingEngines_AnalyticHestonHullWhiteEngine_Calculate_NanoQL_Instruments_VanillaOption_NanoQL_EvaluationContext_NanoQL_Models_HestonModel_NanoQL_Models_HullWhite_System_Int32_" data-uid="NanoQL.PricingEngines.AnalyticHestonHullWhiteEngine.Calculate(NanoQL.Instruments.VanillaOption,NanoQL.EvaluationContext,NanoQL.Models.HestonModel,NanoQL.Models.HullWhite,System.Int32)">
+  Calculate(VanillaOption, EvaluationContext, HestonModel, HullWhite, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prices a European plain-vanilla option with Gauss-Laguerre integration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OneAssetOptionResults Calculate(VanillaOption option, EvaluationContext context, HestonModel hestonModel, HullWhite hullWhiteModel, int integrationOrder = 144)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="NanoQL.Instruments.VanillaOption.html">VanillaOption</a></dt>
+    <dd><p>The option.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>hestonModel</code> <a class="xref" href="NanoQL.Models.HestonModel.html">HestonModel</a></dt>
+    <dd><p>The Heston model.</p>
+</dd>
+    <dt><code>hullWhiteModel</code> <a class="xref" href="NanoQL.Models.HullWhite.html">HullWhite</a></dt>
+    <dd><p>The Hull-White model.</p>
+</dd>
+    <dt><code>integrationOrder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The quadrature's order, positive, at most 192.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.OneAssetOptionResults.html">OneAssetOptionResults</a></dt>
+    <dd><p>The option's results: its value, and the additional result &quot;numberOfEvaluations&quot;.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The order is zero or above 192.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The order is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The exercise isn't European, the payoff isn't plain vanilla, the underlying isn't positive, or the integration
+fails.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

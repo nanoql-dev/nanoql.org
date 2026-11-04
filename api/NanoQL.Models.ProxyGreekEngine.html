@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class ProxyGreekEngine | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ProxyGreekEngine | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The engine that values market-model products and their Greeks by Fries and Joshi&#39;s partial proxy simulation: each path is valued on the original evolver, which records each step&#39;s constrained rate, then on each bumped constrained evolver pinned to those rates, its weights the likelihood ratio; finite-difference weights combine the original and the bumped values into each Greek&#39;s path value.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models.ProxyGreekEngine">
+
+
+
+  <h1 id="NanoQL_Models_ProxyGreekEngine" data-uid="NanoQL.Models.ProxyGreekEngine" class="text-break">
+Class ProxyGreekEngine  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The engine that values market-model products and their Greeks by Fries and Joshi's partial proxy simulation: each
+path is valued on the original evolver, which records each step's constrained rate, then on each bumped constrained
+evolver pinned to those rates, its weights the likelihood ratio; finite-difference weights combine the original and
+the bumped values into each Greek's path value.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public sealed class ProxyGreekEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ProxyGreekEngine</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Models_ProxyGreekEngine_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The Greeks: groups of constrained evolvers, each group with its lists of weights, one per Greek, the first weight
+the original value's and the next ones the group's evolvers'. Each path adds the original values to the caller's
+statistics and each Greek's values to its own, in units of the initial numeraire.
+</p>
+<p>
+A working type: it holds the caller's evolvers, as QuantLib's <code>shared_ptr</code>, and steps them, so an evolver
+serves one engine at a time; it holds its own clone of the product. Its buffers are sized at construction, so a
+path, the original's and the constrained evolvers', allocates nothing after a warm-up path.
+</p>
+<p>
+The constrained evolvers' weights are the constrained Euler evolver's, which carry the reference model's transition
+density: a volatility-bumped evolver given the original model as its reference yields vegas within their standard
+errors of Black's, where QuantLib's are of the wrong sign (<code>Divergences/ProxyGreekVegaTests.cs</code>).
+</p>
+<p>
+Refused, where QuantLib reads past its buffers: a group of weights without its evolvers, a list of weights longer
+than its group's evolvers and the original, constraints fewer than the product's steps, statistics fewer than the
+weights, and a product not finished at the evolver's last step.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Models_ProxyGreekEngine__ctor_" data-uid="NanoQL.Models.ProxyGreekEngine.#ctor*"></a>
+
+  <h3 id="NanoQL_Models_ProxyGreekEngine__ctor_NanoQL_Models_MarketModelEvolver_System_Collections_Generic_IReadOnlyList_System_Collections_Generic_IReadOnlyList_NanoQL_Models_ConstrainedEvolver___System_Collections_Generic_IReadOnlyList_System_Collections_Generic_IReadOnlyList_System_Collections_Generic_IReadOnlyList_System_Double____System_ReadOnlySpan_System_Int32__System_ReadOnlySpan_System_Int32__NanoQL_Models_MarketModelMultiProduct_System_Double_" data-uid="NanoQL.Models.ProxyGreekEngine.#ctor(NanoQL.Models.MarketModelEvolver,System.Collections.Generic.IReadOnlyList{System.Collections.Generic.IReadOnlyList{NanoQL.Models.ConstrainedEvolver}},System.Collections.Generic.IReadOnlyList{System.Collections.Generic.IReadOnlyList{System.Collections.Generic.IReadOnlyList{System.Double}}},System.ReadOnlySpan{System.Int32},System.ReadOnlySpan{System.Int32},NanoQL.Models.MarketModelMultiProduct,System.Double)">
+  ProxyGreekEngine(MarketModelEvolver, IReadOnlyList&lt;IReadOnlyList&lt;ConstrainedEvolver&gt;&gt;, IReadOnlyList&lt;IReadOnlyList&lt;IReadOnlyList&lt;double&gt;&gt;&gt;, ReadOnlySpan&lt;int&gt;, ReadOnlySpan&lt;int&gt;, MarketModelMultiProduct, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Models.ProxyGreekEngine.html">ProxyGreekEngine</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProxyGreekEngine(MarketModelEvolver evolver, IReadOnlyList&lt;IReadOnlyList&lt;ConstrainedEvolver&gt;&gt; constrainedEvolvers, IReadOnlyList&lt;IReadOnlyList&lt;IReadOnlyList&lt;double&gt;&gt;&gt; diffWeights, ReadOnlySpan&lt;int&gt; startIndexOfConstraint, ReadOnlySpan&lt;int&gt; endIndexOfConstraint, MarketModelMultiProduct product, double initialNumeraireValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>evolver</code> <a class="xref" href="NanoQL.Models.MarketModelEvolver.html">MarketModelEvolver</a></dt>
+    <dd><p>The original evolver, held and stepped by the engine.</p>
+</dd>
+    <dt><code>constrainedEvolvers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="NanoQL.Models.ConstrainedEvolver.html">ConstrainedEvolver</a>&gt;&gt;</dt>
+    <dd><p>The groups of bumped constrained evolvers, their constraints' type set, held
+and stepped by the engine.</p>
+</dd>
+    <dt><code>diffWeights</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;&gt;</dt>
+    <dd><p>For each group, a list of weights per Greek: the original value's, then one per
+evolver of the group at most; copied.</p>
+</dd>
+    <dt><code>startIndexOfConstraint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>Each step's constrained rate's start, at least one per product step.</p>
+</dd>
+    <dt><code>endIndexOfConstraint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>Each step's constrained rate's end, at least one per product step.</p>
+</dd>
+    <dt><code>product</code> <a class="xref" href="NanoQL.Models.MarketModelMultiProduct.html">MarketModelMultiProduct</a></dt>
+    <dd><p>The product, cloned.</p>
+</dd>
+    <dt><code>initialNumeraireValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value of the initial numeraire bond today.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A group of weights has no group of evolvers, a list of weights is empty or longer than its group's evolvers and
+the original, or the constraints are fewer than the product's steps.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Models_ProxyGreekEngine_MultiplePathValues_" data-uid="NanoQL.Models.ProxyGreekEngine.MultiplePathValues*"></a>
+
+  <h3 id="NanoQL_Models_ProxyGreekEngine_MultiplePathValues_NanoQL_Numerics_SequenceStatisticsInc_System_Collections_Generic_IReadOnlyList_System_Collections_Generic_IReadOnlyList_NanoQL_Numerics_SequenceStatisticsInc___System_Int32_" data-uid="NanoQL.Models.ProxyGreekEngine.MultiplePathValues(NanoQL.Numerics.SequenceStatisticsInc,System.Collections.Generic.IReadOnlyList{System.Collections.Generic.IReadOnlyList{NanoQL.Numerics.SequenceStatisticsInc}},System.Int32)">
+  MultiplePathValues(SequenceStatisticsInc, IReadOnlyList&lt;IReadOnlyList&lt;SequenceStatisticsInc&gt;&gt;, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Values the products along paths: each path's original values added to <code class="paramref">stats</code>, and each Greek's
+values, its weights over the original and its group's evolvers' values, to its statistics.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MultiplePathValues(SequenceStatisticsInc stats, IReadOnlyList&lt;IReadOnlyList&lt;SequenceStatisticsInc&gt;&gt; modifiedStats, int numberOfPaths)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stats</code> <a class="xref" href="NanoQL.Numerics.SequenceStatisticsInc.html">SequenceStatisticsInc</a></dt>
+    <dd><p>The original values' statistics, of the products' dimension or of dimension 0.</p>
+</dd>
+    <dt><code>modifiedStats</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="NanoQL.Numerics.SequenceStatisticsInc.html">SequenceStatisticsInc</a>&gt;&gt;</dt>
+    <dd><p>Each group's statistics, one per list of weights.</p>
+</dd>
+    <dt><code>numberOfPaths</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of paths.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The statistics are fewer than the weights.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">numberOfPaths</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The product isn't finished at an evolver's last step.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Models_ProxyGreekEngine_SinglePathValues_" data-uid="NanoQL.Models.ProxyGreekEngine.SinglePathValues*"></a>
+
+  <h3 id="NanoQL_Models_ProxyGreekEngine_SinglePathValues_System_Span_System_Double__System_Double_______" data-uid="NanoQL.Models.ProxyGreekEngine.SinglePathValues(System.Span{System.Double},System.Double[][][])">
+  SinglePathValues(Span&lt;double&gt;, double[][][])
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Values the products along one path: on the original evolver, recording each step's constrained rate, then on
+each constrained evolver pinned to those rates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SinglePathValues(Span&lt;double&gt; values, double[][][] modifiedValues)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The original values, one per product, written.</p>
+</dd>
+    <dt><code>modifiedValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[][][]</dt>
+    <dd><p>Each group's evolvers' values, one per product, written.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A buffer is smaller than the products or the evolvers.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The product isn't finished at an evolver's last step.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CompositeInstrument | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CompositeInstrument | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An aggregate of other instruments: its value is the sum of its components&#39; values, each times its multiplier, QuantLib&#39;s CompositeInstrument.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Instruments.CompositeInstrument">
+
+
+
+  <h1 id="NanoQL_Instruments_CompositeInstrument" data-uid="NanoQL.Instruments.CompositeInstrument" class="text-break">
+Class CompositeInstrument  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An aggregate of other instruments: its value is the sum of its components' values, each times its multiplier,
+QuantLib's <code>CompositeInstrument</code>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class CompositeInstrument : Instrument</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><span class="xref">CompositeInstrument</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_SetupExpired">Instrument.SetupExpired()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_Validate">Instrument.Validate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_FetchResults_NanoQL_InstrumentResults_">Instrument.FetchResults(InstrumentResults)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Instruments_CompositeInstrument_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable: <a class="xref" href="NanoQL.Instruments.CompositeInstrument.html#NanoQL_Instruments_CompositeInstrument_Add_NanoQL_Instrument_System_Func_NanoQL_EvaluationContext_NanoQL_InstrumentResults__System_Double_">Add(Instrument, Func&lt;EvaluationContext, InstrumentResults&gt;, double)</a> and <a class="xref" href="NanoQL.Instruments.CompositeInstrument.html#NanoQL_Instruments_CompositeInstrument_Subtract_NanoQL_Instrument_System_Func_NanoQL_EvaluationContext_NanoQL_InstrumentResults__System_Double_">Subtract(Instrument, Func&lt;EvaluationContext, InstrumentResults&gt;, double)</a> return a new composite with the component added, where
+QuantLib's change the composite. Each component carries the engine that prices it, a delegate from the evaluation
+context, as nanoql's instruments carry none; QuantLib's composite reads the engines its components carry.
+</p>
+<p>
+It is priced without an engine: <a class="xref" href="NanoQL.Instruments.CompositeInstrument.html#NanoQL_Instruments_CompositeInstrument_Calculate_NanoQL_EvaluationContext_">Calculate(EvaluationContext)</a> runs QuantLib's steps, its value the components' values
+summed in the order they were added, each from its engine's results under the context, an expired component's 0
+without its engine, as QuantLib's instrument gives it. It has expired when every
+component has, an empty composite included, as QuantLib's. Its error estimate is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, as QuantLib's
+is on a composite never expired. QuantLib's <code>deepUpdate</code> has no counterpart.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Instruments_CompositeInstrument__ctor_" data-uid="NanoQL.Instruments.CompositeInstrument.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_CompositeInstrument__ctor" data-uid="NanoQL.Instruments.CompositeInstrument.#ctor">
+  CompositeInstrument()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.CompositeInstrument.html">CompositeInstrument</a> class with no component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CompositeInstrument()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Instruments_CompositeInstrument_Components_" data-uid="NanoQL.Instruments.CompositeInstrument.Components*"></a>
+
+  <h3 id="NanoQL_Instruments_CompositeInstrument_Components" data-uid="NanoQL.Instruments.CompositeInstrument.Components">
+  Components
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the components, in the order they were added.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CompositeInstrumentComponent&gt; Components { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Instruments.CompositeInstrumentComponent.html">CompositeInstrumentComponent</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Instruments_CompositeInstrument_Add_" data-uid="NanoQL.Instruments.CompositeInstrument.Add*"></a>
+
+  <h3 id="NanoQL_Instruments_CompositeInstrument_Add_NanoQL_Instrument_System_Func_NanoQL_EvaluationContext_NanoQL_InstrumentResults__System_Double_" data-uid="NanoQL.Instruments.CompositeInstrument.Add(NanoQL.Instrument,System.Func{NanoQL.EvaluationContext,NanoQL.InstrumentResults},System.Double)">
+  Add(Instrument, Func&lt;EvaluationContext, InstrumentResults&gt;, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A composite with an instrument added.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CompositeInstrument Add(Instrument instrument, Func&lt;EvaluationContext, InstrumentResults&gt; engine, double multiplier = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>instrument</code> <a class="xref" href="NanoQL.Instrument.html">Instrument</a></dt>
+    <dd><p>The instrument.</p>
+</dd>
+    <dt><code>engine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, <a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a>&gt;</dt>
+    <dd><p>The engine pricing it, from the evaluation context.</p>
+</dd>
+    <dt><code>multiplier</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The multiplier of its value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.CompositeInstrument.html">CompositeInstrument</a></dt>
+    <dd><p>The new composite.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">instrument</code> or <code class="paramref">engine</code> is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_CompositeInstrument_Calculate_" data-uid="NanoQL.Instruments.CompositeInstrument.Calculate*"></a>
+
+  <h3 id="NanoQL_Instruments_CompositeInstrument_Calculate_NanoQL_EvaluationContext_" data-uid="NanoQL.Instruments.CompositeInstrument.Calculate(NanoQL.EvaluationContext)">
+  Calculate(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The composite's results: its components' values summed, each times its multiplier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InstrumentResults Calculate(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a></dt>
+    <dd><p>The results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>A component's engine gives no value (&quot;NPV not provided&quot;), or fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_CompositeInstrument_IsExpired_" data-uid="NanoQL.Instruments.CompositeInstrument.IsExpired*"></a>
+
+  <h3 id="NanoQL_Instruments_CompositeInstrument_IsExpired_NanoQL_EvaluationContext_" data-uid="NanoQL.Instruments.CompositeInstrument.IsExpired(NanoQL.EvaluationContext)">
+  IsExpired(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the instrument might still have a value greater than zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsExpired(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the instrument has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_CompositeInstrument_Subtract_" data-uid="NanoQL.Instruments.CompositeInstrument.Subtract*"></a>
+
+  <h3 id="NanoQL_Instruments_CompositeInstrument_Subtract_NanoQL_Instrument_System_Func_NanoQL_EvaluationContext_NanoQL_InstrumentResults__System_Double_" data-uid="NanoQL.Instruments.CompositeInstrument.Subtract(NanoQL.Instrument,System.Func{NanoQL.EvaluationContext,NanoQL.InstrumentResults},System.Double)">
+  Subtract(Instrument, Func&lt;EvaluationContext, InstrumentResults&gt;, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A composite with an instrument subtracted: added with its multiplier negated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CompositeInstrument Subtract(Instrument instrument, Func&lt;EvaluationContext, InstrumentResults&gt; engine, double multiplier = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>instrument</code> <a class="xref" href="NanoQL.Instrument.html">Instrument</a></dt>
+    <dd><p>The instrument.</p>
+</dd>
+    <dt><code>engine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a>, <a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a>&gt;</dt>
+    <dd><p>The engine pricing it, from the evaluation context.</p>
+</dd>
+    <dt><code>multiplier</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The multiplier of its value, which is subtracted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.CompositeInstrument.html">CompositeInstrument</a></dt>
+    <dd><p>The new composite.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">instrument</code> or <code class="paramref">engine</code> is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

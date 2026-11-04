@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class NthToDefault | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NthToDefault | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An n-th-to-default swap: protection against the n-th default in a basket of credits, for premium payments on the protected notional. Priced as a credit default swap whose default probability is the basket&#39;s probability of n defaults or more (Hull and White, &amp;quot;Valuation of a CDO and nth to default CDS without Monte Carlo simulation&amp;quot;, Journal of Derivatives 12, 2, 2004).">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.NthToDefault">
+
+
+
+  <h1 id="NanoQL_Experimental_NthToDefault" data-uid="NanoQL.Experimental.NthToDefault" class="text-break">
+Class NthToDefault  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An n-th-to-default swap: protection against the n-th default in a basket of credits, for premium payments on the
+protected notional. Priced as a credit default swap whose default probability is the basket's probability of n
+defaults or more (Hull and White, &quot;Valuation of a CDO and nth to default CDS without Monte Carlo simulation&quot;,
+Journal of Derivatives 12, 2, 2004).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public sealed class NthToDefault : Instrument</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><span class="xref">NthToDefault</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_Validate">Instrument.Validate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_FetchResults_NanoQL_InstrumentResults_">Instrument.FetchResults(InstrumentResults)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_NthToDefault_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable: it holds the basket with its bound loss model, and an engine's static <code>Calculate</code> prices it
+(<a class="xref" href="NanoQL.Experimental.IntegralNtdEngine.html">IntegralNtdEngine</a>). The product is digital: the basket's tranche doesn't enter its price. Every name
+has the same weight in the protected notional.
+</p>
+<p>
+An order of 0 is refused: QuantLib checks only n ≤ size (<code>nthtodefault.cpp:48</code>), and at n = 0 its fair premium
+is noise, 6.0e-5, its NPV 3.5e-12 (<code>Conventions/CreditPortfolioConventionTests.cs</code>).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_NthToDefault__ctor_" data-uid="NanoQL.Experimental.NthToDefault.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault__ctor_NanoQL_Experimental_Basket_System_Int32_NanoQL_ProtectionSide_NanoQL_Time_Schedule_System_Double_System_Double_NanoQL_Time_DayCounter_System_Double_System_Boolean_" data-uid="NanoQL.Experimental.NthToDefault.#ctor(NanoQL.Experimental.Basket,System.Int32,NanoQL.ProtectionSide,NanoQL.Time.Schedule,System.Double,System.Double,NanoQL.Time.DayCounter,System.Double,System.Boolean)">
+  NthToDefault(Basket, int, ProtectionSide, Schedule, double, double, DayCounter, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.NthToDefault.html">NthToDefault</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NthToDefault(Basket basket, int n, ProtectionSide side, Schedule premiumSchedule, double upfrontRate, double premiumRate, DayCounter dayCounter, double nominal, bool settlePremiumAccrual)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>basket</code> <a class="xref" href="NanoQL.Experimental.Basket.html">Basket</a></dt>
+    <dd><p>The basket, with its loss model.</p>
+</dd>
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The default's order, from 1 to the basket's size.</p>
+</dd>
+    <dt><code>side</code> <a class="xref" href="NanoQL.ProtectionSide.html">ProtectionSide</a></dt>
+    <dd><p>The protection's side.</p>
+</dd>
+    <dt><code>premiumSchedule</code> <a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd><p>The premium leg's schedule.</p>
+</dd>
+    <dt><code>upfrontRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The upfront, a rate on the nominal.</p>
+</dd>
+    <dt><code>premiumRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The running premium.</p>
+</dd>
+    <dt><code>dayCounter</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The premium leg's day counter.</p>
+</dd>
+    <dt><code>nominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The protected notional.</p>
+</dd>
+    <dt><code>settlePremiumAccrual</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the premium accrued at default is paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A reference argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">n</code> is below 1.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">n</code> exceeds the basket's size (&quot;NTD order provided is
+larger than the basket size.&quot;), or the basket's inception follows the schedule's start (&quot;Basket did not exist
+before contract start.&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_NthToDefault_Basket_" data-uid="NanoQL.Experimental.NthToDefault.Basket*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_Basket" data-uid="NanoQL.Experimental.NthToDefault.Basket">
+  Basket
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the basket, with its loss model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Basket Basket { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Basket.html">Basket</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NthToDefault_BasketSize_" data-uid="NanoQL.Experimental.NthToDefault.BasketSize*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_BasketSize" data-uid="NanoQL.Experimental.NthToDefault.BasketSize">
+  BasketSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the basket's number of names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int BasketSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NthToDefault_DayCounter_" data-uid="NanoQL.Experimental.NthToDefault.DayCounter*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_DayCounter" data-uid="NanoQL.Experimental.NthToDefault.DayCounter">
+  DayCounter
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the premium leg's day counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DayCounter DayCounter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NthToDefault_Maturity_" data-uid="NanoQL.Experimental.NthToDefault.Maturity*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_Maturity" data-uid="NanoQL.Experimental.NthToDefault.Maturity">
+  Maturity
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maturity: the premium schedule's end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date Maturity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NthToDefault_Nominal_" data-uid="NanoQL.Experimental.NthToDefault.Nominal*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_Nominal" data-uid="NanoQL.Experimental.NthToDefault.Nominal">
+  Nominal
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the protected notional.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Nominal { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NthToDefault_Premium_" data-uid="NanoQL.Experimental.NthToDefault.Premium*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_Premium" data-uid="NanoQL.Experimental.NthToDefault.Premium">
+  Premium
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the running premium.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Premium { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NthToDefault_PremiumLeg_" data-uid="NanoQL.Experimental.NthToDefault.PremiumLeg*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_PremiumLeg" data-uid="NanoQL.Experimental.NthToDefault.PremiumLeg">
+  PremiumLeg
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the premium leg.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; PremiumLeg { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NthToDefault_PremiumSchedule_" data-uid="NanoQL.Experimental.NthToDefault.PremiumSchedule*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_PremiumSchedule" data-uid="NanoQL.Experimental.NthToDefault.PremiumSchedule">
+  PremiumSchedule
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the premium leg's schedule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Schedule PremiumSchedule { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Schedule.html">Schedule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NthToDefault_Rank_" data-uid="NanoQL.Experimental.NthToDefault.Rank*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_Rank" data-uid="NanoQL.Experimental.NthToDefault.Rank">
+  Rank
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the default's order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Rank { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NthToDefault_SettlePremiumAccrual_" data-uid="NanoQL.Experimental.NthToDefault.SettlePremiumAccrual*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_SettlePremiumAccrual" data-uid="NanoQL.Experimental.NthToDefault.SettlePremiumAccrual">
+  SettlePremiumAccrual
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the premium accrued at default is paid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SettlePremiumAccrual { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NthToDefault_Side_" data-uid="NanoQL.Experimental.NthToDefault.Side*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_Side" data-uid="NanoQL.Experimental.NthToDefault.Side">
+  Side
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the protection's side.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProtectionSide Side { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.ProtectionSide.html">ProtectionSide</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NthToDefault_UpfrontRate_" data-uid="NanoQL.Experimental.NthToDefault.UpfrontRate*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_UpfrontRate" data-uid="NanoQL.Experimental.NthToDefault.UpfrontRate">
+  UpfrontRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the upfront, a rate on the nominal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double UpfrontRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_NthToDefault_IsExpired_" data-uid="NanoQL.Experimental.NthToDefault.IsExpired*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_IsExpired_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.NthToDefault.IsExpired(NanoQL.EvaluationContext)">
+  IsExpired(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the instrument might still have a value greater than zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsExpired(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the instrument has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_NthToDefault_SetupExpired_" data-uid="NanoQL.Experimental.NthToDefault.SetupExpired*"></a>
+
+  <h3 id="NanoQL_Experimental_NthToDefault_SetupExpired" data-uid="NanoQL.Experimental.NthToDefault.SetupExpired">
+  SetupExpired()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The results of an expired instrument: a zero value and error estimate, and no valuation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override InstrumentResults SetupExpired()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a></dt>
+    <dd><p>The expired results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

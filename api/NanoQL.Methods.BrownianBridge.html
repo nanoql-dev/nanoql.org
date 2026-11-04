@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class BrownianBridge | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BrownianBridge | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Builds Wiener process paths using Gaussian variates: it generates normalized (unit-variance) paths as sequences of variations. To obtain the actual path of the underlying, multiply the returned variations by the integrated variance (including time) over the corresponding time step.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Methods.BrownianBridge">
+
+
+
+  <h1 id="NanoQL_Methods_BrownianBridge" data-uid="NanoQL.Methods.BrownianBridge" class="text-break">
+Class BrownianBridge  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Methods.html">Methods</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Builds Wiener process paths using Gaussian variates: it generates normalized (unit-variance) paths as sequences of
+variations. To obtain the actual path of the underlying, multiply the returned variations by the integrated
+variance (including time) over the corresponding time step.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class BrownianBridge</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">BrownianBridge</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Methods_BrownianBridge_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable: it copies the times it is given, and its accessors return the arrays it holds.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Methods_BrownianBridge__ctor_" data-uid="NanoQL.Methods.BrownianBridge.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_BrownianBridge__ctor_NanoQL_TimeGrid_" data-uid="NanoQL.Methods.BrownianBridge.#ctor(NanoQL.TimeGrid)">
+  BrownianBridge(TimeGrid)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.BrownianBridge.html">BrownianBridge</a> class over a time grid: the steps occur at its
+times after the first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BrownianBridge(TimeGrid timeGrid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>timeGrid</code> <a class="xref" href="NanoQL.TimeGrid.html">TimeGrid</a></dt>
+    <dd><p>The time grid, of at least two times.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">timeGrid</code> has fewer than two times, for which QuantLib's bridge is undefined.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_BrownianBridge__ctor_" data-uid="NanoQL.Methods.BrownianBridge.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_BrownianBridge__ctor_System_Int32_" data-uid="NanoQL.Methods.BrownianBridge.#ctor(System.Int32)">
+  BrownianBridge(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.BrownianBridge.html">BrownianBridge</a> class over steps of unit length: its times are
+1, 2, …, <code class="paramref">steps</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BrownianBridge(int steps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>steps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of steps in the path, at least 1.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">steps</code> is less than 1, for which QuantLib's bridge is undefined.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Methods_BrownianBridge__ctor_" data-uid="NanoQL.Methods.BrownianBridge.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_BrownianBridge__ctor_System_ReadOnlySpan_System_Double__" data-uid="NanoQL.Methods.BrownianBridge.#ctor(System.ReadOnlySpan{System.Double})">
+  BrownianBridge(ReadOnlySpan&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.BrownianBridge.html">BrownianBridge</a> class over the times of its steps, which it copies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BrownianBridge(ReadOnlySpan&lt;double&gt; times)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>times</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The times at which the steps occur, which also give the number of steps. The path's starting time is assumed
+to be 0 and must not be included. At least one.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">times</code> is empty, for which QuantLib's bridge is undefined.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Methods_BrownianBridge_BridgeIndex_" data-uid="NanoQL.Methods.BrownianBridge.BridgeIndex*"></a>
+
+  <h3 id="NanoQL_Methods_BrownianBridge_BridgeIndex" data-uid="NanoQL.Methods.BrownianBridge.BridgeIndex">
+  BridgeIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets, for each variate in turn, the index of the path point it constructs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;int&gt; BridgeIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_BrownianBridge_LeftIndex_" data-uid="NanoQL.Methods.BrownianBridge.LeftIndex*"></a>
+
+  <h3 id="NanoQL_Methods_BrownianBridge_LeftIndex" data-uid="NanoQL.Methods.BrownianBridge.LeftIndex">
+  LeftIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets, for each variate in turn, the index after the constructed point to its left (0 for the start).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;int&gt; LeftIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_BrownianBridge_LeftWeight_" data-uid="NanoQL.Methods.BrownianBridge.LeftWeight*"></a>
+
+  <h3 id="NanoQL_Methods_BrownianBridge_LeftWeight" data-uid="NanoQL.Methods.BrownianBridge.LeftWeight">
+  LeftWeight
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets, for each variate in turn, the weight of the point to its left.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; LeftWeight { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_BrownianBridge_RightIndex_" data-uid="NanoQL.Methods.BrownianBridge.RightIndex*"></a>
+
+  <h3 id="NanoQL_Methods_BrownianBridge_RightIndex" data-uid="NanoQL.Methods.BrownianBridge.RightIndex">
+  RightIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets, for each variate in turn, the index of the constructed point to its right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;int&gt; RightIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_BrownianBridge_RightWeight_" data-uid="NanoQL.Methods.BrownianBridge.RightWeight*"></a>
+
+  <h3 id="NanoQL_Methods_BrownianBridge_RightWeight" data-uid="NanoQL.Methods.BrownianBridge.RightWeight">
+  RightWeight
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets, for each variate in turn, the weight of the point to its right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; RightWeight { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_BrownianBridge_Size_" data-uid="NanoQL.Methods.BrownianBridge.Size*"></a>
+
+  <h3 id="NanoQL_Methods_BrownianBridge_Size" data-uid="NanoQL.Methods.BrownianBridge.Size">
+  Size
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of steps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_BrownianBridge_StdDeviation_" data-uid="NanoQL.Methods.BrownianBridge.StdDeviation*"></a>
+
+  <h3 id="NanoQL_Methods_BrownianBridge_StdDeviation" data-uid="NanoQL.Methods.BrownianBridge.StdDeviation">
+  StdDeviation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets, for each variate in turn, the standard deviation it is multiplied by.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; StdDeviation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Methods_BrownianBridge_Times_" data-uid="NanoQL.Methods.BrownianBridge.Times*"></a>
+
+  <h3 id="NanoQL_Methods_BrownianBridge_Times" data-uid="NanoQL.Methods.BrownianBridge.Times">
+  Times
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the times at which the steps occur.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Times { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Methods_BrownianBridge_Transform_" data-uid="NanoQL.Methods.BrownianBridge.Transform*"></a>
+
+  <h3 id="NanoQL_Methods_BrownianBridge_Transform_System_ReadOnlySpan_System_Double__System_Span_System_Double__" data-uid="NanoQL.Methods.BrownianBridge.Transform(System.ReadOnlySpan{System.Double},System.Span{System.Double})">
+  Transform(ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Brownian-bridge generator function: transforms a sequence of random variates into the sequence of
+variations of a Brownian-bridge path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Transform(ReadOnlySpan&lt;double&gt; input, Span&lt;double&gt; output)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>input</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The variates, one per step.</p>
+</dd>
+    <dt><code>output</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The variations, written into its first <a class="xref" href="NanoQL.Methods.BrownianBridge.html#NanoQL_Methods_BrownianBridge_Size">Size</a> elements; it must not overlap <code class="paramref">input</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Methods_BrownianBridge_Transform_System_ReadOnlySpan_System_Double__System_Span_System_Double___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>To get the canonical Brownian bridge, which starts and finishes at the same value, the first element of the
+input sequence must be zero. Conversely, to get a sloped bridge, set the first element to a non-zero value. In
+this case, the final value in the bridge will be sqrt(last time point) * (first element of input sequence).</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">input</code> has another size than the bridge, or <code class="paramref">output</code> is shorter.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

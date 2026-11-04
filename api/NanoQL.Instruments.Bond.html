@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Bond | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Bond | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The base bond class: a leg of cash flows, its redemptions among them, with a settlement rule.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Instruments.Bond">
+
+
+
+  <h1 id="NanoQL_Instruments_Bond" data-uid="NanoQL.Instruments.Bond" class="text-break">
+Class Bond  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The base bond class: a leg of cash flows, its redemptions among them, with a settlement rule.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Bond : Instrument</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><span class="xref">Bond</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.CallableBond.html">CallableBond</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.CatBond.html">CatBond</a></div>
+      <div><a class="xref" href="NanoQL.Extensions.Instruments.AmortizingBond.html">AmortizingBond</a></div>
+      <div><a class="xref" href="NanoQL.Extensions.Instruments.MBSFixedRateBond.html">MBSFixedRateBond</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.AmortizingCmsRateBond.html">AmortizingCmsRateBond</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.AmortizingFixedRateBond.html">AmortizingFixedRateBond</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.AmortizingFloatingRateBond.html">AmortizingFloatingRateBond</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.CPIBond.html">CPIBond</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.CmsRateBond.html">CmsRateBond</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.ConvertibleBond.html">ConvertibleBond</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.FixedRateBond.html">FixedRateBond</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.FloatingRateBond.html">FloatingRateBond</a></div>
+      <div><a class="xref" href="NanoQL.Instruments.ZeroCouponBond.html">ZeroCouponBond</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Instruments_Bond_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Most members assume that the cash flows are sorted by date, the redemptions after any cash flow on the same date;
+with a single redemption, it is the last cash flow. Prices are per 100 of the notional at the settlement date, as
+QuantLib's are: for a bond whose notional isn't 100, the cash price is the quote times the notional over 100, and
+the yield and Z-spread functions take their prices per 100 too.
+</p>
+<p>
+Unsealed, an extension point, as QuantLib's concrete base: the fixed-rate, floating-rate, zero-coupon and amortizing
+bonds derive from it, and later bonds will. Its public constructors are QuantLib's two, which sort the cash flows
+they are given (stably: equal-dated cash flows keep their order) and check the issue date against the first
+payment. <b>The construction contract</b> is QuantLib's protected interface: a derived constructor calls the
+protected <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond__ctor_System_Int32_NanoQL_Time_Calendar_System_Nullable_NanoQL_Time_Date__">Bond(int, Calendar?, Date?)</a>, which builds no leg, then writes the protected
+<a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_cashflows">cashflows</a>, <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_maturityDate">maturityDate</a> and, for a bond with its own redemptions,
+<a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_redemptions">redemptions</a>, and calls the helpers that fill the notional schedule and the redemptions:
+<a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_AddRedemptionsToCashflows_System_Collections_Generic_IEnumerable_System_Double__">AddRedemptionsToCashflows(IEnumerable&lt;double&gt;?)</a>, <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_SetSingleRedemption_System_Double_System_Double_NanoQL_Time_Date_">SetSingleRedemption(double, double, Date)</a>,
+<a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_SetSingleRedemption_System_Double_NanoQL_CashFlow_">SetSingleRedemption(double, CashFlow)</a> or <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_CalculateNotionalsFromCashflows">CalculateNotionalsFromCashflows()</a>. That path
+keeps QuantLib's omissions: no issue-date check, and no sort of a leg already sorted. The protected state and the
+helpers are written while the bond is built, by a derived constructor, or on a fresh copy
+(<a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_WithCashflows_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__">WithCashflows(ImmutableArray&lt;CashFlow&gt;)</a>), and never after: a convention the base can't enforce, since a derived class's every
+member can reach them, on which the bond's immutability rests.
+</p>
+<p>
+The members that read the evaluation date, directly or through the settlement date or a coupon's fixing, take the
+context, QuantLib's default date becoming <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>: the settlement date, the notional, tradability,
+the accrued amount, the coupon rates, the cash-flow dates, and the prices and yields from a yield. The members that
+read QuantLib's attached engine (<code>cleanPrice()</code>, <code>dirtyPrice()</code>, <code>settlementValue()</code> and the
+theoretical <code>yield</code>) take that engine's results instead, with the context: they recompute the settlement date
+and the accrued amount from it, as QuantLib's recompute them from its one evaluation date, so the results and the
+context must be the same call's. Results read under another context mix two settlement dates, which nothing here
+can detect.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Instruments_Bond__ctor_" data-uid="NanoQL.Instruments.Bond.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond__ctor_System_Int32_NanoQL_Time_Calendar_System_Double_System_Nullable_NanoQL_Time_Date__System_Nullable_NanoQL_Time_Date__System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__" data-uid="NanoQL.Instruments.Bond.#ctor(System.Int32,NanoQL.Time.Calendar,System.Double,System.Nullable{NanoQL.Time.Date},System.Nullable{NanoQL.Time.Date},System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow})">
+  Bond(int, Calendar?, double, Date?, Date?, ImmutableArray&lt;CashFlow&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.Bond.html">Bond</a> class from its cash flows, the last one its redemption: the
+old constructor for non-amortizing bonds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Bond(int settlementDays, Calendar? calendar, double faceAmount, Date? maturityDate, Date? issueDate = null, ImmutableArray&lt;CashFlow&gt; cashflows = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The settlement days.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The settlement calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty calendar, on which only the members given
+explicit dates work.</p>
+</dd>
+    <dt><code>faceAmount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The notional until maturity.</p>
+</dd>
+    <dt><code>maturityDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The maturity date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the cash flows' maturity.</p>
+</dd>
+    <dt><code>issueDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The issue date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>cashflows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The cash flows: the last one is the redemption, wherever its date, and no other may be later. All but the last
+are sorted by date when built. Empty by default, which builds a bond whose notional is refused.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">settlementDays</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A cash flow is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>; a date is <code>default(Date)</code>; or the issue date isn't earlier than the
+first payment date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond__ctor_" data-uid="NanoQL.Instruments.Bond.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond__ctor_System_Int32_NanoQL_Time_Calendar_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.Bond.#ctor(System.Int32,NanoQL.Time.Calendar,System.Nullable{NanoQL.Time.Date})">
+  Bond(int, Calendar?, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.Bond.html">Bond</a> class with no cash flows, for a derived constructor to
+fill: QuantLib's derived bonds call its first constructor without a leg, then write the protected state and
+call the protected helpers (see the class's remarks).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Bond(int settlementDays, Calendar? calendar, Date? issueDate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The settlement days.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The settlement calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty calendar.</p>
+</dd>
+    <dt><code>issueDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The issue date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">settlementDays</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The issue date is <code>default(Date)</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond__ctor_" data-uid="NanoQL.Instruments.Bond.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond__ctor_System_Int32_NanoQL_Time_Calendar_System_Nullable_NanoQL_Time_Date__System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__" data-uid="NanoQL.Instruments.Bond.#ctor(System.Int32,NanoQL.Time.Calendar,System.Nullable{NanoQL.Time.Date},System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow})">
+  Bond(int, Calendar?, Date?, ImmutableArray&lt;CashFlow&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.Bond.html">Bond</a> class from its coupons, amortizing or not: QuantLib's
+first constructor. The redemptions follow from the coupons' notionals, so the coupons must hold none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Bond(int settlementDays, Calendar? calendar, Date? issueDate = null, ImmutableArray&lt;CashFlow&gt; coupons = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>settlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The settlement days.</p>
+</dd>
+    <dt><code>calendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The settlement calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, QuantLib's empty calendar, on which only the members given
+explicit dates work.</p>
+</dd>
+    <dt><code>issueDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The issue date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</dd>
+    <dt><code>coupons</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The coupons, sorted by date when built; empty by default, which builds a bond whose notional is refused.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_Bond__ctor_System_Int32_NanoQL_Time_Calendar_System_Nullable_NanoQL_Time_Date__System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The maturity date is the date of the last coupon given, before the sort, as QuantLib's is.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">settlementDays</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A coupon is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>; the issue date is <code>default(Date)</code>, or not earlier than the first
+payment date.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No cash flow is a coupon.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="NanoQL_Instruments_Bond_cashflows" data-uid="NanoQL.Instruments.Bond.cashflows">
+  cashflows
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>QuantLib's <code>cashflows_</code>: every cash flow, the redemptions among them, sorted by date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ImmutableArray&lt;CashFlow&gt; cashflows</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Instruments_Bond_maturityDate" data-uid="NanoQL.Instruments.Bond.maturityDate">
+  maturityDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>QuantLib's <code>maturityDate_</code>: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the cash flows' own maturity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Date? maturityDate</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Instruments_Bond_notionalSchedule" data-uid="NanoQL.Instruments.Bond.notionalSchedule">
+  notionalSchedule
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>QuantLib's <code>notionalSchedule_</code>: a null date, then the last date each notional of <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_notionals">notionals</a>
+is outstanding; empty for a bond with no cash flows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ImmutableArray&lt;Date?&gt; notionalSchedule</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Instruments_Bond_notionals" data-uid="NanoQL.Instruments.Bond.notionals">
+  notionals
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>QuantLib's <code>notionals_</code>: each notional, then 0 after the last date of the schedule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ImmutableArray&lt;double&gt; notionals</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="NanoQL_Instruments_Bond_redemptions" data-uid="NanoQL.Instruments.Bond.redemptions">
+  redemptions
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>QuantLib's <code>redemptions_</code>: the redemption and amortizing payments among the cash flows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ImmutableArray&lt;CashFlow&gt; redemptions</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Instruments_Bond_Calendar_" data-uid="NanoQL.Instruments.Bond.Calendar*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_Calendar" data-uid="NanoQL.Instruments.Bond.Calendar">
+  Calendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the settlement calendar, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Calendar? Calendar { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_Bond_Cashflows_" data-uid="NanoQL.Instruments.Bond.Cashflows*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_Cashflows" data-uid="NanoQL.Instruments.Bond.Cashflows">
+  Cashflows
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets every cash flow, the redemptions among them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; Cashflows { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_Bond_IssueDate_" data-uid="NanoQL.Instruments.Bond.IssueDate*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_IssueDate" data-uid="NanoQL.Instruments.Bond.IssueDate">
+  IssueDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the issue date, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date? IssueDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_Bond_Notionals_" data-uid="NanoQL.Instruments.Bond.Notionals*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_Notionals" data-uid="NanoQL.Instruments.Bond.Notionals">
+  Notionals
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the notionals: each notional outstanding, then 0 after maturity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Notionals { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_Bond_Redemptions_" data-uid="NanoQL.Instruments.Bond.Redemptions*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_Redemptions" data-uid="NanoQL.Instruments.Bond.Redemptions">
+  Redemptions
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the redemption and amortizing payments, without the interest payments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;CashFlow&gt; Redemptions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_Bond_SettlementDays_" data-uid="NanoQL.Instruments.Bond.SettlementDays*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_SettlementDays" data-uid="NanoQL.Instruments.Bond.SettlementDays">
+  SettlementDays
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the settlement days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SettlementDays { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Instruments_Bond_AccruedAmount_" data-uid="NanoQL.Instruments.Bond.AccruedAmount*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_AccruedAmount_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.Bond.AccruedAmount(NanoQL.EvaluationContext,System.Nullable{NanoQL.Time.Date})">
+  AccruedAmount(EvaluationContext, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The accrued amount, per 100 of notional, at a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual double AccruedAmount(EvaluationContext context, Date? d = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the bond's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The accrued amount; 0 when the notional at the date is 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The bond has no cash flows.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_AddRedemptionsToCashflows_" data-uid="NanoQL.Instruments.Bond.AddRedemptionsToCashflows*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_AddRedemptionsToCashflows_System_Collections_Generic_IEnumerable_System_Double__" data-uid="NanoQL.Instruments.Bond.AddRedemptionsToCashflows(System.Collections.Generic.IEnumerable{System.Double})">
+  AddRedemptionsToCashflows(IEnumerable&lt;double&gt;?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds the redemptions from the coupons' notionals and adds them to the cash flows: a derived constructor calls
+it after writing <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_cashflows">cashflows</a>, which must hold at least one coupon and be sorted by date. It fills the
+notional schedule, the notionals and the redemptions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void AddRedemptionsToCashflows(IEnumerable&lt;double&gt;? redemptions = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>redemptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The redemptions in base 100, multiplying each redemption's amount: 100 leaves it unchanged. Each notional step
+<code>i</code> from 1 takes element <code>i</code>, or the last element past the list's end, so element 0 is read only for a
+one-element list; empty by default, which redeems at 100.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_Bond_AddRedemptionsToCashflows_System_Collections_Generic_IEnumerable_System_Double___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The redemptions are amortizing payments at each step but the last, a redemption at the last, each sorted after
+the coupons of its date by a stable sort, as QuantLib's <code>std::stable_sort</code> does.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No cash flow is a coupon.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_CalculateNotionalsFromCashflows_" data-uid="NanoQL.Instruments.Bond.CalculateNotionalsFromCashflows*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_CalculateNotionalsFromCashflows" data-uid="NanoQL.Instruments.Bond.CalculateNotionalsFromCashflows">
+  CalculateNotionalsFromCashflows()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Collects the notional schedule from the coupons, in the order of the cash flows: a new notional starts at each
+coupon whose contract nominal isn't close to the previous one's, and each ends at the last payment date of its
+coupons. It fills the notional schedule and the notionals, not the redemptions: a derived constructor calls it
+only when it provides its own redemptions, which it then writes into <a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_redemptions">redemptions</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void CalculateNotionalsFromCashflows()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No cash flow is a coupon.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_CleanPrice_" data-uid="NanoQL.Instruments.Bond.CleanPrice*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_CleanPrice_NanoQL_Instruments_BondResults_NanoQL_EvaluationContext_" data-uid="NanoQL.Instruments.Bond.CleanPrice(NanoQL.Instruments.BondResults,NanoQL.EvaluationContext)">
+  CleanPrice(BondResults, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The theoretical clean price, per 100 of notional, from an engine's results: the dirty price less the accrued
+amount at the bond's settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CleanPrice(BondResults results, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.Instruments.BondResults.html">BondResults</a></dt>
+    <dd><p>The results of an engine's pricing of this bond, under <code class="paramref">context</code>.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the engine priced under, which gives the settlement date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The clean price; 0 when the notional at the settlement date is 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_Bond_CleanPrice_NanoQL_Instruments_BondResults_NanoQL_EvaluationContext__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The price computed from a flat curve may differ slightly from the one computed from the corresponding yield by
+<a class="xref" href="NanoQL.Instruments.Bond.html#NanoQL_Instruments_Bond_CleanPrice_System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__">CleanPrice(double, DayCounter, Compounding, Frequency, EvaluationContext, Date?)</a>, which is the one
+to use for the price from a constant yield.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The results hold no settlement value, or the bond has no cash flows.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_CleanPrice_" data-uid="NanoQL.Instruments.Bond.CleanPrice*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_CleanPrice_System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.Bond.CleanPrice(System.Double,NanoQL.Time.DayCounter,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Nullable{NanoQL.Time.Date})">
+  CleanPrice(double, DayCounter, Compounding, Frequency, EvaluationContext, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The clean price, per 100 of notional, for a yield.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CleanPrice(double yield, DayCounter dc, Compounding comp, Frequency freq, EvaluationContext context, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>yield</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The yield.</p>
+</dd>
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The yield's day counter.</p>
+</dd>
+    <dt><code>comp</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The yield's compounding.</p>
+</dd>
+    <dt><code>freq</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The yield's frequency.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the bond's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The clean price.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>An enum argument isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The bond isn't tradable at the settlement date, or a compounded yield has no frequency.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_DirtyPrice_" data-uid="NanoQL.Instruments.Bond.DirtyPrice*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_DirtyPrice_NanoQL_Instruments_BondResults_NanoQL_EvaluationContext_" data-uid="NanoQL.Instruments.Bond.DirtyPrice(NanoQL.Instruments.BondResults,NanoQL.EvaluationContext)">
+  DirtyPrice(BondResults, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The theoretical dirty price, per 100 of notional, from an engine's results: the settlement value per 100 of the
+notional at the bond's settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DirtyPrice(BondResults results, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.Instruments.BondResults.html">BondResults</a></dt>
+    <dd><p>The results of an engine's pricing of this bond, under <code class="paramref">context</code>.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the engine priced under, which gives the settlement date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The dirty price; 0 when the notional at the settlement date is 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The results hold no settlement value, or the bond has no cash flows.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_DirtyPrice_" data-uid="NanoQL.Instruments.Bond.DirtyPrice*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_DirtyPrice_System_Double_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.Bond.DirtyPrice(System.Double,NanoQL.Time.DayCounter,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Nullable{NanoQL.Time.Date})">
+  DirtyPrice(double, DayCounter, Compounding, Frequency, EvaluationContext, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The dirty price, per 100 of notional, for a yield.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DirtyPrice(double yield, DayCounter dc, Compounding comp, Frequency freq, EvaluationContext context, Date? settlementDate = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>yield</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The yield.</p>
+</dd>
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The yield's day counter.</p>
+</dd>
+    <dt><code>comp</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The yield's compounding.</p>
+</dd>
+    <dt><code>freq</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The yield's frequency.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the bond's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The dirty price; 0 when the notional at the settlement date is 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>An enum argument isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A compounded yield has no frequency.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_FetchResults_" data-uid="NanoQL.Instruments.Bond.FetchResults*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_FetchResults_NanoQL_InstrumentResults_" data-uid="NanoQL.Instruments.Bond.FetchResults(NanoQL.InstrumentResults)">
+  FetchResults(InstrumentResults)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads an engine's results into the instrument's, applying any derivations the instrument makes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override BondResults FetchResults(InstrumentResults results)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.InstrumentResults.html">InstrumentResults</a></dt>
+    <dd><p>The engine's results.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.BondResults.html">BondResults</a></dt>
+    <dd><p>The instrument's results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The results aren't a bond's.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_IsExpired_" data-uid="NanoQL.Instruments.Bond.IsExpired*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_IsExpired_NanoQL_EvaluationContext_" data-uid="NanoQL.Instruments.Bond.IsExpired(NanoQL.EvaluationContext)">
+  IsExpired(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the instrument might still have a value greater than zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsExpired(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the instrument has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_Bond_IsExpired_NanoQL_EvaluationContext__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The cash flows' settlement date is the evaluation date, and whether a cash flow on it has occurred follows the
+context's <a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_IncludeReferenceDateEvents">IncludeReferenceDateEvents</a> and
+<a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_IncludeTodaysCashFlows">IncludeTodaysCashFlows</a>.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Instruments_Bond_IsTradable_" data-uid="NanoQL.Instruments.Bond.IsTradable*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_IsTradable_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.Bond.IsTradable(NanoQL.EvaluationContext,System.Nullable{NanoQL.Time.Date})">
+  IsTradable(EvaluationContext, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the bond is tradable at a date: whether its notional there isn't 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsTradable(EvaluationContext context, Date? d = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date; the bond's settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the notional isn't 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The bond has no cash flows.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_MaturityDate_" data-uid="NanoQL.Instruments.Bond.MaturityDate*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_MaturityDate" data-uid="NanoQL.Instruments.Bond.MaturityDate">
+  MaturityDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maturity date: the one the bond was built with, or else its cash flows'.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date MaturityDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The maturity date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The bond has neither a maturity date nor cash flows.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_NextCashFlowDate_" data-uid="NanoQL.Instruments.Bond.NextCashFlowDate*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_NextCashFlowDate_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.Bond.NextCashFlowDate(NanoQL.EvaluationContext,System.Nullable{NanoQL.Time.Date})">
+  NextCashFlowDate(EvaluationContext, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The date of the next cash flow after a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date? NextCashFlowDate(EvaluationContext context, Date? d = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the bond's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when every cash flow has been paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_NextCouponRate_" data-uid="NanoQL.Instruments.Bond.NextCouponRate*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_NextCouponRate_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.Bond.NextCouponRate(NanoQL.EvaluationContext,System.Nullable{NanoQL.Time.Date})">
+  NextCouponRate(EvaluationContext, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rate of the next coupon after a date: historic, deterministic or expected, depending on the bond and the
+date. At the bond's settlement date it is the coupon already fixed and not yet paid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual double NextCouponRate(EvaluationContext context, Date? d = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the bond's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate; 0 when no coupon is still to be paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, or coupons on the next payment date differ in nominal, accrual
+period or day counter.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No coupon is paid on the next payment date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_Notional_" data-uid="NanoQL.Instruments.Bond.Notional*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_Notional_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.Bond.Notional(NanoQL.EvaluationContext,System.Nullable{NanoQL.Time.Date})">
+  Notional(EvaluationContext, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The notional outstanding at a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual double Notional(EvaluationContext context, Date? d = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date; the bond's settlement date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The notional: 0 after the last date of the notional schedule, and on a date of the schedule the next notional,
+since the payment on that date has occurred.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The bond has no cash flows, so no notional schedule (QuantLib reads past an empty schedule's end), or the
+settlement date can't be computed on QuantLib's empty calendar.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_PreviousCashFlowDate_" data-uid="NanoQL.Instruments.Bond.PreviousCashFlowDate*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_PreviousCashFlowDate_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.Bond.PreviousCashFlowDate(NanoQL.EvaluationContext,System.Nullable{NanoQL.Time.Date})">
+  PreviousCashFlowDate(EvaluationContext, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The date of the last cash flow paid at a date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date? PreviousCashFlowDate(EvaluationContext context, Date? d = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the bond's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The date; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when no cash flow has been paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_PreviousCouponRate_" data-uid="NanoQL.Instruments.Bond.PreviousCouponRate*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_PreviousCouponRate_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.Bond.PreviousCouponRate(NanoQL.EvaluationContext,System.Nullable{NanoQL.Time.Date})">
+  PreviousCouponRate(EvaluationContext, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rate of the last coupon paid at a date: historic, deterministic or expected, depending on the bond and the
+date. At the bond's settlement date it is the last one paid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double PreviousCouponRate(EvaluationContext context, Date? d = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the bond's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rate; 0 when no coupon has been paid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>, or coupons on that payment date differ in nominal, accrual period
+or day counter.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No coupon is paid on the last payment date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_Redemption_" data-uid="NanoQL.Instruments.Bond.Redemption*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_Redemption" data-uid="NanoQL.Instruments.Bond.Redemption">
+  Redemption()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The redemption, when the bond has a single one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CashFlow Redemption()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.CashFlow.html">CashFlow</a></dt>
+    <dd><p>The redemption.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The bond has no redemption or several.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_SetSingleRedemption_" data-uid="NanoQL.Instruments.Bond.SetSingleRedemption*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_SetSingleRedemption_System_Double_NanoQL_CashFlow_" data-uid="NanoQL.Instruments.Bond.SetSingleRedemption(System.Double,NanoQL.CashFlow)">
+  SetSingleRedemption(double, CashFlow)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Makes a cash flow the single redemption of a notional and appends it to the cash flows, unsorted: a derived
+constructor calls it for a bond redeemed once. It fills the notional schedule, the notionals and the
+redemptions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetSingleRedemption(double notional, CashFlow redemption)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>notional</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The notional.</p>
+</dd>
+    <dt><code>redemption</code> <a class="xref" href="NanoQL.CashFlow.html">CashFlow</a></dt>
+    <dd><p>The redemption.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">redemption</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_SetSingleRedemption_" data-uid="NanoQL.Instruments.Bond.SetSingleRedemption*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_SetSingleRedemption_System_Double_System_Double_NanoQL_Time_Date_" data-uid="NanoQL.Instruments.Bond.SetSingleRedemption(System.Double,System.Double,NanoQL.Time.Date)">
+  SetSingleRedemption(double, double, Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds a single redemption of a notional at a price, on a date, and adds it to the cash flows: a derived
+constructor calls it for a bond redeemed once. It fills the notional schedule, the notionals and the
+redemptions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetSingleRedemption(double notional, double redemption, Date date)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>notional</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The notional.</p>
+</dd>
+    <dt><code>redemption</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The redemption price, in base 100.</p>
+</dd>
+    <dt><code>date</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The redemption date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_Bond_SettlementDate_" data-uid="NanoQL.Instruments.Bond.SettlementDate*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_SettlementDate_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__" data-uid="NanoQL.Instruments.Bond.SettlementDate(NanoQL.EvaluationContext,System.Nullable{NanoQL.Time.Date})">
+  SettlementDate(EvaluationContext, Date?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The settlement date for a trade date: the date advanced by the settlement days on the calendar, and not before
+the issue date when there is one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date SettlementDate(EvaluationContext context, Date? d = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The trade date; the evaluation date when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The settlement date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">d</code> is <code>default(Date)</code>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The calendar is QuantLib's empty calendar.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_SettlementValue_" data-uid="NanoQL.Instruments.Bond.SettlementValue*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_SettlementValue_System_Double_NanoQL_EvaluationContext_" data-uid="NanoQL.Instruments.Bond.SettlementValue(System.Double,NanoQL.EvaluationContext)">
+  SettlementValue(double, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The settlement value for a clean price: the dirty price times the notional at the settlement date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SettlementValue(double cleanPrice, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cleanPrice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The clean price, per 100 of notional.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, which gives the settlement date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The settlement value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The bond has no cash flows.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_SetupExpired_" data-uid="NanoQL.Instruments.Bond.SetupExpired*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_SetupExpired" data-uid="NanoQL.Instruments.Bond.SetupExpired">
+  SetupExpired()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The results of an expired instrument: a zero value and error estimate, and no valuation date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override BondResults SetupExpired()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.BondResults.html">BondResults</a></dt>
+    <dd><p>The expired results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_Bond_SetupExpired_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>An expired bond's settlement value is 0.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Instruments_Bond_StartDate_" data-uid="NanoQL.Instruments.Bond.StartDate*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_StartDate" data-uid="NanoQL.Instruments.Bond.StartDate">
+  StartDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The start date: the earliest accrual start date of the coupons, or date of the other cash flows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date StartDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The start date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The bond has no cash flows.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_Validate_" data-uid="NanoQL.Instruments.Bond.Validate*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_Validate" data-uid="NanoQL.Instruments.Bond.Validate">
+  Validate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks the instrument's terms before an engine prices it, as QuantLib's arguments do.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Validate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_Bond_Validate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>QuantLib's checks on its engine's arguments but the settlement date's, which is never null here. Through an
+engine they can't fail: an engine sees a bond with no cash flows as expired first, and the constructors refuse a
+null cash flow; a derived bond that writes the protected state could reach them.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The bond has no cash flows, or a null one.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_WithCashflows_" data-uid="NanoQL.Instruments.Bond.WithCashflows*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_WithCashflows_System_Collections_Immutable_ImmutableArray_NanoQL_CashFlow__" data-uid="NanoQL.Instruments.Bond.WithCashflows(System.Collections.Immutable.ImmutableArray{NanoQL.CashFlow})">
+  WithCashflows(ImmutableArray&lt;CashFlow&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A copy of the bond holding other cash flows:
+<a class="xref" href="NanoQL.Coupons.CouponPricerFunctions.html#NanoQL_Coupons_CouponPricerFunctions_SetCouponPricer__1___0_NanoQL_Coupons_FloatingRateCouponPricer_">SetCouponPricer&lt;T&gt;(T, FloatingRateCouponPricer?)</a>'s step, which QuantLib does in
+place on the coupons a built bond holds. The base's copy is memberwise, with the new leg, so the copy keeps the
+bond's type, terms, notional schedule and redemptions: the new leg must hold the same dates, nominals and
+redemption objects, as a leg with its pricers set does. A derived bond that keeps other state derived from its
+cash flows overrides it, and an override returns a copy of the same runtime type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Bond WithCashflows(ImmutableArray&lt;CashFlow&gt; newCashflows)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newCashflows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.CashFlow.html">CashFlow</a>&gt;</dt>
+    <dd><p>The new cash flows.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Instruments.Bond.html">Bond</a></dt>
+    <dd><p>The copy; the receiver is unchanged.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The leg holds a null cash flow.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_Yield_" data-uid="NanoQL.Instruments.Bond.Yield*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_Yield_NanoQL_Instruments_BondPrice_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Nullable_NanoQL_Time_Date__System_Double_System_Int32_System_Double_" data-uid="NanoQL.Instruments.Bond.Yield(NanoQL.Instruments.BondPrice,NanoQL.Time.DayCounter,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Nullable{NanoQL.Time.Date},System.Double,System.Int32,System.Double)">
+  Yield(BondPrice, DayCounter, Compounding, Frequency, EvaluationContext, Date?, double, int, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The yield for a price.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Yield(BondPrice price, DayCounter dc, Compounding comp, Frequency freq, EvaluationContext context, Date? settlementDate = null, double accuracy = 1E-08, int maxEvaluations = 100, double guess = 0.05)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>price</code> <a class="xref" href="NanoQL.Instruments.BondPrice.html">BondPrice</a></dt>
+    <dd><p>The clean or dirty price, per 100 of notional.</p>
+</dd>
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The yield's day counter.</p>
+</dd>
+    <dt><code>comp</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The yield's compounding.</p>
+</dd>
+    <dt><code>freq</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The yield's frequency.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+    <dt><code>settlementDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a>?</dt>
+    <dd><p>The settlement date; the bond's when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's accuracy.</p>
+</dd>
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The solver's maximum number of evaluations.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's initial guess.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The yield; 0 when the notional at the settlement date is 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxEvaluations</code> is negative, or an enum argument isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The solver fails.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Instruments_Bond_Yield_" data-uid="NanoQL.Instruments.Bond.Yield*"></a>
+
+  <h3 id="NanoQL_Instruments_Bond_Yield_NanoQL_Instruments_BondResults_NanoQL_Time_DayCounter_NanoQL_Compounding_NanoQL_Time_Frequency_NanoQL_EvaluationContext_System_Double_System_Int32_System_Double_NanoQL_Instruments_BondPriceType_" data-uid="NanoQL.Instruments.Bond.Yield(NanoQL.Instruments.BondResults,NanoQL.Time.DayCounter,NanoQL.Compounding,NanoQL.Time.Frequency,NanoQL.EvaluationContext,System.Double,System.Int32,System.Double,NanoQL.Instruments.BondPriceType)">
+  Yield(BondResults, DayCounter, Compounding, Frequency, EvaluationContext, double, int, double, BondPriceType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The theoretical yield, from an engine's results: the yield that reproduces the engine's clean or dirty price at
+the bond's settlement date, as <a class="xref" href="NanoQL.PricingEngines.BondFunctions.html">BondFunctions</a>' yield solves for it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Yield(BondResults results, DayCounter dc, Compounding comp, Frequency freq, EvaluationContext context, double accuracy = 1E-08, int maxEvaluations = 100, double guess = 0.05, BondPriceType priceType = BondPriceType.Clean)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="NanoQL.Instruments.BondResults.html">BondResults</a></dt>
+    <dd><p>The results of an engine's pricing of this bond, under <code class="paramref">context</code>.</p>
+</dd>
+    <dt><code>dc</code> <a class="xref" href="NanoQL.Time.DayCounter.html">DayCounter</a></dt>
+    <dd><p>The yield's day counter.</p>
+</dd>
+    <dt><code>comp</code> <a class="xref" href="NanoQL.Compounding.html">Compounding</a></dt>
+    <dd><p>The yield's compounding.</p>
+</dd>
+    <dt><code>freq</code> <a class="xref" href="NanoQL.Time.Frequency.html">Frequency</a></dt>
+    <dd><p>The yield's frequency.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context the engine priced under, which gives the settlement date.</p>
+</dd>
+    <dt><code>accuracy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's accuracy.</p>
+</dd>
+    <dt><code>maxEvaluations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The solver's maximum number of evaluations.</p>
+</dd>
+    <dt><code>guess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The solver's initial guess.</p>
+</dd>
+    <dt><code>priceType</code> <a class="xref" href="NanoQL.Instruments.BondPriceType.html">BondPriceType</a></dt>
+    <dd><p>The price the yield reproduces: the clean or the dirty one.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The yield; 0 when the notional at the settlement date is 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>An argument is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">maxEvaluations</code> is negative, or an enum argument isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The results hold no settlement value, the bond has no cash flows, or the solver fails.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

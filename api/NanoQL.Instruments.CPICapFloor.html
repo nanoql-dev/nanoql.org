@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class CPICapFloor | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CPICapFloor | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A CPI cap or floor: an option on the cumulative inflation from a base date to maturity, quoted as a fixed strike rate K, paying P(0,T) max(y (N [(1 + K)^T − 1] − N [I(T)/I(0) − 1]), 0), T the maturity time, N the notional, I the index and y the option&#39;s sign.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Instruments.CPICapFloor">
+
+
+
+  <h1 id="NanoQL_Instruments_CPICapFloor" data-uid="NanoQL.Instruments.CPICapFloor" class="text-break">
+Class CPICapFloor  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Instruments.html">Instruments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A CPI cap or floor: an option on the cumulative inflation from a base date to maturity, quoted as a fixed strike
+rate K, paying P(0,T) max(y (N [(1 + K)^T − 1] − N [I(T)/I(0) − 1]), 0), T the maturity time, N the notional, I the
+index and y the option's sign.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class CPICapFloor : Instrument</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Instrument.html">Instrument</a></div>
+      <div><span class="xref">CPICapFloor</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_SetupExpired">Instrument.SetupExpired()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_Validate">Instrument.Validate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Instrument.html#NanoQL_Instrument_FetchResults_NanoQL_InstrumentResults_">Instrument.FetchResults(InstrumentResults)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Instruments_CPICapFloor_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A CPI cap or floor is an option, not a cap or floor on a coupon: like a zero-coupon inflation swap it has a single
+flow, cumulative from the base date to the option's maturity. Inflation is published on every day, holidays and
+weekends included, so whether the fixing date is adjusted is the fixing convention's choice. Its engine,
+<a class="xref" href="NanoQL.Experimental.InterpolatingCPICapFloorEngine.html">InterpolatingCPICapFloorEngine</a>, reads QuantLib's arguments through an internal builder.
+</p>
+<p>
+It expires after its unadjusted maturity, an option's expiry, as QuantLib's.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Instruments_CPICapFloor__ctor_" data-uid="NanoQL.Instruments.CPICapFloor.#ctor*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor__ctor_NanoQL_OptionType_System_Double_NanoQL_Time_Date_System_Double_NanoQL_Time_Date_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_System_Double_NanoQL_Indexes_ZeroInflationIndex_NanoQL_Time_Period_NanoQL_Indexes_CPIInterpolationType_" data-uid="NanoQL.Instruments.CPICapFloor.#ctor(NanoQL.OptionType,System.Double,NanoQL.Time.Date,System.Double,NanoQL.Time.Date,NanoQL.Time.Calendar,NanoQL.Time.BusinessDayConvention,NanoQL.Time.Calendar,NanoQL.Time.BusinessDayConvention,System.Double,NanoQL.Indexes.ZeroInflationIndex,NanoQL.Time.Period,NanoQL.Indexes.CPIInterpolationType)">
+  CPICapFloor(OptionType, double, Date, double, Date, Calendar, BusinessDayConvention, Calendar, BusinessDayConvention, double, ZeroInflationIndex, Period, CPIInterpolationType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Instruments.CPICapFloor.html">CPICapFloor</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CPICapFloor(OptionType type, double nominal, Date startDate, double baseCPI, Date maturity, Calendar fixCalendar, BusinessDayConvention fixConvention, Calendar payCalendar, BusinessDayConvention payConvention, double strike, ZeroInflationIndex inflationIndex, Period observationLag, CPIInterpolationType observationInterpolation = CPIInterpolationType.Flat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd><p>A call (a cap) or a put (a floor).</p>
+</dd>
+    <dt><code>nominal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The notional.</p>
+</dd>
+    <dt><code>startDate</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The contract's start date.</p>
+</dd>
+    <dt><code>baseCPI</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The base index level.</p>
+</dd>
+    <dt><code>maturity</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The maturity, unadjusted.</p>
+</dd>
+    <dt><code>fixCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The fixing calendar.</p>
+</dd>
+    <dt><code>fixConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The fixing convention.</p>
+</dd>
+    <dt><code>payCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The payment calendar.</p>
+</dd>
+    <dt><code>payConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The payment convention.</p>
+</dd>
+    <dt><code>strike</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The strike rate.</p>
+</dd>
+    <dt><code>inflationIndex</code> <a class="xref" href="NanoQL.Indexes.ZeroInflationIndex.html">ZeroInflationIndex</a></dt>
+    <dd><p>The zero inflation index.</p>
+</dd>
+    <dt><code>observationLag</code> <a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd><p>The observation lag.</p>
+</dd>
+    <dt><code>observationInterpolation</code> <a class="xref" href="NanoQL.Indexes.CPIInterpolationType.html">CPIInterpolationType</a></dt>
+    <dd><p>The observation's interpolation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The index or a calendar is null, with QuantLib's text.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>An enum argument isn't a member of its enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The observation lag is shorter than the index's availability lag, or, for a
+linear observation, not longer, with QuantLib's text.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_BaseCPI_" data-uid="NanoQL.Instruments.CPICapFloor.BaseCPI*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_BaseCPI" data-uid="NanoQL.Instruments.CPICapFloor.BaseCPI">
+  BaseCPI
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the base index level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BaseCPI { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_FixCalendar_" data-uid="NanoQL.Instruments.CPICapFloor.FixCalendar*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_FixCalendar" data-uid="NanoQL.Instruments.CPICapFloor.FixCalendar">
+  FixCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixing calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Calendar FixCalendar { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_FixConvention_" data-uid="NanoQL.Instruments.CPICapFloor.FixConvention*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_FixConvention" data-uid="NanoQL.Instruments.CPICapFloor.FixConvention">
+  FixConvention
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the fixing convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BusinessDayConvention FixConvention { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_Index_" data-uid="NanoQL.Instruments.CPICapFloor.Index*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_Index" data-uid="NanoQL.Instruments.CPICapFloor.Index">
+  Index
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the zero inflation index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ZeroInflationIndex Index { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.ZeroInflationIndex.html">ZeroInflationIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_Maturity_" data-uid="NanoQL.Instruments.CPICapFloor.Maturity*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_Maturity" data-uid="NanoQL.Instruments.CPICapFloor.Maturity">
+  Maturity
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the maturity, unadjusted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date Maturity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_Nominal_" data-uid="NanoQL.Instruments.CPICapFloor.Nominal*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_Nominal" data-uid="NanoQL.Instruments.CPICapFloor.Nominal">
+  Nominal
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the notional.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Nominal { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_ObservationInterpolation_" data-uid="NanoQL.Instruments.CPICapFloor.ObservationInterpolation*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_ObservationInterpolation" data-uid="NanoQL.Instruments.CPICapFloor.ObservationInterpolation">
+  ObservationInterpolation
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the observation's interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CPIInterpolationType ObservationInterpolation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Indexes.CPIInterpolationType.html">CPIInterpolationType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_ObservationLag_" data-uid="NanoQL.Instruments.CPICapFloor.ObservationLag*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_ObservationLag" data-uid="NanoQL.Instruments.CPICapFloor.ObservationLag">
+  ObservationLag
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the observation lag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Period ObservationLag { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Period.html">Period</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_PayCalendar_" data-uid="NanoQL.Instruments.CPICapFloor.PayCalendar*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_PayCalendar" data-uid="NanoQL.Instruments.CPICapFloor.PayCalendar">
+  PayCalendar
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the payment calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Calendar PayCalendar { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_PayConvention_" data-uid="NanoQL.Instruments.CPICapFloor.PayConvention*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_PayConvention" data-uid="NanoQL.Instruments.CPICapFloor.PayConvention">
+  PayConvention
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the payment convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BusinessDayConvention PayConvention { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_StartDate_" data-uid="NanoQL.Instruments.CPICapFloor.StartDate*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_StartDate" data-uid="NanoQL.Instruments.CPICapFloor.StartDate">
+  StartDate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the contract's start date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date StartDate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_Strike_" data-uid="NanoQL.Instruments.CPICapFloor.Strike*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_Strike" data-uid="NanoQL.Instruments.CPICapFloor.Strike">
+  Strike
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the strike rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Strike { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_Type_" data-uid="NanoQL.Instruments.CPICapFloor.Type*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_Type" data-uid="NanoQL.Instruments.CPICapFloor.Type">
+  Type
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether it is a cap (a call) or a floor (a put).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OptionType Type { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.OptionType.html">OptionType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_FixingDate_" data-uid="NanoQL.Instruments.CPICapFloor.FixingDate*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_FixingDate" data-uid="NanoQL.Instruments.CPICapFloor.FixingDate">
+  FixingDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fixing date: the maturity less the observation lag, adjusted on the fixing calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date FixingDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The fixing date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_IsExpired_" data-uid="NanoQL.Instruments.CPICapFloor.IsExpired*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_IsExpired_NanoQL_EvaluationContext_" data-uid="NanoQL.Instruments.CPICapFloor.IsExpired(NanoQL.EvaluationContext)">
+  IsExpired(EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the instrument might still have a value greater than zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsExpired(EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the instrument has expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Instruments_CPICapFloor_IsExpired_NanoQL_EvaluationContext__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Expired after its unadjusted maturity, as QuantLib's.</p>
+</div>
+
+
+
+
+  <a id="NanoQL_Instruments_CPICapFloor_PayDate_" data-uid="NanoQL.Instruments.CPICapFloor.PayDate*"></a>
+
+  <h3 id="NanoQL_Instruments_CPICapFloor_PayDate" data-uid="NanoQL.Instruments.CPICapFloor.PayDate">
+  PayDate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The payment date: the maturity adjusted on the payment calendar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date PayDate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The payment date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

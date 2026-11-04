@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class MonteCarloModel&lt;TPath, TStats&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MonteCarloModel&lt;TPath, TStats&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A general-purpose Monte Carlo model for path samples.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Methods.MonteCarloModel`2">
+
+
+
+  <h1 id="NanoQL_Methods_MonteCarloModel_2" data-uid="NanoQL.Methods.MonteCarloModel`2" class="text-break">
+Class MonteCarloModel&lt;TPath, TStats&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Methods.html">Methods</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A general-purpose Monte Carlo model for path samples.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[WorkingType]
+public sealed class MonteCarloModel&lt;TPath, TStats&gt; where TStats : IStatistics</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TPath</code></dt>
+    <dd><p>The path type: QuantLib's single- or multi-variate traits' <code>path_type</code>.</p>
+</dd>
+    <dt><code>TStats</code></dt>
+    <dd><p>The statistics accumulator.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MonteCarloModel&lt;TPath, TStats&gt;</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Methods_MonteCarloModel_2_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The model holds a path generator and a path pricer, and in case of the control variate technique the control
+option's path pricer and value, with optionally the control's own path generator. Each sample is the pricer's value
+on a new path, corrected by the control variate, and averaged with its antithetic path's where antithetic variates
+are used, in QuantLib's order; it is added to the accumulator with the path's weight.
+</p>
+<p>
+A working type: <a class="xref" href="NanoQL.Methods.MonteCarloModel-2.html#NanoQL_Methods_MonteCarloModel_2_AddSamples_System_Int32_">AddSamples(int)</a> draws from its generators and adds to its accumulator, which it owns. A
+<a class="xref" href="NanoQL.PricingEngines.McSimulation-2.html">McSimulation&lt;TPath, TStats&gt;</a> builds one per calculation and returns it. Each
+batch reserves the accumulator for its samples first, so a one-dimensional batch allocates nothing per sample.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Methods_MonteCarloModel_2__ctor_" data-uid="NanoQL.Methods.MonteCarloModel`2.#ctor*"></a>
+
+  <h3 id="NanoQL_Methods_MonteCarloModel_2__ctor_NanoQL_Methods_IPathGenerator__0__NanoQL_Methods_PathPricer__0___1_System_Boolean_NanoQL_Methods_PathPricer__0__System_Double_NanoQL_Methods_IPathGenerator__0__" data-uid="NanoQL.Methods.MonteCarloModel`2.#ctor(NanoQL.Methods.IPathGenerator{`0},NanoQL.Methods.PathPricer{`0},`1,System.Boolean,NanoQL.Methods.PathPricer{`0},System.Double,NanoQL.Methods.IPathGenerator{`0})">
+  MonteCarloModel(IPathGenerator&lt;TPath&gt;, PathPricer&lt;TPath&gt;, TStats, bool, PathPricer&lt;TPath&gt;?, double, IPathGenerator&lt;TPath&gt;?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Methods.MonteCarloModel-2.html">MonteCarloModel&lt;TPath, TStats&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MonteCarloModel(IPathGenerator&lt;TPath&gt; pathGenerator, PathPricer&lt;TPath&gt; pathPricer, TStats sampleAccumulator, bool antitheticVariate, PathPricer&lt;TPath&gt;? cvPathPricer = null, double cvOptionValue = 0, IPathGenerator&lt;TPath&gt;? cvPathGenerator = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pathGenerator</code> <a class="xref" href="NanoQL.Methods.IPathGenerator-1.html">IPathGenerator</a>&lt;TPath&gt;</dt>
+    <dd><p>The path generator, which the model draws from.</p>
+</dd>
+    <dt><code>pathPricer</code> <a class="xref" href="NanoQL.Methods.PathPricer-1.html">PathPricer</a>&lt;TPath&gt;</dt>
+    <dd><p>The path pricer.</p>
+</dd>
+    <dt><code>sampleAccumulator</code> <span class="xref">TStats</span></dt>
+    <dd><p>The accumulator, which the model owns and adds to.</p>
+</dd>
+    <dt><code>antitheticVariate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether antithetic variates are used.</p>
+</dd>
+    <dt><code>cvPathPricer</code> <a class="xref" href="NanoQL.Methods.PathPricer-1.html">PathPricer</a>&lt;TPath&gt;</dt>
+    <dd><p>The control option's path pricer; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for no control variate.</p>
+</dd>
+    <dt><code>cvOptionValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The control option's value.</p>
+</dd>
+    <dt><code>cvPathGenerator</code> <a class="xref" href="NanoQL.Methods.IPathGenerator-1.html">IPathGenerator</a>&lt;TPath&gt;</dt>
+    <dd><p>The control's path generator; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for the control priced on the model's paths.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Methods_MonteCarloModel_2_SampleAccumulator_" data-uid="NanoQL.Methods.MonteCarloModel`2.SampleAccumulator*"></a>
+
+  <h3 id="NanoQL_Methods_MonteCarloModel_2_SampleAccumulator" data-uid="NanoQL.Methods.MonteCarloModel`2.SampleAccumulator">
+  SampleAccumulator
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the sample accumulator, which the model adds to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TStats SampleAccumulator { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TStats</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Methods_MonteCarloModel_2_AddSamples_" data-uid="NanoQL.Methods.MonteCarloModel`2.AddSamples*"></a>
+
+  <h3 id="NanoQL_Methods_MonteCarloModel_2_AddSamples_System_Int32_" data-uid="NanoQL.Methods.MonteCarloModel`2.AddSamples(System.Int32)">
+  AddSamples(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds samples to the accumulator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddSamples(int samples)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>samples</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of samples.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">samples</code> is negative.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class Distribution | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Distribution | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="A discretized probability density and cumulative probability: buckets of a range, each holding a density, an average and the cumulated and excess probabilities.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.Distribution">
+
+
+
+  <h1 id="NanoQL_Experimental_Distribution" data-uid="NanoQL.Experimental.Distribution" class="text-break">
+Class Distribution  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A discretized probability density and cumulative probability: buckets of a range, each holding a density, an
+average and the cumulated and excess probabilities.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+[WorkingType]
+public sealed class Distribution</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Distribution</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_Distribution_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A mutable working type (§2.7), QuantLib's API: values or densities are added, then <a class="xref" href="NanoQL.Experimental.Distribution.html#NanoQL_Experimental_Distribution_Normalize">Normalize()</a>, which
+the reads call, computes the cumulative and excess probabilities. The density is uniform within a bucket, as
+<a class="xref" href="NanoQL.Experimental.Distribution.html#NanoQL_Experimental_Distribution_CumulativeDensity_System_Double_">CumulativeDensity(double)</a>'s interpolation reads it. QuantLib's default constructor leaves the size
+uninitialized; a distribution here is built of its buckets.
+</p>
+<p>
+Three members depart from QuantLib's, each fixed on that density (<code>Divergences/DistributionMembersTests.cs</code>):
+<a class="xref" href="NanoQL.Experimental.Distribution.html#NanoQL_Experimental_Distribution_CumulativeDensity_System_Double_">CumulativeDensity(double)</a> in the first bucket interpolates from 0, where QuantLib's reads the cumulative at
+index −1 (<code>distribution.cpp:220-230</code>); <a class="xref" href="NanoQL.Experimental.Distribution.html#NanoQL_Experimental_Distribution_ExpectedShortfall_System_Double_">ExpectedShortfall(double)</a> integrates the density above the
+quantile, where QuantLib's sums the left edges from the bucket after the quantile's over a denominator leaving its
+first term out (5.625 and 9 for a uniform's 5.25 and 9.5, <code>:328-341</code>); and <a class="xref" href="NanoQL.Experimental.Distribution.html#NanoQL_Experimental_Distribution_Tranche_System_Double_System_Double_">Tranche(double, double)</a> keeps the mass
+above the detachment in the last bucket, where QuantLib's sets the last cumulative to 1 before computing the last
+density from it, 0 (a total probability of 0.7, <code>:236-284</code>).
+</p>
+<p>
+A tranched distribution's buckets end at the tranche's width D − A: the bucket spanning it is uniform up to it, and
+the buckets <a class="xref" href="NanoQL.Experimental.Distribution.html#NanoQL_Experimental_Distribution_Tranche_System_Double_System_Double_">Tranche(double, double)</a> truncates to it, the mass above the detachment among them, are an atom there, as
+<a class="xref" href="NanoQL.Experimental.Distribution.html#NanoQL_Experimental_Distribution_CumulativeDensity_System_Double_">CumulativeDensity(double)</a> and <a class="xref" href="NanoQL.Experimental.Distribution.html#NanoQL_Experimental_Distribution_ExpectedShortfall_System_Double_">ExpectedShortfall(double)</a> read them. QuantLib's keeps their widths, which
+its left-edge shortfall never reads; the uniform shortfall read past the tranche (3.5 for 3 at 0.5 on a uniform's
+[2, 5] tranche).
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_Distribution__ctor_" data-uid="NanoQL.Experimental.Distribution.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution__ctor_System_Int32_System_Double_System_Double_" data-uid="NanoQL.Experimental.Distribution.#ctor(System.Int32,System.Double,System.Double)">
+  Distribution(int, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.Distribution.html">Distribution</a> class: equal buckets over a range, the
+last one ending at its upper end exactly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Distribution(int nBuckets, double xmin, double xmax)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nBuckets</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of buckets, at least 1.</p>
+</dd>
+    <dt><code>xmin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The range's lower end.</p>
+</dd>
+    <dt><code>xmax</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The range's upper end.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">nBuckets</code> is below 1, where QuantLib's reads
+an empty vector's last element.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_Distribution_Size_" data-uid="NanoQL.Experimental.Distribution.Size*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_Size" data-uid="NanoQL.Experimental.Distribution.Size">
+  Size
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of buckets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_Distribution_Add_" data-uid="NanoQL.Experimental.Distribution.Add*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_Add_System_Double_" data-uid="NanoQL.Experimental.Distribution.Add(System.Double)">
+  Add(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a value to the bucket holding it, or to the underflow or overflow.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Distribution_AddAverage_" data-uid="NanoQL.Experimental.Distribution.AddAverage*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_AddAverage_System_Int32_System_Double_" data-uid="NanoQL.Experimental.Distribution.AddAverage(System.Int32,System.Double)">
+  AddAverage(int, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds to a bucket's average.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddAverage(int bucket, double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bucket</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The bucket.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value added.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">bucket</code> isn't a bucket (&quot;bucket out of
+range&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_AddDensity_" data-uid="NanoQL.Experimental.Distribution.AddDensity*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_AddDensity_System_Int32_System_Double_" data-uid="NanoQL.Experimental.Distribution.AddDensity(System.Int32,System.Double)">
+  AddDensity(int, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds to a bucket's density.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddDensity(int bucket, double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bucket</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The bucket.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The density added.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">bucket</code> isn't a bucket (&quot;bucket out of
+range&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_Average_" data-uid="NanoQL.Experimental.Distribution.Average*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_Average_System_Int32_" data-uid="NanoQL.Experimental.Distribution.Average(System.Int32)">
+  Average(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A bucket's average value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Average(int k)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The bucket.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The average.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">k</code> isn't a bucket.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_ConfidenceLevel_" data-uid="NanoQL.Experimental.Distribution.ConfidenceLevel*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_ConfidenceLevel_System_Double_" data-uid="NanoQL.Experimental.Distribution.ConfidenceLevel(System.Double)">
+  ConfidenceLevel(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The right edge of the first bucket whose cumulative probability exceeds a level, or the range's upper
+end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ConfidenceLevel(double quantil)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quantil</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The level.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The edge.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Distribution_Cumulative_" data-uid="NanoQL.Experimental.Distribution.Cumulative*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_Cumulative_System_Int32_" data-uid="NanoQL.Experimental.Distribution.Cumulative(System.Int32)">
+  Cumulative(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cumulative probability to a bucket's right edge, normalizing first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Cumulative(int k)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The bucket.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">k</code> isn't a bucket.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_CumulativeDensity_" data-uid="NanoQL.Experimental.Distribution.CumulativeDensity*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_CumulativeDensity_System_Double_" data-uid="NanoQL.Experimental.Distribution.CumulativeDensity(System.Double)">
+  CumulativeDensity(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The cumulative probability at a coordinate, linear within its bucket and from 0 in the first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CumulativeDensity(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The coordinate, positive and within the range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">value</code> isn't positive (&quot;x must be
+positive&quot;).</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p><code class="paramref">value</code> lies beyond the range (&quot;beyond distribution
+cutoff&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_CumulativeExcess_" data-uid="NanoQL.Experimental.Distribution.CumulativeExcess*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_CumulativeExcess_System_Int32_" data-uid="NanoQL.Experimental.Distribution.CumulativeExcess(System.Int32)">
+  CumulativeExcess(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The excess probability integrated to a bucket's left edge, normalizing first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CumulativeExcess(int k)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The bucket.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The integral.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">k</code> isn't a bucket, or the distribution is a
+tranche's, which keeps no integral (QuantLib's empty vector).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_CumulativeExcessProbability_" data-uid="NanoQL.Experimental.Distribution.CumulativeExcessProbability*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_CumulativeExcessProbability_System_Double_System_Double_" data-uid="NanoQL.Experimental.Distribution.CumulativeExcessProbability(System.Double,System.Double)">
+  CumulativeExcessProbability(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The excess probability integrated between the left edges of the buckets holding two
+coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double CumulativeExcessProbability(double a, double b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's start, within the range.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's end, within the range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The integral.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">a</code> or <code class="paramref">b</code> lies outside the
+range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_Density_" data-uid="NanoQL.Experimental.Distribution.Density*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_Density_System_Int32_" data-uid="NanoQL.Experimental.Distribution.Density(System.Int32)">
+  Density(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A bucket's density, normalizing first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Density(int k)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The bucket.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The density.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">k</code> isn't a bucket.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_Dx_" data-uid="NanoQL.Experimental.Distribution.Dx*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_Dx" data-uid="NanoQL.Experimental.Distribution.Dx">
+  Dx()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The buckets' widths.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;double&gt; Dx()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>A view of the widths.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Distribution_Dx_" data-uid="NanoQL.Experimental.Distribution.Dx*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_Dx_System_Double_" data-uid="NanoQL.Experimental.Distribution.Dx(System.Double)">
+  Dx(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The width of the bucket holding a coordinate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Dx(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The coordinate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The width.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">value</code> lies outside the range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_Dx_" data-uid="NanoQL.Experimental.Distribution.Dx*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_Dx_System_Int32_" data-uid="NanoQL.Experimental.Distribution.Dx(System.Int32)">
+  Dx(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A bucket's width.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Dx(int k)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The bucket.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The width.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">k</code> isn't a bucket.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_Excess_" data-uid="NanoQL.Experimental.Distribution.Excess*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_Excess_System_Int32_" data-uid="NanoQL.Experimental.Distribution.Excess(System.Int32)">
+  Excess(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The probability from a bucket's left edge on, normalizing first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Excess(int k)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The bucket.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The probability.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">k</code> isn't a bucket.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_ExpectedShortfall_" data-uid="NanoQL.Experimental.Distribution.ExpectedShortfall*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_ExpectedShortfall_System_Double_" data-uid="NanoQL.Experimental.Distribution.ExpectedShortfall(System.Double)">
+  ExpectedShortfall(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expected value above a percentile: the density above its quantile integrated, the quantile interpolated in
+its bucket, divided by 1 less the percentile; at 1, the right edge of the last bucket holding mass.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ExpectedShortfall(double percValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>percValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The percentile, in [0, 1].</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The expected shortfall.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">percValue</code> lies outside [0, 1] (&quot;Incorrect
+percentile&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_ExpectedValue_" data-uid="NanoQL.Experimental.Distribution.ExpectedValue*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_ExpectedValue" data-uid="NanoQL.Experimental.Distribution.ExpectedValue">
+  ExpectedValue()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expected value, each bucket at its midpoint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ExpectedValue()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Distribution_ExpectedValue_" data-uid="NanoQL.Experimental.Distribution.ExpectedValue*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_ExpectedValue_System_Func_System_Double_System_Double__" data-uid="NanoQL.Experimental.Distribution.ExpectedValue(System.Func{System.Double,System.Double})">
+  ExpectedValue(Func&lt;double, double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expected value of a function, each bucket at its midpoint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ExpectedValue(Func&lt;double, double&gt; f)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The function.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">f</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_Locate_" data-uid="NanoQL.Experimental.Distribution.Locate*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_Locate_System_Double_" data-uid="NanoQL.Experimental.Distribution.Locate(System.Double)">
+  Locate(double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The index of the bucket holding a coordinate: of the last left edge at or below it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Locate(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The coordinate, within the range or close to its ends.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The bucket.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">value</code> lies outside the range (&quot;coordinate …
+out of range&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_Normalize_" data-uid="NanoQL.Experimental.Distribution.Normalize*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_Normalize" data-uid="NanoQL.Experimental.Distribution.Normalize">
+  Normalize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the densities of the added values, if any, and the cumulative and excess probabilities, unless done
+since the last addition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Normalize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Distribution_Tranche_" data-uid="NanoQL.Experimental.Distribution.Tranche*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_Tranche_System_Double_System_Double_" data-uid="NanoQL.Experimental.Distribution.Tranche(System.Double,System.Double)">
+  Tranche(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms the distribution into its tranche's: for L_T = min(L, D) − min(L, A), shifted to the left by A, cut
+off at D − A with the mass above it in the last bucket, and a density spike at L_T = 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Tranche(double attachmentPoint, double detachmentPoint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>attachmentPoint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The attachment A.</p>
+</dd>
+    <dt><code>detachmentPoint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The detachment D, above A.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A isn't below D (&quot;attachment &gt;= detachment point&quot;), or either lies beyond
+the range (&quot;attachment or detachment too large&quot;).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_TrancheExpectedValue_" data-uid="NanoQL.Experimental.Distribution.TrancheExpectedValue*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_TrancheExpectedValue_System_Double_System_Double_" data-uid="NanoQL.Experimental.Distribution.TrancheExpectedValue(System.Double,System.Double)">
+  TrancheExpectedValue(double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The expected tranche value, E[min(max(X − a, 0), d − a)], the buckets at their midpoints below
+<code class="paramref">d</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double TrancheExpectedValue(double a, double d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The attachment.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The detachment, positive and within the range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">d</code> isn't positive or lies beyond the
+range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Distribution_X_" data-uid="NanoQL.Experimental.Distribution.X*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_X" data-uid="NanoQL.Experimental.Distribution.X">
+  X()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The buckets' left edges.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;double&gt; X()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>A view of the edges.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Distribution_X_" data-uid="NanoQL.Experimental.Distribution.X*"></a>
+
+  <h3 id="NanoQL_Experimental_Distribution_X_System_Int32_" data-uid="NanoQL.Experimental.Distribution.X(System.Int32)">
+  X(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A bucket's left edge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double X(int k)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The bucket.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The edge.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">k</code> isn't a bucket.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

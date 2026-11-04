@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class MarkovFunctionalModelOutputs | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MarkovFunctionalModelOutputs | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The Markov-functional model&#39;s diagnostics: per calibration point in date order, its expiry, tenor, at-the-money level and annuity, the numeraire&#39;s adjustment factors, the yield curve&#39;s fit and the smile&#39;s fit on the moneyness grid, and the calibration&#39;s messages.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Models.MarkovFunctionalModelOutputs">
+
+
+
+  <h1 id="NanoQL_Models_MarkovFunctionalModelOutputs" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs" class="text-break">
+Class MarkovFunctionalModelOutputs  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Markov-functional model's diagnostics: per calibration point in date order, its expiry, tenor, at-the-money level
+and annuity, the numeraire's adjustment factors, the yield curve's fit and the smile's fit on the moneyness grid, and
+the calibration's messages.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class MarkovFunctionalModelOutputs</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MarkovFunctionalModelOutputs</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Models_MarkovFunctionalModelOutputs_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable, computed per call of <a class="xref" href="NanoQL.Models.MarkovFunctional.html#NanoQL_Models_MarkovFunctional_ModelOutputs_NanoQL_EvaluationContext_">ModelOutputs(EvaluationContext)</a>. QuantLib's model keeps its outputs and a
+dirty flag; its at-the-money levels and annuities are appended to at every computation, so a second one after a
+recalculation holds stale entries before the fresh ones (<code>markovfunctional.cpp:618-648</code>). Here each call
+gives the model's own outputs once, and there is no dirty flag.</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_AdjustmentFactors_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.AdjustmentFactors*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_AdjustmentFactors" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.AdjustmentFactors">
+  AdjustmentFactors
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the numeraire's adjustment factors to the yield curve, 1 without the adjustment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; AdjustmentFactors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_Annuity_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.Annuity*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_Annuity" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.Annuity">
+  Annuity
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the calibration points' annuities on the model's curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Annuity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_Atm_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.Atm*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_Atm" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.Atm">
+  Atm
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the calibration points' at-the-money levels on the model's curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Atm { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_DigitalsAdjustmentFactors_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.DigitalsAdjustmentFactors*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_DigitalsAdjustmentFactors" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.DigitalsAdjustmentFactors">
+  DigitalsAdjustmentFactors
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the digitals' adjustment factors, 1 without the adjustment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; DigitalsAdjustmentFactors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_Expiries_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.Expiries*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_Expiries" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.Expiries">
+  Expiries
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the calibration points' expiries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;Date&gt; Expiries { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Time.Date.html">Date</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_MarketCallPremium_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.MarketCallPremium*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_MarketCallPremium" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.MarketCallPremium">
+  MarketCallPremium
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each point's market call premia, from its pretreated smile.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ImmutableArray&lt;double&gt;&gt; MarketCallPremium { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_MarketPutPremium_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.MarketPutPremium*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_MarketPutPremium" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.MarketPutPremium">
+  MarketPutPremium
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each point's market put premia, from its pretreated smile.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ImmutableArray&lt;double&gt;&gt; MarketPutPremium { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_MarketRawCallPremium_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.MarketRawCallPremium*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_MarketRawCallPremium" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.MarketRawCallPremium">
+  MarketRawCallPremium
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each point's market call premia, from its smile before pretreatment; 0 where that smile prices
+none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ImmutableArray&lt;double&gt;&gt; MarketRawCallPremium { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_MarketRawPutPremium_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.MarketRawPutPremium*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_MarketRawPutPremium" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.MarketRawPutPremium">
+  MarketRawPutPremium
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each point's market put premia, from its smile before pretreatment; 0 where that smile prices
+none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ImmutableArray&lt;double&gt;&gt; MarketRawPutPremium { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_MarketVega_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.MarketVega*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_MarketVega" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.MarketVega">
+  MarketVega
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each point's market vegas, from its pretreated smile.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ImmutableArray&lt;double&gt;&gt; MarketVega { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_MarketZerorate_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.MarketZerorate*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_MarketZerorate" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.MarketZerorate">
+  MarketZerorate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the yield curve's continuous zero rates at the points' expiries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; MarketZerorate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_Messages_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.Messages*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_Messages" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.Messages">
+  Messages
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the calibration's messages and warnings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;string&gt; Messages { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_ModelCallPremium_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.ModelCallPremium*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_ModelCallPremium" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.ModelCallPremium">
+  ModelCallPremium
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each point's model call premia.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ImmutableArray&lt;double&gt;&gt; ModelCallPremium { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_ModelPutPremium_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.ModelPutPremium*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_ModelPutPremium" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.ModelPutPremium">
+  ModelPutPremium
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each point's model put premia.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ImmutableArray&lt;double&gt;&gt; ModelPutPremium { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_ModelZerorate_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.ModelZerorate*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_ModelZerorate" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.ModelZerorate">
+  ModelZerorate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the model's continuous zero rates at the points' expiries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; ModelZerorate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_Settings_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.Settings*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_Settings" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.Settings">
+  Settings
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the model's settings, as validated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MarkovFunctionalModelSettings Settings { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Models.MarkovFunctionalModelSettings.html">MarkovFunctionalModelSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_SmileStrikes_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.SmileStrikes*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_SmileStrikes" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.SmileStrikes">
+  SmileStrikes
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets each point's strikes on the moneyness grid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;ImmutableArray&lt;double&gt;&gt; SmileStrikes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_Tenors_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.Tenors*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_Tenors" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.Tenors">
+  Tenors
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the calibration points' tenors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;Period&gt; Tenors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="NanoQL.Time.Period.html">Period</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Models_MarkovFunctionalModelOutputs_ToString_" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.ToString*"></a>
+
+  <h3 id="NanoQL_Models_MarkovFunctionalModelOutputs_ToString" data-uid="NanoQL.Models.MarkovFunctionalModelOutputs.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The outputs as QuantLib's <code>operator&lt;&lt;</code> writes them: the settings, the messages, the yield
+curve's fit and the smile's fit, separated by semicolons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

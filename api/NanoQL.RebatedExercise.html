@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class RebatedExercise | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RebatedExercise | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An option exercise with rebate payments: in case of exercise the holder receives the rebate (if positive) or pays it (if negative) on the rebate settlement date.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.RebatedExercise">
+
+
+
+  <h1 id="NanoQL_RebatedExercise" data-uid="NanoQL.RebatedExercise" class="text-break">
+Class RebatedExercise  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An option exercise with rebate payments: in case of exercise the holder receives the rebate (if positive) or pays it
+(if negative) on the rebate settlement date.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class RebatedExercise : Exercise</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Exercise.html">Exercise</a></div>
+      <div><span class="xref">RebatedExercise</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Exercise.html#NanoQL_Exercise_Date_System_Int32_">Exercise.Date(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Exercise.html#NanoQL_Exercise_DateAt_System_Int32_">Exercise.DateAt(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Exercise.html#NanoQL_Exercise_LastDate">Exercise.LastDate()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Exercise.html#NanoQL_Exercise_Type">Exercise.Type</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Exercise.html#NanoQL_Exercise_Dates">Exercise.Dates</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_RebatedExercise_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Immutable and sealed, an <a class="xref" href="NanoQL.Exercise.html">Exercise</a> of the given exercise's type and dates (QuantLib copies the base, so
+an early exercise's payoff-at-expiry flag isn't kept), with one rebate per exercise date.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_RebatedExercise__ctor_" data-uid="NanoQL.RebatedExercise.#ctor*"></a>
+
+  <h3 id="NanoQL_RebatedExercise__ctor_NanoQL_Exercise_System_Collections_Generic_IEnumerable_System_Double__System_Int32_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_" data-uid="NanoQL.RebatedExercise.#ctor(NanoQL.Exercise,System.Collections.Generic.IEnumerable{System.Double},System.Int32,NanoQL.Time.Calendar,NanoQL.Time.BusinessDayConvention)">
+  RebatedExercise(Exercise, IEnumerable&lt;double&gt;, int, Calendar?, BusinessDayConvention)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.RebatedExercise.html">RebatedExercise</a> class, with a rebate per exercise date
+of a Bermudan exercise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RebatedExercise(Exercise exercise, IEnumerable&lt;double&gt; rebates, int rebateSettlementDays = 0, Calendar? rebatePaymentCalendar = null, BusinessDayConvention rebatePaymentConvention = BusinessDayConvention.Following)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exercise</code> <a class="xref" href="NanoQL.Exercise.html">Exercise</a></dt>
+    <dd><p>The Bermudan exercise whose dates it takes.</p>
+</dd>
+    <dt><code>rebates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The rebates, one per exercise date, each received if positive and paid if
+negative.</p>
+</dd>
+    <dt><code>rebateSettlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The business days from an exercise date to its rebate's payment.</p>
+</dd>
+    <dt><code>rebatePaymentCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The rebate payment's calendar; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the default, for a
+<a class="xref" href="NanoQL.Time.NullCalendar.html">NullCalendar</a>.</p>
+</dd>
+    <dt><code>rebatePaymentConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The rebate payment's business-day convention.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">exercise</code> or <code class="paramref">rebates</code> is
+null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">rebateSettlementDays</code> is negative, or
+<code class="paramref">rebatePaymentConvention</code> isn't a member of its type.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The exercise isn't Bermudan, or the rebates aren't one per exercise
+date.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_RebatedExercise__ctor_" data-uid="NanoQL.RebatedExercise.#ctor*"></a>
+
+  <h3 id="NanoQL_RebatedExercise__ctor_NanoQL_Exercise_System_Double_System_Int32_NanoQL_Time_Calendar_NanoQL_Time_BusinessDayConvention_" data-uid="NanoQL.RebatedExercise.#ctor(NanoQL.Exercise,System.Double,System.Int32,NanoQL.Time.Calendar,NanoQL.Time.BusinessDayConvention)">
+  RebatedExercise(Exercise, double, int, Calendar?, BusinessDayConvention)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.RebatedExercise.html">RebatedExercise</a> class, with one rebate for every
+exercise date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RebatedExercise(Exercise exercise, double rebate = 0, int rebateSettlementDays = 0, Calendar? rebatePaymentCalendar = null, BusinessDayConvention rebatePaymentConvention = BusinessDayConvention.Following)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exercise</code> <a class="xref" href="NanoQL.Exercise.html">Exercise</a></dt>
+    <dd><p>The exercise whose type and dates it takes.</p>
+</dd>
+    <dt><code>rebate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rebate, received if positive and paid if negative.</p>
+</dd>
+    <dt><code>rebateSettlementDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The business days from an exercise date to its rebate's payment.</p>
+</dd>
+    <dt><code>rebatePaymentCalendar</code> <a class="xref" href="NanoQL.Time.Calendar.html">Calendar</a></dt>
+    <dd><p>The rebate payment's calendar; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the default, for a
+<a class="xref" href="NanoQL.Time.NullCalendar.html">NullCalendar</a>.</p>
+</dd>
+    <dt><code>rebatePaymentConvention</code> <a class="xref" href="NanoQL.Time.BusinessDayConvention.html">BusinessDayConvention</a></dt>
+    <dd><p>The rebate payment's business-day convention.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">exercise</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">rebateSettlementDays</code> is negative, or
+<code class="paramref">rebatePaymentConvention</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_RebatedExercise_Rebates_" data-uid="NanoQL.RebatedExercise.Rebates*"></a>
+
+  <h3 id="NanoQL_RebatedExercise_Rebates" data-uid="NanoQL.RebatedExercise.Rebates">
+  Rebates
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the rebates, one per exercise date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImmutableArray&lt;double&gt; Rebates { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablearray-1">ImmutableArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_RebatedExercise_Rebate_" data-uid="NanoQL.RebatedExercise.Rebate*"></a>
+
+  <h3 id="NanoQL_RebatedExercise_Rebate_System_Int32_" data-uid="NanoQL.RebatedExercise.Rebate(System.Int32)">
+  Rebate(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rebate of an exercise date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Rebate(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The exercise date's index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The rebate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">index</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>No rebate has the index.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_RebatedExercise_RebatePaymentDate_" data-uid="NanoQL.RebatedExercise.RebatePaymentDate*"></a>
+
+  <h3 id="NanoQL_RebatedExercise_RebatePaymentDate_System_Int32_" data-uid="NanoQL.RebatedExercise.RebatePaymentDate(System.Int32)">
+  RebatePaymentDate(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The payment date of an exercise date's rebate: the date advanced by the settlement days on the
+payment calendar, with its convention.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date RebatePaymentDate(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The exercise date's index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The payment date.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The exercise is American.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">index</code> is negative or past the last exercise
+date, which QuantLib reads unchecked.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Market conventions as data | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Market conventions as data | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="market-conventions-as-data">Market conventions as data</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>QuantLib keeps its market conventions in code: a calendar's holidays, a currency's rounding, an index's fixing days, a
+swap builder's fixed leg by currency. nanoql keeps QuantLib's values and lets them be configured. The library reads
+each preset's and each market builder's conventions through a <code>ConventionProvider</code> when the object is built, QuantLib's
+values unless a provider configures them, and the <code>NanoQL.Extensions</code> package reads and writes them as XML records:</p>
+<pre><code class="lang-csharp">using NanoQL;
+using NanoQL.Extensions.Conventions;
+
+// a desk's conventions over QuantLib's presets, the system's defaults from here on
+ConventionProvider.Default = ConventionSet.QuantLib.With(ConventionsXml.Read(&quot;desk-conventions.xml&quot;));
+
+// built after it, so they take the desk's values
+var euribor6M = new Euribor6M(forwardingCurve);
+var swap = new MakeVanillaSwap(new Period(5, TimeUnit.Years), euribor6M).WithFixedRate(0.03).ToVanillaSwap(context);
+</code></pre>
+<p>With nothing configured every object is QuantLib's. Every value nanoql ships is QuantLib's, generated from QuantLib and
+checked against it; <a href="conventions-catalogue.html">the catalogue</a> lists them all.</p>
+<h2 id="the-format">The format</h2>
+<p>A conventions file is a <code>Conventions</code> element in the namespace <code>https://nanoql.org/schemas/conventions</code>, holding
+records in any order. Each record is an element named after its kind, with a <code>name</code> attribute, an optional <code>base</code>
+attribute, and its fields as child elements, each named after nanoql's API:</p>
+<pre><code class="lang-xml">&lt;Conventions xmlns=&quot;https://nanoql.org/schemas/conventions&quot;&gt;
+  &lt;!-- TARGET with an extra holiday, the preset itself replaced --&gt;
+  &lt;Calendar name=&quot;TARGET&quot; base=&quot;TARGET&quot;&gt;
+    &lt;AddedHoliday&gt;2026-12-24&lt;/AddedHoliday&gt;
+  &lt;/Calendar&gt;
+
+  &lt;!-- a family member: Euribor at two months, every other field the family's --&gt;
+  &lt;IborIndex name=&quot;Euribor2M&quot; base=&quot;Euribor&quot;&gt;&lt;Tenor&gt;2M&lt;/Tenor&gt;&lt;/IborIndex&gt;
+
+  &lt;!-- a swap convention of a desk's own --&gt;
+  &lt;SwapConvention name=&quot;EUR-SWAP&quot;&gt;
+    &lt;SettlementDays&gt;2&lt;/SettlementDays&gt;
+    &lt;FixedLegTenor&gt;1Y&lt;/FixedLegTenor&gt;
+    &lt;FixedLegConvention&gt;ModifiedFollowing&lt;/FixedLegConvention&gt;
+    &lt;FixedLegDayCounter&gt;Thirty360.BondBasis&lt;/FixedLegDayCounter&gt;
+    &lt;Index&gt;Euribor&lt;/Index&gt;
+    &lt;IndexTenor&gt;6M&lt;/IndexTenor&gt;
+  &lt;/SwapConvention&gt;
+&lt;/Conventions&gt;
+</code></pre>
+<ul>
+<li><strong>The schema,</strong> <code>nanoql-conventions.xsd</code>, documents every element; <code>ConventionsXml.Read</code> validates against it and
+refuses a bad file with its line and position. <code>ConventionsXml.WriteDefaults(folder)</code> writes the shipped files and
+the schema, for an editor or a diff.</li>
+<li><strong>Other tools' content,</strong> elements and attributes in their own namespaces, is kept through a read and a write.</li>
+<li><strong>Several files</strong> read as one snapshot: <code>ConventionsXml.Read(paths)</code>. A set layers snapshots one on another with
+<code>With</code>, a later layer's record replacing an earlier one's of the same name.</li>
+</ul>
+<h2 id="names-bases-and-aliases">Names, bases and aliases</h2>
+<ul>
+<li><strong>A coded preset keeps its class's name:</strong> a calendar by its type and market (<code>TARGET</code>, <code>UnitedStates.SOFR</code>), a day
+counter by its type and convention (<code>Actual360</code>, <code>Thirty360.BondBasis</code>), a currency by its ISO code, an index, a
+region or a unit of measure by its class (<code>Euribor6M</code>, <code>EURegion</code>, <code>BarrelUnitOfMeasure</code>). A record under that name
+configures the preset, and a preset is built as its own class with the configured values.</li>
+<li><strong>A builder's defaults</strong> are records named after it: <code>MakeVanillaSwap.EUR</code>, <code>MakeVanillaSwap.GBP</code> and the other
+currencies', <code>MakeOIS</code> and <code>MakeOIS.Sonia</code> by the index's class, <code>MakeCreditDefaultSwap</code>, <code>MakeCapFloor</code>,
+<code>MakeSwaption</code>, <code>MakeCms</code>, <code>MakeMultipleResetsSwap</code>, <code>MakeYoYInflationCapFloor</code> and <code>FixedRateBond</code>. Each holds only
+the options its builder fixes, read when the builder builds and needs one. GBP's and AUD's fixed leg tenors depend on
+the swap's tenor, so their records carry a threshold, compared as QuantLib compares it.</li>
+<li><strong>Each kind has its own names:</strong> the calendars share one name space, the day counters another, the indexes another,
+and each instrument convention kind its own. So <code>USD-SOFR</code> can be both an alias of the <code>Sofr</code> index and an OIS
+convention.</li>
+<li><strong>A base</strong> names a record of the same kind, and the record gives only the fields it changes: every other field comes
+from the base, down its chain, then from QuantLib's reference. A record based on its own name replaces the record of
+that name in the layers below. A convention takes its builder's defaults without naming them as its base.</li>
+<li><strong>An alias</strong> names a calendar, day counter, currency, region, index or unit of measure by another name:
+<code>&lt;Alias name=&quot;bbl&quot; base=&quot;BarrelUnitOfMeasure&quot; /&gt;</code>.</li>
+</ul>
+<h3 id="fpmls-codes">FpML's codes</h3>
+<p>nanoql ships FpML's codes from four of its lists as aliases of nanoql's names: the <code>day-count-fraction</code>,
+<code>business-center</code> and <code>floating-rate-index</code> coding schemes and the <code>BusinessDayConventionEnum</code>. So <code>ACT/360</code> names
+<code>Actual360</code>, <code>USGS</code> names <code>UnitedStates.GovernmentBond</code> and <code>USD-SOFR</code> names <code>Sofr</code>. Only a code that
+maps to a nanoql name exactly is an alias: a business centre naming a city's banking days, <code>GBLO</code>, <code>USNY</code> or <code>JPTO</code>, is
+no QuantLib calendar exactly, so it ships no alias, and a desk adds its own where it treats one as a calendar it uses.</p>
+<p>The codes are FpML's, under the FpML® Public License, Version 3.0, whose text is in
+<code>LICENSES/LicenseRef-FpML-Public-License-3.0.txt</code>. The mapping of each code to a nanoql name is nanoql's own work, not
+part of the FpML Specifications, under the Apache License, Version 2.0. The licence's Exhibit A notice:</p>
+<pre><code class="lang-text">The FpML Specifications of this document are subject to the FpML Public
+License (the “License”); you may not use the FpML Specifications except in
+compliance with the License. You may obtain a copy of the License at
+https://www.FpML.org.
+
+The FpML Specifications distributed under the License are distributed on an
+“AS IS” basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See
+the License for the specific language governing rights and limitations under
+the License.
+
+The Licensor of the FpML Specifications is the International Swaps and
+Derivatives Association, Inc. All Rights Reserved.
+</code></pre>
+<h2 id="the-kinds">The kinds</h2>
+<ul>
+<li><strong>Time:</strong> calendar presets and calendars based on one, with holidays added and removed; joint calendars; bespoke
+calendars; day counter presets, <code>Business252</code> on a calendar; currencies.</li>
+<li><strong>Indexes:</strong> regions; Ibor indexes and families, overnight indexes, swap index families, overnight-indexed swap
+indexes, zero and year-on-year inflation indexes. A preset that takes constructor arguments (<code>AUCPI</code>, <code>GenericCPI</code>,
+the daily-tenor Libors) takes them from a record based on it.</li>
+<li><strong>Instrument conventions:</strong> schedule, swap, OIS, CDS, zero-coupon and year-on-year inflation swap, cross-currency
+basis and fixed-against-floating swap, FX swap and forward, cap and floor, swaption, CMS, multiple-resets swap,
+year-on-year inflation cap and floor, and bond. Each resolves in a set to the builders and rate helpers it feeds:
+<code>set.Swap(&quot;EUR-SWAP&quot;).Builder(tenor, curve)</code>, <code>set.Ois(&quot;USD-SOFR&quot;).RateHelper(rate, tenor, context)</code>.</li>
+<li><strong>Commodities</strong> (experimental, as the types they configure): commodity types, units of measure, conversion factors,
+payment terms, commodity indexes, and the commodity and quantity settings. A set's conversions,
+<code>set.UnitOfMeasureConversions()</code>, are QuantLib's known factors with the set's records added as QuantLib adds one, a
+record between a known factor's units replacing it; two known factors ship the right way round
+(<a href="divergences.html">the divergences</a>, the known unit factors). The settings' records named <code>CommoditySettings</code> and
+<code>QuantitySettings</code> are QuantLib's defaults; <code>EvaluationContext</code> keeps its own, QuantLib's.</li>
+</ul>
+<p>Trade and market data are no conventions: a trade's dates, rates and nominal are a builder's arguments, and curves,
+quotes, fixings, forward curves and exchange contracts are market objects, which no record holds.</p>
+<h2 id="the-provider-and-the-set">The provider and the set</h2>
+<ul>
+<li><strong><code>ConventionProvider</code></strong> has <code>QuantLib</code>, QuantLib's values; <code>Default</code>, the system's provider, <code>QuantLib</code> until set
+and restored by setting null; <code>Current</code>, the innermost scope's provider or else <code>Default</code>; and <code>Use(provider)</code>,
+which opens a scope and returns the <code>IDisposable</code> that closes it. A scope flows with asynchronous calls, as a culture
+does. A provider of a user's own, a database's or a service's, derives from it and overrides the members it
+configures, each taking the preset's name and QuantLib's reference.</li>
+<li><strong><code>ConventionSet</code></strong> is the provider the XML records answer: <code>ConventionSet.QuantLib</code> holds the shipped records,
+<code>ConventionSet.Empty</code> none, and <code>With(snapshot)</code> layers a file on a set, resolving every record, so a misspelt name,
+a cycle or a value the library refuses fails when the file loads. A set is immutable. Its lookups build an object in
+the set's scope: <code>set.Calendar(&quot;TARGET&quot;)</code>, <code>set.IborIndex(&quot;Euribor6M&quot;, curve)</code>,
+<code>set.UnitOfMeasure(&quot;BarrelUnitOfMeasure&quot;)</code>.</li>
+<li><strong><code>Empty</code></strong> is strict: an index, region, unit of measure or builder default it doesn't define is refused, so a file
+read onto it must define them. Calendars, day counters and currencies are code, and resolve to QuantLib's presets
+there too.</li>
+<li><strong><code>set.Provenance()</code></strong> reports where each name comes from, QuantLib's records or a file's, and warns of a record that
+overrides no name and that nothing references, a likely misspelling (<code>Euribor6m</code>).</li>
+<li><strong><code>ConventionRecords.Describe(name, value)</code></strong> turns a built object back into the records that rebuild it in a set.</li>
+<li><strong>A field is never ignored:</strong> a route that can't take a field the record gives, such as a rate helper whose legs
+share one calendar given two, refuses the record, naming the route, the kind, the record and the field.</li>
+</ul>
+<h2 id="what-follows-which-provider">What follows which provider</h2>
+<p>A provider is read only when an object is built, never while it prices, so a price doesn't depend on the scope it runs
+in.</p>
+<ul>
+<li><strong>A preset</strong> (a calendar, a currency, an index, a unit of measure) reads <code>Current</code> once, in its constructor, and its
+nested presets (an index's calendar, a currency's triangulation currency) are built in the same provider's scope.</li>
+<li><strong>An index keeps the provider it was built with,</strong> and every clone of it keeps the same one.</li>
+<li><strong>A market builder takes the provider of its index,</strong> reads its defaults from it when it builds, and builds in it.
+The CDS builder, with no index, takes the provider current when it is created.</li>
+<li><strong>The outer object's provider wins</strong> for a builder built inside it: a swap index's underlying swap takes the swap
+index's provider, so a swap index built under one set on an Ibor index built under another takes the swap index's
+set's swap defaults and the Ibor index's set's conventions for its floating leg.</li>
+<li><strong>Whatever is built on an index later follows the index:</strong> a swap index's underlying swap, a rate helper's swap when
+a bootstrap re-dates it, an engine's auxiliary swaps. An object with no index that builds after its construction
+keeps the provider current at its construction.</li>
+<li><strong>QuantLib's registry defaults,</strong> <code>ExchangeRates.Default</code>, <code>UnitOfMeasureConversions.Default</code> and
+<code>EvaluationContext</code>'s defaults, are QuantLib's, whatever is current when they are first read.</li>
+</ul>
+<h3 id="set-default-before-building-indexes">Set <code>Default</code> before building indexes</h3>
+<p>So setting <code>Default</code> reaches the objects built after it, and everything built on them. Objects built before keep their
+conventions, and a builder on an earlier index takes that index's set, so no object mixes two sets. Set <code>Default</code> once
+at startup, before building indexes; after a reload, rebuild the indexes to take it, as curves are rebuilt.</p>
+<h2 id="an-example-a-sofr-curve">An example: a SOFR curve</h2>
+<p><code>tests/NanoQL.Tests/Extensions/SofrCurveExample.cs</code> builds a SOFR curve through an illustrative OIS convention, in a
+file of its own, <code>SofrCurveExample.xml</code>:</p>
+<pre><code class="lang-xml">&lt;OisConvention name=&quot;USD-SOFR&quot;&gt;
+  &lt;Index&gt;Sofr&lt;/Index&gt;
+  &lt;SettlementDays&gt;2&lt;/SettlementDays&gt;
+  &lt;PaymentLag&gt;2&lt;/PaymentLag&gt;
+  &lt;PaymentFrequency&gt;Annual&lt;/PaymentFrequency&gt;
+  &lt;PaymentCalendar&gt;USGS&lt;/PaymentCalendar&gt;
+  &lt;FixedLegDayCounter&gt;ACT/360&lt;/FixedLegDayCounter&gt;
+&lt;/OisConvention&gt;
+</code></pre>
+<p>Swaps settling two days after the trade, paid annually two business days after each period ends on the US government
+bond calendar, the fixed leg on Actual/360; <code>USGS</code> and <code>ACT/360</code> are FpML's codes. The example reads the file over
+QuantLib's presets, makes a rate helper per quote through the convention, and bootstraps the curve:</p>
+<pre><code class="lang-csharp">ConventionSet set = ConventionSet.QuantLib.With(ConventionsXml.Read(&quot;SofrCurveExample.xml&quot;));
+var context = new EvaluationContext { EvaluationDate = new Date(15, Month.October, 2026) };
+OisConvention sofr = set.Ois(&quot;USD-SOFR&quot;);
+
+OISRateHelper[] helpers = [.. Quotes.Select(q =&gt; sofr.RateHelper(q.Rate, q.Tenor, context))];
+var curve = new PiecewiseLogLinearDiscount(context.EvaluationDate, helpers, new Actual365Fixed(), context);
+</code></pre>
+<p>The quotes are illustrative SOFR swap rates from one month to ten years, 4.30% to 3.70%; the curve's list of
+instruments is code. Every helper reprices to its quote within 1e-12. A 5-year SOFR swap paying 3.60% fixed on 10
+million is then priced on the curve twice, on the example's conventions and on <code>MakeOIS</code>'s defaults:</p>
+<pre><code class="lang-csharp">OvernightIndexedSwap onExample = sofr.Builder(new Period(5, TimeUnit.Years), curve)
+    .WithFixedRate(0.036).WithNominal(10e6).ToOvernightIndexedSwap(context);
+OvernightIndexedSwap onDefaults = new MakeOIS(new Period(5, TimeUnit.Years), set.OvernightIndex(&quot;Sofr&quot;, curve))
+    .WithFixedRate(0.036).WithNominal(10e6).ToOvernightIndexedSwap(context);
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Conventions</th>
+<th>Payment lag</th>
+<th>NPV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The example's</td>
+<td>2 days</td>
+<td>0.0000, the 5-year quote's swap, at par</td>
+</tr>
+<tr>
+<td><code>MakeOIS</code>'s defaults</td>
+<td>none</td>
+<td>−3.1103</td>
+</tr>
+<tr>
+<td>Difference</td>
+<td></td>
+<td>3.1103</td>
+</tr>
+</tbody>
+</table>
+<p>The two swaps differ only in their payment dates, so on a curve bootstrapped with the lag a swap without it is worth
+3.11 less on 10 million.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

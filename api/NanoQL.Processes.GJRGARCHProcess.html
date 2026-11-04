@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class GJRGARCHProcess | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GJRGARCHProcess | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The GJR-GARCH(1,1) process in its continuous-time limit: dS = μS dt + √v S dW₁ and dv = (ω + (β + αq₂ + γq₃ − 1)v) dt + (ασ₁₂ + γσ₁₃)v dW₁ + √(α&#178;(σ₂&#178; − σ₁₂&#178;) + γ&#178;(σ₃&#178; − σ₁₃&#178;) + 2αγ(σ₂₃ − σ₁₂σ₁₃)) v dW₂, with the moments of the news shocks at the market price of risk λ, the daily parameters scaled by the days per year. Its state is the underlying and the annualized variance.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Processes.GJRGARCHProcess">
+
+
+
+  <h1 id="NanoQL_Processes_GJRGARCHProcess" data-uid="NanoQL.Processes.GJRGARCHProcess" class="text-break">
+Class GJRGARCHProcess  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Processes.html">Processes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The GJR-GARCH(1,1) process in its continuous-time limit: dS = μS dt + √v S dW₁ and
+dv = (ω + (β + αq₂ + γq₃ − 1)v) dt + (ασ₁₂ + γσ₁₃)v dW₁ + √(α²(σ₂² − σ₁₂²) + γ²(σ₃² − σ₁₃²) + 2αγ(σ₂₃ − σ₁₂σ₁₃)) v dW₂,
+with the moments of the news shocks at the market price of risk λ, the daily parameters scaled by the days per year.
+Its state is the underlying and the annualized variance.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class GJRGARCHProcess : StochasticProcess</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.StochasticProcess.html">StochasticProcess</a></div>
+      <div><span class="xref">GJRGARCHProcess</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Expectation_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess.Expectation(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_StdDeviation_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess.StdDeviation(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Covariance_System_Double_NanoQL_Numerics_Vector_System_Double_">StochasticProcess.Covariance(double, Vector, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Factors">StochasticProcess.Factors</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Processes_GJRGARCHProcess_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Immutable: the curves, the spot and the parameters are fixed at construction, where QuantLib's process holds handles
+and a quote; the shocks' moments, which depend on λ, α, γ and the days per year only, are computed once there by
+QuantLib's arithmetic, where QuantLib's process recomputes them in each call. The in-place
+<a class="xref" href="NanoQL.Processes.GJRGARCHProcess.html#NanoQL_Processes_GJRGARCHProcess_Evolve_System_Double_System_ReadOnlySpan_System_Double__System_Double_System_ReadOnlySpan_System_Double__System_Span_System_Double__">Evolve(double, ReadOnlySpan&lt;double&gt;, double, ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)</a> steps by QuantLib's
+arithmetic without allocating, its rates read without building QuantLib's rate objects, so its bits are the
+allocating form's.
+</p>
+<p>
+The model's time runs from the earliest reference date of the two curves on the risk-free curve's day counter, as
+<a class="xref" href="NanoQL.Processes.HestonProcess.html">HestonProcess</a>'s does, where QuantLib's runs from the risk-free curve's date and its analytic engine's
+day count turns negative before a later-dated curve.
+</p>
+<p>
+Reference: Glosten, L., Jagannathan, R., Runkle, D., 1993. Relationship between the expected value and the volatility
+of the nominal excess return on stocks. Journal of Finance 48, 1779-1801.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess__ctor_" data-uid="NanoQL.Processes.GJRGARCHProcess.#ctor*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess__ctor_NanoQL_TermStructures_YieldTermStructure_NanoQL_TermStructures_YieldTermStructure_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_NanoQL_Processes_GJRGARCHProcessDiscretization_" data-uid="NanoQL.Processes.GJRGARCHProcess.#ctor(NanoQL.TermStructures.YieldTermStructure,NanoQL.TermStructures.YieldTermStructure,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,NanoQL.Processes.GJRGARCHProcessDiscretization)">
+  GJRGARCHProcess(YieldTermStructure, YieldTermStructure, double, double, double, double, double, double, double, double, GJRGARCHProcessDiscretization)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Processes.GJRGARCHProcess.html">GJRGARCHProcess</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GJRGARCHProcess(YieldTermStructure riskFreeRate, YieldTermStructure dividendYield, double s0, double v0, double omega, double alpha, double beta, double gamma, double lambda, double daysPerYear = 252, GJRGARCHProcessDiscretization d = GJRGARCHProcessDiscretization.FullTruncation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>riskFreeRate</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The risk-free curve.</p>
+</dd>
+    <dt><code>dividendYield</code> <a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd><p>The dividend curve.</p>
+</dd>
+    <dt><code>s0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The underlying's value.</p>
+</dd>
+    <dt><code>v0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The daily variance's value.</p>
+</dd>
+    <dt><code>omega</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The daily variance's constant ω.</p>
+</dd>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The news shock's coefficient α.</p>
+</dd>
+    <dt><code>beta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The variance's persistence β.</p>
+</dd>
+    <dt><code>gamma</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The leverage coefficient γ.</p>
+</dd>
+    <dt><code>lambda</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The market price of risk λ.</p>
+</dd>
+    <dt><code>daysPerYear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The days per year the daily parameters are scaled by.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="NanoQL.Processes.GJRGARCHProcessDiscretization.html">GJRGARCHProcessDiscretization</a></dt>
+    <dd><p>The discretization.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>A curve is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">d</code> isn't a member of its type.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_Alpha_" data-uid="NanoQL.Processes.GJRGARCHProcess.Alpha*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_Alpha" data-uid="NanoQL.Processes.GJRGARCHProcess.Alpha">
+  Alpha
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the news shock's coefficient α.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Alpha { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_Beta_" data-uid="NanoQL.Processes.GJRGARCHProcess.Beta*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_Beta" data-uid="NanoQL.Processes.GJRGARCHProcess.Beta">
+  Beta
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the variance's persistence β.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Beta { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_DaysPerYear_" data-uid="NanoQL.Processes.GJRGARCHProcess.DaysPerYear*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_DaysPerYear" data-uid="NanoQL.Processes.GJRGARCHProcess.DaysPerYear">
+  DaysPerYear
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the days per year the daily parameters are scaled by.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DaysPerYear { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_DividendYield_" data-uid="NanoQL.Processes.GJRGARCHProcess.DividendYield*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_DividendYield" data-uid="NanoQL.Processes.GJRGARCHProcess.DividendYield">
+  DividendYield
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the dividend curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YieldTermStructure DividendYield { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_Gamma_" data-uid="NanoQL.Processes.GJRGARCHProcess.Gamma*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_Gamma" data-uid="NanoQL.Processes.GJRGARCHProcess.Gamma">
+  Gamma
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the leverage coefficient γ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Gamma { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_Lambda_" data-uid="NanoQL.Processes.GJRGARCHProcess.Lambda*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_Lambda" data-uid="NanoQL.Processes.GJRGARCHProcess.Lambda">
+  Lambda
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the market price of risk λ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Lambda { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_Omega_" data-uid="NanoQL.Processes.GJRGARCHProcess.Omega*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_Omega" data-uid="NanoQL.Processes.GJRGARCHProcess.Omega">
+  Omega
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the daily variance's constant ω.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Omega { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_RiskFreeRate_" data-uid="NanoQL.Processes.GJRGARCHProcess.RiskFreeRate*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_RiskFreeRate" data-uid="NanoQL.Processes.GJRGARCHProcess.RiskFreeRate">
+  RiskFreeRate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the risk-free curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public YieldTermStructure RiskFreeRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.TermStructures.YieldTermStructure.html">YieldTermStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_S0_" data-uid="NanoQL.Processes.GJRGARCHProcess.S0*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_S0" data-uid="NanoQL.Processes.GJRGARCHProcess.S0">
+  S0
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the underlying's value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double S0 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_Size_" data-uid="NanoQL.Processes.GJRGARCHProcess.Size*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_Size" data-uid="NanoQL.Processes.GJRGARCHProcess.Size">
+  Size
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of dimensions of the process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_V0_" data-uid="NanoQL.Processes.GJRGARCHProcess.V0*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_V0" data-uid="NanoQL.Processes.GJRGARCHProcess.V0">
+  V0
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the daily variance's value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double V0 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_Apply_" data-uid="NanoQL.Processes.GJRGARCHProcess.Apply*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_Apply_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.GJRGARCHProcess.Apply(NanoQL.Numerics.Vector,NanoQL.Numerics.Vector)">
+  Apply(Vector, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies a change to the state; by default x + Δx.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Apply(Vector x0, Vector dx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state.</p>
+</dd>
+    <dt><code>dx</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The change.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes differ.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x0</code> or <code class="paramref">dx</code> holds fewer values than the state, where QuantLib reads past its
+end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_Diffusion_" data-uid="NanoQL.Processes.GJRGARCHProcess.Diffusion*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_Diffusion_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.GJRGARCHProcess.Diffusion(System.Double,NanoQL.Numerics.Vector)">
+  Diffusion(double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The diffusion part of the equation, σ(t, x_t).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Matrix Diffusion(double t, Vector x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Matrix.html">Matrix</a></dt>
+    <dd><p>A new matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x</code> holds fewer values than the state, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_Drift_" data-uid="NanoQL.Processes.GJRGARCHProcess.Drift*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_Drift_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.GJRGARCHProcess.Drift(System.Double,NanoQL.Numerics.Vector)">
+  Drift(double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The drift part of the equation, μ(t, x_t).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Drift(double t, Vector x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x</code> holds fewer values than the state, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_Evolve_" data-uid="NanoQL.Processes.GJRGARCHProcess.Evolve*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_Evolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_" data-uid="NanoQL.Processes.GJRGARCHProcess.Evolve(System.Double,NanoQL.Numerics.Vector,System.Double,NanoQL.Numerics.Vector)">
+  Evolve(double, Vector, double, Vector)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The state after a time interval Δt; by default E(x0, t0, Δt) + S(x0, t0, Δt) · Δw, where E is the expectation
+and S the standard deviation, applied to the expectation by <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Apply_NanoQL_Numerics_Vector_NanoQL_Numerics_Vector_">Apply(Vector, Vector)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector Evolve(double t0, Vector x0, double dt, Vector dw)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The state at its start.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+    <dt><code>dw</code> <a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>The Brownian increments, one per factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes don't match.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x0</code> holds fewer values than the state, or <code class="paramref">dw</code> fewer increments than the
+process's factors, where QuantLib reads past its end.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_Evolve_" data-uid="NanoQL.Processes.GJRGARCHProcess.Evolve*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_Evolve_System_Double_System_ReadOnlySpan_System_Double__System_Double_System_ReadOnlySpan_System_Double__System_Span_System_Double__" data-uid="NanoQL.Processes.GJRGARCHProcess.Evolve(System.Double,System.ReadOnlySpan{System.Double},System.Double,System.ReadOnlySpan{System.Double},System.Span{System.Double})">
+  Evolve(double, ReadOnlySpan&lt;double&gt;, double, ReadOnlySpan&lt;double&gt;, Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The state after a time interval Δt, written into the caller's span: the in-place form of
+<a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Evolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_">Evolve(double, Vector, double, Vector)</a>, by default its values, copied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Evolve(double t0, ReadOnlySpan&lt;double&gt; x0, double dt, ReadOnlySpan&lt;double&gt; dw, Span&lt;double&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The start of the interval.</p>
+</dd>
+    <dt><code>x0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The state at its start, of the process's <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Size">Size</a>.</p>
+</dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The interval's length.</p>
+</dd>
+    <dt><code>dw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The Brownian increments, one per factor.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The state at the interval's end, of the process's size at least; it mustn't overlap
+<code class="paramref">x0</code> or <code class="paramref">dw</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="NanoQL_Processes_GJRGARCHProcess_Evolve_System_Double_System_ReadOnlySpan_System_Double__System_Double_System_ReadOnlySpan_System_Double__System_Span_System_Double___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>QuantLib's arithmetic without allocating, so the values are
+<a class="xref" href="NanoQL.Processes.GJRGARCHProcess.html#NanoQL_Processes_GJRGARCHProcess_Evolve_System_Double_NanoQL_Numerics_Vector_System_Double_NanoQL_Numerics_Vector_">Evolve(double, Vector, double, Vector)</a>'s bit for bit.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The sizes don't match.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">x0</code> holds fewer values than the state, or <code class="paramref">dw</code> fewer increments than the
+process's factors, where QuantLib reads past their end; or <code class="paramref">result</code> is shorter than the state.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_InitialValues_" data-uid="NanoQL.Processes.GJRGARCHProcess.InitialValues*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_InitialValues" data-uid="NanoQL.Processes.GJRGARCHProcess.InitialValues">
+  InitialValues()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The initial values of the state variables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Vector InitialValues()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Numerics.Vector.html">Vector</a></dt>
+    <dd><p>A new vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_InitialValues_" data-uid="NanoQL.Processes.GJRGARCHProcess.InitialValues*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_InitialValues_System_Span_System_Double__" data-uid="NanoQL.Processes.GJRGARCHProcess.InitialValues(System.Span{System.Double})">
+  InitialValues(Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The initial values of the state variables, written into the caller's span; by default
+<a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_InitialValues">InitialValues()</a>'s values, copied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void InitialValues(Span&lt;double&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The values, of the process's <a class="xref" href="NanoQL.StochasticProcess.html#NanoQL_StochasticProcess_Size">Size</a> at least.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">result</code> is shorter than the process's size.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">result</code> is shorter than the process's size.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Processes_GJRGARCHProcess_Time_" data-uid="NanoQL.Processes.GJRGARCHProcess.Time*"></a>
+
+  <h3 id="NanoQL_Processes_GJRGARCHProcess_Time_NanoQL_Time_Date_" data-uid="NanoQL.Processes.GJRGARCHProcess.Time(NanoQL.Time.Date)">
+  Time(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The time of a date: the risk-free curve's year fraction from its reference date, QuantLib's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Time(Date date)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>date</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">date</code> is <code>default(Date)</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

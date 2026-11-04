@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Quantity | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Quantity | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="An amount of a commodity, in a unit of measure.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.Quantity">
+
+
+
+  <h1 id="NanoQL_Experimental_Quantity" data-uid="NanoQL.Experimental.Quantity" class="text-break">
+Struct Quantity  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An amount of a commodity, in a unit of measure.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public readonly struct Quantity : IEquatable&lt;Quantity&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_Quantity_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A value: its zero value, <code>default(Quantity)</code>, is QuantLib's <code>Quantity()</code>, 0.0 of no commodity type in no
+unit, both <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+</p>
+<p>
+The operators combine quantities in one unit as QuantLib's do, and never convert: QuantLib's operators read the
+static <code>Quantity::conversionType</code>, and these see no context, so they behave as under its
+<code>NoConversion</code>. On a unit mismatch every operator but <code>==</code> and <code>!=</code> throws QuantLib's "unitOfMeasure
+mismatch and no conversion specified"; <code>==</code> returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> and <code>!=</code>
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, where QuantLib's throw, as <a class="xref" href="NanoQL.Money.html">Money</a>'s do. The conversion modes are methods that
+take the context, which holds the settings (<a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_QuantitySettings">QuantitySettings</a>) and the conversions
+(<a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_UnitOfMeasureConversions">UnitOfMeasureConversions</a>): <a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_Add_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">Add(Quantity, EvaluationContext)</a>,
+<a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_Subtract_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">Subtract(Quantity, EvaluationContext)</a>, <a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_Divide_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">Divide(Quantity, EvaluationContext)</a>,
+<a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_Equals_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">Equals(Quantity, EvaluationContext)</a>, <a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_LessThan_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">LessThan(Quantity, EvaluationContext)</a>, <a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_LessThanOrEqual_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">LessThanOrEqual(Quantity, EvaluationContext)</a>,
+<a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_GreaterThan_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">GreaterThan(Quantity, EvaluationContext)</a>, <a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_GreaterThanOrEqual_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">GreaterThanOrEqual(Quantity, EvaluationContext)</a>, and <a class="xref" href="NanoQL.Experimental.QuantityFunctions.html">QuantityFunctions</a>' <code>Close</code> and
+<code>CloseEnough</code>. A converted quantity is rounded by its unit's rounding, which leaves it as it is (<a class="xref" href="NanoQL.Experimental.UnitOfMeasure.html#NanoQL_Experimental_UnitOfMeasure_Rounding">Rounding</a>).
+</p>
+<p>
+<a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_Equals_NanoQL_Experimental_Quantity_">Equals(Quantity)</a> and <a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_GetHashCode">GetHashCode()</a> compare the commodity type, the unit and the amount,
+the amount by <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double.equals#system-double-equals(system-double)">Equals(double)</a>, so that equality is reflexive.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_Quantity__ctor_" data-uid="NanoQL.Experimental.Quantity.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity__ctor_NanoQL_Experimental_CommodityType_NanoQL_Experimental_UnitOfMeasure_System_Double_" data-uid="NanoQL.Experimental.Quantity.#ctor(NanoQL.Experimental.CommodityType,NanoQL.Experimental.UnitOfMeasure,System.Double)">
+  Quantity(CommodityType?, UnitOfMeasure?, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quantity(CommodityType? commodityType, UnitOfMeasure? unitOfMeasure, double amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commodityType</code> <a class="xref" href="NanoQL.Experimental.CommodityType.html">CommodityType</a></dt>
+    <dd><p>The commodity type; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty one.</p>
+</dd>
+    <dt><code>unitOfMeasure</code> <a class="xref" href="NanoQL.Experimental.UnitOfMeasure.html">UnitOfMeasure</a></dt>
+    <dd><p>The unit; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty one.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NanoQL_Experimental_Quantity_Amount_" data-uid="NanoQL.Experimental.Quantity.Amount*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_Amount" data-uid="NanoQL.Experimental.Quantity.Amount">
+  Amount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the amount.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Amount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Quantity_CommodityType_" data-uid="NanoQL.Experimental.Quantity.CommodityType*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_CommodityType" data-uid="NanoQL.Experimental.Quantity.CommodityType">
+  CommodityType
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the commodity type; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommodityType? CommodityType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.CommodityType.html">CommodityType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Quantity_UnitOfMeasure_" data-uid="NanoQL.Experimental.Quantity.UnitOfMeasure*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_UnitOfMeasure" data-uid="NanoQL.Experimental.Quantity.UnitOfMeasure">
+  UnitOfMeasure
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the unit; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for QuantLib's empty one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnitOfMeasure? UnitOfMeasure { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.UnitOfMeasure.html">UnitOfMeasure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_Quantity_Add_" data-uid="NanoQL.Experimental.Quantity.Add*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_Add_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.Quantity.Add(NanoQL.Experimental.Quantity,NanoQL.EvaluationContext)">
+  Add(Quantity, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sum of this quantity and another, converting as the context's <a class="xref" href="NanoQL.EvaluationContext.html#NanoQL_EvaluationContext_QuantitySettings">QuantitySettings</a>
+say: QuantLib's <code>operator+</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quantity Add(Quantity other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The quantity added.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose quantity settings and unit conversions are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The sum: in this quantity's unit, or in the base unit under
+<a class="xref" href="NanoQL.Experimental.QuantityConversionType.html#NanoQL_Experimental_QuantityConversionType_BaseUnitOfMeasureConversion">BaseUnitOfMeasureConversion</a> when the units differ.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The units differ under <a class="xref" href="NanoQL.Experimental.QuantityConversionType.html#NanoQL_Experimental_QuantityConversionType_NoConversion">NoConversion</a>; no base unit is set under
+<a class="xref" href="NanoQL.Experimental.QuantityConversionType.html#NanoQL_Experimental_QuantityConversionType_BaseUnitOfMeasureConversion">BaseUnitOfMeasureConversion</a>; or a conversion can't be found.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_Divide_" data-uid="NanoQL.Experimental.Quantity.Divide*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_Divide_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.Quantity.Divide(NanoQL.Experimental.Quantity,NanoQL.EvaluationContext)">
+  Divide(Quantity, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ratio of this quantity to another, converting as the context's quantity settings say.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Divide(Quantity other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The divisor.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose quantity settings and unit conversions are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The ratio of their amounts, once converted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_Add_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">Add(Quantity, EvaluationContext)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_Equals_" data-uid="NanoQL.Experimental.Quantity.Equals*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_Equals_NanoQL_Experimental_Quantity_" data-uid="NanoQL.Experimental.Quantity.Equals(NanoQL.Experimental.Quantity)">
+  Equals(Quantity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this quantity has another's commodity type, unit and amount, the amount by
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double.equals#system-double-equals(system-double)">Equals(double)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Quantity other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The other quantity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when all three are the same.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Quantity_Equals_" data-uid="NanoQL.Experimental.Quantity.Equals*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_Equals_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.Quantity.Equals(NanoQL.Experimental.Quantity,NanoQL.EvaluationContext)">
+  Equals(Quantity, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this quantity equals another, converting as the context's quantity settings say: QuantLib's
+<code>operator==</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Quantity other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The other quantity.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose quantity settings and unit conversions are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the amounts, once converted, compare equal; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> on a unit mismatch under
+<a class="xref" href="NanoQL.Experimental.QuantityConversionType.html#NanoQL_Experimental_QuantityConversionType_NoConversion">NoConversion</a>, as <code>==</code> returns, where QuantLib's throws.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>No base unit is set, or a conversion can't be found.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_Equals_" data-uid="NanoQL.Experimental.Quantity.Equals*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_Equals_System_Object_" data-uid="NanoQL.Experimental.Quantity.Equals(System.Object)">
+  Equals(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Quantity_GetHashCode_" data-uid="NanoQL.Experimental.Quantity.GetHashCode*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_GetHashCode" data-uid="NanoQL.Experimental.Quantity.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Quantity_GreaterThan_" data-uid="NanoQL.Experimental.Quantity.GreaterThan*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_GreaterThan_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.Quantity.GreaterThan(NanoQL.Experimental.Quantity,NanoQL.EvaluationContext)">
+  GreaterThan(Quantity, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this quantity is greater than another: QuantLib's <code>q1 &gt; q2</code>, which is <code>q2 &lt; q1</code>, so an
+automated conversion converts this quantity into the other's unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GreaterThan(Quantity other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The other quantity.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose quantity settings and unit conversions are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this amount is greater, once converted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_Add_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">Add(Quantity, EvaluationContext)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_GreaterThanOrEqual_" data-uid="NanoQL.Experimental.Quantity.GreaterThanOrEqual*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_GreaterThanOrEqual_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.Quantity.GreaterThanOrEqual(NanoQL.Experimental.Quantity,NanoQL.EvaluationContext)">
+  GreaterThanOrEqual(Quantity, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this quantity is at least another: QuantLib's <code>q1 &gt;= q2</code>, which is <code>q2 &lt;= q1</code>, so an
+automated conversion converts this quantity into the other's unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GreaterThanOrEqual(Quantity other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The other quantity.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose quantity settings and unit conversions are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this amount is at least the other, once converted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_Add_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">Add(Quantity, EvaluationContext)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_LessThan_" data-uid="NanoQL.Experimental.Quantity.LessThan*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_LessThan_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.Quantity.LessThan(NanoQL.Experimental.Quantity,NanoQL.EvaluationContext)">
+  LessThan(Quantity, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this quantity is less than another, converting as the context's quantity settings say.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool LessThan(Quantity other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The other quantity.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose quantity settings and unit conversions are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this amount is less, once converted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_Add_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">Add(Quantity, EvaluationContext)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_LessThanOrEqual_" data-uid="NanoQL.Experimental.Quantity.LessThanOrEqual*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_LessThanOrEqual_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.Quantity.LessThanOrEqual(NanoQL.Experimental.Quantity,NanoQL.EvaluationContext)">
+  LessThanOrEqual(Quantity, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this quantity is at most another, converting as the context's quantity settings say.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool LessThanOrEqual(Quantity other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The other quantity.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose quantity settings and unit conversions are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this amount is at most the other, once converted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_Add_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">Add(Quantity, EvaluationContext)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_Rounded_" data-uid="NanoQL.Experimental.Quantity.Rounded*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_Rounded" data-uid="NanoQL.Experimental.Quantity.Rounded">
+  Rounded()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The quantity rounded by its unit's rounding, which leaves it as it is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quantity Rounded()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The rounded quantity.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The unit is QuantLib's empty one, a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_Subtract_" data-uid="NanoQL.Experimental.Quantity.Subtract*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_Subtract_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_" data-uid="NanoQL.Experimental.Quantity.Subtract(NanoQL.Experimental.Quantity,NanoQL.EvaluationContext)">
+  Subtract(Quantity, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The difference of this quantity and another, converting as <a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_Add_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">Add(Quantity, EvaluationContext)</a> does:
+QuantLib's <code>operator-</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quantity Subtract(Quantity other, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The quantity subtracted.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="NanoQL.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd><p>The evaluation context, whose quantity settings and unit conversions are read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The difference.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">context</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>As <a class="xref" href="NanoQL.Experimental.Quantity.html#NanoQL_Experimental_Quantity_Add_NanoQL_Experimental_Quantity_NanoQL_EvaluationContext_">Add(Quantity, EvaluationContext)</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_ToString_" data-uid="NanoQL.Experimental.Quantity.ToString*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_ToString" data-uid="NanoQL.Experimental.Quantity.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The quantity as QuantLib's <code>operator&lt;&lt;</code> writes it: the commodity type's code, the amount in C++'s
+default stream format, six significant digits, and the unit's code (&quot;HO 1000 GAL&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The commodity type or the unit is QuantLib's empty one.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="NanoQL_Experimental_Quantity_op_Addition_" data-uid="NanoQL.Experimental.Quantity.op_Addition*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_Addition_NanoQL_Experimental_Quantity_NanoQL_Experimental_Quantity_" data-uid="NanoQL.Experimental.Quantity.op_Addition(NanoQL.Experimental.Quantity,NanoQL.Experimental.Quantity)">
+  operator +(Quantity, Quantity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sum of two quantities in one unit, of the first's commodity type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quantity operator +(Quantity q1, Quantity q2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q1</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The first quantity.</p>
+</dd>
+    <dt><code>q2</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The second quantity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The sum.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The units differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_op_Division_" data-uid="NanoQL.Experimental.Quantity.op_Division*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_Division_NanoQL_Experimental_Quantity_NanoQL_Experimental_Quantity_" data-uid="NanoQL.Experimental.Quantity.op_Division(NanoQL.Experimental.Quantity,NanoQL.Experimental.Quantity)">
+  operator /(Quantity, Quantity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ratio of two quantities in one unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double operator /(Quantity q1, Quantity q2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q1</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The dividend.</p>
+</dd>
+    <dt><code>q2</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The divisor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The ratio of their amounts.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The units differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_op_Division_" data-uid="NanoQL.Experimental.Quantity.op_Division*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_Division_NanoQL_Experimental_Quantity_System_Double_" data-uid="NanoQL.Experimental.Quantity.op_Division(NanoQL.Experimental.Quantity,System.Double)">
+  operator /(Quantity, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A quantity divided by a number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quantity operator /(Quantity q, double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The quantity.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The number.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The quotient, in the quantity's unit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Quantity_op_Equality_" data-uid="NanoQL.Experimental.Quantity.op_Equality*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_Equality_NanoQL_Experimental_Quantity_NanoQL_Experimental_Quantity_" data-uid="NanoQL.Experimental.Quantity.op_Equality(NanoQL.Experimental.Quantity,NanoQL.Experimental.Quantity)">
+  operator ==(Quantity, Quantity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether two quantities are equal: the same unit and equal amounts, QuantLib's test, whatever their
+commodity types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Quantity q1, Quantity q2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q1</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The first quantity.</p>
+</dd>
+    <dt><code>q2</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The second quantity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the units are the same and the amounts compare equal; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
+on a unit mismatch, where QuantLib's throws.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Quantity_op_GreaterThan_" data-uid="NanoQL.Experimental.Quantity.op_GreaterThan*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_GreaterThan_NanoQL_Experimental_Quantity_NanoQL_Experimental_Quantity_" data-uid="NanoQL.Experimental.Quantity.op_GreaterThan(NanoQL.Experimental.Quantity,NanoQL.Experimental.Quantity)">
+  operator &gt;(Quantity, Quantity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether one quantity is greater than another in the same unit: QuantLib's <code>q2 &lt; q1</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;(Quantity q1, Quantity q2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q1</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The first quantity.</p>
+</dd>
+    <dt><code>q2</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The second quantity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the first amount is greater.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The units differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_op_GreaterThanOrEqual_" data-uid="NanoQL.Experimental.Quantity.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_GreaterThanOrEqual_NanoQL_Experimental_Quantity_NanoQL_Experimental_Quantity_" data-uid="NanoQL.Experimental.Quantity.op_GreaterThanOrEqual(NanoQL.Experimental.Quantity,NanoQL.Experimental.Quantity)">
+  operator &gt;=(Quantity, Quantity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether one quantity is at least another in the same unit: QuantLib's <code>q2 &lt;= q1</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(Quantity q1, Quantity q2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q1</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The first quantity.</p>
+</dd>
+    <dt><code>q2</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The second quantity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the first amount is at least the second.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The units differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_op_Inequality_" data-uid="NanoQL.Experimental.Quantity.op_Inequality*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_Inequality_NanoQL_Experimental_Quantity_NanoQL_Experimental_Quantity_" data-uid="NanoQL.Experimental.Quantity.op_Inequality(NanoQL.Experimental.Quantity,NanoQL.Experimental.Quantity)">
+  operator !=(Quantity, Quantity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether two quantities differ.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Quantity q1, Quantity q2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q1</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The first quantity.</p>
+</dd>
+    <dt><code>q2</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The second quantity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The negation of <code>==</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Quantity_op_LessThan_" data-uid="NanoQL.Experimental.Quantity.op_LessThan*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_LessThan_NanoQL_Experimental_Quantity_NanoQL_Experimental_Quantity_" data-uid="NanoQL.Experimental.Quantity.op_LessThan(NanoQL.Experimental.Quantity,NanoQL.Experimental.Quantity)">
+  operator &lt;(Quantity, Quantity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether one quantity is less than another in the same unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(Quantity q1, Quantity q2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q1</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The first quantity.</p>
+</dd>
+    <dt><code>q2</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The second quantity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the first amount is less.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The units differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_op_LessThanOrEqual_" data-uid="NanoQL.Experimental.Quantity.op_LessThanOrEqual*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_LessThanOrEqual_NanoQL_Experimental_Quantity_NanoQL_Experimental_Quantity_" data-uid="NanoQL.Experimental.Quantity.op_LessThanOrEqual(NanoQL.Experimental.Quantity,NanoQL.Experimental.Quantity)">
+  operator &lt;=(Quantity, Quantity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether one quantity is at most another in the same unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(Quantity q1, Quantity q2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q1</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The first quantity.</p>
+</dd>
+    <dt><code>q2</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The second quantity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the first amount is at most the second.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The units differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_op_Multiply_" data-uid="NanoQL.Experimental.Quantity.op_Multiply*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_Multiply_NanoQL_Experimental_Quantity_System_Double_" data-uid="NanoQL.Experimental.Quantity.op_Multiply(NanoQL.Experimental.Quantity,System.Double)">
+  operator *(Quantity, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A quantity multiplied by a number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quantity operator *(Quantity q, double x)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The quantity.</p>
+</dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The number.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The product, in the quantity's unit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Quantity_op_Multiply_" data-uid="NanoQL.Experimental.Quantity.op_Multiply*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_Multiply_System_Double_NanoQL_Experimental_Quantity_" data-uid="NanoQL.Experimental.Quantity.op_Multiply(System.Double,NanoQL.Experimental.Quantity)">
+  operator *(double, Quantity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A quantity multiplied by a number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quantity operator *(double x, Quantity q)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The number.</p>
+</dd>
+    <dt><code>q</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The quantity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The product, in the quantity's unit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Quantity_op_Subtraction_" data-uid="NanoQL.Experimental.Quantity.op_Subtraction*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_Subtraction_NanoQL_Experimental_Quantity_NanoQL_Experimental_Quantity_" data-uid="NanoQL.Experimental.Quantity.op_Subtraction(NanoQL.Experimental.Quantity,NanoQL.Experimental.Quantity)">
+  operator -(Quantity, Quantity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The difference of two quantities in one unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quantity operator -(Quantity q1, Quantity q2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q1</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The first quantity.</p>
+</dd>
+    <dt><code>q2</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The quantity subtracted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The difference.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The units differ.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NanoQL_Experimental_Quantity_op_UnaryNegation_" data-uid="NanoQL.Experimental.Quantity.op_UnaryNegation*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_UnaryNegation_NanoQL_Experimental_Quantity_" data-uid="NanoQL.Experimental.Quantity.op_UnaryNegation(NanoQL.Experimental.Quantity)">
+  operator -(Quantity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The negated quantity, in the same unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quantity operator -(Quantity q)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The quantity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The negated quantity.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoQL_Experimental_Quantity_op_UnaryPlus_" data-uid="NanoQL.Experimental.Quantity.op_UnaryPlus*"></a>
+
+  <h3 id="NanoQL_Experimental_Quantity_op_UnaryPlus_NanoQL_Experimental_Quantity_" data-uid="NanoQL.Experimental.Quantity.op_UnaryPlus(NanoQL.Experimental.Quantity)">
+  operator +(Quantity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The same quantity itself.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quantity operator +(Quantity q)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>q</code> <a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p>The quantity.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.Experimental.Quantity.html">Quantity</a></dt>
+    <dd><p><code class="paramref">q</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
