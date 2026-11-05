@@ -9,12 +9,14 @@
 
 - [Dates and calendars](rates/dates-and-calendars.md)
 - [Curves](rates/curves.md)
+- [Multi-curve bootstrapping](rates/multi-curve.md): an €STR curve for discounting, and Euribor 6M bootstrapped on it.
 - [Indexes and fixings](rates/indexes-and-fixings.md)
 - [Swaps](rates/swaps.md)
 - [Basis swaps and FX](rates/basis-and-fx.md): a basis swap, an FX forward, curves from FX swap points and
   cross-currency basis swaps.
 - [Caps and floors](rates/caps-and-floors.md)
 - [Swaptions](rates/swaptions.md)
+- [A SABR smile](rates/sabr.md): a swaption smile fitted by SABR, and the smile section an engine reads.
 - [Short-rate models](rates/short-rate-models.md): G2 and Hull-White calibrated to swaptions, and a Bermudan swaption.
 - [Pricing a USD SOFR swap to match the market](sofr-example.md)
 

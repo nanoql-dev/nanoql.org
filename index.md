@@ -48,8 +48,7 @@ It prints:
 
 </div>
 
-Prefer Python? [Run this in your browser](https://colab.research.google.com/github/nanoql-dev/nanoql/blob/main/docs/notebooks/first-steps.ipynb),
-nothing to install.
+Prefer Python? [Run this and more in your browser](https://colab.research.google.com/github/nanoql-dev/nanoql/blob/main/docs/notebooks/first-steps.ipynb): curves, SABR, options and CDS.
 
 ## Why nanoql
 
