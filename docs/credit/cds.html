@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Credit default swaps | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Credit default swaps | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../../brand/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="credit-default-swaps">Credit default swaps</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>This page follows QuantLib's CDS example, its first two cases: a hazard curve bootstrapped from quoted spreads, then
+ISDA's standard model. Its values match that example's output. The sample,
+<a href="https://github.com/nanoql-dev/nanoql/blob/a510fdafcc96fdd249355f319938546d7a83c8ac/docs/examples/Credit/CreditDefaultSwaps.cs"><code>CreditDefaultSwaps.cs</code></a>, carries QuantLib's notice.</p>
+<h2 id="a-hazard-curve-from-spreads">A hazard curve from spreads</h2>
+<p>Four CDS quoted at 150 bp, from three months to two years, with a recovery of 50% and a flat 1% discount curve. A
+<code>SpreadCdsHelper</code> per quote, and a piecewise curve of flat hazard rates bootstrapped through them:</p>
+<pre><code class="lang-csharp">Calendar calendar = new TARGET();
+Date today = calendar.Adjust(new Date(15, Month.May, 2007));
+var context = new EvaluationContext { EvaluationDate = today };
+var discount = new FlatForward(today, 0.01, new Actual365Fixed());
+
+int settlementDays = 1;
+double recoveryRate = 0.5;
+(Period Tenor, double Spread)[] quotes =
+[
+    (new Period(3, TimeUnit.Months), 0.0150), (new Period(6, TimeUnit.Months), 0.0150),
+    (new Period(1, TimeUnit.Years), 0.0150), (new Period(2, TimeUnit.Years), 0.0150),
+];
+
+var helpers = new List&lt;BootstrapHelper&lt;DefaultProbabilityTermStructure&gt;&gt;();
+foreach (var (tenor, spread) in quotes)
+{
+    helpers.Add(new SpreadCdsHelper(spread, tenor, settlementDays, calendar, Frequency.Quarterly,
+        BusinessDayConvention.Following, DateGenerationRule.TwentiethIMM, new Actual365Fixed(), recoveryRate,
+        discount, context));
+}
+
+var curve = new PiecewiseDefaultCurve&lt;HazardRate, BackwardFlat, IterativeBootstrap&gt;(
+    today, helpers, new Actual365Fixed(), context);
+</code></pre>
+<p>The curve's nodes and its survival probabilities:</p>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th style="text-align: right;">Hazard rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2007-05-15</td>
+<td style="text-align: right;">0.0299685</td>
+</tr>
+<tr>
+<td>2007-09-20</td>
+<td style="text-align: right;">0.0299685</td>
+</tr>
+<tr>
+<td>2007-12-20</td>
+<td style="text-align: right;">0.0299613</td>
+</tr>
+<tr>
+<td>2008-06-20</td>
+<td style="text-align: right;">0.0299619</td>
+</tr>
+<tr>
+<td>2009-06-22</td>
+<td style="text-align: right;">0.0299607</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Horizon</th>
+<th style="text-align: right;">Survival probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1Y</td>
+<td style="text-align: right;">97.040077%</td>
+</tr>
+<tr>
+<td>2Y</td>
+<td style="text-align: right;">94.175796%</td>
+</tr>
+</tbody>
+</table>
+
+<p>Each quoted CDS, priced on the curve by the mid-point engine:</p>
+<pre><code class="lang-csharp">Calendar calendar = new TARGET();
+Date settlement = calendar.Advance(h.Today, 1, TimeUnit.Days);
+foreach (var (tenor, spread) in h.Spreads)
+{
+    Date maturity = calendar.Adjust(settlement + tenor, BusinessDayConvention.Following);
+    Schedule schedule = new MakeSchedule().From(settlement).To(maturity).WithFrequency(Frequency.Quarterly)
+        .WithCalendar(calendar).WithTerminationDateConvention(BusinessDayConvention.Unadjusted)
+        .WithRule(DateGenerationRule.TwentiethIMM).ToSchedule();
+    var cds = new CreditDefaultSwap(ProtectionSide.Seller, 1e6, spread, schedule, BusinessDayConvention.Following,
+        new Actual365Fixed());
+    CreditDefaultSwapResults result = MidPointCdsEngine.Calculate(cds, h.Context, h.Curve, 0.5, h.Discount);
+    results.Add((Name(tenor), result));
+}
+
+</code></pre><table>
+<thead>
+<tr>
+<th>Quote</th>
+<th style="text-align: right;">Fair spread</th>
+<th style="text-align: right;">NPV</th>
+<th style="text-align: right;">Default leg</th>
+<th style="text-align: right;">Coupon leg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3M</td>
+<td style="text-align: right;">1.500000%</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">-5177.05</td>
+<td style="text-align: right;">5177.05</td>
+</tr>
+<tr>
+<td>6M</td>
+<td style="text-align: right;">1.500000%</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">-8841.72</td>
+<td style="text-align: right;">8841.72</td>
+</tr>
+<tr>
+<td>1Y</td>
+<td style="text-align: right;">1.500000%</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">-16101.8</td>
+<td style="text-align: right;">16101.8</td>
+</tr>
+<tr>
+<td>2Y</td>
+<td style="text-align: right;">1.500000%</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">-30154.5</td>
+<td style="text-align: right;">30154.5</td>
+</tr>
+</tbody>
+</table>
+
+<p>Each is worth nothing at its quoted spread, the bootstrap's condition, and its default and coupon legs offset.</p>
+<h2 id="isdas-standard-model">ISDA's standard model</h2>
+<p>ISDA's rate curve from deposits and swaps, a flat hazard rate, and a reference trade, five years of protection bought
+on 100 million at 100 bp, priced by <code>IsdaCdsEngine</code>:</p>
+<pre><code class="lang-csharp">// QuantLib's example sets IborCoupon::Settings::createAtParCoupons(), the context's UseAtParCoupons.
+var context = new EvaluationContext { EvaluationDate = new Date(21, Month.October, 2014), UseAtParCoupons = true };
+var helpers = new List&lt;BootstrapHelper&lt;YieldTermStructure&gt;&gt;();
+foreach (var (months, rate) in new[]
+         {
+             (1, 0.000060), (2, 0.000450), (3, 0.000810), (6, 0.001840), (9, 0.002560), (12, 0.003370),
+         })
+{
+    helpers.Add(new DepositRateHelper(rate, new Period(months, TimeUnit.Months), 2, new TARGET(),
+        BusinessDayConvention.ModifiedFollowing, false, new Actual360(), context));
+}
+
+var euribor6M = new Euribor(new Period(6, TimeUnit.Months));
+foreach (var (years, rate) in new[]
+         {
+             (2, 0.002230), (3, 0.002760), (4, 0.003530), (5, 0.004520), (6, 0.005720), (7, 0.007050),
+             (8, 0.008420), (9, 0.009720), (10, 0.010900), (12, 0.012870), (15, 0.014970), (20, 0.017000),
+             (30, 0.018210),
+         })
+{
+    helpers.Add(new SwapRateHelper(rate, new Period(years, TimeUnit.Years), new TARGET(), Frequency.Annual,
+        BusinessDayConvention.ModifiedFollowing, new Thirty360(Thirty360Convention.BondBasis), euribor6M, context));
+}
+
+var rateCurve = PiecewiseYieldCurve&lt;Discount, LogLinear, IterativeBootstrap&gt;.Create(
+    0, new WeekendsOnly(), helpers, new Actual365Fixed(), context);
+
+FlatHazardRate defaultCurve = FlatHazardRate.Create(0, new WeekendsOnly(), 0.016739207493630, new Actual365Fixed(),
+    context);
+var schedule = new Schedule(new Date(22, Month.September, 2014), new Date(20, Month.December, 2019),
+    new Period(3, TimeUnit.Months), new WeekendsOnly(), BusinessDayConvention.Following,
+    BusinessDayConvention.Unadjusted, DateGenerationRule.CDS, false, context);
+var trade = new CreditDefaultSwap(ProtectionSide.Buyer, 100e6, 0.01, schedule, BusinessDayConvention.Following,
+    new Actual360(), true, true, new Date(22, Month.October, 2014), null, new Actual360(true), true);
+CreditDefaultSwapResults result = IsdaCdsEngine.Calculate(trade, context, defaultCurve, 0.4, rateCurve, false,
+    IsdaCdsEngineNumericalFix.Taylor, IsdaCdsEngineAccrualBias.NoBias, IsdaCdsEngineForwardsInCouponPeriod.Piecewise);
+</code></pre>
+<p>The rate curve at its pillars:</p>
+<table>
+<thead>
+<tr>
+<th>Pillar</th>
+<th style="text-align: right;">Zero rate</th>
+<th style="text-align: right;">Discount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-11-24</td>
+<td style="text-align: right;">6.08332e-05</td>
+<td style="text-align: right;">0.999994</td>
+</tr>
+<tr>
+<td>2014-12-23</td>
+<td style="text-align: right;">0.00044368</td>
+<td style="text-align: right;">0.999923</td>
+</tr>
+<tr>
+<td>2015-01-23</td>
+<td style="text-align: right;">0.000804988</td>
+<td style="text-align: right;">0.999793</td>
+</tr>
+<tr>
+<td>2015-04-23</td>
+<td style="text-align: right;">0.00184508</td>
+<td style="text-align: right;">0.99907</td>
+</tr>
+<tr>
+<td>2015-07-23</td>
+<td style="text-align: right;">0.00257462</td>
+<td style="text-align: right;">0.998062</td>
+</tr>
+<tr>
+<td>2015-10-23</td>
+<td style="text-align: right;">0.00339272</td>
+<td style="text-align: right;">0.996594</td>
+</tr>
+<tr>
+<td>2016-10-24</td>
+<td style="text-align: right;">0.00221731</td>
+<td style="text-align: right;">0.995551</td>
+</tr>
+<tr>
+<td>2017-10-23</td>
+<td style="text-align: right;">0.00274915</td>
+<td style="text-align: right;">0.991764</td>
+</tr>
+<tr>
+<td>2018-10-23</td>
+<td style="text-align: right;">0.00352107</td>
+<td style="text-align: right;">0.985986</td>
+</tr>
+<tr>
+<td>2019-10-23</td>
+<td style="text-align: right;">0.00451599</td>
+<td style="text-align: right;">0.977637</td>
+</tr>
+<tr>
+<td>2020-10-23</td>
+<td style="text-align: right;">0.0057249</td>
+<td style="text-align: right;">0.966173</td>
+</tr>
+<tr>
+<td>2021-10-25</td>
+<td style="text-align: right;">0.00707627</td>
+<td style="text-align: right;">0.951562</td>
+</tr>
+<tr>
+<td>2022-10-24</td>
+<td style="text-align: right;">0.00847959</td>
+<td style="text-align: right;">0.934305</td>
+</tr>
+<tr>
+<td>2023-10-23</td>
+<td style="text-align: right;">0.009823</td>
+<td style="text-align: right;">0.91529</td>
+</tr>
+<tr>
+<td>2024-10-23</td>
+<td style="text-align: right;">0.0110503</td>
+<td style="text-align: right;">0.895248</td>
+</tr>
+<tr>
+<td>2026-10-23</td>
+<td style="text-align: right;">0.0131302</td>
+<td style="text-align: right;">0.85407</td>
+</tr>
+<tr>
+<td>2029-10-23</td>
+<td style="text-align: right;">0.0153845</td>
+<td style="text-align: right;">0.793724</td>
+</tr>
+<tr>
+<td>2034-10-23</td>
+<td style="text-align: right;">0.0176039</td>
+<td style="text-align: right;">0.702988</td>
+</tr>
+<tr>
+<td>2044-10-24</td>
+<td style="text-align: right;">0.0188487</td>
+<td style="text-align: right;">0.567776</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Reference trade</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First period's accrual on 24 October 2014</td>
+<td style="text-align: right;">88888.9</td>
+</tr>
+<tr>
+<td>NPV</td>
+<td style="text-align: right;">-40991.9</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

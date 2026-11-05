@@ -184,6 +184,8 @@ foreach (int years in new[] { 1, 2, 5, 10, 20, 25 })
 <p><code>ZeroRate</code> and <code>ForwardRate</code> return an <code>InterestRate</code>, the rate with its day counter, compounding and frequency.</p>
 <h2 id="other-curves">Other curves</h2>
 <ul>
+<li><strong>Multi-curve:</strong> an €STR curve for discounting and a Euribor curve bootstrapped on it, each swap helper given the
+discounting curve (<a href="multi-curve.html">multi-curve bootstrapping</a>).</li>
 <li><strong>Interpolated curves</strong> from given nodes: <code>InterpolatedDiscountCurve&lt;TInterpolator&gt;</code>,
 <code>InterpolatedZeroCurve&lt;TInterpolator&gt;</code>, <code>InterpolatedForwardCurve&lt;TInterpolator&gt;</code>.</li>
 <li><strong>Spreaded curves</strong> over another curve: <code>ZeroSpreadedTermStructure</code>, <code>ForwardSpreadedTermStructure</code>, and the

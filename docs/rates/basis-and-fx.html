@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Basis swaps and FX | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Basis swaps and FX | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../../brand/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="basis-swaps-and-fx">Basis swaps and FX</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>A basis swap between two Euribor tenors, an FX forward, and a curve implied by FX swap points, all on the stable API;
+then, experimental, a curve from cross-currency basis swaps. The market is flat: €STR at 2.80%, dollars at 4.00%, and
+EUR/USD at 1.0850.</p>
+<h2 id="a-basis-swap">A basis swap</h2>
+<p>Euribor 3M plus a spread against Euribor 6M, each forecast on its own curve and both discounted on €STR, as a
+<code>FloatFloatSwap</code>. A spread is linear in the 3M leg's coupons, so the leg's BPS gives the fair spread:</p>
+<pre><code class="lang-csharp">var euribor3M = new Euribor3M(new FlatForward(context.EvaluationDate, 0.0295, new Actual365Fixed()));
+var euribor6M = new Euribor6M(new FlatForward(context.EvaluationDate, 0.0305, new Actual365Fixed()));
+Calendar calendar = new TARGET();
+Date start = calendar.Advance(context.EvaluationDate, 2, TimeUnit.Days);
+Date end = calendar.Advance(start, 5, TimeUnit.Years, BusinessDayConvention.ModifiedFollowing);
+Schedule Quarterly() =&gt; new MakeSchedule().From(start).To(end).WithTenor(euribor3M.Tenor).WithCalendar(calendar)
+    .WithConvention(BusinessDayConvention.ModifiedFollowing).ToSchedule();
+Schedule Semiannual() =&gt; new MakeSchedule().From(start).To(end).WithTenor(euribor6M.Tenor).WithCalendar(calendar)
+    .WithConvention(BusinessDayConvention.ModifiedFollowing).ToSchedule();
+FloatFloatSwap Swap(double spread) =&gt; new(SwapType.Payer, 10e6, 10e6, Quarterly(), euribor3M, new Actual360(),
+    Semiannual(), euribor6M, new Actual360(), context, spread1: spread);
+
+SwapResults flat = DiscountingSwapEngine.Calculate(Swap(0.0), context, EurDiscount);
+// A spread of one basis point on the 3M leg moves that leg's NPV by its BPS.
+double fairSpread = -flat.NPV!.Value / flat.LegBPS[0]!.Value * 1e-4;
+SwapResults atFair = DiscountingSwapEngine.Calculate(Swap(fairSpread), context, EurDiscount);
+</code></pre><table>
+<thead>
+<tr>
+<th>3M + spread against 6M</th>
+<th style="text-align: right;">Spread</th>
+<th style="text-align: right;">NPV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flat</td>
+<td style="text-align: right;">0.00 bp</td>
+<td style="text-align: right;">47,324.97</td>
+</tr>
+<tr>
+<td>At the fair spread</td>
+<td style="text-align: right;">10.0320 bp</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+</tbody>
+</table>
+<h2 id="an-fx-forward">An FX forward</h2>
+<p>Euros sold for dollars in a year, valued from the two discount curves and spot; struck at its fair rate, it is worth
+nothing:</p>
+<pre><code class="lang-csharp">Date maturity = new TARGET().Advance(context.EvaluationDate, 1, TimeUnit.Years);
+var probe = new FxForward(10e6, new EURCurrency(), new USDCurrency(), Spot, maturity, true);
+double fair = DiscountingFxForwardEngine.Calculate(probe, context, EurDiscount, UsdDiscount, Spot).FairForwardRate!.Value;
+
+var forward = new FxForward(10e6, new EURCurrency(), new USDCurrency(), fair, maturity, true);
+FxForwardResults result = DiscountingFxForwardEngine.Calculate(forward, context, EurDiscount, UsdDiscount, Spot);
+</code></pre><table>
+<thead>
+<tr>
+<th>One-year EUR/USD forward</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spot</td>
+<td style="text-align: right;">1.0850</td>
+</tr>
+<tr>
+<td>Fair forward rate</td>
+<td style="text-align: right;">1.098026</td>
+</tr>
+<tr>
+<td>NPV of €10 million sold forward at that rate, in dollars</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-curve-from-fx-swap-points">A curve from FX swap points</h2>
+<p>A euro curve, collateralized in dollars, bootstrapped from EUR/USD swap points with <code>FxSwapRateHelper</code>:</p>
+<pre><code class="lang-csharp">(Period Tenor, double Points)[] quotes =
+[
+    (new Period(1, TimeUnit.Months), 0.0010), (new Period(3, TimeUnit.Months), 0.0031),
+    (new Period(6, TimeUnit.Months), 0.0062), (new Period(1, TimeUnit.Years), 0.0125),
+];
+var helpers = quotes.Select(q =&gt; new FxSwapRateHelper(q.Points, Spot, q.Tenor, 2, new TARGET(),
+    BusinessDayConvention.Following, false, false, UsdDiscount, context)).ToList();
+var eurCurve = new PiecewiseYieldCurve&lt;Discount, LogLinear, IterativeBootstrap&gt;(
+    context.EvaluationDate, helpers, new Actual365Fixed(), context);
+</code></pre>
+<p>The curve gives back each quote:</p>
+<table>
+<thead>
+<tr>
+<th>Tenor</th>
+<th style="text-align: right;">Swap points</th>
+<th style="text-align: right;">Implied by the curve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1M</td>
+<td style="text-align: right;">10.00</td>
+<td style="text-align: right;">10.00</td>
+</tr>
+<tr>
+<td>3M</td>
+<td style="text-align: right;">31.00</td>
+<td style="text-align: right;">31.00</td>
+</tr>
+<tr>
+<td>6M</td>
+<td style="text-align: right;">62.00</td>
+<td style="text-align: right;">62.00</td>
+</tr>
+<tr>
+<td>1Y</td>
+<td style="text-align: right;">125.00</td>
+<td style="text-align: right;">125.00</td>
+</tr>
+</tbody>
+</table>
+<h2 id="experimental-a-curve-from-cross-currency-basis-swaps">Experimental: a curve from cross-currency basis swaps</h2>
+<p>The cross-currency basis-swap helpers are experimental, as QuantLib's are: their members can change in any release.
+Using them needs the opt-in, <code>NQL0001</code> in C# (here a <code>#pragma</code> in the sample's own file) and
+<code>import nanoql.experimental</code> in Python (<a href="../concepts.html">concepts</a>). A euro curve bootstrapped from EUR/USD basis
+swaps on €STR and SOFR, collateralized in dollars:</p>
+<pre><code class="lang-csharp">var estr = new Estr(BasisAndFx.EurDiscount);
+var sofr = new Sofr(BasisAndFx.UsdDiscount);
+(int Years, double Basis)[] quotes = [(1, -0.0008), (2, -0.0010), (3, -0.0012), (5, -0.0013)];
+var helpers = quotes.Select(q =&gt; new ConstNotionalCrossCurrencyBasisSwapRateHelper(
+    q.Basis, new Period(q.Years, TimeUnit.Years), 2, new TARGET(), BusinessDayConvention.ModifiedFollowing, false,
+    estr, sofr, BasisAndFx.UsdDiscount, isFxBaseCurrencyCollateralCurrency: false,
+    isBasisOnFxBaseCurrencyLeg: true, context, paymentFrequency: Frequency.Quarterly)).ToList();
+var eurCurve = new PiecewiseYieldCurve&lt;Discount, LogLinear, IterativeBootstrap&gt;(
+    context.EvaluationDate, helpers, new Actual365Fixed(), context);
+</code></pre><table>
+<thead>
+<tr>
+<th>Tenor</th>
+<th style="text-align: right;">Quoted basis</th>
+<th style="text-align: right;">Implied by the curve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1Y</td>
+<td style="text-align: right;">-8.00 bp</td>
+<td style="text-align: right;">-8.00 bp</td>
+</tr>
+<tr>
+<td>2Y</td>
+<td style="text-align: right;">-10.00 bp</td>
+<td style="text-align: right;">-10.00 bp</td>
+</tr>
+<tr>
+<td>3Y</td>
+<td style="text-align: right;">-12.00 bp</td>
+<td style="text-align: right;">-12.00 bp</td>
+</tr>
+<tr>
+<td>5Y</td>
+<td style="text-align: right;">-13.00 bp</td>
+<td style="text-align: right;">-13.00 bp</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

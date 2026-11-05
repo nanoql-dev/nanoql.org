@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Equity options | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Equity options | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../../brand/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="equity-options">Equity options</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>This page follows QuantLib's EquityOption example: one put, valued with European, Bermudan and American exercise by
+each engine family. Its values match that example's output, but for the one marked †. The sample,
+<a href="https://github.com/nanoql-dev/nanoql/blob/a510fdafcc96fdd249355f319938546d7a83c8ac/docs/examples/Equity/EquityOptions.cs"><code>EquityOptions.cs</code></a>, carries QuantLib's notice.</p>
+<h2 id="the-option-and-its-market">The option and its market</h2>
+<p>A put struck at 40 on a stock at 36, with a 6% rate, no dividends and 20% volatility, expiring a year after its
+settlement; the Bermudan one can be exercised every three months. The curves and the volatility are values, and the
+process holds them:</p>
+<pre><code class="lang-csharp">var settlement = new Date(17, Month.May, 1998);
+var maturity = new Date(17, Month.May, 1999);
+double underlying = 36, strike = 40, dividendYield = 0.0, riskFreeRate = 0.06, volatility = 0.20;
+DayCounter dayCounter = new Actual365Fixed();
+
+var riskFree = new FlatForward(settlement, riskFreeRate, dayCounter);
+var dividend = new FlatForward(settlement, dividendYield, dayCounter);
+var process = new BlackScholesMertonProcess(underlying, dividend, riskFree,
+    new BlackConstantVol(settlement, new TARGET(), volatility, dayCounter));
+
+var payoff = new PlainVanillaPayoff(OptionType.Put, strike);
+var european = new VanillaOption(payoff, new EuropeanExercise(maturity));
+var american = new VanillaOption(payoff, new AmericanExercise(settlement, maturity));
+Date[] exerciseDates = [.. Enumerable.Range(1, 4).Select(i =&gt; settlement + new Period(3 * i, TimeUnit.Months))];
+var bermudan = new VanillaOption(payoff, new BermudanExercise(exerciseDates));
+</code></pre><h2 id="the-engines">The engines</h2>
+<p>Closed forms and approximations: Black-Scholes, Black-Scholes with Vasicek rates, the Heston and Bates models with
+their parameters set to the same volatility, the American approximations of Barone-Adesi and Whaley, Bjerksund and
+Stensland and the QD+ fixed point, and the integral of the payoff:</p>
+<pre><code class="lang-csharp">rows.Add((&quot;Black-Scholes&quot;, AnalyticEuropeanEngine.Calculate(european, context, process).NPV, null, null));
+rows.Add((&quot;Black-Vasicek&quot;, AnalyticBlackVasicekEngine.Calculate(
+    european, context, process, new Vasicek(riskFreeRate, 0.3, 0.3, 0.15, 0.0), 0.5).NPV, null, null));
+var heston = new HestonModel(new HestonProcess(
+    riskFree, dividend, underlying, volatility * volatility, 1.0, volatility * volatility, 0.001, 0.0));
+rows.Add((&quot;Heston, semi-analytic&quot;, AnalyticHestonEngine.Calculate(european, context, heston).NPV, null, null));
+var bates = new BatesModel(new BatesProcess(
+    riskFree, dividend, underlying, volatility * volatility, 1.0, volatility * volatility, 0.001, 0.0,
+    1e-14, 1e-14, 1e-14));
+rows.Add((&quot;Bates, semi-analytic&quot;, BatesEngine.Calculate(european, context, bates).NPV, null, null));
+rows.Add((&quot;Barone-Adesi-Whaley&quot;, null, null,
+    BaroneAdesiWhaleyApproximationEngine.Calculate(american, context, process).NPV));
+rows.Add((&quot;Bjerksund-Stensland&quot;, null, null,
+    BjerksundStenslandApproximationEngine.Calculate(american, context, process).NPV));
+rows.Add((&quot;QD+ fixed point, fast&quot;, null, null,
+    QdFpAmericanEngine.Calculate(american, context, process, QdFpAmericanEngine.FastScheme()).NPV));
+rows.Add((&quot;QD+ fixed point, accurate&quot;, null, null,
+    QdFpAmericanEngine.Calculate(american, context, process, QdFpAmericanEngine.AccurateScheme()).NPV));
+rows.Add((&quot;QD+ fixed point, high precision&quot;, null, null,
+    QdFpAmericanEngine.Calculate(american, context, process, QdFpAmericanEngine.HighPrecisionScheme()).NPV));
+rows.Add((&quot;Integral&quot;, IntegralEngine.Calculate(european, context, process).NPV, null, null));
+</code></pre>
+<p>Finite differences and seven binomial trees, each on 801 time steps, for all three exercises:</p>
+<pre><code class="lang-csharp">int timeSteps = 801;
+rows.Add((&quot;Finite differences&quot;,
+    FdBlackScholesVanillaEngine.Calculate(european, context, process, tGrid: timeSteps, xGrid: timeSteps - 1).NPV,
+    FdBlackScholesVanillaEngine.Calculate(bermudan, context, process, tGrid: timeSteps, xGrid: timeSteps - 1).NPV,
+    FdBlackScholesVanillaEngine.Calculate(american, context, process, tGrid: timeSteps, xGrid: timeSteps - 1).NPV));
+(string, double?, double?, double?) Tree&lt;TTree&gt;(string name)
+    where TTree : Tree, IBinomialTree&lt;TTree&gt; =&gt; (name,
+    BinomialVanillaEngine.Calculate&lt;TTree&gt;(european, context, process, timeSteps).NPV,
+    BinomialVanillaEngine.Calculate&lt;TTree&gt;(bermudan, context, process, timeSteps).NPV,
+    BinomialVanillaEngine.Calculate&lt;TTree&gt;(american, context, process, timeSteps).NPV);
+rows.Add(Tree&lt;JarrowRudd&gt;(&quot;Binomial, Jarrow-Rudd&quot;));
+rows.Add(Tree&lt;CoxRossRubinstein&gt;(&quot;Binomial, Cox-Ross-Rubinstein&quot;));
+rows.Add(Tree&lt;AdditiveEQPBinomialTree&gt;(&quot;Binomial, additive equiprobabilities&quot;));
+rows.Add(Tree&lt;Trigeorgis&gt;(&quot;Binomial, Trigeorgis&quot;));
+rows.Add(Tree&lt;Tian&gt;(&quot;Binomial, Tian&quot;));
+rows.Add(Tree&lt;LeisenReimer&gt;(&quot;Binomial, Leisen-Reimer&quot;));
+rows.Add(Tree&lt;Joshi4&gt;(&quot;Binomial, Joshi&quot;));
+</code></pre>
+<p>Monte Carlo: crude paths to an absolute tolerance, a Sobol sequence, and Longstaff and Schwartz's regression for
+early exercise:</p>
+<pre><code class="lang-csharp">int seed = 42;
+rows.Add((&quot;Monte Carlo, crude&quot;, new MakeMCEuropeanEngine&lt;PseudoRandom, GeneralStatistics&gt;(process, seed)
+    .WithSteps(1).WithAbsoluteTolerance(0.02).ToEngine()(european, context).NPV, null, null));
+// QuantLib's example gives the Sobol engine no seed; a one-dimensional Sobol sequence reads none, and nanoql's
+// seeds are explicit.
+rows.Add((&quot;Quasi-Monte Carlo, Sobol&quot;, new MakeMCEuropeanEngine&lt;LowDiscrepancy, GeneralStatistics&gt;(process, seed)
+    .WithSteps(1).WithSamples(32768).ToEngine()(european, context).NPV, null, null));
+rows.Add((LongstaffSchwartz, null, null,
+    new MakeMCAmericanEngine&lt;PseudoRandom, GeneralStatistics, PseudoRandom&gt;(process, seed)
+        .WithSteps(100).WithAntitheticVariate().WithCalibrationSamples(4096).WithAbsoluteTolerance(0.02)
+        .ToEngine()(american, context).NPV));
+</code></pre><h2 id="the-values">The values</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th style="text-align: right;">European</th>
+<th style="text-align: right;">Bermudan</th>
+<th style="text-align: right;">American</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Black-Scholes</td>
+<td style="text-align: right;">3.844308</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Black-Vasicek</td>
+<td style="text-align: right;">3.818577</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Heston, semi-analytic</td>
+<td style="text-align: right;">3.844306</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Bates, semi-analytic</td>
+<td style="text-align: right;">3.844306</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Barone-Adesi-Whaley</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">4.459628</td>
+</tr>
+<tr>
+<td>Bjerksund-Stensland</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">4.453064</td>
+</tr>
+<tr>
+<td>QD+ fixed point, fast</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">4.486617</td>
+</tr>
+<tr>
+<td>QD+ fixed point, accurate</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">4.486669</td>
+</tr>
+<tr>
+<td>QD+ fixed point, high precision</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">4.486674</td>
+</tr>
+<tr>
+<td>Integral</td>
+<td style="text-align: right;">3.844309</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Finite differences</td>
+<td style="text-align: right;">3.844330</td>
+<td style="text-align: right;">4.360765</td>
+<td style="text-align: right;">4.486113</td>
+</tr>
+<tr>
+<td>Binomial, Jarrow-Rudd</td>
+<td style="text-align: right;">3.844132</td>
+<td style="text-align: right;">4.361174</td>
+<td style="text-align: right;">4.486552</td>
+</tr>
+<tr>
+<td>Binomial, Cox-Ross-Rubinstein</td>
+<td style="text-align: right;">3.843504</td>
+<td style="text-align: right;">4.360861</td>
+<td style="text-align: right;">4.486415</td>
+</tr>
+<tr>
+<td>Binomial, additive equiprobabilities</td>
+<td style="text-align: right;">3.836911</td>
+<td style="text-align: right;">4.354455</td>
+<td style="text-align: right;">4.480097</td>
+</tr>
+<tr>
+<td>Binomial, Trigeorgis</td>
+<td style="text-align: right;">3.843557</td>
+<td style="text-align: right;">4.360909</td>
+<td style="text-align: right;">4.486461</td>
+</tr>
+<tr>
+<td>Binomial, Tian</td>
+<td style="text-align: right;">3.844171</td>
+<td style="text-align: right;">4.361176</td>
+<td style="text-align: right;">4.486413</td>
+</tr>
+<tr>
+<td>Binomial, Leisen-Reimer</td>
+<td style="text-align: right;">3.844308</td>
+<td style="text-align: right;">4.360713</td>
+<td style="text-align: right;">4.486076</td>
+</tr>
+<tr>
+<td>Binomial, Joshi</td>
+<td style="text-align: right;">3.844308</td>
+<td style="text-align: right;">4.360713</td>
+<td style="text-align: right;">4.486076</td>
+</tr>
+<tr>
+<td>Monte Carlo, crude</td>
+<td style="text-align: right;">3.834522</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Quasi-Monte Carlo, Sobol</td>
+<td style="text-align: right;">3.844613</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Monte Carlo, Longstaff-Schwartz †</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">4.454440</td>
+</tr>
+</tbody>
+</table>
+
+<p>† Longstaff and Schwartz's engine draws its calibration paths from the seed QuantLib documents, the pricing seed plus
+an offset, where QuantLib's code takes its null. QuantLib's example given that seed prints this value
+(<a href="../divergences.html#longstaffschwartzcalibrationseedtests">the divergence</a>).</p>
+<p>Each engine is a static function of the option, the context and the process, and the Monte Carlo engines take their
+seeds as arguments, so the table is the same on every run.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>A volatility surface and Heston&#39;s calibration | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="A volatility surface and Heston&#39;s calibration | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../../brand/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="a-volatility-surface-and-hestons-calibration">A volatility surface and Heston's calibration</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>The DAX options market of 5 July 2002, thirteen strikes by eight expiries, as QuantLib's tests calibrate Heston's
+model to it (from A. Sepp's &quot;Pricing European-Style Options under Jump Diffusion Processes with Stochastic
+Volatility&quot;). The calibrated parameters match QuantLib's on the same data. The sample,
+<a href="https://github.com/nanoql-dev/nanoql/blob/a510fdafcc96fdd249355f319938546d7a83c8ac/docs/examples/Equity/VolatilityAndHeston.cs"><code>VolatilityAndHeston.cs</code></a>, carries QuantLib's notice.</p>
+<h2 id="the-surface">The surface</h2>
+<p>The quoted Black volatilities as a surface by expiry and strike, <code>BlackVarianceSurface</code>, which interpolates in
+variance:</p>
+<pre><code class="lang-csharp">Date today = Context.EvaluationDate;
+Date[] expiries = [.. Days.Select(d =&gt; today + d)];
+var vols = new Matrix(Strikes.Count, Days.Count);
+for (int s = 0; s &lt; Strikes.Count; ++s)
+{
+    for (int m = 0; m &lt; Days.Count; ++m)
+    {
+        vols[s, m] = Vols[s, m];
+    }
+}
+
+var surface = new BlackVarianceSurface(today, new TARGET(), expiries, Strikes, vols, new Actual365Fixed());
+</code></pre>
+<p>Read back at three of its strikes, it gives the quotes:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Expiry, days</th>
+<th style="text-align: right;">Vol at 4,000</th>
+<th style="text-align: right;">Vol at 4,400</th>
+<th style="text-align: right;">Vol at 5,000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">45.41%</td>
+<td style="text-align: right;">37.26%</td>
+<td style="text-align: right;">33.43%</td>
+</tr>
+<tr>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">38.69%</td>
+<td style="text-align: right;">33.96%</td>
+<td style="text-align: right;">29.59%</td>
+</tr>
+<tr>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">34.92%</td>
+<td style="text-align: right;">31.08%</td>
+<td style="text-align: right;">27.05%</td>
+</tr>
+<tr>
+<td style="text-align: right;">165</td>
+<td style="text-align: right;">31.49%</td>
+<td style="text-align: right;">27.81%</td>
+<td style="text-align: right;">25.40%</td>
+</tr>
+<tr>
+<td style="text-align: right;">256</td>
+<td style="text-align: right;">29.63%</td>
+<td style="text-align: right;">27.88%</td>
+<td style="text-align: right;">25.04%</td>
+</tr>
+<tr>
+<td style="text-align: right;">345</td>
+<td style="text-align: right;">29.26%</td>
+<td style="text-align: right;">27.22%</td>
+<td style="text-align: right;">24.64%</td>
+</tr>
+<tr>
+<td style="text-align: right;">524</td>
+<td style="text-align: right;">28.19%</td>
+<td style="text-align: right;">26.61%</td>
+<td style="text-align: right;">24.48%</td>
+</tr>
+<tr>
+<td style="text-align: right;">703</td>
+<td style="text-align: right;">28.00%</td>
+<td style="text-align: right;">26.86%</td>
+<td style="text-align: right;">24.62%</td>
+</tr>
+</tbody>
+</table>
+
+<p>Between the nodes it interpolates in variance, bilinearly by default.</p>
+<h2 id="hestons-calibration">Heston's calibration</h2>
+<p>A <code>HestonModelHelper</code> per quote, each priced by the semi-analytic engine, and Levenberg-Marquardt minimizing the
+vols' errors:</p>
+<pre><code class="lang-csharp">Date today = Context.EvaluationDate;
+DayCounter dayCounter = new Actual365Fixed();
+var dates = new List&lt;Date&gt; { today };
+var rates = new List&lt;double&gt; { 0.0357 };
+double[] zeroRates = [0.0357, 0.0349, 0.0341, 0.0355, 0.0359, 0.0368, 0.0386, 0.0401];
+for (int i = 0; i &lt; Days.Count; ++i)
+{
+    dates.Add(today + Days[i]);
+    rates.Add(zeroRates[i]);
+}
+
+var riskFree = new ZeroCurve(dates, rates, dayCounter);
+var dividend = new FlatForward(today, 0.0, dayCounter);
+
+var helpers = new List&lt;HestonModelHelper&gt;();
+for (int s = 0; s &lt; Strikes.Count; ++s)
+{
+    for (int m = 0; m &lt; Days.Count; ++m)
+    {
+        var maturity = new Period((int)((Days[m] + 3) / 7.0), TimeUnit.Weeks); // to the nearest week
+        helpers.Add(new HestonModelHelper(maturity, new TARGET(), Spot, Strikes[s], Vols[s, m], riskFree, dividend,
+            Context, BlackCalibrationHelperCalibrationErrorType.ImpliedVolError)
+            .SetPricingEngine&lt;HestonModel&gt;((option, context, model) =&gt;
+                AnalyticHestonEngine.Calculate(option, context, model, 64)));
+    }
+}
+
+var start = new HestonModel(new HestonProcess(riskFree, dividend, Spot, 0.1, 1.0, 0.1, 0.5, -0.5));
+HestonModel calibrated = start.Calibrate(helpers, new LevenbergMarquardt(1e-8, 1e-8, 1e-8),
+    new EndCriteria(400, 40, 1.0e-8, 1.0e-8, 1.0e-8), Context).Model;
+</code></pre>
+<p>The calibrated model:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right;">Calibrated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>θ, the long-run variance</td>
+<td style="text-align: right;">0.0745912</td>
+</tr>
+<tr>
+<td>κ, the mean reversion</td>
+<td style="text-align: right;">15.6627</td>
+</tr>
+<tr>
+<td>σ, the volatility of variance</td>
+<td style="text-align: right;">3.36192</td>
+</tr>
+<tr>
+<td>ρ, the correlation</td>
+<td style="text-align: right;">-0.511492</td>
+</tr>
+<tr>
+<td>v₀, the initial variance</td>
+<td style="text-align: right;">0.195662</td>
+</tr>
+<tr>
+<td>Sum of squared vol errors, in vol points²</td>
+<td style="text-align: right;">177.233</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>Calibrate</code> returns a new model with its record (the criterion that ended the optimization, the problem's values,
+the function evaluations), and leaves the starting model as it was.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

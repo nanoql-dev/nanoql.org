@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Short-rate models | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Short-rate models | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../../brand/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="short-rate-models">Short-rate models</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>This page follows QuantLib's BermudanSwaption example: short-rate models calibrated to five co-terminal swaptions,
+then a Bermudan swaption priced on them. Its values match that example's output, but for those marked † and ‡, which
+two of nanoql's documented fixes of QuantLib move. The sample,
+<a href="https://github.com/nanoql-dev/nanoql/blob/a510fdafcc96fdd249355f319938546d7a83c8ac/docs/examples/Rates/ShortRateModels.cs"><code>ShortRateModels.cs</code></a>, carries QuantLib's notice. The example's fourth model,
+Black-Karasinski, is left out: only the tree prices its swaptions, so nothing would check its values.</p>
+<h2 id="the-market">The market</h2>
+<p>A flat curve, Euribor 6M on it, and the swaptions 1Y into 5Y, 2Y into 4Y, … 5Y into 1Y, each with its market vol:</p>
+<pre><code class="lang-csharp">Calendar calendar = new TARGET();
+var settlement = new Date(19, Month.February, 2002);
+YieldTermStructure curve = new FlatForward(settlement, 0.04875825, new Actual365Fixed());
+var index = new Euribor6M(curve);
+
+// The co-terminal swaptions: 1Y into 5Y, 2Y into 4Y, ... 5Y into 1Y.
+double[] marketVols = [0.1148, 0.1108, 0.1070, 0.1021, 0.1000];
+var helpers = new List&lt;SwaptionHelper&gt;();
+var times = new List&lt;double&gt;();
+for (int i = 0; i &lt; 5; ++i)
+{
+    var helper = new SwaptionHelper(new Period(i + 1, TimeUnit.Years), new Period(5 - i, TimeUnit.Years),
+        marketVols[i], index, index.Tenor, index.DayCounter, index.DayCounter, curve, context);
+    helpers.Add(helper);
+    times.AddRange(helper.Times(context));
+}
+
+var grid = new TimeGrid([.. times], 30);
+</code></pre><h2 id="calibration">Calibration</h2>
+<p>G2 on its analytic formula, Hull-White on Jamshidian's, and Hull-White again on a tree, each by Levenberg-Marquardt:</p>
+<pre><code class="lang-csharp">var optimizer = new LevenbergMarquardt();
+var endCriteria = new EndCriteria(400, 100, 1.0e-8, 1.0e-8, 1.0e-8);
+(TModel Model, List&lt;SwaptionHelper&gt; Helpers) Calibrate&lt;TModel&gt;(
+    TModel model, Func&lt;Swaption, EvaluationContext, TModel, InstrumentResults&gt; engine)
+    where TModel : ICalibratedModel
+{
+    List&lt;SwaptionHelper&gt; priced = [.. helpers.Select(h =&gt; h.SetPricingEngine(engine))];
+    return (model.Calibrate(priced.Cast&lt;CalibrationHelper&gt;(), optimizer, endCriteria, context).Model, priced);
+}
+
+var g2 = Calibrate(new G2(curve), (s, c, m) =&gt; G2SwaptionEngine.Calculate(s, c, m, 6.0, 16));
+var hullWhite = Calibrate(new HullWhite(curve), (s, c, m) =&gt; JamshidianSwaptionEngine.Calculate(s, c, m));
+var numerical = Calibrate(new HullWhite(curve), (s, c, m) =&gt; TreeSwaptionEngine.Calculate(s, c, m, grid));
+</code></pre>
+<p>Each swaption's value on the calibrated model, as a Black vol, beside its market vol:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Swaption</th>
+<th style="text-align: right;">Model vol</th>
+<th style="text-align: right;">Market vol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G2 †</td>
+<td>1Y into 5Y</td>
+<td style="text-align: right;">10.63458%</td>
+<td style="text-align: right;">11.48000%</td>
+</tr>
+<tr>
+<td>G2 †</td>
+<td>2Y into 4Y</td>
+<td style="text-align: right;">10.64501%</td>
+<td style="text-align: right;">11.08000%</td>
+</tr>
+<tr>
+<td>G2 †</td>
+<td>3Y into 3Y</td>
+<td style="text-align: right;">10.62873%</td>
+<td style="text-align: right;">10.70000%</td>
+</tr>
+<tr>
+<td>G2 †</td>
+<td>4Y into 2Y</td>
+<td style="text-align: right;">10.63652%</td>
+<td style="text-align: right;">10.21000%</td>
+</tr>
+<tr>
+<td>G2 †</td>
+<td>5Y into 1Y</td>
+<td style="text-align: right;">10.65230%</td>
+<td style="text-align: right;">10.00000%</td>
+</tr>
+<tr>
+<td>Hull-White</td>
+<td>1Y into 5Y</td>
+<td style="text-align: right;">10.62037%</td>
+<td style="text-align: right;">11.48000%</td>
+</tr>
+<tr>
+<td>Hull-White</td>
+<td>2Y into 4Y</td>
+<td style="text-align: right;">10.62959%</td>
+<td style="text-align: right;">11.08000%</td>
+</tr>
+<tr>
+<td>Hull-White</td>
+<td>3Y into 3Y</td>
+<td style="text-align: right;">10.63414%</td>
+<td style="text-align: right;">10.70000%</td>
+</tr>
+<tr>
+<td>Hull-White</td>
+<td>4Y into 2Y</td>
+<td style="text-align: right;">10.64428%</td>
+<td style="text-align: right;">10.21000%</td>
+</tr>
+<tr>
+<td>Hull-White</td>
+<td>5Y into 1Y</td>
+<td style="text-align: right;">10.66131%</td>
+<td style="text-align: right;">10.00000%</td>
+</tr>
+<tr>
+<td>Hull-White, numerical ‡</td>
+<td>1Y into 5Y</td>
+<td style="text-align: right;">10.31183%</td>
+<td style="text-align: right;">11.48000%</td>
+</tr>
+<tr>
+<td>Hull-White, numerical ‡</td>
+<td>2Y into 4Y</td>
+<td style="text-align: right;">10.54617%</td>
+<td style="text-align: right;">11.08000%</td>
+</tr>
+<tr>
+<td>Hull-White, numerical ‡</td>
+<td>3Y into 3Y</td>
+<td style="text-align: right;">10.66911%</td>
+<td style="text-align: right;">10.70000%</td>
+</tr>
+<tr>
+<td>Hull-White, numerical ‡</td>
+<td>4Y into 2Y</td>
+<td style="text-align: right;">10.74017%</td>
+<td style="text-align: right;">10.21000%</td>
+</tr>
+<tr>
+<td>Hull-White, numerical ‡</td>
+<td>5Y into 1Y</td>
+<td style="text-align: right;">10.79723%</td>
+<td style="text-align: right;">10.00000%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Calibrated parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G2 †</td>
+<td>a 0.046794, σ 0.0088295, b 0.046794, η 0.0088295, ρ -0.77927</td>
+</tr>
+<tr>
+<td>Hull-White</td>
+<td>a 0.046416, σ 0.0058693</td>
+</tr>
+<tr>
+<td>Hull-White, numerical ‡</td>
+<td>a 0.055232, σ 0.0061063</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-bermudan-swaption">A Bermudan swaption</h2>
+<p>A payer swaption into the five-year swap, exercisable on each fixed coupon's start, at the money, out of it (the
+strike 1.2 times) and in it (0.8 times), on each model's tree and by finite differences:</p>
+<pre><code class="lang-csharp">Date start = calendar.Advance(settlement, 1, TimeUnit.Years, BusinessDayConvention.ModifiedFollowing);
+Date maturity = calendar.Advance(start, 5, TimeUnit.Years, BusinessDayConvention.ModifiedFollowing);
+var fixedSchedule = new Schedule(start, maturity, new Period(Frequency.Annual), calendar,
+    BusinessDayConvention.Unadjusted, BusinessDayConvention.Unadjusted, DateGenerationRule.Forward, false, context);
+var floatSchedule = new Schedule(start, maturity, new Period(Frequency.Semiannual), calendar,
+    BusinessDayConvention.ModifiedFollowing, BusinessDayConvention.ModifiedFollowing, DateGenerationRule.Forward,
+    false, context);
+VanillaSwap Swap(double rate) =&gt; new(SwapType.Payer, 1000.0, fixedSchedule, rate,
+    new Thirty360(Thirty360Convention.European), floatSchedule, index, 0.0, index.DayCounter, context);
+
+double atm = DiscountingSwapEngine.Calculate(Swap(0.03), context, curve).FairRate!.Value;
+var exercise = new BermudanExercise([.. Swap(atm).FixedLeg.Select(cf =&gt; ((Coupon)cf).AccrualStartDate)]);
+var bermudans = new List&lt;Bermudan&gt;();
+foreach (var (label, strike, g2Steps) in new[] { (&quot;ATM&quot;, atm, 50), (&quot;OTM&quot;, atm * 1.2, 300), (&quot;ITM&quot;, atm * 0.8, 50) })
+{
+    var swaption = new Swaption(Swap(strike), exercise);
+    bermudans.Add(new Bermudan(label, strike,
+        TreeSwaptionEngine.Calculate(swaption, context, g2.Model, g2Steps).NPV!.Value,
+        FdG2SwaptionEngine.Calculate(swaption, context, g2.Model).NPV!.Value,
+        TreeSwaptionEngine.Calculate(swaption, context, hullWhite.Model, 50).NPV!.Value,
+        FdHullWhiteSwaptionEngine.Calculate(swaption, context, hullWhite.Model).NPV!.Value,
+        TreeSwaptionEngine.Calculate(swaption, context, numerical.Model, 50).NPV!.Value,
+        FdHullWhiteSwaptionEngine.Calculate(swaption, context, numerical.Model).NPV!.Value));
+}
+
+</code></pre><table>
+<thead>
+<tr>
+<th>Strike</th>
+<th style="text-align: right;">G2, tree †‡</th>
+<th style="text-align: right;">G2, FD †</th>
+<th style="text-align: right;">Hull-White, tree ‡</th>
+<th style="text-align: right;">Hull-White, FD</th>
+<th style="text-align: right;">Hull-White numerical, tree ‡</th>
+<th style="text-align: right;">Hull-White numerical, FD ‡</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ATM, 5.00000%</td>
+<td style="text-align: right;">12.82</td>
+<td style="text-align: right;">12.832</td>
+<td style="text-align: right;">12.904</td>
+<td style="text-align: right;">12.91</td>
+<td style="text-align: right;">13.158</td>
+<td style="text-align: right;">13.157</td>
+</tr>
+<tr>
+<td>OTM, 6.00000%</td>
+<td style="text-align: right;">2.4639</td>
+<td style="text-align: right;">2.4553</td>
+<td style="text-align: right;">2.4921</td>
+<td style="text-align: right;">2.4596</td>
+<td style="text-align: right;">2.615</td>
+<td style="text-align: right;">2.5829</td>
+</tr>
+<tr>
+<td>ITM, 4.00000%</td>
+<td style="text-align: right;">42.258</td>
+<td style="text-align: right;">42.206</td>
+<td style="text-align: right;">42.253</td>
+<td style="text-align: right;">42.215</td>
+<td style="text-align: right;">42.364</td>
+<td style="text-align: right;">42.311</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-marks">The marks</h2>
+<ul>
+<li>† G2's analytic swaption formula takes each fixed coupon on the leg's own day counter, where QuantLib's takes it on
+the curve's (<a href="../divergences.html#g2analyticswaptioncoupontests">the divergence</a>). G2's calibration, and every value
+on it, moves. QuantLib, given nanoql's calibrated parameters and the coupons restated on the curve's day counter,
+gives the same model values, and its finite-difference engine the same prices.</li>
+<li>‡ The tree values a swap on its own dates, where QuantLib's snaps a date within a week of an exercise date to it
+(<a href="../divergences.html#treeswaptionsnappingtests">the divergence</a>). Every tree value moves, and so does the
+calibration on the tree. Each tree price is within 0.1 on the notional of 1,000 of the finite-difference price on
+the same model, and QuantLib's finite-difference engine, given nanoql's numerical Hull-White, gives its prices.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

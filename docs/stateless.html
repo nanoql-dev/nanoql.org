@@ -95,8 +95,8 @@
 the engine takes. Nothing outside them reaches the result, and no call changes what a later one returns. So the same
 inputs give the same result, bit for bit, whenever and on whichever thread they are priced.</p>
 <p>Keeping a book's prices current as its market data moves is the application's part: it knows which inputs changed and
-what depends on them, and calls the library again. This page shows the patterns it builds that layer from. Each
-sample prices a ten-year Euribor swap on the curve of <a href="rates/curves.html">the curves guide</a>.</p>
+what depends on them, and calls the library again. This page shows the patterns it builds that layer from. The
+first three price a ten-year Euribor swap on the curve of <a href="rates/curves.html">the curves guide</a>.</p>
 <h2 id="rebuild-on-change">Rebuild on change</h2>
 <p>When a quote moves, build the objects that depend on it again from the new inputs, and price on them. The old curve
 and the prices made on it stand as they were.</p>
@@ -138,16 +138,21 @@ share it: an immutable object is safe to read from any number of threads.</p>
 var curves = new ConcurrentDictionary&lt;double, YieldTermStructure&gt;();
 YieldTermStructure CurveFor(double shift) =&gt; curves.GetOrAdd(shift, s =&gt; Curves.Build(s));
 </code></pre><h2 id="price-scenarios-in-parallel">Price scenarios in parallel</h2>
-<p>Scenarios are independent calls on immutable inputs, so they run side by side with no locks:</p>
+<p>Scenarios are independent calls on immutable inputs, so they run side by side with no locks, and priced again one
+after another they give the same bits:</p>
 <pre><code class="lang-csharp">double[] shifts = [-0.0050, -0.0025, -0.0010, 0.0, 0.0010, 0.0025, 0.0050];
 double[] npvs = new double[shifts.Length];
 Parallel.For(0, shifts.Length, i =&gt; npvs[i] = Price(CurveFor(shifts[i]), context));
+
+// The same scenarios priced one after another give the same bits.
+double[] inSequence = [.. shifts.Select(shift =&gt; Price(CurveFor(shift), context))];
 </code></pre><table>
 <thead>
 <tr>
 <th style="text-align: right;">Shift</th>
 <th style="text-align: right;">NPV</th>
 <th style="text-align: right;">Change</th>
+<th style="text-align: right;">In sequence</th>
 </tr>
 </thead>
 <tbody>
@@ -155,41 +160,113 @@ Parallel.For(0, shifts.Length, i =&gt; npvs[i] = Price(CurveFor(shifts[i]), cont
 <td style="text-align: right;">-50 bp</td>
 <td style="text-align: right;">-447,832.36</td>
 <td style="text-align: right;">-447,832.36</td>
+<td style="text-align: right;">the same bits</td>
 </tr>
 <tr>
 <td style="text-align: right;">-25 bp</td>
 <td style="text-align: right;">-221,007.55</td>
 <td style="text-align: right;">-221,007.55</td>
+<td style="text-align: right;">the same bits</td>
 </tr>
 <tr>
 <td style="text-align: right;">-10 bp</td>
 <td style="text-align: right;">-87,715.64</td>
 <td style="text-align: right;">-87,715.64</td>
+<td style="text-align: right;">the same bits</td>
 </tr>
 <tr>
 <td style="text-align: right;">0 bp</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: right;">0.00</td>
+<td style="text-align: right;">the same bits</td>
 </tr>
 <tr>
 <td style="text-align: right;">+10 bp</td>
 <td style="text-align: right;">86,811.36</td>
 <td style="text-align: right;">86,811.36</td>
+<td style="text-align: right;">the same bits</td>
 </tr>
 <tr>
 <td style="text-align: right;">+25 bp</td>
 <td style="text-align: right;">215,355.44</td>
 <td style="text-align: right;">215,355.44</td>
+<td style="text-align: right;">the same bits</td>
 </tr>
 <tr>
 <td style="text-align: right;">+50 bp</td>
 <td style="text-align: right;">425,218.79</td>
 <td style="text-align: right;">425,218.79</td>
+<td style="text-align: right;">the same bits</td>
 </tr>
 </tbody>
 </table>
 
 <p>Run again, in any order or on any number of threads, the scenarios give the same bits.</p>
+<h2 id="value-as-of-a-past-date">Value as of a past date</h2>
+<p>A valuation reads its date from the context and its market from its arguments, so a valuation as of another date is
+the same call with that day's inputs: here a swap as of its trade date, and seven months on, on that day's curve and
+with the fixings the index published since the trade in the context:</p>
+<pre><code class="lang-csharp">Date start = new TARGET().Advance(tradeContext.EvaluationDate, 2, TimeUnit.Days);
+Date later = new TARGET().Advance(tradeContext.EvaluationDate, 7, TimeUnit.Months);
+static VanillaSwap Trade(YieldTermStructure curve, EvaluationContext context, Date start) =&gt;
+    new MakeVanillaSwap(new Period(5, TimeUnit.Years), new Euribor6M(curve))
+        .WithEffectiveDate(start)
+        .WithFixedRate(0.027)
+        .WithNominal(10e6)
+        .ToVanillaSwap(context);
+
+// As of the trade date, on that day's curve.
+double AtTrade()
+{
+    YieldTermStructure curve = Curves.Build();
+    return DiscountingSwapEngine.Calculate(Trade(curve, tradeContext, start), tradeContext, curve).NPV!.Value;
+}
+
+// Seven months on: that day's curve, and the fixings the index published since the trade.
+(double Npv, int Fixings) SevenMonthsOn()
+{
+    YieldTermStructure curve = new FlatForward(later, 0.0300, new Actual365Fixed());
+    var euribor6M = new Euribor6M(curve);
+    IndexFixings fixings = tradeContext.Fixings;
+    double[] published = [0.0251, 0.0262];
+    int k = 0;
+    foreach (CashFlow flow in Trade(curve, tradeContext, start).FloatingLeg)
+    {
+        if (flow is IborCoupon coupon &amp;&amp; coupon.FixingDate() &lt; later)
+        {
+            fixings = fixings.AddFixing(euribor6M, coupon.FixingDate(), published[k++]);
+        }
+    }
+
+    EvaluationContext context = tradeContext with { EvaluationDate = later, Fixings = fixings };
+    return (DiscountingSwapEngine.Calculate(Trade(curve, context, start), context, curve).NPV!.Value, k);
+}
+</code></pre><table>
+<thead>
+<tr>
+<th>As of</th>
+<th style="text-align: right;">Curve</th>
+<th style="text-align: right;">Fixings</th>
+<th style="text-align: right;">NPV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-15</td>
+<td style="text-align: right;">bootstrapped</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-116,616.61</td>
+</tr>
+<tr>
+<td>2027-05-17</td>
+<td style="text-align: right;">flat 3.00%</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">-7,555.83</td>
+</tr>
+</tbody>
+</table>
+
+<p>Neither valuation reads the other's inputs, so they run in either order, or side by side, with the same results.</p>
 <h2 id="the-one-global">The one global</h2>
 <p><code>ConventionProvider.Default</code>, the conventions the library's presets and builders take when nothing else is given, is
 the one global value (<a href="conventions.html">conventions.md</a>). It is read when an object is built, never while it prices:
