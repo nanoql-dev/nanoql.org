@@ -71,8 +71,9 @@ override them for a desk, and version them with your trades.
 
 ### Tested
 
-Results are checked against independent reference values: [!include[tested](_nanoql/facts/tested.md)]
-[The validation report](_nanoql/validation/index.md) gives the figures by module.
+Checked against [!include[tested](_nanoql/facts/tested.md)]
+[The validation report](_nanoql/validation/index.md) has the figures, [the divergences page](_nanoql/docs/divergences.md)
+each departure.
 
 </div>
 <div>
