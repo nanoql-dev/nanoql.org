@@ -1,7 +1,7 @@
 # nanoql brand files
 
-The nanoql wordmark is "nanoql" with its "o" drawn as a solid dot, and the mark is that dot on a pale rounded tile.
-The colours are ocean blues: deep navy letters, a sky-blue dot.
+The nanoql wordmark is "nanoql" with its "o" drawn as a solid dot. The mark is that dot ringed, with a thin white gap
+and one pale ring around it, on a pale tile. The colours are ocean blues: deep navy letters, a sky-blue dot.
 
 ## Files
 
@@ -9,10 +9,15 @@ The colours are ocean blues: deep navy letters, a sky-blue dot.
 |---|---|
 | `nanoql-wordmark-light.svg` | The wordmark on light grounds |
 | `nanoql-wordmark-dark.svg` | The wordmark on dark grounds |
-| `nanoql-mark.svg` | The mark: the site's header icon, avatars, anywhere a square is needed |
+| `nanoql-mark.svg` | The mark on its rounded tile, anywhere a square is needed |
 | `favicon.svg`, `favicon.ico` | The browser's tab icon (the `.ico` holds 16, 32 and 48 px) |
 | `apple-touch-icon.png` | 180 px, square: iOS rounds it itself |
-| `nanoql-mark-{16,32,48,128,192,512}.png` | The mark as pictures: 128 px is NuGet's package icon, 512 px a profile picture |
+| `nanoql-mark-{16,32,48,128,192,512}.png` | The mark as pictures: 128 px is NuGet's package icon |
+| `nanoql-avatar.png` | 800 px, the tile run to the edges: profile pictures that round or crop themselves (LinkedIn, GitHub) |
+
+On a 64-unit tile the ring's radius is 22, the gap's 14.25 and the dot's 13.25. At 16 and 32 px (`favicon.svg`, the
+two smallest pictures and the `.ico`'s two smaller sizes) the ring is 23, the gap 15.5 and the dot 13, so that the gap
+still shows.
 
 ## Colours
 
@@ -20,7 +25,7 @@ The colours are ocean blues: deep navy letters, a sky-blue dot.
 |---|---|---|
 | On light grounds | `#0C2D48` | `#0EA5E9` |
 | On dark grounds | `#E0F2FE` | `#7DD3FC` |
-| The mark | tile `#E0F2FE` | `#0EA5E9` |
+| The mark | tile `#F0F9FF`, ring `#A5DDFB`, gap white | `#0EA5E9` |
 
 The site's own colours go with them: page tint `#F0F9FF`, buttons and links `#0369A1`, and a dark mode on deep ocean
 rather than black, the page and menu bar `#082F49` with the home page's band and the panels `#0C4A6E`
