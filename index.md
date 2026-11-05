@@ -48,6 +48,9 @@ It prints:
 
 </div>
 
+Prefer Python? [Run this in your browser](https://colab.research.google.com/github/nanoql-dev/nanoql/blob/main/docs/notebooks/first-steps.ipynb),
+nothing to install.
+
 ## Why nanoql
 
 <div class="nq-why">

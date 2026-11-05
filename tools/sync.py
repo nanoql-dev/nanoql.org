@@ -17,9 +17,10 @@ NanoQL checkout, at the commit it has checked out:
   against the checkout, so the page's code is known to build and its output is the library's own;
 - _nanoql/docs: what docfx builds under docs/. The library's versioned docs, its docs/ but the porting documents;
   their code samples, docs/examples' sources, copied beside them; and the samples' outputs, which that project
-  writes into _generated/ when it runs. A link that leaves the imported docs goes to the file at the commit:
-  --source's prefix, then the file's path in the checkout. Without --source, while the source's host is unnamed, the
-  link's text stays and its target goes. Beside them, the site's own docs/index.md and docs/toc.yml, the
+  writes into _generated/ when it runs. A link that leaves the imported docs, or that goes to an imported file docfx
+  doesn't build (a sample's source, which carries its notice), goes to the file at the commit: --source's prefix,
+  then the file's path in the checkout. Without --source, while the source's host is unnamed, the link's text stays
+  and its target goes. Beside them, the site's own docs/index.md and docs/toc.yml, the
   navigation; and the pages the library's scripts write: the Excel function reference in excel/, by
   tools/docs/excel-reference.py from `nanoql-bind excel generate`'s sources, and extension-points.md, by
   tools/docs/extension-points.py from docfx's metadata of the two assemblies, which the sync runs first.
@@ -48,6 +49,7 @@ SCHEMA = "src/NanoQL.Extensions/Conventions/nanoql-conventions.xsd"
 SHOWN = ["src", "docs", "tools/docs", "bindings/surface.json", "bindings/excel/functions.json",
          "bindings/excel/list.json", *NOTICES]
 PORTING = {"docs/porting-plan.md", "docs/porting-map.md", "docs/porting-playbook.md"}
+BUILT = {".md", ".yml"}  # docfx.json's content under docs/
 EXAMPLE = SITE / "examples" / "first-swap.cs"
 EXAMPLE_PROJECT = """<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
@@ -117,8 +119,11 @@ def import_docs(repo, source):
                 path, _, fragment = href.partition("#")
                 if not path or SCHEME.match(path):
                     return m.group(0)
-                if (page.parent / path).resolve() in imported or path.startswith("_generated/") or \
-                        "/_generated/" in path:
+                # docfx builds the imported pages and tables of contents, and an include ([!code-csharp[](…)])
+                # reads any imported file; a link to another imported file would serve nothing.
+                target = (page.parent / path).resolve()
+                if target in imported and (target.suffix in BUILT or text.startswith("!")) or \
+                        path.startswith("_generated/") or "/_generated/" in path:
                     return m.group(0)
                 in_repo = (repo / f).parent / path
                 if not in_repo.exists():
