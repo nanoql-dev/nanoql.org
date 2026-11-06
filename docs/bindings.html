@@ -664,8 +664,9 @@ released. <code>NANOQL_EXPERIMENTAL</code>, defined first, opts in to the experi
 <li><strong>Names:</strong> namespace <code>nanoql</code>; nanoql's type names; members in QuantLib's camelCase (<code>curve.discount(5.0)</code>,
 <code>swap.fixedRate()</code>, <code>NPV()</code>, <code>yoyInflationIndex()</code>), a getter a member function; a static member or an extension
 method a static member of its declaring class (<code>ConventionSet::quantLib()</code>), a record's init-only property
-<code>with&lt;Name&gt;(value)</code>, an operator a static <code>op_&lt;Name&gt;</code> and, for arithmetic and ordering, C++'s operator (and <code>==</code> for
-<code>Date</code> and <code>Period</code>). A name a keyword or a type takes gets a trailing underscore: <code>Echo::double_</code>.</li>
+<code>with&lt;Name&gt;(value)</code>, an operator a static <code>op_&lt;Name&gt;</code> (a record's <code>==</code> and <code>!=</code> aside, under Objects) and, for
+arithmetic and ordering, C++'s operator (and <code>==</code> for <code>Date</code> and <code>Period</code>). A name a keyword or a type takes gets a
+trailing underscore: <code>Echo::double_</code>.</li>
 <li><strong>Objects:</strong> each class owns a handle: a copy takes a new handle to the same object, a move takes the handle, the
 destructor releases it. A class's bases and interfaces are virtual bases, so an object converts to each
 (<code>const ICalibratedModel&amp; m = gsr;</code>). Nanoql's null reference is a null object, <code>T(nullptr)</code>, which <code>if (obj)</code> tests;
@@ -702,11 +703,12 @@ the user's.</li>
 <li><strong>Install:</strong> <code>pip install nanoql</code>, a <code>py3-none-&lt;platform&gt;</code> wheel holding the library for Windows x64 and Linux x64
 (<code>manylinux_2_28</code>), with Windows Arm64, Linux Arm64 and macOS on Apple silicon (14 or later) in later releases: one
 wheel for every Python from 3.11, with NumPy 1.26 or later, and nothing compiled on install.</li>
-<li><strong>Names:</strong> nanoql's type names; members in PEP 8's snake case (<code>curve.discount(5.0)</code>, <code>swap.fixed_rate</code>); enum
-members as nanoql's (<code>Compounding.Continuous</code>). A constructor is the class's call, a getter a property, a static
-member or an extension method a static method of its declaring class (<code>ConventionSet.quant_lib()</code>), a record's
-init-only property <code>with_&lt;name&gt;(value)</code>, an operator a static <code>op_&lt;name&gt;</code> and, for arithmetic and ordering, Python's
-operator. A member that would take another's name, or one of <code>Object</code>'s, takes a suffix: <code>close_</code>.</li>
+<li><strong>Names:</strong> nanoql's type names; members in PEP 8's snake case (<code>curve.discount(5.0)</code>, <code>swap.fixed_rate</code>); enum members
+as nanoql's (<code>Compounding.Continuous</code>). A constructor is the class's call, a getter a property, a static member or an
+extension method a static method of its declaring class (<code>ConventionSet.quant_lib()</code>), a record's init-only property
+<code>with_&lt;name&gt;(value)</code>, an operator a static <code>op_&lt;name&gt;</code> (a record's <code>==</code> and <code>!=</code> aside, under Objects) and, for
+arithmetic and ordering, Python's operator. A member that would take another's name, or one of <code>Object</code>'s, takes a
+suffix: <code>close_</code>.</li>
 <li><strong>Constructors:</strong> every class has its own: its constructors' dispatch, or a <code>TypeError</code> where none crosses, never a
 base's, which would build the base under the class's name. A preset's names its lookup by name: <code>USDCurrency()</code> raises
 &quot;USDCurrency is made by ConventionSet.currency&quot;. An experimental constructor added on the opt-in replaces the
@@ -772,11 +774,12 @@ writes over it; neither is checked in. The hand-written runtime is <code>binding
 <code>org.nanoql.experimental</code>; members in QuantLib's camelCase (<code>curve.discount(5.0)</code>, <code>swap.fixedRate()</code>,
 <code>yoyInflationIndex()</code>), a getter a method; a static member or an extension method a static method of its declaring
 class (<code>ConventionSet.quantLib()</code>), a record's init-only property <code>with&lt;Name&gt;(value)</code>, an operator a static <code>op&lt;Name&gt;</code>
-(<code>Period.opAddition</code>). Date's members are statics of <code>org.nanoql.time.Date</code> taking a <code>LocalDate</code> (<code>Date.year(d)</code>). A
-name a keyword or one of <code>Object</code>'s takes a trailing underscore (<code>Echo.double_</code>), and so does a member Java's
-overriding rules refuse: a static beside an inherited instance member of its signature, or a member C# declares <code>new</code>
-with a result the inherited one's isn't (<code>OvernightIndexedSwapIndex.underlyingSwap_</code>); a form whose erased parameters
-another form's are takes its C overload suffix (<code>Echo.total_doubleArrayArray</code>), a constructor a static <code>create_...</code>.</li>
+(<code>Period.opAddition</code>; a record's equality aside, under Objects). Date's members are statics of <code>org.nanoql.time.Date</code>
+taking a <code>LocalDate</code> (<code>Date.year(d)</code>). A name a keyword or one of <code>Object</code>'s takes a trailing underscore
+(<code>Echo.double_</code>), and so does a member Java's overriding rules refuse: a static beside an inherited instance member of
+its signature, or a member C# declares <code>new</code> with a result the inherited one's isn't
+(<code>OvernightIndexedSwapIndex.underlyingSwap_</code>); a form whose erased parameters another form's are takes its C overload
+suffix (<code>Echo.total_doubleArrayArray</code>), a constructor a static <code>create_...</code>.</li>
 <li><strong>Values:</strong> <code>java.time.LocalDate</code>, <code>null</code> for no date; <code>Period</code>, a record with nanoql's equality
 (<code>new Period(1, TimeUnit.Years)</code> equals twelve months); enums as Java enums with <code>value()</code> and <code>of(int)</code>, a flags enum
 as a record holding any combination of its constants (<code>KahaleSmile.or(SabrSmile)</code>, <code>has</code>); a nullable as its boxed
