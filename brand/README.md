@@ -14,6 +14,7 @@ and one pale ring around it, on a pale tile. The colours are ocean blues: deep n
 | `apple-touch-icon.png` | 180 px, square: iOS rounds it itself |
 | `nanoql-mark-{16,32,48,128,192,512}.png` | The mark as pictures: 128 px is NuGet's package icon |
 | `nanoql-avatar.png` | 800 px, the tile run to the edges: profile pictures that round or crop themselves (LinkedIn, GitHub) |
+| `nanoql-card.png` | 1200 × 630 px, the link-preview card every page names (`og:image`): the wordmark, the tagline in Space Grotesk 600 and the languages, on the home page's band |
 
 On a 64-unit tile the ring's radius is 22, the gap's 14.25 and the dot's 13.25. At 16 and 32 px (`favicon.svg`, the
 two smallest pictures and the `.ico`'s two smaller sizes) the ring is 23, the gap 15.5 and the dot 13, so that the gap

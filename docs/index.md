@@ -1,6 +1,8 @@
 # Documentation
 
-- [Getting started](getting-started.md): the package and a first swap.
+- [Getting started](getting-started.md): the package and a first swap, in C# and in Python.
+- [FAQ](faq.md): the platforms, the .NET versions, the licence, how nanoql relates to QuantLib, and where to ask.
+- [How nanoql is checked](checking.md): the references, the tolerance, and the checks on every change and release.
 - [Concepts](concepts.md): values and functions, the evaluation context, conventions as data.
 - [The stateless design](stateless.md): rebuilding on change, memoizing, pricing scenarios in parallel, valuing as of a
   past date.

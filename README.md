@@ -29,9 +29,10 @@ A broken link or cross-reference fails the build. `tools/sync.py` documents its 
 | `about/` | About nanoql, Masseef, related projects, security, licences |
 | `schemas/conventions/` | The page at the conventions format's namespace, beside its schema |
 | `brand/` | The wordmark, the mark and the icons; `brand/README.md` holds their rules |
-| `template/` | The site's colours and scripts over docfx's modern template |
+| `template/` | The site's colours and scripts over docfx's modern template, and the page layout: docfx 2.81.0's own `templates/modern/layout/_master.tmpl` with the link-preview tags, re-copied from the new version's when docfx moves |
 
 ## Licence
 
 Apache 2.0, see [LICENSE](LICENSE). The wordmark's letters are drawn from Space Grotesk, under the SIL Open Font
-License 1.1 (`brand/README.md`).
+License 1.1 (`brand/README.md`). The page layout, `template/layout/_master.tmpl`, is docfx's, under the MIT licence
+(`LICENSES/MIT.txt`).

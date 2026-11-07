@@ -24,7 +24,9 @@ under the MIT licence.
 The site's pages run the scripts and styles of docfx 2.81.0's modern template, which bundles 53 npm packages,
 5 of them at two versions, at the versions docfx's template lockfile pins
 ([templates/package-lock.json](https://github.com/dotnet/docfx/blob/v2.81.0/templates/package-lock.json) at its
-`v2.81.0` tag). Each package's licence and copyright notice, from its own licence file:
+`v2.81.0` tag). The site's page layout is the template's own, with tags added for link previews, under the MIT
+licence of the .NET Foundation and Contributors. Each package's licence and copyright notice, from its own licence
+file:
 
 | Package | Version | Licence | Copyright |
 |---|---|---|---|
