@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Migrating from QuantLib&#39;s C++ | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Migrating from QuantLib&#39;s C++ | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../../brand/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../../migration/toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="migrating-from-quantlibs-c">Migrating from QuantLib's C++</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>nanoql's C++ layer, <code>nanoql.hpp</code>, keeps QuantLib's class names and member names, so most QuantLib code maps class by
+class: the same <code>Date</code>, <code>MakeVanillaSwap</code> or <code>DiscountingSwapEngine</code>, and the same <code>discount(t)</code> or <code>fairRate()</code>. What
+changes is how they are connected, and the C++ around them: objects held by value rather than by shared pointer, no
+handles or quotes, and indexes and day counters taken by name from a convention set. This guide pairs QuantLib's C++
+with nanoql's for the rates products, each pair building the same trade on the same quotes. <a href="../cpp.html">The C++ page</a>
+gives the install, the CMake package and a first program.</p>
+<p>Each QuantLib block below follows <code>#include &lt;ql/quantlib.hpp&gt;</code> and <code>using namespace QuantLib;</code>, each nanoql block
+<code>#include &quot;nanoql.hpp&quot;</code> and <code>using namespace nanoql;</code>, both with <code>#include &lt;cstdio&gt;</code> for <code>std::printf</code>, and each runs in
+<code>main()</code> after the blocks above it.</p>
+<h2 id="the-concepts">The concepts</h2>
+<table>
+<thead>
+<tr>
+<th>QuantLib</th>
+<th>nanoql</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Settings::instance().evaluationDate() = today;</code></td>
+<td><code>EvaluationContext context(today);</code>, passed to each call that reads it</td>
+</tr>
+<tr>
+<td><code>SimpleQuote</code>, <code>Handle&lt;Quote&gt;</code></td>
+<td>a <code>double</code>: a new quote means a new object, built from it</td>
+</tr>
+<tr>
+<td><code>Handle&lt;YieldTermStructure&gt;</code>, <code>RelinkableHandle&lt;YieldTermStructure&gt;</code></td>
+<td>the curve itself, passed where it is used</td>
+</tr>
+<tr>
+<td><code>ext::shared_ptr&lt;T&gt;</code>, <code>ext::make_shared&lt;T&gt;(…)</code></td>
+<td><code>T</code> by value: each object holds a handle to its nanoql object, a copy takes another handle to the same object, and the destructor releases its own</td>
+</tr>
+<tr>
+<td><code>instrument-&gt;setPricingEngine(engine)</code>, then <code>instrument-&gt;NPV()</code></td>
+<td><code>Engine::calculate(instrument, context, …)</code>, returning a results object whose values are <code>std::optional&lt;double&gt;</code></td>
+</tr>
+<tr>
+<td>observers and <code>LazyObject</code></td>
+<td>the application's layer above the library: rebuild on change, or memoize by inputs (<a href="../stateless.html">the stateless design</a>)</td>
+</tr>
+<tr>
+<td><code>index-&gt;addFixing(date, value)</code>, held in a global store</td>
+<td><code>context.fixings().addFixing(index, date, value)</code>, in a new context: <code>context.withFixings(…)</code></td>
+</tr>
+<tr>
+<td><code>ext::make_shared&lt;Euribor6M&gt;(h)</code>, <code>Actual365Fixed()</code>, <code>TARGET()</code></td>
+<td>by name from a convention set: <code>qs.iborIndex(&quot;Euribor6M&quot;, curve)</code>, <code>qs.dayCounter(&quot;Actual365Fixed&quot;)</code>, <code>qs.calendar(&quot;TARGET&quot;)</code>, with <code>ConventionSet qs = ConventionSet::quantLib();</code> (<a href="../conventions.html">conventions as data</a>)</td>
+</tr>
+<tr>
+<td><code>PiecewiseYieldCurve&lt;Discount, LogLinear&gt;</code></td>
+<td><code>PiecewiseLogLinearDiscount</code>, QuantLib-Python's name for it</td>
+</tr>
+<tr>
+<td><code>MakeVanillaSwap(5 * Years, index, 0.025).withNominal(10e6)</code>, converted to the swap</td>
+<td><code>MakeVanillaSwap(Period(5, TimeUnit::Years), index)</code>, then <code>.withFixedRate(0.025)</code>, <code>.withNominal(10e6)</code> and <code>.toVanillaSwap(context)</code></td>
+</tr>
+<tr>
+<td><code>Date(15, October, 2026)</code>, <code>5 * Years</code></td>
+<td><code>Date(15, Month::October, 2026)</code>, <code>Period(5, TimeUnit::Years)</code></td>
+</tr>
+<tr>
+<td><code>QuantLib::Error</code>, from <code>QL_REQUIRE</code></td>
+<td><code>nanoql::error</code>, a <code>std::runtime_error</code> with the C interface's code and the parameter it names</td>
+</tr>
+</tbody>
+</table>
+<h2 id="curves">Curves</h2>
+<pre><code class="lang-cpp">// QuantLib
+Date today(15, October, 2026);
+Settings::instance().evaluationDate() = today;
+
+auto quote = [](Rate r) { return Handle&lt;Quote&gt;(ext::make_shared&lt;SimpleQuote&gt;(r)); };
+
+std::vector&lt;std::pair&lt;Integer, Rate&gt;&gt; swapQuotes = {
+    {2, 0.0225}, {3, 0.0232}, {5, 0.0245}, {7, 0.0256},
+    {10, 0.0270}, {15, 0.0283}, {20, 0.0288}, {30, 0.0285}};
+std::vector&lt;ext::shared_ptr&lt;RateHelper&gt;&gt; helpers = {
+    ext::make_shared&lt;DepositRateHelper&gt;(quote(0.0205), ext::make_shared&lt;Euribor&gt;(3 * Months)),
+    ext::make_shared&lt;DepositRateHelper&gt;(quote(0.0210), ext::make_shared&lt;Euribor6M&gt;()),
+};
+for (auto [years, rate] : swapQuotes) {
+    auto index = ext::make_shared&lt;EuriborSwapIsdaFixA&gt;(years * Years);
+    helpers.push_back(ext::make_shared&lt;SwapRateHelper&gt;(quote(rate), index));
+}
+auto curve = ext::make_shared&lt;PiecewiseYieldCurve&lt;Discount, LogLinear&gt;&gt;(
+    today, helpers, Actual365Fixed());
+Handle&lt;YieldTermStructure&gt; curveHandle(curve);
+</code></pre>
+<pre><code class="lang-cpp">// nanoql
+Date today(15, Month::October, 2026);
+EvaluationContext context(today);
+ConventionSet qs = ConventionSet::quantLib();
+DayCounter actual365 = qs.dayCounter(&quot;Actual365Fixed&quot;);
+
+std::vector&lt;std::pair&lt;int, double&gt;&gt; swapQuotes = {
+    {2, 0.0225}, {3, 0.0232}, {5, 0.0245}, {7, 0.0256},
+    {10, 0.0270}, {15, 0.0283}, {20, 0.0288}, {30, 0.0285}};
+std::vector&lt;BootstrapHelper_YieldTermStructure&gt; helpers = {
+    DepositRateHelper(0.0205, qs.iborIndex(&quot;Euribor&quot;, Period(3, TimeUnit::Months)), context),
+    DepositRateHelper(0.0210, qs.iborIndex(&quot;Euribor6M&quot;), context),
+};
+for (auto [years, rate] : swapQuotes) {
+    SwapIndex index = qs.swapIndex(&quot;EuriborSwapIsdaFixA&quot;, Period(years, TimeUnit::Years));
+    helpers.push_back(SwapRateHelper(rate, index, context));
+}
+PiecewiseLogLinearDiscount curve(today, helpers, actual365, context);
+</code></pre>
+<p>The helpers take their quotes as numbers and the context, the indexes come from the convention set, and the curve is
+passed as itself: there is no handle. The vector holds the helpers as <code>BootstrapHelper_YieldTermStructure</code>, the type the
+curve takes, which <code>RateHelper</code> derives from.</p>
+<h2 id="indexes-and-fixings">Indexes and fixings</h2>
+<pre><code class="lang-cpp">// QuantLib
+auto euribor = ext::make_shared&lt;Euribor6M&gt;(curveHandle);
+Date yesterday = euribor-&gt;fixingCalendar().advance(today, -1, Days);
+euribor-&gt;addFixing(yesterday, 0.0212);
+std::printf(&quot;%.4f\n&quot;, euribor-&gt;fixing(yesterday));  // 0.0212
+</code></pre>
+<pre><code class="lang-cpp">// nanoql
+IborIndex euribor = qs.iborIndex(&quot;Euribor6M&quot;, curve);
+Date yesterday = euribor.fixingCalendar().advance(today, -1, TimeUnit::Days);
+context = context.withFixings(context.fixings().addFixing(euribor, yesterday, 0.0212));
+std::printf(&quot;%.4f\n&quot;, euribor.fixing(yesterday, context));  // 0.0212
+</code></pre>
+<p>QuantLib's fixing goes into a global store every Euribor 6M index reads; nanoql's goes into a new context, which the
+variable now holds and each later call takes.</p>
+<h2 id="vanilla-swaps">Vanilla swaps</h2>
+<pre><code class="lang-cpp">// QuantLib
+auto engine = ext::make_shared&lt;DiscountingSwapEngine&gt;(curveHandle);
+ext::shared_ptr&lt;VanillaSwap&gt; swap = MakeVanillaSwap(5 * Years, euribor, 0.025)
+    .withNominal(10e6)
+    .withPricingEngine(engine);
+std::printf(&quot;%.2f %.6f\n&quot;, swap-&gt;NPV(), swap-&gt;fairRate());  // -23323.32 0.024500
+</code></pre>
+<pre><code class="lang-cpp">// nanoql
+VanillaSwap swap = MakeVanillaSwap(Period(5, TimeUnit::Years), euribor)
+    .withFixedRate(0.025)
+    .withNominal(10e6)
+    .toVanillaSwap(context);
+FixedVsFloatingSwapResults result = DiscountingSwapEngine::calculate(swap, context, curve);
+std::printf(&quot;%.2f %.6f\n&quot;, *result.NPV(), *result.fairRate());  // -23323.32 0.024500
+</code></pre>
+<p>The builder ends in <code>toVanillaSwap(context)</code>, and the engine is a function of the swap, the context and the curve.</p>
+<h2 id="overnight-swaps">Overnight swaps</h2>
+<pre><code class="lang-cpp">// QuantLib
+Handle&lt;YieldTermStructure&gt; flat(
+    ext::make_shared&lt;FlatForward&gt;(today, 0.036, Actual365Fixed()));
+auto sofr = ext::make_shared&lt;Sofr&gt;(flat);
+ext::shared_ptr&lt;OvernightIndexedSwap&gt; ois = MakeOIS(5 * Years, sofr, 0.036)
+    .withNominal(10e6)
+    .withPricingEngine(ext::make_shared&lt;DiscountingSwapEngine&gt;(flat));
+std::printf(&quot;%.2f %.6f\n&quot;, ois-&gt;NPV(), ois-&gt;fairRate());  // 7041.24 0.036154
+</code></pre>
+<pre><code class="lang-cpp">// nanoql
+FlatForward flat(today, 0.036, actual365);
+OvernightIndex sofr = qs.overnightIndex(&quot;Sofr&quot;, flat);
+OvernightIndexedSwap ois = MakeOIS(Period(5, TimeUnit::Years), sofr)
+    .withFixedRate(0.036)
+    .withNominal(10e6)
+    .toOvernightIndexedSwap(context);
+OvernightIndexedSwapResults oisResult =
+    DiscountingSwapEngine::calculate(ois, context, flat);
+std::printf(&quot;%.2f %.6f\n&quot;, *oisResult.NPV(), *oisResult.fairRate());  // 7041.24 0.036154
+</code></pre>
+<h2 id="caps-and-floors">Caps and floors</h2>
+<pre><code class="lang-cpp">// QuantLib
+ext::shared_ptr&lt;CapFloor&gt; cap = MakeCapFloor(CapFloor::Cap, 5 * Years, euribor, 0.025)
+    .withNominal(10e6);
+cap-&gt;setPricingEngine(ext::make_shared&lt;BlackCapFloorEngine&gt;(curveHandle, 0.20));
+std::printf(&quot;%.2f\n&quot;, cap-&gt;NPV());  // 117911.83
+</code></pre>
+<pre><code class="lang-cpp">// nanoql
+CapFloor cap = MakeCapFloor(CapFloorType::Cap, Period(5, TimeUnit::Years), euribor)
+    .withStrike(0.025)
+    .withNominal(10e6)
+    .toCapFloor(context);
+InstrumentResults capResult = BlackCapFloorEngine::calculate(cap, context, curve, 0.20);
+std::printf(&quot;%.2f\n&quot;, *capResult.NPV());  // 117911.83
+</code></pre>
+<h2 id="swaptions">Swaptions</h2>
+<pre><code class="lang-cpp">// QuantLib
+auto swapIndex = ext::make_shared&lt;EuriborSwapIsdaFixA&gt;(5 * Years, curveHandle);
+ext::shared_ptr&lt;Swaption&gt; swaption = MakeSwaption(swapIndex, 1 * Years, 0.025)
+    .withNominal(10e6);
+swaption-&gt;setPricingEngine(ext::make_shared&lt;BlackSwaptionEngine&gt;(curveHandle, 0.20));
+std::printf(&quot;%.2f\n&quot;, swaption-&gt;NPV());  // 111256.85
+</code></pre>
+<pre><code class="lang-cpp">// nanoql
+SwapIndex swapIndex =
+    qs.swapIndex(&quot;EuriborSwapIsdaFixA&quot;, Period(5, TimeUnit::Years), curve);
+Swaption swaption = MakeSwaption(swapIndex, Period(1, TimeUnit::Years), 0.025)
+    .withNominal(10e6)
+    .toSwaption(context);
+InstrumentResults swaptionResult =
+    BlackSwaptionEngine::calculate(swaption, context, curve, 0.20);
+std::printf(&quot;%.2f\n&quot;, *swaptionResult.NPV());  // 111256.85
+</code></pre>
+<p>Each pair prints the same values, shown in its comments. The rates guides show nanoql's for the same trades
+(<a href="../rates/swaps.html">swaps</a>, <a href="../rates/caps-and-floors.html">caps and floors</a>, <a href="../rates/swaptions.html">swaptions</a>), and
+<a href="../getting-started.html">getting started</a> its overnight swap.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

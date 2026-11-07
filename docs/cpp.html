@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>C++ | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="C++ | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="c">C++</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>nanoql's C++ layer, <code>nanoql.hpp</code>, is C++17 over the C interface: objects that release their handles, refusals thrown
+as exceptions, nanoql's type names and QuantLib's member names (<code>curve.discount(5.0)</code>). It ships in each platform's C
+archive, for Windows x64 and Linux x64, with a CMake package. <a href="bindings.html">The bindings guide</a>'s &quot;C and C++&quot; section
+gives its rules: names, objects, values, defaults and overloads, errors. Coming from QuantLib's C++,
+<a href="migration/from-quantlib-cpp.html">the migration guide</a> pairs its code with nanoql's.</p>
+<h2 id="install">Install</h2>
+<p>Unpack the archive for your platform from <a href="https://github.com/nanoql-dev/nanoql/releases/latest">the release</a>,
+<code>nanoql-&lt;version&gt;-win-x64-c-api.zip</code> or <code>nanoql-&lt;version&gt;-linux-x64-c-api.tar.xz</code>. It holds:</p>
+<ul>
+<li><code>include/</code>: <code>nanoql.h</code>, the C interface, and <code>nanoql.hpp</code>, the C++ layer over it;</li>
+<li><code>lib/</code>: the library, <code>nanoql.dll</code> with its import library <code>nanoql.lib</code> on Windows or <code>libnanoql.so</code> on Linux, and
+<code>cmake/nanoql/</code>, the CMake package;</li>
+<li>the notices: <code>LICENSE</code>, <code>NOTICE</code>, <code>THIRD_PARTY_NOTICES.md</code> and the .NET runtime's two, which the library carries.</li>
+</ul>
+<h2 id="cmake">CMake</h2>
+<p>Give CMake the archive's folder and link <code>nanoql::cpp</code>:</p>
+<pre><code class="lang-cmake">cmake_minimum_required(VERSION 3.21)
+project(app CXX)
+find_package(nanoql 2.1 CONFIG REQUIRED)
+add_executable(app main.cpp)
+target_link_libraries(app PRIVATE nanoql::cpp)
+</code></pre>
+<pre><code class="lang-shell">cmake -S . -B build -DCMAKE_PREFIX_PATH=&lt;the archive's folder&gt;
+cmake --build build --config Release
+</code></pre>
+<p><code>nanoql::cpp</code> brings C++17 and <code>nanoql::c</code>, the library and <code>include/</code>; a C program links <code>nanoql::c</code> alone. A
+request for a version takes this release or an earlier one of its major version, as CMake's SameMajorVersion rule
+has it, version ranges included.</p>
+<ul>
+<li><p><strong>Windows:</strong> a program finds <code>nanoql.dll</code> beside it. A copy after the build puts it there:</p>
+<pre><code class="lang-cmake">add_custom_command(TARGET app POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+          $&lt;TARGET_RUNTIME_DLLS:app&gt; $&lt;TARGET_FILE_DIR:app&gt;
+  COMMAND_EXPAND_LISTS)
+</code></pre>
+</li>
+<li><p><strong>Linux:</strong> a program run in its build tree finds <code>libnanoql.so</code> by the run path CMake gives it; one installed or
+copied elsewhere finds it by <code>LD_LIBRARY_PATH</code> or its own run path (<code>$ORIGIN</code>).</p>
+</li>
+</ul>
+<p><code>bindings/cpp/consumer/</code> in the repository is this project, with the program below; CI builds it through each
+platform's archive with MSVC on Windows, and g++ and clang on Linux.</p>
+<h2 id="a-first-program">A first program</h2>
+<pre><code class="lang-cpp">#include &lt;cstdio&gt;
+#include &lt;exception&gt;
+
+#include &quot;nanoql.hpp&quot;
+
+using namespace nanoql;
+
+int main()
+{
+    FlatForward curve(Date(15, Month::March, 2023), 0.03, ConventionSet::quantLib().dayCounter(&quot;Actual365Fixed&quot;));
+    std::printf(&quot;discount(1) = %.6f\n&quot;, curve.discount(1.0));  // 0.970446
+    try {
+        curve.discount(-1.0);
+    } catch (const std::exception&amp; e) {
+        std::printf(&quot;refused: %s\n&quot;, e.what());  // refused: negative time (-1) given
+    }
+}
+</code></pre>
+<p>Each object holds a handle to its nanoql object and releases it when it goes out of scope; <code>liveHandles()</code> counts the
+handles still held. A refusal is <code>nanoql::error</code>, a <code>std::runtime_error</code> with the C interface's code, the parameter it
+names and its type, and under it <code>argument_error</code> and <code>handle_error</code>.</p>
+<h2 id="compile-time">Compile time</h2>
+<p><code>nanoql.hpp</code> declares the whole library, about 98,600 lines. A translation unit that includes it takes about 5 s and
+600 MB with g++ at <code>-O2</code>, so include it in few files, or precompile it:</p>
+<pre><code class="lang-cmake">target_precompile_headers(app PRIVATE &lt;nanoql.hpp&gt;)
+</code></pre>
+<h2 id="versions">Versions</h2>
+<p>A release's header works with that release's library. A program that loads a library installed apart from its header
+checks <code>nql_abi_version() == NQL_ABI_VERSION</code> first. A minor release adds to the stable API and removes only what was
+deprecated two releases and a year before, which the header marks <code>[[deprecated]]</code> meanwhile; the guide's
+<a href="bindings.html#versions">Versions</a> gives the rule. A new overload can make a call that compiled ambiguous, as in any C++
+library; naming the argument's type settles it.</p>
+<h2 id="the-experimental-api">The experimental API</h2>
+<p>Define <code>NANOQL_EXPERIMENTAL</code> before including the header, or with <code>target_compile_definitions(app PRIVATE NANOQL_EXPERIMENTAL)</code>, to declare the experimental API beside the stable one. It may change in any release.</p>
+<h2 id="a-library-of-your-own">A library of your own</h2>
+<p><a href="https://www.nuget.org/packages/NanoQL.Bind"><code>nanoql-bind</code></a> builds a library holding nanoql's functions and an assembly
+of yours, and writes its headers beside nanoql's: <code>acme.h</code> and <code>acme.hpp</code>, whose classes extend nanoql's
+(<code>acme::ExponentialCurve</code> is a <code>nanoql::YieldTermStructure</code>). Its README gives the commands.</p>
+<h2 id="without-the-c-layer">Without the C++ layer</h2>
+<p>C++ can include <code>nanoql.h</code> as it is, its declarations in <code>extern &quot;C&quot;</code>, and call the C interface directly: the guide's
+&quot;The C ABI&quot; gives its handles, status codes and values.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

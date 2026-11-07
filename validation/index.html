@@ -97,15 +97,15 @@
 QLNet's additions against QLNet 1.13.2. Each output agrees within a relative 1e-10 of the larger of the two values and
 the output's scale (an amount's is its notional), except 4,854 (0.14%) held to a documented looser tolerance.</li>
 <li><strong>The tests:</strong> QuantLib's own tests, ported at QuantLib's tolerances.</li>
-<li><strong>The types:</strong> 2,281 of the 2,282 public types with executable code are run by a QuantLib-checked test, QLNet's
+<li><strong>The types:</strong> 2,265 of the 2,266 public types with executable code are run by a QuantLib-checked test, QLNet's
 additions by a QLNet-checked one. The one apart, <code>FactorReductionFunctions</code>, every output of which is QuantLib's
-defect fixed, is checked by its own tests. 303 more are listed apart, 291 with no executable code and 12 own-tested
-(six of them extensions, five experimental and one a term structure), and three are equality-only. 89.5% of the ported
+defect fixed, is checked by its own tests. 319 more are listed apart, 291 with no executable code and 28 own-tested
+(22 of them extensions, five experimental and one a term structure), and three are equality-only. 89.0% of the ported
 lines are covered.</li>
 <li><strong>The divergences:</strong> 736 documented divergences, 720 from QuantLib and 16 from QLNet, each with its own test class.</li>
 </ul>
-<p>Measured on commit <code>6461aee843ea0409e15938442f079d841161c810</code>: 8,605 tests, every one passing, and 60,928 vector cases.</p>
-<p>These pages are built from commit <code>b7f535b</code>, whose library code and vectors' counts are the same as the measured commit's.</p>
+<p>Measured on commit <code>5a78388ee7aa49ca3b29c41406e2fd12f7fc8d1a</code>: 8,622 tests, every one passing, and 60,928 vector cases.</p>
+<p>These pages are built from commit <code>d8e29cc</code>, whose library code and vectors' counts are the same as the measured commit's.</p>
 <h2 id="by-module">By module</h2>
 <table>
 <thead>
@@ -153,11 +153,11 @@ lines are covered.</li>
 </tr>
 <tr>
 <td><code>NanoQL.Extensions</code></td>
-<td style="text-align: right;">61/61</td>
-<td style="text-align: right;">2,364/4,705 (50.2%)</td>
+<td style="text-align: right;">45/45</td>
+<td style="text-align: right;">1,894/4,705 (40.3%)</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">22</td>
 </tr>
 <tr>
 <td><code>NanoQL.Indexes</code></td>
@@ -186,7 +186,7 @@ lines are covered.</li>
 <tr>
 <td><code>NanoQL.Models</code></td>
 <td style="text-align: right;">194/194</td>
-<td style="text-align: right;">9,984/11,005 (90.7%)</td>
+<td style="text-align: right;">9,995/11,005 (90.8%)</td>
 <td style="text-align: right;">23</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -234,7 +234,7 @@ lines are covered.</li>
 <tr>
 <td><code>NanoQL.Time</code></td>
 <td style="text-align: right;">83/83</td>
-<td style="text-align: right;">7,166/7,381 (97.1%)</td>
+<td style="text-align: right;">7,163/7,381 (97.0%)</td>
 <td style="text-align: right;">50</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -266,7 +266,7 @@ lines are covered.</li>
 <h3 id="nanoqlextensions"><code>NanoQL.Extensions</code></h3>
 <ul>
 <li><strong>No executable lines:</strong> ConventionKind (enum), ConventionOrigin (record), ForeignAttribute (record), IborFamilyUnit (record), IborIndexStyle (enum), AmortizingMethod (enum), IPrepayModel (interface)</li>
-<li><strong>Own-tested:</strong> BespokeCalendarRecord (own-tested: Extensions/ConventionsXmlTests.cs), ConventionProvenance (own-tested: Extensions/ConventionSetTests.cs), ConventionRecords (own-tested: Extensions/ConventionRecordsTests.cs), DayCounterRecord (own-tested: Extensions/ConventionsXmlTests.cs), JointCalendarRecord (own-tested: Extensions/ConventionsXmlTests.cs), OvernightIndexedSwapIndexRecord (own-tested: Extensions/IndexSetTests.cs)</li>
+<li><strong>Own-tested:</strong> BespokeCalendarRecord (own-tested: Extensions/ConventionsXmlTests.cs), CalendarRecord (own-tested: Extensions/ConventionsXmlTests.cs), CommodityIndexRecord (own-tested: Extensions/CommoditySetTests.cs), CommodityTypeRecord (own-tested: Extensions/CommoditySetTests.cs), ConventionProvenance (own-tested: Extensions/ConventionSetTests.cs), ConventionRecords (own-tested: Extensions/ConventionRecordsTests.cs), CrossCurrencyBasisSwapConvention (own-tested: Extensions/InstrumentSetTests.cs), CrossCurrencyBasisSwapConventionRecord (own-tested: Extensions/InstrumentSetTests.cs), CrossCurrencySwapConvention (own-tested: Extensions/InstrumentSetTests.cs), CrossCurrencySwapConventionRecord (own-tested: Extensions/InstrumentSetTests.cs), DayCounterRecord (own-tested: Extensions/ConventionsXmlTests.cs), FxSwapConvention (own-tested: Extensions/InstrumentSetTests.cs), FxSwapConventionRecord (own-tested: Extensions/InstrumentSetTests.cs), JointCalendarRecord (own-tested: Extensions/ConventionsXmlTests.cs), OvernightIndexedSwapIndexRecord (own-tested: Extensions/IndexSetTests.cs), PaymentTermRecord (own-tested: Extensions/CommoditySetTests.cs), ScheduleConvention (own-tested: Extensions/InstrumentSetTests.cs), ScheduleConventionRecord (own-tested: Extensions/InstrumentSetTests.cs), YearOnYearInflationSwapConvention (own-tested: Extensions/InstrumentSetTests.cs), YearOnYearInflationSwapConventionRecord (own-tested: Extensions/InstrumentSetTests.cs), ZeroCouponInflationSwapConvention (own-tested: Extensions/InstrumentSetTests.cs), ZeroCouponInflationSwapConventionRecord (own-tested: Extensions/InstrumentSetTests.cs)</li>
 </ul>
 <h3 id="nanoqlindexes"><code>NanoQL.Indexes</code></h3>
 <ul>
