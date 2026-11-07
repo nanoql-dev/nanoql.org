@@ -5,8 +5,18 @@
       <title>Getting started | nanoql </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Getting started | nanoql ">
-      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Quantitative finance for C#, Python, C++ and Excel, stateless by design: every pricer is a plain function of its inputs, and market conventions are data.">
       
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="nanoql">
+      <meta property="og:title" content="Getting started">
+      
+      <meta property="og:description" content="Quantitative finance for C#, Python, C++ and Excel, stateless by design: every pricer is a plain function of its inputs, and market conventions are data.">
+      <meta property="og:image" content="https://nanoql.org/brand/nanoql-card.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="nanoql: quantitative finance, stateless by design. C#, Python, C++ and Excel.">
+      <meta name="twitter:card" content="summary_large_image">
       <link rel="icon" href="../brand/favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -91,7 +101,8 @@
   SPDX-License-Identifier: Apache-2.0
 -->
 
-<p>nanoql is a .NET 10 library. Add its package to a project:</p>
+<p>nanoql is a .NET 10 library, and Python, C and C++ reach it through its C interface (<a href="#in-python">in Python</a> below).
+From C#, add its package to a project:</p>
 <pre><code class="lang-shell">dotnet add package NanoQL
 </code></pre>
 <p>The conventions' XML format and QLNet's additions are in a second package, <code>NanoQL.Extensions</code>
@@ -131,8 +142,30 @@ payments, and two settlement days. <code>DiscountingSwapEngine.Calculate</code> 
 and each leg's <code>LegNPV</code> and <code>LegBPS</code> are read like any other property. The same inputs give the same results, on
 any thread.</p>
 <h2 id="in-python">In Python</h2>
-<p>The same swap, a bootstrapped SOFR curve, €STR and Euribor curves with their swaps, a SABR smile, an American put
-and a CDS run in Python in
+<pre><code class="lang-shell">pip install nanoql
+</code></pre>
+<p>It needs Python 3.11 or later, on Windows x64 or Linux x64, and no .NET runtime
+(<a href="faq.html#which-platforms-does-nanoql-run-on">which platforms</a>). The same swap:</p>
+<pre><code class="lang-python">import datetime
+
+from nanoql import ConventionSet, DiscountingSwapEngine, EvaluationContext, FlatForward, MakeOIS, Period, TimeUnit
+
+today = datetime.date(2026, 10, 15)
+context = EvaluationContext(today)
+qs = ConventionSet.quant_lib()
+curve = FlatForward(today, 0.036, qs.day_counter(&quot;Actual365Fixed&quot;))
+
+swap = (MakeOIS(Period(5, TimeUnit.Years), qs.overnight_index(&quot;Sofr&quot;, curve))
+        .with_fixed_rate(0.036).with_nominal(10e6)
+        .to_overnight_indexed_swap(context))
+
+result = DiscountingSwapEngine.calculate(swap, context, curve)
+print(f&quot;NPV {result.npv:,.2f}, fair rate {result.fair_rate:.4%}&quot;)
+</code></pre>
+<p>It prints <code>NPV 7,041.24, fair rate 3.6154%</code>, the C# example's results. In Python a preset such as SOFR or
+Actual/365 (Fixed) comes from <code>ConventionSet.quant_lib()</code> by name, where C# constructs its class.</p>
+<p>That swap, a bootstrapped SOFR curve, €STR and Euribor curves with their swaps, a SABR smile, an American put and a
+CDS run in
 <a href="https://colab.research.google.com/github/nanoql-dev/nanoql/blob/main/docs/notebooks/first-steps.ipynb">a notebook you can open in Google Colab</a>, with nothing to install;
 locally, <code>pip install nanoql jupyter matplotlib</code> runs it. <a href="bindings.html">The bindings guide</a> gives the Python layer's rules.</p>
 <h2 id="next">Next</h2>

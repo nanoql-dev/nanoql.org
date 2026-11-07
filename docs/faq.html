@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>FAQ | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="FAQ | nanoql ">
+      <meta name="description" content="Quantitative finance for C#, Python, C++ and Excel, stateless by design: every pricer is a plain function of its inputs, and market conventions are data.">
+      
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="nanoql">
+      <meta property="og:title" content="FAQ">
+      
+      <meta property="og:description" content="Quantitative finance for C#, Python, C++ and Excel, stateless by design: every pricer is a plain function of its inputs, and market conventions are data.">
+      <meta property="og:image" content="https://nanoql.org/brand/nanoql-card.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="nanoql: quantitative finance, stateless by design. C#, Python, C++ and Excel.">
+      <meta name="twitter:card" content="summary_large_image">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="faq">FAQ</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<h2 id="which-platforms-does-nanoql-run-on">Which platforms does nanoql run on?</h2>
+<ul>
+<li><strong>The .NET library:</strong> wherever .NET 10 runs, on Windows, Linux and macOS. Windows x64 is the validated platform. On
+Linux and macOS the C runtime's maths functions round some last bits differently, and a calculation that magnifies
+them moves further: dozens of tests fall outside their tolerances there, a calibration by about 1e-7 relative. Each
+release's notes count them (<a href="https://github.com/nanoql-dev/nanoql/issues/21">issue #21</a>).</li>
+<li><strong>Python, C and C++:</strong> Windows x64 and Linux x64 (glibc 2.28 or later). macOS on Apple silicon follows in a later
+release, and Linux Arm64 may too (<a href="https://github.com/nanoql-dev/nanoql/issues/19">issue #19</a>). Windows Arm64 and
+Intel Macs have none planned.</li>
+<li><strong>Excel:</strong> 64-bit Excel for Microsoft 365 on Windows x64, with the .NET 10 Desktop Runtime (<a href="excel.html">the add-in</a>).</li>
+</ul>
+<h2 id="why-does-pip-install-nanoql-find-no-version">Why does <code>pip install nanoql</code> find no version?</h2>
+<p>pip installs nanoql from a wheel, and the wheels are for Windows x64 and Linux x64 (glibc 2.28 or later). On macOS,
+on Linux Arm64, on Linux with musl (Alpine) or with a glibc older than 2.28, or with a native Arm64 Python on Windows,
+pip finds none and reports &quot;No matching distribution found for nanoql&quot;. On Windows x64 or Linux x64 with Python older
+than 3.11, it first names the versions it skipped, each needing 3.11 or later.</p>
+<p>Wheels for macOS on Apple silicon follow, and Linux Arm64's may too
+(<a href="https://github.com/nanoql-dev/nanoql/issues/19">issue #19</a>). Until then, or on a platform with none planned, you have
+two options:</p>
+<ul>
+<li>run <a href="https://colab.research.google.com/github/nanoql-dev/nanoql/blob/main/docs/notebooks/first-steps.ipynb">the notebook</a>
+in Google Colab, in the browser;</li>
+<li>use the .NET library, which runs wherever .NET 10 does.</li>
+</ul>
+<h2 id="does-the-python-package-need-net">Does the Python package need .NET?</h2>
+<p>No. The wheel holds nanoql compiled to native code, behind its C interface, so <code>pip install nanoql</code> is all it takes.
+<a href="bindings.html">The bindings guide</a> gives the Python layer's rules.</p>
+<h2 id="which-net-versions-does-it-support">Which .NET versions does it support?</h2>
+<p>nanoql needs .NET 10 or later. It uses static abstract interface members, which .NET Framework can't run, so it has no
+.NET Framework or .NET Standard build. A project on .NET Framework moves to .NET 10 first
+(<a href="migration/from-qlnet.html">from QLNet</a>).</p>
+<h2 id="how-does-nanoql-relate-to-quantlib">How does nanoql relate to QuantLib?</h2>
+<p>nanoql is derived from QuantLib 1.44. It has QuantLib's classes, names and mathematics, and its results are checked
+against QuantLib's (<a href="checking.html">how nanoql is checked</a>). Its design differs: nothing observes anything else, there
+are no handles or lazy objects, and the evaluation date is an argument, not a global setting
+(<a href="concepts.html">concepts</a>). Where nanoql's results depart from QuantLib's, usually where a QuantLib defect is fixed, the
+departure is documented with its own test (<a href="divergences.html">divergences</a>).</p>
+<p>nanoql is an independent project: the QuantLib project isn't affiliated with it and doesn't endorse it. Guides for
+moving code over: <a href="migration/from-quantlib-cpp.html">from QuantLib's C++</a>,
+<a href="migration/from-quantlib-python.html">from QuantLib-Python</a> and <a href="migration/from-qlnet.html">from QLNet</a>.</p>
+<h2 id="which-licence-is-it-under">Which licence is it under?</h2>
+<p>nanoql is under the Apache License 2.0. It is derived from QuantLib, under QuantLib's modified BSD licence, and ports
+parts of Boost's maths, under the Boost Software License 1.0. Its extensions port parts of QLNet, under the BSD
+3-Clause licence, and its conventions files carry codes from FpML's coding schemes, under the FpML Public License 3.0.
+<a href="https://github.com/nanoql-dev/nanoql/blob/13f83205ee73f68ba7c52422c5e1ea91fde76e64/THIRD_PARTY_NOTICES.md">THIRD_PARTY_NOTICES.md</a> holds the notices of nanoql's sources, among them those of the
+third-party code that QuantLib itself carries. The wheels and the C archives add .NET's, whose runtime is compiled
+into the library, and the add-in's zip adds Excel-DNA's and .NET's. <a href="https://github.com/nanoql-dev/nanoql/blob/13f83205ee73f68ba7c52422c5e1ea91fde76e64/NOTICE">NOTICE</a> is nanoql's own.</p>
+<h2 id="is-the-api-stable">Is the API stable?</h2>
+<p>A version is major and minor, with a third part only for a fix (2.0.1). A minor release adds to the API, and the
+stable API is removed or changed only where it was deprecated at least two releases and a year before.</p>
+<p>The experimental API is the exception: the types ported from QuantLib's experimental folder, and the types and
+members nanoql adds as experimental. It may change in any release, its released names are never reused, and the
+compiler flags its use (<a href="concepts.html#experimental-code">experimental code</a>). Each release's changes are in
+<a href="https://github.com/nanoql-dev/nanoql/blob/13f83205ee73f68ba7c52422c5e1ea91fde76e64/CHANGELOG.md">CHANGELOG.md</a>.</p>
+<h2 id="why-does-excel-disable-the-add-in">Why does Excel disable the add-in?</h2>
+<p>The add-ins are unsigned. An Excel set to require add-ins signed by a trusted publisher, which group policy often
+sets, disables an unsigned <code>.xll</code> without asking. A firm that enforces it signs the <code>.xll</code> with its own code-signing
+certificate. Excel also blocks an add-in downloaded from the internet, signed or not, until it is unblocked
+(<a href="excel.html#installing">installing the add-in</a>).</p>
+<h2 id="where-do-i-ask-a-question-or-report-a-bug">Where do I ask a question or report a bug?</h2>
+<ul>
+<li><strong>Questions and ideas:</strong> <a href="https://github.com/nanoql-dev/nanoql/discussions">GitHub Discussions</a>.</li>
+<li><strong>Bugs:</strong> an <a href="https://github.com/nanoql-dev/nanoql/issues/new/choose">issue</a>. The bug template asks for the result
+you got and the one you expected, the smallest code that shows it, and QuantLib's result if you have it. A wrong
+numerical result is a bug.</li>
+<li><strong>Security:</strong> privately, as <a href="https://github.com/nanoql-dev/nanoql/blob/13f83205ee73f68ba7c52422c5e1ea91fde76e64/SECURITY.md">SECURITY.md</a> says, never in a public issue.</li>
+</ul>
+<p>Fixes go into the latest 2.x release.</p>
+<h2 id="can-i-contribute">Can I contribute?</h2>
+<p>Yes. <a href="https://github.com/nanoql-dev/nanoql/blob/13f83205ee73f68ba7c52422c5e1ea91fde76e64/CONTRIBUTING.md">CONTRIBUTING.md</a> gives the faithfulness rule, how a change gets in, and the checks you can
+run yourself. Commits are signed off under the Developer Certificate of Origin.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

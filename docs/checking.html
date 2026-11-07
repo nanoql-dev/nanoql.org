@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>How nanoql is checked | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="How nanoql is checked | nanoql ">
+      <meta name="description" content="Quantitative finance for C#, Python, C++ and Excel, stateless by design: every pricer is a plain function of its inputs, and market conventions are data.">
+      
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="nanoql">
+      <meta property="og:title" content="How nanoql is checked">
+      
+      <meta property="og:description" content="Quantitative finance for C#, Python, C++ and Excel, stateless by design: every pricer is a plain function of its inputs, and market conventions are data.">
+      <meta property="og:image" content="https://nanoql.org/brand/nanoql-card.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="nanoql: quantitative finance, stateless by design. C#, Python, C++ and Excel.">
+      <meta name="twitter:card" content="summary_large_image">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../validation/toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="how-nanoql-is-checked">How nanoql is checked</h1>
+<!--
+  SPDX-FileCopyrightText: 2026 The nanoql Authors
+  SPDX-License-Identifier: Apache-2.0
+-->
+
+<p>nanoql's results are checked against QuantLib 1.44's own on every change.
+<a href="https://nanoql.org/validation/">The validation report</a> gives the figures; this page explains how they are measured.</p>
+<h2 id="the-references">The references</h2>
+<ul>
+<li><strong>QuantLib's test suite.</strong> For each class nanoql ports, the cases from QuantLib's <code>test-suite/</code> are ported with
+their expected values and their tolerances.</li>
+<li><strong>Vectors from QuantLib's Python package.</strong> One generator per QuantLib source file, a Python script under
+<code>tools/vectors/gen/</code>, builds cases through QuantLib-Python 1.44 with a fixed seed. It writes each case's inputs and
+QuantLib's outputs to a JSON file under <code>tests/vectors/</code>, and nanoql's tests read the same inputs and compare every
+output. Each case sets its evaluation date and QuantLib's global settings explicitly, so a vector doesn't depend on
+the day it was made. A case where QuantLib refuses its inputs is a vector too, and nanoql must refuse them as well,
+unless it fixes the refusal as a departure (below).</li>
+<li><strong>Vectors from QuantLib built from source.</strong> Some classes and members aren't exposed by the Python package. For
+these, a C++ harness answers the generators' calls: QuantLib 1.44 built from its own sources, with the compiler and
+build options the Python package uses. The harness carries a digest of its own sources and refuses to run against
+any other QuantLib, Boost or compiler. Some of its vectors have twins from the Python package, which must agree, so
+the harness is itself checked.</li>
+<li><strong>QLNet's package,</strong> for the parts of QLNet that nanoql's extensions port: vectors from nuget.org's QLNet 1.13.2.</li>
+</ul>
+<h2 id="the-tolerance">The tolerance</h2>
+<p>An output passes when |a − b| ≤ 1e-10 × max(|a|, |b|, scale):</p>
+<ul>
+<li>the scale is 1 for a rate, a discount factor or a year fraction;</li>
+<li>for an amount, the scale is its notional, so an NPV on $10 million agrees within $0.001;</li>
+<li>for a basis-point value, the scale is the notional × 1e-4.</li>
+</ul>
+<p>Integers, dates, booleans and names compare exactly. An output may have a looser tolerance only with a recorded reason
+that names the measured cause; the validation report counts them.</p>
+<p>nanoql's outputs needn't match QuantLib's bit for bit. .NET's mathematical functions and the C runtime's, <code>pow</code> and
+<code>hypot</code> among them, can differ in the last bit, and a long calculation carries the difference along. Where a
+calculation magnifies it (a second difference, a gradient by differences, an ill-conditioned fit), the output's
+bound is set at least ten times above the largest difference measured on Windows, Linux and macOS, with its reason.</p>
+<p>A calibration's parameters can move more than its inputs do. So a calibrated output is recorded only where QuantLib's
+own value holds, within 1e-12, when every input moves one unit in its last place, up and then down. The outputs left
+out are checked by QuantLib's ported tests, at QuantLib's tolerances.</p>
+<h2 id="every-public-types-code-is-run">Every public type's code is run</h2>
+<p>A coverage check runs the tests whose expected values come from QuantLib, or from QLNet for its additions. Every public
+type with executable code must have lines those tests run. The report lists every exception by name:</p>
+<ul>
+<li>the types with no executable code (enums, interfaces, results records);</li>
+<li>the types whose only code is the equality nanoql adds, each with its own test of it;</li>
+<li>the few checked by their own tests, each with its reason.</li>
+</ul>
+<p>It gives line coverage per module, with no threshold.</p>
+<h2 id="every-departure-is-a-test">Every departure is a test</h2>
+<p>When porting finds a defect in QuantLib, nanoql usually fixes it, so the result departs from QuantLib's. Each such
+departure has its own test class under <code>tests/NanoQL.Tests/Divergences/</code>. The class states QuantLib's value, as
+measured, nanoql's value and the reason. <a href="divergences.html">The divergences page</a> is generated from those classes, one
+entry each, and a check fails if the page and the tests disagree.</p>
+<h2 id="reproducible-and-traceable">Reproducible and traceable</h2>
+<ul>
+<li><strong>The vectors are committed,</strong> so the tests need neither Python nor QuantLib. Rerun in their pinned environment
+(Python 3.12 on Windows x64, every package pinned by its hash), the generators reproduce the committed files byte for
+byte. A change to a generator is checked by rerunning it.</li>
+<li><strong>Each ported file names its source:</strong> the file it was ported from, QuantLib's, Boost's or QLNet's, and the release.
+A check confirms that the path exists at that release's tag, and that the file carries the source's copyright lines
+word for word.</li>
+</ul>
+<h2 id="the-other-languages">The other languages</h2>
+<p>The Python, C and C++ layers call one C interface over nanoql compiled to native code. A recorder runs the vector
+suite in C# and records each call the tests make into nanoql as a call to the matching C function, with its arguments
+and its result. Each language's replayer then makes the same calls through its own layer and compares every result
+with C#'s, bit for bit on Windows x64. Each layer also has its own conformance suite. The Excel add-in's suite runs
+inside Excel before each release.</p>
+<h2 id="every-change-and-every-release">Every change and every release</h2>
+<ul>
+<li><strong>Every change:</strong> the build, the tests and the vectors run on Windows, Linux and macOS. Windows x64 must pass; Linux
+and macOS report their differences.</li>
+<li><strong>Every release:</strong> the release is built from one commit, and a failure on Windows x64 stops it. The release notes
+count the test differences on Linux and macOS. The SOFR example's trades (<a href="sofr-example.html">the example</a>) are priced
+again by an independent pricer, each within $0.01 on $10 million. Once the packages are published, each is
+installed from its registry and checked.</li>
+<li><strong>Every week:</strong> <a href="https://colab.research.google.com/github/nanoql-dev/nanoql/blob/main/docs/notebooks/first-steps.ipynb">the Python notebook</a>
+runs against the latest release on PyPI.</li>
+</ul>
+<h2 id="running-the-checks-yourself">Running the checks yourself</h2>
+<p><code>dotnet test --solution NanoQL.slnx -c Release</code> runs the tests and the vectors, and
+<code>python -I tools/vectors/agree.py</code> checks the twins. <a href="https://github.com/nanoql-dev/nanoql/blob/13f83205ee73f68ba7c52422c5e1ea91fde76e64/CONTRIBUTING.md#running-the-gates-yourself">CONTRIBUTING.md</a>
+lists the rest: the licence and source checks, and rerunning a generator.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -5,8 +5,18 @@
       <title>Concepts | nanoql </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Concepts | nanoql ">
-      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="Quantitative finance for C#, Python, C++ and Excel, stateless by design: every pricer is a plain function of its inputs, and market conventions are data.">
       
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="nanoql">
+      <meta property="og:title" content="Concepts">
+      
+      <meta property="og:description" content="Quantitative finance for C#, Python, C++ and Excel, stateless by design: every pricer is a plain function of its inputs, and market conventions are data.">
+      <meta property="og:image" content="https://nanoql.org/brand/nanoql-card.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="nanoql: quantitative finance, stateless by design. C#, Python, C++ and Excel.">
+      <meta name="twitter:card" content="summary_large_image">
       <link rel="icon" href="../brand/favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -195,8 +205,10 @@ prices, so a price doesn't depend on when or where it runs.</p>
 <p>nanoql fixes QuantLib's defects where it finds them, and a few of its design choices give different results. Each
 departure is a documented divergence, with the test that asserts it: <a href="divergences.html">divergences.md</a> lists them.</p>
 <h2 id="experimental-code">Experimental code</h2>
-<p>The types ported from QuantLib's experimental folder carry <code>[Experimental(&quot;NQL0001&quot;)]</code>: the compiler reports NQL0001
-where code uses them, until a project opts in with <code>&lt;NoWarn&gt;$(NoWarn);NQL0001&lt;/NoWarn&gt;</code>.</p>
+<p>The types ported from QuantLib's experimental folder carry <code>[Experimental(&quot;NQL0001&quot;)]</code>, and so do the types and members
+nanoql adds as experimental: the compiler reports NQL0001 where code uses them, until a project opts in with
+<code>&lt;NoWarn&gt;$(NoWarn);NQL0001&lt;/NoWarn&gt;</code>. The experimental API may change in any release, and its released names are never
+reused.</p>
 <h2 id="deriving-your-own-types">Deriving your own types</h2>
 <p>The public bases QuantLib's hierarchy derives from, abstract or unsealed, are the extension points: term structures,
 stochastic processes, volatility structures, calendars, day counters, cash flows, coupons, instruments and more. A
