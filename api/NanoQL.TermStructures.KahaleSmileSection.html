@@ -192,14 +192,30 @@ within 1e-8 of its ends' prices, relative, is QuantLib's, solved and evaluated a
 anchored solve can't fit fails as QuantLib's unsolved one, its right point removed.
 </p>
 <p>
-One of QuantLib's defects is kept. With interpolation, a segment's slope is found by a Brent search that stops once
-its bracket is narrow (<code>kahalesmilesection.cpp:151-155</code>, <code>brent.hpp:87-90</code>), so it can end at a sign
-change of the segment's mismatch that isn't a root. The segment it accepts then misses its right end's price, and
-the section's price jumps there, an arbitrage: on a lognormal SABR smile (a forward of 5% for a year, α 0.3, β 1,
-ν 0.3, ρ −0.3) the call is 0.000330 just below a strike of 7.5% and 0.000646 at it, as QuantLib's is. Rejecting such
-a segment as unsolved removes the jump, but its grid point is then removed, as an unsolved segment's is, so the core
-shrinks, and on many such smiles the section misses the source by more or can't be built. Without interpolation,
-the default, no segment is fitted and the core keeps the source's prices.
+And with interpolation, a segment whose fit misses its right end's price is refitted
+(<code>Divergences/KahaleMissedSegmentTests.cs</code>). QuantLib's fit solves for the segment's slope a by a Brent search
+(<code>kahalesmilesection.cpp:151-155</code>), but a forms the law's tails at the segment's ends, N(d₂(k₀)) = a − c′₀ and
+N(d₂(k₁)) = a − c′₁, by subtraction, so where the root's lognormal law puts less than about 1e-16 of its mass beyond
+an end, adjacent doubles of a skip over the root and the search's bracket closes on a non-root
+(<code>brent.hpp:87-90</code>). The segment then misses its right end's price and the section jumps there, an arbitrage:
+on a lognormal SABR smile (a forward of 5% for a year, α 0.3, β 1, ν 0.3, ρ −0.3) QuantLib's call a millionth of the
+forward below a strike of 7.5% is 0.000326 against 0.000646 at it. A fitted segment that misses its right end by
+more than 1e-8 of the price, QuantLib's own test's tolerance, and its evaluation's rounding is solved again to the
+same ends and slopes on the law's tail parameter u, its mass below k₀ (1 − Δ)·σ(u) and above k₁ (1 − Δ)·σ(−u), Δ =
+c′₁ − c′₀ and σ the logistic function, so that every member of the family is reachable, and evaluated without the
+law's forward, its first moment on the segment through Mills' ratios where the forward would overflow. A refit keeps
+QuantLib's ends and slopes, so nothing else in the section moves; a segment no refit fits fails as QuantLib's
+unsolved one, its right point removed. Without interpolation, the default, no segment is fitted and the core keeps
+the source's prices.
+</p>
+<p>
+Two of QuantLib's limits are kept. Where a segment's solve fails, its right point is removed, as QuantLib's is, which
+can leave one segment over most of the core (on the smile above, from 1% to 150% of the forward) far from the source;
+the same refit would fit most such segments, but a rescued segment far out in a wing carries QuantLib's
+averaged-secant slopes over a wide interval and can stray from the source further than QuantLib's Black wing does.
+And the left wing's fit can run its forward to 10⁵ to 10⁷ times the section's, its constant near minus that, so its
+prices step by an ulp of that forward, a few calls falling below their intrinsic value by about 1e-11; anchoring it
+at its right end would move the core through QuantLib's wing check, which reads the wing's digital.
 </p>
 <p>
 QuantLib's public helper structs (<code>cFunction</code> and the three solvers' functions) are the fit's internals here.

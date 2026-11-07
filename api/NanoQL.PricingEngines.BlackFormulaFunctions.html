@@ -824,7 +824,7 @@ the vega is this derivative times √T.</p>
     <dd><p>A parameter, or the payoff's strike, is out of its domain.</p>
 </dd>
     <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
-    <dd><p>The price comes out negative.</p>
+    <dd><p>The price comes out negative beyond rounding, or NaN.</p>
 </dd>
   </dl>
 
@@ -881,6 +881,14 @@ displacement is given.</p>
 
 
 
+  <h4 class="section" id="NanoQL_PricingEngines_BlackFormulaFunctions_BlackFormula_NanoQL_OptionType_System_Double_System_Double_System_Double_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A negative result within 16·ε·D·max(F, K) of zero, D the discount and F and K the forward and the strike
+displaced, is the formula's rounding residue and returns 0, where QuantLib's check refuses it (&quot;negative value&quot;):
+the price is never negative on the inputs the formula accepts, and the residue is at most 5.875·ε·D·max(F, K),
+where its two arguments straddle the normal distribution's switch to its asymptotic series
+(<code>Divergences/BlackFormulaResidueTests.cs</code>). A larger negative, a negative where the bound's scale
+16·ε·D·max(F, K) overflows, and NaN still refuse, with QuantLib's text.</p>
+</div>
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
@@ -891,7 +899,7 @@ displacement is given.</p>
     <dd><p><code class="paramref">optionType</code> isn't a member of its type.</p>
 </dd>
     <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
-    <dd><p>The price comes out negative.</p>
+    <dd><p>The price comes out negative beyond rounding, or NaN.</p>
 </dd>
   </dl>
 

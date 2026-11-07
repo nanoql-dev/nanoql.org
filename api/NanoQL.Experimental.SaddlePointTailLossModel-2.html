@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class SaddlePointTailLossModel&lt;TCopula, TInitTraits&gt; | nanoql </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SaddlePointTailLossModel&lt;TCopula, TInitTraits&gt; | nanoql ">
+      <meta name="description" content="Quantitative finance for .NET, stateless by design.">
+      <meta name="description" content="The saddle-point loss model with its expected tranche loss read from its own tail: the probability of losing each amount in the tranche or more, , integrated over the tranche, where the base reads the tranche of the conditional expected loss, a large-pool reading.">
+      <link rel="icon" href="../brand/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../brand/nanoql-wordmark-light.svg" alt="nanoql">
+            nanoql
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoQL.Experimental.SaddlePointTailLossModel`2">
+
+
+
+  <h1 id="NanoQL_Experimental_SaddlePointTailLossModel_2" data-uid="NanoQL.Experimental.SaddlePointTailLossModel`2" class="text-break">
+Class SaddlePointTailLossModel&lt;TCopula, TInitTraits&gt;  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoQL.html">NanoQL</a>.<a class="xref" href="NanoQL.Experimental.html">Experimental</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NanoQL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The saddle-point loss model with its expected tranche loss read from its own tail: the probability of losing each
+amount in the tranche or more, <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ProbOverPortfLoss_NanoQL_Time_Date_System_Double_">ProbOverPortfLoss(Date, double)</a>,
+integrated over the tranche, where the base reads the tranche of the conditional expected loss, a large-pool reading.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Experimental(&quot;NQL0001&quot;)]
+public class SaddlePointTailLossModel&lt;TCopula, TInitTraits&gt; : SaddlePointLossModel&lt;TCopula, TInitTraits&gt;, IDefaultLossModel where TCopula : struct, ICopulaPolicy&lt;TCopula, TInitTraits&gt; where TInitTraits : struct</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TCopula</code></dt>
+    <dd><p>The copula policy.</p>
+</dd>
+    <dt><code>TInitTraits</code></dt>
+    <dd><p>The copula's initialization traits.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.DefaultLossModel.html">DefaultLossModel</a></div>
+      <div><a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html">SaddlePointLossModel</a>&lt;TCopula, TInitTraits&gt;</div>
+      <div><span class="xref">SaddlePointTailLossModel&lt;TCopula, TInitTraits&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.IDefaultLossModel.html">IDefaultLossModel</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_Percentile_NanoQL_Time_Date_System_Double_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.Percentile(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ProbOverLoss_NanoQL_Time_Date_System_Double_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ProbOverLoss(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_LossDistribution_NanoQL_Time_Date_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.LossDistribution(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ProbOverPortfLoss_NanoQL_Time_Date_System_Double_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ProbOverPortfLoss(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ExpectedTrancheLoss_NanoQL_Time_Date_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ExpectedTrancheLoss(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ExpectedPortfolioLoss_NanoQL_Time_Date_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ExpectedPortfolioLoss(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ProbDensity_NanoQL_Time_Date_System_Double_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ProbDensity(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_SplitVaRLevel_NanoQL_Time_Date_System_Double_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.SplitVaRLevel(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ExpectedShortfall_NanoQL_Time_Date_System_Double_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ExpectedShortfall(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_CumulantGenerating_NanoQL_Time_Date_System_Double_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.CumulantGenerating(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_CumGen1stDerivative_NanoQL_Time_Date_System_Double_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.CumGen1stDerivative(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_CumGen2ndDerivative_NanoQL_Time_Date_System_Double_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.CumGen2ndDerivative(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_CumGen3rdDerivative_NanoQL_Time_Date_System_Double_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.CumGen3rdDerivative(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_CumGen4thDerivative_NanoQL_Time_Date_System_Double_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.CumGen4thDerivative(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_CumulantGeneratingCond_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.CumulantGeneratingCond(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_CumGen1stDerivativeCond_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.CumGen1stDerivativeCond(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_CumGen2ndDerivativeCond_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.CumGen2ndDerivativeCond(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_CumGen3rdDerivativeCond_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.CumGen3rdDerivativeCond(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_CumGen4thDerivativeCond_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.CumGen4thDerivativeCond(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_CumGen0234DerivCond_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.CumGen0234DerivCond(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_CumGen02DerivCond_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.CumGen02DerivCond(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_FindSaddle_System_Double___System_Double_System_ReadOnlySpan_System_Double__System_Double_System_Int32_">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.FindSaddle(double[], double, ReadOnlySpan&lt;double&gt;, double, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ProbOverLossCond_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ProbOverLossCond(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ProbOverLossPortfCond_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ProbOverLossPortfCond(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ProbOverLossPortfCond1stOrder_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ProbOverLossPortfCond1stOrder(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ProbDensityCond_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ProbDensityCond(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_SplitLossCond_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.SplitLossCond(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ConditionalExpectedLoss_System_Double___System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ConditionalExpectedLoss(double[], ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ConditionalExpectedTrancheLoss_System_Double___System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ConditionalExpectedTrancheLoss(double[], ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ExpectedShortfallSplitCond_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ExpectedShortfallSplitCond(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ExpectedShortfallTrancheCond_System_Double___System_Double_System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ExpectedShortfallTrancheCond(double[], double, double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ExpectedShortfallFullPortfolioCond_System_Double___System_Double_System_ReadOnlySpan_System_Double__">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ExpectedShortfallFullPortfolioCond(double[], double, ReadOnlySpan&lt;double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.SaddlePointLossModel-2.html#NanoQL_Experimental_SaddlePointLossModel_2_ResetModel">SaddlePointLossModel&lt;TCopula, TInitTraits&gt;.ResetModel()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_SetBasket_NanoQL_Experimental_Basket_">DefaultLossModel.SetBasket(Basket)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ProbOverLoss_NanoQL_Time_Date_System_Double_">DefaultLossModel.ProbOverLoss(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_Percentile_NanoQL_Time_Date_System_Double_">DefaultLossModel.Percentile(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ExpectedShortfall_NanoQL_Time_Date_System_Double_">DefaultLossModel.ExpectedShortfall(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_SplitVaRLevel_NanoQL_Time_Date_System_Double_">DefaultLossModel.SplitVaRLevel(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_SplitESFLevel_NanoQL_Time_Date_System_Double_">DefaultLossModel.SplitESFLevel(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_LossDistribution_NanoQL_Time_Date_">DefaultLossModel.LossDistribution(Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_DensityTrancheLoss_NanoQL_Time_Date_System_Double_">DefaultLossModel.DensityTrancheLoss(Date, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ProbsBeingNthEvent_System_Int32_NanoQL_Time_Date_">DefaultLossModel.ProbsBeingNthEvent(int, Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_DefaultCorrelation_NanoQL_Time_Date_System_Int32_System_Int32_">DefaultLossModel.DefaultCorrelation(Date, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ProbAtLeastNEvents_System_Int32_NanoQL_Time_Date_">DefaultLossModel.ProbAtLeastNEvents(int, Date)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ExpectedRecovery_NanoQL_Time_Date_System_Int32_NanoQL_Experimental_DefaultProbKey_">DefaultLossModel.ExpectedRecovery(Date, int, DefaultProbKey)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_ResetModel">DefaultLossModel.ResetModel()</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_RestrictTo_System_Collections_Immutable_ImmutableArray_System_Int32__System_Int32_">DefaultLossModel.RestrictTo(ImmutableArray&lt;int&gt;, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_Basket">DefaultLossModel.Basket</a>
+    </div>
+    <div>
+      <a class="xref" href="NanoQL.Experimental.DefaultLossModel.html#NanoQL_Experimental_DefaultLossModel_BoundBasket">DefaultLossModel.BoundBasket</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NanoQL_Experimental_SaddlePointTailLossModel_2_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+For a tranche [A, D] with A above 0 the expected loss is ∫_A^D P(L &gt; y) dy, by 24-node Gauss-Legendre over the
+tranche. For the equity tranche it is E[L] − ∫_D^N P(L &gt; y) dy: E[L] the live portfolio's conditional expected loss
+integrated over the factor, and the upper tail over [D, D + 5%], [D + 5%, D + 20%] and [D + 20%, 100%] of the live
+notional N. So the equity tranche never reads the tail near zero loss, where the pool's loss is a lattice of
+single-name losses the expansion follows coarsely and its tail exceeds 1 at high correlation; a tranche attaching
+close above zero does, its integral starting below the pool's smallest single-name loss. The attachment that counts
+is the live one, which a seasoned tranche's realized losses write down (<a class="xref" href="NanoQL.Experimental.Basket.html">Basket</a>'s restated tranche).
+Every other member is the base's.
+</p>
+<p>
+The check is the recursive model on the same latent model. On 100 names (notional 100, hazard 1%, recovery 40%), at
+one and five years, the variant is within 2% of it on the tranches from 3% to 22% at correlations from 0.3 to 0.9,
+and on the equity tranche within 0.6% to 0.75. Attaching closer to zero it errs more: [2%, 5%] by up to +2.5% at a
+year, [1%, 3%] by up to +7.5%, [0.5%, 3%] by +13% to +21%, and [0.1%, 3%] is refused from correlation 0.6 (the base's
+refusal of a tail outside [0, 1]); after four defaults a 3–6% tranche of that pool attaches at 0.625% of the live
+notional, one default's loss. At 0.9 the equity tranche reads +9.1% at five years; and a tranche
+whose integral reaches the pool's largest loss meets the expansion's other weak region there, where its tail can read
+below 0: senior tranches err by −2.6% to −4.4% at five years, and [22%, 60%] is refused at both horizons, its nodes
+crowding the largest loss (the base's refusal of a tail outside [0, 1]); the equity tranche's upper pieces cross it
+too. At low correlation the pool's loss is a binomial lattice, which a continuous expansion follows coarsely: at 0.1
+a small tranche reads +9% at a year. Both models read the latent model's quadrature, its default QuantLib's 25-node
+Gauss-Hermite, which itself errs by up to 30% on 3% tranches at correlation 0.9 against its trapezoid integration.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NanoQL_Experimental_SaddlePointTailLossModel_2__ctor_" data-uid="NanoQL.Experimental.SaddlePointTailLossModel`2.#ctor*"></a>
+
+  <h3 id="NanoQL_Experimental_SaddlePointTailLossModel_2__ctor_NanoQL_Experimental_ConstantLossLatentModel__0__1__" data-uid="NanoQL.Experimental.SaddlePointTailLossModel`2.#ctor(NanoQL.Experimental.ConstantLossLatentModel{`0,`1})">
+  SaddlePointTailLossModel(ConstantLossLatentModel&lt;TCopula, TInitTraits&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NanoQL.Experimental.SaddlePointTailLossModel-2.html">SaddlePointTailLossModel&lt;TCopula, TInitTraits&gt;</a>
+class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SaddlePointTailLossModel(ConstantLossLatentModel&lt;TCopula, TInitTraits&gt; m)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>m</code> <a class="xref" href="NanoQL.Experimental.ConstantLossLatentModel-2.html">ConstantLossLatentModel</a>&lt;TCopula, TInitTraits&gt;</dt>
+    <dd><p>The constant-loss latent model.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">m</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoQL_Experimental_SaddlePointTailLossModel_2_ExpectedTrancheLoss_" data-uid="NanoQL.Experimental.SaddlePointTailLossModel`2.ExpectedTrancheLoss*"></a>
+
+  <h3 id="NanoQL_Experimental_SaddlePointTailLossModel_2_ExpectedTrancheLoss_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.SaddlePointTailLossModel`2.ExpectedTrancheLoss(NanoQL.Time.Date)">
+  ExpectedTrancheLoss(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The live tranche's expected loss by a date, from the model's own tail.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double ExpectedTrancheLoss(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The expected loss, an amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model isn't bound to a basket, or the expansion refuses (a tail outside
+[0, 1], an unresolvable loss).</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>© 2026 The nanoql Authors · <a href="/about/licenses.html">Apache License 2.0</a> · <a href="/about/security.html">Security</a> · Sponsored and maintained by <a href="/about/masseef.html">Masseef</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

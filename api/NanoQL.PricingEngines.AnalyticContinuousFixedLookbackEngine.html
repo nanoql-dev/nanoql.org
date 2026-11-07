@@ -167,8 +167,10 @@ forward, where QuantLib divides by the volatility (<code>Divergences/LookbackZer
 </p>
 <p>
 The formula is a first-passage closed form in equivalent-constant rates and a volatility, the variance and discounts
-to expiry: no exact closed form exists for a first passage under general deterministic term structures; the
-term-structure-exact route is <a class="xref" href="NanoQL.PricingEngines.MCLookbackEngine.html">MCLookbackEngine</a>.
+to expiry: no exact closed form exists for a first passage under general deterministic term structures. It is exact
+where (r − q)/σ² is constant over the option's life and the volatility depends on time alone, the price then a time
+change of a constant market's (<code>Conventions/ClosedFormExactnessTests.cs</code>); the term-structure-exact route is
+<a class="xref" href="NanoQL.PricingEngines.MCLookbackEngine.html">MCLookbackEngine</a>, which reads the extremum at its grid's dates.
 </p>
 </div>
 

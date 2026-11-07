@@ -136,6 +136,12 @@ public class SaddlePointLossModel&lt;TCopula, TInitTraits&gt; : DefaultLossModel
     </dd>
   </dl>
 
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="NanoQL.Experimental.SaddlePointTailLossModel-2.html">SaddlePointTailLossModel</a>&lt;TCopula, TInitTraits&gt;</div>
+    </dd>
+  </dl>
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
@@ -217,7 +223,8 @@ recoveries would have to be passed to the conditional methods as the probabiliti
 <p>
 <b>Kept</b>, QuantLib's method: the expected tranche loss is the tranche of the conditional expected loss, a
 large-pool reading, not a saddle-point expansion; at correlation 0 on 100 names its four tranches read 292.78, 0, 0,
-0 where the exact recursive model reads 245.40, 46.48, 0.89, 0.0003.
+0 where the recursive model on the same latent model reads 245.40, 46.48, 0.89, 0.0022.
+<a class="xref" href="NanoQL.Experimental.SaddlePointTailLossModel-2.html">SaddlePointTailLossModel&lt;TCopula, TInitTraits&gt;</a> reads it from the model's own tail instead.
 </p>
 <p>
 <b>The tail's degenerate nodes and domain</b> (<code>Divergences/SaddlePointLossModelTests.cs</code>). QuantLib's saddle
@@ -952,6 +959,52 @@ K = Σⱼ ln(1 − pⱼ + pⱼ e^(Nⱼ·LGDⱼ·s)).</p>
 
 
 
+
+
+
+  <a id="NanoQL_Experimental_SaddlePointLossModel_2_ExpectedPortfolioLoss_" data-uid="NanoQL.Experimental.SaddlePointLossModel`2.ExpectedPortfolioLoss*"></a>
+
+  <h3 id="NanoQL_Experimental_SaddlePointLossModel_2_ExpectedPortfolioLoss_NanoQL_Time_Date_" data-uid="NanoQL.Experimental.SaddlePointLossModel`2.ExpectedPortfolioLoss(NanoQL.Time.Date)">
+  ExpectedPortfolioLoss(Date)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The whole (untranched) live portfolio's expected loss by a date: its conditional expected loss
+integrated over the factor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected double ExpectedPortfolioLoss(Date d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="NanoQL.Time.Date.html">Date</a></dt>
+    <dd><p>The date.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The expected loss, an amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoQL.NanoQLException.html">NanoQLException</a></dt>
+    <dd><p>The model isn't bound to a basket.</p>
+</dd>
+  </dl>
 
 
 
