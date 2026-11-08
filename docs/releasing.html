@@ -105,17 +105,18 @@
 <ul>
 <li><strong>On NuGet:</strong> <code>NanoQL</code>, <code>NanoQL.Extensions</code>, <code>NanoQL.Bind</code> and <code>NanoQL.Excel</code>, each with its symbol package on
 NuGet's symbol server.</li>
-<li><strong>On PyPI:</strong> <code>nanoql</code>, a wheel per platform the release ships: <code>win_amd64</code> and <code>manylinux_2_28_x86_64</code>, and
-<code>win_arm64</code>, <code>manylinux_2_28_aarch64</code> and <code>macosx_14_0_arm64</code> once those platforms ship; no source distribution,
-since one would need the .NET SDK and the whole repository to build.</li>
+<li><strong>On PyPI:</strong> <code>nanoql</code>, a wheel per platform the release ships: <code>win_amd64</code>, <code>win_arm64</code>, <code>manylinux_2_28_x86_64</code>,
+<code>manylinux_2_28_aarch64</code> and <code>macosx_14_0_arm64</code>; no source distribution, since one would need the .NET SDK and the
+whole repository to build.</li>
 <li><strong>On GitHub, the release <code>v&lt;version&gt;</code>:</strong> the C archive (the C and C++ headers, the library and its CMake package) and
 the native symbols archive for each platform the release ships, the Excel add-in's zip and its symbols zip,
 <code>SHA256SUMS</code> over them, and the notes: <code>CHANGELOG.md</code>'s section with the platforms' readings from the release run's
 own tests.</li>
-<li><strong>The platforms it ships</strong> are <code>release.yml</code>'s <code>RIDS</code>, the bindings legs its <code>ci</code> call runs: Windows x64 and Linux
-x64 (ci.yml's <code>core</code>). A later release adds Windows Arm64, Linux Arm64 or macOS on Apple silicon once its leg is
-green, by naming it in <code>RIDS</code> and in the set the <code>ci</code> call names, <code>ci.yml</code>'s matrix gaining one where none fits; a
-published release's files don't grow, so a platform ships from its first release on.</li>
+<li><strong>The platforms it ships</strong> are <code>release.yml</code>'s <code>RIDS</code>, the bindings legs its <code>ci</code> call runs: Windows x64 and Arm64,
+Linux x64 and Arm64, and macOS on Apple silicon (ci.yml's <code>all</code>). A platform joins once its leg is green, by naming
+it in <code>RIDS</code> and in the set the <code>ci</code> call names, <code>ci.yml</code>'s matrix gaining one where none fits; a published
+release's files don't grow, so a platform ships from its first release on. The release run's tests run on the five
+systems too, Windows x64 the reference and the others reported in the notes.</li>
 <li><strong>The site,</strong> nanoql.org, built from the tag.</li>
 <li><strong>The notebook,</strong> <code>docs/notebooks/first-steps.ipynb</code>, isn't published: Colab opens it from <code>main</code> and its first
 cell installs the latest release from PyPI, so it uses released API alone. <code>notebook.yml</code> runs it so, weekly and

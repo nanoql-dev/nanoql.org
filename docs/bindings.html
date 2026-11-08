@@ -164,6 +164,10 @@ runs it; outside it, the tool installed from NuGet runs as <code>nanoql-bind</co
 <td><code>report</code></td>
 <td>prints the surface's counts</td>
 </tr>
+<tr>
+<td><code>fix-unwind &lt;object&gt;</code></td>
+<td>corrects an Arm64 Mach-O object's compact-unwind entries in place, between Native AOT's compilation and the link (On macOS, below)</td>
+</tr>
 </tbody>
 </table>
 <p>Each takes <code>--assembly &lt;prefix&gt;=&lt;path&gt;</code> for every assembly to cross (nanoql's two by default), <code>--roles &lt;path&gt;</code> for a
@@ -171,13 +175,15 @@ roles table (the repository's <code>bindings/roles.json</code> by default) and <
 (<code>bindings/surface.shipped.json</code> when it exists). The Native AOT build needs the platform's C toolchain: on Windows,
 Visual Studio's C++ tools with the Visual Studio Installer's folder on <code>PATH</code>.</p>
 <ul>
-<li><strong>Checked in:</strong> <code>nanoql.h</code>, <code>surface.json</code> and <code>coverage.md</code>, so any change to the C surface shows in a commit's diff.
+<li><p><strong>Checked in:</strong> <code>nanoql.h</code>, <code>surface.json</code> and <code>coverage.md</code>, so any change to the C surface shows in a commit's diff.
 After a change to nanoql's public API, <code>nanoql-bind update</code> regenerates them and the commit carries the difference.
-The shims, the language layers and the native library are generated at build.</li>
-<li><strong>Assemblies built on nanoql:</strong> one native library per process holds every assembly it prices with, nanoql's and a
+The shims, the language layers and the native library are generated at build.</p>
+</li>
+<li><p><strong>Assemblies built on nanoql:</strong> one native library per process holds every assembly it prices with, nanoql's and a
 user's, since two Native AOT libraries can't share an object. <code>nanoql-bind build --assembly nql=NanoQL.dll --assembly nql=NanoQL.Extensions.dll --assembly acme=Acme.dll</code> builds one: the user's functions take its own prefix
-(<code>acme_...</code>) and its own header (<code>acme.h</code>, which includes <code>nanoql.h</code>), and a user's roles table sits beside nanoql's.</li>
-<li><strong>Outside the repository:</strong> the tool installed from NuGet (<code>dotnet tool install --global NanoQL.Bind</code>) carries beside
+(<code>acme_...</code>) and its own header (<code>acme.h</code>, which includes <code>nanoql.h</code>), and a user's roles table sits beside nanoql's.</p>
+</li>
+<li><p><strong>Outside the repository:</strong> the tool installed from NuGet (<code>dotnet tool install --global NanoQL.Bind</code>) carries beside
 it nanoql's two assemblies and, under <code>defaults/</code>, the roles table, the released names and the native host's project
 and sources, so a user builds a library of their own in any folder. <code>nanoql-bind build</code> writes the host into its
 output and publishes it there, against the nanoql assemblies the generation reads: the two given with
@@ -188,7 +194,20 @@ the user's Python package, and <code>nanoql-bind excel build</code> their add-in
 work on the repository's own files refuse there (<code>update</code>, <code>check</code>, <code>freeze</code>, <code>--test-exports</code>, <code>excel update</code>,
 <code>excel check</code> and <code>excel package</code>), and so do <code>replay-cpp</code>, which writes the C++ replayer's dispatch, the
 repository's own test, and those writing the Java layer, which the repository builds and tests but doesn't
-release (<code>java</code> and <code>replay-java</code>).</li>
+release (<code>java</code> and <code>replay-java</code>).</p>
+</li>
+<li><p><strong>On macOS:</strong> <code>nanoql-bind build</code> for <code>osx-arm64</code> corrects the object Native AOT writes before it is linked
+(<code>fix-unwind</code>). .NET 10 writes the unwind information of a function that saves d8 to d15 in the wrong bits
+(<a href="https://github.com/dotnet/runtime/issues/135616">dotnet/runtime#135616</a>), so after an exception thrown and caught
+inside a call, an internal fallback's, a caller's floating-point values could come back wrong, with no refusal. A
+library an earlier release's tool built on a Mac lacks the correction: rebuild it. A .NET app of your own published
+with Native AOT for <code>osx-arm64</code> carries the same fault until .NET ships the fix (the JIT is unaffected); a target in
+its project corrects its object as the native host's does, with the tool installed:</p>
+<pre><code class="lang-xml">&lt;Target Name=&quot;FixUnwind&quot; AfterTargets=&quot;IlcCompile&quot; Condition=&quot;'$(RuntimeIdentifier)' == 'osx-arm64'&quot;&gt;
+  &lt;Exec Command=&quot;nanoql-bind fix-unwind &amp;quot;$(NativeObject)&amp;quot;&quot; /&gt;
+&lt;/Target&gt;
+</code></pre>
+</li>
 </ul>
 <h2 id="the-c-abi">The C ABI</h2>
 <h3 id="names">Names</h3>
@@ -588,9 +607,9 @@ above, objects by ids (a struct by its value), doubles by their bits, a preset's
 reflection, as its set's lookup, a record built by an object initializer as <code>new</code> and its <code>with_</code> calls, a struct made
 by <code>default</code> or <code>new T()</code> as its implicit constructor's call, a generator's draws as <code>Draws</code> calls along its
 snapshots. A call made from inside nanoql (a callback into the test code) isn't written. Each language's replayer then
-calls its own layer for every line and compares every result with C#'s, bit for bit (off Windows x64, a double within
-<code>NANOQL_REPLAY_TOLERANCE</code> relatively, or else within <code>NANOQL_REPLAY_ABS_TOLERANCE</code>
-absolutely, is a match, tallied; CI sets 1e-12 and 1e-13), NaN as NaN, a new object by its
+calls its own layer for every line and compares every result with C#'s, bit for bit on every platform (a double
+within <code>NANOQL_REPLAY_TOLERANCE</code> relatively, or else within <code>NANOQL_REPLAY_ABS_TOLERANCE</code> absolutely, is a match,
+tallied, where a run sets them; CI keeps both at 0), NaN as NaN, a new object by its
 class's name (a file-local class's without its compiler prefix, <code>&lt;File&gt;F&lt;hash&gt;__</code>, whose hash is of its source file's
 path, so a trace replays against a library built from another checkout); hash and equality calls aren't recorded (the
 conformance suites check them); a fact replays up to its first call that needs something the trace couldn't write (a
@@ -661,16 +680,25 @@ beside the C archive: <code>nanoql.pdb</code>, <code>libnanoql.so.dbg</code> or 
 (nanoql's C# library runs there; nanoql builds and tests no bindings for them). It loads no ICU (invariant
 globalization), so its messages read the same in every locale and it runs where libicu is absent. Windows x64 is the
 validated platform; on the others, a result's last bits may differ where the C runtime's maths functions do. A release
-ships the platforms <code>release.yml</code> names in <code>RIDS</code>: Windows x64 and Linux x64, with Windows Arm64, Linux Arm64 and macOS
-on Apple silicon in later releases.</p>
+ships the platforms <code>release.yml</code> names in <code>RIDS</code>: all five.</p>
 <h2 id="c-and-c">C and C++</h2>
 <ul>
 <li><strong>Install:</strong> an archive per platform on the release, <code>nanoql-&lt;version&gt;-&lt;rid&gt;-c-api.zip</code> on Windows and <code>.tar.xz</code>
 elsewhere: <code>include/</code> (<code>nanoql.h</code> and <code>nanoql.hpp</code>), <code>lib/</code> (<code>nanoql.dll</code> with its import library <code>nanoql.lib</code>,
 <code>libnanoql.so</code> or <code>libnanoql.dylib</code>, and <code>cmake/nanoql/</code>, the CMake package) and the notices: <code>LICENSE</code>, <code>NOTICE</code>,
 <code>THIRD_PARTY_NOTICES.md</code>, and the .NET runtime's <code>LICENSE.TXT</code> and <code>THIRD-PARTY-NOTICES.TXT</code>, which Native AOT
-compiles into the library. The symbols ship apart. <code>python bindings/c/archive.py --library &lt;native build folder&gt; --out &lt;folder&gt;</code> writes one.</li>
+compiles into the library. The symbols ship apart. <code>python bindings/c/archive.py --library &lt;native build folder&gt; --out &lt;folder&gt;</code> writes one. macOS's archive isn't notarized: a browser download opened in Finder carries the quarantine
+attribute into its folder, which <code>xattr -dr com.apple.quarantine &lt;folder&gt;</code> clears; <code>curl</code>, <code>tar</code> and <code>unzip</code> in a
+terminal set none.</li>
 <li><strong>C:</strong> include <code>nanoql.h</code> and link the library; the C ABI above is the whole of it.</li>
+<li><strong>Through libffi on macOS:</strong> a caller that reaches the library through its own libffi (Python's ctypes, cffi's ABI
+mode, JNA) misreads a by-value <code>nql_period</code> passed on the stack, as five functions take one: <code>nql_CPISwap_new</code>'s
+<code>observationLag</code>, and the <code>exCouponPeriod</code> of <code>nql_AmortizingFixedRateBond_new</code>,
+<code>nql_AmortizingFloatingRateBond_new</code>, <code>nql_CallableFixedRateBond_new</code> and <code>nql_FloatingRateBond_new</code>. libffi places
+the struct at its natural 4-byte alignment where Apple's compilers and the library give it a pointer-aligned slot
+(libffi issue #750, fixed in its source after its 3.8.0). nanoql's Python package passes a period as a 64-bit
+integer, its length in the low 32 bits and its units in the high 32, which every platform passes as the struct; a
+caller compiled by clang, or one whose libffi has the fix, is unaffected.</li>
 <li><strong>C++:</strong> <code>nanoql.hpp</code>, C++17, over <code>nanoql.h</code>, its CMake target <code>nanoql::cpp</code> (<code>find_package(nanoql CONFIG)</code>;
 <a href="cpp.html">cpp.md</a> gives the install, CMake and a first program). <code>NANOQL_EXPERIMENTAL</code>, defined first, opts in to
 the experimental API. Its hand-written part is <code>bindings/cpp/runtime.hpp</code>; the tool writes the rest, never checked
@@ -715,9 +743,9 @@ the user's.</li>
 </ul>
 <h2 id="python">Python</h2>
 <ul>
-<li><strong>Install:</strong> <code>pip install nanoql</code>, a <code>py3-none-&lt;platform&gt;</code> wheel holding the library for Windows x64 and Linux x64
-(<code>manylinux_2_28</code>), with Windows Arm64, Linux Arm64 and macOS on Apple silicon (14 or later) in later releases: one
-wheel for every Python from 3.11, with NumPy 1.26 or later, and nothing compiled on install.</li>
+<li><strong>Install:</strong> <code>pip install nanoql</code>, a <code>py3-none-&lt;platform&gt;</code> wheel holding the library for Windows x64 and Arm64, Linux
+x64 and Arm64 (<code>manylinux_2_28</code>) and macOS on Apple silicon (14 or later): one wheel for every Python from 3.11, with
+NumPy 1.26 or later (2.3 or later on Windows Arm64, where NumPy's wheels begin), and nothing compiled on install.</li>
 <li><strong>Names:</strong> nanoql's type names; members in PEP 8's snake case (<code>curve.discount(5.0)</code>, <code>swap.fixed_rate</code>); enum members
 as nanoql's (<code>Compounding.Continuous</code>). A constructor is the class's call, a getter a property, a static member or an
 extension method a static method of its declaring class (<code>ConventionSet.quant_lib()</code>), a record's init-only property

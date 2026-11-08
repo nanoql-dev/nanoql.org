@@ -163,22 +163,24 @@ word for word.</li>
 <p>The Python, C and C++ layers call one C interface over nanoql compiled to native code. A recorder runs the vector
 suite in C# and records each call the tests make into nanoql as a call to the matching C function, with its arguments
 and its result. Each language's replayer then makes the same calls through its own layer and compares every result
-with C#'s, bit for bit on Windows x64. Each layer also has its own conformance suite. The Excel add-in's suite runs
-inside Excel before each release.</p>
+with C#'s, bit for bit, on each of the five platforms the native library ships for. Each layer also has its own
+conformance suite. The Excel add-in's suite runs inside Excel before each release.</p>
 <h2 id="every-change-and-every-release">Every change and every release</h2>
 <ul>
 <li><strong>Every change:</strong> the build, the tests and the vectors run on Windows, Linux and macOS. Windows x64 must pass; Linux
 and macOS report their differences.</li>
-<li><strong>Every release:</strong> the release is built from one commit, and a failure on Windows x64 stops it. The release notes
-count the test differences on Linux and macOS. The SOFR example's trades (<a href="sofr-example.html">the example</a>) are priced
-again by an independent pricer, each within $0.01 on $10 million. Once the packages are published, each is
+<li><strong>Every release:</strong> the release is built from one commit, and a failure on Windows x64 stops it. The tests also
+run on Windows Arm64 and Linux Arm64, and each language's replay on all five platforms. The release notes count the
+test differences on each platform beside Windows x64. The SOFR example's trades (<a href="sofr-example.html">the example</a>) are
+priced again by an independent pricer, each within $0.01 on $10 million. Once the packages are published, each is
 installed from its registry and checked.</li>
-<li><strong>Every week:</strong> <a href="https://colab.research.google.com/github/nanoql-dev/nanoql/blob/main/docs/notebooks/first-steps.ipynb">the Python notebook</a>
+<li><strong>Every week:</strong> each language's replay runs on all five platforms, and
+<a href="https://colab.research.google.com/github/nanoql-dev/nanoql/blob/main/docs/notebooks/first-steps.ipynb">the Python notebook</a>
 runs against the latest release on PyPI.</li>
 </ul>
 <h2 id="running-the-checks-yourself">Running the checks yourself</h2>
 <p><code>dotnet test --solution NanoQL.slnx -c Release</code> runs the tests and the vectors, and
-<code>python -I tools/vectors/agree.py</code> checks the twins. <a href="https://github.com/nanoql-dev/nanoql/blob/13f83205ee73f68ba7c52422c5e1ea91fde76e64/CONTRIBUTING.md#running-the-gates-yourself">CONTRIBUTING.md</a>
+<code>python -I tools/vectors/agree.py</code> checks the twins. <a href="https://github.com/nanoql-dev/nanoql/blob/1e5d9cab/CONTRIBUTING.md#running-the-gates-yourself">CONTRIBUTING.md</a>
 lists the rest: the licence and source checks, and rerunning a generator.</p>
 
 </article>
