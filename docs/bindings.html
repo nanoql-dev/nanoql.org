@@ -663,7 +663,10 @@ keep the differences a crossing class still has (<code>GlobalBootstrap</code>'s 
 <h2 id="debugging-into-nanoql">Debugging into nanoql</h2>
 <ul>
 <li><strong>Windows:</strong> the native library's PDB holds line records for nanoql's C# code, so a debugger attached to a C, C++,
-Python or Java program steps from its call into nanoql's source, the generated export the frame above.
+Python or Java program steps from its call into nanoql's source, the generated export the frame above. Stepping in
+with F11 passes two frames without source first: the runtime's transition into managed code, and the generated
+export, which the build writes and doesn't commit, so Source Link can't fetch it. Press F11 past them, or set a
+function breakpoint on the method's native name (<code>NanoQL_NanoQL_Time_Date__NthWeekday</code> for <code>Date.NthWeekday</code>).
 <code>tools/replay/stepin.py</code> shows it from a C program: <code>python -I tools/replay/stepin.py &lt;exe&gt; nanoql.dll &quot;*FlatForward___ctor*&quot;</code> stops in <code>FlatForward</code>'s constructor and prints the stack's source lines. Visual Studio's
 mixed-mode debugging does the same from Python. A release's library, built in release mode, maps nanoql's sources
 to its commit on GitHub (Source Link), so the debugger fetches them; a library built from a checkout reads the
