@@ -103,6 +103,14 @@ body > footer {
   background-color: var(--nq-tint);
 }
 
+/* The template's arrow after a link off the site, as inline text behind a word joiner: as its inline-block, and
+   after a link ending in a slash, a line could break before the arrow or the punctuation after it, leaving the
+   arrow or a link's closing ")." alone at a line's start. */
+a.external[href]::after {
+  content: "\2060\f1c5";
+  display: inline;
+}
+
 /* The home page: a pale band across the page with the tagline, then a wide reading column whose code spans it. */
 [data-layout=landing] article {
   min-width: 0;
