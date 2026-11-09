@@ -131,6 +131,9 @@ in Google Colab, in the browser;</li>
 <p>nanoql needs .NET 10 or later. It uses static abstract interface members, which .NET Framework can't run, so it has no
 .NET Framework or .NET Standard build. A project on .NET Framework moves to .NET 10 first
 (<a href="migration/from-qlnet.html">from QLNet</a>).</p>
+<p>In a project on an older .NET, <code>dotnet add package NanoQL</code> stops with NuGet's NU1202, &quot;Package NanoQL ... is not
+compatible with net8.0 ... supports: net10.0&quot;. Set the project's <code>&lt;TargetFramework&gt;</code> to <code>net10.0</code>, with the .NET 10
+SDK installed, and add it again.</p>
 <h2 id="how-does-nanoql-relate-to-quantlib">How does nanoql relate to QuantLib?</h2>
 <p>nanoql is derived from QuantLib 1.44. It has QuantLib's classes, names and mathematics, and its results are checked
 against QuantLib's (<a href="checking.html">how nanoql is checked</a>). Its design differs: nothing observes anything else, there
@@ -144,16 +147,16 @@ moving code over: <a href="migration/from-quantlib-cpp.html">from QuantLib's C++
 <p>nanoql is under the Apache License 2.0. It is derived from QuantLib, under QuantLib's modified BSD licence, and ports
 parts of Boost's maths, under the Boost Software License 1.0. Its extensions port parts of QLNet, under the BSD
 3-Clause licence, and its conventions files carry codes from FpML's coding schemes, under the FpML Public License 3.0.
-<a href="https://github.com/nanoql-dev/nanoql/blob/6917c370915f2cd0d3c34b51da4108be3c4629ea/THIRD_PARTY_NOTICES.md">THIRD_PARTY_NOTICES.md</a> holds the notices of nanoql's sources, among them those of the
+<a href="https://github.com/nanoql-dev/nanoql/blob/e9a4c4fb2e67b53938719932f78f4409e95e7660/THIRD_PARTY_NOTICES.md">THIRD_PARTY_NOTICES.md</a> holds the notices of nanoql's sources, among them those of the
 third-party code that QuantLib itself carries. The wheels and the C archives add .NET's, whose runtime is compiled
-into the library, and the add-in's zip adds Excel-DNA's and .NET's. <a href="https://github.com/nanoql-dev/nanoql/blob/6917c370915f2cd0d3c34b51da4108be3c4629ea/NOTICE">NOTICE</a> is nanoql's own.</p>
+into the library, and the add-in's zip adds Excel-DNA's and .NET's. <a href="https://github.com/nanoql-dev/nanoql/blob/e9a4c4fb2e67b53938719932f78f4409e95e7660/NOTICE">NOTICE</a> is nanoql's own.</p>
 <h2 id="is-the-api-stable">Is the API stable?</h2>
 <p>A version is major and minor, with a third part only for a fix (2.0.1). A minor release adds to the API, and the
 stable API is removed or changed only where it was deprecated at least two releases and a year before.</p>
 <p>The experimental API is the exception: the types ported from QuantLib's experimental folder, and the types and
 members nanoql adds as experimental. It may change in any release, its released names are never reused, and the
 compiler flags its use (<a href="concepts.html#experimental-code">experimental code</a>). Each release's changes are in
-<a href="https://github.com/nanoql-dev/nanoql/blob/6917c370915f2cd0d3c34b51da4108be3c4629ea/CHANGELOG.md">CHANGELOG.md</a>.</p>
+<a href="https://github.com/nanoql-dev/nanoql/blob/e9a4c4fb2e67b53938719932f78f4409e95e7660/CHANGELOG.md">CHANGELOG.md</a>.</p>
 <h2 id="why-does-excel-disable-the-add-in">Why does Excel disable the add-in?</h2>
 <p>The add-ins are unsigned. An Excel set to require add-ins signed by a trusted publisher, which group policy often
 sets, disables an unsigned <code>.xll</code> without asking. A firm that enforces it signs the <code>.xll</code> with its own code-signing
@@ -165,11 +168,11 @@ certificate. Excel also blocks an add-in downloaded from the internet, signed or
 <li><strong>Bugs:</strong> an <a href="https://github.com/nanoql-dev/nanoql/issues/new/choose">issue</a>. The bug template asks for the result
 you got and the one you expected, the smallest code that shows it, and QuantLib's result if you have it. A wrong
 numerical result is a bug.</li>
-<li><strong>Security:</strong> privately, as <a href="https://github.com/nanoql-dev/nanoql/blob/6917c370915f2cd0d3c34b51da4108be3c4629ea/SECURITY.md">SECURITY.md</a> says, never in a public issue.</li>
+<li><strong>Security:</strong> privately, as <a href="https://github.com/nanoql-dev/nanoql/blob/e9a4c4fb2e67b53938719932f78f4409e95e7660/SECURITY.md">SECURITY.md</a> says, never in a public issue.</li>
 </ul>
 <p>Fixes go into the latest 2.x release.</p>
 <h2 id="can-i-contribute">Can I contribute?</h2>
-<p>Yes. <a href="https://github.com/nanoql-dev/nanoql/blob/6917c370915f2cd0d3c34b51da4108be3c4629ea/CONTRIBUTING.md">CONTRIBUTING.md</a> gives the faithfulness rule, how a change gets in, and the checks you can
+<p>Yes. <a href="https://github.com/nanoql-dev/nanoql/blob/e9a4c4fb2e67b53938719932f78f4409e95e7660/CONTRIBUTING.md">CONTRIBUTING.md</a> gives the faithfulness rule, how a change gets in, and the checks you can
 run yourself. Commits are signed off under the Developer Certificate of Origin.</p>
 
 </article>
