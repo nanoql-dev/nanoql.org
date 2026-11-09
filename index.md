@@ -83,7 +83,8 @@ each departure.
 
 From C# and F#, and from Python, C and [C++](_nanoql/docs/cpp.md) through one C interface over nanoql compiled to native
 code: `pip install nanoql` needs no .NET runtime, and the C archive serves any language that calls C. In Excel on
-Windows, [an add-in](_nanoql/docs/excel.md) puts the library in worksheet formulas.
+Windows, [an add-in](_nanoql/docs/excel.md) puts the library in worksheet formulas
+([download it](https://github.com/nanoql-dev/nanoql/releases/latest)).
 
 </div>
 </div>

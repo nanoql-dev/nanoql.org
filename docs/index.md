@@ -39,7 +39,9 @@
 ## Beyond C\#
 
 - [The bindings](bindings.md): Python and C, which any language that calls C can use, and [C++](cpp.md) over C.
-- [The Excel add-in](excel.md), with its functions listed by task under Excel.
+- [The Excel add-in](excel.md), with its functions listed by task under Excel. Download its zip,
+  `nanoql-excel-<version>-win-x64.zip`, from [the latest release](https://github.com/nanoql-dev/nanoql/releases/latest),
+  under Assets.
 
 ## Reference
 
